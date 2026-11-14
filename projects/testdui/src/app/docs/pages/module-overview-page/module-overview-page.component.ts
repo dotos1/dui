@@ -21,6 +21,7 @@ import { preferZh } from '../../util/i18n-text';
   selector: 'app-module-overview-page',
   templateUrl: './module-overview-page.component.html',
   styleUrls: ['./module-overview-page.component.scss'],
+  standalone: false,
 })
 export class ModuleOverviewPageComponent {
   /**

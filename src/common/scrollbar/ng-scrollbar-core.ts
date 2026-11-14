@@ -101,7 +101,8 @@ interface ViewportState {
   },
   providers: [
     { provide: NG_SCROLLBAR, useExisting: NgScrollbarCore }
-  ]
+  ],
+  standalone: false
 })
 export abstract class NgScrollbarCore implements _NgScrollbar {
 

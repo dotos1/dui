@@ -29,6 +29,7 @@ import hljs from 'highlight.js';
   selector: 'dui-highlight',
   styleUrls: ['./highlight.component.scss'],
   templateUrl: './highlight.component.html',
+  standalone: false,
   
 })
 export class HighlightComponent implements AfterViewInit {

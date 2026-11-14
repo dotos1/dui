@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgTextDirective`（selector: 'svg-text'），为宿主 DOM 元素附加SVG矢量图文本指令行为。
  */
 @Directive({
-  selector: 'svg-text'
+  selector: 'svg-text',
+  standalone: false
 })
 export class SvgTextDirective implements AfterViewChecked, OnChanges, OnDestroy {
   /**

@@ -20,6 +20,7 @@ import { MenuBarItem } from './menu-model';
   host: {
     hostID: 'dui-menu-bar' + Math.random().toString(36).substring(2, 15)
   },
+  standalone: false,
 })
 export class MenuBarComponent extends MenuBase implements OnInit,DoCheck{
 

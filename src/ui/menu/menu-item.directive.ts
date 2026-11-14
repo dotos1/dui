@@ -12,6 +12,7 @@ import { Directive, ViewContainerRef } from '@angular/core';
  */
 @Directive({
   selector: '[menu-host]',
+  standalone: false,
 })
 export class MenuDirective {
   /**

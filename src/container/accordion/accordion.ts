@@ -37,7 +37,8 @@ let nextId = 0;
   host: {
     class: 'accordion',
     hostID: 'dui-accordion' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class Accordion extends AbstractPanel implements OnChanges{
 

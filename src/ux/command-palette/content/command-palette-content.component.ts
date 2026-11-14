@@ -31,6 +31,7 @@ import { CommandPaletteScrollCalculator, CommandPaletteScrollParams } from './co
   templateUrl: './command-palette-content.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 export class CommandPaletteContentComponent implements OnChanges, OnInit, AfterViewInit {

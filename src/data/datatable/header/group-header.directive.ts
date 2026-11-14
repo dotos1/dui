@@ -10,7 +10,7 @@ import { DatatableGroupHeaderTemplateDirective } from './group-header-template.d
  * Angular directive `DatatableGroupHeaderDirective` (selector: 'dui-datatable-group-header') attaching datatable group header directive behavior to host DOM elements.
  * @zh Angular 指令 `DatatableGroupHeaderDirective`（selector: 'dui-datatable-group-header'），为宿主 DOM 元素附加数据表格分组表头指令行为。
  */
-@Directive({ selector: 'dui-datatable-group-header' })
+@Directive({ selector: 'dui-datatable-group-header', standalone: false })
 export class DatatableGroupHeaderDirective {
 
   /**

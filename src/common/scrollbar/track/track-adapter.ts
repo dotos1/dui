@@ -25,7 +25,7 @@ import { PointerEventsAdapter } from '../utils/pointer-events-adapter';
  * Angular directive `TrackAdapter` attaching track adapter behavior to host DOM elements.
  * @zh Angular 指令 `TrackAdapter`，为宿主 DOM 元素附加Track适配器行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class TrackAdapter extends PointerEventsAdapter {
 
   /**

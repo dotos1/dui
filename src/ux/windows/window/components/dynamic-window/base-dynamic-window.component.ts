@@ -28,7 +28,8 @@ import { DynamicWindowConfig } from '../../interfaces';
  * @zh Angular 组件 `ɵBaseDynamicWindowComponent`，提供ɵBase动态窗口组件的视图渲染与交互逻辑（位于 `src/ux/windows/window/components/dynamic-window`）。
  */
 @Component({
-    template: ''
+    template: '',
+    standalone: false
 })
 export abstract class ɵBaseDynamicWindowComponent
     extends ɵOsBaseViewComponent

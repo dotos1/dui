@@ -38,7 +38,8 @@ import { PanelComponent } from '../panel/panel.component';
   templateUrl: './tabpanel.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
-  host: { hostID: 'dui-tabpanel' + Math.random().toString(36).substring(2, 15) }
+  host: { hostID: 'dui-tabpanel' + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
 

@@ -33,7 +33,8 @@ import {isFunction,isObjectLike}  from 'lodash-es';
     style: 'display:flex;padding:1px;height:100%;cursor:pointer',
     hostID: 'dui-toggle-button' + Math.random().toString(36).substring(2, 15)
   },
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
+  standalone: false
 })
 export class ToggleButtonComponent extends ComponentBase implements OnInit,DoCheck,OnChanges {
   /**

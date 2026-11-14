@@ -152,7 +152,8 @@ const enableScroll = () => {
                 animate("1s cubic-bezier(0,0,0.3,1)", style({ opacity: 0 }))
             ])
         ])
-    ]
+    ],
+    standalone: false
 })
 export class KeyboardShortcutsHelpComponent implements OnInit, OnDestroy, OnChanges {
 

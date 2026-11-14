@@ -17,7 +17,8 @@ import { Component, Directive, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None,
   host: { 'class': 'dui-info-drawer-layout',
     hostID: 'dui-info-drawer-layout' + Math.random().toString(36).substring(2, 15)
-   }
+   },
+  standalone: false
 
 })
 export class InfoDrawerLayoutComponent { }
@@ -26,14 +27,14 @@ export class InfoDrawerLayoutComponent { }
  * Angular directive `InfoDrawerTitleDirective` (selector: '[dui-info-drawer-title], [info-drawer-title]') attaching info drawer title directive behavior to host DOM elements.
  * @zh Angular 指令 `InfoDrawerTitleDirective`（selector: '[dui-info-drawer-title], [info-drawer-title]'），为宿主 DOM 元素附加信息抽屉面板标题指令行为。
  */
-@Directive({ selector: '[dui-info-drawer-title], [info-drawer-title]' }) export class InfoDrawerTitleDirective { }
+@Directive({ selector: '[dui-info-drawer-title], [info-drawer-title]', standalone: false }) export class InfoDrawerTitleDirective { }
 /**
  * Angular directive `InfoDrawerButtonsDirective` (selector: '[dui-info-drawer-buttons], [info-drawer-buttons]') attaching info drawer buttons directive behavior to host DOM elements.
  * @zh Angular 指令 `InfoDrawerButtonsDirective`（selector: '[dui-info-drawer-buttons], [info-drawer-buttons]'），为宿主 DOM 元素附加信息抽屉面板按钮指令行为。
  */
-@Directive({ selector: '[dui-info-drawer-buttons], [info-drawer-buttons]' }) export class InfoDrawerButtonsDirective { }
+@Directive({ selector: '[dui-info-drawer-buttons], [info-drawer-buttons]', standalone: false }) export class InfoDrawerButtonsDirective { }
 /**
  * Angular directive `InfoDrawerContentDirective` (selector: '[dui-info-drawer-content], [info-drawer-content]') attaching info drawer content directive behavior to host DOM elements.
  * @zh Angular 指令 `InfoDrawerContentDirective`（selector: '[dui-info-drawer-content], [info-drawer-content]'），为宿主 DOM 元素附加信息抽屉面板内容指令行为。
  */
-@Directive({ selector: '[dui-info-drawer-content], [info-drawer-content]' }) export class InfoDrawerContentDirective { }
+@Directive({ selector: '[dui-info-drawer-content], [info-drawer-content]', standalone: false }) export class InfoDrawerContentDirective { }

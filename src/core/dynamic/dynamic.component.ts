@@ -16,6 +16,7 @@ import { SafeurlPipe } from "./safeurl.pipe";
   selector: "dui-dynamic",
   templateUrl: "./dynamic.component.html",
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
 })
 export class DynamicComponent implements OnInit, OnDestroy {
 
@@ -100,6 +101,7 @@ export class DynamicComponent implements OnInit, OnDestroy {
 function getComponentFromTemplate(template: string) {
   @Component({
     template: '',
+    standalone: false,
   })
   class CustomComponent {
     /**

@@ -12,6 +12,7 @@ import { DecimalPipe } from '@angular/common';
  */
 @Pipe({
   name: 'digits',
+  standalone: false,
 })
 
 export class DigitsPipe implements PipeTransform {

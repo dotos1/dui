@@ -31,6 +31,7 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
   templateUrl: './gradient-square.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
 })
 export class GradientSquareComponent implements OnInit, OnDestroy {
 

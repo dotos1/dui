@@ -27,7 +27,8 @@ import { ɵCommonCssClassEnum } from '../../../core/enums/common-css-class.enum'
     },
     styleUrls: ['./window.component.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class WindowComponent extends ɵOsBaseComponent {
     /**

@@ -12,6 +12,7 @@ import { TranslationService } from '@dotos/dui/translator';
  */
 @Pipe({
   name: 'timeDifference',
+  standalone: false,
 })
 
 export class TimeDifferencePipe implements PipeTransform {

@@ -42,7 +42,8 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,} 
   preserveWhitespaces: false,
   host: {
     'hostID': 'github-swatch-' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 /**
  * A single square color swatch used by {@link GithubComponent}'s palette grid.

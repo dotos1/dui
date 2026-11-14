@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `QueryFieldDirective` (selector: '[queryField]') attaching query field directive behavior to host DOM elements.
  * @zh Angular 指令 `QueryFieldDirective`（selector: '[queryField]'），为宿主 DOM 元素附加查询字段指令行为。
  */
-@Directive({selector: '[queryField]'})
+@Directive({selector: '[queryField]', standalone: false})
 export class QueryFieldDirective {
   /**
    * Creates an instance of `QueryFieldDirective` and initializes its dependencies and internal state.

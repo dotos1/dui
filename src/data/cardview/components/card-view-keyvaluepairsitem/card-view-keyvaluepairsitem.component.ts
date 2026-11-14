@@ -20,7 +20,8 @@ import { CardViewKeyValuePairsItemType } from '../../interfaces';
 @Component({
   selector: 'dui-card-view-keyvaluepairsitem',
   templateUrl: './card-view-keyvaluepairsitem.component.html',
-  styleUrls: ['./card-view-keyvaluepairsitem.component.scss']
+  styleUrls: ['./card-view-keyvaluepairsitem.component.scss'],
+  standalone: false
 })
 
 export class CardViewKeyValuePairsItemComponent  implements OnChanges,OnDestroy {

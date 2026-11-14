@@ -25,6 +25,7 @@ const EASE_ACCELERATION = 1.005;
  */
 @Directive({
   selector: '[treeAnimateOpen]',
+  standalone: false,
 })
 export class TreeAnimateOpenDirective implements OnDestroy {
   /**

@@ -25,7 +25,8 @@ import { ɵOsBaseButtonComponent } from '../../../core/classes/base-components';
         'class': 'dui-title-bar-button'
     },
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TitleBarButtonComponent extends ɵOsBaseButtonComponent implements OnInit {
     /**

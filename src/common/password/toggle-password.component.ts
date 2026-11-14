@@ -16,6 +16,7 @@ import { AfterViewInit, Component, ElementRef } from '@angular/core';
   selector: 'toggle-password',
   templateUrl: 'toggle-password.component.html',
   styleUrls: [],
+  standalone: false,
 })
 
 export class TogglePasswordComponent implements AfterViewInit {

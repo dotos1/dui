@@ -20,6 +20,7 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
   templateUrl: './eye-dropper.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 export class EyeDropperComponent  {

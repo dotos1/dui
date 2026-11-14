@@ -19,6 +19,7 @@ import { ButtonComponent } from '@dotos/dui/ui/button';
   host: {
     hostID: 'repeat-section' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 export class RepeatTypeComponent extends FieldArrayType {
 

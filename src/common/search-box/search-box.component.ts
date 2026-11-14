@@ -86,7 +86,8 @@ export class SearchBoxBase {
   ],
   host:{
     hostID: 'search-box'+   Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class SearchBoxComponent implements ControlValueAccessor {
   /**

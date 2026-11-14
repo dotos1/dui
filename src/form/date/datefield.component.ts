@@ -133,6 +133,7 @@ export class MatDatetimepickerInputEvent<D> {
     "(keydown)": "_onKeydown($event)",
     hostID: "date-field" + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 
 export class DateFieldComponent<D> extends MatField implements AfterContentInit, OnChanges, ControlValueAccessor, OnDestroy, Validator {

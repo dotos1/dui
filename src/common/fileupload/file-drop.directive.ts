@@ -28,7 +28,8 @@ export const _FileDropMixinBase = mixinDisabled(FileDropBase);
  */
 @Directive({
   selector: '[duiFileDrop]',
-  inputs: ['disabled']
+  inputs: ['disabled'],
+  standalone: false
 })
 export class FileDropDirective extends _FileDropMixinBase implements ICanDisable {
   /**

@@ -18,7 +18,8 @@ import { isArray, isObjectLike, isString } from 'lodash-es';
   selector: 'dui-toolbar',
   styleUrls: ['./toolbar.component.scss'],
   templateUrl: './toolbar.component.html',
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
+  standalone: false
 })
 
 export class DuiToolbarComponent extends Container implements OnChanges, AfterContentInit {
@@ -470,7 +471,8 @@ export class MenuItem extends ComponentBase {
   selector: 'divider',
   template: "<mat-divider [vertical]='vertical' [ngStyle]='style'></mat-divider>",
   styleUrls: ['./separator.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class Separator extends MenuItem {
   /**
@@ -515,7 +517,8 @@ export class Separator extends MenuItem {
   template: `
         <div  [style.width]="config.width + 'px'" ></div>
      `,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class Spacer extends MenuItem {
   /**
@@ -561,7 +564,8 @@ export class Spacer extends MenuItem {
           padding-right:20px;
         }
     `],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class Fill extends Spacer {
@@ -595,7 +599,8 @@ export class Fill extends Spacer {
 @Component({
   selector: 'tbtext',
   template: "<span>{{text}}</span>",
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class TextItem extends MenuItem {
   /**

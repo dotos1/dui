@@ -27,6 +27,7 @@ import { IS_TOUCH_DEVICE } from './util/is-touch-device';
  */
 @Directive({
   selector: '[duiResizeHandle]',
+  standalone: false,
 })
 export class ResizeHandleDirective implements OnInit, OnDestroy {
   /**

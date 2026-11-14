@@ -23,7 +23,8 @@ import {Observable} from 'rxjs';
  */
 @Component({
     selector: 'keyboard-shortcuts',
-    template: ''
+    template: '',
+    standalone: false
 })
 export class KeyboardShortcutsComponent implements OnChanges, OnDestroy {
 

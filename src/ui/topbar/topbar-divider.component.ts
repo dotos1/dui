@@ -24,6 +24,7 @@ import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/
         }
     `],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ToolbarDividerComponent { }

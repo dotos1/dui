@@ -11,7 +11,7 @@ import { autorun } from 'mobx';
  * Angular directive `MobxAutorunDirective` (selector: '[mobxAutorun]') attaching mobx autorun directive behavior to host DOM elements.
  * @zh Angular 指令 `MobxAutorunDirective`（selector: '[mobxAutorun]'），为宿主 DOM 元素附加MobxAutorun指令行为。
  */
-@Directive({ selector: '[mobxAutorun]' })
+@Directive({ selector: '[mobxAutorun]', standalone: false })
 export class MobxAutorunDirective implements OnInit, OnDestroy {
   /**
    * Property `templateBindings` (`Record<string, unknown>`) storing template bindings (default: `{}`).

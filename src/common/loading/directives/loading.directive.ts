@@ -46,6 +46,7 @@ let TD_LOADING_NEXT_ID = 0;
  */
 @Directive({
   selector: '[duiLoading]',
+  standalone: false,
 })
 export class LoadingDirective implements OnInit, OnDestroy {
   /**

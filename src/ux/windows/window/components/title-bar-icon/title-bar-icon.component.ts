@@ -31,7 +31,8 @@ import { ɵOsBaseComponent } from '../../../core/classes/base-components';
         'class': 'dui-title-bar-icon'
     },
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class TitleBarIconComponent extends ɵOsBaseComponent {
     /**

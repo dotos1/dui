@@ -19,7 +19,8 @@ import { TBItems, ToolbarItem } from '../../../types';
  */
 @Component({
   selector: 'ux-toggle-command',
-  templateUrl: './toggle-command.component.html'
+  templateUrl: './toggle-command.component.html',
+  standalone: false
 })
 
 export class ToggleCommandComponent implements OnInit, OnDestroy {

@@ -36,6 +36,7 @@ type Style = Partial<CSSStyleDeclaration>;
 
   templateUrl: './avatar.component.html',
   changeDetection:ChangeDetectionStrategy.Default,
+  standalone: false,
   
 })
 export class AvatarComponent implements OnChanges, OnDestroy {

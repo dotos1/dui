@@ -49,6 +49,7 @@ interface MatFieldConfig extends FieldConfig {
   providers: [{ provide: MatFormFieldControl, useExisting: WrapperEditorField }],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {hostID: 'editor-field-wrapper' + Math.random().toString(36).substring(2, 15) },
+  standalone: false,
 })
 export class WrapperEditorField extends FieldWrapper<MatFieldConfig> implements OnInit, OnDestroy, MatFormFieldControl<unknown>, AfterViewInit, AfterContentChecked {
   /**

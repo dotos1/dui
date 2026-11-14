@@ -34,6 +34,7 @@ import { getCheckerboard } from './helpers/checkboard';
   ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 /**

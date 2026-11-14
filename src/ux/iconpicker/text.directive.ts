@@ -13,7 +13,8 @@ import { Directive, EventEmitter, Input, Output } from '@angular/core';
   selector: '[text]',
   host    : {
     '(input)': 'changeInput($event.target.value)'
-  }
+  },
+  standalone: false
 })
 export class TextDirective {
   /**

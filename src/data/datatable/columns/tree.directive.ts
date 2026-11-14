@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `DataTableColumnCellTreeToggle` (selector: '[dui-datatable-tree-toggle]') attaching data table column cell tree toggle behavior to host DOM elements.
  * @zh Angular 指令 `DataTableColumnCellTreeToggle`（selector: '[dui-datatable-tree-toggle]'），为宿主 DOM 元素附加数据表格列单元格树形控件开关行为。
  */
-@Directive({ selector: '[dui-datatable-tree-toggle]' })
+@Directive({ selector: '[dui-datatable-tree-toggle]', standalone: false })
 export class DataTableColumnCellTreeToggle {
   /**
    * Creates an instance of `DataTableColumnCellTreeToggle` and initializes its dependencies and internal state.

@@ -10,7 +10,7 @@ import { Dui } from '@dotos/dui/core';
  * Angular pipe `FilterPipe` (name: 'filter') transforming values for filter pipe display in templates.
  * @zh Angular 管道 `FilterPipe`（name: 'filter'），在模板中转换数据以用于过滤管道展示。
  */
-@Pipe({ name: 'filter' })
+@Pipe({ name: 'filter', standalone: false })
 export class FilterPipe implements PipeTransform {
 
   /**

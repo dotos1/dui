@@ -10,7 +10,8 @@ import { Directive, HostListener } from '@angular/core';
  * @zh 停止宿主元素上原生 `click` 事件的冒泡传播。
  */
 @Directive({
-  selector: '[duiStopPropagation]'
+  selector: '[duiStopPropagation]',
+  standalone: false
 })
 export class StopPropagationDirective {
   /**

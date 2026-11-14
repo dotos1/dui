@@ -23,6 +23,7 @@ import {
   templateUrl: './gradient-bar.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
 })
 export class GradientBarComponent implements OnInit,OnDestroy {
 

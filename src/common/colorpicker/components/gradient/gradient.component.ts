@@ -21,6 +21,7 @@ import { ContextService, PickerContextProps } from './hooks/context.service';
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
 })
 export class GradientComponent {
   /**

@@ -21,7 +21,8 @@ import { NgTerminal } from './terminal';
   templateUrl: './terminal.component.html',
   styleUrls: ['./terminal.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class TerminalComponent implements  OnChanges, AfterViewInit, NgTerminal, OnDestroy {
   /**

@@ -16,7 +16,7 @@ import { LayoutComponent } from './layout.component';
  * Angular directive `AbstractPanel` attaching abstract panel behavior to host DOM elements.
  * @zh Angular 指令 `AbstractPanel`，为宿主 DOM 元素附加Abstract面板行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export class AbstractPanel extends Container implements OnChanges,OnInit,OnDestroy {
 
 

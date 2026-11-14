@@ -13,6 +13,7 @@ import { Component } from '@angular/core';
   selector: 'app-tutorial-page',
   templateUrl: './tutorial-page.component.html',
   styleUrls: ['./tutorial-page.component.scss'],
+  standalone: false,
 })
 export class TutorialPageComponent {
   /**

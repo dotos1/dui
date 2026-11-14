@@ -11,7 +11,7 @@ import { FieldConfig } from '../models/field.config';
  * Angular directive `FieldWrapper` attaching field wrapper behavior to host DOM elements.
  * @zh Angular 指令 `FieldWrapper`，为宿主 DOM 元素附加字段包装器行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class FieldWrapper<F extends FieldConfig = FieldConfig> extends FieldType<F> {
   /**
    * Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.

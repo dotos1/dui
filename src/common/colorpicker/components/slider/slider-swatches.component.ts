@@ -76,6 +76,7 @@ import { HSL } from '@dotos/dui/common/colorpicker/common';
     host: {
     'hostID': 'slider-swatches-' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 /**
  * A row of five fixed lightness-preset swatches for the current hue, used by

@@ -13,6 +13,7 @@ import { NgModel } from '@angular/forms';
  */
 @Directive({
   selector: '[duiAutoTrim]',
+  standalone: false,
   
 })
 export class AutoTrimDirective {

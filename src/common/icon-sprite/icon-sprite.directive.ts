@@ -12,7 +12,8 @@ import { Directive, ElementRef, Renderer2, Input, OnInit } from '@angular/core';
  * @zh 通过 `attribute` 输入的 `[名称, 值]` 元组，为宿主 SVG 元素设置一个或多个任意属性。
  */
 @Directive({
-  selector: '[svgIconSpriteAttr]'
+  selector: '[svgIconSpriteAttr]',
+  standalone: false
 })
 export class IconSpriteDirective implements OnInit {
 

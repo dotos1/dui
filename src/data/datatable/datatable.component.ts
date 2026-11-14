@@ -25,7 +25,7 @@ import { DataTableColumnDirective } from './columns/column.directive';
 import { DatatableRowDetailDirective } from './row/row-detail.directive';
 import { DatatableFooterDirective } from './footer/footer.directive';
 import { DataTableHeaderComponent } from './header/header.component';
-import { DatatableCardComponent } from './datatable.card';
+import type { DatatableCardComponent } from './datatable.card';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { TranslateService } from '@dotos/dui/translator';
 import { Dui } from '@dotos/dui/core';
@@ -43,7 +43,8 @@ import { throttleable } from './utils/throttle';
   styleUrls: ['./datatable.component.scss'],
   host: {
     class: 'dui-datatable'
-  }
+  },
+  standalone: false
 })
 
 

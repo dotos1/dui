@@ -40,6 +40,7 @@ import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
   host: {hostID: 'dui-color-slider'+ Math.random().toString(36).substring(2, 15)},
+  standalone: false,
 })
 /**
  * Compact hue slider with a row of preset color swatches beneath it.

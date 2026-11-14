@@ -17,7 +17,8 @@ import { FieldType } from './field.type';
   encapsulation: ViewEncapsulation.None,
   host: {
     hostID: 'dui-form-template' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class FormTemplateType extends FieldType {
   /**

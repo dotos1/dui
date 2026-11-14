@@ -18,7 +18,8 @@ import { MediaService } from '@dotos/dui/common/media';
   host: {
     class: 'datatable-footer'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class DataTableFooterComponent {
   /**

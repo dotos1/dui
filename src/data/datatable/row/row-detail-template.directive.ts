@@ -10,7 +10,8 @@ import { Directive, TemplateRef } from '@angular/core';
  * @zh Angular 指令 `DatatableRowDetailTemplateDirective`（selector: '[dui-datatable-row-detail-template]'），为宿主 DOM 元素附加数据表格行详情模板指令行为。
  */
 @Directive({
-  selector: '[dui-datatable-row-detail-template]'
+  selector: '[dui-datatable-row-detail-template]',
+  standalone: false
 })
 export class DatatableRowDetailTemplateDirective {
   /**

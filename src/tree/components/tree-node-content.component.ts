@@ -20,6 +20,7 @@ import { TreeNode } from '../models/tree-node.model';
     '[style.flex]': '1',
     hostID: 'tree-node-content' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 export class TreeNodeContent {
 

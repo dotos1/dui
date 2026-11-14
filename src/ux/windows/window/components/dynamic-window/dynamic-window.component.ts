@@ -56,7 +56,8 @@ import { duiWindowTheme } from '../../../window.theme';
     },
     styleUrls: ['./window.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ɵDynamicWindowComponent
     extends ɵBaseDynamicWindowComponent

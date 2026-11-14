@@ -161,6 +161,7 @@ export interface KeyValueDemoEntry {
   selector: 'app-module-example-page',
   templateUrl: './module-example-page.component.html',
   styleUrls: ['./module-example-page.component.scss'],
+  standalone: false,
 })
 export class ModuleExamplePageComponent implements OnInit, OnDestroy {
   /**

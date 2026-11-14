@@ -31,7 +31,8 @@ import { FixedToParentConfig } from '../classes';
  * @zh Angular 指令 `FixedToParentDirective`（selector: '[osFixedToParent]'），为宿主 DOM 元素附加固定转换为父级指令行为。
  */
 @Directive({
-    selector: '[osFixedToParent]'
+    selector: '[osFixedToParent]',
+    standalone: false
 })
 export class FixedToParentDirective implements OnChanges, OnInit, AfterViewInit, OnDestroy {
     /**

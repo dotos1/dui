@@ -35,17 +35,9 @@ import {MatCalendarView, MatDatetimepickerCalendar} from "./calendar";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 import {MatDatetimepickerFilterType} from "./datetimepicker-filtertype";
 import {MatDatetimepickerInput} from "./datetimepicker-input";
+import {MatDatetimepickerMode, MatDatetimepickerType} from "./datetimepicker-type";
 
-/**
- * Type alias `MatDatetimepickerType` representing mat datetimepicker type (`"date" | "time" | "month" | "year" | "datetime"`).
- * @zh 类型别名 `MatDatetimepickerType`，表示Material日期时间选择器类型（`"date" | "time" | "month" | "year" | "datetime"`）。
- */
-export type MatDatetimepickerType = "date" | "time" | "month" | "year" | "datetime";
-/**
- * Type alias `MatDatetimepickerMode` representing mat datetimepicker mode (`"auto" | "portrait" | "landscape"`).
- * @zh 类型别名 `MatDatetimepickerMode`，表示Material日期时间选择器模式（`"auto" | "portrait" | "landscape"`）。
- */
-export type MatDatetimepickerMode = "auto" | "portrait" | "landscape";
+export {MatDatetimepickerMode, MatDatetimepickerType};
 
 /**
  * Used to generate a unique ID for each datepicker instance.
@@ -73,7 +65,8 @@ let datetimepickerUid = 0;
     hostID: "mat-datetimepicker-content" + Math.random().toString(36).substring(2, 15)
   },
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class MatDatetimepickerContent<D> implements AfterContentInit {
   /**
@@ -135,6 +128,7 @@ export class MatDatetimepickerContent<D> implements AfterContentInit {
   preserveWhitespaces: false,
   host: {hostID: "mat-datetimepicker" + Math.random().toString(36).substring(2, 15)
   },
+  standalone: false,
 })
 export class MatDatetimepicker<D> implements OnDestroy {
   /**

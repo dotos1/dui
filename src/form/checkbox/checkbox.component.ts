@@ -18,7 +18,8 @@ import { TranslateService } from '@dotos/dui/translator';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     hostID: 'checkbox-field' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class CheckboxField extends MatField implements AfterViewInit,OnDestroy {
 

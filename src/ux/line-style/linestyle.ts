@@ -52,6 +52,7 @@ export const PRE_DEFINED_THEMES = [
     style: 'flex:1;',
     
   },
+  standalone: false,
 })
 export class LineStyleSelector<F extends FieldConfig = FieldConfig>
   extends MatField

@@ -15,7 +15,8 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
         <span class='dui-copy-tooltip'>{{ placeholder|translate }} </span>
         `,
   styleUrls: ['./clipboard.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class ClipboardComponent implements OnInit {
   /**

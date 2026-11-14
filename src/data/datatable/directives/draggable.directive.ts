@@ -14,7 +14,7 @@ import { takeUntil } from 'rxjs/operators';
  * Angular directive `DraggableDirective` (selector: '[draggable]') attaching draggable directive behavior to host DOM elements.
  * @zh Angular 指令 `DraggableDirective`（selector: '[draggable]'），为宿主 DOM 元素附加是否可拖拽指令行为。
  */
-@Directive({ selector: '[draggable]' })
+@Directive({ selector: '[draggable]', standalone: false })
 export class DraggableDirective implements OnDestroy, OnChanges {
   /**
    * Input property `dragEventTarget` (`any`) configuring drag event target.

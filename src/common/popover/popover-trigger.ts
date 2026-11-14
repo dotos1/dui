@@ -48,7 +48,8 @@ import { DOCUMENT } from '@angular/common';
  */
 @Directive({
   selector: '[popoverTriggerFor]',
-  exportAs: 'popoverTrigger'
+  exportAs: 'popoverTrigger',
+  standalone: false
 })
 export class PopoverTrigger implements AfterViewInit, OnDestroy {
 

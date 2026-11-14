@@ -47,6 +47,7 @@ import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
     hostID: 'dui-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, AfterViewInit, OnDestroy {
 

@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgImageDirective`（selector: 'svg-image'），为宿主 DOM 元素附加SVG矢量图图像指令行为。
  */
 @Directive({
-  selector: 'svg-image'
+  selector: 'svg-image',
+  standalone: false
 })
 export class SvgImageDirective implements AfterViewChecked, OnDestroy, OnChanges {
 

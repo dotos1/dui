@@ -17,6 +17,7 @@ import { EditorView } from 'prosemirror-view';
   selector: 'ux-image-view',
   templateUrl: './image-view.component.html',
   styleUrls: ['./image-view.component.scss'],
+  standalone: false,
   
 })
 

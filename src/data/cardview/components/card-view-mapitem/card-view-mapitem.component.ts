@@ -17,7 +17,8 @@ import { CardViewUpdateService } from '../../services/card-view-update.service';
 @Component({
   selector: 'dui-card-view-mapitem',
   templateUrl: './card-view-mapitem.component.html',
-  styleUrls: ['./card-view-mapitem.component.scss']
+  styleUrls: ['./card-view-mapitem.component.scss'],
+  standalone: false
 })
 
 export class CardViewMapItemComponent implements OnDestroy {

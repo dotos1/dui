@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `DataTableColumnCellDirective` (selector: '[dui-datatable-cell-template]') attaching data table column cell directive behavior to host DOM elements.
  * @zh Angular 指令 `DataTableColumnCellDirective`（selector: '[dui-datatable-cell-template]'），为宿主 DOM 元素附加数据表格列单元格指令行为。
  */
-@Directive({ selector: '[dui-datatable-cell-template]' })
+@Directive({ selector: '[dui-datatable-cell-template]', standalone: false })
 export class DataTableColumnCellDirective {
   /**
    * Creates an instance of `DataTableColumnCellDirective` and initializes its dependencies and internal state.

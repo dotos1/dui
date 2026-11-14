@@ -33,6 +33,7 @@ import { AnimationMode, Direction } from './speed-dial';
     hostID: 'dui-speeddial' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.Default,
+  standalone: false,
 
 })
 export class ExtSpeedDialComponent extends ComponentBase implements OnInit,OnChanges,DoCheck {

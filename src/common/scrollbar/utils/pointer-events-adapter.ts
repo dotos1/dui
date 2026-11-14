@@ -13,7 +13,7 @@ import { SCROLLBAR_CONTROL, ScrollbarAdapter } from '../scrollbar/scrollbar-adap
  * Angular directive `PointerEventsAdapter` attaching pointer events adapter behavior to host DOM elements.
  * @zh Angular 指令 `PointerEventsAdapter`，为宿主 DOM 元素附加指针事件集合适配器行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class PointerEventsAdapter {
 
   // Reference to the NgScrollbar component

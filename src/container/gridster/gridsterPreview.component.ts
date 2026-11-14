@@ -4,8 +4,8 @@
  */
 
 import {Component, ElementRef, OnDestroy, Renderer2, ViewEncapsulation, Inject} from '@angular/core';
-
-import {GridsterComponent} from './gridster.component';
+import {DUI_GRIDSTER} from './gridster-token';
+import type {GridsterComponent} from './gridster.component';
 
 /**
  * Angular component `GridsterPreviewComponent` (selector: 'gridster-preview') providing gridster preview component presentation and interaction in `src/container/gridster`.
@@ -18,7 +18,8 @@ import {GridsterComponent} from './gridster.component';
   encapsulation: ViewEncapsulation.None,
   host: {
     hostID: 'dui-gridster-preview' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class GridsterPreviewComponent implements OnDestroy {
   /**
@@ -39,7 +40,7 @@ export class GridsterPreviewComponent implements OnDestroy {
    * @param gridster - Injected or initial gridster (`GridsterComponent`) / 注入或传入的网格拖拽布局（`GridsterComponent`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
    */
-  constructor(@Inject(ElementRef)  el: ElementRef,  gridster: GridsterComponent, @Inject(Renderer2) public renderer: Renderer2) {
+  constructor(@Inject(ElementRef) el: ElementRef, @Inject(DUI_GRIDSTER) gridster: GridsterComponent, @Inject(Renderer2) public renderer: Renderer2) {
     this.el = el.nativeElement;
     this.gridster = gridster;
     this.gridster.previewStyle = this.previewStyle.bind(this);

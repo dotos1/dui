@@ -29,6 +29,7 @@ import { GoogleColorService } from './google-color.services';
   },
    changeDetection: ChangeDetectionStrategy.OnPush,
    preserveWhitespaces: true,
+  standalone: false,
 })
 /**
  * Google-Docs-style color picker: a fixed palette grid plus a user-managed row of custom colors.

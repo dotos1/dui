@@ -20,6 +20,7 @@ import { formatInputValues } from '../utils/formatters';
   templateUrl: './gradient-controls.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 

@@ -22,7 +22,8 @@ import { FieldWrapper } from '@dotos/dui/core/form';
   styleUrls: ['./label-field.scss'],
   providers: [{ provide: MatFormFieldControl, useExisting: LabelWrapperField }],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host:{ hostID: 'label-field-wrapper' + Math.random().toString(36).substring(2, 15),}
+  host:{ hostID: 'label-field-wrapper' + Math.random().toString(36).substring(2, 15),},
+  standalone: false
 })
 export class LabelWrapperField extends FieldWrapper<FieldConfig> implements  OnDestroy, MatFormFieldControl<unknown> {
   /**

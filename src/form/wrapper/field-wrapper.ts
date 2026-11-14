@@ -44,7 +44,8 @@ interface MatFormFieldConfig extends FieldConfig {
   providers: [{ provide: MatFormFieldControl, useExisting: FieldWrapper }],
   host: {
     hostID: 'dui-field-wrapper' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class ExtFieldWrapper extends FieldWrapper<MatFormFieldConfig> implements OnInit, OnDestroy, MatFormFieldControl<unknown>, AfterContentChecked {
 

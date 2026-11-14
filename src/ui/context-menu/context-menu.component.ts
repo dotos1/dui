@@ -44,6 +44,7 @@ import { CONTEXT_MENU_DIRECTION } from './direction.token';
     hostID: 'dui-context-menu' + Math.random().toString(36).substring(2, 15)
   },
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
 
 })
 export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,DoCheck, AfterViewInit {

@@ -13,6 +13,7 @@ import { LayoutToggle } from './layout-toggle';
  */
 @Directive({
   selector: '[duiLayoutToggle]',
+  standalone: false,
 })
 export class DuiLayoutToggleDirective extends LayoutToggle {
 
@@ -54,6 +55,7 @@ export class DuiLayoutToggleDirective extends LayoutToggle {
  */
 @Directive({
   selector: '[duiLayoutClose]',
+  standalone: false,
 })
 export class DuiLayoutCloseDirective extends LayoutToggle {
 
@@ -95,6 +97,7 @@ export class DuiLayoutCloseDirective extends LayoutToggle {
  */
 @Directive({
   selector: '[duiLayoutOpen]',
+  standalone: false,
 })
 export class DuiLayoutOpenDirective extends LayoutToggle {
 

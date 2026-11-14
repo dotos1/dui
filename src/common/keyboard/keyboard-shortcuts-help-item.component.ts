@@ -17,7 +17,8 @@ import {identity} from './utils';
 @Component({
     selector: 'keyboard-shortcuts-help-item',
     templateUrl: './keyboard-shortcuts-help-item.component.html',
-    styleUrls: ['./keyboard-shortcuts-help-item.component.scss']
+    styleUrls: ['./keyboard-shortcuts-help-item.component.scss'],
+    standalone: false
 })
 export class KeyboardShortcutsHelpItemComponent  {
     /**

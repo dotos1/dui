@@ -14,7 +14,8 @@ import { switchMap } from 'rxjs/operators';
  * @zh Angular 管道 `SecureImagePipe`（name: 'secureImage'），在模板中转换数据以用于Secure图像管道展示。
  */
 @Pipe({
-  name: 'secureImage'
+  name: 'secureImage',
+  standalone: false
 })
 export class SecureImagePipe implements PipeTransform {
   /**

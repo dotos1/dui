@@ -43,6 +43,7 @@ export interface ColorEvent {
   // create seletor base for test override property
   selector: 'color-wrap',
   template: ``,
+  standalone: false,
 
 })
 export class ColorWrap implements OnInit, OnChanges, OnDestroy {

@@ -42,7 +42,8 @@ const templateTypes = {
 @Component({
   selector: 'dui-card-view-textitem',
   templateUrl: './card-view-textitem.component.html',
-  styleUrls: ['./card-view-textitem.component.scss']
+  styleUrls: ['./card-view-textitem.component.scss'],
+  standalone: false
 })
 export class CardViewTextItemComponent  implements OnChanges,OnDestroy {
 

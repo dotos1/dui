@@ -46,6 +46,7 @@ const PRE_DEFINED_THEMES = [
     style: 'flex:1;',
     
   },
+  standalone: false,
 })
 export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatField
  implements OnInit,OnDestroy,AfterViewInit{

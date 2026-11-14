@@ -26,7 +26,8 @@ import { ɵOsBaseViewComponent } from './view';
     template: '',
     host: {
         class: 'dui-element'
-    }
+    },
+    standalone: false
 })
 export abstract class ɵOsBaseComponent
     extends ɵOsBaseViewComponent

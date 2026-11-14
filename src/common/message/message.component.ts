@@ -27,6 +27,7 @@ import { duiCollapseAnimation } from './collapse.animation';
  */
 @Directive({
   selector: '[duiMessageContainer]',
+  standalone: false,
 })
 export class MessageContainerDirective {
   /**
@@ -47,6 +48,7 @@ export class MessageContainerDirective {
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss'],
   animations: [duiCollapseAnimation],
+  standalone: false,
 })
 export class MessageComponent implements AfterViewInit {
   /**

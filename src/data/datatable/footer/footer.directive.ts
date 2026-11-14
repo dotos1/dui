@@ -10,7 +10,7 @@ import { DataTableFooterTemplateDirective } from './footer-template.directive';
  * Angular directive `DatatableFooterDirective` (selector: 'dui-datatable-footer') attaching datatable footer directive behavior to host DOM elements.
  * @zh Angular 指令 `DatatableFooterDirective`（selector: 'dui-datatable-footer'），为宿主 DOM 元素附加数据表格表尾指令行为。
  */
-@Directive({ selector: 'dui-datatable-footer' })
+@Directive({ selector: 'dui-datatable-footer', standalone: false })
 export class DatatableFooterDirective {
   /**
    * Input property `footerHeight` (`number`) configuring footer height.
