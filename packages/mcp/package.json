@@ -1,0 +1,52 @@
+{
+  "name": "@dotos1/mcp",
+  "version": "8.0.0-next.1",
+  "description": "DOTOS Angular 22 组件库（@dotos/dui、@dotos/duix、@dotos/xdraw）官方自愈 MCP Server",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "dotos-mcp": "dist/cli.js",
+    "mcp": "dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "clean": "node -e \"import('node:fs').then(fs => { fs.rmSync('dist', { recursive: true, force: true }); fs.rmSync('dist-test', { recursive: true, force: true }); })\"",
+    "build": "npm run clean && tsc -p tsconfig.build.json && node -e \"import('node:fs').then(fs => fs.chmodSync('dist/cli.js', 0o755))\"",
+    "build:test": "tsc -p tsconfig.test.json",
+    "test": "npm run build && npm run build:test && node --test dist-test/**/*.test.js && node -e \"import('node:fs').then(fs => fs.rmSync('dist-test', { recursive: true, force: true }))\""
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "1.32.2",
+    "zod": "^3.25.76"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "typescript": "6.0.3"
+  },
+  "keywords": [
+    "dotos",
+    "angular",
+    "mcp",
+    "model-context-protocol",
+    "dui",
+    "duix",
+    "xdraw",
+    "zoneless",
+    "signals"
+  ]
+}

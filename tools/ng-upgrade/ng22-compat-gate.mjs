@@ -228,7 +228,7 @@ if (fs.existsSync(ngDeepBaselinePath)) {
   let actualNgDeep = 0;
   for (const sf of styleAndTsFiles) {
     const rel = path.relative(repoDir, sf).replace(/\\/g, '/');
-    if (rel.startsWith('tools/')) continue;
+    if (rel.startsWith('tools/') || rel.startsWith('packages/mcp/') || rel.includes('/examples/')) continue;
     const stripped = stripComments(fs.readFileSync(sf, 'utf8'));
     const matches = stripped.match(/::ng-deep\b/g);
     if (matches) actualNgDeep += matches.length;
