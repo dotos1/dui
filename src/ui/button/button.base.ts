@@ -5,7 +5,6 @@
 
 import {
     ChangeDetectorRef,
-    ComponentFactoryResolver,
     ElementRef,
     EventEmitter,
     Injector,
@@ -238,21 +237,32 @@ export class ButtonBase extends ComponentBase {
   triggers: QueryList<MatMenuTrigger>;
 
   /**
-   * Creates an instance of `ButtonBase` and initializes its dependencies and internal state.
-   * @zh 创建 `ButtonBase` 实例，并初始化其依赖项与内部状态。
-   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
-   * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
-   * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
-   * @param injector - Injected or initial injector (`Injector`) / 注入或传入的注入器（`Injector`）
+   * Legacy compatibility placeholder for component factory resolver.
+   * @zh 属性 `resolver`（类型：`unknown`），历史兼容占位字段。
    */
+  public resolver?: unknown;
+
+  /**
+   * Property `injector` (`Injector`) storing injector.
+   * @zh 属性 `injector`（类型：`Injector`），用于存储或配置注入器。
+   */
+  public injector: Injector;
+
+  constructor(_element: ElementRef, renderer: Renderer2, changeDetectorRef: ChangeDetectorRef, injector: Injector);
+  constructor(_element: ElementRef, renderer: Renderer2, changeDetectorRef: ChangeDetectorRef, legacyResolver: unknown, injector: Injector);
   constructor(
     public _element: ElementRef,
     public renderer: Renderer2,
     public changeDetectorRef: ChangeDetectorRef,
-    public resolver: ComponentFactoryResolver,
-    public injector: Injector,) {
+    arg3: Injector | unknown,
+    arg4?: Injector) {
     super(changeDetectorRef);
+    if (arg4 !== undefined) {
+      this.resolver = arg3;
+      this.injector = arg4;
+    } else {
+      this.injector = arg3 as Injector;
+    }
   }
 
   /**

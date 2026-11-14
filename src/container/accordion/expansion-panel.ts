@@ -8,7 +8,7 @@ import { DuiConfig } from '@dotos/dui/base';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
-import { CanDisable, mixinDisabled } from '@angular/material/core';
+import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -24,7 +24,6 @@ import {
   Output,
   ViewContainerRef,
   ViewChild,
-  ComponentFactoryResolver,
   Injector
 } from '@angular/core';
 import { Subject } from 'rxjs';
@@ -110,11 +109,10 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
    */
   constructor(
     public override detectRef: ChangeDetectorRef,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     protected _expansionDispatcher: UniqueSelectionDispatcher,
   ) {
-    super(resolver, injector, detectRef);
+    super(injector, detectRef);
     //  this.el = this._element.nativeElement;
   }
 
@@ -329,7 +327,7 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
   ]
 })
 export class ExpansionPanel extends _ExpansionPanelMixinBase
-  implements CanDisable, OnChanges, OnDestroy {
+  implements ICanDisable, OnChanges, OnDestroy {
 
   /**
    * Whether the toggle indicator should be hidden.
@@ -369,12 +367,11 @@ export class ExpansionPanel extends _ExpansionPanelMixinBase
    * @param formBuilder - Injected or initial form builder (`FormBuilder`) / 注入或传入的表单构建器（`FormBuilder`）
    */
   constructor(
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     _changeDetectorRef: ChangeDetectorRef,
     _uniqueSelectionDispatcher: UniqueSelectionDispatcher,
     public formBuilder?: FormBuilder, ) {
-    super(_changeDetectorRef, resolver, injector, _uniqueSelectionDispatcher);
+    super(_changeDetectorRef, injector, _uniqueSelectionDispatcher);
   }
 
   /**

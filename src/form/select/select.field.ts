@@ -380,17 +380,24 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
    * @returns the echo option or null / 回显选项，没有则为 null
    */
   get fallbackOption(): { value: unknown; text: string } | null {
-    const f = this.field;
+    const f: {
+      disabled?: boolean;
+      readonly?: boolean;
+      multiple?: boolean;
+      inputValue?: unknown;
+      options?: unknown;
+      [key: string]: unknown;
+    } = this.field;
     if (!(this.formControl?.disabled || f.disabled || f.readonly) || f.multiple) {
       return null;
     }
-    const v = this.formControl?.value;
-    const text = f.inputValue;
+    const v: unknown = this.formControl?.value;
+    const text: unknown = f.inputValue;
     if (v === undefined || v === null || v === '' || text === undefined || text === null || text === '') {
       return null;
     }
-    const opts = Array.isArray(f.options) ? f.options : [];
-    if (opts.some((o) => getOptionValue(o, f) === v)) {
+    const opts: unknown[] = Array.isArray(f.options) ? f.options : [];
+    if (opts.some((o: unknown) => getOptionValue(o, f) === v)) {
       return null;
     }
     const cached = this._echo;
@@ -407,20 +414,25 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
    * @returns echo text or empty string / 回显文字，没有则为空串
    */
   get echoText(): string {
-    const f = this.field;
+    const f: {
+      disabled?: boolean;
+      readonly?: boolean;
+      multiple?: boolean;
+      inputValue?: unknown;
+    } = this.field;
     if (!(this.formControl?.disabled || f.disabled || f.readonly) || f.multiple) {
       return '';
     }
-    const v = this.formControl?.value;
-    const t = f.inputValue;
+    const v: unknown = this.formControl?.value;
+    const t: unknown = f.inputValue;
     if (v === undefined || v === null || v === '' || t === undefined || t === null || t === '') {
       return '';
     }
     return String(t);
   }
 
-  private selectable(list) {
-    return phoneSelectableOptions(list, (o) => getOptionValue(o, this.field));
+  private selectable<T>(list: T[]): T[] {
+    return phoneSelectableOptions(list, (o: T): unknown => getOptionValue(o, this.field));
   }
 
   /**

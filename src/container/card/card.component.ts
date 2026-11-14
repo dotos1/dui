@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/card/card.component.ts`，提供卡片组件相关的定义与实现。
  */
 
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ComponentFactoryResolver, Injector, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Injector, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { ComponentBase, Dui, DuiConfig, DuiStyle } from '@dotos/dui/core';
 import { PageEvent } from '@angular/material/paginator';
@@ -358,11 +358,10 @@ export class DuiCardComponent extends Container implements OnChanges{
    * @param translateService - Injected or initial translate service (`TranslateService`) / 注入或传入的翻译服务（`TranslateService`）
    */
   constructor(
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef,
     public translateService: TranslateService) {
-    super(resolver, injector, detectRef);
+    super(injector, detectRef);
   }
 
 

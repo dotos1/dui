@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/core/form/models/field-config.cache.ts`，提供字段配置缓存相关的定义与实现。
  */
 
-import { ComponentFactoryResolver, ComponentRef, Injector } from '@angular/core';
+import { ComponentRef, Injector } from '@angular/core';
 import { AsyncValidatorFn, ValidatorFn, FormArray, FormGroup, AbstractControl } from '@angular/forms';
 import { FieldType } from '../template/field.type';
 import { FieldConfig, FormOptions } from './field.config';
@@ -84,10 +84,10 @@ export interface FormOptionsCache extends FormOptions {
    */
   checkExpressions?: (field: FieldConfig, ingoreCache?: boolean) => void;
   /**
-   * Property `_resolver` (`ComponentFactoryResolver`) storing resolver.
-   * @zh 属性 `_resolver`（类型：`ComponentFactoryResolver`），用于存储或配置解析器。
+   * Property `_resolver` (`unknown`) storing legacy resolver placeholder.
+   * @zh 属性 `_resolver`（类型：`unknown`），历史兼容占位字段。
    */
-  _resolver?: ComponentFactoryResolver;
+  _resolver?: unknown;
   /**
    * Property `_injector` (`Injector`) storing injector.
    * @zh 属性 `_injector`（类型：`Injector`），用于存储或配置注入器。

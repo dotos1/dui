@@ -10,7 +10,6 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ComponentFactoryResolver,
     ElementRef,
     EventEmitter,
     Injector,
@@ -326,11 +325,10 @@ export class LayoutComponent
     private elRef: ElementRef,
     private cdRef: ChangeDetectorRef,
     private renderer: Renderer2,
-    public override resolver: ComponentFactoryResolver,
     public override injector: Injector,
     public override detectRef: ChangeDetectorRef
   ) {
-    super(resolver, injector, detectRef);
+    super(injector, detectRef);
     this.el = this.elRef.nativeElement;
     // To force adding default class, could be override by user @Input() or not
     this.direction = this._direction;

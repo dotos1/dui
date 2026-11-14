@@ -5,7 +5,7 @@
 
 import { CommonModule } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { ComponentFactoryResolver, Inject, ModuleWithProviders, NgModule, Optional } from '@angular/core';
+import { Inject, ModuleWithProviders, NgModule, Optional } from '@angular/core';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Dui } from '@dotos/dui/core';
@@ -128,14 +128,13 @@ export class FormModule {
   constructor(
     configService: FormConfig,
     translateService: TranslationService,
-    componentFactoryResolver: ComponentFactoryResolver,
     @Optional() @Inject(FORM_CONFIG) configs: ConfigOption[] = [],
   ) {
     if (!configs) {
       return;
     }
     configs.forEach(config => configService.addConfig(config));
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+    Dui.registerComponentFactory(this.entryComponents);
     translateService.addTranslationFolder('dui', 'i18n');
   }
 }

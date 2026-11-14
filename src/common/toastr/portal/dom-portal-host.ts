@@ -5,7 +5,7 @@
 
 import {
   ApplicationRef,
-  ComponentFactoryResolver,
+  createComponent,
   ComponentRef,
   EmbeddedViewRef,
 } from '@angular/core';
@@ -17,19 +17,19 @@ import { BasePortalHost, ComponentPortal } from './portal';
  * @zh 类 `DomPortalHost`，封装 `src/common/toastr/portal` 中的DOM节点传送门容器宿主数据结构与处理逻辑。
  */
 export class DomPortalHost extends BasePortalHost {
-  /**
-   * Creates an instance of `DomPortalHost` and initializes its dependencies and internal state.
-   * @zh 创建 `DomPortalHost` 实例，并初始化其依赖项与内部状态。
-   * @param _hostDomElement - Injected or initial host dom element (`Element`) / 注入或传入的宿主DOM节点元素（`Element`）
-   * @param _componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
-   * @param _appRef - Injected or initial app ref (`ApplicationRef`) / 注入或传入的app引用（`ApplicationRef`）
-   */
+  private _hostDomElement: Element;
+  private _appRef: ApplicationRef;
+
+  constructor(_hostDomElement: Element, _appRef: ApplicationRef);
+  constructor(_hostDomElement: Element, _legacyResolver: unknown, _appRef: ApplicationRef);
   constructor(
-    private _hostDomElement: Element,
-    private _componentFactoryResolver: ComponentFactoryResolver,
-    private _appRef: ApplicationRef,
+    _hostDomElement: Element,
+    arg1: ApplicationRef | unknown,
+    arg2?: ApplicationRef,
   ) {
     super();
+    this._hostDomElement = _hostDomElement;
+    this._appRef = (arg2 !== undefined ? arg2 : arg1) as ApplicationRef;
   }
 
 
@@ -44,13 +44,10 @@ export class DomPortalHost extends BasePortalHost {
     portal: ComponentPortal<T>,
     newestOnTop: boolean,
   ): ComponentRef<T> {
-    const componentFactory = this._componentFactoryResolver.resolveComponentFactory(
-      portal.component,
-    );
-    let componentRef: ComponentRef<T>;
-
-
-    componentRef = componentFactory.create(portal.injector);
+    const componentRef: ComponentRef<T> = createComponent(portal.component, {
+      environmentInjector: this._appRef.injector,
+      elementInjector: portal.injector,
+    });
 
 
     this._appRef.attachView(componentRef.hostView);

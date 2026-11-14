@@ -5,7 +5,7 @@
 
 
 import {
-  Directive, Input, HostListener, ViewContainerRef,  ComponentFactoryResolver
+  Directive, Input, HostListener, ViewContainerRef
 } from '@angular/core';
 import { ClipboardService } from './clipboard.service';
 import { ClipboardComponent } from './clipboard.component';
@@ -48,8 +48,7 @@ export class ClipboardDirective {
    * @param resolver - Injected or initial resolver (`ComponentFactoryResolver`) / 注入或传入的解析器（`ComponentFactoryResolver`）
    */
   constructor(private clipboardService: ClipboardService,
-    public viewContainerRef: ViewContainerRef,
-    private resolver: ComponentFactoryResolver) { }
+    public viewContainerRef: ViewContainerRef) { }
 
   /**
    * @hidden Handles a click on the host element by copying the target/content to the clipboard.
@@ -69,8 +68,7 @@ export class ClipboardDirective {
   @HostListener('mouseenter')
   showTooltip() {
     if (this.placeholder) {
-      const componentFactory = this.resolver.resolveComponentFactory(ClipboardComponent);
-      const componentRef = this.viewContainerRef.createComponent(componentFactory).instance;
+      const componentRef = this.viewContainerRef.createComponent(ClipboardComponent).instance;
       componentRef.placeholder = this.placeholder;
     }
   }

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/menu/menu-bar.component.ts`，提供菜单条组件相关的定义与实现。
  */
 
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, DoCheck, HostListener, Injector, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, DoCheck, HostListener, Injector, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuBase } from './menu-base';
 import { MenuBarItem } from './menu-model';
@@ -62,9 +62,8 @@ export class MenuBarComponent extends MenuBase implements OnInit,DoCheck{
   constructor(
     public override changeDetectorRef: ChangeDetectorRef,
     protected override router: Router,
-    protected override resolver: ComponentFactoryResolver,
     protected override injector: Injector) {
-    super(router,changeDetectorRef, resolver, injector);
+    super(router, changeDetectorRef, injector);
   }
 
   /**

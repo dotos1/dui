@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { ComponentFactoryResolver, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatIconModule } from '@angular/material/icon';
@@ -57,9 +57,8 @@ export class JsonEditorModule {
    * @param translateService - Injected or initial translate service (`TranslationService`) / 注入或传入的翻译服务（`TranslationService`）
    */
   constructor(
-    componentFactoryResolver: ComponentFactoryResolver,
     translateService: TranslationService) {
-    Dui.registerComponentFactory(componentFactoryResolver,this.entryComponents);
+    Dui.registerComponentFactory(this.entryComponents);
     translateService.addTranslationFolder('dui', 'i18n');
   }
 }
