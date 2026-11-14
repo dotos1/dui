@@ -7,7 +7,7 @@
       {{ !collapsed?'keyboard_arrow_up' :'keyboard_arrow_down'}}
     </mat-icon>
   </div>
-  <div [style.position]="'relative'" fxLayout="row wrap" fxLayoutAlign='start center' [@duiCollapse]="collapsed">
+  <div [style.position]="'relative'" [style.height]="collapsed ? '0px' : null" [style.overflow]="collapsed ? 'hidden' : null" fxLayout="row wrap" fxLayoutAlign='start center'>
     <ng-template let-item ngFor [ngForOf]="field.fieldGroup">
       <div class="pad-xs" [fxFlex]="item.flex ? item.flex : 100">
         <dui-field [field]="item" [ngClass]="item.className">

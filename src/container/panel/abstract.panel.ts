@@ -62,7 +62,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
    * Property `style` (`any`) storing style.
    * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
    */
-  public override style;
+  declare public style;
 
   /**
    * Property `inTab` (`boolean`) storing in tab (default: `false`).
@@ -88,7 +88,7 @@ export class AbstractPanel extends Container implements AfterViewInit,OnDestroy{
    * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
-  @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
+  @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef = undefined;
 
   /**
    * Host-bound getter `cssFlexdirection` (`"row" | "column"`) computing css flexdirection.

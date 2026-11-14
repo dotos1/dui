@@ -4,7 +4,6 @@
  */
 
 import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { duiAnimations } from '@dotos/dui/common/animations';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslationService } from '@dotos/dui/translator';
 import { Router } from '@angular/router';
@@ -38,7 +37,6 @@ export const USER_STATUS_CODES = {
   templateUrl: './lockscreen.dialog.html',
   styleUrls: ['./lockscreen.dialog.scss'],
   encapsulation: ViewEncapsulation.None,
-  animations: duiAnimations,
   standalone: false,
 })
 export class LockscreenDialog implements OnInit,OnDestroy {

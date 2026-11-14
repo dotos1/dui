@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import { after, before, describe, it } from 'node:test';
 import { Client } from '@modelcontextprotocol/sdk/client/index.js';
 import { StdioClientTransport } from '@modelcontextprotocol/sdk/client/stdio.js';
@@ -23,7 +24,7 @@ import {
 /**
  * 项目根目录与编译产物路径
  */
-const PACKAGE_ROOT = path.resolve('/tmp/ng22-mcp');
+const PACKAGE_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..', '..');
 const CLI_DIST_PATH = path.join(PACKAGE_ROOT, 'dist', 'cli.js');
 
 /**
@@ -114,15 +115,15 @@ describe('@dotos1/mcp 组件库自愈 MCP Server 端到端集成测试套件', (
     assert.equal(schemaJson.$schema, 'https://json-schema.org/draft/2020-12/schema');
   });
 
-  it('工具 1 (list_dotos_components)：全量查询覆盖三大包 10 个核心 Standalone Signal 组件及选型矩阵，且多维过滤精准生效', async () => {
+  it('工具 1 (list_dotos_components)：全量查询覆盖三大包 11 个核心 Standalone Signal 组件及选型矩阵，且多维过滤精准生效', async () => {
     // 1. 全量查询
     const allRes = await client.callTool({
       name: 'list_dotos_components',
       arguments: {},
     });
     const allPayload = parseToolTextJson<ListComponentsOutput>(allRes);
-    assert.equal(allPayload.totalCount, 10, '三大包共计 10 个核心 Standalone Signal 组件');
-    assert.ok(allPayload.decisionMatrix.length >= 8, '选型决策矩阵覆盖全部核心业务场景');
+    assert.equal(allPayload.totalCount, 11, '三大包共计 11 个核心 Standalone Signal 组件');
+    assert.ok(allPayload.decisionMatrix.length >= 9, '选型决策矩阵覆盖全部核心业务场景');
 
     const tags = allPayload.components.map((c) => c.tag);
     for (const expectedTag of [
@@ -132,6 +133,7 @@ describe('@dotos1/mcp 组件库自愈 MCP Server 端到端集成测试套件', (
       '<dui-standalone-split-dock>',
       '<dui-standalone-tree>',
       '<dui-standalone-form>',
+      '<dui-micro-app>',
       '<duix-standalone-grid>',
       '<duix-standalone-pivot-grid>',
       '<duix-standalone-gantt>',
@@ -222,7 +224,7 @@ describe('@dotos1/mcp 组件库自愈 MCP Server 端到端集成测试套件', (
       assert.ok(canvasMethods.includes(method), `xdraw 画布必须暴露 Headless 方法 ${method}`);
     }
 
-    // 4. 遍历全部 10 个官方组件验证均能解析且黄金示例 100% 合规（零 any、OnPush、Standalone）
+    // 4. 遍历全部 11 个官方组件验证均能解析且黄金示例 100% 合规（零 any、OnPush、Standalone）
     for (const selector of [
       'dui-standalone-button',
       'dui-standalone-card',
@@ -230,6 +232,7 @@ describe('@dotos1/mcp 组件库自愈 MCP Server 端到端集成测试套件', (
       'dui-standalone-split-dock',
       'dui-standalone-tree',
       'dui-standalone-form',
+      'dui-micro-app',
       'duix-standalone-grid',
       'duix-standalone-pivot-grid',
       'duix-standalone-gantt',

@@ -27,6 +27,17 @@
   search-input {
     margin-left: 4px;
     margin-right: 4px;
+    transition: width 200ms ease-in-out, margin 200ms ease-in-out;
+
+    &.search-input-expanded {
+      width: 100%;
+    }
+
+    &.search-input-collapsed {
+      width: 0%;
+      margin: 0;
+      overflow: hidden;
+    }
   }
 }
 .mat-toolbar

@@ -17,14 +17,6 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
-import {
-  trigger,
-  state,
-  style,
-  transition,
-  animate,
-  AUTO_STYLE,
-} from '@angular/animations';
 
 import { SearchInputComponent } from './search-input/search-input.component';
 import { Subject, noop} from 'rxjs';
@@ -63,26 +55,6 @@ export class SearchBoxBase {
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
-  animations: [
-    trigger('inputState', [
-      state(
-        '0',
-        style({
-          width: '0%',
-          margin: '0px',
-        })
-      ),
-      state(
-        '1',
-        style({
-          width: '100%',
-          margin: AUTO_STYLE,
-        })
-      ),
-      transition('0 => 1', animate('200ms ease-in')),
-      transition('1 => 0', animate('200ms ease-out')),
-    ]),
-  ],
   host:{
     hostID: 'search-box'+   Math.random().toString(36).substring(2, 15),
   },

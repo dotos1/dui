@@ -1,0 +1,8 @@
+{
+  "milestone": "M3",
+  "branch": "feat/ng22-m3",
+  "version": "8.0.0-next.2",
+  "noAnimations": true,
+  "mobxMajor": 6,
+  "standardClassFields": true
+}

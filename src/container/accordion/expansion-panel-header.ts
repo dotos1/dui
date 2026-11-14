@@ -4,7 +4,6 @@
  */
 
 
-import { animate, state, style, transition, trigger } from '@angular/animations';
 import { FocusMonitor } from '@angular/cdk/a11y';
 import { ENTER, SPACE } from '@angular/cdk/keycodes';
 import { filter } from 'rxjs/operators';
@@ -47,35 +46,8 @@ import type { ExpansionPanel } from './expansion-panel';
     '[class.dui-expanded]': '_isExpanded()',
     '(click)': '_toggle()',
     '(keyup)': '_keyup($event)',
-    '[@expansionHeight]': `{
-        value: _getExpandedState(),
-        params: {
-          collapsedHeight: collapsedHeight,
-          expandedHeight: expandedHeight
-        }
-    }`,
-    
+    '[style.height]': '_isExpanded() ? (expandedHeight || "48px") : (collapsedHeight || "48px")',
   },
-  animations: [
-    trigger('indicatorRotate', [
-      state('collapsed', style({ transform: 'rotate(0deg)' })),
-      state('expanded', style({ transform: 'rotate(180deg)' })),
-      transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
-    ]),
-    trigger('expansionHeight', [
-      state('collapsed', style({
-        height: '{{collapsedHeight}}',
-      }), {
-        params: { collapsedHeight: '48px' },
-      }),
-      state('expanded', style({
-        height: '{{expandedHeight}}'
-      }), {
-        params: { expandedHeight: '48px' }
-      }),
-      transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
-    ]),
-  ],
   standalone: false,
 })
 export class ExpansionPanelHeader implements OnDestroy {

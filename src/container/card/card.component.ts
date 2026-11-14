@@ -269,7 +269,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
-  @ViewChild('panel', { read: ViewContainerRef, static: false }) public override viewContainer: ViewContainerRef;
+  @ViewChild('panel', { read: ViewContainerRef, static: false }) public override viewContainer: ViewContainerRef = undefined;
 
   /**
    * Template/content query reference `actionbar` (`ViewContainerRef`) targeting actionbar.

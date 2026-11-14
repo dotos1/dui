@@ -36,19 +36,19 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
    * Template/content query reference `matTooltip` (`MatTooltip`) targeting mat tooltip.
    * @zh 模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。
    */
-  @ViewChild(MatTooltip)  override matTooltip: MatTooltip;
+  @ViewChild(MatTooltip) override matTooltip: MatTooltip = undefined;
 
   /**
-   * Input property `data` (`any`) configuring data.
-   * @zh 输入属性 `data`（类型：`any`），用于配置数据。
+   * Input property `data` (`unknown`) configuring data.
+   * @zh 输入属性 `data`（类型：`unknown`），用于配置数据。
    */
-  @Input() override data;
+  @Input() override data: unknown = undefined;
 
   /**
    * Input property `ownerCt` (`any`) configuring owner ct.
    * @zh 输入属性 `ownerCt`（类型：`any`），用于配置所属者Ct。
    */
-  @Input() override ownerCt;
+  @Input() override ownerCt = undefined;
 
   /**
    * Output event emitter `click` (`EventEmitter<any>`) firing when click occurs.
@@ -60,13 +60,13 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
    * Template/content query reference `_container` (`ViewContainerRef`) targeting container.
    * @zh 模板/内容视图查询引用 `_container`（`@ViewChild`），指向容器。
    */
-  @ViewChild('container', { read: ViewContainerRef }) public override _container: ViewContainerRef;
+  @ViewChild('container', { read: ViewContainerRef }) public override _container: ViewContainerRef = undefined;
 
   /**
    * Template/content query reference `triggers` (`QueryList<MatMenuTrigger>`) targeting triggers.
    * @zh 模板/内容视图查询引用 `triggers`（`@ViewChildren`），指向触发。
    */
-  @ViewChildren(MatMenuTrigger) override triggers: QueryList<MatMenuTrigger>;
+  @ViewChildren(MatMenuTrigger) override triggers: QueryList<MatMenuTrigger> = undefined;
 
   /**
    * Property `state` (`{ h: number; s: number; l: number; a: number; }`) storing state (default: `{ h: 150, s: 0.50, l: 0.20, a: 1, }`).

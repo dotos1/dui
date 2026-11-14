@@ -18,7 +18,7 @@ import {
  * MCP Server 默认元信息常量
  */
 export const DOTOS_MCP_SERVER_NAME = '@dotos1/mcp';
-export const DOTOS_MCP_SERVER_VERSION = '8.0.0-next.1';
+export const DOTOS_MCP_SERVER_VERSION = '8.0.0-next.2';
 
 /**
  * 创建 DOTOS MCP Server 的可选参数

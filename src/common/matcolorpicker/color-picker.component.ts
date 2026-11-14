@@ -4,7 +4,6 @@
  */
 
 import { Component, EventEmitter, forwardRef, Input, Output, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
-import { duiAnimations } from '@dotos/dui/common/animations';
 import { MatColors } from '@dotos/dui/core/color';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -29,7 +28,6 @@ export const MATERIAL_COLOR_PICKER_VALUE_ACCESSOR = {
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss'],
   changeDetection: ChangeDetectionStrategy.Default,
-  animations: duiAnimations,
   encapsulation: ViewEncapsulation.None,
   providers: [MATERIAL_COLOR_PICKER_VALUE_ACCESSOR],
   standalone: false

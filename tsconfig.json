@@ -30,7 +30,6 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
-    "useDefineForClassFields": false,
     "lib": [
       "ES2022",
       "dom"

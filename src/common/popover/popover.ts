@@ -19,15 +19,12 @@ import {
   NgZone
 } from '@angular/core';
 
-import { AnimationEvent } from '@angular/animations';
-
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { ESCAPE } from '@angular/cdk/keycodes';
 
 import { PopoverPositionX, PopoverPositionY, PopoverTriggerEvent, PopoverScrollStrategy } from './popover-types';
 import { throwPopoverInvalidPositionX, throwPopoverInvalidPositionY } from './popover-errors';
 import { PopoverPanel } from './popover-interfaces';
-import { transformPopover } from './popover-animations';
 
 
 /**
@@ -41,9 +38,6 @@ import { transformPopover } from './popover-animations';
   styleUrls: ['./popover.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
-  animations: [
-    transformPopover
-  ],
   exportAs: 'duiPopover',
   host: {hostID: 'popover' + Math.random().toString(36).substring(2, 15)},
   standalone: false,
@@ -174,9 +168,9 @@ export class Popover implements PopoverPanel, OnDestroy {
 
   /**
    * Emits the current animation state whenever it changes.
-   * @zh 属性 `_onAnimationStateChange`（类型：`EventEmitter<AnimationEvent>`），用于存储或配置当动画状态变更（默认值：`new EventEmitter<AnimationEvent>()`）。
+   * @zh 属性 `_onAnimationStateChange`，用于发出动画状态变更事件。
    */
-  _onAnimationStateChange = new EventEmitter<AnimationEvent>();
+  _onAnimationStateChange = new EventEmitter<{ phaseName: string; toState: string }>();
 
 
   /** Position of the popover in the X axis.

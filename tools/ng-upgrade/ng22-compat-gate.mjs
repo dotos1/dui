@@ -1,17 +1,24 @@
 #!/usr/bin/env node
 /**
- * Angular 22 + TypeScript 6.0 防回流门禁（ng22-compat-gate.mjs · M2-3 正式版）
+ * Angular 22 + TypeScript 6.0 + M3 防回流门禁（ng22-compat-gate.mjs · M3 增强版）
  *
  * 检查项：
  * 1. 禁止非白名单文件引入或使用 Angular 22 已删除符号（ComponentFactoryResolver, createNgModuleRef, MatCommonModule 等）。
- * 2. 守护根 tsconfig.json / tsconfig.base.json 显式声明 "useDefineForClassFields": false。
+ * 2. 类字段语义守卫：
+ *    - M2 及以前：守护根 tsconfig 声明 "useDefineForClassFields": false；
+ *    - M3（存在 tools/ng-upgrade/m3-marker.json 或 package.json 版本 >= 8.0.0-next.2）：
+ *      严禁任何 tsconfig*.json 残留 "useDefineForClassFields": false（全面解锁 ES2022 标准类字段语义）。
  * 3. Angular >= 21：严禁保留 jss / jss-plugin-* 依赖或代码导入（no-jss 门禁）。
- * 4. Angular >= 22（M2-3 新增）：
- *    - 严禁 tsconfig*.json 残留临时过渡开关 "ignoreDeprecations"（TS 6.0 零弃用警告门禁，支持 --allow-ignore-deprecations 仅用于 M2-1 第一步验证）；
+ * 4. Angular >= 22（M2-3）：
+ *    - 严禁 tsconfig*.json 残留 "ignoreDeprecations" / "baseUrl" / "downlevelIteration" / "moduleResolution": "node"；
  *    - 严禁调用 DuiBase / Dui.registerComponentFactory 双参旧重载签名；
- *    - 守护 ::ng-deep 防新增棘轮门禁（读取 tools/ng-upgrade/ng-deep-baseline.json 的 maxCount）；
- *    - 若当前仓库为底座包 dui（@dotos/dui），严禁保留 mobx / mobx-utils / observable-profiler 依赖或源码导入（M2.5-1 零 MobX 门禁）。
- * 5. 守护前端库仓库（含 ng-package.json）的 tsconfig.lib*.json 显式开启 "compilationMode": "partial"。
+ *    - 守护 ::ng-deep 防新增棘轮门禁；
+ *    - dui / ucos 严禁保留 mobx 依赖。
+ * 5. M3 新增（M3-4 & M3-6）：
+ *    - 严禁 package.json 保留 @angular/animations，严禁 TS 源码导入 @angular/animations 或 @angular/platform-browser/animations；
+ *    - 严禁 HTML / TS 模板残留 [@trigger] 或 (@trigger) 合成动画属性（防止 NG05105 运行时报错）；
+ *    - 严禁 package.json 保留 mobx 5.x（若使用 mobx 必须 >= 6.0.0）。
+ * 6. 守护前端库仓库（含 ng-package.json）的 tsconfig.lib*.json 显式开启 "compilationMode": "partial"。
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -122,13 +129,50 @@ const BANNED_PATTERNS = [
 
 const violations = [];
 
-// 1. Check tsconfig useDefineForClassFields: false
+const m3MarkerPath = path.join(repoDir, 'tools/ng-upgrade/m3-marker.json');
+let isM3Mode = fs.existsSync(m3MarkerPath) || args.includes('--m3');
+
+let isNg21Plus = false;
+let isNg22Plus = false;
+let isDuiRepo = false;
+let isUcosRepo = false;
+const pkgJsonPath = path.join(repoDir, 'package.json');
+if (fs.existsSync(pkgJsonPath)) {
+  const pkgObj = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8'));
+  isDuiRepo = pkgObj.name === 'dui' || pkgObj.name === '@dotos/dui' || pkgObj.name === '@dotos1/dui';
+  isUcosRepo = pkgObj.name === 'ucos' || pkgObj.name === '@dotos/ucos' || pkgObj.name === '@dotos1/ucos';
+  if (typeof pkgObj.version === 'string' && /^8\.0\.0-next\.([2-9]|\d{2,})|^8\.[0-9]+\.[0-9]+$/.test(pkgObj.version)) {
+    if (pkgObj.version !== '8.0.0-next.0' && pkgObj.version !== '8.0.0-next.1') {
+      isM3Mode = true;
+    }
+  }
+  const allDeps = { ...(pkgObj.dependencies || {}), ...(pkgObj.devDependencies || {}), ...(pkgObj.peerDependencies || {}) };
+  const ngCoreVer = String(allDeps['@angular/core'] || '');
+  const ngMajorMatch = ngCoreVer.match(/(\d+)/);
+  if (ngMajorMatch) {
+    const major = Number(ngMajorMatch[1]);
+    isNg21Plus = major >= 21;
+    isNg22Plus = major >= 22;
+  }
+}
+
+// 1. Check tsconfig useDefineForClassFields
 const rootTsconfigs = ['tsconfig.base.json', 'tsconfig.json']
   .map((f) => path.join(repoDir, f))
   .filter((f) => fs.existsSync(f));
 
 if (rootTsconfigs.length === 0) {
   violations.push(`[tsconfig] 未找到根 tsconfig.json 或 tsconfig.base.json`);
+} else if (isM3Mode) {
+  const allTsConfigs = walkFiles(repoDir, (name) => /^tsconfig.*\.json$/.test(name), 5);
+  for (const tf of allTsConfigs) {
+    const raw = stripComments(fs.readFileSync(tf, 'utf8'));
+    if (/"useDefineForClassFields"\s*:\s*false/.test(raw)) {
+      violations.push(
+        `[m3-standard-class-fields] ${path.relative(repoDir, tf)} 严禁残留 "useDefineForClassFields": false（M3-6 已退役 MobX 5，全面启用标准类字段语义）`,
+      );
+    }
+  }
 } else {
   let foundExplicitFalse = false;
   for (const tf of rootTsconfigs) {
@@ -147,33 +191,28 @@ if (rootTsconfigs.length === 0) {
   }
 }
 
-// 2. Version-aware gates (Angular 21+ no-jss; Angular 22+ TS 6.0 zero-deprecations, single-arg registerComponentFactory, dui no-mobx)
-let isNg21Plus = false;
-let isNg22Plus = false;
-let isDuiRepo = false;
-const pkgJsonPath = path.join(repoDir, 'package.json');
-if (fs.existsSync(pkgJsonPath)) {
-  const pkgObj = JSON.parse(fs.readFileSync(pkgJsonPath, 'utf8'));
-  isDuiRepo = pkgObj.name === 'dui' || pkgObj.name === '@dotos/dui' || pkgObj.name === '@dotos1/dui';
-  const allDeps = { ...(pkgObj.dependencies || {}), ...(pkgObj.devDependencies || {}), ...(pkgObj.peerDependencies || {}) };
-  const ngCoreVer = String(allDeps['@angular/core'] || '');
-  const ngMajorMatch = ngCoreVer.match(/(\d+)/);
-  if (ngMajorMatch) {
-    const major = Number(ngMajorMatch[1]);
-    isNg21Plus = major >= 21;
-    isNg22Plus = major >= 22;
-  }
-  if (isNg21Plus) {
-    const pkgManifests = walkFiles(repoDir, (name) => name === 'package.json', 4);
-    for (const pm of pkgManifests) {
-      const mObj = JSON.parse(fs.readFileSync(pm, 'utf8'));
-      for (const sec of ['dependencies', 'devDependencies', 'peerDependencies']) {
-        for (const depName of Object.keys(mObj[sec] || {})) {
-          if (depName === 'jss' || depName.startsWith('jss-plugin-') || depName === '@types/jss') {
-            violations.push(`[no-jss] ${path.relative(repoDir, pm)} (${sec}) 严禁保留 JSS 依赖 "${depName}"`);
-          }
-          if (isNg22Plus && isDuiRepo && (depName === 'mobx' || depName === 'mobx-utils' || depName === 'observable-profiler')) {
-            violations.push(`[dui-no-mobx] ${path.relative(repoDir, pm)} (${sec}) 严禁保留 MobX 依赖 "${depName}"`);
+// 2. Version-aware package.json checks
+if (isNg21Plus) {
+  const pkgManifests = walkFiles(repoDir, (name) => name === 'package.json', 4);
+  for (const pm of pkgManifests) {
+    const relPm = path.relative(repoDir, pm).replace(/\\/g, '/');
+    const mObj = JSON.parse(fs.readFileSync(pm, 'utf8'));
+    for (const sec of ['dependencies', 'devDependencies', 'peerDependencies']) {
+      for (const [depName, depVer] of Object.entries(mObj[sec] || {})) {
+        if (depName === 'jss' || depName.startsWith('jss-plugin-') || depName === '@types/jss') {
+          violations.push(`[no-jss] ${relPm} (${sec}) 严禁保留 JSS 依赖 "${depName}"`);
+        }
+        if (isNg22Plus && (isDuiRepo || (isM3Mode && isUcosRepo)) && (depName === 'mobx' || depName === 'mobx-utils' || depName === 'observable-profiler')) {
+          violations.push(`[no-mobx] ${relPm} (${sec}) 严禁保留 MobX 依赖 "${depName}"`);
+        }
+        if (isM3Mode && depName === '@angular/animations') {
+          violations.push(`[m3-no-animations] ${relPm} (${sec}) 严禁保留 "@angular/animations" 依赖`);
+        }
+        if (isM3Mode && (depName === 'mobx' || depName === 'mobx-utils')) {
+          const verStr = String(depVer);
+          const m = verStr.match(/(\d+)/);
+          if (m && Number(m[1]) < 6) {
+            violations.push(`[m3-mobx6] ${relPm} (${sec}) 严禁保留旧版 ${depName}@${verStr}（必须 >= 6.0.0）`);
           }
         }
       }
@@ -193,9 +232,9 @@ if (isNg22Plus) {
     name: 'registerComponentFactory 双参旧重载（M2-3 已清理，仅允许单参 [components]）',
     re: /\bregisterComponentFactory\s*\(\s*(?!\[|this\.(?:entryComponents|dynamicComponents)\s*\))[^,\n)]+,/,
   });
-  if (isDuiRepo) {
+  if (isDuiRepo || (isM3Mode && isUcosRepo)) {
     BANNED_PATTERNS.push({
-      name: 'mobx (@dotos/dui M2.5-1 已彻底清退 MobX)',
+      name: 'mobx (已彻底清退 MobX)',
       re: /from\s*['"](?:mobx|mobx-utils)['"]/,
     });
   }
@@ -217,6 +256,13 @@ if (isNg22Plus) {
       }
     }
   }
+}
+
+if (isM3Mode) {
+  BANNED_PATTERNS.push({
+    name: '@angular/animations 或 @angular/platform-browser/animations（M3-4 已彻底清退）',
+    re: /from\s*['"]@angular\/(?:animations|platform-browser\/animations)(?:\/[^'"]*)?['"]/,
+  });
 }
 
 // 3. Check ::ng-deep ratchet baseline (M2-3)
@@ -269,7 +315,7 @@ if (ngPkgFiles.length > 0) {
   }
 }
 
-// 5. Scan TS source files
+// 5. Scan TS source files (and HTML templates in M3 mode for synthetic [@trigger] bindings)
 const tsFiles = walkFiles(repoDir, (name) => name.endsWith('.ts') && !name.endsWith('.d.ts'));
 for (const file of tsFiles) {
   const rel = path.relative(repoDir, file).replace(/\\/g, '/');
@@ -283,6 +329,29 @@ for (const file of tsFiles) {
       const idx = stripped.indexOf(m[0]);
       const line = stripped.slice(0, idx).split('\n').length;
       violations.push(`${rel}:${line} -> 禁止使用 ${rule.name}`);
+    }
+  }
+  if (isM3Mode) {
+    const trigMatch = stripped.match(/\[@[a-zA-Z][a-zA-Z0-9_.]*\]|\(@[a-zA-Z][a-zA-Z0-9_.]*\)/);
+    if (trigMatch) {
+      const idx = stripped.indexOf(trigMatch[0]);
+      const line = stripped.slice(0, idx).split('\n').length;
+      violations.push(`${rel}:${line} -> [m3-no-animations] 严禁残留合成动画绑定 ${trigMatch[0]}`);
+    }
+  }
+}
+
+if (isM3Mode) {
+  const htmlFiles = walkFiles(repoDir, (name) => name.endsWith('.html'));
+  for (const hf of htmlFiles) {
+    const rel = path.relative(repoDir, hf).replace(/\\/g, '/');
+    if (rel.startsWith('tools/') || rel.startsWith('projects/testdui/src/app/docs/')) continue;
+    const html = fs.readFileSync(hf, 'utf8').replace(/<!--[\s\S]*?-->/g, '');
+    const trigMatch = html.match(/\[@[a-zA-Z][a-zA-Z0-9_.]*\]|\(@[a-zA-Z][a-zA-Z0-9_.]*\)|\s@[a-zA-Z][a-zA-Z0-9_]*\s*=/);
+    if (trigMatch) {
+      const idx = html.indexOf(trigMatch[0]);
+      const line = html.slice(0, idx).split('\n').length;
+      violations.push(`${rel}:${line} -> [m3-no-animations] HTML 模板严禁残留合成动画绑定 ${trigMatch[0].trim()}`);
     }
   }
 }
@@ -299,5 +368,5 @@ if (violations.length > 0) {
 }
 
 console.log(
-  `[ng22-compat-gate] PASS (${path.basename(repoDir)}: 已扫描 ${tsFiles.length} 个 TS 文件，Ng22=${isNg22Plus}，白名单豁免 ${allowSet.size} 个)`,
+  `[ng22-compat-gate] PASS (${path.basename(repoDir)}: 已扫描 ${tsFiles.length} 个 TS 文件，Ng22=${isNg22Plus}, M3=${isM3Mode}，白名单豁免 ${allowSet.size} 个)`,
 );

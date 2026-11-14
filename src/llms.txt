@@ -1,14 +1,15 @@
 # @dotos/dui v8 (Angular 22 Zoneless + Signals + M3 Design System)
 
-> Enterprise-grade Angular 22 UI Foundation Library (`@dotos/dui@8.0.0-next.1`).
-> 面向欧美与全球大型企业客户的下一代高密度工业/企业级 Angular 22 UI 底座库。
+> Enterprise-grade Angular 22 UI Foundation Library (`@dotos/dui@8.0.0-next.2`).
+> 面向欧美与全球大型企业客户的下一代高密度工业/企业级 Angular 22 UI 底座库（零 `@angular/animations`、多框架微前端桥接、AOT 动态卡片）。
 
 ## Quick Architecture Rules / 核心架构准则
 
-1. **100% Standalone + Signals + OnPush + Zoneless** for all new features and AI-generated components (`@dotos/dui/standalone` & `@dotos/dui/schema`).
+1. **100% Standalone + Signals + OnPush + Zoneless** for all new features and AI-generated components (`@dotos/dui/standalone`, `@dotos/dui/micro-app` & `@dotos/dui/schema`).
 2. **Bootstrap**: Register `provideDuiZoneless()` from `@dotos/dui/standalone` in `bootstrapApplication(AppComponent, { providers: [provideDuiZoneless()] })`.
-3. **Zero `any` Schema Driven Forms**: Validate every declarative form config with `validateDuiFormSchema(raw)` from `@dotos/dui/schema` before rendering `<dui-standalone-form>`.
-4. **Pure CSS Grid / Flexbox + M3 Tokens**: Style components with `--dui-*` and `--mat-sys-*` CSS custom properties across `light`, `dark`, and `darkblue` industrial themes.
+3. **Zero `@angular/animations`**: Never import `@angular/animations` or `BrowserAnimationsModule`, and never write `[@trigger]` synthetic bindings; use native CSS `@keyframes` / `transition` / Web Animations API.
+4. **Zero `any` Schema Driven Forms**: Validate every declarative form config with `validateDuiFormSchema(raw)` from `@dotos/dui/schema` before rendering `<dui-standalone-form>`.
+5. **Pure CSS Grid / Flexbox + M3 Tokens**: Style components with `--dui-*` and `--mat-sys-*` CSS custom properties across `light`, `dark`, and `darkblue` industrial themes.
 
 ## Five Strict Anti-Pattern Bans / 五大反模式禁令
 
@@ -28,6 +29,8 @@
 | Enterprise Split Dock Workspace / 高密度停靠分栏 | `@dotos/dui/standalone` | `<dui-standalone-split-dock>` | `DuiSplitDockComponent` |
 | WAI-ARIA Signal Tree Navigation / 零 MobX 层级树 | `@dotos/dui/standalone` | `<dui-standalone-tree>` | `DuiTreeViewComponent` |
 | Zero-`any` Schema Form / 声明式企业表单 | `@dotos/dui/standalone` + `@dotos/dui/schema` | `<dui-standalone-form>` | `DuiSchemaFormComponent`, `validateDuiFormSchema` |
+| Multi-Framework Micro-Frontend Bridge / 跨框架微前端容器 | `@dotos/dui/micro-app` (or `@dotos/dui/standalone`) | `<dui-micro-app>` | `DuiMicroAppComponent`, `DuiMicroAppEventBus` |
+| AOT Card Schema & Safe Micro-Template / 动态卡片渲染 | `@dotos/dui/core/dynamic` | `<dui-dynamic>` | `DynamicComponent`, `DuiDynamicCardSchema` |
 | Zoneless App Bootstrap / 无 Zone 启动器 | `@dotos/dui/standalone` | — | `provideDuiZoneless()` |
 
 ## Packaged AI Resources / 随包内置 AI 资源

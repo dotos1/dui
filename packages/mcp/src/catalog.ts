@@ -56,7 +56,7 @@ export const DOTOS_ANTI_PATTERN_BANS: readonly AntiPatternRule[] = [
 ];
 
 /**
- * 三大包全量核心 Standalone Signal 组件目录（共 10 个核心组件）
+ * 三大包全量核心 Standalone Signal 组件目录（共 11 个核心组件）
  */
 export const DOTOS_COMPONENT_CATALOG: readonly ComponentCatalogEntry[] = [
   {
@@ -1445,7 +1445,175 @@ export class ScadaTopologyViewComponent {
     this.canvasRef().autoLayout('dagre');
     this.canvasRef().highlightNodes(['plc-01']);
     this.canvasRef().fitView(24);
-    return this.canvasRef().exportSvg();
+      return this.canvasRef().exportSvg();
+    }
+  }`,
+  },
+  {
+    packageName: '@dotos/dui',
+    licenseTier: 'MIT Open Source',
+    standaloneImportPath: '@dotos/dui/standalone',
+    schemaImportPath: '@dotos/dui/micro-app',
+    selector: 'dui-micro-app',
+    tag: '<dui-micro-app>',
+    className: 'DuiMicroAppComponent',
+    aliases: [
+      'micro-app',
+      'microapp',
+      'duimicroapp',
+      'duimicroappcomponent',
+      'dui-standalone-micro-app',
+      'micro-frontend',
+    ],
+    category: 'layout-dock',
+    zonelessCompatible: true,
+    scenarios: [
+      '跨框架微前端嵌入（在 Angular 22 Zoneless 宿主中挂载 React 18/19、Vue 3 或跨大版本 Angular ESM 子应用）',
+      'Native Federation（Import Maps / remoteEntry.json）与 Webpack Module Federation 渐进迁移桥接',
+      '宿主 M3 --mat-sys-* / --dui-* 主题令牌自动穿透（含 Shadow DOM 样式隔离）与跨框架事件互通',
+    ],
+    recommendation:
+      '需要在主工作台嵌入独立部署的 React/Vue/跨版本 Angular 微服务并共享 M3 主题变量、多语言、登录态与事件总线时，首选 <dui-micro-app>。',
+    signalContracts: [
+      {
+        name: 'remote',
+        kind: 'input',
+        required: true,
+        typeSignature: 'InputSignal<DuiMicroAppRemoteDescriptor>',
+        description: "远程微应用协议描述符（支持 'esm-mount' | 'native-federation' | 'webpack-mf'）",
+      },
+      {
+        name: 'props',
+        kind: 'input',
+        required: false,
+        typeSignature: 'InputSignal<Record<string, unknown>>',
+        defaultValue: '{}',
+        description: '同步注入至微应用上下文并在变化时触发 update(el, context) 的业务参数字典',
+      },
+      {
+        name: 'authToken',
+        kind: 'input',
+        required: false,
+        typeSignature: 'InputSignal<string | null>',
+        defaultValue: 'null',
+        description: '注入给远程微应用的当前用户 Bearer 认证令牌',
+      },
+      {
+        name: 'locale',
+        kind: 'input',
+        required: false,
+        typeSignature: 'InputSignal<string>',
+        defaultValue: "'zh_CN'",
+        description: '当前语言区域代码（切换时响应式触发微应用 update）',
+      },
+      {
+        name: 'useShadowDom',
+        kind: 'input',
+        required: false,
+        typeSignature: 'InputSignal<boolean>',
+        defaultValue: 'false',
+        description: '是否开启开放式 ShadowRoot 样式隔离并自动穿透注入 M3 CSS 变量',
+      },
+      {
+        name: 'mounted',
+        kind: 'output',
+        required: false,
+        typeSignature: 'OutputEmitterRef<void>',
+        description: '远程微应用完成首次加载与挂载时触发',
+      },
+      {
+        name: 'loadError',
+        kind: 'output',
+        required: false,
+        typeSignature: 'OutputEmitterRef<unknown>',
+        description: '远程模块加载或挂载生命周期抛错时触发',
+      },
+      {
+        name: 'microEvent',
+        kind: 'output',
+        required: false,
+        typeSignature: 'OutputEmitterRef<{ topic: string; payload: unknown }>',
+        description: '接收 DuiMicroAppEventBus 及外部 CustomEvent("dui:micro-app-event") 的跨框架消息',
+      },
+    ],
+    headlessCommands: [
+      {
+        method: 'DuiMicroAppEventBus.emit',
+        signature: 'emit<TPayload = unknown>(topic: string, payload: TPayload): void',
+        returnType: 'void',
+        description: '向同进程订阅者与浏览器 window CustomEvent("dui:micro-app-event") 广播强类型跨框架事件',
+      },
+      {
+        method: 'DuiMicroAppEventBus.on',
+        signature: 'on<TPayload = unknown>(topic: string, handler: (payload: TPayload) => void): () => void',
+        returnType: '() => void',
+        description: '订阅指定主题的微前端消息并返回取消订阅清理函数',
+      },
+    ],
+    cssTokens: [
+      {
+        token: '--mat-sys-surface',
+        fallback: '#faf9fd',
+        description: '自动同步并穿透至微应用挂载容器（含 ShadowRoot）的 M3 表面背景色',
+      },
+      {
+        token: '--dui-primary',
+        fallback: 'var(--mat-sys-primary, #00897b)',
+        description: '自动同步至微应用宿主容器的品牌主色令牌',
+      },
+    ],
+    goldenExampleTs: `import { ChangeDetectionStrategy, Component, inject, signal } from '@angular/core';
+import {
+  DuiMicroAppComponent,
+  DuiMicroAppEventBus,
+  type DuiMicroAppRemoteDescriptor,
+} from '@dotos/dui/standalone';
+
+@Component({
+  selector: 'app-ai-copilot-island',
+  standalone: true,
+  imports: [DuiMicroAppComponent],
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  styles: \`
+    :host {
+      display: block;
+      min-height: 360px;
+      border: 1px solid var(--mat-sys-outline-variant, #c4c6d0);
+      border-radius: 12px;
+    }
+  \`,
+  template: \`
+    <dui-micro-app
+      [remote]="copilotRemote()"
+      [props]="islandProps()"
+      [locale]="activeLocale()"
+      [useShadowDom]="true"
+      (microEvent)="onIslandMessage($event)"
+    />
+  \`,
+})
+export class AiCopilotIslandComponent {
+  private readonly eventBus = inject(DuiMicroAppEventBus);
+
+  protected readonly activeLocale = signal<string>('zh_CN');
+  protected readonly islandProps = signal<Record<string, unknown>>({
+    workstationId: 'WS-LINE-04',
+  });
+
+  protected readonly copilotRemote = signal<DuiMicroAppRemoteDescriptor>({
+    protocol: 'esm-mount',
+    name: 'react-copilot-island',
+    entryUrl: '/remotes/copilot-island/index.mjs',
+  });
+
+  protected notifyRefresh(): void {
+    this.eventBus.emit('workstation:refresh', { timestamp: Date.now() });
+  }
+
+  protected onIslandMessage(evt: { topic: string; payload: unknown }): void {
+    if (evt.topic === 'copilot:ready') {
+      this.notifyRefresh();
+    }
   }
 }`,
   },
@@ -1517,6 +1685,13 @@ const SELECTION_DECISION_MATRIX: readonly SelectionDecisionRow[] = [
     importEntry: '@dotos/dui/standalone',
     category: 'feedback',
     rationale: 'MIT 开源核心交互基石，内置 Material 3 令牌体系与无障碍交互保障。',
+  },
+  {
+    scenarioRequirement: '跨框架微前端嵌入（React 18/19、Vue 3、Native Federation / Webpack MF 子应用）',
+    recommendedTag: '<dui-micro-app>',
+    importEntry: '@dotos/dui/standalone',
+    category: 'layout-dock',
+    rationale: '统一桥接 esm-mount / native-federation / webpack-mf 协议，自动同步 M3 主题令牌与 DuiMicroAppEventBus 跨框架事件总线。',
   },
 ];
 
@@ -1766,6 +1941,12 @@ export function executeGetComponentApiAndExample(rawComponent: string): GetCompo
           if (
             /(layout|split|dock|flex)/.test(normalizedTarget) &&
             entry.selector === 'dui-standalone-split-dock'
+          ) {
+            return 1;
+          }
+          if (
+            /(micro|federation|island|remote|react|vue)/.test(normalizedTarget) &&
+            entry.selector === 'dui-micro-app'
           ) {
             return 1;
           }

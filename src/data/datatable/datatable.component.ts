@@ -373,16 +373,10 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
 
    * @zh 输入属性 `messages`（类型：`{ emptyMessage: any; totalMessage: any; selectedMessage: any; }`），用于配置消息列表。
    */
-  @Input() messages = {
-    // Message to show when array is presented
-    // but contains no values
-    emptyMessage: this.translateService.instant('DATATABLE.EMPTYMESSAGE'),
-
-    // Footer total message
-    totalMessage: this.translateService.instant('DATATABLE.TOTAL'),
-
-    // Footer selected message
-    selectedMessage: this.translateService.instant('DATATABLE.SELECTED'),
+  @Input() messages: {
+    emptyMessage?: string;
+    totalMessage?: string;
+    selectedMessage?: string;
   };
   /**
    * This will be used when displaying or selecting rows.
@@ -900,6 +894,11 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
     // get ref to elm for measuring
     this.element = elementRef.nativeElement;
     this.rowDiffer = differs.find({}).create();
+    this.messages = {
+      emptyMessage: this.translateService.instant('DATATABLE.EMPTYMESSAGE'),
+      totalMessage: this.translateService.instant('DATATABLE.TOTAL'),
+      selectedMessage: this.translateService.instant('DATATABLE.SELECTED'),
+    };
 
     // apply global settings from Module.forRoot
     // if (this.configuration && this.configuration.messages) {

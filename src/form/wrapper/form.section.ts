@@ -6,7 +6,6 @@
 import { Component, Inject, Optional, Input, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 import { FieldType } from '@dotos/dui/core/form';
 import { FormBuilder, FieldConfig, FORM_CONFIG } from '@dotos/dui/core/form';
-import { CollapseAnimation } from '@dotos/dui/common/animations';
 import { isUndefined } from '@dotos/dui/base';
 
 /**
@@ -17,7 +16,6 @@ import { isUndefined } from '@dotos/dui/base';
   selector: 'form-section',
   templateUrl: './form-section.html',
   styleUrls: ['./form-section.scss'],
-  animations: [CollapseAnimation],
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: { 
     hostID: 'form-section' + Math.random().toString(36).substring(2, 15),

@@ -20,6 +20,7 @@ import { FontLoaderService } from './font-loader.service';
     <dui-icon id="a" value="home" style="color: red; margin: 2px"></dui-icon>
     <dui-icon id="b" value="home" [iconStyle]="{ color: 'blue' }"></dui-icon>
   `,
+  standalone: false,
 })
 class HostComponent {}
 

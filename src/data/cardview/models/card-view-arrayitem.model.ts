@@ -42,7 +42,7 @@ export class CardViewArrayItemModel extends CardViewBaseItemModel implements Car
    * Property `value` (`Observable<CardViewArrayItem[]>`) storing value.
    * @zh 属性 `value`（类型：`Observable<CardViewArrayItem[]>`），用于存储或配置值。
    */
-  override value: Observable<CardViewArrayItem[]>;
+  declare value: Observable<CardViewArrayItem[]>;
   /**
    * Property `noOfItemsToDisplay` (`number`) storing no of items to display.
    * @zh 属性 `noOfItemsToDisplay`（类型：`number`），用于存储或配置no的条目列表转换为Display。
