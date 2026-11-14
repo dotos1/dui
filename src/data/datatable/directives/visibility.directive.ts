@@ -11,7 +11,7 @@ import {
  * Angular directive `VisibilityDirective` (selector: '[visibilityObserver]') attaching visibility directive behavior to host DOM elements.
  * @zh Angular 指令 `VisibilityDirective`（selector: '[visibilityObserver]'），为宿主 DOM 元素附加Visibility指令行为。
  */
-@Directive({ selector: '[visibilityObserver]' })
+@Directive({ selector: '[visibilityObserver]', standalone: false })
 export class VisibilityDirective implements OnInit, OnDestroy {
   /**
    * Host binding `isVisible` bound to host attribute/property `class.visible` for is visible.

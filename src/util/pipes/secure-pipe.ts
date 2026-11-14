@@ -19,7 +19,7 @@ import { map, shareReplay, takeUntil } from 'rxjs/operators';
  * URL 变化时释放上一个，销毁时释放最后一个。不释放的话浏览器会一直持有对应 blob
  * 直到文档卸载（图片场景通常是 MB 级）。
  */
-@Pipe({ name: 'secure' })
+@Pipe({ name: 'secure', standalone: false })
 export class SecurePipe implements PipeTransform, OnDestroy {
     /**
      * Property `objectUrl` (`string`) storing object url.

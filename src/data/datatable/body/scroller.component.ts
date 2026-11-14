@@ -21,7 +21,8 @@ import {
   host: {
     class: 'datatable-scroll'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class ScrollerComponent implements OnInit, OnDestroy {
   /**

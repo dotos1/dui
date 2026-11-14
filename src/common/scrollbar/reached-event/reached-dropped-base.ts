@@ -37,7 +37,7 @@ type EventAction = {
  * Angular directive `ReachedDroppedBase` attaching reached dropped base behavior to host DOM elements.
  * @zh Angular 指令 `ReachedDroppedBase`，为宿主 DOM 元素附加ReachedDropped基础行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class ReachedDroppedBase implements OnInit, OnDestroy {
 
   /**

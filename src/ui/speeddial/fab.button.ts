@@ -33,7 +33,8 @@ import {isString}  from 'lodash-es';
     '[style.display]': 'display',
     hostID: 'dui-fab-button' + Math.random().toString(36).substring(2, 15),
   },
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
+  standalone: false
 })
 export class FabButtonComponent extends ComponentBase implements OnChanges,DoCheck{
 

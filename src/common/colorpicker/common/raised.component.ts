@@ -62,6 +62,7 @@ export type zDepth = 0 | 1 | 2 | 3 | 4 | 5;
   `],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 /**

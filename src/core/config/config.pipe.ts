@@ -12,7 +12,8 @@ import { ConfigService } from './config.service';
  * @zh Angular 管道 `ConfigPipe`（name: 'config'），在模板中转换数据以用于配置管道展示。
  */
 @Pipe({
-  name: 'config'
+  name: 'config',
+  standalone: false
 })
 export class ConfigPipe implements PipeTransform {
   /**

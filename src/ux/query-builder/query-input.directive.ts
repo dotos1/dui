@@ -9,7 +9,7 @@ import { Directive, Input, TemplateRef } from '@angular/core';
  * Angular directive `QueryInputDirective` (selector: '[queryInput]') attaching query input directive behavior to host DOM elements.
  * @zh Angular 指令 `QueryInputDirective`（selector: '[queryInput]'），为宿主 DOM 元素附加查询输入属性指令行为。
  */
-@Directive({selector: '[queryInput]'})
+@Directive({selector: '[queryInput]', standalone: false})
 export class QueryInputDirective {
   /**
    * Unique name for query input type.

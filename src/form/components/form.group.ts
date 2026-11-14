@@ -20,6 +20,7 @@ import { FieldConfig, FieldType } from '@dotos/dui/core/form';
     hostID: 'form-group' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class FormGroup extends FieldType {
   /**

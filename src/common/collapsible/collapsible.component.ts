@@ -14,6 +14,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   templateUrl: './collapsible.component.html',
   styleUrls: ['./collapsible.component.scss'],
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
 })
 
 export class CollapsibleComponent {

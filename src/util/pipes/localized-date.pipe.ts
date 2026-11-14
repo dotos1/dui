@@ -14,7 +14,8 @@ import { TranslationService } from '@dotos/dui/translator';
  */
 @Pipe({
   name: 'LocalizedDate',
-  pure: false
+  pure: false,
+  standalone: false
 })
 export class LocalizedDatePipe implements PipeTransform {
 

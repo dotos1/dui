@@ -30,7 +30,8 @@ import { SelectionType } from './types';
   templateUrl: './datatable.card.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.Default,
-  providers:[TranslatePipe]
+  providers:[TranslatePipe],
+  standalone: false
 })
 
 export class DatatableCardComponent extends DuiCardComponent implements OnChanges{

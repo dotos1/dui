@@ -34,6 +34,7 @@ import { HSLA, RGBA } from './helpers/color.interfaces';
   styleUrls: ['./alpha.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 /**

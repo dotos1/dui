@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `QueryRemoveButtonDirective` (selector: '[queryRemoveButton]') attaching query remove button directive behavior to host DOM elements.
  * @zh Angular 指令 `QueryRemoveButtonDirective`（selector: '[queryRemoveButton]'），为宿主 DOM 元素附加查询移除按钮指令行为。
  */
-@Directive({selector: '[queryRemoveButton]'})
+@Directive({selector: '[queryRemoveButton]', standalone: false})
 export class QueryRemoveButtonDirective {
   /**
    * Creates an instance of `QueryRemoveButtonDirective` and initializes its dependencies and internal state.

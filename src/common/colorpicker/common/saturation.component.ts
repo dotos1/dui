@@ -66,6 +66,7 @@ import { HSLA, HSVA, HSVAsource } from './helpers/color.interfaces';
   ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 /**

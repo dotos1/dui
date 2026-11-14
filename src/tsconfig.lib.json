@@ -7,8 +7,18 @@
     "sourceMap": true,
     "inlineSources": true,
     "types": [],
-    "resolveJsonModule": true,
+    "resolveJsonModule": true
   },
-  "include": ["**/*.ts"],
-  "exclude": ["node_modules", "build/**/*", "jest.config.ts", "**/*.spec.ts"]
+  "include": [
+    "**/*.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "build/**/*",
+    "jest.config.ts",
+    "**/*.spec.ts"
+  ],
+  "angularCompilerOptions": {
+    "compilationMode": "partial"
+  }
 }

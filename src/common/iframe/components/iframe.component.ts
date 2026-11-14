@@ -68,7 +68,8 @@ import { DomSanitizer } from '@angular/platform-browser';
             z-index: -1;
             left: 0;
         }
-    `]
+    `],
+  standalone: false
 })
 export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestroy {
   /**

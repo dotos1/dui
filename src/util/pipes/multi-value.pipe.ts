@@ -11,7 +11,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  * Angular pipe `MultiValuePipe` (name: 'multiValue') transforming values for multi value pipe display in templates.
  * @zh Angular 管道 `MultiValuePipe`（name: 'multiValue'），在模板中转换数据以用于多值管道展示。
  */
-@Pipe({ name: 'multiValue' })
+@Pipe({ name: 'multiValue', standalone: false })
 export class MultiValuePipe implements PipeTransform {
 
     /**

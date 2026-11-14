@@ -54,7 +54,8 @@ export interface IPageChangeEvent {
   selector: 'dui-paging-bar',
   templateUrl: './paging-bar.component.html',
   styleUrls: ['./paging-bar.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class DuiPagingBarComponent {
 

@@ -17,6 +17,7 @@ import { TextFieldComponent } from './textfield.component';
   host: {
     hostID: 'display-field' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 export class DisplayFieldComponent extends TextFieldComponent {
 

@@ -172,6 +172,7 @@ function addIdsToHeadings(html: string): string {
   selector: 'dui-markdown',
   styleUrls: ['./markdown.component.scss'],
   templateUrl: './markdown.component.html',
+  standalone: false,
 })
 export class MarkdownComponent
   implements OnChanges, AfterViewInit, OnDestroy

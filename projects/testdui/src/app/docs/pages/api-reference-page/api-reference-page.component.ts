@@ -21,6 +21,7 @@ import { preferZh } from '../../util/i18n-text';
   selector: 'app-api-reference-page',
   templateUrl: './api-reference-page.component.html',
   styleUrls: ['./api-reference-page.component.scss'],
+  standalone: false,
 })
 export class ApiReferencePageComponent {
   /**

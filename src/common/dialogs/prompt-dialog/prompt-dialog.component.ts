@@ -29,6 +29,7 @@ import { ThemeService } from '@dotos/dui/theme';
   selector: 'dui-prompt-dialog',
   templateUrl: './prompt-dialog.component.html',
   styleUrls: ['./prompt-dialog.component.scss'],
+  standalone: false,
 
 })
 export class PromptDialogComponent implements AfterViewInit, OnDestroy {

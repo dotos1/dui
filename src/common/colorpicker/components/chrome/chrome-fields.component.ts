@@ -144,7 +144,8 @@ import { TinyColor } from '@dotos/dui/core/color';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-    host: { 'hostID': 'color-chrome-fields-' + Math.random().toString(36).substring(2, 15) }
+    host: { 'hostID': 'color-chrome-fields-' + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 /**
  * Editable hex/rgb/hsl input fields with a view toggle, used by {@link ChromeComponent}.

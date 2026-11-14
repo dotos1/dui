@@ -25,7 +25,8 @@ import { coerceBoolean } from '@dotos/dui/core/decorators';
       useExisting: forwardRef(() => ToggleSelectComponent),
       multi: true
     }
-  ]
+  ],
+  standalone: false
 })
 export class ToggleSelectComponent extends _ToggleBase implements ControlValueAccessor {
 

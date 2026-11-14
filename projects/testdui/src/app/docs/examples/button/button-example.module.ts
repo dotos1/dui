@@ -27,6 +27,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <h3>示例代码</h3>
     <dui-highlight [content]="exampleSource" [codeLang]="'html'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
+  standalone: false,
 })
 export class ButtonExampleComponent {
   /**

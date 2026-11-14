@@ -11,7 +11,7 @@ import {FieldConfig } from '../models/field.config';
  * Angular directive `FieldType` attaching field type behavior to host DOM elements.
  * @zh Angular 指令 `FieldType`，为宿主 DOM 元素附加字段类型行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class FieldType<F extends FieldConfig = FieldConfig> {
 
   /**

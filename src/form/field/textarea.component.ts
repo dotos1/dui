@@ -20,7 +20,8 @@ import { MAT_INPUT_VALUE_ACCESSOR } from '@angular/material/input';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host:{
     hostID: 'textarea-field' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class TextAreaComponent extends TextFieldComponent {
   /**

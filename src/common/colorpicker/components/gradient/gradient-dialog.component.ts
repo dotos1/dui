@@ -29,6 +29,7 @@ import {GradientComponent} from './gradient.component'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 export class GradientDialogComponent  {

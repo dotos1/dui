@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `QuerySwitchGroupDirective` (selector: '[querySwitchGroup]') attaching query switch group directive behavior to host DOM elements.
  * @zh Angular 指令 `QuerySwitchGroupDirective`（selector: '[querySwitchGroup]'），为宿主 DOM 元素附加查询切换开关分组指令行为。
  */
-@Directive({selector: '[querySwitchGroup]'})
+@Directive({selector: '[querySwitchGroup]', standalone: false})
 export class QuerySwitchGroupDirective {
   /**
    * Creates an instance of `QuerySwitchGroupDirective` and initializes its dependencies and internal state.

@@ -16,7 +16,8 @@ import { AbstractPanel } from './abstract.panel';
   templateUrl: './panel.component.html',
   host: {
     '[style.flex]': 'flex'
-  }
+  },
+  standalone: false
 })
 export class DuiPanelComponent  extends AbstractPanel  implements OnInit, OnDestroy {
 

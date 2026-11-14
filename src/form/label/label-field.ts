@@ -16,7 +16,8 @@ import { Component, ChangeDetectionStrategy, } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     hostID: 'label-field' + Math.random().toString(36).substring(2, 15),  
-  }
+  },
+  standalone: false
 })
 export class LabelField {
   /**

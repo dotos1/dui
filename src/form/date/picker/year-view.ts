@@ -17,7 +17,7 @@ import {
 } from "@angular/core";
 import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos/dui/form/date/adapter";
 
-import {MatDatetimepickerType} from "./datetimepicker";
+import {MatDatetimepickerType} from "./datetimepicker-type";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 import {MatDatetimepickerCalendarCell} from "./calendar-body";
 import {slideCalendar} from "./datetimepicker-animations";
@@ -36,7 +36,8 @@ import {slideCalendar} from "./datetimepicker-animations";
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     hostID: "mat-datetimepicker-year-view" + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class MatDatetimepickerYearView<D> implements AfterContentInit {
 

@@ -21,7 +21,7 @@ import {  takeUntil } from 'rxjs/operators';
  * @zh 标记 `dui-dialog` 内容投影中的标题区域。
  * @zh 标记 `dui-dialog` 内容投影中的标题区域。
  */
-@Directive({ selector: '[duiDialogTitle]' })
+@Directive({ selector: '[duiDialogTitle]', standalone: false })
 
 export class duiDialogTitleDirective {}
 
@@ -30,7 +30,7 @@ export class duiDialogTitleDirective {}
  * @zh 标记 `dui-dialog` 内容投影中的主体内容区域。
  * @zh 标记 `dui-dialog` 内容投影中的主体内容区域。
  */
-@Directive({ selector: '[duiDialogContent]' })
+@Directive({ selector: '[duiDialogContent]', standalone: false })
 export class duiDialogContentDirective {}
 
 /**
@@ -38,7 +38,7 @@ export class duiDialogContentDirective {}
  * @zh 标记 `dui-dialog` 内容投影中的操作按钮区域。
  * @zh 标记 `dui-dialog` 内容投影中的操作按钮区域。
  */
-@Directive({ selector: '[duiDialogActions]' })
+@Directive({ selector: '[duiDialogActions]', standalone: false })
 export class duiDialogActionsDirective {}
 
 /**
@@ -46,7 +46,7 @@ export class duiDialogActionsDirective {}
  * @zh 标记 `dui-dialog` 内容投影中的状态提示区域。
  * @zh 标记 `dui-dialog` 内容投影中的状态提示区域。
  */
-@Directive({ selector: '[duiDialogStatus]' })
+@Directive({ selector: '[duiDialogStatus]', standalone: false })
 export class duiDialogStatusDirective {}
 
 /**
@@ -60,6 +60,7 @@ export class duiDialogStatusDirective {}
   selector: 'dui-dialog',
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
+  standalone: false,
 
 })
 export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{

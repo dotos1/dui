@@ -37,7 +37,8 @@ export const dock_LAYOUT_TAG_NAME = "dock-layout-host";
   selector: dock_LAYOUT_TAG_NAME,
   template: "",
   styleUrls: ['./dock-layout-base.scss','./dock-layout-theme.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  standalone: false
 })
 export class DockLayoutHostComponent implements OnInit,OnDestroy {
   /**

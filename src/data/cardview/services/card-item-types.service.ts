@@ -6,11 +6,13 @@
 
 import { Injectable, Type } from '@angular/core';
 import { DynamicComponentMapper, DynamicComponentResolveFunction, DynamicComponentResolver } from '@dotos/dui/core/services';
-import { 
-  CardViewDateItemComponent,CardViewMapItemComponent,CardViewTextItemComponent,
-  CardViewSelectItemComponent,CardViewBoolItemComponent,CardViewKeyValuePairsItemComponent,
-  CardViewArrayItemComponent
- } from '../components';
+import { CardViewArrayItemComponent } from '../components/card-view-arrayitem/card-view-arrayitem.component';
+import { CardViewBoolItemComponent } from '../components/card-view-boolitem/card-view-boolitem.component';
+import { CardViewDateItemComponent } from '../components/card-view-dateitem/card-view-dateitem.component';
+import { CardViewKeyValuePairsItemComponent } from '../components/card-view-keyvaluepairsitem/card-view-keyvaluepairsitem.component';
+import { CardViewMapItemComponent } from '../components/card-view-mapitem/card-view-mapitem.component';
+import { CardViewSelectItemComponent } from '../components/card-view-selectitem/card-view-selectitem.component';
+import { CardViewTextItemComponent } from '../components/card-view-textitem/card-view-textitem.component';
  
 /**
  * Injectable Angular service `CardItemTypeService` managing card item type service state and operations in `src/data/cardview/services`.

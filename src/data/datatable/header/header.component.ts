@@ -24,7 +24,8 @@ import { TranslatePipe } from '@dotos/dui/translator';
     class: 'datatable-header'
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
-  providers:[TranslatePipe]
+  providers:[TranslatePipe],
+  standalone: false
 })
 
 

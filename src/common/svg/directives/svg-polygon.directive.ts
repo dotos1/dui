@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgPolygonDirective`（selector: 'svg-polygon'），为宿主 DOM 元素附加SVG矢量图多边形指令行为。
  */
 @Directive({
-  selector: 'svg-polygon'
+  selector: 'svg-polygon',
+  standalone: false
 })
 export class SvgPolygonDirective implements AfterViewChecked, OnChanges, OnDestroy {
 

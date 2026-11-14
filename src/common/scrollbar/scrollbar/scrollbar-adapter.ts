@@ -17,7 +17,7 @@ export const SCROLLBAR_CONTROL: InjectionToken<ScrollbarAdapter> = new Injection
  * Angular directive `ScrollbarAdapter` attaching scrollbar adapter behavior to host DOM elements.
  * @zh Angular 指令 `ScrollbarAdapter`，为宿主 DOM 元素附加滚动条适配器行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class ScrollbarAdapter {
 
   /**

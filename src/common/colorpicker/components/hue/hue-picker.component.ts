@@ -32,7 +32,8 @@ import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': 'hue-picker-' + Math.random().toString(36).substring(2, 15) }
+  host: { 'hostID': 'hue-picker-' + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 /**
  * Standalone hue slider picker.

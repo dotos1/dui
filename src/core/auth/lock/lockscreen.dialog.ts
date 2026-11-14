@@ -40,6 +40,7 @@ export const USER_STATUS_CODES = {
   styleUrls: ['./lockscreen.dialog.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: duiAnimations,
+  standalone: false,
 })
 export class LockscreenDialog implements OnInit,OnDestroy {
   /**

@@ -19,7 +19,8 @@ import { filter } from 'rxjs/operators';
  * @zh Angular 指令 `OutsideEventDirective`（selector: '[duiContextMenuOutsideEvent]'），为宿主 DOM 元素附加外部事件指令行为。
  */
 @Directive({
-  selector: '[duiContextMenuOutsideEvent]'
+  selector: '[duiContextMenuOutsideEvent]',
+  standalone: false
 })
 export class OutsideEventDirective implements OnInit, OnDestroy {
   /**

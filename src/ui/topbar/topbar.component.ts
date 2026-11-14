@@ -16,7 +16,8 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     styleUrls: ['./topbar.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
-    host: { 'class': 'dui-topbar' }
+    host: { 'class': 'dui-topbar' },
+    standalone: false
 })
 export class TopbarComponent {
 

@@ -19,6 +19,7 @@ import { MenuModel,MenuBase } from '@dotos/dui/ui/menu';
   host: { class: 'app-context-menu-item', 
     hostID: 'dui-context-menu-item' + Math.random().toString(36).substring(2, 15)
   },
+  standalone: false,
 })
 export class ContextMenuItemComponent extends MenuBase implements OnInit,DoCheck {
   /**

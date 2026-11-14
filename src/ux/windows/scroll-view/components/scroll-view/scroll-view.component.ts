@@ -25,7 +25,8 @@ import { ɵOsBaseComponent } from '../../../core/classes/base-components';
     },
     styleUrls: ['./scroll-view.scss'],
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    standalone: false
 })
 export class ScrollViewComponent extends ɵOsBaseComponent {
     /**

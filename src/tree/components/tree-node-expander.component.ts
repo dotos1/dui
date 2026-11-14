@@ -24,7 +24,8 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {
     hostID: 'tree-node-expander' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class TreeNodeExpanderComponent implements OnInit, OnDestroy {
   //同 TreeNodeChildrenComponent：模板在 treeMobxAutorun 里，换实例必须走 observable

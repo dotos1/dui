@@ -14,7 +14,7 @@ import { isPlatformBrowser } from '@angular/common';
  * @zh 当点击（或其他配置的事件）发生在宿主元素之外时发出 `clickOutside`，常用于关闭下拉菜单/弹出层。
  */
 @Injectable()
-@Directive({ selector: '[clickOutside]' })
+@Directive({ selector: '[clickOutside]', standalone: false })
 export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
 
   /**

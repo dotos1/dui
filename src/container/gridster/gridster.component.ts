@@ -15,8 +15,10 @@ import {
   OnInit,
   Renderer2,
   SimpleChanges,
-  ViewEncapsulation
+  ViewEncapsulation,
+  forwardRef
 } from '@angular/core';
+import {DUI_GRIDSTER} from './gridster-token';
 import {GridsterComponentInterface} from './gridster.interface';
 import {GridsterCompact} from './gridsterCompact.service';
 import {GridsterConfigService} from './gridsterConfig.constant';
@@ -37,7 +39,9 @@ import {GridsterUtils} from './gridsterUtils.service';
   templateUrl: './gridster.html',
   styleUrls: ['./gridster.scss'],
   encapsulation: ViewEncapsulation.None,
-  host: {hostID: 'dui-gridster' + Math.random().toString(36).substring(2, 15)}
+  host: {hostID: 'dui-gridster' + Math.random().toString(36).substring(2, 15)},
+  providers: [{provide: DUI_GRIDSTER, useExisting: forwardRef(() => GridsterComponent)}],
+  standalone: false
 })
 export class GridsterComponent implements OnInit, OnChanges, OnDestroy, GridsterComponentInterface {
 

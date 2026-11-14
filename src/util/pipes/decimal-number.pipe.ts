@@ -17,7 +17,8 @@ import { Subject } from 'rxjs';
  */
 @Pipe({
   name: 'DecimalNumber',
-  pure: false
+  pure: false,
+  standalone: false
 })
 export class DecimalNumberPipe implements PipeTransform, OnDestroy {
 

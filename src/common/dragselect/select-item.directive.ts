@@ -36,7 +36,8 @@ export const SELECT_ITEM_INSTANCE = Symbol();
   exportAs: 'dtsSelectItem',
   host: {
     class: 'dts-select-item'
-  }
+  },
+  standalone: false
 })
 export class SelectItemDirective implements OnInit, DoCheck {
   /**

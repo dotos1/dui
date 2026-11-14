@@ -24,6 +24,7 @@ import { TranslateService } from '@dotos/dui/translator';
   host: { 
     hostID: 'dui-form-card' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 
 export class FormCard extends DuiCardComponent implements OnInit,OnChanges {

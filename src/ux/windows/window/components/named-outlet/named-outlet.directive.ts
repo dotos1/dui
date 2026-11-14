@@ -13,7 +13,8 @@ import { RouteService } from './route.service';
  */
 @Directive({
   selector: 'named-outlet',
-  exportAs: 'outlet'
+  exportAs: 'outlet',
+  standalone: false
 })
 export class NamedOutletDirective implements OnInit,OnDestroy {
   /**

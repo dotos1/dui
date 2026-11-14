@@ -13,6 +13,7 @@ import { TreeDraggedElement } from '../models';
  */
 @Directive({
   selector: '[treeDrag]',
+  standalone: false,
   
 })
 export class TreeDragDirective implements AfterViewInit, DoCheck, OnDestroy {

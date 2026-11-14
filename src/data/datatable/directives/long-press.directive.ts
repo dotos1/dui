@@ -15,7 +15,7 @@ import { takeUntil } from 'rxjs/operators';
  * Angular directive `LongPressDirective` (selector: '[long-press]') attaching long press directive behavior to host DOM elements.
  * @zh Angular 指令 `LongPressDirective`（selector: '[long-press]'），为宿主 DOM 元素附加LongPress指令行为。
  */
-@Directive({ selector: '[long-press]' })
+@Directive({ selector: '[long-press]', standalone: false })
 export class LongPressDirective implements OnDestroy {
   /**
    * Input property `pressEnabled` (`boolean`) configuring press enabled (default: `true`).

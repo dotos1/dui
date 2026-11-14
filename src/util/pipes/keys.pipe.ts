@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  * Angular pipe `KeysPipe` (name: 'keys') transforming values for keys pipe display in templates.
  * @zh Angular 管道 `KeysPipe`（name: 'keys'），在模板中转换数据以用于键列表管道展示。
  */
-@Pipe({ name: 'keys' })
+@Pipe({ name: 'keys', standalone: false })
 export class KeysPipe implements PipeTransform {
 
     /**

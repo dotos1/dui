@@ -13,7 +13,8 @@ import { ɵOsBaseComponent } from './component';
  * @zh Angular 组件 `ɵOsBaseButtonComponent`，提供ɵOs基础按钮组件的视图渲染与交互逻辑（位于 `src/ux/windows/core/classes/base-components`）。
  */
 @Component({
-    template: ''
+    template: '',
+    standalone: false
 })
 export abstract class ɵOsBaseButtonComponent extends ɵOsBaseComponent {
 

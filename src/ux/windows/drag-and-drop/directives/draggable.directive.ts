@@ -27,7 +27,8 @@ import { DraggerConfig, DragInfo } from '../interfaces';
  * @zh Angular 指令 `DraggableDirective`（selector: '[osDraggable]'），为宿主 DOM 元素附加是否可拖拽指令行为。
  */
 @Directive({
-    selector: '[osDraggable]'
+    selector: '[osDraggable]',
+    standalone: false
 })
 export class DraggableDirective implements OnChanges, AfterViewInit, OnDestroy {
     /**

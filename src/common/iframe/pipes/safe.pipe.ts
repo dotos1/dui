@@ -13,7 +13,8 @@ import { DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
  * 而不会被 Angular 内置的安全清理器剥离。
  */
 @Pipe({
-    name: 'safe'
+    name: 'safe',
+    standalone: false
 })
 export class SafePipe implements PipeTransform {
     /**

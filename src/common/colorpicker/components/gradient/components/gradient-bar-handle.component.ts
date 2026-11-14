@@ -22,6 +22,7 @@ import {
 
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
 })
 export class GradientBarHandleComponent {
   /**

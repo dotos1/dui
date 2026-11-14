@@ -11,7 +11,7 @@ import {MobxAutorunDirective} from './mobx-autorun.directive';
  * Angular directive `MobxReactionDirective` (selector: '[mobxReaction]') attaching mobx reaction directive behavior to host DOM elements.
  * @zh Angular 指令 `MobxReactionDirective`（selector: '[mobxReaction]'），为宿主 DOM 元素附加MobxReaction指令行为。
  */
-@Directive({ selector: '[mobxReaction]' })
+@Directive({ selector: '[mobxReaction]', standalone: false })
 export class MobxReactionDirective extends MobxAutorunDirective {
   /**
    * Input property `mobxReaction` (`any`) configuring mobx reaction.

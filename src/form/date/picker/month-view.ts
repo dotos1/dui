@@ -18,7 +18,7 @@ import {
 import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos/dui/form/date/adapter";
 
 import {MatDatetimepickerCalendarCell} from "./calendar-body";
-import {MatDatetimepickerType} from "./datetimepicker";
+import {MatDatetimepickerType} from "./datetimepicker-type";
 import {slideCalendar} from "./datetimepicker-animations";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 
@@ -40,7 +40,8 @@ const DAYS_PER_WEEK = 7;
   animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
-  host: {hostID: "mat-datetimepicker-month-view" + Math.random().toString(36).substring(2, 15) }
+  host: {hostID: "mat-datetimepicker-month-view" + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 export class MatDatetimepickerMonthView<D> implements AfterContentInit {
 

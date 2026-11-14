@@ -35,7 +35,8 @@ import { ResizeInfo, ResizerConfig } from '../interfaces';
     selector: '[osResizable]',
     providers: [
         ɵResizerFactory
-    ]
+    ],
+    standalone: false
 })
 export class ResizableDirective implements OnChanges, AfterViewInit, OnDestroy {
     /**

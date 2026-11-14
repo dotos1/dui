@@ -13,7 +13,8 @@ import { HighlightTransformService, HighlightTransformResult } from '@dotos/dui/
  * @zh Angular 管道 `HighlightPipe`（name: 'highlight'），在模板中转换数据以用于Highlight管道展示。
  */
 @Pipe({
-  name: 'highlight'
+  name: 'highlight',
+  standalone: false
 })
 export class HighlightPipe implements PipeTransform {
 

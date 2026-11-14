@@ -101,7 +101,8 @@ export const _SearchInputMixinBase =
   ],
   host:{
     hostID: 'search-input'+   Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class SearchInputComponent
   extends _SearchInputMixinBase

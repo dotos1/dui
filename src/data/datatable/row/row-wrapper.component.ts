@@ -19,7 +19,8 @@ import {
   templateUrl: 'row-wrapper.component.html',
   host: {
     class: 'datatable-row-wrapper'
-  }
+  },
+  standalone: false
 })
 
 export class DataTableRowWrapperComponent implements DoCheck {

@@ -89,6 +89,7 @@ import { DuiPanelComponent } from './panel.component';
   styleUrls: [`./layout.component.scss`],
   templateUrl: './layout.component.html',
   encapsulation: ViewEncapsulation.Emulated,
+  standalone: false,
 })
 export class LayoutComponent
   extends Container

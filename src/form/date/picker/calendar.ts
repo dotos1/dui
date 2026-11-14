@@ -24,7 +24,7 @@ import {Subscription} from "rxjs";
 import {first} from "rxjs/operators";
 import {DatetimeAdapter,MAT_DATETIME_FORMATS, MatDatetimeFormats} from "@dotos/dui/form/date/adapter";
 import {MatClockView} from "./clock";
-import {MatDatetimepickerType} from "./datetimepicker";
+import {MatDatetimepickerType} from "./datetimepicker-type";
 import {slideCalendar} from "./datetimepicker-animations";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 import {MatDatetimepickerFilterType} from "./datetimepicker-filtertype";
@@ -56,7 +56,8 @@ export type MatCalendarView = "clock" | "month" | "year" | "multi-year";
   },
   animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class MatDatetimepickerCalendar<D> implements AfterContentInit, OnDestroy {
 

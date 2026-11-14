@@ -42,6 +42,7 @@ const PHONE_RENDER_BATCH = 30;
   changeDetection: ChangeDetectionStrategy.OnPush,
   styleUrls: ['./form.component.scss'],
   host: {hostID: 'dui-form' + Math.random().toString(36).substring(2, 15)},
+  standalone: false,
 })
 export class FormComponent implements DoCheck, OnChanges, OnDestroy {
 

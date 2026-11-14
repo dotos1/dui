@@ -20,6 +20,7 @@ import { getHandleValue } from '../utils/utils'
   templateUrl: './gradient-hue.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
 })
 export class GradientHueComponent implements OnInit,OnDestroy {
 

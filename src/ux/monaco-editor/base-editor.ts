@@ -54,7 +54,8 @@ export const cultureDists = {
  * @zh Angular 组件 `BaseEditor`，提供基础编辑器的视图渲染与交互逻辑（位于 `src/ux/monaco-editor`）。
  */
 @Component({
-  template: ''
+  template: '',
+  standalone: false
 })
 export abstract class BaseEditor implements OnInit,AfterViewInit, OnDestroy {
 

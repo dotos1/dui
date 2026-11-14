@@ -10,7 +10,8 @@ import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl
  * @zh Angular 管道 `SafeurlPipe`（name: 'safeurl'），在模板中转换数据以用于Safeurl管道展示。
  */
 @Pipe({
-  name: 'safeurl'
+  name: 'safeurl',
+  standalone: false
 })
 export class SafeurlPipe implements PipeTransform {
   /**

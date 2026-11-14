@@ -24,7 +24,7 @@ export const IMAGE_FILE_PROCESSOR = new InjectionToken<ImageFileProcessor>('Imag
  * @zh 附加到原生 `<input type="file">` 上，将选中的文件加入 {@link FileUploader} 队列，
  * 并通过 `imageSelected` 提供可选的客户端图片缩放/处理结果。
  */
-@Directive({ selector: '[duiFileSelect]' })
+@Directive({ selector: '[duiFileSelect]', standalone: false })
 export class FileSelectDirective implements OnChanges{
   /**
    * The uploader instance that selected files are queued into.

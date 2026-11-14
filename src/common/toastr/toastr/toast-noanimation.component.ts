@@ -54,6 +54,7 @@ import { TranslateModule } from '@dotos/dui/translator';
   `,
     encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 export class ToastNoAnimation implements OnDestroy {

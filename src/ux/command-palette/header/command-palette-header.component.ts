@@ -28,6 +28,7 @@ import { FormControl } from '@angular/forms';
   templateUrl: './command-palette-header.component.html',
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 export class CommandPaletteHeaderComponent implements OnInit, AfterViewInit, OnDestroy {

@@ -13,7 +13,8 @@ import {equals, isDefined} from './util';
  * @zh Angular 指令 `TranslateDirective`（selector: '[translate],[ngx-translate]'），为宿主 DOM 元素附加翻译指令行为。
  */
 @Directive({
-  selector: '[translate],[ngx-translate]'
+  selector: '[translate],[ngx-translate]',
+  standalone: false
 })
 export class TranslateDirective implements AfterViewChecked, OnDestroy {
   /**

@@ -32,7 +32,8 @@ import { SketchComponent} from './sketch.component'
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
-  host: { 'hostID': 'sketch-dialog-' + Math.random().toString(36).substring(2, 15) }
+  host: { 'hostID': 'sketch-dialog-' + Math.random().toString(36).substring(2, 15) },
+  standalone: false
 })
 /**
  * A Material dialog wrapping a {@link SketchComponent} color picker with cancel/accept actions.

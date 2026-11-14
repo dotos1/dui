@@ -37,6 +37,7 @@ import { fromEvent, Subscription } from 'rxjs';
   `,
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 /**

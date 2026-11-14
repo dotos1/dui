@@ -26,6 +26,7 @@ import {forIn}  from 'lodash-es';
   animations: duiAnimations,
   changeDetection: ChangeDetectionStrategy.OnPush,
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
 
 })
 export class ColorPickerContent implements TriggerPopup {

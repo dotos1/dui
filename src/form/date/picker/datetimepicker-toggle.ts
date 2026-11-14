@@ -33,7 +33,8 @@ import {MatDatetimepicker} from "./datetimepicker";
   exportAs: "matDatetimepickerToggle",
   encapsulation: ViewEncapsulation.None,
   preserveWhitespaces: false,
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 export class MatDatetimepickerToggle<D> implements AfterContentInit, OnChanges, OnDestroy {
   /**

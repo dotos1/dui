@@ -44,6 +44,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <h3>示例代码</h3>
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
+  standalone: false,
 })
 export class ThemeExampleComponent implements OnInit, OnDestroy {
   /**

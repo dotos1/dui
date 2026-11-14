@@ -31,7 +31,8 @@ export const MATERIAL_COLOR_PICKER_VALUE_ACCESSOR = {
   changeDetection: ChangeDetectionStrategy.Default,
   animations: duiAnimations,
   encapsulation: ViewEncapsulation.None,
-  providers: [MATERIAL_COLOR_PICKER_VALUE_ACCESSOR]
+  providers: [MATERIAL_COLOR_PICKER_VALUE_ACCESSOR],
+  standalone: false
 })
 export class ColorPickerComponent implements ControlValueAccessor {
   /**

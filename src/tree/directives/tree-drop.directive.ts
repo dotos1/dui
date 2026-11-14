@@ -34,6 +34,7 @@ const DRAG_DISABLED_CLASS = 'is-dragging-over-disabled';
  */
 @Directive({
   selector: '[treeDrop]',
+  standalone: false,
   
 })
 export class TreeDropDirective implements AfterViewInit, OnDestroy {

@@ -31,6 +31,7 @@ import EditorError from './utils/error';
     multi: true,
   }],
   encapsulation: ViewEncapsulation.None,
+  standalone: false,
   
 })
 export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges, OnDestroy {

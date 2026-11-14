@@ -34,6 +34,7 @@ import { MenuModel } from './menu-model';
   changeDetection: ChangeDetectionStrategy.Default,
   encapsulation: ViewEncapsulation.None,
   host:{hostID: 'dui-menu-item' + Math.random().toString(36).substring(2, 15)},
+  standalone: false,
 })
 export class MenuItemComponent extends MenuBase implements OnInit,DoCheck,AfterViewInit {
 

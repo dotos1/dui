@@ -19,6 +19,7 @@ import { config } from '../constants';
   templateUrl: './controls.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 export class ControlsComponent {

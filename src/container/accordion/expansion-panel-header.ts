@@ -15,13 +15,15 @@ import {
   Directive,
   ElementRef,
   Host,
+  Inject,
   Input,
   OnDestroy,
   ViewEncapsulation,
 } from '@angular/core';
 import { merge } from 'rxjs';
 import { Subscription } from 'rxjs';
-import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-panel';
+import { DUI_EXPANSION_PANEL, EXPANSION_PANEL_ANIMATION_TIMING } from './expansion-panel-tokens';
+import type { ExpansionPanel } from './expansion-panel';
 
 /**
  * Angular component `ExpansionPanelHeader` (selector: 'expansion-panel-header') providing expansion panel header presentation and interaction in `src/container/accordion`.
@@ -74,6 +76,7 @@ import { EXPANSION_PANEL_ANIMATION_TIMING, ExpansionPanel } from './expansion-pa
       transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
     ]),
   ],
+  standalone: false,
 })
 export class ExpansionPanelHeader implements OnDestroy {
   /**
@@ -91,7 +94,7 @@ export class ExpansionPanelHeader implements OnDestroy {
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    */
   constructor(
-    @Host() public panel: ExpansionPanel,
+    @Inject(DUI_EXPANSION_PANEL) @Host() public panel: ExpansionPanel,
     private _element: ElementRef,
     private _focusMonitor: FocusMonitor,
     private _changeDetectorRef: ChangeDetectorRef) {
@@ -199,7 +202,8 @@ export class ExpansionPanelHeader implements OnDestroy {
   selector: 'panel-description',
   host: {
     class: 'expansion-panel-header-description'
-  }
+  },
+  standalone: false
 })
 export class ExpansionPanelDescription { }
 
@@ -214,6 +218,7 @@ export class ExpansionPanelDescription { }
   selector: 'panel-title',
   host: {
     class: 'expansion-panel-header-title'
-  }
+  },
+  standalone: false
 })
 export class ExpansionPanelTitle { }

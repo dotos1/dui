@@ -19,7 +19,8 @@ import { TreeNode } from '../models/tree-node.model';
   host: {
 
     hostID: 'tree-node-drop-slot' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class TreeNodeDropSlot {
   /**

@@ -10,7 +10,8 @@ import { Directive, HostListener } from '@angular/core';
  * @zh 阻止宿主元素上原生 `drop` 事件的默认行为并停止其冒泡传播。
  */
 @Directive({
-  selector: '[duiStopDropPropagation]'
+  selector: '[duiStopDropPropagation]',
+  standalone: false
 })
 export class StopDropPropagationDirective {
   /**

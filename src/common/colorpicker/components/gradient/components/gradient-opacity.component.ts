@@ -19,6 +19,7 @@ import { PaintHueService } from '../hooks/paint-hue.service.js';
   templateUrl: './gradient-opacity.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 export class GradientOpacityComponent implements OnInit,OnDestroy {

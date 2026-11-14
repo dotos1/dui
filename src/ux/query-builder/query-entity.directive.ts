@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `QueryEntityDirective` (selector: '[queryEntity]') attaching query entity directive behavior to host DOM elements.
  * @zh Angular 指令 `QueryEntityDirective`（selector: '[queryEntity]'），为宿主 DOM 元素附加查询实体指令行为。
  */
-@Directive({selector: '[queryEntity]'})
+@Directive({selector: '[queryEntity]', standalone: false})
 export class QueryEntityDirective {
   /**
    * Creates an instance of `QueryEntityDirective` and initializes its dependencies and internal state.

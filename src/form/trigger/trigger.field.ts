@@ -56,6 +56,7 @@ import { DragRef } from '@angular/cdk/drag-drop';
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class TriggerField extends AbstractTrigger implements AfterViewInit {
   /**
