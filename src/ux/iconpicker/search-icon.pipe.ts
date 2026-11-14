@@ -11,7 +11,8 @@ import { Icon } from '@dotos/dui/common/icon';
  * @zh Angular 管道 `SearchIconPipe`（name: 'searchIcon'），在模板中转换数据以用于搜索图标管道展示。
  */
 @Pipe({
-  name: 'searchIcon'
+  name: 'searchIcon',
+  standalone: false
 })
 
 export class SearchIconPipe implements PipeTransform {

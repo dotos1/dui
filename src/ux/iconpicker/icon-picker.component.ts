@@ -31,6 +31,7 @@ import { TranslateService } from '@dotos/dui/translator';
   },
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 
 export class IconPickerComponent implements TriggerPopup, OnInit, OnDestroy {

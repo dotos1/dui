@@ -91,6 +91,7 @@ import { TriggerPopup } from '@dotos/dui/common/trigger';
   },
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
 })
 export class GithubComponent extends ColorWrap implements TriggerPopup {
   /**

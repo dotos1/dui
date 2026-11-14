@@ -15,7 +15,8 @@ import { IconSpriteService } from './icon-sprite.service';
 @Component({
   selector: 'svg-icon-sprite',
   styleUrls: ['./icon-sprite.component.scss'],
-  templateUrl: './icon-sprite.component.html'
+  templateUrl: './icon-sprite.component.html',
+  standalone: false
 })
 export class IconSpriteComponent implements OnChanges {
 

@@ -31,11 +31,9 @@ import { FormBuilder } from '@dotos/dui/core/form';
 
 import { Accordion } from './accordion';
 import { Container } from '../container.main';
-/**
- * Time and timing curve for expansion panel animations.
- * @zh 常量/变量 `EXPANSION_PANEL_ANIMATION_TIMING`，定义 `src/container/accordion` 中的展开面板面板动画时间。
- */
-export const EXPANSION_PANEL_ANIMATION_TIMING = '225ms cubic-bezier(0.4,0.0,0.2,1)';
+import { DUI_EXPANSION_PANEL, EXPANSION_PANEL_ANIMATION_TIMING } from './expansion-panel-tokens';
+
+export { DUI_EXPANSION_PANEL, EXPANSION_PANEL_ANIMATION_TIMING };
 
 /**
  * Used to generate unique ID for each accordion item.
@@ -54,7 +52,8 @@ let nextId = 0;
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     hostID: 'dui-expansion-panel-base' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy{
   /**
@@ -316,7 +315,8 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
     hostID: 'dui-expansion-panel' + Math.random().toString(36).substring(2, 15)
   },
   providers: [
-    { provide: _ExpansionPanelMixinBase, useExisting: forwardRef(() => ExpansionPanel) }
+    { provide: _ExpansionPanelMixinBase, useExisting: forwardRef(() => ExpansionPanel) },
+    { provide: DUI_EXPANSION_PANEL, useExisting: forwardRef(() => ExpansionPanel) }
   ],
   animations: [
     trigger('bodyExpansion', [
@@ -324,7 +324,8 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
       state('expanded', style({ height: '*', visibility: 'visible' })),
       transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
     ]),
-  ]
+  ],
+  standalone: false
 })
 export class ExpansionPanel extends _ExpansionPanelMixinBase
   implements ICanDisable, OnChanges, OnDestroy {
@@ -431,6 +432,7 @@ export class ExpansionPanel extends _ExpansionPanelMixinBase
   selector: 'dui-action-row',
   host: {
     class: 'dui-action-row'
-  }
+  },
+  standalone: false
 })
 export class ExpansionPanelActionRow { }

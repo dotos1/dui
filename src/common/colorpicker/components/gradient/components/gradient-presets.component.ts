@@ -18,6 +18,7 @@ import { ContextService, PickerContextProps } from '../hooks/context.service';
   templateUrl: './gradient-presets.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
   preserveWhitespaces: false,
+  standalone: false,
   
 })
 export class GradientPresetsComponent  {

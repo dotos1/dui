@@ -12,7 +12,8 @@ import { first } from 'rxjs/operators';
  * @zh Angular 组件 `ɵOsBaseViewComponent`，提供ɵOs基础视图组件的视图渲染与交互逻辑（位于 `src/ux/windows/core/classes/base-components`）。
  */
 @Component({
-    template: ''
+    template: '',
+    standalone: false
 })
 export abstract class ɵOsBaseViewComponent implements AfterViewInit, OnDestroy {
     /**

@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgEllipseDirective`（selector: 'svg-ellipse'），为宿主 DOM 元素附加SVG矢量图椭圆指令行为。
  */
 @Directive({
-  selector: 'svg-ellipse'
+  selector: 'svg-ellipse',
+  standalone: false
 })
 export class SvgEllipseDirective implements AfterViewChecked, OnChanges, OnDestroy {
 

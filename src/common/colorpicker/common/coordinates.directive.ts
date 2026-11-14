@@ -13,7 +13,7 @@ import { distinctUntilChanged } from 'rxjs/operators';
  * saturation/hue/alpha/shade sliders to compute their new values.
  * @zh 跟踪相对于宿主元素的鼠标/触摸拖拽坐标，供饱和度/色相/透明度/明暗滑块用来计算新值。
  */
-@Directive({ selector: '[ngx-color-coordinates]' })
+@Directive({ selector: '[ngx-color-coordinates]', standalone: false })
 export class CoordinatesDirective implements OnInit, OnDestroy {
   /**
    * Output event emitter `coordinatesChange` (`Subject<{…}>`) firing when coordinates change occurs.

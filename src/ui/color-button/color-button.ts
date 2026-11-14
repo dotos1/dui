@@ -22,6 +22,7 @@ import { MatTooltip } from '@angular/material/tooltip';
   host: {
     '[style.display]': 'flex'
   },
+  standalone: false,
 })
 export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
 

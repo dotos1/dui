@@ -69,6 +69,7 @@ export const DEFAULT_NOTIFICATION_LIMIT: number = 99;
   styleUrls: ['./notification-count.component.scss'],
   templateUrl: './notification-count.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 })
 export class NotificationCountComponent implements AfterContentInit {
 

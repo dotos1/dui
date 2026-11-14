@@ -18,6 +18,7 @@ import { getCategoryMeta } from '../../models/category-meta';
   selector: 'app-docs-home',
   templateUrl: './docs-home.component.html',
   styleUrls: ['./docs-home.component.scss'],
+  standalone: false,
 })
 export class DocsHomeComponent {
   /**

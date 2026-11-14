@@ -24,7 +24,8 @@ import { Subscription } from 'rxjs';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     class: 'datatable-body'
-  }
+  },
+  standalone: false
 })
 
 export class DataTableBodyComponent implements OnInit, OnDestroy {

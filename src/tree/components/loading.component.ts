@@ -16,7 +16,8 @@ import { TreeNode } from '../models/tree-node.model';
   templateUrl: 'loading.component.html',
   host: {
     hostID: 'tree-loading-component' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class LoadingComponent {
   /**

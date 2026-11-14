@@ -108,7 +108,8 @@ export const TD_CIRCLE_DIAMETER = 40;
   animations: [FadeInOutAnimation],
   host: {
     hostID: 'dui-loading' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class LoadingComponent implements DoCheck {
   /**

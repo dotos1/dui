@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgRectDirective`（selector: 'svg-rect'），为宿主 DOM 元素附加SVG矢量图矩形指令行为。
  */
 @Directive({
-  selector: 'svg-rect'
+  selector: 'svg-rect',
+  standalone: false
 })
 export class SvgRectDirective implements AfterViewChecked, OnChanges, OnDestroy {
 

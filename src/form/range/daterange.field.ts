@@ -44,7 +44,8 @@ import { RangeField } from './range.field';
   host: {
     style: 'flex:1;display:flex;flex-direction:row;align-items:center;',
     hostID: 'date-range-field' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class DateRangeFieldComponent<D> extends RangeField implements AfterViewInit {
 

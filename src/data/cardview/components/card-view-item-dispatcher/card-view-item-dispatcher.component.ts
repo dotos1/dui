@@ -23,7 +23,8 @@ import { DEFAULT_SEPARATOR } from '../card-view-textitem/card-view-textitem.comp
  */
 @Component({
   selector: 'dui-card-view-item-dispatcher',
-  template: '<ng-template dui-card-view-content-proxy></ng-template>'
+  template: '<ng-template dui-card-view-content-proxy></ng-template>',
+  standalone: false
 })
 export class CardViewItemDispatcherComponent implements OnChanges {
   /**

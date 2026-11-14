@@ -12,7 +12,8 @@ import { Directive, ViewContainerRef } from '@angular/core';
  * @zh Angular 指令 `CardViewContentProxyDirective`（selector: '[dui-card-view-content-proxy]'），为宿主 DOM 元素附加卡片视图内容Proxy指令行为。
  */
 @Directive({
-  selector: '[dui-card-view-content-proxy]'
+  selector: '[dui-card-view-content-proxy]',
+  standalone: false
 })
 export class CardViewContentProxyDirective {
   /**

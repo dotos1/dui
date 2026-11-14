@@ -12,7 +12,8 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'dui-backdrop',
   templateUrl: './backdrop.component.html',
-  styleUrls: ['./backdrop.component.scss']
+  styleUrls: ['./backdrop.component.scss'],
+  standalone: false
 })
 export class BackdropComponent {
   /**

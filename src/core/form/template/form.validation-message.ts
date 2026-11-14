@@ -22,7 +22,8 @@ import { TranslateService } from '@dotos/dui/translator';
   changeDetection: ChangeDetectionStrategy.Default,
   host: {
     hostID: 'dui-validation-message' + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class ValidationMessage implements OnChanges {
   /**

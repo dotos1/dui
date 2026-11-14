@@ -20,7 +20,8 @@ import { coerceBoolean } from '@dotos/dui/core/decorators';
 @Component({
   selector: 'copy-button',
   styleUrls: ['copy-button.component.scss'],
-  templateUrl: './copy-button.component.html'
+  templateUrl: './copy-button.component.html',
+  standalone: false
 })
 export class CopyButtonComponent {
 

@@ -451,7 +451,8 @@ interface VisibleCalendar {
       useExisting: forwardRef(() => DaterangepickerComponent),
       multi: true
     }
-  ]
+  ],
+  standalone: false
 })
 export class DaterangepickerComponent implements OnInit, OnChanges {
   /**

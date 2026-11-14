@@ -21,6 +21,7 @@ import { ThemePalette } from '@angular/material/core';
   templateUrl: './window-dialog.component.html',
   styleUrls: ['./window-dialog.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
 
 })
 export class WindowDialogComponent {

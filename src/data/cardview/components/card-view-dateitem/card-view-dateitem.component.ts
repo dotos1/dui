@@ -32,7 +32,8 @@ import { CardViewUpdateService } from '../../services';
   ],
   selector: 'dui-card-view-dateitem',
   templateUrl: './card-view-dateitem.component.html',
-  styleUrls: ['./card-view-dateitem.component.scss']
+  styleUrls: ['./card-view-dateitem.component.scss'],
+  standalone: false
 })
 export class CardViewDateItemComponent implements OnInit, OnDestroy {
 

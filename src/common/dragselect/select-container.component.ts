@@ -95,7 +95,8 @@ import { KeyboardEventsService } from './keyboard-events.service';
       [ngStyle]="selectBoxStyles$ | async"
     ></div>
   `,
-  styleUrls: ['./select-container.component.scss']
+  styleUrls: ['./select-container.component.scss'],
+  standalone: false
 })
 export class SelectContainerComponent implements AfterViewInit, OnDestroy, AfterContentInit {
   /**

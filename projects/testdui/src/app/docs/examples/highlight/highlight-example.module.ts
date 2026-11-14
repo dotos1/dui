@@ -39,6 +39,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <h3>用法代码</h3>
     <dui-highlight [content]="usageSource" [codeLang]="'html'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
+  standalone: false,
 })
 export class HighlightExampleComponent {
   /**

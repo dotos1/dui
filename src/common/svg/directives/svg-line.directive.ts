@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgLineDirective`（selector: 'svg-line'），为宿主 DOM 元素附加SVG矢量图线段指令行为。
  */
 @Directive({
-  selector: 'svg-line'
+  selector: 'svg-line',
+  standalone: false
 })
 export class SvgLineDirective implements AfterViewChecked, OnChanges, OnDestroy {
   /**

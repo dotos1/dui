@@ -48,6 +48,7 @@ import { HSL } from '@dotos/dui/core/color';
     host: {
     'hostID': 'slider-swatch-' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 /**
  * A single lightness-preset swatch used by {@link SliderSwatchesComponent}.

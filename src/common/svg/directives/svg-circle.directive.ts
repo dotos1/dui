@@ -10,7 +10,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgCircleDirective`（selector: 'svg-circle'），为宿主 DOM 元素附加SVG矢量图圆形指令行为。
  */
 @Directive({
-  selector: 'svg-circle'
+  selector: 'svg-circle',
+  standalone: false
 })
 export class SvgCircleDirective implements AfterViewChecked, OnChanges, OnDestroy {
   /**

@@ -16,7 +16,7 @@ import { ColumnChangesService } from '../services/column-changes.service';
  * Angular directive `DataTableColumnDirective` (selector: 'dui-datatable-column') attaching data table column directive behavior to host DOM elements.
  * @zh Angular 指令 `DataTableColumnDirective`（selector: 'dui-datatable-column'），为宿主 DOM 元素附加数据表格列指令行为。
  */
-@Directive({ selector: 'dui-datatable-column' })
+@Directive({ selector: 'dui-datatable-column', standalone: false })
 
 
 export class DataTableColumnDirective implements OnChanges {

@@ -48,7 +48,7 @@ export function isRangeValue(value): value is RangeValue {
 
  * @zh 区间输入字段的公共实现：对外只暴露一个 formControl，值为 `{from,to}`；
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class RangeField extends MatField implements OnInit, OnDestroy {
 
   /**

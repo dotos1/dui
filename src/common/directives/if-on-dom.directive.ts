@@ -13,7 +13,8 @@ import { AfterContentChecked, Directive, ElementRef, TemplateRef, ViewContainerR
  * 才创建其内嵌视图，一旦从文档中移除则清空视图。
  */
 @Directive({
-    selector: '[duiIfOnDom]'
+    selector: '[duiIfOnDom]',
+    standalone: false
 })
 export class DuiIfOnDomDirective implements AfterContentChecked
 {

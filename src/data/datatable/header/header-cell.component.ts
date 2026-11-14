@@ -23,7 +23,8 @@ import { nextSortDir } from '../utils/sort';
   host: {
     class: 'datatable-header-cell'
   },
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false
 })
 
 export class DataTableHeaderCellComponent {

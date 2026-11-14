@@ -10,7 +10,7 @@ import { Input, Directive } from '@angular/core';
  * Angular directive `AbstractLoader` attaching abstract loader behavior to host DOM elements.
  * @zh Angular 指令 `AbstractLoader`，为宿主 DOM 元素附加Abstract加载器行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class AbstractLoader {
 
   /**

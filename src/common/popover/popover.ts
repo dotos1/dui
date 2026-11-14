@@ -46,6 +46,7 @@ import { transformPopover } from './popover-animations';
   ],
   exportAs: 'duiPopover',
   host: {hostID: 'popover' + Math.random().toString(36).substring(2, 15)},
+  standalone: false,
 
 })
 

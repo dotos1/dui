@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  * Angular pipe `HtmlToPlaintextPipe` (name: 'htmlToPlaintext') transforming values for html to plaintext pipe display in templates.
  * @zh Angular 管道 `HtmlToPlaintextPipe`（name: 'htmlToPlaintext'），在模板中转换数据以用于HTML内容转换为Plaintext管道展示。
  */
-@Pipe({ name: 'htmlToPlaintext' })
+@Pipe({ name: 'htmlToPlaintext', standalone: false })
 export class HtmlToPlaintextPipe implements PipeTransform {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     /**

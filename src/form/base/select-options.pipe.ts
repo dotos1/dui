@@ -13,7 +13,7 @@ import { getOptionDisabled, getOptionGroup, getOptionLabel, getOptionValue } fro
  * Angular pipe `SelectOptionsPipe` (name: 'selectOptionsPipe') transforming values for select options pipe display in templates.
  * @zh Angular 管道 `SelectOptionsPipe`（name: 'selectOptionsPipe'），在模板中转换数据以用于下拉选择配置选项管道展示。
  */
-@Pipe({ name: 'selectOptionsPipe' })
+@Pipe({ name: 'selectOptionsPipe', standalone: false })
 export class SelectOptionsPipe implements PipeTransform {
 
   /**

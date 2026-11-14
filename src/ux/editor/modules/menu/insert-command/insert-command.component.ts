@@ -20,6 +20,7 @@ import { TBItems, ToolbarItem } from '../../../types';
 @Component({
   selector: 'ux-insert-command',
   templateUrl: './insert-command.component.html',
+  standalone: false,
 })
 
 export class InsertCommandComponent implements OnInit, OnDestroy {

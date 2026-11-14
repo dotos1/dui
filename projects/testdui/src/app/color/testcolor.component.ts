@@ -15,7 +15,8 @@ import { FormComponent } from "@dotos/dui/form";
     template: `
         <dui-form #iconForm  [config]="iconFormConfig" style="width:100%"></dui-form>
      `,
-    changeDetection: ChangeDetectionStrategy.Default
+    changeDetection: ChangeDetectionStrategy.Default,
+    standalone: false
   })
 export class TestColorComponent {
     /**

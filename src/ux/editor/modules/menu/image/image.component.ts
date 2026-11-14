@@ -24,6 +24,7 @@ import { Image as ImageCommand } from '../MenuCommands';
 @Component({
   selector: 'ux-image',
   templateUrl: './image.component.html',
+  standalone: false,
   
 })
 export class ImageComponent implements OnInit, OnDestroy {

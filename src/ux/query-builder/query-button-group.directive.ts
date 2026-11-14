@@ -9,7 +9,7 @@ import { Directive, TemplateRef } from '@angular/core';
  * Angular directive `QueryButtonGroupDirective` (selector: '[queryButtonGroup]') attaching query button group directive behavior to host DOM elements.
  * @zh Angular 指令 `QueryButtonGroupDirective`（selector: '[queryButtonGroup]'），为宿主 DOM 元素附加查询按钮分组指令行为。
  */
-@Directive({selector: '[queryButtonGroup]'})
+@Directive({selector: '[queryButtonGroup]', standalone: false})
 export class QueryButtonGroupDirective {
   /**
    * Creates an instance of `QueryButtonGroupDirective` and initializes its dependencies and internal state.

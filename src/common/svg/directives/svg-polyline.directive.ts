@@ -13,7 +13,8 @@ import { SvgContainerComponent } from '../components/svg-container.component';
  * @zh Angular 指令 `SvgPolylineDirective`（selector: 'svg-polyline'），为宿主 DOM 元素附加SVG矢量图折线指令行为。
  */
 @Directive({
-  selector: 'svg-polyline'
+  selector: 'svg-polyline',
+  standalone: false
 })
 export class SvgPolylineDirective implements AfterViewChecked, OnChanges, OnDestroy {
   /**

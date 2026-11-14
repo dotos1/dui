@@ -26,7 +26,8 @@ import { Dui } from '@dotos/dui/core';
   template: `<div   #content></div>`,
   host: {
     hostID: "dui-dynamic-component" + Math.random().toString(36).substring(2, 15)
-  }
+  },
+  standalone: false
 })
 export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   /**

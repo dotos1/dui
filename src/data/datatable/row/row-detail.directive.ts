@@ -10,7 +10,7 @@ import { DatatableRowDetailTemplateDirective } from './row-detail-template.direc
  * Angular directive `DatatableRowDetailDirective` (selector: 'dui-datatable-row-detail') attaching datatable row detail directive behavior to host DOM elements.
  * @zh Angular 指令 `DatatableRowDetailDirective`（selector: 'dui-datatable-row-detail'），为宿主 DOM 元素附加数据表格行详情指令行为。
  */
-@Directive({ selector: 'dui-datatable-row-detail' })
+@Directive({ selector: 'dui-datatable-row-detail', standalone: false })
 export class DatatableRowDetailDirective {
 
   /**

@@ -14,6 +14,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   selector: 'dui-confirm-dialog',
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss'],
+  standalone: false,
 
 })
 export class ConfirmDialogComponent {

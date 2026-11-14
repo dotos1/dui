@@ -14,7 +14,8 @@ import { DndDraggableDirective } from "./dnd-draggable.directive";
  * 而不是整个可拖拽元素的任意位置。
  */
 @Directive( {
-  selector: "[dndHandle]"
+  selector: "[dndHandle]",
+  standalone: false
 } )
 export class DndHandleDirective {
 

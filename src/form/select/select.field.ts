@@ -69,7 +69,8 @@ export class SelectOption {
     hostID: 'select-field' + Math.random().toString(36).substring(2, 15),
   },
   changeDetection: ChangeDetectionStrategy.Default,
-  providers: [SelectOptionsService]
+  providers: [SelectOptionsService],
+  standalone: false
 })
 export class FieldSelect extends MatField implements OnInit,OnDestroy {
 

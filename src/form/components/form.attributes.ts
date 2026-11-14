@@ -28,7 +28,8 @@ import { DOCUMENT } from '@angular/common';
     '(blur)': 'onBlur($event)',
     '(change)': 'onChange($event)',
     
-  }
+  },
+  standalone: false
 })
 export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
   /**

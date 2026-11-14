@@ -46,7 +46,8 @@ import { EditorComponent } from '@dotos/dui/ux/monaco-editor';
       :host ::ng-deep  .mdc-card__actions{
         min-height:56px;
       }
-  `]
+  `],
+  standalone: false
 })
 export class JsonEditor {
 

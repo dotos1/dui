@@ -28,7 +28,8 @@ export type TreeStatus = 'collapsed' | 'expanded' | 'loading' | 'disabled';
   selector: 'datatable-body-cell',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'cell.component.html',
-  providers:[TranslatePipe]
+  providers:[TranslatePipe],
+  standalone: false
 })
 
 export class DataTableBodyCellComponent implements DoCheck, OnDestroy {

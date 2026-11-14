@@ -10,7 +10,8 @@ import { Pipe, PipeTransform } from '@angular/core';
  * @zh Angular 管道 `ClonePipe`（name: 'clone'），在模板中转换数据以用于克隆管道展示。
  */
 @Pipe({
-  name: 'clone'
+  name: 'clone',
+  standalone: false
 })
 export class ClonePipe implements PipeTransform {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars

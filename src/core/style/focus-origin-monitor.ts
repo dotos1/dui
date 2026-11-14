@@ -406,6 +406,7 @@ export class FocusOriginMonitor implements OnDestroy {
  */
 @Directive({
   selector: '[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]',
+  standalone: false,
 })
 export class CdkMonitorFocus implements OnDestroy {
   /**

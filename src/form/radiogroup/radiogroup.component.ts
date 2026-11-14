@@ -21,6 +21,7 @@ import { observe } from '@dotos/dui/core/form';
   host: { 
     hostID: 'radio-group-field' + Math.random().toString(36).substring(2, 15),
   },
+  standalone: false,
 })
 export class RadioGroupField extends MatField implements AfterViewInit,OnDestroy{
 

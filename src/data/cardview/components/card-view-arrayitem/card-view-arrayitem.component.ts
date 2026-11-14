@@ -17,7 +17,8 @@ import { ThemeService } from '@dotos/dui/theme';
 @Component({
   selector: 'dui-card-view-arrayitem',
   templateUrl: './card-view-arrayitem.component.html',
-  styleUrls: ['./card-view-arrayitem.component.scss']
+  styleUrls: ['./card-view-arrayitem.component.scss'],
+  standalone: false
 })
 export class CardViewArrayItemComponent  implements OnDestroy{
 

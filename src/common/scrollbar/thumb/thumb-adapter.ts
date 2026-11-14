@@ -20,7 +20,7 @@ import { PointerEventsAdapter } from '../utils/pointer-events-adapter';
  * Angular directive `ThumbAdapter` attaching thumb adapter behavior to host DOM elements.
  * @zh Angular 指令 `ThumbAdapter`，为宿主 DOM 元素附加Thumb适配器行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class ThumbAdapter extends PointerEventsAdapter {
 
   /**

@@ -16,6 +16,7 @@ import { MediaService } from '../services/media.service';
  */
 @Directive({
   selector: '[extMediaToggle]',
+  standalone: false,
 })
 export class MediaToggleDirective implements OnInit, OnDestroy {
 

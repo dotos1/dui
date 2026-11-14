@@ -11,7 +11,8 @@ import { Pipe, PipeTransform } from '@angular/core';
  * @zh Angular 管道 `FormatSpacePipe`（name: 'formatSpace'），在模板中转换数据以用于格式化Space管道展示。
  */
 @Pipe({
-    name: 'formatSpace'
+    name: 'formatSpace',
+    standalone: false
 })
 export class FormatSpacePipe implements PipeTransform {
 

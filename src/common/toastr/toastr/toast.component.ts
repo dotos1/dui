@@ -65,6 +65,7 @@ import { ToastrService } from './toastr.service';
   ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
+  standalone: false,
   
 })
 export class Toast<ConfigPayload = unknown> implements OnDestroy {

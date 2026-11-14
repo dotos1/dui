@@ -18,7 +18,7 @@ import { autorun } from 'mobx';
  * Angular directive `TreeMobxAutorunDirective` (selector: '[treeMobxAutorun]') attaching tree mobx autorun directive behavior to host DOM elements.
  * @zh Angular 指令 `TreeMobxAutorunDirective`（selector: '[treeMobxAutorun]'），为宿主 DOM 元素附加树形控件MobxAutorun指令行为。
  */
-@Directive({ selector: '[treeMobxAutorun]' })
+@Directive({ selector: '[treeMobxAutorun]', standalone: false })
 export class TreeMobxAutorunDirective implements OnInit, OnDestroy {
   /**
    * Property `templateBindings` (`Record<string, unknown>`) storing template bindings (default: `{}`).

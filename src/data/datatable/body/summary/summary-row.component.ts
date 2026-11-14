@@ -71,7 +71,8 @@ function noopSumFunc(cells): void {
   templateUrl: 'summary-row.component.html',
   host: {
     class: 'datatable-summary-row'
-  }
+  },
+  standalone: false
 })
 
 export class DataTableSummaryRowComponent implements OnChanges {

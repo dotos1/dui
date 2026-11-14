@@ -11,7 +11,7 @@ import { sanitizeHtmlString } from '@dotos/dui/base';
  * Angular pipe `SanitizeHtmlPipe` (name: 'sanitizeHtml') transforming values for sanitize html pipe display in templates.
  * @zh Angular 管道 `SanitizeHtmlPipe`（name: 'sanitizeHtml'），在模板中转换数据以用于SanitizeHTML内容管道展示。
  */
-@Pipe({ name: 'sanitizeHtml' })
+@Pipe({ name: 'sanitizeHtml', standalone: false })
 export class SanitizeHtmlPipe implements PipeTransform {
   /**
    * Creates an instance of `SanitizeHtmlPipe` and initializes its dependencies and internal state.

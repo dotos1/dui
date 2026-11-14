@@ -160,6 +160,7 @@ const DEFAULT_COLOR_PRESETS = [
   selector: 'ux-editor-menu',
   templateUrl: './menu.component.html',
   providers: [MenuService],
+  standalone: false,
   
 })
 

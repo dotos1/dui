@@ -21,7 +21,8 @@ import { MatField } from '../base/mat.field';
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {
     hostID: 'number-field' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class NumberFieldComponent extends MatField implements AfterViewInit {
 

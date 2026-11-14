@@ -42,7 +42,8 @@ import { ButtonBase, DuiButtonConfig } from './button.base';
     hostID: 'dui-button' + Math.random().toString(36).substring(2, 15)
   },
 
-  changeDetection: ChangeDetectionStrategy.Default
+  changeDetection: ChangeDetectionStrategy.Default,
+  standalone: false
 })
 export class ButtonComponent extends ButtonBase implements OnChanges,DoCheck {
 

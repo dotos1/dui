@@ -22,6 +22,7 @@ import { TBHeadingItems } from '../../../types';
 @Component({
   selector: 'ux-dropdown',
   templateUrl: './dropdown.component.html',
+  standalone: false,
   
 })
 export class DropdownComponent implements OnInit, OnDestroy {

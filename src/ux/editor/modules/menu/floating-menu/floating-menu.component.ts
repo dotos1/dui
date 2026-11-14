@@ -43,6 +43,7 @@ interface BubblePosition {
   selector: 'editor-floating-menu',
   templateUrl: './floating-menu.component.html',
   styleUrls: ['./floating-menu.component.scss'],
+  standalone: false,
   
 })
 export class FloatingMenuComponent implements OnInit, OnDestroy {

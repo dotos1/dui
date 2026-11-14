@@ -27,7 +27,8 @@ import { OptionsService } from './options.service';
   providers: [OptionsService],
   host: {
     hostID: 'dui-text-field' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class TextFieldComponent extends MatField implements OnInit, AfterViewInit, OnDestroy {
 

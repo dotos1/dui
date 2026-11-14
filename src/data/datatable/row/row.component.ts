@@ -21,6 +21,7 @@ import { TreeStatus } from './cell.component';
   selector: 'datatable-body-row',
   changeDetection: ChangeDetectionStrategy.OnPush,
   templateUrl: 'row.component.html',
+  standalone: false,
 })
 
 export class DataTableBodyRowComponent implements DoCheck {

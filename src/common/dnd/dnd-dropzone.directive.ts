@@ -75,7 +75,8 @@ export interface DndDropEvent {
  * 在拖拽悬停于放置区上方时将其定位到预计的放置位置。
  */
 @Directive( {
-  selector: "[dndPlaceholderRef]"
+  selector: "[dndPlaceholderRef]",
+  standalone: false
 } )
 export class DndPlaceholderRefDirective {
 
@@ -95,7 +96,8 @@ export class DndPlaceholderRefDirective {
  * （`dndDropzone`）以及放置位置的占位符提示。
  */
 @Directive( {
-  selector: "[dndDropzone]"
+  selector: "[dndDropzone]",
+  standalone: false
 } )
 export class DndDropzoneDirective implements AfterViewInit, OnDestroy {
 

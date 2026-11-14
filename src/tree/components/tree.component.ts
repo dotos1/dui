@@ -81,7 +81,8 @@ export interface ITreeConfig {
 
   host: {
     hostID: 'tree-root' + Math.random().toString(36).substring(2, 15),  
-  }
+  },
+  standalone: false
 })
 export class TreeComponent implements OnChanges {
 

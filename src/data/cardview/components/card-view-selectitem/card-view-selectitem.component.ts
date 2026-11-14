@@ -20,7 +20,8 @@ import { ThemeService } from '@dotos/dui/theme';
 @Component({
   selector: 'dui-card-view-selectitem',
   templateUrl: './card-view-selectitem.component.html',
-  styleUrls: ['./card-view-selectitem.component.scss']
+  styleUrls: ['./card-view-selectitem.component.scss'],
+  standalone: false
 })
 export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
 

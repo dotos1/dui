@@ -11,7 +11,8 @@ import { Directive, HostListener, Input } from '@angular/core';
  * 可选附带自定义样式/样式表。
  */
 @Directive({
-  selector: "button[duiPrint]"
+  selector: "button[duiPrint]",
+  standalone: false
 })
 export class PrintDirective {
 

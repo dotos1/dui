@@ -15,7 +15,7 @@ import { Subject } from 'rxjs';
  * Angular directive `MatField` attaching mat field behavior to host DOM elements.
  * @zh Angular 指令 `MatField`，为宿主 DOM 元素附加Material字段行为。
  */
-@Directive()
+@Directive({ standalone: false })
 export abstract class MatField<F extends FieldConfig = FieldConfig> extends CoreFieldType<F> implements OnInit, AfterViewInit, OnDestroy, MatFormFieldControl<unknown>  {
   /**
    * Template/content query reference `matPrefix` (`TemplateRef<unknown>`) targeting mat prefix.

@@ -26,7 +26,8 @@ import { Dui } from '@dotos/dui/core';
   styleUrls: ['resizable.component.scss'],
   host: {
      hostID: 'dui-resizable' + Math.random().toString(36).substring(2, 15),
-  }
+  },
+  standalone: false
 })
 export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy, IResizable {
 

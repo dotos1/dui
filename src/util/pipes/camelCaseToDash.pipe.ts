@@ -9,7 +9,7 @@ import { Pipe, PipeTransform } from '@angular/core';
  * Angular pipe `CamelCaseToDashPipe` (name: 'camelCaseToDash') transforming values for camel case to dash pipe display in templates.
  * @zh Angular 管道 `CamelCaseToDashPipe`（name: 'camelCaseToDash'），在模板中转换数据以用于CamelCase转换为Dash管道展示。
  */
-@Pipe({ name: 'camelCaseToDash' })
+@Pipe({ name: 'camelCaseToDash', standalone: false })
 export class CamelCaseToDashPipe implements PipeTransform {
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
     /**
