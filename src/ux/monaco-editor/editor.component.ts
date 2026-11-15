@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/monaco-editor/editor.component.ts`，提供编辑器组件相关的定义与实现。
  */
 
-import { Component, ElementRef, forwardRef, Inject, Input, NgZone, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ElementRef, forwardRef, Inject, Input, NgZone, Renderer2, ViewChild, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { fromEvent, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -14,6 +14,7 @@ import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
 import { EditorModel } from './types';
 import { TranslateService } from '@dotos/dui/translator';
 import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { EditorTheme } from './editor.theme';
 
 // declare const monaco: any;
 
@@ -38,6 +39,7 @@ import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
   host: {
     style: 'padding-top: 5px;padding-bottom: 5px;',
   },
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class EditorComponent extends BaseEditor implements ControlValueAccessor {
   /**
@@ -188,6 +190,7 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((config) => {
         this.setTheme(config);
+        this.themeService.loadTheme(EditorTheme);
       });
   }
 

@@ -1,0 +1,36 @@
+.m2-parity-root {
+  padding: 16px;
+  min-height: 760px;
+  box-sizing: border-box;
+}
+
+.m2-parity-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  align-items: start;
+}
+
+.m2-parity-card {
+  padding: 12px;
+}
+
+.m2-parity-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.m2-parity-divider {
+  margin: 10px 0;
+}
+
+.m2-parity-typo {
+  margin-top: 10px;
+}
+
+.m2-parity-probes {
+  margin-top: 8px;
+}

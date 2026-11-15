@@ -41,7 +41,9 @@ export function matTypographyFontShorthand(
     };
   } else {
     return {
-      "font": `${fontWeight} ${fontSize}/${lineHeight}`
+      'font-size': fontSize,
+      'font-weight': fontWeight,
+      'line-height': lineHeight
     };
   }
 }

@@ -1,0 +1,123 @@
+<div class="m2-parity-root mat-app-background" data-parity="root">
+  <section class="m2-parity-grid">
+    <!-- 1. Buttons & Actions -->
+    <mat-card class="m2-parity-card" data-parity="card">
+      <mat-card-header>
+        <mat-card-title data-parity="card-title">Buttons &amp; Actions</mat-card-title>
+        <mat-card-subtitle data-parity="card-subtitle">M2 Palette &amp; Density</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content class="m2-parity-row">
+        <button mat-flat-button color="primary" data-parity="btn-flat-primary">Flat Primary</button>
+        <button mat-flat-button color="accent" data-parity="btn-flat-accent">Flat Accent</button>
+        <button mat-flat-button color="warn" data-parity="btn-flat-warn">Flat Warn</button>
+        <button mat-raised-button color="primary" data-parity="btn-raised-primary">Raised</button>
+        <button mat-stroked-button color="primary" data-parity="btn-stroked-primary">Stroked</button>
+        <button mat-button color="primary" data-parity="btn-basic-primary">Text</button>
+        <button mat-icon-button color="primary" aria-label="Settings" data-parity="btn-icon-primary">
+          <mat-icon>settings</mat-icon>
+        </button>
+        <button mat-mini-fab color="accent" aria-label="Add" data-parity="btn-fab-accent">
+          <mat-icon>add</mat-icon>
+        </button>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- 2. Form Fields (Fill & Outline + Select) -->
+    <mat-card class="m2-parity-card" data-parity="card-forms">
+      <mat-card-header>
+        <mat-card-title>Form Controls</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="m2-parity-row">
+        <mat-form-field appearance="fill" data-parity="ff-fill">
+          <mat-label>Fill Label</mat-label>
+          <input matInput value="DotOS M2" data-parity="input-fill" />
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" data-parity="ff-outline">
+          <mat-label>Outline Label</mat-label>
+          <input matInput value="DotOS M2" data-parity="input-outline" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" data-parity="ff-select">
+          <mat-label>Select Mode</mat-label>
+          <mat-select value="opt1" data-parity="select-control">
+            <mat-option value="opt1">Option One</mat-option>
+            <mat-option value="opt2">Option Two</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- 3. Selection Controls & Chips & Progress -->
+    <mat-card class="m2-parity-card" data-parity="card-selection">
+      <mat-card-header>
+        <mat-card-title>Selection, Chips &amp; Indicators</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="m2-parity-row">
+          <mat-checkbox [checked]="true" color="primary" data-parity="checkbox-primary">Primary</mat-checkbox>
+          <mat-checkbox [checked]="true" color="accent" data-parity="checkbox-accent">Accent</mat-checkbox>
+          <mat-radio-group value="r1" class="m2-parity-row">
+            <mat-radio-button value="r1" color="primary" data-parity="radio-primary">Radio</mat-radio-button>
+          </mat-radio-group>
+          <mat-slide-toggle [checked]="true" color="primary" data-parity="slide-primary">Slide</mat-slide-toggle>
+          <span matBadge="8" matBadgeColor="warn" matBadgeOverlap="false" data-parity="badge-host">Alerts</span>
+        </div>
+
+        <mat-divider class="m2-parity-divider" data-parity="divider"></mat-divider>
+
+        <div class="m2-parity-row">
+          <mat-chip-listbox aria-label="Chips">
+            <mat-chip-option data-parity="chip-unselected">Unselected</mat-chip-option>
+            <mat-chip-option [selected]="true" color="primary" data-parity="chip-selected">Selected</mat-chip-option>
+          </mat-chip-listbox>
+        </div>
+
+        <mat-progress-bar mode="determinate" [value]="65" color="primary" data-parity="progress-primary"></mat-progress-bar>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- 4. Tabs, List, Expansion Panel & Typography -->
+    <mat-card class="m2-parity-card" data-parity="card-containers">
+      <mat-tab-group animationDuration="0ms" data-parity="tabs">
+        <mat-tab label="Overview">
+          <mat-list data-parity="list">
+            <mat-list-item data-parity="list-item">
+              <span matListItemTitle>Primary List Item</span>
+            </mat-list-item>
+          </mat-list>
+        </mat-tab>
+        <mat-tab label="Details">
+          <div>Details Content</div>
+        </mat-tab>
+      </mat-tab-group>
+
+      <mat-expansion-panel [expanded]="panelExpanded" (opened)="panelOpenedCount = panelOpenedCount + 1" data-parity="expansion">
+        <mat-expansion-panel-header data-parity="expansion-header">
+          <mat-panel-title>Expansion Panel</mat-panel-title>
+        </mat-expansion-panel-header>
+        <div data-parity="expansion-body">Expansion Panel Content</div>
+      </mat-expansion-panel>
+
+      <div class="mat-typography m2-parity-typo" data-parity="typo-container">
+        <div class="mat-h1" data-parity="typo-h1">M2 Heading 1</div>
+        <div class="mat-h2" data-parity="typo-h2">M2 Heading 2</div>
+        <div class="mat-h3" data-parity="typo-h3">M2 Heading 3</div>
+        <div class="mat-h4" data-parity="typo-h4">M2 Heading 4</div>
+        <div class="mat-body-1" data-parity="typo-body1">M2 Body 1 Text</div>
+        <div class="mat-body-2" data-parity="typo-body2">M2 Body 2 Strong</div>
+        <div class="mat-caption" data-parity="typo-caption">M2 Caption Text</div>
+      </div>
+
+      <div class="m2-parity-row m2-parity-probes">
+        <button mat-button [matMenuTriggerFor]="parityMenu" data-parity="menu-trigger">Menu</button>
+        <mat-menu #parityMenu="matMenu">
+          <button mat-menu-item data-parity="menu-item">Action 1</button>
+        </mat-menu>
+        <button mat-button (click)="openSampleDialog()" data-parity="dialog-trigger">Dialog</button>
+        <button mat-button (click)="triggerZoneAsync()" data-parity="zone-btn">ZoneAsync</button>
+        <span data-parity="zone-probe">{{ zoneName }}:{{ asyncTick }}:{{ panelOpenedCount }}</span>
+      </div>
+    </mat-card>
+  </section>
+</div>

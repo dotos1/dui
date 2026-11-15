@@ -42,53 +42,14 @@
 .dui-window {
     display: block;
     font-family: var(--segoe-ui);
-    /* 使用 M3 / DUI 主题变量实现亮/暗/工业深蓝模式下的动态窗口背景、描边与海拔阴影自适应 */
-    background: var(--dui-surface-container, var(--mat-sys-surface-container));
-    color: var(--dui-on-surface, var(--mat-sys-on-surface));
-    border: 1px solid var(--dui-outline-variant, var(--mat-sys-outline-variant));
-    box-shadow: 0 8px 24px -4px color-mix(in srgb, var(--mat-sys-shadow, #000000) 28%, transparent);
 
     &.dui-active {
         backdrop-filter: blur(40px);
-        background: color-mix(in srgb, var(--dui-surface-container, var(--mat-sys-surface-container)) 82%, transparent);
-        border: 1px solid var(--dui-primary, var(--mat-sys-primary));
-        box-shadow: 0 16px 36px -6px color-mix(in srgb, var(--mat-sys-shadow, #000000) 38%, transparent);
 
         @supports (not(backdrop-filter: blur(40px))) {
-            background: var(--dui-surface-container, var(--mat-sys-surface-container));
+            background: rgb(255, 255, 255, .98);
         }
     }
-}
-
-.dui-scroll-view {
-    &::-webkit-scrollbar-corner {
-        background: var(--mat-sys-surface-container-high, var(--dui-surface-container));
-    }
-
-    &::-webkit-scrollbar-track {
-        background: var(--mat-sys-surface-container-low, var(--dui-surface));
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: var(--dui-outline-variant, var(--mat-sys-outline-variant));
-        border: 3px solid var(--mat-sys-surface-container-low, var(--dui-surface));
-
-        &:hover {
-            background: var(--dui-on-surface, var(--mat-sys-on-surface));
-        }
-    }
-
-    &::-webkit-scrollbar-button {
-        background-color: var(--mat-sys-surface-variant, var(--dui-surface-container));
-
-        &:hover {
-            background-color: var(--dui-hover, rgba(128, 128, 128, 0.2)) !important;
-        }
-    }
-}
-
-.dui-title-icon {
-    color: var(--mat-sys-on-surface-variant, var(--dui-on-surface));
 }
 
 .dui-dynamic-window > .dui-window {
@@ -269,28 +230,8 @@
     font-size: 11px;
     z-index: 100;
     font-family: var(--segoe-ui);
-    background: var(--dui-surface-container, var(--mat-sys-surface-container));
-    color: var(--dui-on-surface, var(--mat-sys-on-surface));
-    box-shadow: 0 1px 2px color-mix(in srgb, var(--mat-sys-shadow, #000000) 16%, transparent);
     &.dui-active {
-        background: var(--dui-primary, var(--mat-sys-primary));
-        color: var(--dui-on-primary, var(--mat-sys-on-primary));
-
-        .dui-title-icon {
-            color: var(--dui-on-primary, var(--mat-sys-on-primary)) !important;
-        }
-
         .dui-title-bar-button {
-            background-color: var(--dui-primary, var(--mat-sys-primary));
-
-            &:hover:not(.dui-disabled) {
-                background-color: color-mix(in srgb, var(--dui-on-primary, #ffffff) 14%, var(--dui-primary, var(--mat-sys-primary)));
-            }
-
-            &:not(.dui-disabled):active {
-                background-color: color-mix(in srgb, var(--dui-on-primary, #ffffff) 24%, var(--dui-primary, var(--mat-sys-primary)));
-            }
-
             &[aria-label="Hide"]:not(.dui-disabled) .dui-icon {
                 background-position: 0px 0px;
             }
@@ -299,14 +240,8 @@
                 background-position: -45px 0px;
             }
 
-            &[aria-label="Close"]:not(.dui-disabled) {
-                &:hover {
-                    background-color: rgb(232, 17, 35);
-                }
-
-                .dui-icon {
-                    background-position: -135px 0px;
-                }
+            &[aria-label="Close"]:not(.dui-disabled) .dui-icon {
+                background-position: -135px 0px;
             }
         }
     }
@@ -361,11 +296,6 @@
     border: none;
     cursor: default;
     user-select: none;
-    background-color: var(--dui-surface-container, var(--mat-sys-surface-container));
-
-    &:hover:not(.dui-disabled) {
-        background-color: var(--dui-hover, rgba(128, 128, 128, 0.12));
-    }
 
     .dui-icon {
         width: 100%;
