@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/theme/theme/index.ts`，提供索引相关的定义与实现。
  */
 
+export * from './mat-themes';
 export * from './dui-expansion-panel-theme';
 export * from './dui-datefield-theme';
 export * from './dui-speeddial-theme';

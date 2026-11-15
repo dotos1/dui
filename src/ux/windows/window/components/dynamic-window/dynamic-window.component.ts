@@ -41,6 +41,7 @@ import { ɵBaseDynamicWindowComponent } from './base-dynamic-window.component';
 import {  Router } from '@angular/router';
 import { ThemeService } from '@dotos/dui/theme';
 import { DotosConfigService } from '@dotos/dui/theme';
+import { duiWindowTheme } from '../../../window.theme';
 
 
 /**
@@ -153,6 +154,11 @@ export class ɵDynamicWindowComponent
         this.initAfterClosedStateObserver();
         this.initWindowIdOrderObserver();
         this.initIsActiveObserver();
+        this._dotosConfigService.config
+        .pipe(takeUntil(this._unsubscribeAll))
+        .subscribe(() => {
+          this._themeService.loadTheme(duiWindowTheme);
+        });
     }
 
     /**
