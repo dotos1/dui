@@ -1,0 +1,448 @@
+{
+  "schema": 1,
+  "note": "由 dotos-ops ts/gates/ts-suppress-gate.mjs 生成。只能变小：清理后用 --update 调低，不要手工调高。",
+  "totals": {
+    "ts-comment": 52,
+    "type-escape": 243
+  },
+  "files": {
+    "projects/testdui/src/app/docs/examples/command-palette/command-palette-example.module.ts": {
+      "type-escape": 1
+    },
+    "projects/testdui/src/app/docs/examples/context-menu/context-menu-example.module.ts": {
+      "type-escape": 4
+    },
+    "projects/testdui/src/app/docs/examples/dialogs/dialogs-example.module.ts": {
+      "type-escape": 2
+    },
+    "projects/testdui/src/app/docs/examples/dock-layout/dock-layout-example.module.ts": {
+      "type-escape": 1
+    },
+    "projects/testdui/src/app/docs/examples/editor/editor-example.module.ts": {
+      "type-escape": 1
+    },
+    "projects/testdui/tools/ts-ast-extract.ts": {
+      "type-escape": 2
+    },
+    "src/base/base.ts": {
+      "type-escape": 2
+    },
+    "src/base/dom.ts": {
+      "type-escape": 1
+    },
+    "src/base/duibase.ts": {
+      "type-escape": 2
+    },
+    "src/base/observer.ts": {
+      "type-escape": 1
+    },
+    "src/base/sanitize-dom.ts": {
+      "type-escape": 2
+    },
+    "src/common/carousel/carousel.component.ts": {
+      "type-escape": 1
+    },
+    "src/common/colorpicker/components/gradient/components/eye-dropper.component.ts": {
+      "ts-comment": 2
+    },
+    "src/common/colorpicker/components/gradient/components/gradient-opacity.component.ts": {
+      "type-escape": 1
+    },
+    "src/common/colorpicker/components/gradient/utils/gradientParser.ts": {
+      "ts-comment": 5
+    },
+    "src/common/dnd/dnd-utils.ts": {
+      "type-escape": 1
+    },
+    "src/common/dragselect/operators.ts": {
+      "type-escape": 1
+    },
+    "src/common/dragselect/shortcut.service.ts": {
+      "ts-comment": 1
+    },
+    "src/common/fileupload/file-drop.directive.ts": {
+      "type-escape": 2
+    },
+    "src/common/fileupload/file-uploader.ts": {
+      "type-escape": 1
+    },
+    "src/common/inline-svg/inline-svg.service.ts": {
+      "type-escape": 1
+    },
+    "src/common/keyboard/keyboard-shortcuts.service.spec.ts": {
+      "type-escape": 1
+    },
+    "src/common/keyboard/keyboard-shortcuts.service.ts": {
+      "type-escape": 2
+    },
+    "src/common/keyboard/public-api.ts": {
+      "ts-comment": 2,
+      "type-escape": 5
+    },
+    "src/common/keyboard/utils.ts": {
+      "ts-comment": 1,
+      "type-escape": 3
+    },
+    "src/common/perfect-scrollbar/perfect-scrollbar.directive.spec.ts": {
+      "type-escape": 2
+    },
+    "src/common/resize-element/resizable.directive.ts": {
+      "type-escape": 17
+    },
+    "src/common/resize-element/resize-handle.directive.ts": {
+      "type-escape": 1
+    },
+    "src/common/resize-element/util/is-touch-device.ts": {
+      "type-escape": 1
+    },
+    "src/common/screenfull/screenfull.service.ts": {
+      "type-escape": 1
+    },
+    "src/container/accordion/accordion.ts": {
+      "ts-comment": 1
+    },
+    "src/container/card/card.component.ts": {
+      "type-escape": 3
+    },
+    "src/container/container.main.ts": {
+      "type-escape": 6
+    },
+    "src/container/dock-layout/controls/header.ts": {
+      "type-escape": 1
+    },
+    "src/container/dock-layout/controls/transition-indicator.ts": {
+      "type-escape": 1
+    },
+    "src/container/dock-layout/items/content-item.ts": {
+      "type-escape": 2
+    },
+    "src/container/dock-layout/items/ground-item.ts": {
+      "type-escape": 2
+    },
+    "src/container/dock-layout/items/stack.ts": {
+      "type-escape": 1
+    },
+    "src/container/dock-layout/layout-manager.ts": {
+      "type-escape": 2
+    },
+    "src/container/dock-layout/utils/event-emitter.ts": {
+      "type-escape": 1
+    },
+    "src/container/dock-layout/utils/types.ts": {
+      "type-escape": 2
+    },
+    "src/container/dock-layout/virtual-layout.ts": {
+      "ts-comment": 1,
+      "type-escape": 1
+    },
+    "src/container/gridster/gridsterUtils.service.ts": {
+      "ts-comment": 1
+    },
+    "src/container/layout/component/abstract.panel.ts": {
+      "type-escape": 1
+    },
+    "src/container/layout/component/layout.component.ts": {
+      "ts-comment": 2,
+      "type-escape": 1
+    },
+    "src/container/layout/utils.ts": {
+      "type-escape": 1
+    },
+    "src/container/panel/abstract.panel.ts": {
+      "type-escape": 2
+    },
+    "src/container/tabpanel/tabpanel.component.ts": {
+      "type-escape": 2
+    },
+    "src/core/angular2parse/angular/compiler/lexer.ts": {
+      "ts-comment": 1
+    },
+    "src/core/auth/CommonAuth.ts": {
+      "ts-comment": 2
+    },
+    "src/core/auth/auth-bearer.interceptor.spec.ts": {
+      "type-escape": 4
+    },
+    "src/core/auth/auth.service.ts": {
+      "type-escape": 1
+    },
+    "src/core/auth/jwt-helper.service.spec.ts": {
+      "type-escape": 1
+    },
+    "src/core/behaviors/control-value-accesor.mixin.ts": {
+      "type-escape": 1
+    },
+    "src/core/behaviors/disable-ripple.mixin.ts": {
+      "type-escape": 1
+    },
+    "src/core/color/random.ts": {
+      "type-escape": 2
+    },
+    "src/core/color/solver.ts": {
+      "type-escape": 1
+    },
+    "src/core/component.base.ts": {
+      "type-escape": 3
+    },
+    "src/core/config/config.module.ts": {
+      "type-escape": 1
+    },
+    "src/core/dui.ts": {
+      "ts-comment": 4
+    },
+    "src/core/form/error-state-matcher.ts": {
+      "type-escape": 1
+    },
+    "src/core/form/extensions/field-form/field-form.ts": {
+      "type-escape": 1
+    },
+    "src/core/form/extensions/field-form/utils.ts": {
+      "type-escape": 1
+    },
+    "src/core/form/extensions/field-validation/field-validation.ts": {
+      "type-escape": 2
+    },
+    "src/core/form/template/field.type.ts": {
+      "type-escape": 1
+    },
+    "src/core/form/template/form.validation-message.ts": {
+      "type-escape": 2
+    },
+    "src/core/position/position.store.ts": {
+      "type-escape": 1
+    },
+    "src/core/reflect/Reflect.ts": {
+      "type-escape": 3
+    },
+    "src/core/services/log.service.ts": {
+      "type-escape": 3
+    },
+    "src/data/cardview/components/card-view-item-dispatcher/card-view-item-dispatcher.component.ts": {
+      "ts-comment": 1
+    },
+    "src/data/cardview/components/card-view-keyvaluepairsitem/card-view-keyvaluepairsitem.component.ts": {
+      "ts-comment": 1
+    },
+    "src/data/cardview/components/card-view-mapitem/card-view-mapitem.component.ts": {
+      "ts-comment": 1
+    },
+    "src/data/cardview/components/card-view-selectitem/card-view-selectitem.component.ts": {
+      "ts-comment": 1
+    },
+    "src/data/cardview/components/card-view-textitem/card-view-textitem.component.ts": {
+      "ts-comment": 1
+    },
+    "src/data/datatable/body/body.component.ts": {
+      "type-escape": 1
+    },
+    "src/data/datatable/body/summary/summary-row.component.ts": {
+      "type-escape": 1
+    },
+    "src/data/datatable/datatable.card.ts": {
+      "type-escape": 1
+    },
+    "src/data/datatable/datatable.component.ts": {
+      "type-escape": 1
+    },
+    "src/data/datatable/directives/long-press.directive.ts": {
+      "type-escape": 1
+    },
+    "src/data/datatable/directives/orderable.directive.ts": {
+      "type-escape": 1
+    },
+    "src/data/datatable/row/cell.component.ts": {
+      "type-escape": 1
+    },
+    "src/data/datatable/utils/tree.ts": {
+      "ts-comment": 1,
+      "type-escape": 1
+    },
+    "src/form/action/action.service.ts": {
+      "type-escape": 2
+    },
+    "src/form/base/mat.field.ts": {
+      "type-escape": 6
+    },
+    "src/form/components/form.attributes.ts": {
+      "type-escape": 1
+    },
+    "src/form/components/form.component.ts": {
+      "type-escape": 4
+    },
+    "src/form/date/datefield.component.ts": {
+      "ts-comment": 1,
+      "type-escape": 2
+    },
+    "src/form/daterangepicker/daterangepicker.component.ts": {
+      "type-escape": 11
+    },
+    "src/form/daterangepicker/daterangepicker.config.ts": {
+      "type-escape": 1
+    },
+    "src/form/daterangepicker/daterangepicker.directive.ts": {
+      "type-escape": 10
+    },
+    "src/form/directive/auto-trim.directive.ts": {
+      "type-escape": 1
+    },
+    "src/form/field/numberfield.component.ts": {
+      "type-escape": 1
+    },
+    "src/form/select/search/mat-select-search.component.ts": {
+      "type-escape": 1
+    },
+    "src/form/select/select.field.spec.ts": {
+      "type-escape": 2
+    },
+    "src/form/slide-toggle/slide-toggle.component.ts": {
+      "type-escape": 1
+    },
+    "src/form/toggle-select/toggle-header.component.ts": {
+      "type-escape": 2
+    },
+    "src/form/trigger/abstract.trigger.ts": {
+      "type-escape": 2
+    },
+    "src/form/wrapper/editor-field.ts": {
+      "type-escape": 5
+    },
+    "src/form/wrapper/field-wrapper.ts": {
+      "type-escape": 3
+    },
+    "src/form/wrapper/fieldset.ts": {
+      "type-escape": 3
+    },
+    "src/form/wrapper/form-field.ts": {
+      "type-escape": 2
+    },
+    "src/form/wrapper/label-field.ts": {
+      "type-escape": 3
+    },
+    "src/form/wrapper/repeat-section.type.ts": {
+      "type-escape": 2
+    },
+    "src/form/wrapper/row.editor.ts": {
+      "type-escape": 1
+    },
+    "src/theme/core/mat-elevation.ts": {
+      "type-escape": 1
+    },
+    "src/translator/translate.compiler.ts": {
+      "type-escape": 1
+    },
+    "src/translator/translate.directive.ts": {
+      "type-escape": 1
+    },
+    "src/translator/translate.guard.ts": {
+      "type-escape": 1
+    },
+    "src/translator/translate.loader.ts": {
+      "type-escape": 1
+    },
+    "src/translator/translate.service.ts": {
+      "type-escape": 1
+    },
+    "src/tree/components/tree.component.ts": {
+      "type-escape": 3
+    },
+    "src/tree/defs/api.ts": {
+      "type-escape": 1
+    },
+    "src/tree/directives/tree-drop.directive.ts": {
+      "type-escape": 2
+    },
+    "src/tree/models/tree-node.model.ts": {
+      "type-escape": 1
+    },
+    "src/tree/models/tree-options.model.ts": {
+      "type-escape": 2
+    },
+    "src/ui/button/button.base.ts": {
+      "type-escape": 2
+    },
+    "src/ui/button/toggle-button.component.ts": {
+      "type-escape": 1
+    },
+    "src/ui/context-menu/context-menu.component.ts": {
+      "type-escape": 1
+    },
+    "src/ui/toolbar/toolbar.component.ts": {
+      "type-escape": 1
+    },
+    "src/util/jpeg/decoder.ts": {
+      "ts-comment": 3
+    },
+    "src/util/jpeg/encoder.ts": {
+      "ts-comment": 1,
+      "type-escape": 4
+    },
+    "src/util/jpeg/index.d.ts": {
+      "type-escape": 3
+    },
+    "src/util/pipes/camelCaseToDash.pipe.ts": {
+      "type-escape": 1
+    },
+    "src/util/pipes/clone.pipe.ts": {
+      "type-escape": 1
+    },
+    "src/util/pipes/custom-html.pipe.spec.ts": {
+      "type-escape": 1
+    },
+    "src/util/pipes/htmlToPlaintext.pipe.ts": {
+      "type-escape": 1
+    },
+    "src/util/pipes/localized-date.pipe.ts": {
+      "type-escape": 1
+    },
+    "src/util/string-utils.ts": {
+      "type-escape": 1
+    },
+    "src/ux/code-editor/code-editor.component.ts": {
+      "type-escape": 2
+    },
+    "src/ux/editor/plugins/editable.ts": {
+      "ts-comment": 1
+    },
+    "src/ux/editor/schema/marks.ts": {
+      "ts-comment": 5
+    },
+    "src/ux/editor/schema/nodes.ts": {
+      "ts-comment": 8
+    },
+    "src/ux/line-style/linesize.ts": {
+      "type-escape": 1
+    },
+    "src/ux/line-style/linestyle.ts": {
+      "type-escape": 1
+    },
+    "src/ux/markdown-editor/extHostTypes.ts": {
+      "type-escape": 2
+    },
+    "src/ux/markdown-editor/formatting.ts": {
+      "type-escape": 1
+    },
+    "src/ux/markdown-editor/util.ts": {
+      "type-escape": 1
+    },
+    "src/ux/markdown-editor/vscode-monaco.ts": {
+      "ts-comment": 3,
+      "type-escape": 1
+    },
+    "src/ux/markdown-editor/wordHelper.ts": {
+      "type-escape": 2
+    },
+    "src/ux/monaco-editor/editor.component.ts": {
+      "type-escape": 2
+    },
+    "src/ux/terminal/terminal.component.ts": {
+      "type-escape": 1
+    },
+    "src/ux/windows/window/classes/dynamic-window-injector.ts": {
+      "type-escape": 1
+    },
+    "tools/intl/probe.ts": {
+      "ts-comment": 1,
+      "type-escape": 2
+    }
+  }
+}
