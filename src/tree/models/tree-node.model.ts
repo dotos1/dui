@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/tree/models/tree-node.model.ts`，提供树形控件节点模型相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { concat, first, last, some, every } from 'lodash-es';
 import { IReactionDisposer, action, computed, makeObservable, observable, reaction } from 'mobx';
 

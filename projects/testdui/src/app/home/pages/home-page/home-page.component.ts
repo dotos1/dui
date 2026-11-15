@@ -122,9 +122,9 @@ export class HomePageComponent {
    * Property `quickStartSnippet` (`string`) storing quick start snippet.
    * @zh 属性 `quickStartSnippet`（类型：`string`），用于存储或配置quick开始Snippet。
    */
-  readonly quickStartSnippet = `npm install @dotos/dui
+  readonly quickStartSnippet = `npm install @dotos1/dui
 
-import { ButtonModule } from '@dotos/dui/ui/button';
+import { ButtonModule } from '@dotos1/dui/ui/button';
 
 @NgModule({
   imports: [ButtonModule],

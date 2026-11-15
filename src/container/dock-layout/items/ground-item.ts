@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/items/ground-item.ts`，提供ground条目相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { ComponentItemConfig, ItemConfig, RowOrColumnItemConfig, StackItemConfig } from '../config/config';
 import { ResolvedComponentItemConfig, ResolvedGroundItemConfig, ResolvedHeaderedItemConfig, ResolvedItemConfig, ResolvedRootItemConfig, ResolvedStackItemConfig } from '../config/resolved-config';
 import { AssertError, UnexpectedNullError } from '../errors/internal-error';

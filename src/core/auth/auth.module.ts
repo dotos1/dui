@@ -8,8 +8,8 @@ import { Inject, InjectionToken, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient,  HTTP_INTERCEPTORS, provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 
-import { TranslateModule } from '@dotos/dui/translator';
-import { ConfigService } from '@dotos/dui/core/config';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { ConfigService } from '@dotos1/dui/core/config';
 import { AuthGuard } from './auth-guard.service';
 import { AuthService } from './auth.service';
 import { JwtHelperService } from './jwt-helper.service';

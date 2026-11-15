@@ -13,11 +13,11 @@ import { MatDividerModule, MatDivider } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
-import { IconModule } from '@dotos/dui/common/icon';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { IconModule } from '@dotos1/dui/common/icon';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
-import { ExtensionsModule } from '@dotos/dui/common/dynamic';
+import { ExtensionsModule } from '@dotos1/dui/common/dynamic';
 
 import { MenuBarComponent } from './menu-bar.component';
 import { MenuItemComponent } from './menu-item.component';

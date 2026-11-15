@@ -5,7 +5,7 @@
 
 /* tslint:disable */
 import {AfterContentInit, Component, ElementRef, EventEmitter, Input, Output, ChangeDetectionStrategy} from "@angular/core";
-import {DatetimeAdapter} from "@dotos/dui/form/date/adapter";
+import {DatetimeAdapter} from "@dotos1/dui/form/date/adapter";
 import {MatDatetimepickerFilterType} from "./datetimepicker-filtertype";
 
 /**

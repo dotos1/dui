@@ -22,9 +22,9 @@ import {isString,isDate,isObjectLike,each,isBoolean,forEach,remove}  from 'lodas
 import moment from 'moment';
 import { filter, switchMap, take } from 'rxjs/operators';
 
-import { isPhoneTerminal } from '@dotos/dui/base';
-import { Dui } from '@dotos/dui/core';
-import { FieldConfig, FieldConfigCache, FormBuilder, FormConfig, FormOptions, TypeOption, assignModelValue, clearControl, clone, getKeyPath, isUndefined } from '@dotos/dui/core/form';
+import { isPhoneTerminal } from '@dotos1/dui/base';
+import { Dui } from '@dotos1/dui/core';
+import { FieldConfig, FieldConfigCache, FormBuilder, FormConfig, FormOptions, TypeOption, assignModelValue, clearControl, clone, getKeyPath, isUndefined } from '@dotos1/dui/core/form';
 import { FormAction, Load, Submit } from '../action/index';
 
 

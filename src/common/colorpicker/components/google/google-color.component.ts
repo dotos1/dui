@@ -5,7 +5,7 @@
 
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  OnChanges,  Output,
 } from '@angular/core';
-import { getContrastingColor } from '@dotos/dui/common/colorpicker/common';
+import { getContrastingColor } from '@dotos1/dui/common/colorpicker/common';
 
 /**
  * Angular component `GoogColorComponent` (selector: 'goog-color') providing goog color component presentation and interaction in `src/common/colorpicker/components/google`.

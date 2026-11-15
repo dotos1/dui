@@ -6,7 +6,7 @@
 import {
   ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
-import { isValidHex, RGBA } from '@dotos/dui/common/colorpicker/common';
+import { isValidHex, RGBA } from '@dotos1/dui/common/colorpicker/common';
 
 /**
  * Angular component `CompactFieldsComponent` (selector: 'color-compact-fields') providing compact fields component presentation and interaction in `src/common/colorpicker/components/compact`.

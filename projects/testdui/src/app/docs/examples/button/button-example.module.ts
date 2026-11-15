@@ -6,8 +6,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ButtonModule } from '@dotos/dui/ui/button';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { ButtonModule } from '@dotos1/dui/ui/button';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `ButtonExampleComponent` (selector: 'app-button-example') providing button example component presentation and interaction in `projects/testdui/src/app/docs/examples/button`.

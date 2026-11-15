@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/auth/lock",
+  "importPath": "@dotos1/dui/core/auth/lock",
   "exports": [
     {
       "name": "LockscreenDialog",
@@ -143,5 +143,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { LockscreenDialog, LockscreenSaverModule } from '@dotos/dui/core/auth/lock';\n\n<lock-dialog></lock-dialog>"
+  "suggestedUsageSnippet": "import { LockscreenDialog, LockscreenSaverModule } from '@dotos1/dui/core/auth/lock';\n\n<lock-dialog></lock-dialog>"
 }

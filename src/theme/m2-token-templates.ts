@@ -219,9 +219,9 @@ export const M2_BASE_BLOCKS: readonly M2CssBlock[] = [
       "--mat-table-row-item-outline-width": "1px",
       "--mat-progress-spinner-active-indicator-width": "4px",
       "--mat-badge-container-shape": "50%",
-      "--mat-badge-container-size": "unset",
-      "--mat-badge-small-size-container-size": "unset",
-      "--mat-badge-large-size-container-size": "unset",
+      "--mat-badge-container-size": "0px",
+      "--mat-badge-small-size-container-size": "0px",
+      "--mat-badge-large-size-container-size": "0px",
       "--mat-badge-legacy-container-size": "22px",
       "--mat-badge-legacy-small-size-container-size": "16px",
       "--mat-badge-legacy-large-size-container-size": "28px",
@@ -231,9 +231,9 @@ export const M2_BASE_BLOCKS: readonly M2CssBlock[] = [
       "--mat-badge-container-overlap-offset": "-11px",
       "--mat-badge-small-size-container-overlap-offset": "-8px",
       "--mat-badge-large-size-container-overlap-offset": "-14px",
-      "--mat-badge-container-padding": "0",
-      "--mat-badge-small-size-container-padding": "0",
-      "--mat-badge-large-size-container-padding": "0",
+      "--mat-badge-container-padding": "0px",
+      "--mat-badge-small-size-container-padding": "0px",
+      "--mat-badge-large-size-container-padding": "0px",
       "--mat-bottom-sheet-container-shape": "4px",
       "--mat-button-toggle-focus-state-layer-opacity": "0.12",
       "--mat-button-toggle-hover-state-layer-opacity": "0.04",
@@ -254,7 +254,11 @@ export const M2_BASE_BLOCKS: readonly M2CssBlock[] = [
       "--mat-stepper-header-focus-state-layer-shape": "4px",
       "--mat-stepper-header-hover-state-layer-shape": "4px",
       "--mat-timepicker-container-shape": "4px",
-      "--mat-sys-on-surface": "initial"
+      "--mat-badge-line-height": "normal",
+      "--mat-badge-small-size-line-height": "normal",
+      "--mat-badge-large-size-line-height": "normal",
+      "--mat-card-elevated-container-elevation": "none",
+      "--mat-slider-handle-elevation": "none"
     }
   },
   {
@@ -286,158 +290,158 @@ export const M2_BASE_BLOCKS: readonly M2CssBlock[] = [
   {
     "selector": ".mat-app-background",
     "declarations": {
-      "background-color": "var(--mat-app-background-color, var(--mat-sys-background, transparent))",
-      "color": "var(--mat-app-text-color, var(--mat-sys-on-background, inherit))"
+      "background-color": "var(--mat-app-background-color, transparent)",
+      "color": "var(--mat-app-text-color, inherit)"
     }
   },
   {
     "selector": ".mat-elevation-z0, .mat-mdc-elevation-specific.mat-elevation-z0",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-0, 0px 0px 0px 0px --mat-sys-shadow, 0px 0px 0px 0px --mat-sys-shadow, 0px 0px 0px 0px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-0)"
     }
   },
   {
     "selector": ".mat-elevation-z1, .mat-mdc-elevation-specific.mat-elevation-z1",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-1, 0px 2px 1px -1px --mat-sys-shadow, 0px 1px 1px 0px --mat-sys-shadow, 0px 1px 3px 0px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-1)"
     }
   },
   {
     "selector": ".mat-elevation-z2, .mat-mdc-elevation-specific.mat-elevation-z2",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-2, 0px 3px 1px -2px --mat-sys-shadow, 0px 2px 2px 0px --mat-sys-shadow, 0px 1px 5px 0px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-2)"
     }
   },
   {
     "selector": ".mat-elevation-z3, .mat-mdc-elevation-specific.mat-elevation-z3",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-3, 0px 3px 3px -2px --mat-sys-shadow, 0px 3px 4px 0px --mat-sys-shadow, 0px 1px 8px 0px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-3)"
     }
   },
   {
     "selector": ".mat-elevation-z4, .mat-mdc-elevation-specific.mat-elevation-z4",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-4, 0px 2px 4px -1px --mat-sys-shadow, 0px 4px 5px 0px --mat-sys-shadow, 0px 1px 10px 0px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-4)"
     }
   },
   {
     "selector": ".mat-elevation-z5, .mat-mdc-elevation-specific.mat-elevation-z5",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-5, 0px 3px 5px -1px --mat-sys-shadow, 0px 5px 8px 0px --mat-sys-shadow, 0px 1px 14px 0px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-5)"
     }
   },
   {
     "selector": ".mat-elevation-z6, .mat-mdc-elevation-specific.mat-elevation-z6",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-6, 0px 3px 5px -1px --mat-sys-shadow, 0px 6px 10px 0px --mat-sys-shadow, 0px 1px 18px 0px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-6)"
     }
   },
   {
     "selector": ".mat-elevation-z7, .mat-mdc-elevation-specific.mat-elevation-z7",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-7, 0px 4px 5px -2px --mat-sys-shadow, 0px 7px 10px 1px --mat-sys-shadow, 0px 2px 16px 1px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-7)"
     }
   },
   {
     "selector": ".mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-8, 0px 5px 5px -3px --mat-sys-shadow, 0px 8px 10px 1px --mat-sys-shadow, 0px 3px 14px 2px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-8)"
     }
   },
   {
     "selector": ".mat-elevation-z9, .mat-mdc-elevation-specific.mat-elevation-z9",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-9, 0px 5px 6px -3px --mat-sys-shadow, 0px 9px 12px 1px --mat-sys-shadow, 0px 3px 16px 2px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-9)"
     }
   },
   {
     "selector": ".mat-elevation-z10, .mat-mdc-elevation-specific.mat-elevation-z10",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-10, 0px 6px 6px -3px --mat-sys-shadow, 0px 10px 14px 1px --mat-sys-shadow, 0px 4px 18px 3px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-10)"
     }
   },
   {
     "selector": ".mat-elevation-z11, .mat-mdc-elevation-specific.mat-elevation-z11",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-11, 0px 6px 7px -4px --mat-sys-shadow, 0px 11px 15px 1px --mat-sys-shadow, 0px 4px 20px 3px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-11)"
     }
   },
   {
     "selector": ".mat-elevation-z12, .mat-mdc-elevation-specific.mat-elevation-z12",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-12, 0px 7px 8px -4px --mat-sys-shadow, 0px 12px 17px 2px --mat-sys-shadow, 0px 5px 22px 4px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-12)"
     }
   },
   {
     "selector": ".mat-elevation-z13, .mat-mdc-elevation-specific.mat-elevation-z13",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-13, 0px 7px 8px -4px --mat-sys-shadow, 0px 13px 19px 2px --mat-sys-shadow, 0px 5px 24px 4px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-13)"
     }
   },
   {
     "selector": ".mat-elevation-z14, .mat-mdc-elevation-specific.mat-elevation-z14",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-14, 0px 7px 9px -4px --mat-sys-shadow, 0px 14px 21px 2px --mat-sys-shadow, 0px 5px 26px 4px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-14)"
     }
   },
   {
     "selector": ".mat-elevation-z15, .mat-mdc-elevation-specific.mat-elevation-z15",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-15, 0px 8px 9px -5px --mat-sys-shadow, 0px 15px 22px 2px --mat-sys-shadow, 0px 6px 28px 5px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-15)"
     }
   },
   {
     "selector": ".mat-elevation-z16, .mat-mdc-elevation-specific.mat-elevation-z16",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-16, 0px 8px 10px -5px --mat-sys-shadow, 0px 16px 24px 2px --mat-sys-shadow, 0px 6px 30px 5px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-16)"
     }
   },
   {
     "selector": ".mat-elevation-z17, .mat-mdc-elevation-specific.mat-elevation-z17",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-17, 0px 8px 11px -5px --mat-sys-shadow, 0px 17px 26px 2px --mat-sys-shadow, 0px 6px 32px 5px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-17)"
     }
   },
   {
     "selector": ".mat-elevation-z18, .mat-mdc-elevation-specific.mat-elevation-z18",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-18, 0px 9px 11px -5px --mat-sys-shadow, 0px 18px 28px 2px --mat-sys-shadow, 0px 7px 34px 6px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-18)"
     }
   },
   {
     "selector": ".mat-elevation-z19, .mat-mdc-elevation-specific.mat-elevation-z19",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-19, 0px 9px 12px -6px --mat-sys-shadow, 0px 19px 29px 2px --mat-sys-shadow, 0px 7px 36px 6px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-19)"
     }
   },
   {
     "selector": ".mat-elevation-z20, .mat-mdc-elevation-specific.mat-elevation-z20",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-20, 0px 10px 13px -6px --mat-sys-shadow, 0px 20px 31px 3px --mat-sys-shadow, 0px 8px 38px 7px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-20)"
     }
   },
   {
     "selector": ".mat-elevation-z21, .mat-mdc-elevation-specific.mat-elevation-z21",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-21, 0px 10px 13px -6px --mat-sys-shadow, 0px 21px 33px 3px --mat-sys-shadow, 0px 8px 40px 7px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-21)"
     }
   },
   {
     "selector": ".mat-elevation-z22, .mat-mdc-elevation-specific.mat-elevation-z22",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-22, 0px 10px 14px -6px --mat-sys-shadow, 0px 22px 35px 3px --mat-sys-shadow, 0px 8px 42px 7px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-22)"
     }
   },
   {
     "selector": ".mat-elevation-z23, .mat-mdc-elevation-specific.mat-elevation-z23",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-23, 0px 11px 14px -7px --mat-sys-shadow, 0px 23px 36px 3px --mat-sys-shadow, 0px 9px 44px 8px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-23)"
     }
   },
   {
     "selector": ".mat-elevation-z24, .mat-mdc-elevation-specific.mat-elevation-z24",
     "declarations": {
-      "box-shadow": "var(--mat-app-elevation-shadow-level-24, 0px 11px 15px -7px --mat-sys-shadow, 0px 24px 38px 3px --mat-sys-shadow, 0px 9px 46px 8px --mat-sys-shadow)"
+      "box-shadow": "var(--mat-app-elevation-shadow-level-24)"
     }
   }
 ];
@@ -451,79 +455,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
     {
       "selector": "html",
       "declarations": {
-        "--mat-sys-primary": "{{primary.default}}",
-        "--mat-sys-on-primary": "{{primary.default-contrast}}",
-        "--mat-sys-inverse-primary": "{{primary.300}}",
-        "--mat-sys-secondary": "{{accent.default}}",
-        "--mat-sys-on-secondary": "{{accent.default-contrast}}",
-        "--mat-sys-inverse-secondary": "{{accent.300}}",
-        "--mat-sys-error": "{{warn.default}}",
-        "--mat-sys-on-error": "{{warn.default-contrast}}",
-        "--mat-sys-inverse-error": "{{warn.300}}",
-        "--mat-sys-shadow": "black",
-        "--mat-sys-surface": "white",
-        "--mat-sys-on-surface": "rgba(0, 0, 0, 0.87)",
-        "--mat-sys-surface-variant": "#f6f6f6",
-        "--mat-sys-on-surface-variant": "rgba(0, 0, 0, 0.54)",
-        "--mat-sys-background": "#fafafa",
-        "--mat-sys-inverse-surface": "#424242",
-        "--mat-sys-inverse-on-surface": "white",
-        "--mat-sys-outline": "rgba(0, 0, 0, 0.12)",
-        "--mat-sys-outline-variant": "rgba(0, 0, 0, 0.38)",
-        "--mat-sys-error-container": "{{warn.50}}",
-        "--mat-sys-on-background": "rgba(0, 0, 0, 0.87)",
-        "--mat-sys-on-error-container": "{{warn.700}}",
-        "--mat-sys-on-primary-container": "{{primary.700}}",
-        "--mat-sys-on-primary-fixed": "{{primary.default-contrast}}",
-        "--mat-sys-on-primary-fixed-variant": "{{primary.default-contrast}}",
-        "--mat-sys-on-secondary-container": "{{accent.700}}",
-        "--mat-sys-on-secondary-fixed": "{{accent.default-contrast}}",
-        "--mat-sys-on-secondary-fixed-variant": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary-container": "{{accent.700}}",
-        "--mat-sys-on-tertiary-fixed": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary-fixed-variant": "{{accent.default-contrast}}",
-        "--mat-sys-primary-container": "{{primary.50}}",
-        "--mat-sys-primary-fixed": "{{primary.default}}",
-        "--mat-sys-primary-fixed-dim": "{{primary.default}}",
-        "--mat-sys-scrim": "black",
-        "--mat-sys-secondary-container": "{{accent.50}}",
-        "--mat-sys-secondary-fixed": "{{accent.default}}",
-        "--mat-sys-secondary-fixed-dim": "{{accent.default}}",
-        "--mat-sys-surface-bright": "white",
-        "--mat-sys-surface-container": "white",
-        "--mat-sys-surface-container-high": "white",
-        "--mat-sys-surface-container-highest": "white",
-        "--mat-sys-surface-container-low": "white",
-        "--mat-sys-surface-container-lowest": "white",
-        "--mat-sys-surface-dim": "white",
-        "--mat-sys-surface-tint": "white",
-        "--mat-sys-tertiary": "{{accent.default}}",
-        "--mat-sys-tertiary-container": "{{accent.50}}",
-        "--mat-sys-tertiary-fixed": "{{accent.default}}",
-        "--mat-sys-tertiary-fixed-dim": "{{accent.default}}",
-        "--mat-sys-level0": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level1": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level2": "0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level3": "0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level4": "0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level5": "0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-corner-extra-large": "28px",
-        "--mat-sys-corner-extra-large-top": "28px 28px 0 0",
-        "--mat-sys-corner-extra-small": "4px",
-        "--mat-sys-corner-extra-small-top": "4px 4px 0 0",
-        "--mat-sys-corner-full": "9999px",
-        "--mat-sys-corner-large": "16px",
-        "--mat-sys-corner-large-end": "0 16px 16px 0",
-        "--mat-sys-corner-large-start": "16px 0 0 16px",
-        "--mat-sys-corner-large-top": "16px 16px 0 0",
-        "--mat-sys-corner-medium": "12px",
-        "--mat-sys-corner-none": "0",
-        "--mat-sys-corner-small": "8px",
-        "--mat-sys-dragged-state-layer-opacity": "0.16",
-        "--mat-sys-focus-state-layer-opacity": "0.12",
-        "--mat-sys-hover-state-layer-opacity": "0.04",
-        "--mat-sys-pressed-state-layer-opacity": "0.12",
         "--mat-app-background-color": "#fafafa",
         "--mat-app-text-color": "rgba(0, 0, 0, 0.87)",
         "--mat-app-elevation-shadow-level-0": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
@@ -567,7 +498,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-pseudo-checkbox-minimal-selected-checkmark-color": "{{accent.default}}",
         "--mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent)",
         "--mat-card-elevated-container-color": "white",
-        "--mat-card-elevated-container-elevation": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+        "--mat-card-elevated-container-elevation": "none",
         "--mat-card-outlined-container-color": "white",
         "--mat-card-outlined-container-elevation": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
         "--mat-card-outlined-outline-color": "rgba(0, 0, 0, 0.12)",
@@ -693,7 +624,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-slider-ripple-color": "{{primary.default}}",
         "--mat-slider-with-tick-marks-active-container-color": "{{primary.default-contrast}}",
         "--mat-slider-with-tick-marks-inactive-container-color": "{{primary.default}}",
-        "--mat-slider-handle-elevation": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+        "--mat-slider-handle-elevation": "none",
         "--mat-slider-disabled-active-track-color": "rgba(0, 0, 0, 0.87)",
         "--mat-slider-disabled-handle-color": "rgba(0, 0, 0, 0.87)",
         "--mat-slider-disabled-inactive-track-color": "rgba(0, 0, 0, 0.87)",
@@ -752,7 +683,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-checkbox-unselected-hover-state-layer-color": "rgba(0, 0, 0, 0.87)",
         "--mat-checkbox-unselected-pressed-state-layer-color": "rgba(0, 0, 0, 0.87)",
         "--mat-button-filled-container-color": "white",
-        "--mat-button-filled-disabled-container-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent)",
+        "--mat-button-filled-disabled-container-color": "rgba(0, 0, 0, 0.12)",
         "--mat-button-filled-disabled-label-text-color": "rgba(0, 0, 0, 0.38)",
         "--mat-button-filled-disabled-state-layer-color": "rgba(0, 0, 0, 0.7)",
         "--mat-button-filled-focus-state-layer-opacity": "0.12",
@@ -772,7 +703,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-button-outlined-ripple-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent)",
         "--mat-button-outlined-state-layer-color": "rgba(0, 0, 0, 0.87)",
         "--mat-button-protected-container-color": "white",
-        "--mat-button-protected-disabled-container-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent)",
+        "--mat-button-protected-disabled-container-color": "rgba(0, 0, 0, 0.12)",
         "--mat-button-protected-disabled-label-text-color": "rgba(0, 0, 0, 0.38)",
         "--mat-button-protected-disabled-state-layer-color": "rgba(0, 0, 0, 0.7)",
         "--mat-button-protected-focus-state-layer-opacity": "0.12",
@@ -847,8 +778,8 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-table-row-item-label-text-color": "rgba(0, 0, 0, 0.87)",
         "--mat-table-row-item-outline-color": "rgba(0, 0, 0, 0.12)",
         "--mat-progress-spinner-active-indicator-color": "{{primary.default}}",
-        "--mat-badge-background-color": "{{primary.default}}",
-        "--mat-badge-text-color": "{{primary.default-contrast}}",
+        "--mat-badge-background-color": "transparent",
+        "--mat-badge-text-color": "inherit",
         "--mat-badge-disabled-state-background-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent)",
         "--mat-badge-disabled-state-text-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent)",
         "--mat-bottom-sheet-container-text-color": "rgba(0, 0, 0, 0.87)",
@@ -910,7 +841,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-expansion-header-text-color": "rgba(0, 0, 0, 0.87)",
         "--mat-expansion-header-description-color": "rgba(0, 0, 0, 0.7)",
         "--mat-expansion-header-indicator-color": "rgba(0, 0, 0, 0.7)",
-        "--mat-icon-color": "inherit",
+        "--mat-icon-color": "rgba(0, 0, 0, 0.54)",
         "--mat-sidenav-container-elevation-shadow": "0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)",
         "--mat-sidenav-container-divider-color": "rgba(0, 0, 0, 0.12)",
         "--mat-sidenav-container-background-color": "white",
@@ -942,13 +873,16 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-tree-container-background-color": "white",
         "--mat-tree-node-text-color": "rgba(0, 0, 0, 0.87)",
         "--mat-timepicker-container-elevation-shadow": "0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)",
-        "--mat-timepicker-container-background-color": "white"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled)",
-      "declarations": {
-        "color": "var(--mat-icon-button-icon-color)"
+        "--mat-timepicker-container-background-color": "white",
+        "--dui-theme-primary": "{{primary.default}}",
+        "--dui-theme-on-primary": "{{primary.default-contrast@1}}",
+        "--dui-theme-primary-container": "{{primary.default@0.12}}",
+        "--dui-theme-accent": "{{accent.default}}",
+        "--dui-theme-warn": "{{warn.default}}",
+        "--dui-primary-color": "{{primary.default}}",
+        "--dui-accent-color": "{{accent.default}}",
+        "--dui-warn-color": "{{warn.default}}",
+        "--dui-primary-container-color": "{{primary.default@0.12}}"
       }
     },
     {
@@ -1089,7 +1023,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-chip-disabled-label-text-color": "rgba(0, 0, 0, 0.87)",
         "--mat-chip-elevated-container-color": "#e0e0e0",
         "--mat-chip-elevated-disabled-container-color": "#e0e0e0",
-        "--mat-chip-elevated-selected-container-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent)",
+        "--mat-chip-elevated-selected-container-color": "#e0e0e0",
         "--mat-chip-flat-disabled-selected-container-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent)",
         "--mat-chip-focus-state-layer-color": "rgba(0, 0, 0, 0.87)",
         "--mat-chip-focus-state-layer-opacity": "0.12",
@@ -1106,81 +1040,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-chip-with-icon-selected-icon-color": "rgba(0, 0, 0, 0.87)",
         "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "rgba(0, 0, 0, 0.87)",
         "--mat-chip-with-trailing-icon-trailing-icon-color": "rgba(0, 0, 0, 0.87)"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{primary.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{primary.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{primary.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{primary.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-chip-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{primary.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{accent.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{accent.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{accent.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{accent.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-chip-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{accent.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-warn, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-warn",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{warn.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{warn.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{warn.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{warn.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-chip-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{warn.default-contrast}}"
       }
     },
     {
@@ -1487,26 +1346,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
       }
     },
     {
-      "selector": "html .mat-mdc-checkbox.mat-primary",
-      "declarations": {
-        "--mat-checkbox-disabled-selected-icon-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent)",
-        "--mat-checkbox-disabled-unselected-icon-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent)",
-        "--mat-checkbox-selected-checkmark-color": "{{primary.default-contrast}}",
-        "--mat-checkbox-selected-focus-icon-color": "{{primary.default}}",
-        "--mat-checkbox-selected-hover-icon-color": "{{primary.default}}",
-        "--mat-checkbox-selected-icon-color": "{{primary.default}}",
-        "--mat-checkbox-unselected-focus-icon-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-checkbox-unselected-hover-icon-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-checkbox-unselected-icon-color": "rgba(0, 0, 0, 0.7)",
-        "--mat-checkbox-selected-focus-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-selected-hover-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-selected-pressed-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-unselected-focus-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-checkbox-unselected-hover-state-layer-color": "rgba(0, 0, 0, 0.87)",
-        "--mat-checkbox-unselected-pressed-state-layer-color": "rgba(0, 0, 0, 0.87)"
-      }
-    },
-    {
       "selector": "html .mat-mdc-checkbox.mat-warn",
       "declarations": {
         "--mat-checkbox-disabled-selected-icon-color": "color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent)",
@@ -1662,20 +1501,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
       }
     },
     {
-      "selector": "html .mat-badge-accent",
-      "declarations": {
-        "--mat-badge-background-color": "{{accent.default}}",
-        "--mat-badge-text-color": "{{accent.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-badge-warn",
-      "declarations": {
-        "--mat-badge-background-color": "{{warn.default}}",
-        "--mat-badge-text-color": "{{warn.default-contrast}}"
-      }
-    },
-    {
       "selector": "html .mat-datepicker-content.mat-accent, html .mat-datepicker-toggle-active.mat-accent",
       "declarations": {
         "--mat-datepicker-calendar-date-in-range-state-background-color": "color-mix(in srgb, {{accent.default}} 20%, transparent)",
@@ -1811,79 +1636,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
     {
       "selector": "html",
       "declarations": {
-        "--mat-sys-primary": "{{primary.default}}",
-        "--mat-sys-on-primary": "{{primary.default-contrast}}",
-        "--mat-sys-inverse-primary": "{{primary.600}}",
-        "--mat-sys-secondary": "{{accent.default}}",
-        "--mat-sys-on-secondary": "{{accent.default-contrast}}",
-        "--mat-sys-inverse-secondary": "{{accent.600}}",
-        "--mat-sys-error": "{{warn.default}}",
-        "--mat-sys-on-error": "{{warn.default-contrast}}",
-        "--mat-sys-inverse-error": "{{warn.600}}",
-        "--mat-sys-shadow": "black",
-        "--mat-sys-surface": "#424242",
-        "--mat-sys-on-surface": "white",
-        "--mat-sys-surface-variant": "#4a4a4a",
-        "--mat-sys-on-surface-variant": "rgba(255, 255, 255, 0.7)",
-        "--mat-sys-background": "#303030",
-        "--mat-sys-inverse-surface": "white",
-        "--mat-sys-inverse-on-surface": "rgba(0, 0, 0, 0.87)",
-        "--mat-sys-outline": "rgba(255, 255, 255, 0.12)",
-        "--mat-sys-outline-variant": "rgba(255, 255, 255, 0.38)",
-        "--mat-sys-error-container": "{{warn.900}}",
-        "--mat-sys-on-background": "white",
-        "--mat-sys-on-error-container": "{{warn.50}}",
-        "--mat-sys-on-primary-container": "{{primary.50}}",
-        "--mat-sys-on-primary-fixed": "{{primary.default-contrast}}",
-        "--mat-sys-on-primary-fixed-variant": "{{primary.default-contrast}}",
-        "--mat-sys-on-secondary-container": "{{accent.50}}",
-        "--mat-sys-on-secondary-fixed": "{{accent.default-contrast}}",
-        "--mat-sys-on-secondary-fixed-variant": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary-container": "{{accent.50}}",
-        "--mat-sys-on-tertiary-fixed": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary-fixed-variant": "{{accent.default-contrast}}",
-        "--mat-sys-primary-container": "{{primary.900}}",
-        "--mat-sys-primary-fixed": "{{primary.default}}",
-        "--mat-sys-primary-fixed-dim": "{{primary.default}}",
-        "--mat-sys-scrim": "black",
-        "--mat-sys-secondary-container": "{{accent.900}}",
-        "--mat-sys-secondary-fixed": "{{accent.default}}",
-        "--mat-sys-secondary-fixed-dim": "{{accent.default}}",
-        "--mat-sys-surface-bright": "#424242",
-        "--mat-sys-surface-container": "#424242",
-        "--mat-sys-surface-container-high": "#424242",
-        "--mat-sys-surface-container-highest": "#424242",
-        "--mat-sys-surface-container-low": "#424242",
-        "--mat-sys-surface-container-lowest": "#424242",
-        "--mat-sys-surface-dim": "#424242",
-        "--mat-sys-surface-tint": "#424242",
-        "--mat-sys-tertiary": "{{accent.default}}",
-        "--mat-sys-tertiary-container": "{{accent.900}}",
-        "--mat-sys-tertiary-fixed": "{{accent.default}}",
-        "--mat-sys-tertiary-fixed-dim": "{{accent.default}}",
-        "--mat-sys-level0": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level1": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level2": "0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level3": "0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level4": "0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level5": "0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-corner-extra-large": "28px",
-        "--mat-sys-corner-extra-large-top": "28px 28px 0 0",
-        "--mat-sys-corner-extra-small": "4px",
-        "--mat-sys-corner-extra-small-top": "4px 4px 0 0",
-        "--mat-sys-corner-full": "9999px",
-        "--mat-sys-corner-large": "16px",
-        "--mat-sys-corner-large-end": "0 16px 16px 0",
-        "--mat-sys-corner-large-start": "16px 0 0 16px",
-        "--mat-sys-corner-large-top": "16px 16px 0 0",
-        "--mat-sys-corner-medium": "12px",
-        "--mat-sys-corner-none": "0",
-        "--mat-sys-corner-small": "8px",
-        "--mat-sys-dragged-state-layer-opacity": "0.16",
-        "--mat-sys-focus-state-layer-opacity": "0.12",
-        "--mat-sys-hover-state-layer-opacity": "0.04",
-        "--mat-sys-pressed-state-layer-opacity": "0.12",
         "--mat-app-background-color": "#212121",
         "--mat-app-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-app-elevation-shadow-level-0": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
@@ -1927,7 +1679,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-pseudo-checkbox-minimal-selected-checkmark-color": "{{accent.default}}",
         "--mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
         "--mat-card-elevated-container-color": "#424242",
-        "--mat-card-elevated-container-elevation": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+        "--mat-card-elevated-container-elevation": "none",
         "--mat-card-outlined-container-color": "#424242",
         "--mat-card-outlined-container-elevation": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
         "--mat-card-outlined-outline-color": "rgba(255, 255, 255, 0.12)",
@@ -2053,7 +1805,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-slider-ripple-color": "{{primary.default}}",
         "--mat-slider-with-tick-marks-active-container-color": "{{primary.default-contrast}}",
         "--mat-slider-with-tick-marks-inactive-container-color": "{{primary.default}}",
-        "--mat-slider-handle-elevation": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+        "--mat-slider-handle-elevation": "none",
         "--mat-slider-disabled-active-track-color": "rgba(255, 255, 255, 0.87)",
         "--mat-slider-disabled-handle-color": "rgba(255, 255, 255, 0.87)",
         "--mat-slider-disabled-inactive-track-color": "rgba(255, 255, 255, 0.87)",
@@ -2112,7 +1864,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-checkbox-unselected-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-checkbox-unselected-pressed-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-button-filled-container-color": "#424242",
-        "--mat-button-filled-disabled-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
+        "--mat-button-filled-disabled-container-color": "rgba(255, 255, 255, 0.12)",
         "--mat-button-filled-disabled-label-text-color": "rgba(255, 255, 255, 0.5)",
         "--mat-button-filled-disabled-state-layer-color": "rgba(255, 255, 255, 0.7)",
         "--mat-button-filled-focus-state-layer-opacity": "0.12",
@@ -2132,7 +1884,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-button-outlined-ripple-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
         "--mat-button-outlined-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-button-protected-container-color": "#424242",
-        "--mat-button-protected-disabled-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
+        "--mat-button-protected-disabled-container-color": "rgba(255, 255, 255, 0.12)",
         "--mat-button-protected-disabled-label-text-color": "rgba(255, 255, 255, 0.5)",
         "--mat-button-protected-disabled-state-layer-color": "rgba(255, 255, 255, 0.7)",
         "--mat-button-protected-focus-state-layer-opacity": "0.12",
@@ -2207,8 +1959,8 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-table-row-item-label-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-table-row-item-outline-color": "rgba(255, 255, 255, 0.12)",
         "--mat-progress-spinner-active-indicator-color": "{{primary.default}}",
-        "--mat-badge-background-color": "{{primary.default}}",
-        "--mat-badge-text-color": "{{primary.default-contrast}}",
+        "--mat-badge-background-color": "transparent",
+        "--mat-badge-text-color": "inherit",
         "--mat-badge-disabled-state-background-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
         "--mat-badge-disabled-state-text-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
         "--mat-bottom-sheet-container-text-color": "rgba(255, 255, 255, 0.87)",
@@ -2270,7 +2022,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-expansion-header-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-expansion-header-description-color": "rgba(255, 255, 255, 0.7)",
         "--mat-expansion-header-indicator-color": "rgba(255, 255, 255, 0.7)",
-        "--mat-icon-color": "inherit",
+        "--mat-icon-color": "rgba(255, 255, 255, 0.7)",
         "--mat-sidenav-container-elevation-shadow": "0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)",
         "--mat-sidenav-container-divider-color": "rgba(255, 255, 255, 0.12)",
         "--mat-sidenav-container-background-color": "#424242",
@@ -2302,13 +2054,16 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-tree-container-background-color": "#424242",
         "--mat-tree-node-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-timepicker-container-elevation-shadow": "0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)",
-        "--mat-timepicker-container-background-color": "#424242"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled)",
-      "declarations": {
-        "color": "var(--mat-icon-button-icon-color)"
+        "--mat-timepicker-container-background-color": "#424242",
+        "--dui-theme-primary": "{{primary.default}}",
+        "--dui-theme-on-primary": "{{primary.default-contrast@1}}",
+        "--dui-theme-primary-container": "{{primary.default@0.12}}",
+        "--dui-theme-accent": "{{accent.default}}",
+        "--dui-theme-warn": "{{warn.default}}",
+        "--dui-primary-color": "{{primary.default}}",
+        "--dui-accent-color": "{{accent.default}}",
+        "--dui-warn-color": "{{warn.default}}",
+        "--dui-primary-container-color": "{{primary.default@0.12}}"
       }
     },
     {
@@ -2449,7 +2204,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-chip-disabled-label-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-elevated-container-color": "#616161",
         "--mat-chip-elevated-disabled-container-color": "#616161",
-        "--mat-chip-elevated-selected-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
+        "--mat-chip-elevated-selected-container-color": "#616161",
         "--mat-chip-flat-disabled-selected-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
         "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-focus-state-layer-opacity": "0.12",
@@ -2466,81 +2221,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-chip-with-icon-selected-icon-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-with-trailing-icon-trailing-icon-color": "rgba(255, 255, 255, 0.87)"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{primary.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{primary.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{primary.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{primary.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{primary.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{accent.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{accent.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{accent.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{accent.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{accent.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-warn, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-warn",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{warn.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{warn.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{warn.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{warn.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{warn.default-contrast}}"
       }
     },
     {
@@ -2847,26 +2527,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
       }
     },
     {
-      "selector": "html .mat-mdc-checkbox.mat-primary",
-      "declarations": {
-        "--mat-checkbox-disabled-selected-icon-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
-        "--mat-checkbox-disabled-unselected-icon-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
-        "--mat-checkbox-selected-checkmark-color": "{{primary.default-contrast}}",
-        "--mat-checkbox-selected-focus-icon-color": "{{primary.default}}",
-        "--mat-checkbox-selected-hover-icon-color": "{{primary.default}}",
-        "--mat-checkbox-selected-icon-color": "{{primary.default}}",
-        "--mat-checkbox-unselected-focus-icon-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-hover-icon-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-icon-color": "rgba(255, 255, 255, 0.7)",
-        "--mat-checkbox-selected-focus-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-selected-hover-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-selected-pressed-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-unselected-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-pressed-state-layer-color": "rgba(255, 255, 255, 0.87)"
-      }
-    },
-    {
       "selector": "html .mat-mdc-checkbox.mat-warn",
       "declarations": {
         "--mat-checkbox-disabled-selected-icon-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
@@ -3022,20 +2682,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
       }
     },
     {
-      "selector": "html .mat-badge-accent",
-      "declarations": {
-        "--mat-badge-background-color": "{{accent.default}}",
-        "--mat-badge-text-color": "{{accent.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-badge-warn",
-      "declarations": {
-        "--mat-badge-background-color": "{{warn.default}}",
-        "--mat-badge-text-color": "{{warn.default-contrast}}"
-      }
-    },
-    {
       "selector": "html .mat-datepicker-content.mat-accent, html .mat-datepicker-toggle-active.mat-accent",
       "declarations": {
         "--mat-datepicker-calendar-date-in-range-state-background-color": "color-mix(in srgb, {{accent.default}} 20%, transparent)",
@@ -3171,79 +2817,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
     {
       "selector": "html",
       "declarations": {
-        "--mat-sys-primary": "{{primary.default}}",
-        "--mat-sys-on-primary": "{{primary.default-contrast}}",
-        "--mat-sys-inverse-primary": "{{primary.600}}",
-        "--mat-sys-secondary": "{{accent.default}}",
-        "--mat-sys-on-secondary": "{{accent.default-contrast}}",
-        "--mat-sys-inverse-secondary": "{{accent.600}}",
-        "--mat-sys-error": "{{warn.default}}",
-        "--mat-sys-on-error": "{{warn.default-contrast}}",
-        "--mat-sys-inverse-error": "{{warn.600}}",
-        "--mat-sys-shadow": "black",
-        "--mat-sys-surface": "#424242",
-        "--mat-sys-on-surface": "white",
-        "--mat-sys-surface-variant": "#4a4a4a",
-        "--mat-sys-on-surface-variant": "rgba(255, 255, 255, 0.7)",
-        "--mat-sys-background": "#303030",
-        "--mat-sys-inverse-surface": "white",
-        "--mat-sys-inverse-on-surface": "rgba(0, 0, 0, 0.87)",
-        "--mat-sys-outline": "rgba(255, 255, 255, 0.12)",
-        "--mat-sys-outline-variant": "rgba(255, 255, 255, 0.38)",
-        "--mat-sys-error-container": "{{warn.900}}",
-        "--mat-sys-on-background": "white",
-        "--mat-sys-on-error-container": "{{warn.50}}",
-        "--mat-sys-on-primary-container": "{{primary.50}}",
-        "--mat-sys-on-primary-fixed": "{{primary.default-contrast}}",
-        "--mat-sys-on-primary-fixed-variant": "{{primary.default-contrast}}",
-        "--mat-sys-on-secondary-container": "{{accent.50}}",
-        "--mat-sys-on-secondary-fixed": "{{accent.default-contrast}}",
-        "--mat-sys-on-secondary-fixed-variant": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary-container": "{{accent.50}}",
-        "--mat-sys-on-tertiary-fixed": "{{accent.default-contrast}}",
-        "--mat-sys-on-tertiary-fixed-variant": "{{accent.default-contrast}}",
-        "--mat-sys-primary-container": "{{primary.900}}",
-        "--mat-sys-primary-fixed": "{{primary.default}}",
-        "--mat-sys-primary-fixed-dim": "{{primary.default}}",
-        "--mat-sys-scrim": "black",
-        "--mat-sys-secondary-container": "{{accent.900}}",
-        "--mat-sys-secondary-fixed": "{{accent.default}}",
-        "--mat-sys-secondary-fixed-dim": "{{accent.default}}",
-        "--mat-sys-surface-bright": "#424242",
-        "--mat-sys-surface-container": "#424242",
-        "--mat-sys-surface-container-high": "#424242",
-        "--mat-sys-surface-container-highest": "#424242",
-        "--mat-sys-surface-container-low": "#424242",
-        "--mat-sys-surface-container-lowest": "#424242",
-        "--mat-sys-surface-dim": "#424242",
-        "--mat-sys-surface-tint": "#424242",
-        "--mat-sys-tertiary": "{{accent.default}}",
-        "--mat-sys-tertiary-container": "{{accent.900}}",
-        "--mat-sys-tertiary-fixed": "{{accent.default}}",
-        "--mat-sys-tertiary-fixed-dim": "{{accent.default}}",
-        "--mat-sys-level0": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level1": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level2": "0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level3": "0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level4": "0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-level5": "0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12)",
-        "--mat-sys-corner-extra-large": "28px",
-        "--mat-sys-corner-extra-large-top": "28px 28px 0 0",
-        "--mat-sys-corner-extra-small": "4px",
-        "--mat-sys-corner-extra-small-top": "4px 4px 0 0",
-        "--mat-sys-corner-full": "9999px",
-        "--mat-sys-corner-large": "16px",
-        "--mat-sys-corner-large-end": "0 16px 16px 0",
-        "--mat-sys-corner-large-start": "16px 0 0 16px",
-        "--mat-sys-corner-large-top": "16px 16px 0 0",
-        "--mat-sys-corner-medium": "12px",
-        "--mat-sys-corner-none": "0",
-        "--mat-sys-corner-small": "8px",
-        "--mat-sys-dragged-state-layer-opacity": "0.16",
-        "--mat-sys-focus-state-layer-opacity": "0.12",
-        "--mat-sys-hover-state-layer-opacity": "0.04",
-        "--mat-sys-pressed-state-layer-opacity": "0.12",
         "--mat-app-background-color": "#263238",
         "--mat-app-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-app-elevation-shadow-level-0": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
@@ -3287,7 +2860,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-pseudo-checkbox-minimal-selected-checkmark-color": "{{accent.default}}",
         "--mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
         "--mat-card-elevated-container-color": "#37474f",
-        "--mat-card-elevated-container-elevation": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+        "--mat-card-elevated-container-elevation": "none",
         "--mat-card-outlined-container-color": "#37474f",
         "--mat-card-outlined-container-elevation": "0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12)",
         "--mat-card-outlined-outline-color": "rgba(255, 255, 255, 0.12)",
@@ -3413,7 +2986,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-slider-ripple-color": "{{primary.default}}",
         "--mat-slider-with-tick-marks-active-container-color": "{{primary.default-contrast}}",
         "--mat-slider-with-tick-marks-inactive-container-color": "{{primary.default}}",
-        "--mat-slider-handle-elevation": "0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12)",
+        "--mat-slider-handle-elevation": "none",
         "--mat-slider-disabled-active-track-color": "rgba(255, 255, 255, 0.87)",
         "--mat-slider-disabled-handle-color": "rgba(255, 255, 255, 0.87)",
         "--mat-slider-disabled-inactive-track-color": "rgba(255, 255, 255, 0.87)",
@@ -3472,7 +3045,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-checkbox-unselected-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-checkbox-unselected-pressed-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-button-filled-container-color": "#37474f",
-        "--mat-button-filled-disabled-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
+        "--mat-button-filled-disabled-container-color": "rgba(255, 255, 255, 0.12)",
         "--mat-button-filled-disabled-label-text-color": "rgba(255, 255, 255, 0.5)",
         "--mat-button-filled-disabled-state-layer-color": "rgba(255, 255, 255, 0.7)",
         "--mat-button-filled-focus-state-layer-opacity": "0.12",
@@ -3492,7 +3065,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-button-outlined-ripple-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
         "--mat-button-outlined-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-button-protected-container-color": "#37474f",
-        "--mat-button-protected-disabled-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
+        "--mat-button-protected-disabled-container-color": "rgba(255, 255, 255, 0.12)",
         "--mat-button-protected-disabled-label-text-color": "rgba(255, 255, 255, 0.5)",
         "--mat-button-protected-disabled-state-layer-color": "rgba(255, 255, 255, 0.7)",
         "--mat-button-protected-focus-state-layer-opacity": "0.12",
@@ -3567,8 +3140,8 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-table-row-item-label-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-table-row-item-outline-color": "rgba(255, 255, 255, 0.12)",
         "--mat-progress-spinner-active-indicator-color": "{{primary.default}}",
-        "--mat-badge-background-color": "{{primary.default}}",
-        "--mat-badge-text-color": "{{primary.default-contrast}}",
+        "--mat-badge-background-color": "transparent",
+        "--mat-badge-text-color": "inherit",
         "--mat-badge-disabled-state-background-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
         "--mat-badge-disabled-state-text-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
         "--mat-bottom-sheet-container-text-color": "rgba(255, 255, 255, 0.87)",
@@ -3630,7 +3203,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-expansion-header-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-expansion-header-description-color": "rgba(255, 255, 255, 0.7)",
         "--mat-expansion-header-indicator-color": "rgba(255, 255, 255, 0.7)",
-        "--mat-icon-color": "inherit",
+        "--mat-icon-color": "rgba(255, 255, 255, 0.7)",
         "--mat-sidenav-container-elevation-shadow": "0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12)",
         "--mat-sidenav-container-divider-color": "rgba(255, 255, 255, 0.12)",
         "--mat-sidenav-container-background-color": "#37474f",
@@ -3662,13 +3235,16 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-tree-container-background-color": "#37474f",
         "--mat-tree-node-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-timepicker-container-elevation-shadow": "0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12)",
-        "--mat-timepicker-container-background-color": "#37474f"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled)",
-      "declarations": {
-        "color": "var(--mat-icon-button-icon-color)"
+        "--mat-timepicker-container-background-color": "#37474f",
+        "--dui-theme-primary": "{{primary.default}}",
+        "--dui-theme-on-primary": "{{primary.default-contrast@1}}",
+        "--dui-theme-primary-container": "{{primary.default@0.12}}",
+        "--dui-theme-accent": "{{accent.default}}",
+        "--dui-theme-warn": "{{warn.default}}",
+        "--dui-primary-color": "{{primary.default}}",
+        "--dui-accent-color": "{{accent.default}}",
+        "--dui-warn-color": "{{warn.default}}",
+        "--dui-primary-container-color": "{{primary.default@0.12}}"
       }
     },
     {
@@ -3809,7 +3385,7 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-chip-disabled-label-text-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-elevated-container-color": "#455a64",
         "--mat-chip-elevated-disabled-container-color": "#455a64",
-        "--mat-chip-elevated-selected-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
+        "--mat-chip-elevated-selected-container-color": "#455a64",
         "--mat-chip-flat-disabled-selected-container-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent)",
         "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-focus-state-layer-opacity": "0.12",
@@ -3826,81 +3402,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-chip-with-icon-selected-icon-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "rgba(255, 255, 255, 0.87)",
         "--mat-chip-with-trailing-icon-trailing-icon-color": "rgba(255, 255, 255, 0.87)"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{primary.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{primary.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{primary.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{primary.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{primary.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{primary.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{primary.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{accent.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{accent.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{accent.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{accent.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{accent.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{accent.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{accent.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-warn, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-warn",
-      "declarations": {
-        "--mat-chip-disabled-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-elevated-container-color": "{{warn.default}}",
-        "--mat-chip-elevated-disabled-container-color": "{{warn.default}}",
-        "--mat-chip-elevated-selected-container-color": "{{warn.default}}",
-        "--mat-chip-flat-disabled-selected-container-color": "{{warn.default}}",
-        "--mat-chip-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-focus-state-layer-opacity": "0.12",
-        "--mat-chip-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-chip-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-disabled-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-focus-state-layer-color": "0.12",
-        "--mat-chip-selected-focus-state-layer-opacity": "0.12",
-        "--mat-chip-selected-hover-state-layer-color": "0.04",
-        "--mat-chip-selected-label-text-color": "{{warn.default-contrast}}",
-        "--mat-chip-selected-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-disabled-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-icon-selected-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-trailing-icon-disabled-trailing-icon-color": "{{warn.default-contrast}}",
-        "--mat-chip-with-trailing-icon-trailing-icon-color": "{{warn.default-contrast}}"
       }
     },
     {
@@ -4207,26 +3708,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
       }
     },
     {
-      "selector": "html .mat-mdc-checkbox.mat-primary",
-      "declarations": {
-        "--mat-checkbox-disabled-selected-icon-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
-        "--mat-checkbox-disabled-unselected-icon-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
-        "--mat-checkbox-selected-checkmark-color": "{{primary.default-contrast}}",
-        "--mat-checkbox-selected-focus-icon-color": "{{primary.default}}",
-        "--mat-checkbox-selected-hover-icon-color": "{{primary.default}}",
-        "--mat-checkbox-selected-icon-color": "{{primary.default}}",
-        "--mat-checkbox-unselected-focus-icon-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-hover-icon-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-icon-color": "rgba(255, 255, 255, 0.7)",
-        "--mat-checkbox-selected-focus-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-selected-hover-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-selected-pressed-state-layer-color": "{{primary.default}}",
-        "--mat-checkbox-unselected-focus-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-hover-state-layer-color": "rgba(255, 255, 255, 0.87)",
-        "--mat-checkbox-unselected-pressed-state-layer-color": "rgba(255, 255, 255, 0.87)"
-      }
-    },
-    {
       "selector": "html .mat-mdc-checkbox.mat-warn",
       "declarations": {
         "--mat-checkbox-disabled-selected-icon-color": "color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent)",
@@ -4379,20 +3860,6 @@ export const M2_COLOR_TEMPLATES: Readonly<Record<M2ThemeMode, readonly M2CssBloc
         "--mat-fab-small-ripple-color": "color-mix(in srgb, {{warn.default-contrast}} 12%, transparent)",
         "--mat-fab-small-state-layer-color": "{{warn.default-contrast}}",
         "--mat-fab-state-layer-color": "{{warn.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-badge-accent",
-      "declarations": {
-        "--mat-badge-background-color": "{{accent.default}}",
-        "--mat-badge-text-color": "{{accent.default-contrast}}"
-      }
-    },
-    {
-      "selector": "html .mat-badge-warn",
-      "declarations": {
-        "--mat-badge-background-color": "{{warn.default}}",
-        "--mat-badge-text-color": "{{warn.default-contrast}}"
       }
     },
     {
@@ -4827,120 +4294,14 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
     {
       "selector": "html",
       "declarations": {
-        "--mat-sys-body-large": "400 15px / 24px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-large-line-height": "24px",
-        "--mat-sys-body-large-size": "15px",
-        "--mat-sys-body-large-tracking": "normal",
-        "--mat-sys-body-large-weight": "400",
-        "--mat-sys-body-medium": "400 14px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-medium-line-height": "20px",
-        "--mat-sys-body-medium-size": "14px",
-        "--mat-sys-body-medium-tracking": "normal",
-        "--mat-sys-body-medium-weight": "400",
-        "--mat-sys-body-small": "400 12px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-small-line-height": "20px",
-        "--mat-sys-body-small-size": "12px",
-        "--mat-sys-body-small-tracking": "normal",
-        "--mat-sys-body-small-weight": "400",
-        "--mat-sys-display-large": "300 112px / 112px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-large-line-height": "112px",
-        "--mat-sys-display-large-size": "112px",
-        "--mat-sys-display-large-tracking": "normal",
-        "--mat-sys-display-large-weight": "300",
-        "--mat-sys-display-medium": "300 112px / 112px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-medium-line-height": "112px",
-        "--mat-sys-display-medium-size": "112px",
-        "--mat-sys-display-medium-tracking": "normal",
-        "--mat-sys-display-medium-weight": "300",
-        "--mat-sys-display-small": "300 112px / 112px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-small-line-height": "112px",
-        "--mat-sys-display-small-size": "112px",
-        "--mat-sys-display-small-tracking": "normal",
-        "--mat-sys-display-small-weight": "300",
-        "--mat-sys-headline-large": "400 56px / 56px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-large-line-height": "56px",
-        "--mat-sys-headline-large-size": "56px",
-        "--mat-sys-headline-large-tracking": "normal",
-        "--mat-sys-headline-large-weight": "400",
-        "--mat-sys-headline-medium": "400 45px / 48px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-medium-line-height": "48px",
-        "--mat-sys-headline-medium-size": "45px",
-        "--mat-sys-headline-medium-tracking": "normal",
-        "--mat-sys-headline-medium-weight": "400",
-        "--mat-sys-headline-small": "400 34px / 40px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-small-line-height": "40px",
-        "--mat-sys-headline-small-size": "34px",
-        "--mat-sys-headline-small-tracking": "normal",
-        "--mat-sys-headline-small-weight": "400",
-        "--mat-sys-label-large": "400 16px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-large-line-height": "28px",
-        "--mat-sys-label-large-size": "16px",
-        "--mat-sys-label-large-tracking": "normal",
-        "--mat-sys-label-large-weight": "400",
-        "--mat-sys-label-medium": "500 14px / 24px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-medium-line-height": "24px",
-        "--mat-sys-label-medium-size": "14px",
-        "--mat-sys-label-medium-tracking": "normal",
-        "--mat-sys-label-medium-weight": "500",
-        "--mat-sys-label-small": "500 14px / 14px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-small-line-height": "14px",
-        "--mat-sys-label-small-size": "14px",
-        "--mat-sys-label-small-tracking": "normal",
-        "--mat-sys-label-small-weight": "500",
-        "--mat-sys-title-large": "400 24px / 32px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-large-line-height": "32px",
-        "--mat-sys-title-large-size": "24px",
-        "--mat-sys-title-large-tracking": "normal",
-        "--mat-sys-title-large-weight": "400",
-        "--mat-sys-title-medium": "400 24px / 32px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-medium-line-height": "32px",
-        "--mat-sys-title-medium-size": "24px",
-        "--mat-sys-title-medium-tracking": "normal",
-        "--mat-sys-title-medium-weight": "400",
-        "--mat-sys-title-small": "400 20px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-small-line-height": "20px",
-        "--mat-sys-title-small-size": "20px",
-        "--mat-sys-title-small-tracking": "normal",
-        "--mat-sys-title-small-weight": "400",
-        "--mat-sys-corner-extra-large": "28px",
-        "--mat-sys-corner-extra-large-top": "28px 28px 0 0",
-        "--mat-sys-corner-extra-small": "4px",
-        "--mat-sys-corner-extra-small-top": "4px 4px 0 0",
-        "--mat-sys-corner-full": "9999px",
-        "--mat-sys-corner-large": "16px",
-        "--mat-sys-corner-large-end": "0 16px 16px 0",
-        "--mat-sys-corner-large-start": "16px 0 0 16px",
-        "--mat-sys-corner-large-top": "16px 16px 0 0",
-        "--mat-sys-corner-medium": "12px",
-        "--mat-sys-corner-none": "0",
-        "--mat-sys-corner-small": "8px",
-        "--mat-sys-dragged-state-layer-opacity": "0.16",
-        "--mat-sys-focus-state-layer-opacity": "0.12",
-        "--mat-sys-hover-state-layer-opacity": "0.04",
-        "--mat-sys-pressed-state-layer-opacity": "0.12",
         "--mat-badge-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-badge-line-height": "22px",
+        "--mat-badge-line-height": "normal",
         "--mat-badge-text-size": "12px",
         "--mat-badge-text-weight": "600",
         "--mat-badge-small-size-text-size": "9px",
-        "--mat-badge-small-size-line-height": "16px",
+        "--mat-badge-small-size-line-height": "normal",
         "--mat-badge-large-size-text-size": "24px",
-        "--mat-badge-large-size-line-height": "28px",
+        "--mat-badge-large-size-line-height": "normal",
         "--mat-bottom-sheet-container-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
         "--mat-bottom-sheet-container-text-line-height": "20px",
         "--mat-bottom-sheet-container-text-size": "14px",
@@ -5067,7 +4428,7 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
         "--mat-slider-label-label-text-tracking": "normal",
         "--mat-slider-label-label-text-weight": "500",
         "--mat-menu-item-label-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-menu-item-label-text-size": "15px",
+        "--mat-menu-item-label-text-size": "14px",
         "--mat-menu-item-label-text-tracking": "normal",
         "--mat-menu-item-label-text-line-height": "24px",
         "--mat-menu-item-label-text-weight": "400",
@@ -5148,117 +4509,6 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
       }
     },
     {
-      "selector": "html .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled)",
-      "declarations": {
-        "color": "var(--mat-icon-button-icon-color)"
-      }
-    },
-    {
-      "selector": "html .mat-h1, html .mat-headline-5, html .mat-typography .mat-h1, html .mat-typography .mat-headline-5, html .mat-typography h1",
-      "declarations": {
-        "font": "400 24px / 32px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h2, html .mat-headline-6, html .mat-typography .mat-h2, html .mat-typography .mat-headline-6, html .mat-typography h2",
-      "declarations": {
-        "font": "400 20px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h3, html .mat-subtitle-1, html .mat-typography .mat-h3, html .mat-typography .mat-subtitle-1, html .mat-typography h3",
-      "declarations": {
-        "font": "400 16px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h4, html .mat-body-1, html .mat-typography .mat-h4, html .mat-typography .mat-body-1, html .mat-typography h4",
-      "declarations": {
-        "font": "400 15px / 24px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h5, html .mat-typography .mat-h5, html .mat-typography h5",
-      "declarations": {
-        "font": "400 calc(14px * 0.83) / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-h6, html .mat-typography .mat-h6, html .mat-typography h6",
-      "declarations": {
-        "font": "400 calc(14px * 0.67) / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-body-strong, html .mat-subtitle-2, html .mat-typography .mat-body-strong, html .mat-typography .mat-subtitle-2",
-      "declarations": {
-        "font": "500 14px / 24px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-body, html .mat-body-2, html .mat-typography .mat-body, html .mat-typography .mat-body-2, html .mat-typography",
-      "declarations": {
-        "font": "400 14px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-body p, html .mat-body-2 p, html .mat-typography .mat-body p, html .mat-typography .mat-body-2 p, html .mat-typography p",
-      "declarations": {
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-small, html .mat-caption, html .mat-typography .mat-small, html .mat-typography .mat-caption",
-      "declarations": {
-        "font": "400 12px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-headline-1, html .mat-typography .mat-headline-1",
-      "declarations": {
-        "font": "300 112px / 112px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 56px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-2, html .mat-typography .mat-headline-2",
-      "declarations": {
-        "font": "400 56px / 56px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-3, html .mat-typography .mat-headline-3",
-      "declarations": {
-        "font": "400 45px / 48px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-4, html .mat-typography .mat-headline-4",
-      "declarations": {
-        "font": "400 34px / 40px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
       "selector": "html .mat-mdc-standard-chip",
       "declarations": {
         "--mat-chip-label-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
@@ -5300,120 +4550,14 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
     {
       "selector": "html",
       "declarations": {
-        "--mat-sys-body-large": "400 14px / 21px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-large-line-height": "21px",
-        "--mat-sys-body-large-size": "14px",
-        "--mat-sys-body-large-tracking": "normal",
-        "--mat-sys-body-large-weight": "400",
-        "--mat-sys-body-medium": "400 14px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-medium-line-height": "18px",
-        "--mat-sys-body-medium-size": "14px",
-        "--mat-sys-body-medium-tracking": "normal",
-        "--mat-sys-body-medium-weight": "400",
-        "--mat-sys-body-small": "400 12px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-small-line-height": "18px",
-        "--mat-sys-body-small-size": "12px",
-        "--mat-sys-body-small-tracking": "normal",
-        "--mat-sys-body-small-weight": "400",
-        "--mat-sys-display-large": "300 100px / 100px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-large-line-height": "100px",
-        "--mat-sys-display-large-size": "100px",
-        "--mat-sys-display-large-tracking": "normal",
-        "--mat-sys-display-large-weight": "300",
-        "--mat-sys-display-medium": "300 100px / 100px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-medium-line-height": "100px",
-        "--mat-sys-display-medium-size": "100px",
-        "--mat-sys-display-medium-tracking": "normal",
-        "--mat-sys-display-medium-weight": "300",
-        "--mat-sys-display-small": "300 100px / 100px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-small-line-height": "100px",
-        "--mat-sys-display-small-size": "100px",
-        "--mat-sys-display-small-tracking": "normal",
-        "--mat-sys-display-small-weight": "300",
-        "--mat-sys-headline-large": "400 50px / 50px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-large-line-height": "50px",
-        "--mat-sys-headline-large-size": "50px",
-        "--mat-sys-headline-large-tracking": "normal",
-        "--mat-sys-headline-large-weight": "400",
-        "--mat-sys-headline-medium": "400 40px / 44px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-medium-line-height": "44px",
-        "--mat-sys-headline-medium-size": "40px",
-        "--mat-sys-headline-medium-tracking": "normal",
-        "--mat-sys-headline-medium-weight": "400",
-        "--mat-sys-headline-small": "400 30px / 36px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-small-line-height": "36px",
-        "--mat-sys-headline-small-size": "30px",
-        "--mat-sys-headline-small-tracking": "normal",
-        "--mat-sys-headline-small-weight": "400",
-        "--mat-sys-label-large": "400 15px / 21px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-large-line-height": "21px",
-        "--mat-sys-label-large-size": "15px",
-        "--mat-sys-label-large-tracking": "normal",
-        "--mat-sys-label-large-weight": "400",
-        "--mat-sys-label-medium": "500 14px / 22px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-medium-line-height": "22px",
-        "--mat-sys-label-medium-size": "14px",
-        "--mat-sys-label-medium-tracking": "normal",
-        "--mat-sys-label-medium-weight": "500",
-        "--mat-sys-label-small": "500 13px / 13px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-small-line-height": "13px",
-        "--mat-sys-label-small-size": "13px",
-        "--mat-sys-label-small-tracking": "normal",
-        "--mat-sys-label-small-weight": "500",
-        "--mat-sys-title-large": "400 22px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-large-line-height": "28px",
-        "--mat-sys-title-large-size": "22px",
-        "--mat-sys-title-large-tracking": "normal",
-        "--mat-sys-title-large-weight": "400",
-        "--mat-sys-title-medium": "400 22px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-medium-line-height": "28px",
-        "--mat-sys-title-medium-size": "22px",
-        "--mat-sys-title-medium-tracking": "normal",
-        "--mat-sys-title-medium-weight": "400",
-        "--mat-sys-title-small": "400 18px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-small-line-height": "28px",
-        "--mat-sys-title-small-size": "18px",
-        "--mat-sys-title-small-tracking": "normal",
-        "--mat-sys-title-small-weight": "400",
-        "--mat-sys-corner-extra-large": "28px",
-        "--mat-sys-corner-extra-large-top": "28px 28px 0 0",
-        "--mat-sys-corner-extra-small": "4px",
-        "--mat-sys-corner-extra-small-top": "4px 4px 0 0",
-        "--mat-sys-corner-full": "9999px",
-        "--mat-sys-corner-large": "16px",
-        "--mat-sys-corner-large-end": "0 16px 16px 0",
-        "--mat-sys-corner-large-start": "16px 0 0 16px",
-        "--mat-sys-corner-large-top": "16px 16px 0 0",
-        "--mat-sys-corner-medium": "12px",
-        "--mat-sys-corner-none": "0",
-        "--mat-sys-corner-small": "8px",
-        "--mat-sys-dragged-state-layer-opacity": "0.16",
-        "--mat-sys-focus-state-layer-opacity": "0.12",
-        "--mat-sys-hover-state-layer-opacity": "0.04",
-        "--mat-sys-pressed-state-layer-opacity": "0.12",
         "--mat-badge-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-badge-line-height": "22px",
+        "--mat-badge-line-height": "normal",
         "--mat-badge-text-size": "12px",
         "--mat-badge-text-weight": "600",
         "--mat-badge-small-size-text-size": "9px",
-        "--mat-badge-small-size-line-height": "16px",
+        "--mat-badge-small-size-line-height": "normal",
         "--mat-badge-large-size-text-size": "24px",
-        "--mat-badge-large-size-line-height": "28px",
+        "--mat-badge-large-size-line-height": "normal",
         "--mat-bottom-sheet-container-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
         "--mat-bottom-sheet-container-text-line-height": "18px",
         "--mat-bottom-sheet-container-text-size": "14px",
@@ -5621,117 +4765,6 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
       }
     },
     {
-      "selector": "html .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled)",
-      "declarations": {
-        "color": "var(--mat-icon-button-icon-color)"
-      }
-    },
-    {
-      "selector": "html .mat-h1, html .mat-headline-5, html .mat-typography .mat-h1, html .mat-typography .mat-headline-5, html .mat-typography h1",
-      "declarations": {
-        "font": "400 22px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h2, html .mat-headline-6, html .mat-typography .mat-h2, html .mat-typography .mat-headline-6, html .mat-typography h2",
-      "declarations": {
-        "font": "400 18px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h3, html .mat-subtitle-1, html .mat-typography .mat-h3, html .mat-typography .mat-subtitle-1, html .mat-typography h3",
-      "declarations": {
-        "font": "400 15px / 21px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h4, html .mat-body-1, html .mat-typography .mat-h4, html .mat-typography .mat-body-1, html .mat-typography h4",
-      "declarations": {
-        "font": "400 14px / 21px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h5, html .mat-typography .mat-h5, html .mat-typography h5",
-      "declarations": {
-        "font": "400 calc(14px * 0.83) / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-h6, html .mat-typography .mat-h6, html .mat-typography h6",
-      "declarations": {
-        "font": "400 calc(14px * 0.67) / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-body-strong, html .mat-subtitle-2, html .mat-typography .mat-body-strong, html .mat-typography .mat-subtitle-2",
-      "declarations": {
-        "font": "500 14px / 22px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-body, html .mat-body-2, html .mat-typography .mat-body, html .mat-typography .mat-body-2, html .mat-typography",
-      "declarations": {
-        "font": "400 14px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-body p, html .mat-body-2 p, html .mat-typography .mat-body p, html .mat-typography .mat-body-2 p, html .mat-typography p",
-      "declarations": {
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-small, html .mat-caption, html .mat-typography .mat-small, html .mat-typography .mat-caption",
-      "declarations": {
-        "font": "400 12px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-headline-1, html .mat-typography .mat-headline-1",
-      "declarations": {
-        "font": "300 100px / 100px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 56px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-2, html .mat-typography .mat-headline-2",
-      "declarations": {
-        "font": "400 50px / 50px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-3, html .mat-typography .mat-headline-3",
-      "declarations": {
-        "font": "400 40px / 44px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-4, html .mat-typography .mat-headline-4",
-      "declarations": {
-        "font": "400 30px / 36px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
       "selector": "html .mat-mdc-standard-chip",
       "declarations": {
         "--mat-chip-label-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
@@ -5773,120 +4806,14 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
     {
       "selector": "html",
       "declarations": {
-        "--mat-sys-body-large": "400 13px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-large-line-height": "20px",
-        "--mat-sys-body-large-size": "13px",
-        "--mat-sys-body-large-tracking": "normal",
-        "--mat-sys-body-large-weight": "400",
-        "--mat-sys-body-medium": "400 14px / 16px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-medium-line-height": "16px",
-        "--mat-sys-body-medium-size": "14px",
-        "--mat-sys-body-medium-tracking": "normal",
-        "--mat-sys-body-medium-weight": "400",
-        "--mat-sys-body-small": "400 12px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-body-small-line-height": "18px",
-        "--mat-sys-body-small-size": "12px",
-        "--mat-sys-body-small-tracking": "normal",
-        "--mat-sys-body-small-weight": "400",
-        "--mat-sys-display-large": "300 90px / 90px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-large-line-height": "90px",
-        "--mat-sys-display-large-size": "90px",
-        "--mat-sys-display-large-tracking": "normal",
-        "--mat-sys-display-large-weight": "300",
-        "--mat-sys-display-medium": "300 90px / 90px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-medium-line-height": "90px",
-        "--mat-sys-display-medium-size": "90px",
-        "--mat-sys-display-medium-tracking": "normal",
-        "--mat-sys-display-medium-weight": "300",
-        "--mat-sys-display-small": "300 90px / 90px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-display-small-line-height": "90px",
-        "--mat-sys-display-small-size": "90px",
-        "--mat-sys-display-small-tracking": "normal",
-        "--mat-sys-display-small-weight": "300",
-        "--mat-sys-headline-large": "400 44px / 44px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-large-line-height": "44px",
-        "--mat-sys-headline-large-size": "44px",
-        "--mat-sys-headline-large-tracking": "normal",
-        "--mat-sys-headline-large-weight": "400",
-        "--mat-sys-headline-medium": "400 36px / 38px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-medium-line-height": "38px",
-        "--mat-sys-headline-medium-size": "36px",
-        "--mat-sys-headline-medium-tracking": "normal",
-        "--mat-sys-headline-medium-weight": "400",
-        "--mat-sys-headline-small": "400 28px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-headline-small-line-height": "28px",
-        "--mat-sys-headline-small-size": "28px",
-        "--mat-sys-headline-small-tracking": "normal",
-        "--mat-sys-headline-small-weight": "400",
-        "--mat-sys-label-large": "400 14px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-large-line-height": "20px",
-        "--mat-sys-label-large-size": "14px",
-        "--mat-sys-label-large-tracking": "normal",
-        "--mat-sys-label-large-weight": "400",
-        "--mat-sys-label-medium": "500 14px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-medium-line-height": "20px",
-        "--mat-sys-label-medium-size": "14px",
-        "--mat-sys-label-medium-tracking": "normal",
-        "--mat-sys-label-medium-weight": "500",
-        "--mat-sys-label-small": "500 13px / 13px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-label-small-line-height": "13px",
-        "--mat-sys-label-small-size": "13px",
-        "--mat-sys-label-small-tracking": "normal",
-        "--mat-sys-label-small-weight": "500",
-        "--mat-sys-title-large": "400 20px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-large-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-large-line-height": "20px",
-        "--mat-sys-title-large-size": "20px",
-        "--mat-sys-title-large-tracking": "normal",
-        "--mat-sys-title-large-weight": "400",
-        "--mat-sys-title-medium": "400 20px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-medium-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-medium-line-height": "20px",
-        "--mat-sys-title-medium-size": "20px",
-        "--mat-sys-title-medium-tracking": "normal",
-        "--mat-sys-title-medium-weight": "400",
-        "--mat-sys-title-small": "400 18px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-small-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-sys-title-small-line-height": "18px",
-        "--mat-sys-title-small-size": "18px",
-        "--mat-sys-title-small-tracking": "normal",
-        "--mat-sys-title-small-weight": "400",
-        "--mat-sys-corner-extra-large": "28px",
-        "--mat-sys-corner-extra-large-top": "28px 28px 0 0",
-        "--mat-sys-corner-extra-small": "4px",
-        "--mat-sys-corner-extra-small-top": "4px 4px 0 0",
-        "--mat-sys-corner-full": "9999px",
-        "--mat-sys-corner-large": "16px",
-        "--mat-sys-corner-large-end": "0 16px 16px 0",
-        "--mat-sys-corner-large-start": "16px 0 0 16px",
-        "--mat-sys-corner-large-top": "16px 16px 0 0",
-        "--mat-sys-corner-medium": "12px",
-        "--mat-sys-corner-none": "0",
-        "--mat-sys-corner-small": "8px",
-        "--mat-sys-dragged-state-layer-opacity": "0.16",
-        "--mat-sys-focus-state-layer-opacity": "0.12",
-        "--mat-sys-hover-state-layer-opacity": "0.04",
-        "--mat-sys-pressed-state-layer-opacity": "0.12",
         "--mat-badge-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-badge-line-height": "22px",
+        "--mat-badge-line-height": "normal",
         "--mat-badge-text-size": "12px",
         "--mat-badge-text-weight": "600",
         "--mat-badge-small-size-text-size": "9px",
-        "--mat-badge-small-size-line-height": "16px",
+        "--mat-badge-small-size-line-height": "normal",
         "--mat-badge-large-size-text-size": "24px",
-        "--mat-badge-large-size-line-height": "28px",
+        "--mat-badge-large-size-line-height": "normal",
         "--mat-bottom-sheet-container-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
         "--mat-bottom-sheet-container-text-line-height": "16px",
         "--mat-bottom-sheet-container-text-size": "14px",
@@ -6013,7 +4940,7 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
         "--mat-slider-label-label-text-tracking": "normal",
         "--mat-slider-label-label-text-weight": "500",
         "--mat-menu-item-label-text-font": "Roboto, \"Helvetica Neue\", sans-serif",
-        "--mat-menu-item-label-text-size": "13px",
+        "--mat-menu-item-label-text-size": "14px",
         "--mat-menu-item-label-text-tracking": "normal",
         "--mat-menu-item-label-text-line-height": "20px",
         "--mat-menu-item-label-text-weight": "400",
@@ -6091,117 +5018,6 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
         "--mat-table-footer-supporting-text-size": "14px",
         "--mat-table-footer-supporting-text-weight": "400",
         "--mat-table-footer-supporting-text-tracking": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled)",
-      "declarations": {
-        "color": "var(--mat-icon-button-icon-color)"
-      }
-    },
-    {
-      "selector": "html .mat-h1, html .mat-headline-5, html .mat-typography .mat-h1, html .mat-typography .mat-headline-5, html .mat-typography h1",
-      "declarations": {
-        "font": "400 20px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h2, html .mat-headline-6, html .mat-typography .mat-h2, html .mat-typography .mat-headline-6, html .mat-typography h2",
-      "declarations": {
-        "font": "400 18px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h3, html .mat-subtitle-1, html .mat-typography .mat-h3, html .mat-typography .mat-subtitle-1, html .mat-typography h3",
-      "declarations": {
-        "font": "400 14px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h4, html .mat-body-1, html .mat-typography .mat-h4, html .mat-typography .mat-body-1, html .mat-typography h4",
-      "declarations": {
-        "font": "400 13px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 16px"
-      }
-    },
-    {
-      "selector": "html .mat-h5, html .mat-typography .mat-h5, html .mat-typography h5",
-      "declarations": {
-        "font": "400 calc(14px * 0.83) / 16px Roboto, \"Helvetica Neue\", sans-serif",
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-h6, html .mat-typography .mat-h6, html .mat-typography h6",
-      "declarations": {
-        "font": "400 calc(14px * 0.67) / 16px Roboto, \"Helvetica Neue\", sans-serif",
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-body-strong, html .mat-subtitle-2, html .mat-typography .mat-body-strong, html .mat-typography .mat-subtitle-2",
-      "declarations": {
-        "font": "500 14px / 20px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-body, html .mat-body-2, html .mat-typography .mat-body, html .mat-typography .mat-body-2, html .mat-typography",
-      "declarations": {
-        "font": "400 14px / 16px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-body p, html .mat-body-2 p, html .mat-typography .mat-body p, html .mat-typography .mat-body-2 p, html .mat-typography p",
-      "declarations": {
-        "margin": "0 0 12px"
-      }
-    },
-    {
-      "selector": "html .mat-small, html .mat-caption, html .mat-typography .mat-small, html .mat-typography .mat-caption",
-      "declarations": {
-        "font": "400 12px / 18px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal"
-      }
-    },
-    {
-      "selector": "html .mat-headline-1, html .mat-typography .mat-headline-1",
-      "declarations": {
-        "font": "300 90px / 90px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 56px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-2, html .mat-typography .mat-headline-2",
-      "declarations": {
-        "font": "400 44px / 44px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-3, html .mat-typography .mat-headline-3",
-      "declarations": {
-        "font": "400 36px / 38px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
-      }
-    },
-    {
-      "selector": "html .mat-headline-4, html .mat-typography .mat-headline-4",
-      "declarations": {
-        "font": "400 28px / 28px Roboto, \"Helvetica Neue\", sans-serif",
-        "letter-spacing": "normal",
-        "margin": "0 0 64px"
       }
     },
     {

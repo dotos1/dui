@@ -1,13 +1,13 @@
 /**
- * @fileoverview Module `projects/testdui/src/app/docs/pages/module-example-page/module-example-page.component.ts` providing the interactive example studio for `@dotos/dui` modules.
- * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-page.component.ts`，提供 `@dotos/dui` 模块的可交互示例演练工作台组件实现。
+ * @fileoverview Module `projects/testdui/src/app/docs/pages/module-example-page/module-example-page.component.ts` providing the interactive example studio for `@dotos1/dui` modules.
+ * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-page.component.ts`，提供 `@dotos1/dui` 模块的可交互示例演练工作台组件实现。
  */
 
 import { Component, OnDestroy, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Subject } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 
 import { DocsDataService } from '../../services/docs-data.service';
 import { ApiExport, ModuleApiFile } from '../../models/api-record.model';
@@ -154,8 +154,8 @@ export interface KeyValueDemoEntry {
 }
 
 /**
- * Angular component `ModuleExamplePageComponent` (selector: 'app-module-example-page') providing a rich interactive studio for all `@dotos/dui` modules.
- * @zh Angular 组件 `ModuleExamplePageComponent`（selector: 'app-module-example-page'），为全量 `@dotos/dui` 模块提供高冲击力的可交互示例工作台。
+ * Angular component `ModuleExamplePageComponent` (selector: 'app-module-example-page') providing a rich interactive studio for all `@dotos1/dui` modules.
+ * @zh Angular 组件 `ModuleExamplePageComponent`（selector: 'app-module-example-page'），为全量 `@dotos1/dui` 模块提供高冲击力的可交互示例工作台。
  */
 @Component({
   selector: 'app-module-example-page',
@@ -187,7 +187,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
    * Property `preset` (`ModuleScenarioPreset`) storing resolved interactive scenario preset.
    * @zh 属性 `preset`（类型：`ModuleScenarioPreset`），用于存储当前模块匹配的可交互场景预设。
    */
-  preset: ModuleScenarioPreset = resolveModuleScenarioPreset('common', 'index', '@dotos/dui/common');
+  preset: ModuleScenarioPreset = resolveModuleScenarioPreset('common', 'index', '@dotos1/dui/common');
 
   /**
    * Property `selectedExport` (`ApiExport | null`) storing currently inspected export symbol.
@@ -286,7 +286,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
     },
     {
       title: '企业级多端协同微前端工作台',
-      subtitle: '基于 @dotos/dui 停靠布局、动态表单与运行时 JSS 主题系统构建',
+      subtitle: '基于 @dotos1/dui 停靠布局、动态表单与运行时 JSS 主题系统构建',
       metric: '102 个子模块全量就绪',
       gradient: 'linear-gradient(135deg, #7c2d12 0%, #ea580c 55%, #f59e0b 100%)',
       icon: 'view_quilt',
@@ -402,7 +402,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
         this.categoryId = category;
         this.moduleId = moduleId;
         this.api = api;
-        const importPath = api?.importPath || `@dotos/dui/${category}/${moduleId}`;
+        const importPath = api?.importPath || `@dotos1/dui/${category}/${moduleId}`;
         this.preset = resolveModuleScenarioPreset(category, moduleId, importPath);
 
         this.primaryText = this.preset.primaryDefault;
@@ -856,7 +856,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
    * @returns Formatted usage snippet (`string`) / 实时生成的用法代码片段（`string`）
    */
   get dynamicUsageCode(): string {
-    const importPath = this.api?.importPath || `@dotos/dui/${this.categoryId}/${this.moduleId}`;
+    const importPath = this.api?.importPath || `@dotos1/dui/${this.categoryId}/${this.moduleId}`;
     const exp = this.selectedExport;
     const allModules = (this.api?.exports || []).filter((e) => e.kind === 'module').map((e) => e.name);
     const ngModuleName = allModules[0] || '';

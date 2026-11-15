@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/date/moment",
+  "importPath": "@dotos1/dui/form/date/moment",
   "exports": [
     {
       "name": "MAT_MOMENT_DATETIME_FORMATS",
@@ -208,5 +208,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MatMomentDatetimeModule } from '@dotos/dui/form/date/moment';"
+  "suggestedUsageSnippet": "import { MatMomentDatetimeModule } from '@dotos1/dui/form/date/moment';"
 }

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/meta",
+  "importPath": "@dotos1/dui/core/meta",
   "exports": [
     {
       "name": "metaFactory",
@@ -271,5 +271,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { MetaModule } from '@dotos/dui/core/meta';"
+  "suggestedUsageSnippet": "import { MetaModule } from '@dotos1/dui/core/meta';"
 }

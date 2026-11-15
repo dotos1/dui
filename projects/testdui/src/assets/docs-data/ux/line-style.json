@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/line-style",
+  "importPath": "@dotos1/dui/ux/line-style",
   "exports": [
     {
       "name": "LineSizeSelector",
@@ -252,5 +252,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { LineSizeSelector, LineStyleModule } from '@dotos/dui/ux/line-style';\n\n<line-size-field [field]=\"...\"></line-size-field>"
+  "suggestedUsageSnippet": "import { LineSizeSelector, LineStyleModule } from '@dotos1/dui/ux/line-style';\n\n<line-size-field [field]=\"...\"></line-size-field>"
 }

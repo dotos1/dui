@@ -1,0 +1,55 @@
+{
+  "generatedAt": "2026-11-15T11:04:33.211Z",
+  "packageName": "@dotos1/dui",
+  "packageVersion": "8.0.0-next.2",
+  "peerDependencies": {
+    "@angular/animations": "^22.0.0",
+    "@angular/cdk": "^22.0.0",
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/material": "^22.0.0",
+    "mobx": "^6.0.0"
+  },
+  "distFilesScanned": 369,
+  "t5LegacyDotOsDuiResidueFiles": 0,
+  "t4MatSysTokenResidueFiles": 0,
+  "t4DuiThemeRootVarFiles": 2,
+  "w2CoerceBooleanBundleCount": 12,
+  "w2ObjectDefinePropertyShadowHits": 0,
+  "w2TsconfigChecks": [
+    {
+      "file": "tsconfig.json",
+      "useDefineForClassFieldsFalse": true
+    },
+    {
+      "file": "src/tsconfig.lib.json",
+      "useDefineForClassFieldsFalse": true
+    },
+    {
+      "file": "src/tsconfig.lib.prod.json",
+      "useDefineForClassFieldsFalse": true
+    },
+    {
+      "file": "src/tsconfig.spec.json",
+      "useDefineForClassFieldsFalse": true
+    },
+    {
+      "file": "projects/testdui/tsconfig.app.json",
+      "useDefineForClassFieldsFalse": true
+    },
+    {
+      "file": "projects/testdui/tsconfig.spec.json",
+      "useDefineForClassFieldsFalse": true
+    }
+  ],
+  "w1ZoneExplicitDeclaration": {
+    "mainTsHasProvideZoneChangeDetection": true,
+    "angularJsonPolyfillsHasZoneJs": true
+  },
+  "w5YarnLockHygiene": {
+    "localPrivateRegistryOccurrences": 0,
+    "fileProtocolOccurrences": 0
+  },
+  "passed": true
+}

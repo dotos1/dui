@@ -7,7 +7,7 @@ import { Component, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 
 import { DocsDataService } from '../../services/docs-data.service';
 import { ApiExport, ApiInput, ApiMethod, ApiOutput, ApiProperty, ModuleApiFile } from '../../models/api-record.model';

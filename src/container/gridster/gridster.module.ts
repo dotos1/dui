@@ -5,7 +5,7 @@
 
 import {CommonModule} from '@angular/common';
 import { NgModule } from '@angular/core';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import {GridsterComponent} from './gridster.component';
 import {GridsterItemComponent} from './gridsterItem.component';
 import {GridsterPreviewComponent} from './gridsterPreview.component';

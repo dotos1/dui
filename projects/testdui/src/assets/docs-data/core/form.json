@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/form",
+  "importPath": "@dotos1/dui/core/form",
   "exports": [
     {
       "name": "AbstractFormModule",
@@ -2094,5 +2094,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { FormTemplateType, AbstractFormModule } from '@dotos/dui/core/form';\n\n<form-template></form-template>"
+  "suggestedUsageSnippet": "import { FormTemplateType, AbstractFormModule } from '@dotos1/dui/core/form';\n\n<form-template></form-template>"
 }

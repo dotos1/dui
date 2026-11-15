@@ -16,9 +16,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatCardModule } from '@angular/material/card';
 import { MatListModule } from '@angular/material/list';
 import { MatButtonModule } from '@angular/material/button';
-import { ButtonModule } from '@dotos/dui/ui/button';
-import {  SpeedDialModule } from '@dotos/dui/ui/speeddial';
-import { DuiPagingModule } from '@dotos/dui/data/paging';
+import { ButtonModule } from '@dotos1/dui/ui/button';
+import {  SpeedDialModule } from '@dotos1/dui/ui/speeddial';
+import { DuiPagingModule } from '@dotos1/dui/data/paging';
 import { DatatableComponent } from './datatable.component';
 import { DatatableCardComponent } from './datatable.card';
 import {
@@ -72,8 +72,8 @@ import {
   ColumnChangesService
 } from './services/index';
 import { DragDropModule } from '@angular/cdk/drag-drop';
-import { TranslateModule, TranslationService } from '@dotos/dui/translator';
-import { Dui } from '@dotos/dui/core';
+import { TranslateModule, TranslationService } from '@dotos1/dui/translator';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular module `DatatableModule` declaring and exporting datatable module components, directives, pipes, and providers.

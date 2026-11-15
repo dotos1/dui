@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/search-box/search-box.component.ts`，提供搜索盒子容器组件相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
   Component,
   ViewChild,
@@ -29,10 +29,10 @@ import {
 import { SearchInputComponent } from './search-input/search-input.component';
 import { Subject, noop} from 'rxjs';
 import {  takeUntil } from 'rxjs/operators';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import { ActivatedRoute } from '@angular/router';
 import { dotosSearchBoxTheme } from './search-box.theme';
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Class `SearchBoxBase` encapsulating search box base data structures and logic in `src/common/search-box`.

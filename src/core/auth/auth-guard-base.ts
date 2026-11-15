@@ -7,11 +7,11 @@
 import { Router, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
-import { AppConfigValues, ConfigService } from '@dotos/dui/core/config';
+import { AppConfigValues, ConfigService } from '@dotos1/dui/core/config';
 
 import { AuthService } from './auth.service';
 import { OauthConfigModel } from './model';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 /**
  * Class `AuthGuardBase` encapsulating auth guard base data structures and logic in `src/core/auth`.

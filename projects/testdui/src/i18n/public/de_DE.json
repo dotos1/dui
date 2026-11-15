@@ -88,7 +88,7 @@
     "STEP4_H2": "Themes zur Laufzeit wechseln",
     "STEP4_P2": "Mit ThemeService können Sie Primär-, Akzent- und Warnfarbe sowie den Hell-/Dunkelmodus zur Laufzeit dynamisch ändern, ohne einen Neubuild:",
     "STEP5_H1": "Paketierungsregeln für sekundäre Einstiegspunkte",
-    "STEP5_P1": "DUI verwendet sekundäre Einstiegspunkte von ng-packagr. Jeder Feature-Ordner enthält eine eigene ng-package.json, index.ts und public-api.ts. Importieren Sie über Einstiegspunkte hinweg immer über @dotos/dui/<category>/<module> statt über tiefe relative Pfade:",
+    "STEP5_P1": "DUI verwendet sekundäre Einstiegspunkte von ng-packagr. Jeder Feature-Ordner enthält eine eigene ng-package.json, index.ts und public-api.ts. Importieren Sie über Einstiegspunkte hinweg immer über @dotos1/dui/<category>/<module> statt über tiefe relative Pfade:",
     "STEP5_H2": "Lebenszyklus von RxJS-Abonnements & OnPush-Performance",
     "STEP5_P2": "Räumen Sie langlebige Observable-Abonnements in ngOnDestroy immer mit takeUntil(this.destroy$) auf, um Speicherlecks zu vermeiden, und bevorzugen Sie ChangeDetectionStrategy.OnPush für häufig aktualisierte Komponenten:",
     "STEP5_H3": "Zweisprachiges JSDoc (@zh) & automatische Doku-Generierung",

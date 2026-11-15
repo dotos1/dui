@@ -17,9 +17,9 @@
     <p class="studio__subtitle">{{ preset.subtitle }}</p>
 
     <div class="studio__hero-bar">
-      <div class="studio__import-pill" (click)="copyTextToClipboard('import { ... } from \'' + (api?.importPath || ('@dotos/dui/' + categoryId + '/' + moduleId)) + '\';')">
+      <div class="studio__import-pill" (click)="copyTextToClipboard('import { ... } from \'' + (api?.importPath || ('@dotos1/dui/' + categoryId + '/' + moduleId)) + '\';')">
         <mat-icon class="studio__import-icon">terminal</mat-icon>
-        <code>import &#123; {{ selectedExport?.name || '...' }} &#125; from '{{ api?.importPath || ('@dotos/dui/' + categoryId + '/' + moduleId) }}';</code>
+        <code>import &#123; {{ selectedExport?.name || '...' }} &#125; from '{{ api?.importPath || ('@dotos1/dui/' + categoryId + '/' + moduleId) }}';</code>
         <span class="studio__copy-tag">{{ copiedBanner ? '已复制!' : '点击复制' }}</span>
       </div>
 

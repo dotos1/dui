@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/container/layout",
+  "importPath": "@dotos1/dui/container/layout",
   "exports": [
     {
       "name": "AbstractPanel",
@@ -1237,5 +1237,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DuiPanelComponent, DuiLayoutModule } from '@dotos/dui/container/layout';\n\n<dui-panel></dui-panel>"
+  "suggestedUsageSnippet": "import { DuiPanelComponent, DuiLayoutModule } from '@dotos1/dui/container/layout';\n\n<dui-panel></dui-panel>"
 }

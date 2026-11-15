@@ -6,8 +6,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MarkdownModule } from '@dotos/dui/ux/markdown';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { MarkdownModule } from '@dotos1/dui/ux/markdown';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `MarkdownExampleComponent` (selector: 'app-markdown-example') providing markdown example component presentation and interaction in `projects/testdui/src/app/docs/examples/markdown`.

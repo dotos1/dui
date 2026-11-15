@@ -9,14 +9,14 @@ import { MatButtonModule } from '@angular/material/button';
 
 import {
   AlphaModule,  CheckboardModule,  EditableInputModule,  HueModule,  SaturationModule,  SwatchModule,
-} from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+} from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import { SketchDialogComponent } from './sketch-dialog.component';
 import { SketchFieldsComponent } from './sketch-fields.component';
 import { SketchPresetColorsComponent } from './sketch-preset-colors.component';
 import { SketchComponent } from './sketch.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 
 /**

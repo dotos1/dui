@@ -7,8 +7,8 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
-import { MonacoEditorModule } from '@dotos/dui/ux/monaco-editor';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { MonacoEditorModule } from '@dotos1/dui/ux/monaco-editor';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `MonacoEditorExampleComponent` (selector: 'app-monaco-editor-example') providing monaco editor example component presentation and interaction in `projects/testdui/src/app/docs/examples/monaco-editor`.

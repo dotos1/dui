@@ -4,8 +4,8 @@
  */
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Optional, ViewChild } from '@angular/core';
-import { FieldArrayType, FormBuilder, FORM_CONFIG } from '@dotos/dui/core/form';
-import { ButtonComponent } from '@dotos/dui/ui/button';
+import { FieldArrayType, FormBuilder, FORM_CONFIG } from '@dotos1/dui/core/form';
+import { ButtonComponent } from '@dotos1/dui/ui/button';
 
 /**
  * Angular component `RepeatTypeComponent` (selector: 'repeat-section') providing repeat type component presentation and interaction in `src/form/wrapper`.

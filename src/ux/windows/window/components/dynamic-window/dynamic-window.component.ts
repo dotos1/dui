@@ -39,8 +39,8 @@ import { ɵMergeConfigs } from '../../helpers';
 import { DynamicWindowConfig } from '../../interfaces';
 import { ɵBaseDynamicWindowComponent } from './base-dynamic-window.component';
 import {  Router } from '@angular/router';
-import { ThemeService } from '@dotos/dui/theme';
-import { DotosConfigService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
+import { DotosConfigService } from '@dotos1/dui/theme';
 import { duiWindowTheme } from '../../../window.theme';
 
 

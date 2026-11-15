@@ -5,8 +5,8 @@
 
 
 import { AfterViewInit, ChangeDetectionStrategy, Component, ElementRef, ViewEncapsulation } from '@angular/core';
-import { Dui } from '@dotos/dui/core';
-import { TranslateService } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateService } from '@dotos1/dui/translator';
 import {isObjectLike}  from 'lodash-es';
 import { MatField } from '../base/mat.field';
 

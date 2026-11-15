@@ -8,7 +8,7 @@ import { Component, forwardRef, HostBinding, Input, ChangeDetectionStrategy } fr
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { _ToggleBase, ToggleHeaderAppearance } from './toggle-header.component';
-import { coerceBoolean } from '@dotos/dui/core/decorators';
+import { coerceBoolean } from '@dotos1/dui/core/decorators';
 
 
 /**

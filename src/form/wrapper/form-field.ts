@@ -20,9 +20,9 @@ import {
   ViewEncapsulation
 } from '@angular/core';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
-import { isPhoneTerminal } from '@dotos/dui/base';
-import { FieldConfig, FieldWrapper, defineHiddenProp, observe } from '@dotos/dui/core/form';
-import { ThemeService } from '@dotos/dui/theme';
+import { isPhoneTerminal } from '@dotos1/dui/base';
+import { FieldConfig, FieldWrapper, defineHiddenProp, observe } from '@dotos1/dui/core/form';
+import { ThemeService } from '@dotos1/dui/theme';
 // import { MDCTextField } from '@material/textfield';
 
 import { Subject, Subscription } from 'rxjs';

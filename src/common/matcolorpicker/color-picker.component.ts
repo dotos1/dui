@@ -4,8 +4,8 @@
  */
 
 import { Component, EventEmitter, forwardRef, Input, Output, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
-import { duiAnimations } from '@dotos/dui/common/animations';
-import { MatColors } from '@dotos/dui/core/color';
+import { duiAnimations } from '@dotos1/dui/common/animations';
+import { MatColors } from '@dotos1/dui/core/color';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**

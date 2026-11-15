@@ -4,7 +4,7 @@
  */
 
 import { Injectable, OnDestroy } from '@angular/core';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 
 import { Subscription } from 'rxjs';
 import { TREE_EVENTS } from '../constants/events';

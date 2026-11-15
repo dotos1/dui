@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/speeddial/fab.button.ts`，提供fab按钮相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -18,7 +18,7 @@ import {
     ViewChild
 } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
-import { ComponentBase } from '@dotos/dui/core';
+import { ComponentBase } from '@dotos1/dui/core';
 import {isString}  from 'lodash-es';
 
 /**

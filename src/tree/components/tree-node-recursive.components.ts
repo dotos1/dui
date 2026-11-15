@@ -14,7 +14,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { makeObservable, reaction } from 'mobx';
-import { action, computed, observable } from '@dotos/dui/core/mobx';
+import { action, computed, observable } from '@dotos1/dui/core/mobx';
 import { TreeNode as TreeNodeApi } from '../defs/api';
 import { TreeNode } from '../models/tree-node.model';
 import { TreeModel } from '../models/tree.model';

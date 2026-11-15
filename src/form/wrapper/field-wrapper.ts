@@ -4,7 +4,7 @@
  */
 
 import { Component, ViewChild, ViewContainerRef, OnInit, OnDestroy, ChangeDetectionStrategy,Renderer2, AfterContentChecked, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
-import { FieldWrapper, FieldConfig } from '@dotos/dui/core/form';
+import { FieldWrapper, FieldConfig } from '@dotos1/dui/core/form';
 import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
 

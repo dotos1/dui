@@ -15,7 +15,7 @@ import {
   Output,
   ViewEncapsulation
 } from "@angular/core";
-import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos/dui/form/date/adapter";
+import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos1/dui/form/date/adapter";
 
 import {MatDatetimepickerType} from "./datetimepicker-type";
 import {createMissingDateImplError} from "./datetimepicker-errors";

@@ -8,8 +8,8 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
-import {  EditableInputModule,  RaisedModule,  SwatchModule,} from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+import {  EditableInputModule,  RaisedModule,  SwatchModule,} from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import { GoogColorComponent } from './google-color.component';
 
 import { GoogColorPickerComponent } from './google.component';

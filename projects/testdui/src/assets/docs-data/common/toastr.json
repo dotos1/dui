@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/toastr",
+  "importPath": "@dotos1/dui/common/toastr",
   "exports": [
     {
       "name": "ActiveToast",
@@ -1477,5 +1477,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { Toast, ToastNoAnimationModule } from '@dotos/dui/common/toastr';\n\n<[toast-component]></[toast-component]>"
+  "suggestedUsageSnippet": "import { Toast, ToastNoAnimationModule } from '@dotos1/dui/common/toastr';\n\n<[toast-component]></[toast-component]>"
 }

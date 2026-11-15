@@ -13,7 +13,7 @@ import {
   OnInit, 
   OnDestroy 
 } from '@angular/core';
-import { action, observable } from '@dotos/dui/core/mobx';
+import { action, observable } from '@dotos1/dui/core/mobx';
 import { makeObservable } from 'mobx';
 import { TreeNode } from '../models/tree-node.model';
 

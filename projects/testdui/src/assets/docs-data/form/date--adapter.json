@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/date/adapter",
+  "importPath": "@dotos1/dui/form/date/adapter",
   "exports": [
     {
       "name": "DatetimeAdapter",
@@ -838,5 +838,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MatNativeDatetimeModule } from '@dotos/dui/form/date/adapter';"
+  "suggestedUsageSnippet": "import { MatNativeDatetimeModule } from '@dotos1/dui/form/date/adapter';"
 }

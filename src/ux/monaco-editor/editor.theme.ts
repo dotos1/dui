@@ -3,8 +3,8 @@
  * @zh 模块文件 `src/ux/monaco-editor/editor.theme.ts`，提供编辑器主题相关的定义与实现。
  */
 
-import { Theme } from '@dotos/dui/theme';
-import { matColor } from '@dotos/dui/theme';
+import { Theme } from '@dotos1/dui/theme';
+import { matColor } from '@dotos1/dui/theme';
 
 /**
  * Executes `EditorTheme` to handle editor theme.

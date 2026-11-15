@@ -28,8 +28,8 @@ import { WindowDialogComponent } from './window-dialog/window-dialog.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
-import { TranslateModule } from '@dotos/dui/translator';
-import { Dui } from '@dotos/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Constant/variable `DIALOGS` defining dialogs in `src/common/dialogs`.

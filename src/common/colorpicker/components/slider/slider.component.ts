@@ -6,7 +6,7 @@
 import {
   ChangeDetectionStrategy,  Component,  Input,
 } from '@angular/core';
-import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
+import { ColorWrap } from '@dotos1/dui/common/colorpicker/common';
 
 /**
  * Angular component `ColorSliderComponent` (selector: 'color-slider') providing color slider component presentation and interaction in `src/common/colorpicker/components/slider`.

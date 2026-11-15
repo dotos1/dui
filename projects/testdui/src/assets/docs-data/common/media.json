@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/media",
+  "importPath": "@dotos1/dui/common/media",
   "exports": [
     {
       "name": "MediaModule",
@@ -109,5 +109,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MediaModule } from '@dotos/dui/common/media';"
+  "suggestedUsageSnippet": "import { MediaModule } from '@dotos1/dui/common/media';"
 }

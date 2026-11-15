@@ -4,9 +4,9 @@
  */
 
 
-import { DynamicComponentModel } from '@dotos/dui/core/services';
-import { LocalizedDatePipe } from '@dotos/dui/util/pipes';
-import { TranslationService } from '@dotos/dui/translator';
+import { DynamicComponentModel } from '@dotos1/dui/core/services';
+import { LocalizedDatePipe } from '@dotos1/dui/util/pipes';
+import { TranslationService } from '@dotos1/dui/translator';
 import { CardViewBaseItemModel } from './card-view-baseitem.model';
 import { CardViewItem,CardViewDateItemProperties } from '../interfaces';
 

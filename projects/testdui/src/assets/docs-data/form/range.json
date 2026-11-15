@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/range",
+  "importPath": "@dotos1/dui/form/range",
   "exports": [
     {
       "name": "DateRangeFieldComponent",
@@ -190,5 +190,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { DateRangeFieldComponent, RangeFieldModule } from '@dotos/dui/form/range';\n\n<date-range-field></date-range-field>"
+  "suggestedUsageSnippet": "import { DateRangeFieldComponent, RangeFieldModule } from '@dotos1/dui/form/range';\n\n<date-range-field></date-range-field>"
 }

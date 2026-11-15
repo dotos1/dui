@@ -17,11 +17,11 @@ import {
     ViewEncapsulation, ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { FieldConfig } from '@dotos/dui/core/form';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { MatField } from '@dotos/dui/form';
-import { DotosConfigService, ThemeService, matColor } from '@dotos/dui/theme';
-import { TranslateService } from '@dotos/dui/translator';
+import { FieldConfig } from '@dotos1/dui/core/form';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
+import { MatField } from '@dotos1/dui/form';
+import { DotosConfigService, ThemeService, matColor } from '@dotos1/dui/theme';
+import { TranslateService } from '@dotos1/dui/translator';
 import {isString}  from 'lodash-es';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';

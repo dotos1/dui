@@ -12,8 +12,8 @@ import * as monaco from 'monaco-editor';
 import { BaseEditor } from './base-editor';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
 import { EditorModel } from './types';
-import { TranslateService } from '@dotos/dui/translator';
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { TranslateService } from '@dotos1/dui/translator';
+import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
 import { EditorTheme } from './editor.theme';
 
 // declare const monaco: any;

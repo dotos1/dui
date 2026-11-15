@@ -4,7 +4,7 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
   ChangeDetectionStrategy, ChangeDetectorRef,
   Component,
@@ -18,7 +18,7 @@ import {
   SimpleChanges,
   ViewChild, ViewContainerRef
 } from '@angular/core';
-import { ComponentBase } from '@dotos/dui/core';
+import { ComponentBase } from '@dotos1/dui/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { AnimationMode, Direction } from './speed-dial';
 /**

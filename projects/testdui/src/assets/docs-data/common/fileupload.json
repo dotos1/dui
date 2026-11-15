@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/fileupload",
+  "importPath": "@dotos1/dui/common/fileupload",
   "exports": [
     {
       "name": "_FileDropMixinBase",
@@ -1276,5 +1276,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { FileUploadModule } from '@dotos/dui/common/fileupload';"
+  "suggestedUsageSnippet": "import { FileUploadModule } from '@dotos1/dui/common/fileupload';"
 }

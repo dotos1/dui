@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/monaco-editor",
+  "importPath": "@dotos1/dui/ux/monaco-editor",
   "exports": [
     {
       "name": "CodeEditorService",
@@ -589,5 +589,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DiffEditorComponent, MonacoEditorModule } from '@dotos/dui/ux/monaco-editor';\n\n<monaco-diff-editor [options]=\"...\" [originalModel]=\"...\" [modifiedModel]=\"...\"></monaco-diff-editor>"
+  "suggestedUsageSnippet": "import { DiffEditorComponent, MonacoEditorModule } from '@dotos1/dui/ux/monaco-editor';\n\n<monaco-diff-editor [options]=\"...\" [originalModel]=\"...\" [modifiedModel]=\"...\"></monaco-diff-editor>"
 }

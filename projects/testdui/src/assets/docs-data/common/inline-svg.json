@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/inline-svg",
+  "importPath": "@dotos1/dui/common/inline-svg",
   "exports": [
     {
       "name": "createSymbolSvg",
@@ -501,5 +501,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { InlineSVGComponent, InlineSVGModule } from '@dotos/dui/common/inline-svg';\n\n<inline-svg [context]=\"...\" [content]=\"...\" [replaceContents]=\"...\"></inline-svg>"
+  "suggestedUsageSnippet": "import { InlineSVGComponent, InlineSVGModule } from '@dotos1/dui/common/inline-svg';\n\n<inline-svg [context]=\"...\" [content]=\"...\" [replaceContents]=\"...\"></inline-svg>"
 }

@@ -8,7 +8,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Interface `SelectOption` defining the contract and properties for select option.

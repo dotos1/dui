@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/container",
+  "importPath": "@dotos1/dui/container",
   "exports": [
     {
       "name": "_DuiLayoutToggleMixinBase",
@@ -4991,5 +4991,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { Accordion, CardModule } from '@dotos/dui/container';\n\n<accordion [multi]=\"...\" [hideToggle]=\"...\" [displayMode]=\"...\"></accordion>"
+  "suggestedUsageSnippet": "import { Accordion, CardModule } from '@dotos1/dui/container';\n\n<accordion [multi]=\"...\" [hideToggle]=\"...\" [displayMode]=\"...\"></accordion>"
 }

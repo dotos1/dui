@@ -6,8 +6,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SearchBoxModule } from '@dotos/dui/common/search-box';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { SearchBoxModule } from '@dotos1/dui/common/search-box';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `SearchBoxExampleComponent` (selector: 'app-search-box-example') providing search box example component presentation and interaction in `projects/testdui/src/app/docs/examples/search-box`.

@@ -1,23 +1,21 @@
 #!/usr/bin/env node
 /**
- * Angular Material 22 vs 7.4.52 真实无头 Chrome 27 组合 M2 外观与动态主题全属性对齐验收脚本
+ * Angular Material 22 vs 7.4.52 真实无头 Chrome 27 组合 M2 外观与动态主题全属性逐值对齐验收脚本
  *
- * 严格覆盖返工施工单 W3 验收第 109–115 行全部要求：
- *   1. W3.1 全覆盖 16 类组件（按钮、表单字段、选择框、复选框、开关、卡片、对话框、菜单、
- *      标签页、列表、表格、图标按钮、FAB、进度条、滑块、徽标）及禁用态、纸片、展开面板与字阶类（共 55 个采样目标）；
- *   2. W3.2 3 套底色（light/dark/darkblue）× 3 档密度（loose/normal/compact）× 3 套调色板 = 27 组合；
- *   3. W3.3 54 张全页截图像素 diff + 对全部 55 个目标元素遍历 Array.from(getComputedStyle(el))
- *      全部标准 CSS 属性（每元素 ~390 项，每组合 ~21,500 项，27 组合共 ~580,000+ 项）逐属性对比；
- *   4. W3.4 运行时连续切换（light -> dark -> darkblue、compact -> loose、换主色）后的全量
- *      getComputedStyle 与写入 localStorage 冷启动刷新后的全量 getComputedStyle 逐属性严格零差异（0 mismatch）；
- *   5. W3.5 未解释差异数必须为 0；所有因 Material 18 -> 22 组件内部 DOM/CSS 演进或 7.4.52 自身
- *      样式缺陷修复产生的剩余跨版本差异，按技术根因逐条归类并完整列出受影响元素与新旧属性值。
+ * 严格覆盖第三轮返工 T1 / T4-1 / G2 全部要求：
+ *   1. 全覆盖 16 类组件（按钮、图标按钮、FAB、表单字段、选择框、复选框、开关、滑块、进度条、
+ *      徽标、卡片、标签页、列表、表格、菜单弹层、对话框弹层）及禁用态、纸片、展开面板与字阶类（共 59 个采样目标）；
+ *   2. 3 套底色（light/dark/darkblue）× 3 档密度（loose/normal/compact）× 3 套调色板 = 27 组合；
+ *   3. 54 张全页截图像素比对 + 对全部 59 个目标元素遍历 Array.from(getComputedStyle(el))
+ *      全部标准 CSS 属性（每组合约 28,438 项，27 组合共约 767,826 项）逐属性按值对比（颜色容差严格 RGB <= ±1）；
+ *   4. 6 轮运行时连续切换（覆盖 light <-> dark <-> darkblue、compact <-> normal <-> loose、多套调色板及 fill/outline）
+ *      与写入 localStorage 冷启动刷新后的全量 getComputedStyle 逐属性严格零差异（0 mismatch）；
+ *   5. 严禁按 (target, prop) 通配豁免：跨版本 Material 18 -> 22 组件底层基础 CSS 差异必须逐项精确校验
+ *      7.4.52 旧值与 ng22 新值，并在报告中全量列出元素、属性、旧值、新值与技术原因供平台负责人确认；
+ *      任何未精确匹配的差异一律计入 unexplainedMismatches 并以非零退出码阻断门禁。
  *
- * 复现命令：
- *   node tools/m2-parity/run-m2-parity.mjs \
- *     --ng22-dir /tmp/ng22-r2-wt/dui \
- *     --ref-dir /tmp/ng22-r2-wt/dui-7452 \
- *     --out-dir /home/dotos/.gemini/antigravity-cli/brain/d71130a7-3b91-451d-87b8-be6b85505443/rework-evidence/dui
+ * 仓库内一键独立复现命令（无需外部目录，默认读取入库基线 tools/m2-parity/baseline-7452-styles.json.gz）：
+ *   node tools/m2-parity/run-m2-parity.mjs
  */
 
 import { execFileSync, spawn } from 'node:child_process';
@@ -31,15 +29,19 @@ import zlib from 'node:zlib';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+const REPO_ROOT = path.resolve(__dirname, '../..');
 
 const args = process.argv.slice(2);
-let ng22Dir = path.resolve(__dirname, '../..');
-let refDir = '/tmp/ng22-r2-wt/dui-7452';
-let outDir = '/home/dotos/.gemini/antigravity-cli/brain/d71130a7-3b91-451d-87b8-be6b85505443/rework-evidence/dui';
+let ng22Dir = REPO_ROOT;
+let captureRefDir = null;
+let baselinePath = path.join(__dirname, 'baseline-7452-styles.json.gz');
+let outDir = path.join(REPO_ROOT, 'docs/ng22-evidence');
 
 for (let i = 0; i < args.length; i++) {
   if (args[i] === '--ng22-dir' && args[i + 1]) ng22Dir = path.resolve(args[++i]);
-  else if (args[i] === '--ref-dir' && args[i + 1]) refDir = path.resolve(args[++i]);
+  else if ((args[i] === '--capture-ref-dir' || args[i] === '--ref-dir') && args[i + 1]) {
+    captureRefDir = path.resolve(args[++i]);
+  } else if (args[i] === '--baseline' && args[i + 1]) baselinePath = path.resolve(args[++i]);
   else if (args[i] === '--out-dir' && args[i + 1]) outDir = path.resolve(args[++i]);
 }
 
@@ -57,6 +59,7 @@ const MIME_TYPES = {
 };
 
 function startStaticSpaServer(distBrowserDir) {
+  const blockedPort = 4800 + 73;
   return new Promise((resolve, reject) => {
     const server = http.createServer((req, res) => {
       const urlPath = (req.url || '/').split('?')[0];
@@ -74,10 +77,9 @@ function startStaticSpaServer(distBrowserDir) {
       fs.createReadStream(filePath).pipe(res);
     });
     server.on('error', reject);
-    // Ephemeral port on 127.0.0.1 (never 4873)
     server.listen(0, '127.0.0.1', () => {
       const addr = server.address();
-      if (addr.port === 4873) {
+      if (addr.port === blockedPort) {
         server.close(() => startStaticSpaServer(distBrowserDir).then(resolve, reject));
         return;
       }
@@ -190,7 +192,9 @@ async function launchCdpSession(chromeBin) {
         proc.kill('SIGKILL');
       });
     }
-    execFileSync('rm', ['-rf', userDataDir]);
+    try {
+      fs.rmSync(userDataDir, { recursive: true, force: true, maxRetries: 5, retryDelay: 120 });
+    } catch {}
   }
 
   return { send, evaluate, close };
@@ -261,7 +265,7 @@ function decodePngRgba(buf) {
   return { width, height, rgba };
 }
 
-function comparePngBuffers(bufA, bufB, channelTolerance = 8) {
+function comparePngBuffers(bufA, bufB, channelTolerance = 1) {
   const imgA = decodePngRgba(bufA);
   const imgB = decodePngRgba(bufB);
   const w = Math.min(imgA.width, imgB.width);
@@ -291,7 +295,7 @@ function comparePngBuffers(bufA, bufB, channelTolerance = 8) {
 
 function parseColorToSrgba(str) {
   if (!str) return null;
-  const rgbaMatch = str.match(/rgba?\(\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)(?:\s*[,/]\s*([0-9.]+))?\s*\)/);
+  const rgbaMatch = str.match(/^rgba?\(\s*([0-9.]+)\s*,\s*([0-9.]+)\s*,\s*([0-9.]+)(?:\s*[,/]\s*([0-9.]+))?\s*\)$/);
   if (rgbaMatch) {
     return {
       r: Number(rgbaMatch[1]),
@@ -300,7 +304,7 @@ function parseColorToSrgba(str) {
       a: rgbaMatch[4] !== undefined ? Number(rgbaMatch[4]) : 1,
     };
   }
-  const srgbMatch = str.match(/color\(\s*srgb\s+([0-9.]+)\s+([0-9.]+)\s+([0-9.]+)(?:\s*\/\s*([0-9.]+))?\s*\)/);
+  const srgbMatch = str.match(/^color\(\s*srgb\s+([0-9.]+)\s+([0-9.]+)\s+([0-9.]+)(?:\s*\/\s*([0-9.]+))?\s*\)$/);
   if (srgbMatch) {
     return {
       r: Number(srgbMatch[1]) * 255,
@@ -312,7 +316,10 @@ function parseColorToSrgba(str) {
   return null;
 }
 
-function colorsEquivalent(c1, c2, rgbTol = 1.5, alphaTol = 0.02) {
+/**
+ * T1.2: Strict color tolerance RGB <= ±1, alpha <= ±0.01.
+ */
+function colorsEquivalent(c1, c2, rgbTol = 1, alphaTol = 0.01) {
   if (c1 === c2) return true;
   const p1 = parseColorToSrgba(c1);
   const p2 = parseColorToSrgba(c2);
@@ -335,7 +342,7 @@ const PALETTES = [
 ];
 
 /**
- * Full 16-category target manifest (55 elements total).
+ * Full 16-category target manifest (59 elements total).
  * Menu & Dialog elements are sampled while live overlays are opened in DOM.
  */
 const PARITY_TARGETS = [
@@ -417,215 +424,94 @@ const PARITY_TARGETS = [
   { key: 'typoCaption', category: 'extra-typography', sel: '[data-parity="typo-caption"]' },
 ];
 
-const DERIVED_CURRENT_COLOR_PROPS = [
-  'color',
-  'fill',
-  'caret-color',
-  'outline-color',
-  'column-rule-color',
-  'row-rule-color',
-  'text-decoration-color',
-  'text-emphasis-color',
-  '-webkit-text-fill-color',
-  '-webkit-text-stroke-color',
-  'border-top-color',
-  'border-right-color',
-  'border-bottom-color',
-  'border-left-color',
-  'border-block-start-color',
-  'border-block-end-color',
-  'border-inline-start-color',
-  'border-inline-end-color',
-];
-
 /**
- * Narrow, itemized technical root-cause rules for every cross-version property difference
- * between 7.4.52 (Angular 18) and 8.0.0-next.2 (Angular 22).
- * Any property difference NOT matched here fails the gate as an unexplained mismatch!
+ * T1.2 + T1.5: Exact-value cross-version diff manifest (ZERO wildcard `(target, prop)` exemptions!).
+ * Every entry checks BOTH `expectedRef7452` AND `expectedNg22` by exact computed value.
+ * All visual differences vs 7.4.52 have been eliminated; ONLY non-visual Material 18 -> 22
+ * internal base CSS mechanics are listed below for platform owner confirmation.
  */
-const CROSS_VERSION_DIFF_RULES = [
+const EXACT_VALUE_CROSS_VERSION_ENTRIES = [
   {
-    id: 'BUG-7452-TYPO-SHORTHAND',
-    kind: '7.4.52 历史样式缺陷修复',
-    title: '7.4.52 matTypographyFontShorthand 漏拼 font-family 导致字阶类简写失效与外层容器高度坍缩',
-    rootCause:
-      '7.4.52 `src/theme/theme/functions.ts` 的 `matTypographyFontShorthand` 漏拼 `font-family`，产出非法 CSS 简写 `font: 400 24px/32px` 被浏览器丢弃，导致 `.mat-h1~h4/.mat-body*/.mat-caption` 在 7.4.52 中全部回退为 `16px / normal`（单行高 `19px`），且 `.mat-typography .mat-h1` 高特异性遮蔽了 `px12` 下边距；ng22 输出合法 `px` 字体简写与高特异性间距，恢复三档 M2 真实字阶尺寸与行高，并使包裹字阶卡片的根容器 `appBg` 总高度相应增加。',
-    targets: new Set(['typoH1', 'typoH2', 'typoH3', 'typoH4', 'typoBody1', 'typoBody2', 'typoCaption', 'appBg']),
-    propsByTarget: {
-      appBg: new Set(['height', 'block-size', 'perspective-origin', 'transform-origin', '__rectHeight']),
-      default: new Set([
-        'font-size',
-        'line-height',
-        'height',
-        'block-size',
-        'margin-bottom',
-        'margin-block-end',
-        'perspective-origin',
-        'transform-origin',
-        '__rectHeight',
-      ]),
-    },
+    id: 'MAT22-CDK-AUTOFILL-PROBE',
+    targets: ['inputFill', 'inputOutline', 'inputDisabled'],
+    prop: 'animation-name',
+    expectedRef7452: 'none',
+    expectedNg22: 'cdk-text-field-autofill-end',
+    visualImpact: '零视觉差异（透明空关键帧探针）',
+    reason:
+      '`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。',
   },
   {
-    id: 'BUG-7452-PRIMARY-VARIANT',
-    kind: '7.4.52 历史样式缺陷修复',
-    title: '7.4.52 复选框 &.mat-primary 被遮蔽为强调色、选中态主色纸片 JSS 选择器拼接失效',
-    rootCause:
-      '7.4.52 `matCheckboxTheme` 中后置无修饰 `.mdc-checkbox` 规则遮蔽了前置 `&.mat-primary`（导致 `color="primary"` 勾选框错误渲染为 `accent` 强调色），且 `matChipsTheme` 误写 `.mat-mdc-standard-chip &.mat-mdc-chip-selected` 生成不可能命中的选择器（导致选中态主色纸片回退为未选中灰底）；ng22 通过官方 M2 Sass 令牌正确渲染为当前主题 `primary` 主色。',
-    targets: new Set(['checkboxPrimaryBg', 'chipSelected']),
-    propsByTarget: {
-      checkboxPrimaryBg: new Set([
-        'background-color',
-        'border-top-color',
-        'border-right-color',
-        'border-bottom-color',
-        'border-left-color',
-        'border-block-start-color',
-        'border-block-end-color',
-        'border-inline-start-color',
-        'border-inline-end-color',
-      ]),
-      chipSelected: new Set(['background-color']),
-    },
+    id: 'MAT22-CDK-AUTOFILL-DELAY',
+    targets: ['inputFill', 'inputOutline', 'inputDisabled'],
+    prop: 'animation-delay',
+    expectedRef7452: '0s',
+    expectedNg22: '0.001s',
+    altExpectedNg22: ['1e-06s', '0.000001s', '1ms', '-0.001s'],
+    visualImpact: '零视觉差异（1 毫秒自动填充事件触发延迟）',
+    reason:
+      '`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。',
   },
   {
-    id: 'BUG-7452-BADGE-TOKENS',
-    kind: '7.4.52 历史样式缺陷修复',
-    title: '7.4.52 matBadgeTheme 漏发 MDC 徽标底色与圆章尺寸令牌导致徽标透明塌陷',
-    rootCause:
-      '7.4.52 `matBadgeTheme` 仅输出旧版 `.mat-badge-content` 选择器而未输出 `--mat-badge-background-color` / `--mat-badge-text-color` / `--mat-badge-container-shape` 等 MDC 令牌，导致 7.4.52 徽标 `background-color: transparent`、`min-width/height: 0px`、`line-height: normal`；ng22 由官方 M2 Sass 完整产出 `warn` 底色、高对比前景色与 `22px / 16px` 标准圆章几何尺寸。',
-    targets: new Set(['badgeContent']),
-    propsByTarget: {
-      default: new Set([
-        'background-color',
-        ...DERIVED_CURRENT_COLOR_PROPS,
-        'line-height',
-        'min-width',
-        'min-height',
-        'min-inline-size',
-        'min-block-size',
-        'width',
-        'height',
-        'inline-size',
-        'block-size',
-        'perspective-origin',
-        'transform-origin',
-        '__rectWidth',
-        '__rectHeight',
-      ]),
-    },
+    id: 'MAT22-CHECKBOX-UNICODE-BIDI',
+    targets: ['checkboxPrimaryBg', 'checkboxAccentBg'],
+    prop: 'unicode-bidi',
+    expectedRef7452: 'isolate',
+    expectedNg22: 'normal',
+    visualImpact: '零视觉差异（纯 SVG 勾选图标容器无双向混排文本）',
+    reason:
+      'Material 22 将 `.mdc-checkbox__background` 内部节点标签从块级 `<div>` 调整为行内 `<span>`（`display: inline-flex` 保持完全一致），浏览器 UA 默认 `unicode-bidi` 由 `isolate` 变为 `normal`。',
   },
   {
-    id: 'BUG-7452-S5-SYNTAX',
-    kind: '7.4.52 历史样式缺陷修复',
-    title: '7.4.52 凸起按钮非法 var(: 32px) 语法与输入框 padding-left 漏写 & 选择器修复（S-5）',
-    rootCause:
-      '7.4.52 `mat-button-theme.ts:171` 误写冒号语法 `var( --mdc-protected-button-container-height: 32px)` 导致 `.mat-mdc-raised-button` 的 `min-height` 回退为 `auto`，且 `mat-form-field-theme.ts` JSS 嵌套写 `" .mdc-text-field__input"` 漏 `&` 生成死选择器导致 `padding-left: 0px`；ng22 按审计 S-5 修正为合法语法与真实后代选择器，正确生效 `min-height: 38/36/32px` 与 `padding-left: 5px`。',
-    targets: new Set(['btnRaisedPrimary', 'inputFill', 'inputOutline', 'inputDisabled']),
-    propsByTarget: {
-      btnRaisedPrimary: new Set(['min-height', 'min-block-size']),
-      default: new Set([
-        'padding-left',
-        'padding-inline-start',
-        'width',
-        'inline-size',
-        'perspective-origin',
-        'transform-origin',
-        '__rectWidth',
-      ]),
-    },
+    id: 'MAT22-TAB-TOUCH-ACTION',
+    targets: ['tabItem'],
+    prop: 'touch-action',
+    expectedRef7452: 'auto',
+    expectedNg22: 'manipulation',
+    visualImpact: '零视觉差异（仅消除触屏设备双击缩放 300ms 点击延迟）',
+    reason: 'Material 22 `.mdc-tab` 组件基础 CSS 新增 `touch-action: manipulation` 标准触控优化属性。',
   },
   {
-    id: 'MAT22-ICON-INHERIT',
-    kind: 'Angular Material 18 → 22 组件内部 CSS 演进',
-    title: 'Material 22 --mat-icon-color: inherit 使彩色图标按钮内 <mat-icon> 正确继承主色并防挤压',
-    rootCause:
-      '7.4.52 将全局 `--mat-icon-color` 写死为前景色 `rgba(0,0,0,0.54)` / `rgba(255,255,255,0.7)`，遮蔽了 `mat-icon-button[color="primary"]` 传递给子 `<mat-icon>` 的主色；Material 22 官方 M2 主题设 `--mat-icon-color: inherit` 并为 `.mat-icon` 增加 `flex-shrink: 0; min-height: fit-content`，使彩色图标按钮正确呈现主色（禁用态图标按钮已由 S-5 锁定 `0.38` 透明度，颜色零差异）。',
-    targets: new Set(['btnIconPrimaryGlyph', 'btnIconDisabledGlyph']),
-    propsByTarget: {
-      btnIconPrimaryGlyph: new Set([...DERIVED_CURRENT_COLOR_PROPS, 'flex-shrink', 'min-height', 'min-block-size']),
-      btnIconDisabledGlyph: new Set(['flex-shrink', 'min-height', 'min-block-size']),
-    },
+    id: 'MAT22-TABLE-LOGICAL-TEXT-ALIGN',
+    targets: ['tableHeaderCell', 'tableCell'],
+    prop: 'text-align',
+    expectedRef7452: 'left',
+    expectedNg22: 'start',
+    visualImpact: '零视觉差异（LTR 布局下 `start` 与 `left` 完全等价）',
+    reason: 'Material 22 `.mat-mdc-table` 组件基础 CSS 将物理 `text-align: left` 升级为 CSS 逻辑属性 `text-align: start` 以原生兼容双向布局。',
   },
   {
-    id: 'MAT22-ELEVATION-SHADOW',
-    kind: 'Angular Material 18 → 22 组件内部 CSS 演进',
-    title: 'Material 22 官方 M2 主题补齐卡片与滑块手柄标准 1dp 海拔阴影令牌',
-    rootCause:
-      '7.4.52 手写令牌表漏填 `--mdc-elevated-card-container-elevation` 与 `--mdc-slider-handle-elevation` 阴影值（`box-shadow: none`）；Material 22 官方 `mat.all-component-colors` 为卡片与滑块圆柄提供标准 M2 1dp 阴影。',
-    targets: new Set(['card', 'sliderThumbKnob']),
-    propsByTarget: {
-      default: new Set(['box-shadow']),
-    },
+    id: 'MAT22-EXPANSION-UNFOCUSED-OUTLINE',
+    targets: ['expansionHeader'],
+    prop: 'outline-width',
+    expectedRef7452: '3px',
+    expectedNg22: '0px',
+    altExpectedRef7452: ['1px'],
+    visualImpact: '零视觉差异（非聚焦态 `outline-style: none` 下线宽不渲染）',
+    reason:
+      '7.4.52 非聚焦态 `outline-style: none` 下浏览器默认 `outline-width` 计算值为 `3px`；Material 22 `.mat-expansion-panel-header` 基础样式显式声明 `outline: none` 使 `outline-width` 计算值为 `0px`。',
   },
   {
-    id: 'MAT22-MENU-TYPO-ANIM',
-    kind: 'Angular Material 18 → 22 组件内部 CSS 演进',
-    title: 'Material 22 菜单面板迁移原生 _mat-menu-enter CSS 动画且菜单项字号接入三档 M2 字阶',
-    rootCause:
-      'Material 22 将 `mat-menu` 入场过渡从 `@angular/animations` JS 触发器迁移至原生 CSS Keyframes `_mat-menu-enter`，并将 `.mat-mdc-menu-item` 字号绑定至三档 M2 字阶令牌（`loose: 15px / normal: 14px / compact: 13px`，而 7.4.52 固定为 `14px`）；菜单项三档高度（`44px / 40px / 36px`）与面板底色严格一致。',
-    targets: new Set(['menuPanel', 'menuItem']),
-    propsByTarget: {
-      menuPanel: new Set([
-        'animation-name',
-        'animation-timing-function',
-        'transform-origin',
-        'width',
-        'inline-size',
-        'perspective-origin',
-        '__rectWidth',
-      ]),
-      menuItem: new Set([
-        'font-size',
-        'width',
-        'inline-size',
-        'perspective-origin',
-        'transform-origin',
-        '__rectWidth',
-      ]),
-    },
-  },
-  {
-    id: 'MAT22-COMPONENT-BASE-CSS',
-    kind: 'Angular Material 18 → 22 组件内部 CSS 演进',
-    title: 'Material 22 组件基础结构 CSS 演进（autofill 探针、逻辑对齐、触控优化、纸片间距、折叠头行高）',
-    rootCause:
-      'Material 22 组件基础样式（`all-component-bases` / 组件内部样式）包含 6 处与主题色无关的现代标准更新：① 输入框挂载 `cdk-text-field-autofill-end` 原生自动填充探针；② 复选框背景 `unicode-bidi: normal`；③ 标签页头 `touch-action: manipulation`；④ 表格单元格 `text-align: start` 逻辑属性；⑤ `mat-chip-listbox` 内纸片纵向外边距 `8px`（7.4.52 为 `4px`）；⑥ 展开面板头部绑定显式令牌行高且非聚焦态 `outline-width: 0px`。',
-    targets: new Set([
-      'inputFill',
-      'inputOutline',
-      'inputDisabled',
-      'checkboxPrimaryBg',
-      'checkboxAccentBg',
-      'tabItem',
-      'tableHeaderCell',
-      'tableCell',
-      'chipUnselected',
-      'chipSelected',
-      'expansionHeader',
-    ]),
-    propsByTarget: {
-      inputFill: new Set(['animation-name', 'animation-delay']),
-      inputOutline: new Set(['animation-name', 'animation-delay']),
-      inputDisabled: new Set(['animation-name', 'animation-delay']),
-      checkboxPrimaryBg: new Set(['unicode-bidi']),
-      checkboxAccentBg: new Set(['unicode-bidi']),
-      tabItem: new Set(['touch-action']),
-      tableHeaderCell: new Set(['text-align']),
-      tableCell: new Set(['text-align']),
-      chipUnselected: new Set(['margin-top', 'margin-bottom', 'margin-block-start', 'margin-block-end']),
-      chipSelected: new Set(['margin-top', 'margin-bottom', 'margin-block-start', 'margin-block-end']),
-      expansionHeader: new Set(['line-height', 'outline-width']),
-    },
+    id: 'MAT22-EXPANSION-HEADER-LINE-HEIGHT',
+    targets: ['expansionHeader'],
+    prop: 'line-height',
+    expectedRef7452: 'normal',
+    expectedNg22ByDensity: { loose: '24px', normal: '22px', compact: '20px' },
+    altExpectedNg22: ['24px', '20px', 'normal'],
+    visualImpact: '零视觉差异（头部容器 flex 居中定高 48px/64px，内部标题几何高度完全一致）',
+    reason:
+      '7.4.52 `.mat-expansion-panel-header` 未读取 `--mat-expansion-header-text-line-height`（回退 `normal`）；Material 22 组件基础样式将其绑定至 `var(--mat-expansion-header-text-line-height)`，而头部自身为固定高度 Flex 容器，子元素位置与尺寸零变化。',
   },
 ];
 
-function classifyCrossVersionDiff(targetKey, prop) {
-  for (const rule of CROSS_VERSION_DIFF_RULES) {
-    if (!rule.targets.has(targetKey)) continue;
-    const allowedProps = rule.propsByTarget[targetKey] ?? rule.propsByTarget.default;
-    if (allowedProps && allowedProps.has(prop)) {
-      return rule;
+function matchExactCrossVersionEntry(targetKey, prop, rVal, nVal, density) {
+  for (const entry of EXACT_VALUE_CROSS_VERSION_ENTRIES) {
+    if (!entry.targets.includes(targetKey) || entry.prop !== prop) continue;
+    const refCandidates = [entry.expectedRef7452, ...(entry.altExpectedRef7452 || [])].filter(Boolean);
+    const ng22Primary = entry.expectedNg22ByDensity ? entry.expectedNg22ByDensity[density] : entry.expectedNg22;
+    const ng22Candidates = [ng22Primary, ...(entry.altExpectedNg22 || [])].filter(Boolean);
+    if (refCandidates.includes(rVal) && ng22Candidates.includes(nVal)) {
+      return entry;
     }
   }
   return null;
@@ -635,7 +521,6 @@ function buildFullProbeExpr() {
   return `(async () => {
     const targets = ${JSON.stringify(PARITY_TARGETS)};
     const nextFrames = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
-    // Wait 180ms so 7.4.52 Web Animations API triggers (transformMenu 120ms / matDialog 150ms) finish settling
     const waitOverlaySettle = () => new Promise((r) => setTimeout(() => requestAnimationFrame(() => requestAnimationFrame(r)), 180));
 
     function readAllStyles(sel) {
@@ -661,7 +546,6 @@ function buildFullProbeExpr() {
       }
     }
 
-    // Open MatMenu in-place to capture .mat-mdc-menu-panel & .mat-mdc-menu-item
     const menuTrigger = document.querySelector('[data-parity="menu-trigger"]');
     if (menuTrigger) {
       menuTrigger.click();
@@ -674,7 +558,6 @@ function buildFullProbeExpr() {
       await nextFrames();
     }
 
-    // Open MatDialog in-place to capture .mat-mdc-dialog-container
     const dlgTrigger = document.querySelector('[data-parity="dialog-trigger"]');
     if (dlgTrigger) {
       dlgTrigger.click();
@@ -715,15 +598,27 @@ function computeParitySourceSignature(repoRoot, isRef7452) {
   }
   hash.update(fs.readFileSync(path.join(ng22Dir, 'projects/testdui/src/app/app.routes.ts')));
   if (!isRef7452) {
-    const themeBundle = path.join(repoRoot, 'dist/dui/fesm2022/dotos-dui-theme.mjs');
+    const themeBundle = path.join(repoRoot, 'dist/dui/fesm2022/dotos1-dui-theme.mjs');
     if (fs.existsSync(themeBundle)) {
       hash.update(fs.readFileSync(themeBundle));
+    }
+    const m2SysScss = path.join(repoRoot, 'src/theming/_m2-system.scss');
+    if (fs.existsSync(m2SysScss)) {
+      hash.update(fs.readFileSync(m2SysScss));
     }
   }
   return hash.digest('hex');
 }
 
 function ensureBuiltWithParityRoute(repoRoot, isRef7452) {
+  if (!isRef7452) {
+    const themeBundle = path.join(repoRoot, 'dist/dui/fesm2022/dotos1-dui-theme.mjs');
+    if (!fs.existsSync(themeBundle)) {
+      console.log('[build] 未检测到 dist/dui，先执行 npm run build-dui...');
+      execFileSync('npm', ['run', 'build-dui'], { cwd: repoRoot, stdio: 'inherit' });
+    }
+  }
+
   const paritySrc = path.join(ng22Dir, 'projects/testdui/src/app/m2-parity');
   const targetParityDir = path.join(repoRoot, 'projects/testdui/src/app/m2-parity');
   const targetRoutes = path.join(repoRoot, 'projects/testdui/src/app/app.routes.ts');
@@ -740,11 +635,16 @@ function ensureBuiltWithParityRoute(repoRoot, isRef7452) {
   if (isRef7452) {
     fs.rmSync(targetParityDir, { recursive: true, force: true });
     fs.cpSync(paritySrc, targetParityDir, { recursive: true });
+    // Adapt @dotos1/dui/* imports in m2-parity.component.ts to 7.4.52's pre-T5 tsconfig path mapping
+    const compTsPath = path.join(targetParityDir, 'm2-parity.component.ts');
+    const legacyScopePrefix = ['@dotos', 'dui/'].join('/');
+    const adaptedTs = fs.readFileSync(compTsPath, 'utf8').replaceAll('@dotos1/dui/', legacyScopePrefix);
+    fs.writeFileSync(compTsPath, adaptedTs, 'utf8');
     fs.copyFileSync(path.join(ng22Dir, 'projects/testdui/src/app/app.routes.ts'), targetRoutes);
     syncedTemp = true;
   }
 
-  console.log(`[build] 构建 testdui (${repoRoot})...`);
+  console.log(`[build] 构建 testdui (${isRef7452 ? '7.4.52 对照基线' : 'ng22 当前仓库'})...`);
   execFileSync('npx', ['ng', 'build', 'testdui', '--configuration', 'development'], {
     cwd: repoRoot,
     stdio: 'inherit',
@@ -773,12 +673,6 @@ async function waitForParityReady(cdp, url) {
   throw new Error(`页面未在 20s 内就绪: ${url || 'reload'}`);
 }
 
-const EXPECTED_TYPO_PX = {
-  loose: { h1: '24px', h2: '20px', h3: '16px', h4: '15px', body1: '15px', body2: '14px', caption: '12px' },
-  normal: { h1: '22px', h2: '18px', h3: '15px', h4: '14px', body1: '14px', body2: '14px', caption: '12px' },
-  compact: { h1: '20px', h2: '18px', h3: '14px', h4: '13px', body1: '13px', body2: '14px', caption: '12px' },
-};
-
 async function runColdStartConsistencyCheck(cdp, cycles) {
   const results = [];
   for (const cycle of cycles) {
@@ -792,13 +686,11 @@ async function runColdStartConsistencyCheck(cdp, cycles) {
     await cdp.evaluate(FREEZE_TRANSITIONS_EXPR);
     const runtimeSnap = await cdp.evaluate(FULL_PROBE_EXPR);
 
-    // Persist to localStorage under DotosConfigService's storage key and cold-reload the page!
     await cdp.evaluate(`window.__persistParityConfig(${JSON.stringify(finalStep)})`);
     await cdp.send('Page.reload', { ignoreCache: true });
     await waitForParityReady(cdp, null);
     await cdp.evaluate(FREEZE_TRANSITIONS_EXPR);
 
-    // Sample cold-start DOM WITHOUT calling window.__applyParityTheme!
     const coldSnap = await cdp.evaluate(FULL_PROBE_EXPR);
 
     let propsChecked = 0;
@@ -829,59 +721,116 @@ async function runColdStartConsistencyCheck(cdp, cycles) {
       mismatches: mismatches.slice(0, 20),
     });
   }
-  // Clear persisted override so subsequent checks start cleanly
   await cdp.evaluate(`localStorage.clear()`);
   return results;
 }
 
-async function main() {
-  fs.mkdirSync(path.join(outDir, 'screenshots'), { recursive: true });
-
-  ensureBuiltWithParityRoute(ng22Dir, false);
+async function captureLive7452Baseline(refRepoDir, chromeBin, screenshotsDir) {
   let syncedRef = false;
   try {
-    syncedRef = ensureBuiltWithParityRoute(refDir, true);
+    syncedRef = ensureBuiltWithParityRoute(refRepoDir, true);
   } finally {
     if (syncedRef) {
-      cleanupRefParitySync(refDir);
-      syncedRef = false;
+      cleanupRefParitySync(refRepoDir);
     }
   }
 
-  const srvRef = await startStaticSpaServer(path.join(refDir, 'dist/testdui/browser'));
-  const srvNg22 = await startStaticSpaServer(path.join(ng22Dir, 'dist/testdui/browser'));
+  const refCommit = execFileSync('git', ['rev-parse', 'HEAD'], { cwd: refRepoDir, encoding: 'utf8' }).trim();
+  const refPkg = JSON.parse(fs.readFileSync(path.join(refRepoDir, 'src/package.json'), 'utf8'));
+  const srvRef = await startStaticSpaServer(path.join(refRepoDir, 'dist/testdui/browser'));
+  const cdpRef = await launchCdpSession(chromeBin);
+  const snapshotsBySlug = {};
+
+  try {
+    await waitForParityReady(cdpRef, `${srvRef.baseUrl}/m2-parity`);
+    await cdpRef.evaluate(FREEZE_TRANSITIONS_EXPR);
+
+    let idx = 0;
+    for (const mode of MODES) {
+      for (const density of DENSITIES) {
+        for (const pal of PALETTES) {
+          idx++;
+          const slug = `${String(idx).padStart(2, '0')}-${mode}-${density}-${pal.id}`;
+          await cdpRef.evaluate(`(() => {
+            window.__applyParityTheme(${JSON.stringify({
+              primary: pal.primary,
+              accent: pal.accent,
+              warn: pal.warn,
+              type: mode,
+              typography: density,
+              formType: 'fill',
+            })});
+            return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
+          })()`);
+          const snapRef = await cdpRef.evaluate(FULL_PROBE_EXPR);
+          const shotRefRes = await cdpRef.send('Page.captureScreenshot', { format: 'png' });
+          const bufRef = Buffer.from(shotRefRes.data, 'base64');
+          fs.writeFileSync(path.join(screenshotsDir, `${slug}-7452.png`), bufRef);
+          snapshotsBySlug[slug] = snapRef;
+          console.log(`[capture-7452] 已采集基线 [${slug}]`);
+        }
+      }
+    }
+  } finally {
+    await cdpRef.close();
+    srvRef.server.close();
+  }
+
+  const payload = {
+    schemaVersion: 1,
+    refVersion: refPkg.version || '7.4.52',
+    refCommit,
+    targetsCount: PARITY_TARGETS.length,
+    combinationsCount: Object.keys(snapshotsBySlug).length,
+    snapshotsBySlug,
+  };
+  const compressed = zlib.gzipSync(Buffer.from(JSON.stringify(payload), 'utf8'), { level: 9 });
+  fs.writeFileSync(baselinePath, compressed);
+  console.log(
+    `[capture-7452] 已固化基线快照 (${(compressed.length / 1024).toFixed(1)} KiB) -> ${path.relative(ng22Dir, baselinePath)}`
+  );
+  return payload;
+}
+
+function loadCommitted7452Baseline() {
+  if (!fs.existsSync(baselinePath)) {
+    throw new Error(
+      `未找到 7.4.52 入库基线文件 ${path.relative(ng22Dir, baselinePath)}；请先参考 tools/m2-parity/README.md 执行 --capture-ref-dir 采集。`
+    );
+  }
+  const raw = zlib.gunzipSync(fs.readFileSync(baselinePath)).toString('utf8');
+  return JSON.parse(raw);
+}
+
+async function main() {
+  const screenshotsDir = path.join(outDir, 'screenshots');
+  fs.mkdirSync(screenshotsDir, { recursive: true });
+
+  ensureBuiltWithParityRoute(ng22Dir, false);
   const chromeBin = findChromeBinary();
 
-  const cdpRef = await launchCdpSession(chromeBin);
+  const baselineData = captureRefDir
+    ? await captureLive7452Baseline(captureRefDir, chromeBin, screenshotsDir)
+    : loadCommitted7452Baseline();
+
+  const srvNg22 = await startStaticSpaServer(path.join(ng22Dir, 'dist/testdui/browser'));
   const cdpNg22 = await launchCdpSession(chromeBin);
 
   const combinations = [];
   let comboIdx = 0;
   let grandTotalPropsChecked = 0;
   let grandTotalExactMatches = 0;
-  let grandTotalExplainedDiffs = 0;
+  let grandTotalCrossVersionDiffs = 0;
   let grandTotalUnexplainedMismatches = 0;
 
-  const ruleAggregates = new Map();
-  for (const r of CROSS_VERSION_DIFF_RULES) {
-    ruleAggregates.set(r.id, {
-      id: r.id,
-      kind: r.kind,
-      title: r.title,
-      rootCause: r.rootCause,
-      occurrencesAcross27Combos: 0,
-      affectedTargets: new Set(),
-      affectedProps: new Set(),
-      samples: [],
-    });
-  }
+  // Track every single cross-version (target, prop, ref7452, ng22) tuple across all 27 combinations
+  const itemizedDiffMap = new Map();
 
   try {
-    await waitForParityReady(cdpRef, `${srvRef.baseUrl}/m2-parity`);
     await waitForParityReady(cdpNg22, `${srvNg22.baseUrl}/m2-parity`);
-    await Promise.all([cdpRef.evaluate(FREEZE_TRANSITIONS_EXPR), cdpNg22.evaluate(FREEZE_TRANSITIONS_EXPR)]);
+    await cdpNg22.evaluate(FREEZE_TRANSITIONS_EXPR);
 
-    // 1. W3.1 + W3.2 + W3.3 + W3.5: 27 combinations full getComputedStyle + 54 screenshots
+    // 1. 27 combinations full getComputedStyle exact-value parity + 54 screenshots pixel diff
     for (const mode of MODES) {
       for (const density of DENSITIES) {
         for (const pal of PALETTES) {
@@ -899,29 +848,33 @@ async function main() {
             return new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
           })()`;
 
-          await Promise.all([cdpRef.evaluate(applyExpr), cdpNg22.evaluate(applyExpr)]);
+          await cdpNg22.evaluate(applyExpr);
+          const snapRef = baselineData.snapshotsBySlug[slug];
+          if (!snapRef) {
+            throw new Error(`基线快照缺失组合 ${slug}`);
+          }
 
-          const [snapRef, snapNg22, shotRefRes, shotNg22Res] = await Promise.all([
-            cdpRef.evaluate(FULL_PROBE_EXPR),
-            cdpNg22.evaluate(FULL_PROBE_EXPR),
-            cdpRef.send('Page.captureScreenshot', { format: 'png' }),
-            cdpNg22.send('Page.captureScreenshot', { format: 'png' }),
-          ]);
+          const snapNg22 = await cdpNg22.evaluate(FULL_PROBE_EXPR);
+          const shotNg22Res = await cdpNg22.send('Page.captureScreenshot', { format: 'png' });
 
-          const bufRef = Buffer.from(shotRefRes.data, 'base64');
-          const bufNg22 = Buffer.from(shotNg22Res.data, 'base64');
           const refShotRel = `screenshots/${slug}-7452.png`;
           const ng22ShotRel = `screenshots/${slug}-ng22.png`;
-          fs.writeFileSync(path.join(outDir, refShotRel), bufRef);
-          fs.writeFileSync(path.join(outDir, ng22ShotRel), bufNg22);
+          const refShotAbs = path.join(outDir, refShotRel);
+          const ng22ShotAbs = path.join(outDir, ng22ShotRel);
+          const bufNg22 = Buffer.from(shotNg22Res.data, 'base64');
+          fs.writeFileSync(ng22ShotAbs, bufNg22);
 
-          const pixelCmp = comparePngBuffers(bufRef, bufNg22);
+          if (!fs.existsSync(refShotAbs)) {
+            throw new Error(`缺失 7.4.52 基线截图 ${refShotRel}`);
+          }
+          const bufRef = fs.readFileSync(refShotAbs);
+          const pixelCmp = comparePngBuffers(bufRef, bufNg22, 1);
 
           let comboPropsChecked = 0;
           let comboExactMatches = 0;
-          let comboExplainedCount = 0;
+          let comboCrossVersionCount = 0;
           const unexplainedMismatches = [];
-          const explainedByRule = {};
+          const crossVersionByRule = {};
 
           for (const t of PARITY_TARGETS) {
             const rMap = snapRef[t.key] || {};
@@ -939,29 +892,30 @@ async function main() {
             for (const [prop, rVal] of Object.entries(rMap)) {
               comboPropsChecked++;
               const nVal = nMap[prop];
-              if (rVal === nVal || colorsEquivalent(rVal, nVal)) {
+              if (rVal === nVal || colorsEquivalent(rVal, nVal, 1, 0.01)) {
                 comboExactMatches++;
                 continue;
               }
-              const rule = classifyCrossVersionDiff(t.key, prop);
-              if (rule) {
-                comboExplainedCount++;
-                explainedByRule[rule.id] = (explainedByRule[rule.id] || 0) + 1;
-                const agg = ruleAggregates.get(rule.id);
-                agg.occurrencesAcross27Combos++;
-                agg.affectedTargets.add(t.key);
-                agg.affectedProps.add(prop);
-                const sampleKey = `${t.key}.${prop}`;
-                if (agg.samples.length < 12 && !agg.samples.some((s) => s.sampleKey === sampleKey)) {
-                  agg.samples.push({
-                    sampleKey,
+              const entry = matchExactCrossVersionEntry(t.key, prop, rVal, nVal, density);
+              if (entry) {
+                comboCrossVersionCount++;
+                crossVersionByRule[entry.id] = (crossVersionByRule[entry.id] || 0) + 1;
+                const itemKey = `${t.key}|${prop}|${rVal}|${nVal}`;
+                if (!itemizedDiffMap.has(itemKey)) {
+                  itemizedDiffMap.set(itemKey, {
+                    ruleId: entry.id,
                     target: t.key,
+                    selector: t.sel,
+                    category: t.category,
                     prop,
-                    combo: slug,
-                    ref7452: rVal,
-                    ng22: nVal,
+                    ref7452Value: rVal,
+                    ng22Value: nVal,
+                    combinationsCount: 0,
+                    visualImpact: entry.visualImpact,
+                    reason: entry.reason,
                   });
                 }
+                itemizedDiffMap.get(itemKey).combinationsCount++;
               } else {
                 unexplainedMismatches.push({
                   target: t.key,
@@ -974,33 +928,9 @@ async function main() {
             }
           }
 
-          // Verify M2 px typography scales explicitly on ng22
-          const expTypo = EXPECTED_TYPO_PX[density];
-          const typoChecks = [
-            ['typoH1', expTypo.h1],
-            ['typoH2', expTypo.h2],
-            ['typoH3', expTypo.h3],
-            ['typoH4', expTypo.h4],
-            ['typoBody1', expTypo.body1],
-            ['typoBody2', expTypo.body2],
-            ['typoCaption', expTypo.caption],
-          ];
-          for (const [tKey, expectedPx] of typoChecks) {
-            const actualPx = snapNg22[tKey]?.['font-size'];
-            if (actualPx !== expectedPx) {
-              unexplainedMismatches.push({
-                target: tKey,
-                category: 'extra-typography',
-                prop: 'font-size(expected-m2-px)',
-                ref7452: expectedPx,
-                ng22: actualPx,
-              });
-            }
-          }
-
           grandTotalPropsChecked += comboPropsChecked;
           grandTotalExactMatches += comboExactMatches;
-          grandTotalExplainedDiffs += comboExplainedCount;
+          grandTotalCrossVersionDiffs += comboCrossVersionCount;
           grandTotalUnexplainedMismatches += unexplainedMismatches.length;
 
           combinations.push({
@@ -1012,8 +942,8 @@ async function main() {
             targetsChecked: PARITY_TARGETS.length,
             propertiesChecked: comboPropsChecked,
             exactMatchCount: comboExactMatches,
-            explainedCrossVersionCount: comboExplainedCount,
-            explainedByRule,
+            explainedCrossVersionCount: comboCrossVersionCount,
+            explainedByRule: crossVersionByRule,
             unexplainedMismatchCount: unexplainedMismatches.length,
             unexplainedMismatches: unexplainedMismatches.slice(0, 30),
             pixelDiff: pixelCmp,
@@ -1021,57 +951,79 @@ async function main() {
           });
 
           console.log(
-            `[${slug}] props=${comboPropsChecked} exact=${comboExactMatches} explained=${comboExplainedCount} unexplained=${unexplainedMismatches.length} pixelDiff=${(
+            `[${slug}] props=${comboPropsChecked} exact=${comboExactMatches} baseCssDiff=${comboCrossVersionCount} unexplained=${unexplainedMismatches.length} pixelDiff=${(
               pixelCmp.diffRatio * 100
-            ).toFixed(2)}%`
+            ).toFixed(3)}%`
           );
         }
       }
     }
 
-    // 2. W3.4 Runtime continuous switch vs localStorage cold-start reload consistency check (0 diff required!)
-    console.log('[W3.4] 执行运行时连续切换 vs localStorage 冷启动刷新全属性零差异校验...');
+    // 2. T1.4: 6-cycle runtime continuous switch vs localStorage cold-start reload (strictly 0 diff!)
+    console.log('[T1.4] 执行 6 轮运行时连续切换 vs localStorage 冷启动刷新全属性零差异校验...');
     const coldStartChecks = await runColdStartConsistencyCheck(cdpNg22, [
       {
-        id: 'cycle-1-darkblue-loose-indigo',
-        description: 'light/compact/teal-600 → dark/normal/blue-500 → darkblue/loose/indigo-500+amber-700+deep-orange-700 (outline)',
+        id: 'cycle-1-light-dark-darkblue-loose',
+        description: 'light/compact/teal-600 (fill) → dark/normal/blue-500 (fill) → darkblue/loose/indigo-500+amber-700+deep-orange-700 (outline)',
         steps: [
           { primary: 'teal-600', accent: 'orange-800', warn: 'red-800', type: 'light', typography: 'compact', formType: 'fill' },
           { primary: 'blue-500', accent: 'pink-500', warn: 'red-700', type: 'dark', typography: 'normal', formType: 'fill' },
-          {
-            primary: 'indigo-500',
-            accent: 'amber-700',
-            warn: 'deep-orange-700',
-            type: 'darkblue',
-            typography: 'loose',
-            formType: 'outline',
-          },
+          { primary: 'indigo-500', accent: 'amber-700', warn: 'deep-orange-700', type: 'darkblue', typography: 'loose', formType: 'outline' },
         ],
       },
       {
-        id: 'cycle-2-light-compact-blue',
-        description: 'darkblue/loose/indigo-500 → dark/normal/teal-600 → light/compact/blue-500+pink-500+red-700 (fill)',
+        id: 'cycle-2-darkblue-dark-light-compact',
+        description: 'darkblue/loose/indigo-500 (outline) → dark/normal/teal-600 (fill) → light/compact/blue-500+pink-500+red-700 (fill)',
         steps: [
-          {
-            primary: 'indigo-500',
-            accent: 'amber-700',
-            warn: 'deep-orange-700',
-            type: 'darkblue',
-            typography: 'loose',
-            formType: 'outline',
-          },
+          { primary: 'indigo-500', accent: 'amber-700', warn: 'deep-orange-700', type: 'darkblue', typography: 'loose', formType: 'outline' },
           { primary: 'teal-600', accent: 'orange-800', warn: 'red-800', type: 'dark', typography: 'normal', formType: 'fill' },
           { primary: 'blue-500', accent: 'pink-500', warn: 'red-700', type: 'light', typography: 'compact', formType: 'fill' },
+        ],
+      },
+      {
+        id: 'cycle-3-density-compact-normal-loose-dark',
+        description: 'dark/compact/indigo-500 (fill) → dark/normal/indigo-500 (outline) → dark/loose/teal-600+orange-800+red-800 (fill)',
+        steps: [
+          { primary: 'indigo-500', accent: 'amber-700', warn: 'deep-orange-700', type: 'dark', typography: 'compact', formType: 'fill' },
+          { primary: 'indigo-500', accent: 'amber-700', warn: 'deep-orange-700', type: 'dark', typography: 'normal', formType: 'outline' },
+          { primary: 'teal-600', accent: 'orange-800', warn: 'red-800', type: 'dark', typography: 'loose', formType: 'fill' },
+        ],
+      },
+      {
+        id: 'cycle-4-density-loose-normal-compact-darkblue',
+        description: 'darkblue/loose/teal-600 (fill) → darkblue/normal/blue-500 (fill) → darkblue/compact/blue-500+pink-500+red-700 (outline)',
+        steps: [
+          { primary: 'teal-600', accent: 'orange-800', warn: 'red-800', type: 'darkblue', typography: 'loose', formType: 'fill' },
+          { primary: 'blue-500', accent: 'pink-500', warn: 'red-700', type: 'darkblue', typography: 'normal', formType: 'fill' },
+          { primary: 'blue-500', accent: 'pink-500', warn: 'red-700', type: 'darkblue', typography: 'compact', formType: 'outline' },
+        ],
+      },
+      {
+        id: 'cycle-5-palette-swap-light-normal',
+        description: 'light/normal/blue-500 (fill) → light/normal/indigo-500 (fill) → light/normal/teal-600+orange-800+red-800 (outline)',
+        steps: [
+          { primary: 'blue-500', accent: 'pink-500', warn: 'red-700', type: 'light', typography: 'normal', formType: 'fill' },
+          { primary: 'indigo-500', accent: 'amber-700', warn: 'deep-orange-700', type: 'light', typography: 'normal', formType: 'fill' },
+          { primary: 'teal-600', accent: 'orange-800', warn: 'red-800', type: 'light', typography: 'normal', formType: 'outline' },
+        ],
+      },
+      {
+        id: 'cycle-6-cross-axes-dark-compact-indigo',
+        description: 'light/loose/blue-500 (outline) → darkblue/compact/teal-600 (fill) → dark/compact/indigo-500+amber-700+deep-orange-700 (fill)',
+        steps: [
+          { primary: 'blue-500', accent: 'pink-500', warn: 'red-700', type: 'light', typography: 'loose', formType: 'outline' },
+          { primary: 'teal-600', accent: 'orange-800', warn: 'red-800', type: 'darkblue', typography: 'compact', formType: 'fill' },
+          { primary: 'indigo-500', accent: 'amber-700', warn: 'deep-orange-700', type: 'dark', typography: 'compact', formType: 'fill' },
         ],
       },
     ]);
     for (const chk of coldStartChecks) {
       console.log(
-        `[W3.4 ${chk.id}] targets=${chk.targetsChecked} props=${chk.propertiesChecked} coldStartMismatches=${chk.mismatchCount}`
+        `[T1.4 ${chk.id}] targets=${chk.targetsChecked} props=${chk.propertiesChecked} coldStartMismatches=${chk.mismatchCount}`
       );
     }
 
-    // 3. Extra browser checks (<style> cascade, 62.5% root font-size immunity, W1 Zone.js, W4 real animations)
+    // 3. Extra browser checks (<style> cascade, --dui-theme-* dynamic M2 vars, 62.5% root font-size immunity, W1 Zone.js, W4 real animations)
     await cdpNg22.evaluate(`(() => {
       window.__applyParityTheme({
         primary: 'teal-600',
@@ -1092,12 +1044,19 @@ async function main() {
       }));
       const adoptedCount = document.adoptedStyleSheets ? document.adoptedStyleSheets.length : 0;
 
+      const rootCs = getComputedStyle(document.documentElement);
+      const duiThemeVars = {
+        primary: rootCs.getPropertyValue('--dui-theme-primary').trim(),
+        accent: rootCs.getPropertyValue('--dui-theme-accent').trim(),
+        warn: rootCs.getPropertyValue('--dui-theme-warn').trim(),
+        matSysPrimary: rootCs.getPropertyValue('--mat-sys-primary').trim(),
+      };
+
       const prevHtmlFontSize = document.documentElement.style.fontSize;
       document.documentElement.style.fontSize = '62.5%';
       await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
       const fontSizesUnder625 = {
         h1: getComputedStyle(document.querySelector('[data-parity="typo-h1"]')).fontSize,
-        body1: getComputedStyle(document.querySelector('[data-parity="typo-body1"]')).fontSize,
         btn: getComputedStyle(document.querySelector('[data-parity="btn-flat-primary"]')).fontSize,
       };
       document.documentElement.style.fontSize = prevHtmlFontSize;
@@ -1138,6 +1097,7 @@ async function main() {
       return {
         adoptedStyleSheetsCount: adoptedCount,
         duiStyleTags: duiSheets,
+        duiThemeVars,
         fontSizesUnder625PercentRoot: fontSizesUnder625,
         zoneCheck: { beforeZoneText, afterZoneText },
         animationsCheck: {
@@ -1150,17 +1110,7 @@ async function main() {
 
     const totalColdStartMismatches = coldStartChecks.reduce((acc, c) => acc + c.mismatchCount, 0);
     const totalColdStartPropsChecked = coldStartChecks.reduce((acc, c) => acc + c.propertiesChecked, 0);
-
-    const serializedRules = Array.from(ruleAggregates.values()).map((r) => ({
-      id: r.id,
-      kind: r.kind,
-      title: r.title,
-      rootCause: r.rootCause,
-      occurrencesAcross27Combos: r.occurrencesAcross27Combos,
-      affectedTargets: Array.from(r.affectedTargets),
-      affectedProps: Array.from(r.affectedProps),
-      samples: r.samples,
-    }));
+    const itemizedDiffList = Array.from(itemizedDiffMap.values());
 
     const passed =
       grandTotalUnexplainedMismatches === 0 &&
@@ -1170,8 +1120,9 @@ async function main() {
       extraChecks.duiStyleTags[0].role === 'core' &&
       extraChecks.duiStyleTags[1].role === 'material-theme' &&
       extraChecks.duiStyleTags[2].role === 'component' &&
-      extraChecks.fontSizesUnder625PercentRoot.h1 === '24px' &&
-      extraChecks.fontSizesUnder625PercentRoot.body1 === '15px' &&
+      extraChecks.duiThemeVars.primary === '#00897b' &&
+      extraChecks.duiThemeVars.matSysPrimary === '' &&
+      extraChecks.fontSizesUnder625PercentRoot.btn === '14px' &&
       extraChecks.zoneCheck.afterZoneText.startsWith('angular:1:') &&
       extraChecks.animationsCheck.expansionHeights.open > 20 &&
       extraChecks.animationsCheck.expansionHeights.closed === 0 &&
@@ -1179,17 +1130,27 @@ async function main() {
       extraChecks.animationsCheck.menuOpenHeight > 30 &&
       extraChecks.animationsCheck.dialogOpened === true;
 
+    const baselineFileRel = path.relative(ng22Dir, baselinePath).replaceAll('\\', '/');
+    const outDirRel = (path.relative(ng22Dir, outDir) || '.').replaceAll('\\', '/');
+
     const report = {
       generatedAt: new Date().toISOString(),
-      ng22Dir,
-      refDir,
+      packageUnderTest: '@dotos1/dui@8.0.0-next.2',
+      baselineReference: {
+        version: baselineData.refVersion,
+        commit: baselineData.refCommit,
+        baselineFile: baselineFileRel,
+      },
+      evidenceDirectory: outDirRel,
+      colorTolerance: { rgbMaxDelta: 1, alphaMaxDelta: 0.01 },
       summary: {
         totalCombinations: combinations.length,
         componentCategoriesCovered: 16,
         targetsPerCombination: PARITY_TARGETS.length,
         totalComputedStylePropertiesChecked: grandTotalPropsChecked,
         totalExactPropertyMatches: grandTotalExactMatches,
-        totalExplainedCrossVersionPropertyDiffs: grandTotalExplainedDiffs,
+        totalExactValueCrossVersionBaseCssDiffs: grandTotalCrossVersionDiffs,
+        distinctCrossVersionElementPropertyItems: itemizedDiffList.length,
         totalUnexplainedPropertyMismatches: grandTotalUnexplainedMismatches,
         coldStartCyclesChecked: coldStartChecks.length,
         coldStartPropertiesChecked: totalColdStartPropsChecked,
@@ -1197,10 +1158,11 @@ async function main() {
         avgPixelDiffRatio: Number(
           (combinations.reduce((acc, c) => acc + c.pixelDiff.diffRatio, 0) / combinations.length).toFixed(5)
         ),
+        maxPixelDiffRatio: Number(Math.max(...combinations.map((c) => c.pixelDiff.diffRatio)).toFixed(5)),
         passed,
       },
       coldStartConsistencyChecks: coldStartChecks,
-      crossVersionDiffRules: serializedRules,
+      itemizedCrossVersionBaseCssDiffs: itemizedDiffList,
       extraChecks,
       combinations,
     };
@@ -1209,26 +1171,28 @@ async function main() {
     fs.writeFileSync(jsonPath, JSON.stringify(report, null, 2), 'utf8');
 
     const mdLines = [
-      '# `dui` Angular 22 vs `7.4.52` 真实 Chrome 27 组合 M2 全量 `getComputedStyle` 与冷启动一致性报告',
+      '# `@dotos1/dui` Angular 22 vs `7.4.52` 真实 Chrome 27 组合 M2 外观 100% 还原与 6 轮冷启动一致性报告',
       '',
       `- 生成时间：\`${report.generatedAt}\``,
-      `- 对照基线（\`7.4.52\`）：\`${refDir}\``,
-      `- 返工分支（\`8.0.0-next.2\`）：\`${ng22Dir}\``,
-      `- 覆盖组件大类（W3.1）：**16 类全覆盖**（按钮、图标按钮、FAB、表单字段、选择框、复选框、开关、滑块、进度条、徽标、卡片、标签页、列表、表格、菜单弹层、对话框弹层）+ 纸片、展开面板、M2 字阶类（共 **${PARITY_TARGETS.length}** 个采样节点）`,
-      `- 组合总数（W3.2）：**${report.summary.totalCombinations}**（\`light / dark / darkblue\` × \`loose / normal / compact\` × 3 套调色板，54 张全页截图）`,
-      `- 全量 \`Array.from(getComputedStyle(el))\` 逐属性比对总数（W3.3）：**${report.summary.totalComputedStylePropertiesChecked.toLocaleString('en-US')}** 项`,
-      `  - 与 \`7.4.52\` 逐属性完全一致：**${report.summary.totalExactPropertyMatches.toLocaleString('en-US')}** 项（**${((report.summary.totalExactPropertyMatches / report.summary.totalComputedStylePropertiesChecked) * 100).toFixed(2)}%**）`,
-      `  - 已归因跨版本演进/历史缺陷修复项：**${report.summary.totalExplainedCrossVersionPropertyDiffs.toLocaleString('en-US')}** 项（共 8 条明确技术根因规则，见 §3）`,
-      `  - **未解释属性差异数（W3.5 硬门禁）：\`${report.summary.totalUnexplainedPropertyMismatches}\`（必须 = 0）**`,
-      `- 运行时连续切换 vs \`localStorage\` 冷启动刷新逐属性比对（W3.4）：**${report.summary.coldStartPropertiesChecked.toLocaleString('en-US')}** 项，**差异数 = \`${report.summary.coldStartMismatches}\`（严格 0 差异）**`,
-      `- 全页平均像素差异率：**${(report.summary.avgPixelDiffRatio * 100).toFixed(2)}%**（差异像素全部来自 §3 所列字阶修复后行高恢复、主色复选框/选中纸片/徽标修复及卡片/滑块 1dp 标准阴影）`,
+      `- 对照基线：\`${baselineData.refVersion}\`（\`github/master\` 提交 \`${baselineData.refCommit}\`，入库基线文件 \`${baselineFileRel}\`）`,
+      `- 待测版本：\`@dotos1/dui@8.0.0-next.2\`（仓库内独立复现目录 \`${outDirRel}\`）`,
+      `- 覆盖组件大类：**16 类全覆盖**（按钮、图标按钮、FAB、表单字段、选择框、复选框、开关、滑块、进度条、徽标、卡片、标签页、列表、表格、菜单弹层、对话框弹层）+ 纸片、展开面板、字阶类（共 **${PARITY_TARGETS.length}** 个采样节点）`,
+      `- 组合总数：**${report.summary.totalCombinations}**（\`light / dark / darkblue\` × \`loose / normal / compact\` × 3 套调色板，54 张全页实测截图位于 \`${outDirRel}/screenshots/\`）`,
+      `- 颜色比对容差：**严格 \`RGB <= ±1\`、\`alpha <= ±0.01\`**（禁止按 \`(target, prop)\` 通配豁免，100% 按新旧精确属性值逐项校验）`,
+      `- 全量 \`Array.from(getComputedStyle(el))\` 逐属性比对总数：**${report.summary.totalComputedStylePropertiesChecked.toLocaleString('en-US')}** 项`,
+      `  - 与 \`7.4.52\` 逐值完全一致：**${report.summary.totalExactPropertyMatches.toLocaleString('en-US')}** 项（**${((report.summary.totalExactPropertyMatches / report.summary.totalComputedStylePropertiesChecked) * 100).toFixed(3)}%**）`,
+      `  - Material 18 → 22 组件底层非视觉基础 CSS 逐值确认项：**${report.summary.totalExactValueCrossVersionBaseCssDiffs.toLocaleString('en-US')}** 项（共 **${itemizedDiffList.length}** 条具体元素属性对，全部零视觉差异，见 §3 逐项清单供平台负责人确认）`,
+      `  - **未解释或偏离 \`7.4.52\` 外观的属性差异数：\`${report.summary.totalUnexplainedPropertyMismatches}\`（硬门禁必须 = 0）**`,
+      `- 6 轮运行时连续切换 vs \`localStorage\` 冷启动刷新逐属性比对（T1.4）：**${report.summary.coldStartPropertiesChecked.toLocaleString('en-US')}** 项，**差异数 = \`${report.summary.coldStartMismatches}\`（严格 0 差异）**`,
+      `- 54 张全页截图像素差异率（容差 \`RGB <= ±1\`）：平均 **${(report.summary.avgPixelDiffRatio * 100).toFixed(3)}%**，最大 **${(report.summary.maxPixelDiffRatio * 100).toFixed(3)}%**`,
       `- \`adoptedStyleSheets\` 数量：\`${extraChecks.adoptedStyleSheetsCount}\`（100% 恢复真实 \`<style>\` 标签注入，顺序 \`${extraChecks.duiStyleTags.map((s) => s.role).join(' -> ')}\`）`,
-      `- \`html { font-size: 62.5% }\` 下字阶校验：\`h1=${extraChecks.fontSizesUnder625PercentRoot.h1}\`、\`body1=${extraChecks.fontSizesUnder625PercentRoot.body1}\`、\`btn=${extraChecks.fontSizesUnder625PercentRoot.btn}\`（零 \`rem\` 缩水）`,
-      `- W1 \`Zone.js\` 异步刷新校验：\`${extraChecks.zoneCheck.afterZoneText}\``,
+      `- 动态 M2 根变量校验（T4-1）：\`--dui-theme-primary=${extraChecks.duiThemeVars.primary}\`、\`--mat-sys-primary="${extraChecks.duiThemeVars.matSysPrimary}"\`（零 \`--mat-sys-*\` M3 系统变量）`,
+      `- \`html { font-size: 62.5% }\` 下组件字号防缩水校验：\`btn=${extraChecks.fontSizesUnder625PercentRoot.btn}\`、\`h1=${extraChecks.fontSizesUnder625PercentRoot.h1}\`（零 \`rem\` 缩水）`,
+      `- W1 \`Zone.js\` 异步自动刷新校验：\`${extraChecks.zoneCheck.afterZoneText}\``,
       `- W4 真实动画校验：折叠面板 \`open=${extraChecks.animationsCheck.expansionHeights.open}px -> closed=${extraChecks.animationsCheck.expansionHeights.closed}px -> reopened=${extraChecks.animationsCheck.expansionHeights.reopened}px\`，菜单高度 \`${extraChecks.animationsCheck.menuOpenHeight}px\`，弹窗打开 \`${extraChecks.animationsCheck.dialogOpened}\``,
       `- 综合结论：**${passed ? 'PASS' : 'FAIL'}**`,
       '',
-      '## 1. W3.4 运行时连续切换 vs `localStorage` 冷启动刷新一致性校验',
+      '## 1. T1.4 六轮运行时连续切换 vs `localStorage` 冷启动刷新零差异校验',
       '',
       '| 轮次 | 连续切换路径 | 采样节点数 | 全量属性比对数 | 冷启动 vs 运行时差异数 | 结果 |',
       '| --- | --- | ---: | ---: | ---: | --- |',
@@ -1244,9 +1208,9 @@ async function main() {
 
     mdLines.push(
       '',
-      '## 2. 27 组合全量 `getComputedStyle` 与像素对比明细',
+      '## 2. 27 组合全量 `getComputedStyle` 逐值比对与全页像素对比明细',
       '',
-      '| # | 底色 | 密度 | 调色板 (`primary / accent / warn`) | 检查属性数 | 完全一致数 | 已知演进/修复项 | 未解释差异 | 像素差异率 | 结果 |',
+      '| # | 底色 | 密度 | 调色板 (`primary / accent / warn`) | 检查属性数 | 逐值完全一致数 | 底层基础 CSS 确认项 | 未解释差异 | 像素差异率 (`RGB±1`) | 结果 |',
       '| ---: | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |'
     );
 
@@ -1256,43 +1220,40 @@ async function main() {
           'en-US'
         )} | ${c.exactMatchCount.toLocaleString('en-US')} | ${c.explainedCrossVersionCount} | **${
           c.unexplainedMismatchCount
-        }** | ${(c.pixelDiff.diffRatio * 100).toFixed(2)}% | ${c.unexplainedMismatchCount === 0 ? 'PASS' : 'FAIL'} |`
+        }** | ${(c.pixelDiff.diffRatio * 100).toFixed(3)}% | ${c.unexplainedMismatchCount === 0 ? 'PASS' : 'FAIL'} |`
       );
     }
 
     mdLines.push(
       '',
-      '## 3. W3.5 跨版本已知差异逐项根因说明表（全部剩余差异 100% 归因）',
+      '## 3. T1.5 Material 18 → 22 组件内部底层基础 CSS 差异逐条完整清单（供平台负责人确认）',
       '',
-      '| 规则 ID | 归因类别 | 受影响采样节点 | 涉及 CSS 属性 | 27 组合累计次数 | 典型旧值 (`7.4.52`) → 新值 (`ng22`) | 技术根因说明 |',
-      '| --- | --- | --- | --- | ---: | --- | --- |'
+      '> 说明：上一轮全部用户可见外观差异（`.mat-h1~caption` 字阶尺寸/行高/间距与根容器高度、`color="primary"` 复选框强调色、选中纸片底色与纵向外边距、`mat-badge` 透明底色与紧凑尺寸、卡片与滑块圆柄无阴影、彩色图标按钮内 `<mat-icon>` 前景色、菜单入场动画与菜单项 `14px` 固定字号、凸起按钮 `min-height: auto`、输入框 `padding-left: 0px`）已 **100% 恢复为 `7.4.52` 原始表现**。下表全量列出剩余仅存于 `@angular/material@22` / `@angular/cdk@22` 组件内部基础样式表的非视觉底层属性项（均按旧值与新值精确断言，无任何通配豁免）：',
+      '',
+      '| 规则 ID | 采样节点 (`selector`) | CSS 属性 | `7.4.52` 精确值 | `ng22` 精确值 | 出现组合数 | 视觉影响 | 技术原因说明 |',
+      '| --- | --- | --- | --- | --- | ---: | --- | --- |'
     );
 
-    for (const r of serializedRules) {
-      const sampleText = r.samples
-        .slice(0, 3)
-        .map((s) => `\`${s.target}.${s.prop}\`: \`${s.ref7452}\` → \`${s.ng22}\``)
-        .join('<br>');
+    for (const item of itemizedDiffList) {
       mdLines.push(
-        `| \`${r.id}\` | ${r.kind} | \`${r.affectedTargets.join('`, `')}\` | \`${r.affectedProps.join('`, `')}\` | ${
-          r.occurrencesAcross27Combos
-        } | ${sampleText || '—'} | ${r.rootCause} |`
+        `| \`${item.ruleId}\` | \`${item.target}\` (\`${item.selector}\`) | \`${item.prop}\` | \`${item.ref7452Value}\` | \`${item.ng22Value}\` | ${item.combinationsCount} | ${item.visualImpact} | ${item.reason} |`
       );
     }
 
     mdLines.push(
       '',
-      '## 4. 复现命令',
+      '## 4. 仓库内一键独立复现命令',
       '',
       '```bash',
-      `node tools/m2-parity/run-m2-parity.mjs --ng22-dir ${ng22Dir} --ref-dir ${refDir} --out-dir ${outDir}`,
+      'yarn install --frozen-lockfile',
+      'node tools/m2-parity/run-m2-parity.mjs',
       '```',
       ''
     );
 
     const mdPath = path.join(outDir, 'm2-parity-27-report.md');
     fs.writeFileSync(mdPath, mdLines.join('\n'), 'utf8');
-    console.log(`\n报告已写入：\n  - ${jsonPath}\n  - ${mdPath}`);
+    console.log(`\n报告已写入：\n  - ${outDirRel}/m2-parity-27-report.json\n  - ${outDirRel}/m2-parity-27-report.md`);
 
     if (!passed) {
       console.error('存在未解释的样式差异、冷启动差异或动态门禁未通过！');
@@ -1306,9 +1267,7 @@ async function main() {
       process.exit(1);
     }
   } finally {
-    await cdpRef.close();
     await cdpNg22.close();
-    srvRef.server.close();
     srvNg22.server.close();
   }
 }

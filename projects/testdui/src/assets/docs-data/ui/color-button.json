@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/color-button",
+  "importPath": "@dotos1/dui/ui/color-button",
   "exports": [
     {
       "name": "ColorPickerButton",
@@ -130,5 +130,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ColorPickerButton, ColorPickerButtonModule } from '@dotos/dui/ui/color-button';\n\n<colorpicker-button [config]=\"...\" [data]=\"...\" [ownerCt]=\"...\" (click)=\"...\"></colorpicker-button>"
+  "suggestedUsageSnippet": "import { ColorPickerButton, ColorPickerButtonModule } from '@dotos1/dui/ui/color-button';\n\n<colorpicker-button [config]=\"...\" [data]=\"...\" [ownerCt]=\"...\" (click)=\"...\"></colorpicker-button>"
 }

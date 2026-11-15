@@ -13,8 +13,8 @@ import {
   DoCheck,
   Inject,
   OnDestroy,} from '@angular/core';
-import { FieldConfig } from '@dotos/dui/core/form';
-import { defineHiddenProp, FORM_VALIDATORS , observe, IObserver} from '@dotos/dui/core/form';
+import { FieldConfig } from '@dotos1/dui/core/form';
+import { defineHiddenProp, FORM_VALIDATORS , observe, IObserver} from '@dotos1/dui/core/form';
 import { DOCUMENT } from '@angular/common';
 
 /**

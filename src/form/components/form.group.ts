@@ -4,8 +4,8 @@
  */
 
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { isPhoneTerminal } from '@dotos/dui/base';
-import { FieldConfig, FieldType } from '@dotos/dui/core/form';
+import { isPhoneTerminal } from '@dotos1/dui/base';
+import { FieldConfig, FieldType } from '@dotos1/dui/core/form';
 
 /**
  * Angular component `FormGroup` (selector: 'form-group') providing form group presentation and interaction in `src/form/components`.

@@ -7,9 +7,9 @@
 
 import { CommonModule } from '@angular/common';
 import {  NgModule } from '@angular/core';
-import { TranslateModule } from '@dotos/dui/translator';
-import { CommonServicesModule } from '@dotos/dui/core/services';
-import { ToastrModule } from '@dotos/dui/common/toastr';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { CommonServicesModule } from '@dotos1/dui/core/services';
+import { ToastrModule } from '@dotos1/dui/common/toastr';
 import { TogglePasswordComponent } from './toggle-password.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';

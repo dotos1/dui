@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/trigger",
+  "importPath": "@dotos1/dui/common/trigger",
   "exports": [
     {
       "name": "TriggerPopup",
@@ -32,5 +32,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/common/trigger';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/common/trigger';"
 }

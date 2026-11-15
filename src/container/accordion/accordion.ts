@@ -4,10 +4,10 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import { Component, SimpleChanges, Input, ViewChild, ViewContainerRef, Injector, ChangeDetectorRef, ElementRef, Renderer2, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import { AbstractPanel } from '../panel/abstract.panel';
 
 

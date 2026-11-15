@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/iconpicker/icon-picker.component.ts`，提供图标选择器组件相关的定义与实现。
  */
 
-import { DuiStyle } from '@dotos/dui/base';
+import { DuiStyle } from '@dotos1/dui/base';
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, Inject, OnDestroy, OnInit, Renderer2, ViewChild, ViewEncapsulation } from '@angular/core';
 
 import { ESCAPE } from '@angular/cdk/keycodes';
@@ -12,10 +12,10 @@ import { MatIconRegistry } from "@angular/material/icon";
 import { DomSanitizer } from "@angular/platform-browser";
 import { Subject, takeUntil } from 'rxjs';
 
-import { FontLoaderService, Icon, IconPickerService, IconType, SVGIcon } from '@dotos/dui/common/icon';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
-import { ThemeService } from '@dotos/dui/theme';
-import { TranslateService } from '@dotos/dui/translator';
+import { FontLoaderService, Icon, IconPickerService, IconType, SVGIcon } from '@dotos1/dui/common/icon';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
+import { ThemeService } from '@dotos1/dui/theme';
+import { TranslateService } from '@dotos1/dui/translator';
 /**
  * Angular component `IconPickerComponent` (selector: 'icon-picker') providing icon picker component presentation and interaction in `src/ux/iconpicker`.
  * @zh Angular 组件 `IconPickerComponent`（selector: 'icon-picker'），提供图标选择器组件的视图渲染与交互逻辑（位于 `src/ux/iconpicker`）。

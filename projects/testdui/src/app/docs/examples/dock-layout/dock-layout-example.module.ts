@@ -6,9 +6,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, AfterViewInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Dui } from '@dotos/dui/core';
-import { DockLayoutModule, DockLayoutHostComponent } from '@dotos/dui/container/dock-layout';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { Dui } from '@dotos1/dui/core';
+import { DockLayoutModule, DockLayoutHostComponent } from '@dotos1/dui/container/dock-layout';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `DockWidgetComponent` (selector: 'app-dock-widget') providing dock widget component presentation and interaction in `projects/testdui/src/app/docs/examples/dock-layout`.

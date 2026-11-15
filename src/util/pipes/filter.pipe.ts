@@ -4,7 +4,7 @@
  */
 
 import { Pipe, PipeTransform } from '@angular/core';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular pipe `FilterPipe` (name: 'filter') transforming values for filter pipe display in templates.

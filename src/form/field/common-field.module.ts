@@ -13,8 +13,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { TranslateModule, TranslationService } from '@dotos/dui/translator';
-import { Dui } from '@dotos/dui/core';
+import { TranslateModule, TranslationService } from '@dotos1/dui/translator';
+import { Dui } from '@dotos1/dui/core';
 
 import { FormModule } from '../components/form.module';
 import { TextFieldComponent } from './textfield.component';

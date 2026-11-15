@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/util/jpeg",
+  "importPath": "@dotos1/dui/util/jpeg",
   "exports": [
     {
       "name": "decode",
@@ -58,5 +58,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/util/jpeg';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/util/jpeg';"
 }

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/config/config.ts`，提供配置相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { ConfigurationError } from '../errors/external-error';
 import {
   AssertError,

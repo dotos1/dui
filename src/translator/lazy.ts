@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/translator/lazy.ts`，提供lazy相关的定义与实现。
  */
 
-import { ServiceLocator } from '@dotos/dui/core/services';
+import { ServiceLocator } from '@dotos1/dui/core/services';
 import { TranslationService } from './translation.service';
 
 /**

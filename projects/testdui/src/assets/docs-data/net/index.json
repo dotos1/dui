@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/net",
+  "importPath": "@dotos1/dui/net",
   "exports": [
     {
       "name": "AbstractLoader",
@@ -435,5 +435,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { HttpLoaderComponent, HttpLoaderModule } from '@dotos/dui/net';\n\n<http-loader [backdrop]=\"...\" [backgroundColor]=\"...\" [debounceDelay]=\"...\"></http-loader>"
+  "suggestedUsageSnippet": "import { HttpLoaderComponent, HttpLoaderModule } from '@dotos1/dui/net';\n\n<http-loader [backdrop]=\"...\" [backgroundColor]=\"...\" [debounceDelay]=\"...\"></http-loader>"
 }

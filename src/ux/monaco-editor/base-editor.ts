@@ -17,7 +17,7 @@ import {
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 /**
  * Constant/variable `loadedMonaco` defining loaded monaco in `src/ux/monaco-editor`.
  * @zh 常量/变量 `loadedMonaco`，定义 `src/ux/monaco-editor` 中的已加载Monaco编辑器。

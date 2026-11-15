@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/container/component-container.ts`，提供组件容器相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { ComponentItemConfig, ItemConfig } from '../config/config';
 import { ResolvedComponentItemConfig } from '../config/resolved-config';
 import { Tab } from '../controls/tab';

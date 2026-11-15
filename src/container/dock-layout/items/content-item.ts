@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/items/content-item.ts`，提供内容条目相关的定义与实现。
  */
 
-import { uuid } from '@dotos/dui/util'
+import { uuid } from '@dotos1/dui/util'
 import { ResolvedItemConfig } from '../config/resolved-config'
 import { BrowserPopout } from '../controls/browser-popout'
 import { AssertError, UnexpectedNullError } from '../errors/internal-error'

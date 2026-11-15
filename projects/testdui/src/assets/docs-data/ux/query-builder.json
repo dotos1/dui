@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/query-builder",
+  "importPath": "@dotos1/dui/ux/query-builder",
   "exports": [
     {
       "name": "ArrowIconContext",
@@ -1736,5 +1736,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { QueryBuilderComponent, QueryBuilderModule } from '@dotos/dui/ux/query-builder';\n\n<query-builder [disabled]=\"...\" [data]=\"...\" [allowRuleset]=\"...\"></query-builder>"
+  "suggestedUsageSnippet": "import { QueryBuilderComponent, QueryBuilderModule } from '@dotos1/dui/ux/query-builder';\n\n<query-builder [disabled]=\"...\" [data]=\"...\" [allowRuleset]=\"...\"></query-builder>"
 }

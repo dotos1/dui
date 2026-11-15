@@ -88,7 +88,7 @@
     "STEP4_H2": "執行時切換主題",
     "STEP4_P2": "透過 ThemeService 可以在執行時動態修改主色、輔助色、警示色與明暗模式，無需重新構建：",
     "STEP5_H1": "二級入口（Secondary Entry-Point）架構規範",
-    "STEP5_P1": "DUI 採用 ng-packagr 多二級入口架構，每個功能子目錄均包含獨立的 ng-package.json、index.ts 與 public-api.ts。跨模組依賴必須通過 @dotos/dui/<category>/<module> 引入，嚴禁跨入口使用相對路徑：",
+    "STEP5_P1": "DUI 採用 ng-packagr 多二級入口架構，每個功能子目錄均包含獨立的 ng-package.json、index.ts 與 public-api.ts。跨模組依賴必須通過 @dotos1/dui/<category>/<module> 引入，嚴禁跨入口使用相對路徑：",
     "STEP5_H2": "RxJS 訂閱生命週期與 OnPush 性能規範",
     "STEP5_P2": "所有長生命週期 Observable 訂閱必須在 ngOnDestroy 中通過 takeUntil(this.destroy$) 清理，防止內存洩漏；高頻算繪元件推薦開啟 ChangeDetectionStrategy.OnPush：",
     "STEP5_H3": "中英雙語 JSDoc (@zh) 與檔件自動生成",

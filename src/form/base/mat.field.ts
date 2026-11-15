@@ -5,9 +5,9 @@
 
 import { AfterViewInit, Directive, OnDestroy, OnInit, TemplateRef, Type, ViewChild } from '@angular/core';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
-import { Dui } from '@dotos/dui/core';
-import { FieldType as CoreFieldType, ExtErrorStateMatcher, FieldConfig } from '@dotos/dui/core/form';
-import { TranslateService } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { FieldType as CoreFieldType, ExtErrorStateMatcher, FieldConfig } from '@dotos1/dui/core/form';
+import { TranslateService } from '@dotos1/dui/translator';
 import {isUndefined}  from 'lodash-es';
 import { Subject } from 'rxjs';
 

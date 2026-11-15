@@ -5,8 +5,8 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HueModule, SwatchModule } from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+import { HueModule, SwatchModule } from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import { SliderSwatchComponent } from './slider-swatch.component';
 import { SliderSwatchesComponent } from './slider-swatches.component';
 import { ColorSliderComponent } from './slider.component';

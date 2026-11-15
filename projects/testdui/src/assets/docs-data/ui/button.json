@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/button",
+  "importPath": "@dotos1/dui/ui/button",
   "exports": [
     {
       "name": "ButtonBase",
@@ -775,5 +775,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ButtonComponent, ButtonModule } from '@dotos/dui/ui/button';\n\n<dui-button [config]=\"...\" [data]=\"...\" [ownerCt]=\"...\" (click)=\"...\"></dui-button>"
+  "suggestedUsageSnippet": "import { ButtonComponent, ButtonModule } from '@dotos1/dui/ui/button';\n\n<dui-button [config]=\"...\" [data]=\"...\" [ownerCt]=\"...\" (click)=\"...\"></dui-button>"
 }

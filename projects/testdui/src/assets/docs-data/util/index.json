@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/util",
+  "importPath": "@dotos1/dui/util",
   "exports": [
     {
       "name": "ActivityInterceptor",
@@ -712,5 +712,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ExtUtilModule } from '@dotos/dui/util';"
+  "suggestedUsageSnippet": "import { ExtUtilModule } from '@dotos1/dui/util';"
 }

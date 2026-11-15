@@ -6,7 +6,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormAction } from './action.service';
-import { LoadingService } from '@dotos/dui/common/loading';
+import { LoadingService } from '@dotos1/dui/common/loading';
 
 /**
  * Injectable Angular service `Submit` managing submit state and operations in `src/form/action`.

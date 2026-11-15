@@ -1,6 +1,6 @@
 /**
- * @fileoverview Module `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts` providing interactive scenario presets for all `@dotos/dui` modules.
- * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts`，提供 `@dotos/dui` 全量模块的可交互场景预设配置。
+ * @fileoverview Module `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts` providing interactive scenario presets for all `@dotos1/dui` modules.
+ * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts`，提供 `@dotos1/dui` 全量模块的可交互场景预设配置。
  */
 
 /**
@@ -144,7 +144,7 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     title: '预置动画触发器演练场 (duiAnimations)',
     subtitle: '实时切换旋转、弹跳、淡入淡出、折叠与震动动画触发器，并调节动画时长与缓动曲线。',
     primaryLabel: '动画预览卡片文案',
-    primaryDefault: '@dotos/dui/common/animations 动态过渡预览',
+    primaryDefault: '@dotos1/dui/common/animations 动态过渡预览',
     numericLabel: '动画时长 (ms)',
     numericDefault: 450,
     numericMin: 100,
@@ -219,7 +219,7 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     title: '剪贴板复制组件与指令 (copy-button / [dui-clipboard] / ClipboardService)',
     subtitle: '输入任意文本或代码片段，一键调用 ClipboardService 复制到系统剪贴板并展示反馈提示。',
     primaryLabel: '待复制文本内容',
-    primaryDefault: "import { ClipboardModule } from '@dotos/dui/common/clipboard';",
+    primaryDefault: "import { ClipboardModule } from '@dotos1/dui/common/clipboard';",
     numericLabel: '成功提示保留时长 (ms)',
     numericDefault: 1800,
     numericMin: 500,
@@ -1404,7 +1404,7 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     title: '超链接富媒体摘要卡片预览 (link-preview / LinkPreviewCacheService)',
     subtitle: '解析超链接的 OpenGraph 元数据 (标题、站点描述、缩略图标识) 并渲染富媒体预览卡片。',
     primaryLabel: '预览卡片标题 (og:title)',
-    primaryDefault: '@dotos/dui 企业级 Angular 组件库技术架构白皮书',
+    primaryDefault: '@dotos1/dui 企业级 Angular 组件库技术架构白皮书',
     numericLabel: '摘要最大显示字数',
     numericDefault: 90,
     numericMin: 30,
