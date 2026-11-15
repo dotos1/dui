@@ -511,15 +511,18 @@ const DOTOS_DENSITY_OVERRIDES = {
 };
 
 function applyDensityOverrides(blocks, scaleKey) {
+  // Align with 7.4.52 _list.ts where leading-icon height overrides were nested under '.mdc-list'
+  // (inactive on <mat-list class="mat-mdc-list">), so one-line items use --mat-list-list-item-one-line-container-height (48/44/40px).
+  const filteredBlocks = blocks.filter((b) => !b.selector.includes('mdc-list-item--with-leading-'));
   const overrides = DOTOS_DENSITY_OVERRIDES[scaleKey];
-  if (!overrides) return blocks;
-  let htmlBlock = blocks.find((b) => b.selector === 'html');
+  if (!overrides) return filteredBlocks;
+  let htmlBlock = filteredBlocks.find((b) => b.selector === 'html');
   if (!htmlBlock) {
     htmlBlock = { selector: 'html', declarations: {} };
-    blocks.unshift(htmlBlock);
+    filteredBlocks.unshift(htmlBlock);
   }
   Object.assign(htmlBlock.declarations, overrides);
-  for (const block of blocks) {
+  for (const block of filteredBlocks) {
     if (block === htmlBlock) continue;
     for (const [k, v] of Object.entries(overrides)) {
       if (Object.prototype.hasOwnProperty.call(block.declarations, k)) {
@@ -527,7 +530,7 @@ function applyDensityOverrides(blocks, scaleKey) {
       }
     }
   }
-  return blocks;
+  return filteredBlocks;
 }
 
 function compileSass(scss) {
@@ -670,6 +673,29 @@ html {
       htmlColorBlock.declarations['--mat-button-outlined-disabled-label-text-color'] = disabledBtnFg;
       htmlColorBlock.declarations['--mat-button-protected-disabled-label-text-color'] = disabledBtnFg;
       htmlColorBlock.declarations['--mat-button-text-disabled-label-text-color'] = disabledBtnFg;
+      // 7.4.52 tokens/mdc/_filled-button.ts:39 & _protected-button.ts:41 uncolored button label text opacity=1 (#000000 / #ffffff)
+      const opaqueTextFg = isDark ? '#ffffff' : '#000000';
+      htmlColorBlock.declarations['--mat-button-filled-label-text-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-button-protected-label-text-color'] = opaqueTextFg;
+      // 7.4.52 tokens/mdc/_dialog.ts:37-41 subhead & supporting text opacity=1 (#000000 / #ffffff)
+      htmlColorBlock.declarations['--mat-dialog-subhead-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-dialog-supporting-text-color'] = opaqueTextFg;
+      // 7.4.52 tokens/mdc/_list.ts:42-69 trailing supporting text ($foreground_hint_text), leading/trailing icon ($foreground_base), and selected/state-layer colors
+      const listSelectedBg = mode === 'darkblue' ? '#263238' : mode === 'dark' ? '#212121' : '#e0e0e0';
+      htmlColorBlock.declarations['--mat-list-list-item-trailing-supporting-text-color'] = disabledBtnFg;
+      htmlColorBlock.declarations['--mat-list-list-item-leading-icon-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-trailing-icon-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-selected-trailing-icon-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-hover-leading-icon-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-hover-trailing-icon-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-disabled-label-text-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-disabled-leading-icon-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-disabled-trailing-icon-color'] = opaqueTextFg;
+      htmlColorBlock.declarations['--mat-list-list-item-selected-container-color'] = listSelectedBg;
+      htmlColorBlock.declarations['--mat-list-list-item-hover-state-layer-color'] = listSelectedBg;
+      htmlColorBlock.declarations['--mat-list-list-item-focus-state-layer-color'] = listSelectedBg;
+      htmlColorBlock.declarations['--mat-list-list-item-hover-state-layer-opacity'] = isDark ? '0.24' : '0.12';
+      htmlColorBlock.declarations['--mat-list-list-item-focus-state-layer-opacity'] = isDark ? '0.24' : '0.12';
       htmlColorBlock.declarations['--mat-fab-disabled-state-foreground-color'] = disabledBtnFg;
       htmlColorBlock.declarations['--mat-fab-small-disabled-state-foreground-color'] = disabledBtnFg;
       htmlColorBlock.declarations['--mat-fab-disabled-state-container-color'] = disabledFabBg;
@@ -1117,10 +1143,11 @@ input.mat-mdc-input-element { color: var(--mat-form-field-filled-input-text-colo
 .mat-mdc-input-element::placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
 .mat-mdc-input-element::-webkit-input-placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
 .mat-mdc-form-field-invalid .mat-mdc-input-element { caret-color: var(--mat-form-field-filled-error-caret-color); }
-.mat-icon { color: var(--mat-icon-color); flex-shrink: 1 !important; min-height: 0px !important; }
+.mat-icon { color: var(--mat-icon-color); }
+.mat-icon:not(.mdc-list-item__start):not(.mdc-list-item__end) { flex-shrink: 1 !important; min-height: 0px !important; }
 .mat-icon svg { stroke: var(--mat-icon-color) !important; }
 .mat-badge-content { min-width: 0px !important; min-height: 0px !important; }
-.mat-mdc-menu-panel { animation-name: none !important; animation-timing-function: ease !important; transform-origin: top left !important; }
+.mat-expansion-panel-header { outline-width: 3px !important; }
 .mat-mdc-menu-item { min-height: 36px !important; }
 .mat-mdc-menu-item .mat-icon-no-color { color: var(--mat-icon-color) !important; }
 .mat-mdc-option { min-height: 40px !important; }

@@ -73,7 +73,7 @@ export function duiNotificationTheme(theme: Theme): Object {
         }
       }
     },
-    '.dui-notification-content, .dui-notification-content > *': {
+    '.dui-notification-content &': {
         'line-height': px40 + " !important"
     }
   }

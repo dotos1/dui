@@ -1,12 +1,14 @@
 <div class="m2-parity-root mat-app-background" data-parity="root">
   <section class="m2-parity-grid">
-    <!-- Card 1: Buttons, Icon Buttons, FABs (incl. Disabled S-5 states) -->
+    <!-- Card 1: Buttons, Icon Buttons, FABs (incl. Uncolored #195 & Disabled S-5 states) -->
     <mat-card class="m2-parity-card" data-parity="card">
       <mat-card-header data-parity="card-header">
         <mat-card-title data-parity="card-title">Buttons, Icon Buttons &amp; FAB</mat-card-title>
-        <mat-card-subtitle data-parity="card-subtitle">M2 Palette, Density &amp; S-5 Disabled States</mat-card-subtitle>
+        <mat-card-subtitle data-parity="card-subtitle">M2 Palette, Density, Uncolored &amp; S-5 Disabled States</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="m2-parity-row">
+        <button mat-flat-button data-parity="btn-flat-uncolored">Flat Default</button>
+        <button mat-raised-button data-parity="btn-raised-uncolored">Raised Default</button>
         <button mat-flat-button color="primary" data-parity="btn-flat-primary">Flat Primary</button>
         <button mat-flat-button color="accent" data-parity="btn-flat-accent">Flat Accent</button>
         <button mat-flat-button color="warn" data-parity="btn-flat-warn">Flat Warn</button>
@@ -95,13 +97,15 @@
       </mat-card-content>
     </mat-card>
 
-    <!-- Card 4: Tabs, List, Table, Menu, Dialog, Expansion Panel & Typography -->
+    <!-- Card 4: Tabs, List (incl. Icon & Meta #195), Table, Menu, Dialog, Expansion Panel & Full Typography -->
     <mat-card class="m2-parity-card" data-parity="card-containers">
       <mat-tab-group animationDuration="0ms" data-parity="tabs">
         <mat-tab label="Overview">
           <mat-list data-parity="list">
             <mat-list-item data-parity="list-item">
+              <mat-icon matListItemIcon data-parity="list-item-icon">folder</mat-icon>
               <span matListItemTitle>Primary List Item</span>
+              <span matListItemMeta data-parity="list-item-meta">Meta</span>
             </mat-list-item>
           </mat-list>
         </mat-tab>
@@ -135,10 +139,16 @@
       </mat-expansion-panel>
 
       <div class="mat-typography m2-parity-typo" data-parity="typo-container">
+        <div class="mat-display-4" data-parity="typo-display4">M2 Display 4</div>
+        <div class="mat-display-3" data-parity="typo-display3">M2 Display 3</div>
+        <div class="mat-display-2" data-parity="typo-display2">M2 Display 2</div>
+        <div class="mat-display-1" data-parity="typo-display1">M2 Display 1</div>
         <div class="mat-h1" data-parity="typo-h1">M2 Heading 1</div>
         <div class="mat-h2" data-parity="typo-h2">M2 Heading 2</div>
         <div class="mat-h3" data-parity="typo-h3">M2 Heading 3</div>
         <div class="mat-h4" data-parity="typo-h4">M2 Heading 4</div>
+        <div class="mat-h5" data-parity="typo-h5">M2 Heading 5</div>
+        <div class="mat-h6" data-parity="typo-h6">M2 Heading 6</div>
         <div class="mat-body-1" data-parity="typo-body1">M2 Body 1 Text</div>
         <div class="mat-body-2" data-parity="typo-body2">M2 Body 2 Strong</div>
         <div class="mat-caption" data-parity="typo-caption">M2 Caption Text</div>
@@ -153,6 +163,89 @@
         <button mat-button (click)="triggerZoneAsync()" data-parity="zone-btn">ZoneAsync</button>
         <span data-parity="zone-probe">{{ zoneName }}:{{ asyncTick }}:{{ panelOpenedCount }}</span>
       </div>
+    </mat-card>
+
+    <!-- Card 5: 6 DUI Custom Components (scrollbar, query-builder, toggle-select, date-field/calendar, card-view, link-preview) -->
+    <mat-card class="m2-parity-card" data-parity="card-dui-components">
+      <mat-card-header>
+        <mat-card-title>DUI Custom Components (6 Categories)</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="m2-parity-row">
+          <ng-scrollbar [buttons]="true" visibility="always" class="m2-parity-scrollbar" data-parity="dui-scrollbar">
+            <div class="m2-parity-scrollbar-inner">
+              <div>Scrollbar Line 1</div>
+              <div>Scrollbar Line 2</div>
+              <div>Scrollbar Line 3</div>
+              <div>Scrollbar Line 4</div>
+              <div>Scrollbar Line 5</div>
+              <div>Scrollbar Line 6</div>
+            </div>
+          </ng-scrollbar>
+
+          <div class="m2-parity-toggle-group">
+            <toggle-select [options]="toggleOptions" [(ngModel)]="toggleVal" data-parity="dui-toggle-select"></toggle-select>
+            <toggle-select [options]="toggleOptions" [(ngModel)]="toggleVal" [disabled]="true" data-parity="dui-toggle-select-disabled"></toggle-select>
+          </div>
+        </div>
+
+        <div class="m2-parity-block">
+          <query-builder [(ngModel)]="queryData" [config]="queryConfig" data-parity="dui-query-builder"></query-builder>
+        </div>
+
+        <div class="m2-parity-row m2-parity-date-row">
+          <dui-form [config]="dateFormConfig" data-parity="dui-date-form"></dui-form>
+          <mat-datetimepicker-calendar
+            [startAt]="fixedParityDate"
+            [selected]="fixedParityDate"
+            type="date"
+            data-parity="dui-datetime-calendar"
+          ></mat-datetimepicker-calendar>
+        </div>
+
+        <div class="m2-parity-block">
+          <dui-card-view
+            [properties]="cardViewProperties"
+            [editable]="true"
+            [copyToClipboardAction]="true"
+            data-parity="dui-card-view"
+          ></dui-card-view>
+        </div>
+
+        <div class="m2-parity-block">
+          <link-preview
+            [links]="previewLinks"
+            apiRoute="/mock-og"
+            [getApiEndpoint$]="mockLinkPreviewEndpoint$"
+            [useCache]="false"
+            [showImage]="false"
+            data-parity="dui-link-preview"
+          ></link-preview>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <!-- Card 6: Downstream duix & sdos Dynamic loadTheme Probes -->
+    <mat-card class="m2-parity-card" data-parity="card-downstream-probes">
+      <mat-card-header>
+        <mat-card-title>Downstream Dynamic Theme Probes (duix &amp; sdos)</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="m2-parity-row">
+          <div class="flow-node flow-node-default selectable m2-parity-probe-box" tabindex="0" data-parity="duix-flow-node">
+            <span class="selected m2-parity-probe-chip" data-parity="duix-flow-node-selected">Duix Node</span>
+          </div>
+          <div class="cropper-view-box m2-parity-probe-box" data-parity="duix-cropper-view">
+            <span class="cropper-center" data-parity="duix-cropper-center">Cropper</span>
+          </div>
+          <div class="checklist-item m2-parity-probe-box" tabindex="0" data-parity="duix-checklist-item">Duix Checklist</div>
+        </div>
+        <div class="m2-parity-row">
+          <div class="sdos-menu-container m2-parity-probe-box" tabindex="0" data-parity="sdos-menu-container">SDOS Menu</div>
+          <div class="sdos-cleardraw-button-container m2-parity-probe-box" tabindex="0" data-parity="sdos-cleardraw-btn">SDOS ClearDraw</div>
+          <div class="preview-page m2-parity-probe-box" data-parity="sdos-preview-page">SDOS Preview</div>
+        </div>
+      </mat-card-content>
     </mat-card>
   </section>
 </div>

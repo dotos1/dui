@@ -17,6 +17,7 @@
      *ngIf="(useSelect$ | async) === false; else select" >
   <mat-button-toggle-group #toggleGroup
                            class="toggle-header"
+                           [hideSingleSelectionIndicator]="true"
                            [class.fill]="(appearance === 'fill' || appearance === 'fill-invert')"
                            [class.invert]="appearance === 'fill-invert'"
                            [class.primary-fill]="primaryBackground"

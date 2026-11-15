@@ -1,12 +1,19 @@
 /**
  * @fileoverview Module `projects/testdui/src/app/m2-parity/m2-parity.component.ts` providing M2 visual parity showcase component.
- * @zh 模块文件 `projects/testdui/src/app/m2-parity/m2-parity.component.ts`，提供覆盖 16 类 Material 组件的 M2 外观与动态主题 27 组合对齐验收组件。
+ * Covers 16 Material categories, 6 DUI custom components (`ng-scrollbar`, `query-builder`, `toggle-select`, `date-field`,
+ * `dui-card-view`, `link-preview`), complete M2 typography scale (`h1~h6`, `display-1`), and downstream `duix`/`sdos` `loadTheme` probes.
+ * @zh 模块文件 `projects/testdui/src/app/m2-parity/m2-parity.component.ts`，提供覆盖 16 类 Material 组件、6 类 DUI 自研组件、完整 M2 字阶及下游 `duix`/`sdos` 动态主题探针的 27 组合对齐验收组件。
  */
 
 import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { LocalStorageService } from '@dotos1/dui/core/storage';
-import { DotosConfig, DotosConfigService, Theme, ThemeService } from '@dotos1/dui/theme';
+import { CardViewBoolItemModel, CardViewItem, CardViewTextItemModel } from '@dotos1/dui/data/cardview';
+import { ToggleHeaderOption } from '@dotos1/dui/form/toggle-select';
+import { DotosConfig, DotosConfigService, matColor, matThemeElevation, Theme, ThemeService } from '@dotos1/dui/theme';
+import { OpenGraphMetaData } from '@dotos1/dui/ux/link-preview';
+import { QueryBuilderConfig, RuleSet } from '@dotos1/dui/ux/query-builder';
+import { Observable, of } from 'rxjs';
 
 declare const Zone: { current?: { name?: string } } | undefined;
 
@@ -15,6 +22,78 @@ declare const Zone: { current?: { name?: string } } | undefined;
  * @zh 常量 `PARITY_STORAGE_KEY`，对齐宿主 `AppComponent` 读取的本地存储键以验证冷启动一致性。
  */
 const PARITY_STORAGE_KEY = 'dotosConfig';
+
+/**
+ * Representative downstream `dotos1/duix` `loadTheme` factory reproducing `DuixFlowNodeTheme`, `fileViewerTheme`, and `DuixFlowTheme` selectors verbatim.
+ * @zh 复现下游 `dotos1/duix`（`DuixFlowNodeTheme`、`fileViewerTheme`、`DuixFlowTheme`）真实选择器的代表性动态主题探针函数。
+ * @param theme - Runtime theme (`Theme`) / 运行时主题对象（`Theme`）
+ * @returns Style rule map (`Record<string, unknown>`) / 样式规则对象
+ */
+function duixParityProbeTheme(theme: Theme): Record<string, unknown> {
+  const primary = matColor(theme.primary);
+  return {
+    '.flow-node': {
+      color: matColor(theme.foreground, 'text'),
+    },
+    '.flow-node .selected, .flow-node:focus,  .flow-node:focus-visible': Object.assign(
+      { border: ' 1px solid ' + matColor(theme.foreground, 'slider-off-active') },
+      matThemeElevation(2, theme, 1)
+    ),
+    '.flow-node &.selectable &.selected,&:focus,&:focus-visible': Object.assign({}, matThemeElevation(2, theme, 1)),
+    '.flow-node-default,.flow-node-input,.flow-node-output,.flow-node-group': {
+      'border-color': matColor(theme.foreground, 'divider'),
+      color: matColor(theme.foreground, 'text'),
+      'background-color': matColor(theme.background, 'card'),
+    },
+    '.flow-node-default .selectable :hover': Object.assign({}, matThemeElevation(1, theme, 1)),
+    '.cropper-center &::before,&::after': {
+      'background-color': matColor(theme.background, 'card'),
+    },
+    '.cropper-view-box': {
+      outline: '1px solid ' + primary,
+      'outline-color': matColor(theme.foreground, 'divider'),
+    },
+    '.checklist-item': {
+      color: matColor(theme.foreground, 'text'),
+      'background-color': matColor(theme.background, 'card'),
+    },
+    '.checklist-item &:hover': {
+      'background-color': matColor(theme.background, 'hover'),
+    },
+  };
+}
+
+/**
+ * Representative downstream `dotos1/sdos` `loadTheme` factory reproducing `sdosMapTheme` selectors verbatim.
+ * @zh 复现下游 `dotos1/sdos`（`sdosMapTheme`）真实选择器的代表性动态主题探针函数。
+ * @param theme - Runtime theme (`Theme`) / 运行时主题对象（`Theme`）
+ * @returns Style rule map (`Record<string, unknown>`) / 样式规则对象
+ */
+function sdosParityProbeTheme(theme: Theme): Record<string, unknown> {
+  const backgroundCardColor: string = matColor(theme.background, 'card', 0.93);
+  const shadowColor: string = matColor(theme.foreground, 'disabled-button');
+  return {
+    '.sdos-menu-container': {
+      'background-color': backgroundCardColor,
+      'box-shadow': '0px 1px 4px ' + shadowColor,
+    },
+    '.sdos-menu-container &:hover': {
+      'background-color': matColor(theme.background, 'focused-button'),
+    },
+    '.sdos-cleardraw-button-container': {
+      color: matColor(theme.foreground, 'text'),
+      'background-color': matColor(theme.background, 'raised-button', 0.93),
+      'box-shadow': ' 0px 1px 4px ' + shadowColor,
+    },
+    '.sdos-cleardraw-button-container &:hover': {
+      'background-color': matColor(theme.background, 'selected-button', 0.93),
+    },
+    '.preview-page': {
+      border: ' 1px solid  ' + matColor(theme.foreground, 'divider'),
+      'box-shadow': ' 0px 1px 4px ' + shadowColor,
+    },
+  };
+}
 
 /**
  * Interface `ParityTableRow` defining sample row structure for `mat-table` parity inspection.
@@ -87,7 +166,7 @@ declare global {
 
 /**
  * Angular component `M2ParityDialogComponent` providing dialog transition and surface probe in `projects/testdui/src/app/m2-parity`.
- * @zh Angular 组件 `M2ParityDialogComponent`，用于验证弹窗容器主题表面与开合动画过渡。
+ * @zh Angular 组件 `M2ParityDialogComponent`，用于验证弹窗容器主题表面、标题/正文默认文本色与开合动画过渡。
  */
 @Component({
   selector: 'app-m2-parity-dialog',
@@ -98,8 +177,8 @@ declare global {
 export class M2ParityDialogComponent {}
 
 /**
- * Angular component `M2ParityComponent` (selector: 'app-m2-parity') providing 16-component M2 parity showcase in `projects/testdui/src/app/m2-parity`.
- * @zh Angular 组件 `M2ParityComponent`（selector: 'app-m2-parity'），提供覆盖 16 类组件的 M2 组件大观与动态主题对比视图。
+ * Angular component `M2ParityComponent` (selector: 'app-m2-parity') providing Material + DUI + duix/sdos M2 parity showcase.
+ * @zh Angular 组件 `M2ParityComponent`（selector: 'app-m2-parity'），提供覆盖 Material 16 类、DUI 6 类组件及下游 `duix`/`sdos` 动态主题的对比视图。
  */
 @Component({
   selector: 'app-m2-parity',
@@ -123,6 +202,119 @@ export class M2ParityComponent implements OnInit, OnDestroy {
     { code: 'DUI-01', name: 'M2 Sentinel', status: 'Active' },
     { code: 'DUI-02', name: 'Zone Default', status: 'Ready' },
   ];
+
+  /**
+   * Property `queryData` (`RuleSet`) storing deterministic `query-builder` ruleset data.
+   * @zh 属性 `queryData`（类型：`RuleSet`），存储 `query-builder` 固定查询规则树数据。
+   */
+  queryData: RuleSet = {
+    condition: 'and',
+    rules: [
+      { field: 'status', operator: '=', value: 'active' },
+      {
+        condition: 'or',
+        rules: [{ field: 'priority', operator: '>=', value: 2 }],
+      },
+    ],
+  };
+
+  /**
+   * Property `queryConfig` (`QueryBuilderConfig`) storing `query-builder` field configuration.
+   * @zh 属性 `queryConfig`（类型：`QueryBuilderConfig`），存储 `query-builder` 字段定义配置。
+   */
+  readonly queryConfig: QueryBuilderConfig = {
+    fields: {
+      status: { name: 'Status', type: 'string', operators: ['=', '!='] },
+      priority: { name: 'Priority', type: 'number', operators: ['>=', '<='] },
+    },
+  };
+
+  /**
+   * Property `toggleVal` (`string`) storing active `toggle-select` value.
+   * @zh 属性 `toggleVal`（类型：`string`），存储 `toggle-select` 当前选中项值。
+   */
+  toggleVal = 'day';
+
+  /**
+   * Property `toggleOptions` (`ToggleHeaderOption[]`) storing `toggle-select` option items.
+   * @zh 属性 `toggleOptions`（类型：`ToggleHeaderOption[]`），存储 `toggle-select` 选项列表。
+   */
+  readonly toggleOptions: ToggleHeaderOption[] = [
+    { name: 'Day', value: 'day' },
+    { name: 'Week', value: 'week' },
+  ];
+
+  /**
+   * Property `fixedParityDate` (`Date`) storing deterministic calendar date (`2026-01-15T10:30:00`).
+   * @zh 属性 `fixedParityDate`（类型：`Date`），存储固定验收日期（`2026-01-15T10:30:00`），避免系统时钟导致截图抖动。
+   */
+  readonly fixedParityDate: Date = new Date(2026, 0, 15, 10, 30, 0);
+
+  /**
+   * Property `dateFormConfig` (`Record<string, unknown>`) storing `date-field` dynamic form configuration.
+   * @zh 属性 `dateFormConfig`（类型：`Record<string, unknown>`），存储 `date-field` 动态表单项配置。
+   */
+  readonly dateFormConfig: Record<string, unknown> = {
+    items: [
+      {
+        xtype: 'date-field',
+        name: 'scheduleDate',
+        label: 'Schedule Date',
+        type: 'date',
+        wrappers: ['form-field'],
+        defaultValue: new Date(2026, 0, 15, 10, 30, 0),
+      },
+    ],
+  };
+
+  /**
+   * Property `cardViewProperties` (`CardViewItem[]`) storing `dui-card-view` item models.
+   * @zh 属性 `cardViewProperties`（类型：`CardViewItem[]`），存储 `dui-card-view` 属性项模型数组。
+   */
+  readonly cardViewProperties: CardViewItem[] = [
+    new CardViewTextItemModel({
+      label: 'Application',
+      value: 'DotOS Platform',
+      key: 'appName',
+      editable: true,
+      clickable: false,
+    }),
+    new CardViewTextItemModel({
+      label: 'Portal Link',
+      value: 'Open Console',
+      key: 'portalLink',
+      editable: false,
+      clickable: true,
+      icon: 'open_in_new',
+    }),
+    new CardViewBoolItemModel({
+      label: 'Audit Enabled',
+      value: true,
+      key: 'auditEnabled',
+      editable: true,
+    }),
+  ];
+
+  /**
+   * Property `previewLinks` (`string[]`) storing deterministic URL list for `link-preview`.
+   * @zh 属性 `previewLinks`（类型：`string[]`），存储用于 `link-preview` 的固定离线链接列表。
+   */
+  readonly previewLinks: string[] = ['https://dotos.internal/docs'];
+
+  /**
+   * Property `mockLinkPreviewEndpoint$` (`(link: string) => Observable<Partial<OpenGraphMetaData>>`) providing offline deterministic OpenGraph metadata.
+   * @zh 属性 `mockLinkPreviewEndpoint$`，提供零外部网络请求的固定 OpenGraph 预览数据流。
+   */
+  readonly mockLinkPreviewEndpoint$ = (link: string): Observable<Partial<OpenGraphMetaData>> =>
+    of({
+      title: 'DotOS Architecture Guide',
+      description: 'Offline deterministic M2 link preview card.',
+      url: link,
+      'og:site_name': 'DotOS Docs',
+      'og:title': 'DotOS Architecture Guide',
+      'og:description': 'Offline deterministic M2 link preview card.',
+      'og:url': link,
+    });
 
   /**
    * Property `panelExpanded` (`boolean`) storing expansion panel open state (default: `true`).
@@ -166,8 +358,8 @@ export class M2ParityComponent implements OnInit, OnDestroy {
   ) {}
 
   /**
-   * Angular lifecycle hook registering browser parity control hooks on `window`.
-   * @zh Angular 生命周期钩子：初始化 Zone 状态并在 `window` 上注册自动化切换与持久化冷启动钩子。
+   * Angular lifecycle hook registering component/downstream dynamic themes and browser parity control hooks on `window`.
+   * @zh Angular 生命周期钩子：加载组件与下游 `duix`/`sdos` 动态主题并在 `window` 上注册自动化切换与冷启动钩子。
    */
   ngOnInit(): void {
     this.zoneName = typeof Zone !== 'undefined' && Zone?.current?.name ? Zone.current.name : String(NgZone.isInAngularZone());
@@ -176,6 +368,8 @@ export class M2ParityComponent implements OnInit, OnDestroy {
         borderColor: theme.primary['default'],
       },
     }));
+    this.themeService.loadTheme(duixParityProbeTheme);
+    this.themeService.loadTheme(sdosParityProbeTheme);
 
     window.__applyParityTheme = (opts: ParityThemeOptions): void => {
       this.ngZone.run(() => {

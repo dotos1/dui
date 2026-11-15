@@ -3,7 +3,7 @@ module.exports = {
   preset: 'jest-preset-angular',
   testEnvironment: 'jsdom',
   setupFilesAfterEnv: ['<rootDir>/setup-jest.ts'],
-  roots: ['<rootDir>/src'],
+  roots: ['<rootDir>/src', '<rootDir>/tools/ng-upgrade'],
   testMatch: ['**/*.spec.ts'],
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [

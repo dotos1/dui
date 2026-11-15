@@ -23,6 +23,10 @@
   margin-bottom: 8px;
 }
 
+.m2-parity-block {
+  margin-bottom: 10px;
+}
+
 .m2-parity-slider {
   width: 180px;
 }
@@ -42,4 +46,36 @@
 
 .m2-parity-probes {
   margin-top: 8px;
+}
+
+.m2-parity-scrollbar {
+  width: 220px;
+  height: 92px;
+  border: 1px solid rgba(128, 128, 128, 0.25);
+}
+
+.m2-parity-scrollbar-inner {
+  padding: 6px 10px;
+  line-height: 22px;
+}
+
+.m2-parity-toggle-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.m2-parity-date-row {
+  align-items: flex-start;
+}
+
+.m2-parity-probe-box {
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 13px;
+}
+
+.m2-parity-probe-chip {
+  display: inline-block;
+  padding: 2px 6px;
 }

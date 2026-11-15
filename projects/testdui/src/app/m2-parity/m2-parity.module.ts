@@ -1,15 +1,20 @@
 /**
  * @fileoverview Module `projects/testdui/src/app/m2-parity/m2-parity.module.ts` declaring M2 parity showcase module.
- * @zh 模块文件 `projects/testdui/src/app/m2-parity/m2-parity.module.ts`，声明并导出 M2 外观对比验收模块。
+ * Covers all 16 Material categories, 6 DUI custom components (`ng-scrollbar`, `query-builder`, `toggle-select`,
+ * `date-field` / `mat-datetimepicker`, `dui-card-view`, `link-preview`), M2 typography (`h1~h6`, `display-1`),
+ * and downstream `duix` / `sdos` dynamic `loadTheme` probes.
+ * @zh 模块文件 `projects/testdui/src/app/m2-parity/m2-parity.module.ts`，声明并导出覆盖 16 类 Material 组件、6 类 DUI 自研组件及下游 `duix`/`sdos` 动态主题探针的 M2 对比验收模块。
  */
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { MatBadgeModule } from '@angular/material/badge';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatNativeDateModule } from '@angular/material/core';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
@@ -26,6 +31,19 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule, Routes } from '@angular/router';
+import { ClipboardModule, ClipboardService } from '@dotos1/dui/common/clipboard';
+import { LoadingModule, LoadingService } from '@dotos1/dui/common/loading';
+import { NgScrollbarModule } from '@dotos1/dui/common/scrollbar';
+import { configFactory, ConfigLoader, ConfigService } from '@dotos1/dui/core/config';
+import { LogService } from '@dotos1/dui/core/services';
+import { CardViewModule } from '@dotos1/dui/data/cardview';
+import { FormModule, FormWrapperModule } from '@dotos1/dui/form';
+import { DateFieldModule } from '@dotos1/dui/form/date';
+import { MatNativeDatetimeModule } from '@dotos1/dui/form/date/adapter';
+import { MatDatetimepickerModule } from '@dotos1/dui/form/date/picker';
+import { ToggleSelectModule } from '@dotos1/dui/form/toggle-select';
+import { LinkPreviewModule } from '@dotos1/dui/ux/link-preview';
+import { QueryBuilderModule } from '@dotos1/dui/ux/query-builder';
 import { M2ParityComponent, M2ParityDialogComponent } from './m2-parity.component';
 
 /**
@@ -41,17 +59,19 @@ export const m2ParityRoutes: Routes = [
 
 /**
  * Angular module `M2ParityModule` declaring and exporting M2 parity showcase components.
- * @zh Angular 模块 `M2ParityModule`，声明并导出 M2 对比验收组件与所需 Material 模块。
+ * @zh Angular 模块 `M2ParityModule`，声明并导出 M2 对比验收组件与所需 Material 及 DUI 自研模块。
  */
 @NgModule({
   declarations: [M2ParityComponent, M2ParityDialogComponent],
   imports: [
     CommonModule,
+    FormsModule,
     MatBadgeModule,
     MatButtonModule,
     MatCardModule,
     MatCheckboxModule,
     MatChipsModule,
+    MatNativeDateModule,
     MatDialogModule,
     MatDividerModule,
     MatExpansionModule,
@@ -67,7 +87,26 @@ export const m2ParityRoutes: Routes = [
     MatSliderModule,
     MatTableModule,
     MatTabsModule,
+    ClipboardModule,
+    LoadingModule,
+    NgScrollbarModule,
+    CardViewModule,
+    FormModule.forRoot(),
+    FormWrapperModule,
+    DateFieldModule,
+    MatDatetimepickerModule,
+    MatNativeDatetimeModule,
+    ToggleSelectModule,
+    LinkPreviewModule,
+    QueryBuilderModule,
     RouterModule.forChild(m2ParityRoutes),
+  ],
+  providers: [
+    LoadingService,
+    { provide: ConfigLoader, useFactory: configFactory },
+    ConfigService,
+    LogService,
+    ClipboardService,
   ],
 })
 export class M2ParityModule {}
