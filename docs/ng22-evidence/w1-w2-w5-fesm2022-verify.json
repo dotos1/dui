@@ -1,7 +1,5 @@
-{
-  "generatedAt": "2026-11-15T11:04:33.211Z",
-  "packageName": "@dotos1/dui",
-  "packageVersion": "8.0.0-next.2",
+✓ 产物与配置校验通过 -> docs/ng22-evidence/w1-w2-w5-fesm2022-verify.json (passed=true)
+ "8.0.0-next.2",
   "peerDependencies": {
     "@angular/animations": "^22.0.0",
     "@angular/cdk": "^22.0.0",

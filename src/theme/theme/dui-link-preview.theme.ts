@@ -17,7 +17,7 @@ export function duiLinkPreviewTheme(theme: Theme): Object {
     ".link-preview-container .og-link-preview": {
       "background-color":matColor(theme.background,'background')
     },
-    ".link-preview-container .og-link-preview &:hover": {
+    ".link-preview-container .og-link-preview:hover": {
       "background-color":matColor(theme.background,'app-bar')
     }
   };

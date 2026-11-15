@@ -1,16 +1,13 @@
-=== gate:any ===
 
 > dui@8.0.0-next.2 gate:any
 > node gates/any-count.js --check
 
-✓ G-ANY 通过：any 4087 / 基线 4676，空对象 0 / 基线 0，绕过断言 56 / 基线 57（已下降，请 npm run gate:any:freeze 收紧基线）
-=== gate:tsc ===
+✓ G-ANY 通过：any 4087 / 基线 4087，空对象 0 / 基线 0，绕过断言 56 / 基线 56
 
 > dui@8.0.0-next.2 gate:tsc
 > node gates/tsc-check.js
 
 ✓ G-TSC 通过:103 个入口点,0 个类型错误
-=== gate:i18n ===
 
 > dui@8.0.0-next.2 gate:i18n
 > node gates/i18n-check.js --selftest && node gates/i18n-check.js
@@ -20,14 +17,12 @@
 ✓ 专有名词照写
 ✓ 中文本身就是翻译
 ✓ G-I18N：src/i18n/dui、src/i18n/dui/file、projects/testdui/src/i18n/public 各语种键集合一致，非英语语种没有照抄英文原文
-=== gate:jsdoc ===
 
 > dui@8.0.0-next.2 gate:jsdoc
 > node tools/jsdoc-sync-types.js --check && node tools/jsdoc-zh-phrasing.js --check
 
 ✓ JSDoc 里的类型说明与代码一致
 ✓ @zh 说明里没有词表内的「用于 + 英文动词」
-=== gate:esm ===
 
 > dui@8.0.0-next.2 gate:esm
 > node gates/esm-import-check.js --selftest && node gates/esm-import-check.js
@@ -37,52 +32,72 @@
 ✓ import { get } from 'lodash-es';（0/0）
 ✓ const x = require('lodash/merge');（1/1）
 ✓ G-ESM：src 下没有 CommonJS lodash 导入
-=== gate:ng22-compat ===
 
 > dui@8.0.0-next.2 gate:ng22-compat
 > node tools/ng-upgrade/ng22-compat-gate.mjs
 
 [ng22-compat-gate] PASS (dui: 已扫描 1730 个 TS 文件，Ng22=true，白名单豁免 0 个)
-=== gate:style-ref --selftest ===
 ✓ [selftest] 探针「死变量声明 (--mat-nonexistent-dead-token-w6: 12px)」成功拦截 (exit 1)
 ✓ [selftest] 探针「死变量读取 (var(--mat-also-dead-token-w6))」成功拦截 (exit 1)
 ✓ [selftest] 探针「已移除 MDC 变量 (--mdc-legacy-dead-token-w6)」成功拦截 (exit 1)
 ✓ [selftest] 探针「M2 模式下禁用 M3 系统令牌 (var(--mat-sys-primary))」成功拦截 (exit 1)
 ✓ style-ref-gate 通过（扫描 2065 个文件，实读变量池=1098，.mdc-*=19/19，::ng-deep=69/69，仓库：dui）
-=== gate:standalone ===
 
 > dui@8.0.0-next.2 gate:standalone
 > node tools/ng-upgrade/ensure-standalone-false.mjs --check
 
 [standalone-check] PASS (dui)
-=== test:jest ===
-PASS src/theme/theme.service.spec.ts (28.081 s)
-PASS src/core/decorators/coerce-boolean.spec.ts (7.084 s)
-PASS src/core/config/feature.service.spec.ts
+PASS src/ux/line-style/linesize.spec.ts (19.898 s)
+PASS src/container/container.main.spec.ts
+PASS src/theme/theme.service.spec.ts
+PASS src/container/panel/panel-remove.spec.ts
+PASS src/form/date/datefield.component.spec.ts
+PASS src/core/decorators/coerce-boolean.spec.ts
+PASS src/core/zone-cd.spec.ts
+PASS src/form/select/select.field.spec.ts
+PASS src/common/keyboard/keyboard-shortcuts.service.spec.ts
+PASS src/ui/toolbar/toolbar.module.spec.ts
+PASS src/util/pipes/custom-html.pipe.spec.ts
+PASS src/translator/translate-loader.service.spec.ts
+PASS src/core/dynamic/w0-restoration.spec.ts
 PASS src/common/animations/animations.spec.ts
+PASS src/common/icon/icon.component.spec.ts
+PASS src/common/inline-svg/svg-cache.service.spec.ts
+PASS src/core/config/feature.service.spec.ts
+PASS src/common/perfect-scrollbar/perfect-scrollbar.directive.spec.ts
+PASS src/core/auth/auth-bearer.interceptor.spec.ts
+PASS src/common/loading/services/loading.service.spec.ts
+PASS src/common/fileupload/file-select.directive.spec.ts
+PASS src/core/services/highlight-transform.service.spec.ts
+PASS src/common/dynamic/dynamic.component.spec.ts
+PASS src/core/config/merge-loader/config.merge-loader.spec.ts
+PASS src/ux/avatar/avatar-config.service.spec.ts
+PASS src/core/auth/auth.service.spec.ts
+PASS src/ux/avatar/avatar.spec.ts
+PASS src/base/observer.spec.ts
 PASS src/core/auth/jwt-helper.service.spec.ts
   ● Console
 
     console.warn
       [JwtHelperService] 无法解析 access_token，已忽略该声明。 Error: JWT must have 3 parts
-          at JwtHelperService.decodeToken (./src/core/auth/jwt-helper.service.ts:80:19)
-          at JwtHelperService.getValueFromToken (./src/core/auth/jwt-helper.service.ts:153:43)
-          at JwtHelperService.getValueFromLocalAccessToken (./src/core/auth/jwt-helper.service.ts:126:21)
-          at JwtHelperService.getRealmRoles (./src/core/auth/jwt-helper.service.ts:168:29)
-          at ./src/core/auth/jwt-helper.service.spec.ts:136:28
-          at Object.<anonymous> (./node_modules/expect/build/index.js:1824:9)
-          at Object.throwingMatcher [as toThrow] (./node_modules/expect/build/index.js:2235:93)
-          at ./src/core/auth/jwt-helper.service.spec.ts:136:49
-          at _ZoneDelegate.invoke (./node_modules/zone.js/bundles/zone.umd.js:410:32)
-          at ProxyZoneSpec.onInvoke (./node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
-          at _ZoneDelegate.invoke (./node_modules/zone.js/bundles/zone.umd.js:409:38)
-          at ZoneImpl.run (./node_modules/zone.js/bundles/zone.umd.js:145:47)
-          at Object.wrappedFunc (./node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
-          at Promise.finally.completed (./node_modules/jest-circus/build/jestAdapterInit.js:1834:28)
+          at JwtHelperService.decodeToken (src/core/auth/jwt-helper.service.ts:80:19)
+          at JwtHelperService.getValueFromToken (src/core/auth/jwt-helper.service.ts:153:43)
+          at JwtHelperService.getValueFromLocalAccessToken (src/core/auth/jwt-helper.service.ts:126:21)
+          at JwtHelperService.getRealmRoles (src/core/auth/jwt-helper.service.ts:168:29)
+          at src/core/auth/jwt-helper.service.spec.ts:136:28
+          at Object.<anonymous> (node_modules/expect/build/index.js:1824:9)
+          at Object.throwingMatcher [as toThrow] (node_modules/expect/build/index.js:2235:93)
+          at src/core/auth/jwt-helper.service.spec.ts:136:49
+          at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:410:32)
+          at ProxyZoneSpec.onInvoke (node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
+          at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:409:38)
+          at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
+          at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
+          at Promise.finally.completed (node_modules/jest-circus/build/jestAdapterInit.js:1834:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (./node_modules/jest-circus/build/jestAdapterInit.js:1774:10)
-          at _callCircusTest (./node_modules/jest-circus/build/jestAdapterInit.js:1167:40)
-          at _runTestInContext (./node_modules/jest-circus/build/jestAdapterInit.js:1103:3)
+          at callAsyncCircusFn (node_modules/jest-circus/build/jestAdapterInit.js:1774:10)
+          at _callCircusTest (node_modules/jest-circus/build/jestAdapterInit.js:1167:40)
+          at _runTestInContext (node_modules/jest-circus/build/jestAdapterInit.js:1103:3)
 
       154 |                 value = tokenPayload[key];
       155 |             } catch (e) {
@@ -107,21 +122,21 @@ PASS src/core/auth/jwt-helper.service.spec.ts
 
     console.warn
       [JwtHelperService] 无法解析 access_token，已忽略该声明。 Error: JWT must have 3 parts
-          at JwtHelperService.decodeToken (./src/core/auth/jwt-helper.service.ts:80:19)
-          at JwtHelperService.getValueFromToken (./src/core/auth/jwt-helper.service.ts:153:43)
-          at JwtHelperService.getValueFromLocalAccessToken (./src/core/auth/jwt-helper.service.ts:126:21)
-          at JwtHelperService.getRealmRoles (./src/core/auth/jwt-helper.service.ts:168:29)
-          at ./src/core/auth/jwt-helper.service.spec.ts:137:22
-          at _ZoneDelegate.invoke (./node_modules/zone.js/bundles/zone.umd.js:410:32)
-          at ProxyZoneSpec.onInvoke (./node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
-          at _ZoneDelegate.invoke (./node_modules/zone.js/bundles/zone.umd.js:409:38)
-          at ZoneImpl.run (./node_modules/zone.js/bundles/zone.umd.js:145:47)
-          at Object.wrappedFunc (./node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
-          at Promise.finally.completed (./node_modules/jest-circus/build/jestAdapterInit.js:1834:28)
+          at JwtHelperService.decodeToken (src/core/auth/jwt-helper.service.ts:80:19)
+          at JwtHelperService.getValueFromToken (src/core/auth/jwt-helper.service.ts:153:43)
+          at JwtHelperService.getValueFromLocalAccessToken (src/core/auth/jwt-helper.service.ts:126:21)
+          at JwtHelperService.getRealmRoles (src/core/auth/jwt-helper.service.ts:168:29)
+          at src/core/auth/jwt-helper.service.spec.ts:137:22
+          at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:410:32)
+          at ProxyZoneSpec.onInvoke (node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
+          at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:409:38)
+          at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
+          at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
+          at Promise.finally.completed (node_modules/jest-circus/build/jestAdapterInit.js:1834:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (./node_modules/jest-circus/build/jestAdapterInit.js:1774:10)
-          at _callCircusTest (./node_modules/jest-circus/build/jestAdapterInit.js:1167:40)
-          at _runTestInContext (./node_modules/jest-circus/build/jestAdapterInit.js:1103:3)
+          at callAsyncCircusFn (node_modules/jest-circus/build/jestAdapterInit.js:1774:10)
+          at _callCircusTest (node_modules/jest-circus/build/jestAdapterInit.js:1167:40)
+          at _runTestInContext (node_modules/jest-circus/build/jestAdapterInit.js:1103:3)
 
       154 |                 value = tokenPayload[key];
       155 |             } catch (e) {
@@ -143,22 +158,22 @@ PASS src/core/auth/jwt-helper.service.spec.ts
 
     console.warn
       [JwtHelperService] 无法解析 access_token，已忽略该声明。 Error: JWT must have 3 parts
-          at JwtHelperService.decodeToken (./src/core/auth/jwt-helper.service.ts:80:19)
-          at JwtHelperService.getValueFromToken (./src/core/auth/jwt-helper.service.ts:153:43)
-          at JwtHelperService.getValueFromLocalAccessToken (./src/core/auth/jwt-helper.service.ts:126:21)
-          at JwtHelperService.getRealmRoles (./src/core/auth/jwt-helper.service.ts:168:29)
-          at JwtHelperService.hasRealmRole (./src/core/auth/jwt-helper.service.ts:194:37)
-          at ./src/core/auth/jwt-helper.service.spec.ts:138:22
-          at _ZoneDelegate.invoke (./node_modules/zone.js/bundles/zone.umd.js:410:32)
-          at ProxyZoneSpec.onInvoke (./node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
-          at _ZoneDelegate.invoke (./node_modules/zone.js/bundles/zone.umd.js:409:38)
-          at ZoneImpl.run (./node_modules/zone.js/bundles/zone.umd.js:145:47)
-          at Object.wrappedFunc (./node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
-          at Promise.finally.completed (./node_modules/jest-circus/build/jestAdapterInit.js:1834:28)
+          at JwtHelperService.decodeToken (src/core/auth/jwt-helper.service.ts:80:19)
+          at JwtHelperService.getValueFromToken (src/core/auth/jwt-helper.service.ts:153:43)
+          at JwtHelperService.getValueFromLocalAccessToken (src/core/auth/jwt-helper.service.ts:126:21)
+          at JwtHelperService.getRealmRoles (src/core/auth/jwt-helper.service.ts:168:29)
+          at JwtHelperService.hasRealmRole (src/core/auth/jwt-helper.service.ts:194:37)
+          at src/core/auth/jwt-helper.service.spec.ts:138:22
+          at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:410:32)
+          at ProxyZoneSpec.onInvoke (node_modules/zone.js/bundles/zone-testing.umd.js:2219:43)
+          at _ZoneDelegate.invoke (node_modules/zone.js/bundles/zone.umd.js:409:38)
+          at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
+          at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
+          at Promise.finally.completed (node_modules/jest-circus/build/jestAdapterInit.js:1834:28)
           at new Promise (<anonymous>)
-          at callAsyncCircusFn (./node_modules/jest-circus/build/jestAdapterInit.js:1774:10)
-          at _callCircusTest (./node_modules/jest-circus/build/jestAdapterInit.js:1167:40)
-          at _runTestInContext (./node_modules/jest-circus/build/jestAdapterInit.js:1103:3)
+          at callAsyncCircusFn (node_modules/jest-circus/build/jestAdapterInit.js:1774:10)
+          at _callCircusTest (node_modules/jest-circus/build/jestAdapterInit.js:1167:40)
+          at _runTestInContext (node_modules/jest-circus/build/jestAdapterInit.js:1103:3)
 
       154 |                 value = tokenPayload[key];
       155 |             } catch (e) {
@@ -179,34 +194,10 @@ PASS src/core/auth/jwt-helper.service.spec.ts
       at ZoneImpl.run (node_modules/zone.js/bundles/zone.umd.js:145:47)
       at Object.wrappedFunc (node_modules/zone.js/bundles/zone-testing.umd.js:449:38)
 
-PASS src/core/auth/auth-bearer.interceptor.spec.ts
-PASS src/core/dynamic/w0-restoration.spec.ts
-PASS src/core/zone-cd.spec.ts (5.223 s)
-PASS src/form/select/select.field.spec.ts
-PASS src/util/pipes/custom-html.pipe.spec.ts
-PASS src/container/container.main.spec.ts (16.023 s)
-PASS src/common/keyboard/keyboard-shortcuts.service.spec.ts
-PASS src/common/inline-svg/svg-cache.service.spec.ts
-PASS src/common/icon/icon.component.spec.ts
-PASS src/translator/translate-loader.service.spec.ts
-PASS src/container/panel/panel-remove.spec.ts (7.451 s)
-PASS src/ux/line-style/linesize.spec.ts (25.193 s)
-PASS src/core/services/highlight-transform.service.spec.ts
-PASS src/common/perfect-scrollbar/perfect-scrollbar.directive.spec.ts
-PASS src/form/date/datefield.component.spec.ts (7.254 s)
-PASS src/common/dynamic/dynamic.component.spec.ts
-PASS src/common/fileupload/file-select.directive.spec.ts
-PASS src/core/auth/auth.service.spec.ts
-PASS src/common/loading/services/loading.service.spec.ts
 PASS src/core/cookie/cookie-serializer.spec.ts
-PASS src/core/config/merge-loader/config.merge-loader.spec.ts
-PASS src/base/observer.spec.ts
-PASS src/ux/avatar/avatar.spec.ts
-PASS src/ux/avatar/avatar-config.service.spec.ts
-PASS src/ui/toolbar/toolbar.module.spec.ts
 
 Test Suites: 30 passed, 30 total
-Tests:       122 passed, 122 total
+Tests:       123 passed, 123 total
 Snapshots:   0 total
-Time:        135.192 s
+Time:        52.625 s, estimated 116 s
 Ran all test suites.

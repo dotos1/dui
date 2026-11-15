@@ -580,11 +580,16 @@ html {
     // 7.4.52 card & slider thumb knob `box-shadow: none` parity
     htmlBaseBlock.declarations['--mat-card-elevated-container-elevation'] = 'none';
     htmlBaseBlock.declarations['--mat-slider-handle-elevation'] = 'none';
+    // 7.4.52 mdc/_switch.ts unthemable state-layer opacities
+    htmlBaseBlock.declarations['--mat-slide-toggle-selected-pressed-state-layer-opacity'] = '0.1';
+    htmlBaseBlock.declarations['--mat-slide-toggle-unselected-hover-state-layer-opacity'] = '0.04';
   }
 
   // 2. Color templates for light, dark, darkblue (including M2 system map + all component colors + .mat-accent/.mat-warn variants!)
   const colorTemplates = {};
   for (const mode of ['light', 'dark', 'darkblue']) {
+    const isDark = mode !== 'light';
+    const fgBase = isDark ? '255, 255, 255' : '0, 0, 0';
     const defineFn = mode === 'light' ? 'mat.m2-define-light-theme' : 'mat.m2-define-dark-theme';
     const css = compileSass(`
 ${sentinelPreamble}
@@ -606,6 +611,8 @@ html {
     // 7.4.52 DotOS unselected chip & tooltip surface parity (light: #e0e0e0/#616161, dark: #616161/#616161, darkblue: #455a64/#455a64)
     const unselectedChipBg = mode === 'darkblue' ? '#455a64' : mode === 'dark' ? '#616161' : '#e0e0e0';
     const tooltipBg = mode === 'darkblue' ? '#455a64' : '#616161';
+    // 7.4.52 _filled-text-field.ts:51 `mix($on_surface, $surface, 0.02)` disabled fill container surface
+    const disabledFillContainerBg = mode === 'darkblue' ? '#3b4b53' : mode === 'dark' ? '#464646' : '#fafafa';
     const htmlColorBlock = blocks.find((b) => b.selector === 'html');
     if (htmlColorBlock) {
       htmlColorBlock.declarations['--dui-theme-primary'] = '{{primary.default}}';
@@ -628,14 +635,29 @@ html {
       // 7.4.52 card & slider thumb knob `box-shadow: none` parity
       htmlColorBlock.declarations['--mat-card-elevated-container-elevation'] = 'none';
       htmlColorBlock.declarations['--mat-slider-handle-elevation'] = 'none';
-      // 7.4.52 _filled-text-field.ts:50 `container-color: safe_color_change($surface, 0)` (transparent fill container)
+      // 7.4.52 _filled-text-field.ts / _outlined-text-field.ts / _select.ts exact container, indicator, label & arrow parity
       htmlColorBlock.declarations['--mat-form-field-filled-container-color'] = 'transparent';
+      htmlColorBlock.declarations['--mat-form-field-filled-disabled-container-color'] = disabledFillContainerBg;
+      htmlColorBlock.declarations['--mat-form-field-filled-active-indicator-color'] = `rgba(${fgBase}, 0.42)`;
+      htmlColorBlock.declarations['--mat-form-field-filled-disabled-active-indicator-color'] = `rgba(${fgBase}, 0.06)`;
+      htmlColorBlock.declarations['--mat-form-field-filled-hover-active-indicator-color'] = `rgba(${fgBase}, 0.87)`;
+      htmlColorBlock.declarations['--mat-form-field-filled-label-text-color'] = `rgba(${fgBase}, 0.6)`;
+      htmlColorBlock.declarations['--mat-form-field-filled-hover-label-text-color'] = `rgba(${fgBase}, 0.6)`;
+      htmlColorBlock.declarations['--mat-form-field-filled-disabled-label-text-color'] = `rgba(${fgBase}, 0.38)`;
+      htmlColorBlock.declarations['--mat-form-field-filled-input-text-placeholder-color'] = `rgba(${fgBase}, 0.6)`;
+      htmlColorBlock.declarations['--mat-form-field-outlined-label-text-color'] = `rgba(${fgBase}, 0.6)`;
+      htmlColorBlock.declarations['--mat-form-field-outlined-hover-label-text-color'] = `rgba(${fgBase}, 0.6)`;
+      htmlColorBlock.declarations['--mat-form-field-outlined-disabled-label-text-color'] = `rgba(${fgBase}, 0.38)`;
+      htmlColorBlock.declarations['--mat-form-field-outlined-input-text-placeholder-color'] = `rgba(${fgBase}, 0.6)`;
+      htmlColorBlock.declarations['--mat-form-field-outlined-outline-color'] = `rgba(${fgBase}, 0.38)`;
+      htmlColorBlock.declarations['--mat-form-field-outlined-disabled-outline-color'] = `rgba(${fgBase}, 0.06)`;
+      htmlColorBlock.declarations['--mat-form-field-enabled-select-arrow-color'] = `rgba(${fgBase}, 0.54)`;
+      htmlColorBlock.declarations['--mat-form-field-disabled-select-arrow-color'] = `rgba(${fgBase}, 0.38)`;
       // 7.4.52 tokens/mdc/_icon-button.ts:38 exact 0.38 disabled icon alpha & exact disabled button/input/select-arrow alphas
-      htmlColorBlock.declarations['--mat-icon-button-disabled-icon-color'] =
-        mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.38)';
+      htmlColorBlock.declarations['--mat-icon-button-disabled-icon-color'] = `rgba(${fgBase}, 0.38)`;
       const disabledBtnFg = mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.5)';
-      const disabledBtnBg = mode === 'light' ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.12)';
-      const disabledInputFg = mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.38)';
+      const disabledBtnBg = `rgba(${fgBase}, 0.12)`;
+      const disabledInputFg = `rgba(${fgBase}, 0.38)`;
       const disabledFabBg =
         mode === 'darkblue'
           ? 'rgba(120, 144, 156, 0.12)'
@@ -654,8 +676,71 @@ html {
       htmlColorBlock.declarations['--mat-fab-small-disabled-state-container-color'] = disabledFabBg;
       htmlColorBlock.declarations['--mat-form-field-filled-disabled-input-text-color'] = disabledInputFg;
       htmlColorBlock.declarations['--mat-form-field-outlined-disabled-input-text-color'] = disabledInputFg;
-      htmlColorBlock.declarations['--mat-select-enabled-arrow-color'] =
-        mode === 'light' ? 'rgba(0, 0, 0, 0.54)' : 'rgba(255, 255, 255, 0.54)';
+      htmlColorBlock.declarations['--mat-select-enabled-arrow-color'] = `rgba(${fgBase}, 0.54)`;
+      htmlColorBlock.declarations['--mat-select-disabled-arrow-color'] = `rgba(${fgBase}, 0.38)`;
+      // 7.4.52 _linear-progress.ts:43-52 transparent progress-bar track
+      htmlColorBlock.declarations['--mat-progress-bar-track-color'] = 'transparent';
+      // 7.4.52 mdc/_switch.ts & mat/_switch.ts slide-toggle track outline, shadow: none, surface & unselected colors
+      htmlColorBlock.declarations['--mat-slide-toggle-selected-track-outline-color'] = 'currentColor';
+      htmlColorBlock.declarations['--mat-slide-toggle-handle-elevation-shadow'] = 'none';
+      htmlColorBlock.declarations['--mat-slide-toggle-disabled-handle-elevation-shadow'] = 'none';
+      htmlColorBlock.declarations['--mat-slide-toggle-handle-surface-color'] = 'transparent';
+      htmlColorBlock.declarations['--mat-slide-toggle-disabled-selected-handle-color'] = isDark ? '#424242' : '#212121';
+      htmlColorBlock.declarations['--mat-slide-toggle-disabled-unselected-handle-color'] = isDark ? '#424242' : '#212121';
+      htmlColorBlock.declarations['--mat-slide-toggle-disabled-selected-track-color'] = isDark ? '#f5f5f5' : '#424242';
+      htmlColorBlock.declarations['--mat-slide-toggle-disabled-unselected-track-color'] = isDark ? '#f5f5f5' : '#424242';
+      htmlColorBlock.declarations['--mat-slide-toggle-disabled-unselected-icon-color'] = isDark ? '#212121' : '#ffffff';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-icon-color'] = isDark ? '#212121' : '#ffffff';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-handle-color'] = isDark ? '#9e9e9e' : '#616161';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-focus-handle-color'] = isDark ? '#fafafa' : '#212121';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-hover-handle-color'] = isDark ? '#fafafa' : '#212121';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-pressed-handle-color'] = isDark ? '#fafafa' : '#212121';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-focus-state-layer-color'] = isDark ? '#f5f5f5' : '#424242';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-hover-state-layer-color'] = isDark ? '#f5f5f5' : '#424242';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-pressed-state-layer-color'] = isDark ? '#f5f5f5' : '#424242';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-track-color'] = isDark ? '#616161' : '#e0e0e0';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-focus-track-color'] = isDark ? '#616161' : '#e0e0e0';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-hover-track-color'] = isDark ? '#616161' : '#e0e0e0';
+      htmlColorBlock.declarations['--mat-slide-toggle-unselected-pressed-track-color'] = isDark ? '#616161' : '#e0e0e0';
+      htmlColorBlock.declarations['--mat-slide-toggle-disabled-label-text-color'] = disabledBtnFg;
+    }
+    // 7.4.52 _linear-progress.ts & _select.ts: transparent progress-bar track and 0.54/0.38 select arrow across primary / .mat-accent / .mat-warn
+    for (const b of blocks) {
+      if ('--mat-progress-bar-track-color' in b.declarations) {
+        b.declarations['--mat-progress-bar-track-color'] = 'transparent';
+      }
+      if ('--mat-select-enabled-arrow-color' in b.declarations) {
+        b.declarations['--mat-select-enabled-arrow-color'] = `rgba(${fgBase}, 0.54)`;
+      }
+      if ('--mat-select-disabled-arrow-color' in b.declarations) {
+        b.declarations['--mat-select-disabled-arrow-color'] = `rgba(${fgBase}, 0.38)`;
+      }
+    }
+    // 7.4.52 mdc/_switch.ts:171-188 exact palette shades (light: handle=600, state=800, track=400; dark: handle=400, state=400, track=600)
+    for (const pal of ['primary', 'accent', 'warn']) {
+      const swSel = pal === 'primary' ? 'html' : `html .mat-mdc-slide-toggle.mat-${pal}`;
+      let swBlock = blocks.find((b) => b.selector === swSel);
+      if (!swBlock) {
+        swBlock = { selector: swSel, declarations: {} };
+        blocks.push(swBlock);
+      }
+      const swHandle = isDark ? `{{${pal}.400}}` : `{{${pal}.600}}`;
+      const swState = isDark ? `{{${pal}.400}}` : `{{${pal}.800}}`;
+      const swTrack = isDark ? `{{${pal}.600}}` : `{{${pal}.400}}`;
+      const swIcon = isDark ? '#212121' : '#ffffff';
+      swBlock.declarations['--mat-slide-toggle-selected-icon-color'] = swIcon;
+      swBlock.declarations['--mat-slide-toggle-disabled-selected-icon-color'] = swIcon;
+      swBlock.declarations['--mat-slide-toggle-selected-focus-state-layer-color'] = swHandle;
+      swBlock.declarations['--mat-slide-toggle-selected-handle-color'] = swHandle;
+      swBlock.declarations['--mat-slide-toggle-selected-hover-state-layer-color'] = swHandle;
+      swBlock.declarations['--mat-slide-toggle-selected-pressed-state-layer-color'] = swHandle;
+      swBlock.declarations['--mat-slide-toggle-selected-focus-handle-color'] = swState;
+      swBlock.declarations['--mat-slide-toggle-selected-hover-handle-color'] = swState;
+      swBlock.declarations['--mat-slide-toggle-selected-pressed-handle-color'] = swState;
+      swBlock.declarations['--mat-slide-toggle-selected-focus-track-color'] = swTrack;
+      swBlock.declarations['--mat-slide-toggle-selected-hover-track-color'] = swTrack;
+      swBlock.declarations['--mat-slide-toggle-selected-pressed-track-color'] = swTrack;
+      swBlock.declarations['--mat-slide-toggle-selected-track-color'] = swTrack;
     }
     const chipBlock = blocks.find((b) => b.selector === 'html .mat-mdc-standard-chip');
     if (chipBlock) {
@@ -815,99 +900,128 @@ export const M2_TYPOGRAPHY_TEMPLATES: Readonly<Record<M2TypographyKey, readonly 
   const tsOutPath = path.join(REPO_ROOT, 'src/theme/m2-token-templates.ts');
   fs.writeFileSync(tsOutPath, tsContent, 'utf8');
 
-  // 5. Generate static `src/theming/_m2-system.scss` for apps importing `platform.scss` / `_all-theme.scss`
+  // 5. Generate static `src/theming/_m2-system.scss` directly from `baseBlocks`, `colorTemplates`,
+  //    `typographyTemplates.compact`, and `densityTemplates['-2']` so static SCSS and runtime templates
+  //    stay 100% synchronized by construction (zero duplicate override drift!).
   // Default DotOS palette: primary = teal-600 (lighter 100, darker 900), accent = orange-800 (lighter 100, darker 900), warn = red-800 (lighter 100, darker 900)
-  const staticDefaultScss = `
-${sentinelPreamble}
+  const HUE_SLOTS = SENTINEL_SLOTS.slice(0, 14);
+  const PALETTE_PROBE_SLOTS = [
+    ...HUE_SLOTS,
+    'default',
+    'lighter',
+    'darker',
+    'text',
+    'default-contrast',
+    'lighter-contrast',
+    'darker-contrast',
+    ...HUE_SLOTS.map((h) => `${h}-contrast`),
+  ];
+  const paletteDumpCss = compileSass(`
+@use 'sass:map';
+@use '@angular/material' as mat;
 $def-p: mat.m2-define-palette(mat.$m2-teal-palette, 600, 100, 900);
 $def-a: mat.m2-define-palette(mat.$m2-orange-palette, 800, 100, 900);
 $def-w: mat.m2-define-palette(mat.$m2-red-palette, 800, 100, 900);
-
-$light-t: patch-dui-m2-mode(mat.m2-define-light-theme((
-  color: (primary: $def-p, accent: $def-a, warn: $def-w),
-  typography: $typo-compact,
-  density: -2,
-)), 'light');
-
-$dark-t: patch-dui-m2-mode(mat.m2-define-dark-theme((
-  color: (primary: $def-p, accent: $def-a, warn: $def-w),
-)), 'dark');
-
-$darkblue-t: patch-dui-m2-mode(mat.m2-define-dark-theme((
-  color: (primary: $def-p, accent: $def-a, warn: $def-w),
-)), 'darkblue');
-
-html {
-  --dui-theme-primary: #00897b;
-  --dui-theme-on-primary: #ffffff;
-  --dui-theme-primary-container: rgba(0, 137, 123, 0.12);
-  --dui-theme-accent: #ef6c00;
-  --dui-theme-warn: #c62828;
-  --dui-primary-color: #00897b;
-  --dui-accent-color: #ef6c00;
-  --dui-warn-color: #c62828;
-  --dui-primary-container-color: rgba(0, 137, 123, 0.12);
-  @include mat.all-component-bases($light-t);
-  @include mat.all-component-colors($light-t);
-  @include mat.all-component-typographies($light-t);
-  @include mat.all-component-densities($light-t);
+:root {
+${['primary:$def-p', 'accent:$def-a', 'warn:$def-w']
+  .flatMap((pair) => {
+    const [name, scssVar] = pair.split(':');
+    return PALETTE_PROBE_SLOTS.map((slot) => {
+      if (slot.endsWith('-contrast') && !['default-contrast', 'lighter-contrast', 'darker-contrast'].includes(slot)) {
+        const hue = slot.slice(0, -'-contrast'.length);
+        const hueKey = /^\d+$/.test(hue) ? hue : `'${hue}'`;
+        return `  --dump-${name}-${slot}: #{map.get(map.get(${scssVar}, contrast), ${hueKey})};`;
+      }
+      const keyExpr = /^\d+$/.test(slot) ? slot : `'${slot}'`;
+      return `  --dump-${name}-${slot}: #{map.get(${scssVar}, ${keyExpr})};`;
+    });
+  })
+  .join('\n')}
 }
-@include mat.app-background();
-@include mat.elevation-classes();
+`);
+  const defaultPalettes = { primary: {}, accent: {}, warn: {} };
+  for (const m of paletteDumpCss.matchAll(/--dump-(primary|accent|warn)-([A-Za-z0-9_-]+):\s*([^;]+);/g)) {
+    defaultPalettes[m[1]][m[2]] = m[3].trim();
+  }
 
-html:where([data-theme='dark']) {
-  @include mat.all-component-colors($dark-t);
-}
+  function applyAlphaToCssColor(rawColor, alpha) {
+    const hexMatch = rawColor.match(/^#([0-9a-fA-F]{6})$/);
+    if (hexMatch) {
+      const hex = hexMatch[1];
+      const r = parseInt(hex.slice(0, 2), 16);
+      const g = parseInt(hex.slice(2, 4), 16);
+      const b = parseInt(hex.slice(4, 6), 16);
+      return alpha === 1 ? `#${hex.toLowerCase()}` : `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+    const rgbaMatch = rawColor.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/);
+    if (rgbaMatch) {
+      const [, r, g, b] = rgbaMatch;
+      if (alpha === 1) {
+        return `#${[r, g, b].map((n) => Number(n).toString(16).padStart(2, '0')).join('')}`;
+      }
+      return `rgba(${r}, ${g}, ${b}, ${alpha})`;
+    }
+    if (rawColor === 'white') return alpha === 1 ? '#ffffff' : `rgba(255, 255, 255, ${alpha})`;
+    if (rawColor === 'black') return alpha === 1 ? '#000000' : `rgba(0, 0, 0, ${alpha})`;
+    return rawColor;
+  }
 
-html:where([data-theme='darkblue']) {
-  @include mat.all-component-colors($darkblue-t);
-}
-`;
-  const rawStaticBlocks = parseCssBlocks(compileSass(staticDefaultScss), liveVars).filter(
-    (b) =>
-      !b.selector.endsWith('.mat-mdc-checkbox.mat-primary') &&
-      !b.selector.endsWith('.mat-badge-accent') &&
-      !b.selector.endsWith('.mat-badge-warn') &&
-      !b.selector.includes('.mat-mdc-chip-selected.') &&
-      !b.selector.includes('.mat-typography') &&
-      !/^html\s+\.mat-(h[1-6]|headline|title|subheading|body|small|caption|display)/.test(b.selector)
-  );
-  applyDensityOverrides(rawStaticBlocks, '-2');
+  function resolveStaticTemplateValue(val) {
+    return val.replace(
+      /\{\{(primary|accent|warn)\.([A-Za-z0-9_-]+)(?:@([0-9.]+))?\}\}/g,
+      (_full, palName, slot, alphaStr) => {
+        const raw = defaultPalettes[palName]?.[slot];
+        if (!raw) {
+          throw new Error(`Static _m2-system.scss missing palette slot ${palName}.${slot}`);
+        }
+        if (alphaStr !== undefined) {
+          return applyAlphaToCssColor(raw, Number(alphaStr));
+        }
+        return raw;
+      }
+    );
+  }
+
+  function mergeResolvedBlocksInto(targetList, sourceBlocks, htmlReplacement = 'html') {
+    const bySelector = new Map(targetList.map((b) => [b.selector, b]));
+    for (const src of sourceBlocks) {
+      const sel =
+        htmlReplacement === 'html'
+          ? src.selector
+          : src.selector
+              .split(',')
+              .map((part) => {
+                const t = part.trim();
+                if (t === 'html') return htmlReplacement;
+                if (t.startsWith('html ')) return `${htmlReplacement}${t.slice(4)}`;
+                return t;
+              })
+              .join(', ');
+      let dst = bySelector.get(sel);
+      if (!dst) {
+        dst = { selector: sel, declarations: {} };
+        targetList.push(dst);
+        bySelector.set(sel, dst);
+      }
+      for (const [k, v] of Object.entries(src.declarations)) {
+        dst.declarations[k] = resolveStaticTemplateValue(v);
+      }
+    }
+  }
+
+  const rawStaticBlocks = [];
+  mergeResolvedBlocksInto(rawStaticBlocks, baseBlocks, 'html');
+  mergeResolvedBlocksInto(rawStaticBlocks, colorTemplates.light, 'html');
+  mergeResolvedBlocksInto(rawStaticBlocks, typographyTemplates.compact, 'html');
+  mergeResolvedBlocksInto(rawStaticBlocks, densityTemplates['-2'], 'html');
+  mergeResolvedBlocksInto(rawStaticBlocks, colorTemplates.dark, "html:where([data-theme='dark'])");
+  mergeResolvedBlocksInto(rawStaticBlocks, colorTemplates.darkblue, "html:where([data-theme='darkblue'])");
+
   for (const b of rawStaticBlocks) {
-    if (b.selector === 'html') {
-      b.declarations['--mat-icon-color'] = 'rgba(0, 0, 0, 0.54)';
-      b.declarations['--mat-button-filled-disabled-container-color'] = 'rgba(0, 0, 0, 0.12)';
-      b.declarations['--mat-button-protected-disabled-container-color'] = 'rgba(0, 0, 0, 0.12)';
-      b.declarations['--mat-badge-background-color'] = 'transparent';
-      b.declarations['--mat-badge-text-color'] = 'inherit';
-      b.declarations['--mat-badge-container-shape'] = '50%';
-      b.declarations['--mat-badge-container-size'] = '0px';
-      b.declarations['--mat-badge-small-size-container-size'] = '0px';
-      b.declarations['--mat-badge-large-size-container-size'] = '0px';
-      b.declarations['--mat-badge-container-padding'] = '0px';
-      b.declarations['--mat-badge-small-size-container-padding'] = '0px';
-      b.declarations['--mat-badge-large-size-container-padding'] = '0px';
-      b.declarations['--mat-badge-line-height'] = 'normal';
-      b.declarations['--mat-badge-small-size-line-height'] = 'normal';
-      b.declarations['--mat-badge-large-size-line-height'] = 'normal';
-      b.declarations['--mat-card-elevated-container-elevation'] = 'none';
-      b.declarations['--mat-slider-handle-elevation'] = 'none';
-      b.declarations['--mat-menu-item-label-text-size'] = '14px';
-    } else if (b.selector === "html:where([data-theme='dark'])" || b.selector === "html:where([data-theme='darkblue'])") {
-      b.declarations['--mat-icon-color'] = 'rgba(255, 255, 255, 0.7)';
-      b.declarations['--mat-button-filled-disabled-container-color'] = 'rgba(255, 255, 255, 0.12)';
-      b.declarations['--mat-button-protected-disabled-container-color'] = 'rgba(255, 255, 255, 0.12)';
-      b.declarations['--mat-badge-background-color'] = 'transparent';
-      b.declarations['--mat-badge-text-color'] = 'inherit';
-      b.declarations['--mat-card-elevated-container-elevation'] = 'none';
-      b.declarations['--mat-slider-handle-elevation'] = 'none';
-    } else if (b.selector === 'html .mat-mdc-standard-chip' || b.selector.endsWith('] .mat-mdc-standard-chip')) {
-      const isDarkBlue = b.selector.includes('darkblue');
-      const isDark = !isDarkBlue && b.selector.includes('dark');
-      const chipBg = isDarkBlue ? '#455a64' : isDark ? '#616161' : '#e0e0e0';
-      b.declarations['--mat-chip-elevated-container-color'] = chipBg;
-      b.declarations['--mat-chip-elevated-selected-container-color'] = chipBg;
-      b.declarations['--mat-chip-elevated-disabled-container-color'] = chipBg;
+    for (const [k, v] of Object.entries(b.declarations)) {
+      if (v.includes('{{')) {
+        throw new Error(`Unresolved placeholder in static _m2-system.scss (${b.selector} -> ${k}: ${v})`);
+      }
     }
   }
 

@@ -199,6 +199,69 @@ function splitSelectorList(selector: string): string[] {
 }
 
 /**
+ * Resolves a top-level selector (where `parentSelector` is empty) that may contain legacy flattened `&` tokens,
+ * strictly preventing bare universal pseudo-element or pseudo-class selectors (`::after`, `::before`, `:hover`, etc.).
+ * @zh 在无父级选择器（顶层 `@global`）时安全解析含遗留扁平 `&` 的选择器，严禁产出全局裸 `::after`/`::before` 等污染选择器。
+ * @param rawSelector - top-level selector (`string`) / 顶层选择器（`string`）
+ * @returns Resolved CSS selector (`string`) / 安全解析后的 CSS 选择器（`string`）
+ */
+function resolveTopLevelSelector(rawSelector: string): string {
+  if (!rawSelector.includes('&')) {
+    return rawSelector;
+  }
+  const parts = splitSelectorList(rawSelector);
+  const resolved: string[] = [];
+  let lastPrefix = '';
+
+  for (const rawPart of parts) {
+    // Normalize inline compound `&` without whitespace (e.g. `.foo&.disabled` -> `.foo.disabled`)
+    const part = rawPart.replace(/(\S)&(?=[.:#\[])/g, '$1').trim();
+    if (!part) {
+      continue;
+    }
+    if (!part.includes('&')) {
+      const spaceIdx = part.lastIndexOf(' ');
+      lastPrefix = spaceIdx > 0 ? part.slice(0, spaceIdx).trim() : part;
+      resolved.push(part);
+      continue;
+    }
+
+    const prefixedAmpMatch = part.match(/^(.+?)\s+&([.:#\[][\s\S]*)$/);
+    if (prefixedAmpMatch) {
+      lastPrefix = prefixedAmpMatch[1].trim();
+      resolved.push(`${lastPrefix}${prefixedAmpMatch[2]}`);
+      continue;
+    }
+
+    const leadingAmpMatch = part.match(/^&([.:#\[][\s\S]*)$/);
+    if (leadingAmpMatch) {
+      const suffix = leadingAmpMatch[1];
+      if (lastPrefix) {
+        resolved.push(`${lastPrefix}${suffix}`);
+      } else if (suffix.startsWith(':')) {
+        // Scope top-level `&::after` / `&:hover` to `:root` (CSS Nesting top-level `&` semantics), never universal `*::after`
+        resolved.push(`:root${suffix}`);
+      } else {
+        resolved.push(suffix);
+      }
+      continue;
+    }
+
+    const trailingAmpMatch = part.match(/^(.*?\S)\s+&$/);
+    if (trailingAmpMatch) {
+      resolved.push(trailingAmpMatch[1].trim());
+      continue;
+    }
+
+    const cleaned = part.replace(/\s*&\s*/g, ' ').trim();
+    if (cleaned) {
+      resolved.push(cleaned.startsWith(':') ? `:root${cleaned}` : cleaned);
+    }
+  }
+  return resolved.join(', ');
+}
+
+/**
  * Resolves a child selector against a parent selector, supporting `&` nesting (suffix, prefix, and multi-selector).
  * @zh 将子选择器与父选择器合并，完整支持 `&` 嵌套（后缀、前缀及逗号多选择器笛卡尔展开）。
  * @param parentSelector - parent selector (`string`) / 父级选择器（`string`）
@@ -208,7 +271,7 @@ function splitSelectorList(selector: string): string[] {
 function combineNestedSelector(parentSelector: string, childSelector: string): string {
   const trimmedChild = childSelector.trim();
   if (!parentSelector) {
-    return trimmedChild.replace(/&/g, '').trim();
+    return resolveTopLevelSelector(trimmedChild);
   }
   const parents = splitSelectorList(parentSelector);
   const children = splitSelectorList(trimmedChild);

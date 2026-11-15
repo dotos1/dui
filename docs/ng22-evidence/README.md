@@ -6,7 +6,7 @@
 
 | 证据文件 | 对应任务 / 审计项 | 内容说明 |
 | --- | --- | --- |
-| `m2-parity-27-report.md` | `T1` / `T4-1` / `G2` / `W3` | 真实无头 Chrome 27 组合（`light / dark / darkblue` × `loose / normal / compact` × 3 套调色板）59 个采样节点全量 `getComputedStyle` 逐值比对（颜色容差 `RGB <= ±1`）、6 轮运行时连续切换 vs `localStorage` 冷启动刷新零差异校验，以及 Material 18 → 22 底层非视觉基础 CSS 逐项精确清单 |
+| `m2-parity-27-report.md` | `T1` / `T4-1` / `G2` / `W3` | 真实无头 Chrome 27 组合（`light / dark / darkblue` × `loose / normal / compact` × 3 套调色板）68 个采样节点（含子层包装器与 `::before`/`::after` 伪元素）全量 `getComputedStyle` 逐值比对（颜色容差 `RGB <= ±1`）、6 轮运行时连续切换 vs `localStorage` 冷启动刷新零差异校验，以及 Material 18 → 22 底层基础 CSS 逐项精确清单 |
 | `m2-parity-27-report.json` | `T1` / `T4-1` / `G2` / `W3` | 上述 27 组合与 6 轮冷启动校验的结构化机读完整报告 |
 | `screenshots/` | `T1` / `W3` | 27 组 `*-7452.png`（`github/master` `7.4.52` 实测基线截图）与 `*-ng22.png`（当前分支实测截图），共 54 张全页 PNG 截图 |
 | `w1-w2-w5-fesm2022-verify.json` | `W1` / `W2` / `W5` / `T4-1` / `T5` | `dist/dui` 产物包名 `@dotos1/dui`、零 `@dotos/dui` 残留、零 `--mat-sys-*` 残留、`--dui-theme-*` 动态根变量、`useDefineForClassFields: false`、`provideZoneChangeDetection` 及 `yarn.lock` 零本地私服校验报告 |

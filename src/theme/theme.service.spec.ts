@@ -19,6 +19,8 @@ import {
   matControlPlaceholderColor,
   matCoreTheme,
   matDatepickerTheme,
+  matDarkBlueTheme,
+  matDarkTheme,
   matDialogTheme,
   matDividerTheme,
   matExpansionPanelTheme,
@@ -28,6 +30,7 @@ import {
   matIconButtonTheme,
   matIconTheme,
   matInputTheme,
+  matLightTheme,
   matListTheme,
   matMenuTheme,
   matOptgroupTheme,
@@ -308,5 +311,46 @@ describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
     );
     expect(customSheet.cssText).toContain('.custom-r3-probe');
     expect(customSheet.cssText).toContain('#2196f3');
+  });
+
+  it('never emits bare universal ::after, ::before, :hover, or :active selectors in createMaterialThemeStyles or top-level & rules', () => {
+    service.changeTheme('teal-600', 'orange-800', 'red-800', 'light', 'loose', 'fill');
+    const baseTheme = service.getTheme();
+    const presets: Theme[] = [
+      matLightTheme(baseTheme.primary, baseTheme.accent, baseTheme.warn, baseTheme.density, baseTheme.typography),
+      matDarkTheme(baseTheme.primary, baseTheme.accent, baseTheme.warn, baseTheme.density, baseTheme.typography),
+      matDarkBlueTheme(baseTheme.primary, baseTheme.accent, baseTheme.warn, baseTheme.density, baseTheme.typography),
+    ];
+    for (const preset of presets) {
+      const cssText = createMaterialThemeStyles(preset).cssText;
+      // Check every selector header before `{` and split comma-separated selector lists
+      const selectorHeaders = Array.from(cssText.matchAll(/(?:^|\}|\n)\s*([^{}@]+?)\s*\{/g)).map((m) => m[1]);
+      for (const header of selectorHeaders) {
+        for (const rawSel of header.split(',')) {
+          const sel = rawSel.trim();
+          expect(sel).not.toMatch(/^::?(after|before|hover|active|focus|checked)\b/);
+          expect(sel).not.toContain('&');
+        }
+      }
+      expect(cssText).toContain('query-builder .q-connector::before, query-builder .q-connector::after');
+    }
+
+    const legacyTopLevelAmpCss = serializeThemeRulesToCss({
+      '@global': {
+        'query-builder .q-connector  &::before, &::after': {
+          'border-color': 'rgba(0, 0, 0, 0.12)',
+        },
+        '.ng-scrollbar-hover &:hover, &:active ': {
+          'background-color': 'rgba(0, 0, 0, 0.26)',
+        },
+        '&::after': {
+          content: '',
+        },
+      },
+    });
+    expect(legacyTopLevelAmpCss).toContain('query-builder .q-connector::before, query-builder .q-connector::after');
+    expect(legacyTopLevelAmpCss).toContain('.ng-scrollbar-hover:hover, .ng-scrollbar-hover:active');
+    expect(legacyTopLevelAmpCss).toContain(':root::after');
+    expect(legacyTopLevelAmpCss).not.toMatch(/(?:^|,|\})\s*::?(after|before|hover|active)\s*[,{]/);
   });
 });

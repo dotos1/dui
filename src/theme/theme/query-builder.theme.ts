@@ -27,13 +27,13 @@ export function duiQueryBuilderTheme(theme: Theme): Object {
     "query-builder .q-switch-label, .q-button":{
       border: "1px solid "+matColor(theme.foreground, 'divider')
     },
-    "query-builder .q-switch-label, .q-button &:hover":{
+    "query-builder .q-switch-label:hover, query-builder .q-button:hover":{
       "background-color": "#F0F0F0"
     },
     "query-builder .q-switch-label":{
       "background-color": "#e4e4e4"
     },
-    "query-builder .q-switch-radio &:checked + .q-switch-label":{
+    "query-builder .q-switch-radio:checked + .q-switch-label":{
       "border": "#e4e4e4",
       "background": backgroundCardColor,
       "color": "rgba(49, 118, 179,1.0)"
@@ -52,7 +52,7 @@ export function duiQueryBuilderTheme(theme: Theme): Object {
       "border":" 1px solid "+matColor(theme.foreground, 'divider'),
       "background": backgroundCardColor
     },
-    "query-builder .q-connector  &::before, &::after":{
+    "query-builder .q-connector::before, query-builder .q-connector::after":{
       "border-color": matColor(theme.foreground, 'divider')
     }
   };
