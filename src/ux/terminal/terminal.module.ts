@@ -5,7 +5,7 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ResizableModule } from '@dotos/dui/common/resize-element';
+import { ResizableModule } from '@dotos1/dui/common/resize-element';
 import { TerminalComponent } from './terminal.component';
 import { GlobalStyleComponent } from './global-style/global-style.component';
 

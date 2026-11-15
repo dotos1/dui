@@ -4,7 +4,7 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import {forEach}  from 'lodash-es';
 import { Observable, Subject } from 'rxjs';

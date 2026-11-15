@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `HighlightExampleComponent` (selector: 'app-highlight-example') providing multi-language syntax highlight demo.
@@ -55,7 +55,7 @@ export class HighlightExampleComponent {
    */
   readonly snippets: Record<'typescript' | 'html' | 'json', string> = {
     typescript: `import { Component } from '@angular/core';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 
 @Component({ selector: 'app-demo', template: '<dui-button text="Run"></dui-button>' })
 export class DemoComponent {
@@ -67,7 +67,7 @@ export class DemoComponent {
   [copyCodeToClipboard]="true">
 </dui-highlight>`,
     json: `{
-  "package": "@dotos/dui",
+  "package": "@dotos1/dui",
   "entryPoints": 96,
   "bilingualDocs": true
 }`,

@@ -4,7 +4,7 @@
  */
 
 import { NgModule } from '@angular/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { SelectOptionsPipe } from './select-options.pipe';
 
 /**

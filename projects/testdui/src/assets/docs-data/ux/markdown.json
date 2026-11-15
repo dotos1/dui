@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/markdown",
+  "importPath": "@dotos1/dui/ux/markdown",
   "exports": [
     {
       "name": "genHeadingId",
@@ -325,5 +325,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MarkdownComponent, MarkdownModule } from '@dotos/dui/ux/markdown';\n\n<dui-markdown [content]=\"...\" [simpleLineBreaks]=\"...\" [hostedUrl]=\"...\" (contentReady)=\"...\"></dui-markdown>"
+  "suggestedUsageSnippet": "import { MarkdownComponent, MarkdownModule } from '@dotos1/dui/ux/markdown';\n\n<dui-markdown [content]=\"...\" [simpleLineBreaks]=\"...\" [hostedUrl]=\"...\" (contentReady)=\"...\"></dui-markdown>"
 }

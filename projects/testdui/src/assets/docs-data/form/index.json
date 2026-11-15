@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form",
+  "importPath": "@dotos1/dui/form",
   "exports": [
     {
       "name": "AbstractTrigger",
@@ -4234,5 +4234,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ArrayInputComponent, ArrayInputModule } from '@dotos/dui/form';\n\n<array-input-field (result)=\"...\"></array-input-field>"
+  "suggestedUsageSnippet": "import { ArrayInputComponent, ArrayInputModule } from '@dotos1/dui/form';\n\n<array-input-field (result)=\"...\"></array-input-field>"
 }

@@ -9,8 +9,8 @@ import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ChangeDetect
 import { TooltipPosition } from '@angular/material/tooltip';
 import { ThemePalette } from '@angular/material/core';
 import { ClipboardService } from './clipboard.service';
-import { TranslateService } from '@dotos/dui/translator';
-import { coerceBoolean } from '@dotos/dui/core/decorators';
+import { TranslateService } from '@dotos1/dui/translator';
+import { coerceBoolean } from '@dotos1/dui/core/decorators';
 
 /**
  * A ready-made icon button that copies a given string to the clipboard when clicked,

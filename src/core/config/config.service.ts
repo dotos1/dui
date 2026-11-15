@@ -8,9 +8,9 @@ import { Injectable } from '@angular/core';
 import { ConfigLoader } from './config.loader';
 import { Observable, Subject } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
-import { DuiBase } from '@dotos/dui/base';
-import { getValue } from '@dotos/dui/base';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { DuiBase } from '@dotos1/dui/base';
+import { getValue } from '@dotos1/dui/base';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import { DuiSettings } from './settings';
 
 /**

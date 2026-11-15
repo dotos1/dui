@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/items/row-or-column.ts`，提供行or列相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator'
+import { TranslateService } from '@dotos1/dui/translator'
 import { ComponentItemConfig, ItemConfig, RowOrColumnItemConfig, StackItemConfig } from '../config/config'
 import { ResolvedRowOrColumnItemConfig, ResolvedStackItemConfig } from '../config/resolved-config'
 import { Splitter } from '../controls/splitter'

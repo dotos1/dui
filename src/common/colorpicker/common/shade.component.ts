@@ -8,7 +8,7 @@ import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  NgModule,
 } from '@angular/core';
 import { CoordinatesModule } from './coordinates.directive';
 import { HSLA, RGBA } from './helpers/color.interfaces';
-import { TinyColor } from '@dotos/dui/core/color';
+import { TinyColor } from '@dotos1/dui/core/color';
 
 /**
  * Angular component `ShadeComponent` (selector: 'color-shade') providing shade component presentation and interaction in `src/common/colorpicker/common`.

@@ -5,7 +5,7 @@
 
 
 import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, ChangeDetectorRef, ComponentRef, Directive, DoCheck, HostBinding, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
-import { Base, DuiCompiledExpression, DuiConfig, DuiExpression, DuiListeners, DuiPluginConfig, DuiStyle } from '@dotos/dui/base';
+import { Base, DuiCompiledExpression, DuiConfig, DuiExpression, DuiListeners, DuiPluginConfig, DuiStyle } from '@dotos1/dui/base';
 import {isFunction,isObjectLike,isString}  from 'lodash-es';
 import { Dui } from './dui';
 

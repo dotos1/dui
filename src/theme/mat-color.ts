@@ -4,7 +4,7 @@
  */
 
 import cssColorToHex from 'colornames';
-import { Color, Solver, TinyColor } from '@dotos/dui/core/color';
+import { Color, Solver, TinyColor } from '@dotos1/dui/core/color';
 
 
 // const cssColorToHex = _cssColorToHex;

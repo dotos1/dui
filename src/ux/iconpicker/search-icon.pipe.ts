@@ -4,7 +4,7 @@
  */
 
 import { Pipe, PipeTransform } from '@angular/core';
-import { Icon } from '@dotos/dui/common/icon';
+import { Icon } from '@dotos1/dui/common/icon';
 
 /**
  * Angular pipe `SearchIconPipe` (name: 'searchIcon') transforming values for search icon pipe display in templates.

@@ -17,7 +17,7 @@ import { MatSelectSearchClearDirective } from './mat-select-search-clear.directi
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSelectNoEntriesFoundDirective } from './mat-select-no-entries-found.directive';
 import { MatDividerModule } from '@angular/material/divider';
-import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 

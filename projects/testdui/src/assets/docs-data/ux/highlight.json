@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/highlight",
+  "importPath": "@dotos1/dui/ux/highlight",
   "exports": [
     {
       "name": "CopyCodeButtonComponent",
@@ -193,5 +193,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { CopyCodeButtonComponent, HighlightModule } from '@dotos/dui/ux/highlight';\n\n<copy-code-button [copiedContent]=\"...\" [copyCodeToClipboard]=\"...\" [copyCodeTooltips]=\"...\"></copy-code-button>"
+  "suggestedUsageSnippet": "import { CopyCodeButtonComponent, HighlightModule } from '@dotos1/dui/ux/highlight';\n\n<copy-code-button [copiedContent]=\"...\" [copyCodeToClipboard]=\"...\" [copyCodeTooltips]=\"...\"></copy-code-button>"
 }

@@ -11,7 +11,7 @@ import { takeUntil } from 'rxjs/operators';
 import { CardViewSelectItemModel } from '../../models';
 import { CardViewUpdateService } from '../../services';
 import { CardViewSelectItemOption } from '../../interfaces';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Angular component `CardViewSelectItemComponent` (selector: 'dui-card-view-selectitem') providing card view select item component presentation and interaction in `src/data/cardview/components/card-view-selectitem`.

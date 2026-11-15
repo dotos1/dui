@@ -6,8 +6,8 @@
 import { AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, ViewChild } from '@angular/core';
 import { MatField } from '../base/mat.field';
 import { MatRadioGroup } from '@angular/material/radio';
-import { TranslateService} from '@dotos/dui/translator';
-import { observe } from '@dotos/dui/core/form';
+import { TranslateService} from '@dotos1/dui/translator';
+import { observe } from '@dotos1/dui/core/form';
 
 /**
  * Angular component `RadioGroupField` (selector: 'radio-group') providing radio group field presentation and interaction in `src/form/radiogroup`.

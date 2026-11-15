@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/carousel",
+  "importPath": "@dotos1/dui/common/carousel",
   "exports": [
     {
       "name": "MatCarousel",
@@ -531,5 +531,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { MatCarouselComponent, MatCarouselModule } from '@dotos/dui/common/carousel';\n\n<mat-carousel [timings]=\"...\" [svgIconOverrides]=\"...\" [autoplay]=\"...\" (change)=\"...\"></mat-carousel>"
+  "suggestedUsageSnippet": "import { MatCarouselComponent, MatCarouselModule } from '@dotos1/dui/common/carousel';\n\n<mat-carousel [timings]=\"...\" [svgIconOverrides]=\"...\" [autoplay]=\"...\" (change)=\"...\"></mat-carousel>"
 }

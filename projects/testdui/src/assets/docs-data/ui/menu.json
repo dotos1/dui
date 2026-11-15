@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/menu",
+  "importPath": "@dotos1/dui/ui/menu",
   "exports": [
     {
       "name": "MenuBarComponent",
@@ -729,5 +729,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { MenuBarComponent, MenuModule } from '@dotos/dui/ui/menu';\n\n<dui-menu-bar [dense]=\"...\" [items]=\"...\" [menuClasses]=\"...\"></dui-menu-bar>"
+  "suggestedUsageSnippet": "import { MenuBarComponent, MenuModule } from '@dotos1/dui/ui/menu';\n\n<dui-menu-bar [dense]=\"...\" [items]=\"...\" [menuClasses]=\"...\"></dui-menu-bar>"
 }

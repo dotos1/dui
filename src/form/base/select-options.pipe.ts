@@ -6,7 +6,7 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Observable, of as observableOf } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { FieldConfig } from '@dotos/dui/core/form';
+import { FieldConfig } from '@dotos1/dui/core/form';
 import { getOptionDisabled, getOptionGroup, getOptionLabel, getOptionValue } from './select-option-props';
 
 /**

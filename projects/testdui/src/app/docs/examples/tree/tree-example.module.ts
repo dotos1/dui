@@ -6,9 +6,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TreeModule } from '@dotos/dui/tree';
-import { TranslateModule } from '@dotos/dui/translator';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { TreeModule } from '@dotos1/dui/tree';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `TreeExampleComponent` (selector: 'app-tree-example') providing tree example component presentation and interaction in `projects/testdui/src/app/docs/examples/tree`.

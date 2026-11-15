@@ -14,7 +14,7 @@ import {
   SimpleChanges,
   ComponentRef, ChangeDetectionStrategy
 } from '@angular/core';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Dynamically instantiates a component registered in the `Dui` component factory registry

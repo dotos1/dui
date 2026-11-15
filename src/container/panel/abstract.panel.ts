@@ -4,8 +4,8 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
-import { ComponentBase } from '@dotos/dui/core';
+import { DuiConfig } from '@dotos1/dui/base';
+import { ComponentBase } from '@dotos1/dui/core';
 import { AfterViewInit, ChangeDetectorRef, Directive, ElementRef, HostBinding, Injector, Input, OnDestroy, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import {isObjectLike,isArray,each}  from 'lodash-es';
 import { Container } from '../container.main';

@@ -6,8 +6,8 @@
 import { Injectable,Injector } from "@angular/core";
 import { HttpEvent, HttpRequest, HttpHandler, HttpInterceptor, HttpResponse } from "@angular/common/http";
 import { Observable} from "rxjs";
-import { ToastrService } from "@dotos/dui/common/toastr";
-import { TranslationService } from '@dotos/dui/translator';
+import { ToastrService } from "@dotos1/dui/common/toastr";
+import { TranslationService } from '@dotos1/dui/translator';
 import { tap } from 'rxjs/operators';
 
 /**

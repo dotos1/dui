@@ -4,7 +4,7 @@
  * @zh W3 M2 动态 `ThemeService`、哨兵 M2 令牌解析、`<style>` 标签 DOM 层叠顺序、JSS 嵌套序列化与 `mat*Theme` 导出单测。
  */
 
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import {
   createMaterialCoreStyles,
   createMaterialThemeStyles,
@@ -278,5 +278,35 @@ describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
     const compactCss = document.head.querySelector('style[data-dui-role="material-theme"]')?.textContent ?? '';
     expect(compactCss).toContain('padding: 8px;');
     expect(compactCss).toContain('margin-top: .0078em !important;');
+  });
+
+  it('restores 7.4.52 visual parity tokens, createThemeStyles public API, and dynamic M2 --dui-theme-* root vars with zero --mat-sys-*', () => {
+    service.changeTheme('blue-500', 'pink-500', 'red-700', 'light', 'loose', 'fill');
+    const coreCss = document.head.querySelector('style[data-dui-role="core"]')?.textContent ?? '';
+    const matCss = document.head.querySelector('style[data-dui-role="material-theme"]')?.textContent ?? '';
+
+    // T4-1: Dynamic M2 root variables follow ThemeService palette changes, with zero --mat-sys-* M3 tokens
+    expect(matCss).toContain('--dui-theme-primary: #2196f3;');
+    expect(matCss).toContain('--dui-theme-accent: #e91e63;');
+    expect(matCss).toContain('--dui-theme-warn: #d32f2f;');
+    expect(matCss).toContain('--dui-theme-primary-container: rgba(33,150,243,0.12);');
+    expect(matCss).not.toContain('--mat-sys-');
+    expect(coreCss).not.toContain('--mat-sys-');
+
+    // T1: 7.4.52 appearance restoration (card & slider shadow none, badge transparent, menu-item 14px, icon foreground)
+    expect(matCss).toContain('--mat-card-elevated-container-elevation: none;');
+    expect(matCss).toContain('--mat-slider-handle-elevation: none;');
+    expect(matCss).toContain('--mat-badge-background-color: transparent;');
+    expect(matCss).toContain('--mat-menu-item-label-text-size: 14px;');
+    expect(matCss).toContain('--mat-icon-color: rgba(0, 0, 0, 0.54);');
+
+    // G3: createThemeStyles public method compatibility
+    const customSheet = service.createThemeStyles(
+      service.getTheme(),
+      (t: Theme) => ({ '.custom-r3-probe': { color: t.primary['default'] } }),
+      true
+    );
+    expect(customSheet.cssText).toContain('.custom-r3-probe');
+    expect(customSheet.cssText).toContain('#2196f3');
   });
 });

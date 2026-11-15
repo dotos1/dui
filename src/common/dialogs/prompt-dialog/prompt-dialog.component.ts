@@ -17,7 +17,7 @@ import { fromEvent, Subject } from 'rxjs';
 import {  takeUntil } from 'rxjs/operators';
 import { MatInput } from '@angular/material/input';
 import { FormControl } from '@angular/forms';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Single-input dialog with built-in validation (length/min/max/pattern/required); normally

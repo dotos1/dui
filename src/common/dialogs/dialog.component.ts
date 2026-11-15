@@ -12,7 +12,7 @@ import {
   OnInit,
   OnDestroy, ChangeDetectionStrategy,
 } from '@angular/core';
-import { DotosConfig, DotosConfigService, duiDialogTheme, ThemeService } from '@dotos/dui/theme';
+import { DotosConfig, DotosConfigService, duiDialogTheme, ThemeService } from '@dotos1/dui/theme';
 import { Subject } from 'rxjs';
 
 import {  takeUntil } from 'rxjs/operators';

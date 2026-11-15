@@ -8,10 +8,10 @@ import {
   AfterViewChecked,
   ChangeDetectionStrategy,  ChangeDetectorRef,  Component,  Input, ViewEncapsulation,
 } from '@angular/core';
-import {  ColorWrap,  isValidHex,  zDepth,} from '@dotos/dui/common/colorpicker/common';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
+import {  ColorWrap,  isValidHex,  zDepth,} from '@dotos1/dui/common/colorpicker/common';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
 import { SketchDialogComponent } from '../sketch/sketch-dialog.component';
-import { DialogService } from '@dotos/dui/common/dialogs';
+import { DialogService } from '@dotos1/dui/common/dialogs';
 import { GoogleColorService } from './google-color.services';
 
 /**

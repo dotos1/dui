@@ -12,7 +12,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { TemplatePortal } from '@angular/cdk/portal';
-import { FadeInOutAnimation } from '@dotos/dui/common/animations';
+import { FadeInOutAnimation } from '@dotos1/dui/common/animations';
 
 /**
  * Enumeration `LoadingType` defining supported loading type constants.

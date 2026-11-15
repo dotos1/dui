@@ -1,6 +1,6 @@
 ## 概述
 
-`theme`（`@dotos/dui/theme`）是 DUI 的运行时动态主题与设计令牌（Design Tokens）引擎。它基于 **JSS（CSS-in-JS）** 在浏览器运行时动态计算并注入组件样式表，无需重新编译 SCSS 即可毫秒级切换主色（Primary）、辅助色（Accent）、警示色（Warn）、明暗模式（`light` / `dark` / `darkblue`）以及表单外观密度。
+`theme`（`@dotos1/dui/theme`）是 DUI 的运行时动态主题与设计令牌（Design Tokens）引擎。它基于 **JSS（CSS-in-JS）** 在浏览器运行时动态计算并注入组件样式表，无需重新编译 SCSS 即可毫秒级切换主色（Primary）、辅助色（Accent）、警示色（Warn）、明暗模式（`light` / `dark` / `darkblue`）以及表单外观密度。
 
 ## 核心模块与职责
 
@@ -13,7 +13,7 @@
 
 ## 架构与设计模式
 
-- **JSS 动态样式合成**：`@dotos/dui/theme` 内部为每一个 Angular Material 控件与 DUI 扩展控件维护了函数式主题产生器（如 `duiButtonTheme`、`duiDatatableTheme`），当色板或明暗模式变更时，仅重算色阶变量并更新 `<style>` 节点。
+- **JSS 动态样式合成**：`@dotos1/dui/theme` 内部为每一个 Angular Material 控件与 DUI 扩展控件维护了函数式主题产生器（如 `duiButtonTheme`、`duiDatatableTheme`），当色板或明暗模式变更时，仅重算色阶变量并更新 `<style>` 节点。
 - **响应式配置流**：通过 `DotosConfigService.config`（`BehaviorSubject`），应用内任何组件均可实时订阅当前主题状态（记得配合 `takeUntil(this.destroy$)` 在 `ngOnDestroy` 中退订）。
 
 ## 典型用法与最佳实践
@@ -22,7 +22,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
 
 @Component({ selector: 'app-root', templateUrl: './app.component.html' })
 export class AppComponent implements OnInit, OnDestroy {

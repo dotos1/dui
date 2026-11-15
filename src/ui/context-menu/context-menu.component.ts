@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { MenuBase,MenuDirective } from '@dotos/dui/ui/menu';
+import { MenuBase,MenuDirective } from '@dotos1/dui/ui/menu';
 
 import { ContextMenuOverlayRef } from './context-menu-overlay';
 import { CONTEXT_MENU_DIRECTION } from './direction.token';

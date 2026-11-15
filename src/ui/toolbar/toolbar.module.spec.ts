@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { DuiBase } from '@dotos/dui/base';
+import { DuiBase } from '@dotos1/dui/base';
 import { DuiToolbarModule } from './toolbar.module';
 
 /**

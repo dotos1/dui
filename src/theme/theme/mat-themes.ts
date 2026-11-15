@@ -301,7 +301,7 @@ export function matCoreTheme(theme: Theme): Record<string, unknown> {
   const px64 = typoKey === 'loose' ? '64px' : typoKey === 'normal' ? '56px' : '48px';
 
   return mergeThemeStyleMaps(
-    resolveM2BlocksForTheme(theme, ['--mat-sys-', '--mat-app-']),
+    resolveM2BlocksForTheme(theme, ['--mat-app-', '--dui-']),
     matRippleTheme(theme),
     matOptionTheme(theme),
     matOptgroupTheme(theme),
@@ -314,27 +314,27 @@ export function matCoreTheme(theme: Theme): Record<string, unknown> {
       '.mat-theme-loaded-marker': {
         display: 'none',
       },
-      '.mat-h1, .mat-headline, .mat-typography .mat-h1, .mat-typography .mat-headline, .mat-typography h1': {
+      '.mat-h1, .mat-headline, .mat-typography h1': {
         ...(matTypographyLevelToStyles(config, 'headline') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h2, .mat-typography .mat-h2, .mat-typography h2': {
+      '.mat-h2, .mat-typography h2': {
         ...(matTypographyLevelToStyles(config, 'title') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-title, .mat-typography .mat-title': {
+      '.mat-title': {
         ...(matTypographyLevelToStyles(config, 'subheading-2') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h3, .mat-subheading-2, .mat-typography .mat-h3, .mat-typography .mat-subheading-2, .mat-typography h3': {
+      '.mat-h3, .mat-subheading-2, .mat-typography h3': {
         ...(matTypographyLevelToStyles(config, 'subheading-2') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h4, .mat-subheading-1, .mat-typography .mat-h4, .mat-typography .mat-subheading-1, .mat-typography h4': {
+      '.mat-h4, .mat-subheading-1, .mat-typography h4': {
         ...(matTypographyLevelToStyles(config, 'subheading-1') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h5, .mat-typography .mat-h5, .mat-typography h5': {
+      '.mat-h5, .mat-typography h5': {
         ...(matTypographyFontShorthand(
           multiplyRule(matFontSize(config, 'body-1'), 0.83),
           matFontWeight(config, 'body-1'),
@@ -343,7 +343,7 @@ export function matCoreTheme(theme: Theme): Record<string, unknown> {
         ) as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h6, .mat-typography .mat-h6, .mat-typography h6': {
+      '.mat-h6, .mat-typography h6': {
         ...(matTypographyFontShorthand(
           multiplyRule(matFontSize(config, 'body-1'), 0.67),
           matFontWeight(config, 'body-1'),
@@ -352,19 +352,12 @@ export function matCoreTheme(theme: Theme): Record<string, unknown> {
         ) as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-body-strong, .mat-body-2, .mat-typography .mat-body-strong, .mat-typography .mat-body-2': {
-        ...(matTypographyLevelToStyles(config, 'body-2') as Record<string, unknown>),
-        margin: '0',
-      },
-      '.mat-body, .mat-body-1, .mat-typography, .mat-typography .mat-body, .mat-typography .mat-body-1': {
-        ...(matTypographyLevelToStyles(config, 'body-1') as Record<string, unknown>),
-        margin: '0',
-      },
+      '.mat-body-strong, .mat-body-2': matTypographyLevelToStyles(config, 'body-2'),
+      '.mat-body, .mat-body-1, .mat-typography': matTypographyLevelToStyles(config, 'body-1'),
       '.mat-body p, .mat-body-1 p, .mat-typography p': {
         margin: '0 0 ' + px12,
       },
-      '.mat-small, .mat-caption, .mat-typography .mat-small, .mat-typography .mat-caption':
-        matTypographyLevelToStyles(config, 'caption'),
+      '.mat-small, .mat-caption': matTypographyLevelToStyles(config, 'caption'),
       '.mat-display-4, .mat-typography .mat-display-4': {
         ...(matTypographyLevelToStyles(config, 'display-4') as Record<string, unknown>),
         margin: '0 0 ' + px56,
@@ -405,7 +398,12 @@ export function matAutocompleteTheme(theme: Theme): Record<string, unknown> {
  * @returns Style map (`Record<string, unknown>`) / 样式规则表
  */
 export function matBadgeTheme(theme: Theme): Record<string, unknown> {
-  return resolveM2BlocksForTheme(theme, ['--mat-badge-']);
+  return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-badge-']), {
+    '.mat-badge-content': {
+      'min-width': '0px !important',
+      'min-height': '0px !important',
+    },
+  });
 }
 
 /**
@@ -421,9 +419,6 @@ export function matButtonTheme(theme: Theme): Record<string, unknown> {
     },
     '.mat-mdc-unelevated-button': {
       'min-height': 'var(--mat-button-filled-container-height)',
-    },
-    '.mat-mdc-raised-button': {
-      'min-height': 'var(--mat-button-protected-container-height, 32px)',
     },
     '.mat-mdc-outlined-button': {
       'min-height': 'var(--mat-button-outlined-container-height)',
@@ -521,7 +516,12 @@ export function matCheckboxTheme(theme: Theme): Record<string, unknown> {
  * @returns Style map (`Record<string, unknown>`) / 样式规则表
  */
 export function matChipsTheme(theme: Theme): Record<string, unknown> {
-  return resolveM2BlocksForTheme(theme, ['--mat-chip-']);
+  return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-chip-']), {
+    '.mat-mdc-chip-set .mat-mdc-chip': {
+      'margin-top': '4px !important',
+      'margin-bottom': '4px !important',
+    },
+  });
 }
 
 /**
@@ -588,9 +588,6 @@ export function matFormFieldTheme(theme: Theme): Record<string, unknown> {
   return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-form-field-']), {
     '.mat-mdc-text-field-wrapper': {
       '--mat-mdc-form-field-label-offset-x': '-8px',
-      ' .mdc-text-field__input': {
-        'padding-left': '5px',
-      },
     },
   });
 }
@@ -615,6 +612,8 @@ export function matIconTheme(theme: Theme): Record<string, unknown> {
   return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-icon-']), {
     '.mat-icon': {
       color: 'var(--mat-icon-color)',
+      'flex-shrink': '1 !important',
+      'min-height': '0px !important',
       svg: {
         stroke: 'var(--mat-icon-color) !important',
       },
@@ -689,6 +688,11 @@ export function matMenuTheme(theme: Theme): Record<string, unknown> {
   const typoKey = normalizeTypographyKey(theme.typography, theme.density);
   const menuMinHeight = typoKey === 'loose' ? '44px !important' : typoKey === 'normal' ? '40px !important' : '36px !important';
   return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-menu-']), {
+    '.mat-mdc-menu-panel': {
+      'animation-name': 'none !important',
+      'animation-timing-function': 'ease !important',
+      'transform-origin': 'top left !important',
+    },
     '.mat-mdc-menu-item': {
       'min-height': menuMinHeight,
     },

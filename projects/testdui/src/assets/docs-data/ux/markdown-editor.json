@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/markdown-editor",
+  "importPath": "@dotos1/dui/ux/markdown-editor",
   "exports": [
     {
       "name": "MonacoMarkdownExtension",
@@ -26,5 +26,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/ux/markdown-editor';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/ux/markdown-editor';"
 }

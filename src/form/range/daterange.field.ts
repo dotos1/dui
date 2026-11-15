@@ -12,7 +12,7 @@ import {
   MomentDateAdapter, MAT_MOMENT_DATE_ADAPTER_OPTIONS, MAT_MOMENT_DATE_FORMATS
 } from '@angular/material-moment-adapter';
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { RangeField } from './range.field';
 
 /**

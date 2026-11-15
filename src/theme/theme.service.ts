@@ -7,9 +7,9 @@
 
 import { Injectable, Provider } from '@angular/core';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
-import { MatColors } from '@dotos/dui/core/color';
-import { ServiceLocator } from '@dotos/dui/core/services';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { MatColors } from '@dotos1/dui/core/color';
+import { ServiceLocator } from '@dotos1/dui/core/services';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import { BehaviorSubject } from 'rxjs';
 
 import { Palette, Theme, TypographyConfig } from './interfaces';

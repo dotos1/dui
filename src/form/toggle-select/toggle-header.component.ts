@@ -29,8 +29,8 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { distinctUntilChanged, startWith, takeUntil } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
-import { coerceBoolean } from '@dotos/dui/core/decorators';
-import { MediaBreakpoints } from '@dotos/dui/core/media';
+import { coerceBoolean } from '@dotos1/dui/core/decorators';
+import { MediaBreakpoints } from '@dotos1/dui/core/media';
 
 /**
  * Interface `ToggleHeaderOption` defining the contract and properties for toggle header option.

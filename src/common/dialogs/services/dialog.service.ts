@@ -17,7 +17,7 @@ import { PromptDialogComponent } from '../prompt-dialog/prompt-dialog.component'
 import { DragDrop, DragRef } from '@angular/cdk/drag-drop';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs';
-import { guardPhoneBack, isPhoneTerminal } from '@dotos/dui/base';
+import { guardPhoneBack, isPhoneTerminal } from '@dotos1/dui/base';
 import {
   StatusDialogStates,
   StatusDialogComponent,

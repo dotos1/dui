@@ -88,7 +88,7 @@
     "STEP4_H2": "Ganti tema saat runtime",
     "STEP4_P2": "Melalui ThemeService, Anda dapat mengubah warna utama, warna aksen, warna peringatan, dan mode terang/gelap secara dinamis saat runtime, tanpa perlu membangun ulang:",
     "STEP5_H1": "Aturan Pengemasan Titik Masuk Sekunder",
-    "STEP5_P1": "DUI memakai titik masuk sekunder ng-packagr. Setiap folder fitur berisi ng-package.json, index.ts, dan public-api.ts sendiri. Selalu impor antar titik masuk melalui @dotos/dui/<category>/<module>, bukan jalur relatif yang dalam:",
+    "STEP5_P1": "DUI memakai titik masuk sekunder ng-packagr. Setiap folder fitur berisi ng-package.json, index.ts, dan public-api.ts sendiri. Selalu impor antar titik masuk melalui @dotos1/dui/<category>/<module>, bukan jalur relatif yang dalam:",
     "STEP5_H2": "Siklus Hidup Langganan RxJS & Performa OnPush",
     "STEP5_P2": "Selalu bersihkan langganan Observable yang berumur panjang di ngOnDestroy dengan takeUntil(this.destroy$) untuk mencegah kebocoran memori, dan utamakan ChangeDetectionStrategy.OnPush untuk komponen berfrekuensi tinggi:",
     "STEP5_H3": "JSDoc Dwibahasa (@zh) & Pembuatan Dokumen Otomatis",

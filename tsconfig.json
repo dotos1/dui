@@ -7,10 +7,10 @@
     "strict": false,
 
     "paths": {
-      "@dotos/dui": [
+      "@dotos1/dui": [
         "./src"
       ],
-      "@dotos/dui/*": [
+      "@dotos1/dui/*": [
         "./src/*"
       ],
       "src/*": ["./src/*"],

@@ -22,10 +22,10 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 
-import { Dui } from '@dotos/dui/core';
-import { MatDatetimepickerModule } from '@dotos/dui/form/date/picker';
-import { MatNativeDatetimeModule } from '@dotos/dui/form/date/adapter';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { MatDatetimepickerModule } from '@dotos1/dui/form/date/picker';
+import { MatNativeDatetimeModule } from '@dotos1/dui/form/date/adapter';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 import { CardViewContentProxyDirective } from './directives';
 import { 

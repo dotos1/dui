@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/config",
+  "importPath": "@dotos1/dui/core/config",
   "exports": [
     {
       "name": "AppConfigValues",
@@ -596,5 +596,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ConfigModule } from '@dotos/dui/core/config';"
+  "suggestedUsageSnippet": "import { ConfigModule } from '@dotos1/dui/core/config';"
 }

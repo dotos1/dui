@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/popover",
+  "importPath": "@dotos1/dui/common/popover",
   "exports": [
     {
       "name": "Popover",
@@ -874,5 +874,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { Popover, PopoverModule } from '@dotos/dui/common/popover';\n\n<popover [popoverPositionX]=\"...\" [popoverPositionY]=\"...\" [popoverTriggerOn]=\"...\" (close)=\"...\"></popover>"
+  "suggestedUsageSnippet": "import { Popover, PopoverModule } from '@dotos1/dui/common/popover';\n\n<popover [popoverPositionX]=\"...\" [popoverPositionY]=\"...\" [popoverTriggerOn]=\"...\" (close)=\"...\"></popover>"
 }

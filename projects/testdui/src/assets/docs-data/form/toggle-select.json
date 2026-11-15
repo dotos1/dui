@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/toggle-select",
+  "importPath": "@dotos1/dui/form/toggle-select",
   "exports": [
     {
       "name": "_ToggleBase",
@@ -406,5 +406,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ToggleHeaderComponent, ToggleSelectModule } from '@dotos/dui/form/toggle-select';\n\n<toggle-header [value]=\"...\" [name]=\"...\" [disablePagination]=\"...\" (valueChange)=\"...\"></toggle-header>"
+  "suggestedUsageSnippet": "import { ToggleHeaderComponent, ToggleSelectModule } from '@dotos1/dui/form/toggle-select';\n\n<toggle-header [value]=\"...\" [name]=\"...\" [disablePagination]=\"...\" (valueChange)=\"...\"></toggle-header>"
 }

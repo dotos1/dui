@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/dialogs",
+  "importPath": "@dotos1/dui/common/dialogs",
   "exports": [
     {
       "name": "AlertDialogComponent",
@@ -953,5 +953,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { AlertDialogComponent, DialogsModule } from '@dotos/dui/common/dialogs';\n\n<dui-alert-dialog></dui-alert-dialog>"
+  "suggestedUsageSnippet": "import { AlertDialogComponent, DialogsModule } from '@dotos1/dui/common/dialogs';\n\n<dui-alert-dialog></dui-alert-dialog>"
 }

@@ -12,10 +12,10 @@ import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { CommonModule } from '@angular/common';
 
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
-import { IconModule } from '@dotos/dui/common/icon';
-import { ExtensionsModule } from '@dotos/dui/common/dynamic';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { IconModule } from '@dotos1/dui/common/icon';
+import { ExtensionsModule } from '@dotos1/dui/common/dynamic';
 
 import { ContextMenuItemComponent } from './context-menu-item.component';
 import { OutsideEventDirective } from './context-menu-outside-event.directive';

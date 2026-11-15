@@ -8,8 +8,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatTabsModule } from '@angular/material/tabs';
 
-import { HighlightModule } from '@dotos/dui/ux/highlight';
-import { TranslateModule } from '@dotos/dui/translator';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 import { TutorialPageComponent } from './pages/tutorial-page/tutorial-page.component';
 

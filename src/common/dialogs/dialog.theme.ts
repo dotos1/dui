@@ -4,7 +4,7 @@
  */
 
 
-import { matColor, Theme } from '@dotos/dui/theme';
+import { matColor, Theme } from '@dotos1/dui/theme';
 
 /**
  * Executes `duiDialogTheme` to handle dui dialog theme.

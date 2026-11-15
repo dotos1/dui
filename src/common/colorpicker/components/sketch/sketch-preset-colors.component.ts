@@ -6,7 +6,7 @@
 import {
   ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
-import { Shape } from '@dotos/dui/common/colorpicker/common';
+import { Shape } from '@dotos1/dui/common/colorpicker/common';
 
 /**
  * Angular component `SketchPresetColorsComponent` (selector: 'color-sketch-preset-colors') providing sketch preset colors component presentation and interaction in `src/common/colorpicker/components/sketch`.

@@ -7,169 +7,15 @@ $_dui_m2_system_emitted: false !default;
   $_dui_m2_system_emitted: true;
 
 html {
-  --mat-sys-primary: #00897b;
-  --mat-sys-on-primary: white;
-  --mat-sys-inverse-primary: #4db6ac;
-  --mat-sys-secondary: #ef6c00;
-  --mat-sys-on-secondary: white;
-  --mat-sys-inverse-secondary: #ffb74d;
-  --mat-sys-error: #c62828;
-  --mat-sys-on-error: white;
-  --mat-sys-inverse-error: #e57373;
-  --mat-sys-shadow: black;
-  --mat-sys-surface: white;
-  --mat-sys-on-surface: initial;
-  --mat-sys-surface-variant: #f6f6f6;
-  --mat-sys-on-surface-variant: rgba(0, 0, 0, 0.54);
-  --mat-sys-background: #fafafa;
-  --mat-sys-inverse-surface: #424242;
-  --mat-sys-inverse-on-surface: white;
-  --mat-sys-outline: rgba(0, 0, 0, 0.12);
-  --mat-sys-outline-variant: rgba(0, 0, 0, 0.38);
-  --mat-sys-error-container: #ffebee;
-  --mat-sys-on-background: rgba(0, 0, 0, 0.87);
-  --mat-sys-on-error-container: #d32f2f;
-  --mat-sys-on-primary-container: #00796b;
-  --mat-sys-on-primary-fixed: white;
-  --mat-sys-on-primary-fixed-variant: white;
-  --mat-sys-on-secondary-container: #f57c00;
-  --mat-sys-on-secondary-fixed: white;
-  --mat-sys-on-secondary-fixed-variant: white;
-  --mat-sys-on-tertiary: white;
-  --mat-sys-on-tertiary-container: #f57c00;
-  --mat-sys-on-tertiary-fixed: white;
-  --mat-sys-on-tertiary-fixed-variant: white;
-  --mat-sys-primary-container: #e0f2f1;
-  --mat-sys-primary-fixed: #00897b;
-  --mat-sys-primary-fixed-dim: #00897b;
-  --mat-sys-scrim: black;
-  --mat-sys-secondary-container: #fff3e0;
-  --mat-sys-secondary-fixed: #ef6c00;
-  --mat-sys-secondary-fixed-dim: #ef6c00;
-  --mat-sys-surface-bright: white;
-  --mat-sys-surface-container: white;
-  --mat-sys-surface-container-high: white;
-  --mat-sys-surface-container-highest: white;
-  --mat-sys-surface-container-low: white;
-  --mat-sys-surface-container-lowest: white;
-  --mat-sys-surface-dim: white;
-  --mat-sys-surface-tint: white;
-  --mat-sys-tertiary: #ef6c00;
-  --mat-sys-tertiary-container: #fff3e0;
-  --mat-sys-tertiary-fixed: #ef6c00;
-  --mat-sys-tertiary-fixed-dim: #ef6c00;
-  --mat-sys-level0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level2: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level3: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level4: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-  --mat-sys-level5: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-  --mat-sys-body-large: 400 13px / 20px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-body-large-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-body-large-line-height: 20px;
-  --mat-sys-body-large-size: 13px;
-  --mat-sys-body-large-tracking: normal;
-  --mat-sys-body-large-weight: 400;
-  --mat-sys-body-medium: 400 14px / 16px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-body-medium-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-body-medium-line-height: 16px;
-  --mat-sys-body-medium-size: 14px;
-  --mat-sys-body-medium-tracking: normal;
-  --mat-sys-body-medium-weight: 400;
-  --mat-sys-body-small: 400 12px / 18px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-body-small-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-body-small-line-height: 18px;
-  --mat-sys-body-small-size: 12px;
-  --mat-sys-body-small-tracking: normal;
-  --mat-sys-body-small-weight: 400;
-  --mat-sys-display-large: 300 90px / 90px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-display-large-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-display-large-line-height: 90px;
-  --mat-sys-display-large-size: 90px;
-  --mat-sys-display-large-tracking: normal;
-  --mat-sys-display-large-weight: 300;
-  --mat-sys-display-medium: 300 90px / 90px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-display-medium-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-display-medium-line-height: 90px;
-  --mat-sys-display-medium-size: 90px;
-  --mat-sys-display-medium-tracking: normal;
-  --mat-sys-display-medium-weight: 300;
-  --mat-sys-display-small: 300 90px / 90px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-display-small-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-display-small-line-height: 90px;
-  --mat-sys-display-small-size: 90px;
-  --mat-sys-display-small-tracking: normal;
-  --mat-sys-display-small-weight: 300;
-  --mat-sys-headline-large: 400 44px / 44px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-headline-large-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-headline-large-line-height: 44px;
-  --mat-sys-headline-large-size: 44px;
-  --mat-sys-headline-large-tracking: normal;
-  --mat-sys-headline-large-weight: 400;
-  --mat-sys-headline-medium: 400 36px / 38px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-headline-medium-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-headline-medium-line-height: 38px;
-  --mat-sys-headline-medium-size: 36px;
-  --mat-sys-headline-medium-tracking: normal;
-  --mat-sys-headline-medium-weight: 400;
-  --mat-sys-headline-small: 400 28px / 28px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-headline-small-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-headline-small-line-height: 28px;
-  --mat-sys-headline-small-size: 28px;
-  --mat-sys-headline-small-tracking: normal;
-  --mat-sys-headline-small-weight: 400;
-  --mat-sys-label-large: 400 14px / 20px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-label-large-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-label-large-line-height: 20px;
-  --mat-sys-label-large-size: 14px;
-  --mat-sys-label-large-tracking: normal;
-  --mat-sys-label-large-weight: 400;
-  --mat-sys-label-medium: 500 14px / 20px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-label-medium-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-label-medium-line-height: 20px;
-  --mat-sys-label-medium-size: 14px;
-  --mat-sys-label-medium-tracking: normal;
-  --mat-sys-label-medium-weight: 500;
-  --mat-sys-label-small: 500 13px / 13px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-label-small-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-label-small-line-height: 13px;
-  --mat-sys-label-small-size: 13px;
-  --mat-sys-label-small-tracking: normal;
-  --mat-sys-label-small-weight: 500;
-  --mat-sys-title-large: 400 20px / 20px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-title-large-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-title-large-line-height: 20px;
-  --mat-sys-title-large-size: 20px;
-  --mat-sys-title-large-tracking: normal;
-  --mat-sys-title-large-weight: 400;
-  --mat-sys-title-medium: 400 20px / 20px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-title-medium-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-title-medium-line-height: 20px;
-  --mat-sys-title-medium-size: 20px;
-  --mat-sys-title-medium-tracking: normal;
-  --mat-sys-title-medium-weight: 400;
-  --mat-sys-title-small: 400 18px / 18px Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-title-small-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-sys-title-small-line-height: 18px;
-  --mat-sys-title-small-size: 18px;
-  --mat-sys-title-small-tracking: normal;
-  --mat-sys-title-small-weight: 400;
-  --mat-sys-corner-extra-large: 28px;
-  --mat-sys-corner-extra-large-top: 28px 28px 0 0;
-  --mat-sys-corner-extra-small: 4px;
-  --mat-sys-corner-extra-small-top: 4px 4px 0 0;
-  --mat-sys-corner-full: 9999px;
-  --mat-sys-corner-large: 16px;
-  --mat-sys-corner-large-end: 0 16px 16px 0;
-  --mat-sys-corner-large-start: 16px 0 0 16px;
-  --mat-sys-corner-large-top: 16px 16px 0 0;
-  --mat-sys-corner-medium: 12px;
-  --mat-sys-corner-none: 0;
-  --mat-sys-corner-small: 8px;
-  --mat-sys-dragged-state-layer-opacity: 0.16;
-  --mat-sys-focus-state-layer-opacity: 0.12;
-  --mat-sys-hover-state-layer-opacity: 0.04;
-  --mat-sys-pressed-state-layer-opacity: 0.12;
+  --dui-theme-primary: #00897b;
+  --dui-theme-on-primary: #ffffff;
+  --dui-theme-primary-container: rgba(0, 137, 123, 0.12);
+  --dui-theme-accent: #ef6c00;
+  --dui-theme-warn: #c62828;
+  --dui-primary-color: #00897b;
+  --dui-accent-color: #ef6c00;
+  --dui-warn-color: #c62828;
+  --dui-primary-container-color: rgba(0, 137, 123, 0.12);
   --mat-card-elevated-container-shape: 4px;
   --mat-card-outlined-container-shape: 4px;
   --mat-card-filled-container-shape: 4px;
@@ -339,9 +185,9 @@ html {
   --mat-table-row-item-outline-width: 1px;
   --mat-progress-spinner-active-indicator-width: 4px;
   --mat-badge-container-shape: 50%;
-  --mat-badge-container-size: unset;
-  --mat-badge-small-size-container-size: unset;
-  --mat-badge-large-size-container-size: unset;
+  --mat-badge-container-size: 0px;
+  --mat-badge-small-size-container-size: 0px;
+  --mat-badge-large-size-container-size: 0px;
   --mat-badge-legacy-container-size: 22px;
   --mat-badge-legacy-small-size-container-size: 16px;
   --mat-badge-legacy-large-size-container-size: 28px;
@@ -351,9 +197,9 @@ html {
   --mat-badge-container-overlap-offset: -11px;
   --mat-badge-small-size-container-overlap-offset: -8px;
   --mat-badge-large-size-container-overlap-offset: -14px;
-  --mat-badge-container-padding: 0;
-  --mat-badge-small-size-container-padding: 0;
-  --mat-badge-large-size-container-padding: 0;
+  --mat-badge-container-padding: 0px;
+  --mat-badge-small-size-container-padding: 0px;
+  --mat-badge-large-size-container-padding: 0px;
   --mat-bottom-sheet-container-shape: 4px;
   --mat-button-toggle-focus-state-layer-opacity: 0.12;
   --mat-button-toggle-hover-state-layer-opacity: 0.04;
@@ -417,7 +263,7 @@ html {
   --mat-pseudo-checkbox-minimal-selected-checkmark-color: #ef6c00;
   --mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-card-elevated-container-color: white;
-  --mat-card-elevated-container-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --mat-card-elevated-container-elevation: none;
   --mat-card-outlined-container-color: white;
   --mat-card-outlined-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   --mat-card-outlined-outline-color: rgba(0, 0, 0, 0.12);
@@ -543,7 +389,7 @@ html {
   --mat-slider-ripple-color: #00897b;
   --mat-slider-with-tick-marks-active-container-color: white;
   --mat-slider-with-tick-marks-inactive-container-color: #00897b;
-  --mat-slider-handle-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --mat-slider-handle-elevation: none;
   --mat-slider-disabled-active-track-color: rgba(0, 0, 0, 0.87);
   --mat-slider-disabled-handle-color: rgba(0, 0, 0, 0.87);
   --mat-slider-disabled-inactive-track-color: rgba(0, 0, 0, 0.87);
@@ -602,7 +448,7 @@ html {
   --mat-checkbox-unselected-hover-state-layer-color: rgba(0, 0, 0, 0.87);
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(0, 0, 0, 0.87);
   --mat-button-filled-container-color: white;
-  --mat-button-filled-disabled-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
+  --mat-button-filled-disabled-container-color: rgba(0, 0, 0, 0.12);
   --mat-button-filled-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-button-filled-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-button-filled-focus-state-layer-opacity: 0.12;
@@ -622,7 +468,7 @@ html {
   --mat-button-outlined-ripple-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
   --mat-button-outlined-state-layer-color: rgba(0, 0, 0, 0.87);
   --mat-button-protected-container-color: white;
-  --mat-button-protected-disabled-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
+  --mat-button-protected-disabled-container-color: rgba(0, 0, 0, 0.12);
   --mat-button-protected-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-button-protected-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-button-protected-focus-state-layer-opacity: 0.12;
@@ -697,8 +543,8 @@ html {
   --mat-table-row-item-label-text-color: rgba(0, 0, 0, 0.87);
   --mat-table-row-item-outline-color: rgba(0, 0, 0, 0.12);
   --mat-progress-spinner-active-indicator-color: #00897b;
-  --mat-badge-background-color: #00897b;
-  --mat-badge-text-color: white;
+  --mat-badge-background-color: transparent;
+  --mat-badge-text-color: inherit;
   --mat-badge-disabled-state-background-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
   --mat-badge-disabled-state-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-bottom-sheet-container-text-color: rgba(0, 0, 0, 0.87);
@@ -760,7 +606,7 @@ html {
   --mat-expansion-header-text-color: rgba(0, 0, 0, 0.87);
   --mat-expansion-header-description-color: rgba(0, 0, 0, 0.7);
   --mat-expansion-header-indicator-color: rgba(0, 0, 0, 0.7);
-  --mat-icon-color: inherit;
+  --mat-icon-color: rgba(0, 0, 0, 0.54);
   --mat-sidenav-container-elevation-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
   --mat-sidenav-container-divider-color: rgba(0, 0, 0, 0.12);
   --mat-sidenav-container-background-color: white;
@@ -794,13 +640,13 @@ html {
   --mat-timepicker-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-timepicker-container-background-color: white;
   --mat-badge-text-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-badge-line-height: 22px;
+  --mat-badge-line-height: normal;
   --mat-badge-text-size: 12px;
   --mat-badge-text-weight: 600;
   --mat-badge-small-size-text-size: 9px;
-  --mat-badge-small-size-line-height: 16px;
+  --mat-badge-small-size-line-height: normal;
   --mat-badge-large-size-text-size: 24px;
-  --mat-badge-large-size-line-height: 28px;
+  --mat-badge-large-size-line-height: normal;
   --mat-bottom-sheet-container-text-font: Roboto, "Helvetica Neue", sans-serif;
   --mat-bottom-sheet-container-text-line-height: 16px;
   --mat-bottom-sheet-container-text-size: 14px;
@@ -927,7 +773,7 @@ html {
   --mat-slider-label-label-text-tracking: normal;
   --mat-slider-label-label-text-weight: 500;
   --mat-menu-item-label-text-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-menu-item-label-text-size: 13px;
+  --mat-menu-item-label-text-size: 14px;
   --mat-menu-item-label-text-tracking: normal;
   --mat-menu-item-label-text-line-height: 20px;
   --mat-menu-item-label-text-weight: 400;
@@ -1052,10 +898,6 @@ html {
   --mat-chip-container-height: 28px;
 }
 
-html .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled) {
-  color: var(--mat-icon-button-icon-color);
-}
-
 html .mat-mdc-standard-chip {
   --mat-chip-container-shape-radius: 16px;
   --mat-chip-disabled-container-opacity: 0.4;
@@ -1079,9 +921,9 @@ html .mat-mdc-standard-chip {
   --mat-chip-with-icon-icon-size: 18px;
   --mat-chip-with-trailing-icon-disabled-trailing-icon-opacity: 1;
   --mat-chip-disabled-label-text-color: rgba(0, 0, 0, 0.87);
-  --mat-chip-elevated-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
-  --mat-chip-elevated-disabled-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
-  --mat-chip-elevated-selected-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
+  --mat-chip-elevated-container-color: #e0e0e0;
+  --mat-chip-elevated-disabled-container-color: #e0e0e0;
+  --mat-chip-elevated-selected-container-color: #e0e0e0;
   --mat-chip-flat-disabled-selected-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
   --mat-chip-focus-state-layer-color: rgba(0, 0, 0, 0.87);
   --mat-chip-focus-state-layer-opacity: 0.12;
@@ -1219,75 +1061,6 @@ html .mat-mdc-form-field.mat-warn {
   --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-select-focused-arrow-color: #c62828;
   --mat-select-invalid-arrow-color: #c62828;
-}
-
-html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #00897b;
-  --mat-chip-elevated-disabled-container-color: #00897b;
-  --mat-chip-elevated-selected-container-color: #00897b;
-  --mat-chip-flat-disabled-selected-container-color: #00897b;
-  --mat-chip-focus-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
-}
-
-html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #ef6c00;
-  --mat-chip-elevated-disabled-container-color: #ef6c00;
-  --mat-chip-elevated-selected-container-color: #ef6c00;
-  --mat-chip-flat-disabled-selected-container-color: #ef6c00;
-  --mat-chip-focus-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
-}
-
-html .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-warn, html .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-warn {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #c62828;
-  --mat-chip-elevated-disabled-container-color: #c62828;
-  --mat-chip-elevated-selected-container-color: #c62828;
-  --mat-chip-flat-disabled-selected-container-color: #c62828;
-  --mat-chip-focus-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
 }
 
 html .mat-mdc-slide-toggle.mat-accent {
@@ -1557,24 +1330,6 @@ html .mat-mdc-tab-group.mat-background-warn, html .mat-mdc-tab-nav-bar.mat-backg
   --mat-tab-foreground-color: white;
 }
 
-html .mat-mdc-checkbox.mat-primary {
-  --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
-  --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
-  --mat-checkbox-selected-checkmark-color: white;
-  --mat-checkbox-selected-focus-icon-color: #00897b;
-  --mat-checkbox-selected-hover-icon-color: #00897b;
-  --mat-checkbox-selected-icon-color: #00897b;
-  --mat-checkbox-unselected-focus-icon-color: rgba(0, 0, 0, 0.87);
-  --mat-checkbox-unselected-hover-icon-color: rgba(0, 0, 0, 0.87);
-  --mat-checkbox-unselected-icon-color: rgba(0, 0, 0, 0.7);
-  --mat-checkbox-selected-focus-state-layer-color: #00897b;
-  --mat-checkbox-selected-hover-state-layer-color: #00897b;
-  --mat-checkbox-selected-pressed-state-layer-color: #00897b;
-  --mat-checkbox-unselected-focus-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-checkbox-unselected-hover-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-checkbox-unselected-pressed-state-layer-color: rgba(0, 0, 0, 0.87);
-}
-
 html .mat-mdc-checkbox.mat-warn {
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
@@ -1710,16 +1465,6 @@ html .mat-mdc-fab.mat-warn, html .mat-mdc-mini-fab.mat-warn {
   --mat-fab-state-layer-color: white;
 }
 
-html .mat-badge-accent {
-  --mat-badge-background-color: #ef6c00;
-  --mat-badge-text-color: white;
-}
-
-html .mat-badge-warn {
-  --mat-badge-background-color: #c62828;
-  --mat-badge-text-color: white;
-}
-
 html .mat-datepicker-content.mat-accent, html .mat-datepicker-toggle-active.mat-accent {
   --mat-datepicker-calendar-date-in-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
@@ -1831,83 +1576,6 @@ html .mat-toolbar.mat-warn {
   --mat-toolbar-container-text-color: white;
 }
 
-html .mat-h1, html .mat-headline-5, html .mat-typography .mat-h1, html .mat-typography .mat-headline-5, html .mat-typography h1 {
-  font: 400 20px / 20px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 16px;
-}
-
-html .mat-h2, html .mat-headline-6, html .mat-typography .mat-h2, html .mat-typography .mat-headline-6, html .mat-typography h2 {
-  font: 400 18px / 18px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 16px;
-}
-
-html .mat-h3, html .mat-subtitle-1, html .mat-typography .mat-h3, html .mat-typography .mat-subtitle-1, html .mat-typography h3 {
-  font: 400 14px / 20px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 16px;
-}
-
-html .mat-h4, html .mat-body-1, html .mat-typography .mat-h4, html .mat-typography .mat-body-1, html .mat-typography h4 {
-  font: 400 13px / 20px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 16px;
-}
-
-html .mat-h5, html .mat-typography .mat-h5, html .mat-typography h5 {
-  font: 400 calc(14px * 0.83) / 16px Roboto, "Helvetica Neue", sans-serif;
-  margin: 0 0 12px;
-}
-
-html .mat-h6, html .mat-typography .mat-h6, html .mat-typography h6 {
-  font: 400 calc(14px * 0.67) / 16px Roboto, "Helvetica Neue", sans-serif;
-  margin: 0 0 12px;
-}
-
-html .mat-body-strong, html .mat-subtitle-2, html .mat-typography .mat-body-strong, html .mat-typography .mat-subtitle-2 {
-  font: 500 14px / 20px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-}
-
-html .mat-body, html .mat-body-2, html .mat-typography .mat-body, html .mat-typography .mat-body-2, html .mat-typography {
-  font: 400 14px / 16px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-}
-
-html .mat-body p, html .mat-body-2 p, html .mat-typography .mat-body p, html .mat-typography .mat-body-2 p, html .mat-typography p {
-  margin: 0 0 12px;
-}
-
-html .mat-small, html .mat-caption, html .mat-typography .mat-small, html .mat-typography .mat-caption {
-  font: 400 12px / 18px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-}
-
-html .mat-headline-1, html .mat-typography .mat-headline-1 {
-  font: 300 90px / 90px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 56px;
-}
-
-html .mat-headline-2, html .mat-typography .mat-headline-2 {
-  font: 400 44px / 44px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 64px;
-}
-
-html .mat-headline-3, html .mat-typography .mat-headline-3 {
-  font: 400 36px / 38px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 64px;
-}
-
-html .mat-headline-4, html .mat-typography .mat-headline-4 {
-  font: 400 28px / 28px Roboto, "Helvetica Neue", sans-serif;
-  letter-spacing: normal;
-  margin: 0 0 64px;
-}
-
 html .mat-mdc-slide-toggle {
   --mat-slide-toggle-label-text-font: Roboto, "Helvetica Neue", sans-serif;
   --mat-slide-toggle-label-text-line-height: 16px;
@@ -1951,184 +1619,111 @@ html .mat-mdc-list-item.mdc-list-item--with-leading-avatar.mdc-list-item--with-t
 }
 
 .mat-app-background {
-  background-color: var(--mat-app-background-color, var(--mat-sys-background, transparent));
-  color: var(--mat-app-text-color, var(--mat-sys-on-background, inherit));
+  background-color: var(--mat-app-background-color, transparent);
+  color: var(--mat-app-text-color, inherit);
 }
 
 .mat-elevation-z0, .mat-mdc-elevation-specific.mat-elevation-z0 {
-  box-shadow: var(--mat-app-elevation-shadow-level-0, 0px 0px 0px 0px --mat-sys-shadow, 0px 0px 0px 0px --mat-sys-shadow, 0px 0px 0px 0px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-0);
 }
 
 .mat-elevation-z1, .mat-mdc-elevation-specific.mat-elevation-z1 {
-  box-shadow: var(--mat-app-elevation-shadow-level-1, 0px 2px 1px -1px --mat-sys-shadow, 0px 1px 1px 0px --mat-sys-shadow, 0px 1px 3px 0px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-1);
 }
 
 .mat-elevation-z2, .mat-mdc-elevation-specific.mat-elevation-z2 {
-  box-shadow: var(--mat-app-elevation-shadow-level-2, 0px 3px 1px -2px --mat-sys-shadow, 0px 2px 2px 0px --mat-sys-shadow, 0px 1px 5px 0px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-2);
 }
 
 .mat-elevation-z3, .mat-mdc-elevation-specific.mat-elevation-z3 {
-  box-shadow: var(--mat-app-elevation-shadow-level-3, 0px 3px 3px -2px --mat-sys-shadow, 0px 3px 4px 0px --mat-sys-shadow, 0px 1px 8px 0px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-3);
 }
 
 .mat-elevation-z4, .mat-mdc-elevation-specific.mat-elevation-z4 {
-  box-shadow: var(--mat-app-elevation-shadow-level-4, 0px 2px 4px -1px --mat-sys-shadow, 0px 4px 5px 0px --mat-sys-shadow, 0px 1px 10px 0px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-4);
 }
 
 .mat-elevation-z5, .mat-mdc-elevation-specific.mat-elevation-z5 {
-  box-shadow: var(--mat-app-elevation-shadow-level-5, 0px 3px 5px -1px --mat-sys-shadow, 0px 5px 8px 0px --mat-sys-shadow, 0px 1px 14px 0px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-5);
 }
 
 .mat-elevation-z6, .mat-mdc-elevation-specific.mat-elevation-z6 {
-  box-shadow: var(--mat-app-elevation-shadow-level-6, 0px 3px 5px -1px --mat-sys-shadow, 0px 6px 10px 0px --mat-sys-shadow, 0px 1px 18px 0px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-6);
 }
 
 .mat-elevation-z7, .mat-mdc-elevation-specific.mat-elevation-z7 {
-  box-shadow: var(--mat-app-elevation-shadow-level-7, 0px 4px 5px -2px --mat-sys-shadow, 0px 7px 10px 1px --mat-sys-shadow, 0px 2px 16px 1px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-7);
 }
 
 .mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
-  box-shadow: var(--mat-app-elevation-shadow-level-8, 0px 5px 5px -3px --mat-sys-shadow, 0px 8px 10px 1px --mat-sys-shadow, 0px 3px 14px 2px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-8);
 }
 
 .mat-elevation-z9, .mat-mdc-elevation-specific.mat-elevation-z9 {
-  box-shadow: var(--mat-app-elevation-shadow-level-9, 0px 5px 6px -3px --mat-sys-shadow, 0px 9px 12px 1px --mat-sys-shadow, 0px 3px 16px 2px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-9);
 }
 
 .mat-elevation-z10, .mat-mdc-elevation-specific.mat-elevation-z10 {
-  box-shadow: var(--mat-app-elevation-shadow-level-10, 0px 6px 6px -3px --mat-sys-shadow, 0px 10px 14px 1px --mat-sys-shadow, 0px 4px 18px 3px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-10);
 }
 
 .mat-elevation-z11, .mat-mdc-elevation-specific.mat-elevation-z11 {
-  box-shadow: var(--mat-app-elevation-shadow-level-11, 0px 6px 7px -4px --mat-sys-shadow, 0px 11px 15px 1px --mat-sys-shadow, 0px 4px 20px 3px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-11);
 }
 
 .mat-elevation-z12, .mat-mdc-elevation-specific.mat-elevation-z12 {
-  box-shadow: var(--mat-app-elevation-shadow-level-12, 0px 7px 8px -4px --mat-sys-shadow, 0px 12px 17px 2px --mat-sys-shadow, 0px 5px 22px 4px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-12);
 }
 
 .mat-elevation-z13, .mat-mdc-elevation-specific.mat-elevation-z13 {
-  box-shadow: var(--mat-app-elevation-shadow-level-13, 0px 7px 8px -4px --mat-sys-shadow, 0px 13px 19px 2px --mat-sys-shadow, 0px 5px 24px 4px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-13);
 }
 
 .mat-elevation-z14, .mat-mdc-elevation-specific.mat-elevation-z14 {
-  box-shadow: var(--mat-app-elevation-shadow-level-14, 0px 7px 9px -4px --mat-sys-shadow, 0px 14px 21px 2px --mat-sys-shadow, 0px 5px 26px 4px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-14);
 }
 
 .mat-elevation-z15, .mat-mdc-elevation-specific.mat-elevation-z15 {
-  box-shadow: var(--mat-app-elevation-shadow-level-15, 0px 8px 9px -5px --mat-sys-shadow, 0px 15px 22px 2px --mat-sys-shadow, 0px 6px 28px 5px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-15);
 }
 
 .mat-elevation-z16, .mat-mdc-elevation-specific.mat-elevation-z16 {
-  box-shadow: var(--mat-app-elevation-shadow-level-16, 0px 8px 10px -5px --mat-sys-shadow, 0px 16px 24px 2px --mat-sys-shadow, 0px 6px 30px 5px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-16);
 }
 
 .mat-elevation-z17, .mat-mdc-elevation-specific.mat-elevation-z17 {
-  box-shadow: var(--mat-app-elevation-shadow-level-17, 0px 8px 11px -5px --mat-sys-shadow, 0px 17px 26px 2px --mat-sys-shadow, 0px 6px 32px 5px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-17);
 }
 
 .mat-elevation-z18, .mat-mdc-elevation-specific.mat-elevation-z18 {
-  box-shadow: var(--mat-app-elevation-shadow-level-18, 0px 9px 11px -5px --mat-sys-shadow, 0px 18px 28px 2px --mat-sys-shadow, 0px 7px 34px 6px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-18);
 }
 
 .mat-elevation-z19, .mat-mdc-elevation-specific.mat-elevation-z19 {
-  box-shadow: var(--mat-app-elevation-shadow-level-19, 0px 9px 12px -6px --mat-sys-shadow, 0px 19px 29px 2px --mat-sys-shadow, 0px 7px 36px 6px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-19);
 }
 
 .mat-elevation-z20, .mat-mdc-elevation-specific.mat-elevation-z20 {
-  box-shadow: var(--mat-app-elevation-shadow-level-20, 0px 10px 13px -6px --mat-sys-shadow, 0px 20px 31px 3px --mat-sys-shadow, 0px 8px 38px 7px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-20);
 }
 
 .mat-elevation-z21, .mat-mdc-elevation-specific.mat-elevation-z21 {
-  box-shadow: var(--mat-app-elevation-shadow-level-21, 0px 10px 13px -6px --mat-sys-shadow, 0px 21px 33px 3px --mat-sys-shadow, 0px 8px 40px 7px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-21);
 }
 
 .mat-elevation-z22, .mat-mdc-elevation-specific.mat-elevation-z22 {
-  box-shadow: var(--mat-app-elevation-shadow-level-22, 0px 10px 14px -6px --mat-sys-shadow, 0px 22px 35px 3px --mat-sys-shadow, 0px 8px 42px 7px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-22);
 }
 
 .mat-elevation-z23, .mat-mdc-elevation-specific.mat-elevation-z23 {
-  box-shadow: var(--mat-app-elevation-shadow-level-23, 0px 11px 14px -7px --mat-sys-shadow, 0px 23px 36px 3px --mat-sys-shadow, 0px 9px 44px 8px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-23);
 }
 
 .mat-elevation-z24, .mat-mdc-elevation-specific.mat-elevation-z24 {
-  box-shadow: var(--mat-app-elevation-shadow-level-24, 0px 11px 15px -7px --mat-sys-shadow, 0px 24px 38px 3px --mat-sys-shadow, 0px 9px 46px 8px --mat-sys-shadow);
+  box-shadow: var(--mat-app-elevation-shadow-level-24);
 }
 
 html:where([data-theme=dark]) {
-  --mat-sys-primary: #00897b;
-  --mat-sys-on-primary: white;
-  --mat-sys-inverse-primary: #00897b;
-  --mat-sys-secondary: #ef6c00;
-  --mat-sys-on-secondary: white;
-  --mat-sys-inverse-secondary: #fb8c00;
-  --mat-sys-error: #c62828;
-  --mat-sys-on-error: white;
-  --mat-sys-inverse-error: #e53935;
-  --mat-sys-shadow: black;
-  --mat-sys-surface: #424242;
-  --mat-sys-on-surface: white;
-  --mat-sys-surface-variant: #4a4a4a;
-  --mat-sys-on-surface-variant: rgba(255, 255, 255, 0.7);
-  --mat-sys-background: #303030;
-  --mat-sys-inverse-surface: white;
-  --mat-sys-inverse-on-surface: rgba(0, 0, 0, 0.87);
-  --mat-sys-outline: rgba(255, 255, 255, 0.12);
-  --mat-sys-outline-variant: rgba(255, 255, 255, 0.38);
-  --mat-sys-error-container: #b71c1c;
-  --mat-sys-on-background: white;
-  --mat-sys-on-error-container: #ffebee;
-  --mat-sys-on-primary-container: #e0f2f1;
-  --mat-sys-on-primary-fixed: white;
-  --mat-sys-on-primary-fixed-variant: white;
-  --mat-sys-on-secondary-container: #fff3e0;
-  --mat-sys-on-secondary-fixed: white;
-  --mat-sys-on-secondary-fixed-variant: white;
-  --mat-sys-on-tertiary: white;
-  --mat-sys-on-tertiary-container: #fff3e0;
-  --mat-sys-on-tertiary-fixed: white;
-  --mat-sys-on-tertiary-fixed-variant: white;
-  --mat-sys-primary-container: #004d40;
-  --mat-sys-primary-fixed: #00897b;
-  --mat-sys-primary-fixed-dim: #00897b;
-  --mat-sys-scrim: black;
-  --mat-sys-secondary-container: #e65100;
-  --mat-sys-secondary-fixed: #ef6c00;
-  --mat-sys-secondary-fixed-dim: #ef6c00;
-  --mat-sys-surface-bright: #424242;
-  --mat-sys-surface-container: #424242;
-  --mat-sys-surface-container-high: #424242;
-  --mat-sys-surface-container-highest: #424242;
-  --mat-sys-surface-container-low: #424242;
-  --mat-sys-surface-container-lowest: #424242;
-  --mat-sys-surface-dim: #424242;
-  --mat-sys-surface-tint: #424242;
-  --mat-sys-tertiary: #ef6c00;
-  --mat-sys-tertiary-container: #e65100;
-  --mat-sys-tertiary-fixed: #ef6c00;
-  --mat-sys-tertiary-fixed-dim: #ef6c00;
-  --mat-sys-level0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level2: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level3: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level4: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-  --mat-sys-level5: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-  --mat-sys-corner-extra-large: 28px;
-  --mat-sys-corner-extra-large-top: 28px 28px 0 0;
-  --mat-sys-corner-extra-small: 4px;
-  --mat-sys-corner-extra-small-top: 4px 4px 0 0;
-  --mat-sys-corner-full: 9999px;
-  --mat-sys-corner-large: 16px;
-  --mat-sys-corner-large-end: 0 16px 16px 0;
-  --mat-sys-corner-large-start: 16px 0 0 16px;
-  --mat-sys-corner-large-top: 16px 16px 0 0;
-  --mat-sys-corner-medium: 12px;
-  --mat-sys-corner-none: 0;
-  --mat-sys-corner-small: 8px;
-  --mat-sys-dragged-state-layer-opacity: 0.16;
-  --mat-sys-focus-state-layer-opacity: 0.12;
-  --mat-sys-hover-state-layer-opacity: 0.04;
-  --mat-sys-pressed-state-layer-opacity: 0.12;
   --mat-app-background-color: #212121;
   --mat-app-text-color: rgba(255, 255, 255, 0.87);
   --mat-app-elevation-shadow-level-0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -2550,10 +2145,6 @@ html:where([data-theme=dark]) {
   --mat-timepicker-container-background-color: #424242;
 }
 
-html:where([data-theme=dark]) .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled) {
-  color: var(--mat-icon-button-icon-color);
-}
-
 html:where([data-theme=dark]) .mat-accent {
   --mat-option-selected-state-label-text-color: #ef6c00;
   --mat-option-label-text-color: rgba(255, 255, 255, 0.87);
@@ -2691,75 +2282,6 @@ html:where([data-theme=dark]) .mat-mdc-standard-chip {
   --mat-chip-with-icon-selected-icon-color: rgba(255, 255, 255, 0.87);
   --mat-chip-with-trailing-icon-disabled-trailing-icon-color: rgba(255, 255, 255, 0.87);
   --mat-chip-with-trailing-icon-trailing-icon-color: rgba(255, 255, 255, 0.87);
-}
-
-html:where([data-theme=dark]) .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary, html:where([data-theme=dark]) .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #00897b;
-  --mat-chip-elevated-disabled-container-color: #00897b;
-  --mat-chip-elevated-selected-container-color: #00897b;
-  --mat-chip-flat-disabled-selected-container-color: #00897b;
-  --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
-}
-
-html:where([data-theme=dark]) .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent, html:where([data-theme=dark]) .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #ef6c00;
-  --mat-chip-elevated-disabled-container-color: #ef6c00;
-  --mat-chip-elevated-selected-container-color: #ef6c00;
-  --mat-chip-flat-disabled-selected-container-color: #ef6c00;
-  --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
-}
-
-html:where([data-theme=dark]) .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-warn, html:where([data-theme=dark]) .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-warn {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #c62828;
-  --mat-chip-elevated-disabled-container-color: #c62828;
-  --mat-chip-elevated-selected-container-color: #c62828;
-  --mat-chip-flat-disabled-selected-container-color: #c62828;
-  --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
 }
 
 html:where([data-theme=dark]) .mat-mdc-slide-toggle.mat-accent {
@@ -3027,24 +2549,6 @@ html:where([data-theme=dark]) .mat-mdc-tab-group.mat-background-warn, html:where
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-checkbox.mat-primary {
-  --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-checkbox-selected-checkmark-color: white;
-  --mat-checkbox-selected-focus-icon-color: #00897b;
-  --mat-checkbox-selected-hover-icon-color: #00897b;
-  --mat-checkbox-selected-icon-color: #00897b;
-  --mat-checkbox-unselected-focus-icon-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-hover-icon-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-icon-color: rgba(255, 255, 255, 0.7);
-  --mat-checkbox-selected-focus-state-layer-color: #00897b;
-  --mat-checkbox-selected-hover-state-layer-color: #00897b;
-  --mat-checkbox-selected-pressed-state-layer-color: #00897b;
-  --mat-checkbox-unselected-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
-}
-
 html:where([data-theme=dark]) .mat-mdc-checkbox.mat-warn {
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -3180,16 +2684,6 @@ html:where([data-theme=dark]) .mat-mdc-fab.mat-warn, html:where([data-theme=dark
   --mat-fab-state-layer-color: white;
 }
 
-html:where([data-theme=dark]) .mat-badge-accent {
-  --mat-badge-background-color: #ef6c00;
-  --mat-badge-text-color: white;
-}
-
-html:where([data-theme=dark]) .mat-badge-warn {
-  --mat-badge-background-color: #c62828;
-  --mat-badge-text-color: white;
-}
-
 html:where([data-theme=dark]) .mat-datepicker-content.mat-accent, html:where([data-theme=dark]) .mat-datepicker-toggle-active.mat-accent {
   --mat-datepicker-calendar-date-in-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
@@ -3302,79 +2796,6 @@ html:where([data-theme=dark]) .mat-toolbar.mat-warn {
 }
 
 html:where([data-theme=darkblue]) {
-  --mat-sys-primary: #00897b;
-  --mat-sys-on-primary: white;
-  --mat-sys-inverse-primary: #00897b;
-  --mat-sys-secondary: #ef6c00;
-  --mat-sys-on-secondary: white;
-  --mat-sys-inverse-secondary: #fb8c00;
-  --mat-sys-error: #c62828;
-  --mat-sys-on-error: white;
-  --mat-sys-inverse-error: #e53935;
-  --mat-sys-shadow: black;
-  --mat-sys-surface: #424242;
-  --mat-sys-on-surface: white;
-  --mat-sys-surface-variant: #4a4a4a;
-  --mat-sys-on-surface-variant: rgba(255, 255, 255, 0.7);
-  --mat-sys-background: #303030;
-  --mat-sys-inverse-surface: white;
-  --mat-sys-inverse-on-surface: rgba(0, 0, 0, 0.87);
-  --mat-sys-outline: rgba(255, 255, 255, 0.12);
-  --mat-sys-outline-variant: rgba(255, 255, 255, 0.38);
-  --mat-sys-error-container: #b71c1c;
-  --mat-sys-on-background: white;
-  --mat-sys-on-error-container: #ffebee;
-  --mat-sys-on-primary-container: #e0f2f1;
-  --mat-sys-on-primary-fixed: white;
-  --mat-sys-on-primary-fixed-variant: white;
-  --mat-sys-on-secondary-container: #fff3e0;
-  --mat-sys-on-secondary-fixed: white;
-  --mat-sys-on-secondary-fixed-variant: white;
-  --mat-sys-on-tertiary: white;
-  --mat-sys-on-tertiary-container: #fff3e0;
-  --mat-sys-on-tertiary-fixed: white;
-  --mat-sys-on-tertiary-fixed-variant: white;
-  --mat-sys-primary-container: #004d40;
-  --mat-sys-primary-fixed: #00897b;
-  --mat-sys-primary-fixed-dim: #00897b;
-  --mat-sys-scrim: black;
-  --mat-sys-secondary-container: #e65100;
-  --mat-sys-secondary-fixed: #ef6c00;
-  --mat-sys-secondary-fixed-dim: #ef6c00;
-  --mat-sys-surface-bright: #424242;
-  --mat-sys-surface-container: #424242;
-  --mat-sys-surface-container-high: #424242;
-  --mat-sys-surface-container-highest: #424242;
-  --mat-sys-surface-container-low: #424242;
-  --mat-sys-surface-container-lowest: #424242;
-  --mat-sys-surface-dim: #424242;
-  --mat-sys-surface-tint: #424242;
-  --mat-sys-tertiary: #ef6c00;
-  --mat-sys-tertiary-container: #e65100;
-  --mat-sys-tertiary-fixed: #ef6c00;
-  --mat-sys-tertiary-fixed-dim: #ef6c00;
-  --mat-sys-level0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level1: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level2: 0px 3px 3px -2px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14), 0px 1px 8px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level3: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
-  --mat-sys-level4: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
-  --mat-sys-level5: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-  --mat-sys-corner-extra-large: 28px;
-  --mat-sys-corner-extra-large-top: 28px 28px 0 0;
-  --mat-sys-corner-extra-small: 4px;
-  --mat-sys-corner-extra-small-top: 4px 4px 0 0;
-  --mat-sys-corner-full: 9999px;
-  --mat-sys-corner-large: 16px;
-  --mat-sys-corner-large-end: 0 16px 16px 0;
-  --mat-sys-corner-large-start: 16px 0 0 16px;
-  --mat-sys-corner-large-top: 16px 16px 0 0;
-  --mat-sys-corner-medium: 12px;
-  --mat-sys-corner-none: 0;
-  --mat-sys-corner-small: 8px;
-  --mat-sys-dragged-state-layer-opacity: 0.16;
-  --mat-sys-focus-state-layer-opacity: 0.12;
-  --mat-sys-hover-state-layer-opacity: 0.04;
-  --mat-sys-pressed-state-layer-opacity: 0.12;
   --mat-app-background-color: #263238;
   --mat-app-text-color: rgba(255, 255, 255, 0.87);
   --mat-app-elevation-shadow-level-0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -3796,10 +3217,6 @@ html:where([data-theme=darkblue]) {
   --mat-timepicker-container-background-color: #37474f;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-button-base.mat-mdc-icon-button:not(.mat-mdc-button-disabled) {
-  color: var(--mat-icon-button-icon-color);
-}
-
 html:where([data-theme=darkblue]) .mat-accent {
   --mat-option-selected-state-label-text-color: #ef6c00;
   --mat-option-label-text-color: rgba(255, 255, 255, 0.87);
@@ -3937,75 +3354,6 @@ html:where([data-theme=darkblue]) .mat-mdc-standard-chip {
   --mat-chip-with-icon-selected-icon-color: rgba(255, 255, 255, 0.87);
   --mat-chip-with-trailing-icon-disabled-trailing-icon-color: rgba(255, 255, 255, 0.87);
   --mat-chip-with-trailing-icon-trailing-icon-color: rgba(255, 255, 255, 0.87);
-}
-
-html:where([data-theme=darkblue]) .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-primary, html:where([data-theme=darkblue]) .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-primary {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #00897b;
-  --mat-chip-elevated-disabled-container-color: #00897b;
-  --mat-chip-elevated-selected-container-color: #00897b;
-  --mat-chip-flat-disabled-selected-container-color: #00897b;
-  --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
-}
-
-html:where([data-theme=darkblue]) .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-accent, html:where([data-theme=darkblue]) .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-accent {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #ef6c00;
-  --mat-chip-elevated-disabled-container-color: #ef6c00;
-  --mat-chip-elevated-selected-container-color: #ef6c00;
-  --mat-chip-flat-disabled-selected-container-color: #ef6c00;
-  --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
-}
-
-html:where([data-theme=darkblue]) .mat-mdc-standard-chip.mat-mdc-chip-selected.mat-warn, html:where([data-theme=darkblue]) .mat-mdc-standard-chip.mat-mdc-chip-highlighted.mat-warn {
-  --mat-chip-disabled-label-text-color: white;
-  --mat-chip-elevated-container-color: #c62828;
-  --mat-chip-elevated-disabled-container-color: #c62828;
-  --mat-chip-elevated-selected-container-color: #c62828;
-  --mat-chip-flat-disabled-selected-container-color: #c62828;
-  --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-focus-state-layer-opacity: 0.12;
-  --mat-chip-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-label-text-color: white;
-  --mat-chip-selected-disabled-trailing-icon-color: white;
-  --mat-chip-selected-focus-state-layer-color: 0.12;
-  --mat-chip-selected-focus-state-layer-opacity: 0.12;
-  --mat-chip-selected-hover-state-layer-color: 0.04;
-  --mat-chip-selected-label-text-color: white;
-  --mat-chip-selected-trailing-icon-color: white;
-  --mat-chip-with-icon-disabled-icon-color: white;
-  --mat-chip-with-icon-icon-color: white;
-  --mat-chip-with-icon-selected-icon-color: white;
-  --mat-chip-with-trailing-icon-disabled-trailing-icon-color: white;
-  --mat-chip-with-trailing-icon-trailing-icon-color: white;
 }
 
 html:where([data-theme=darkblue]) .mat-mdc-slide-toggle.mat-accent {
@@ -4273,24 +3621,6 @@ html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-background-warn, html:w
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-checkbox.mat-primary {
-  --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-checkbox-selected-checkmark-color: white;
-  --mat-checkbox-selected-focus-icon-color: #00897b;
-  --mat-checkbox-selected-hover-icon-color: #00897b;
-  --mat-checkbox-selected-icon-color: #00897b;
-  --mat-checkbox-unselected-focus-icon-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-hover-icon-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-icon-color: rgba(255, 255, 255, 0.7);
-  --mat-checkbox-selected-focus-state-layer-color: #00897b;
-  --mat-checkbox-selected-hover-state-layer-color: #00897b;
-  --mat-checkbox-selected-pressed-state-layer-color: #00897b;
-  --mat-checkbox-unselected-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
-}
-
 html:where([data-theme=darkblue]) .mat-mdc-checkbox.mat-warn {
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -4424,16 +3754,6 @@ html:where([data-theme=darkblue]) .mat-mdc-fab.mat-warn, html:where([data-theme=
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
-}
-
-html:where([data-theme=darkblue]) .mat-badge-accent {
-  --mat-badge-background-color: #ef6c00;
-  --mat-badge-text-color: white;
-}
-
-html:where([data-theme=darkblue]) .mat-badge-warn {
-  --mat-badge-background-color: #c62828;
-  --mat-badge-text-color: white;
 }
 
 html:where([data-theme=darkblue]) .mat-datepicker-content.mat-accent, html:where([data-theme=darkblue]) .mat-datepicker-toggle-active.mat-accent {
@@ -4856,10 +4176,9 @@ body:where(.dui-density-loose) {
   input.mat-mdc-input-element { margin-top: -.0625em !important; }
 }
 
-// 7.4.52 S-5 structural rules & px-based M2 typography classes (immune to html { font-size: 62.5% })
+// 7.4.52 S-5 structural rules & exact 7.4.52 M2 typography classes
 .mat-mdc-button { min-height: var(--mat-button-text-container-height); }
 .mat-mdc-unelevated-button { min-height: var(--mat-button-filled-container-height); }
-.mat-mdc-raised-button { min-height: var(--mat-button-protected-container-height, 32px); }
 .mat-mdc-outlined-button { min-height: var(--mat-button-outlined-container-height); }
 .mat-mdc-fab { width: var(--mat-fab-extended-container-height) !important; height: var(--mat-fab-extended-container-height) !important; }
 .mat-mdc-fab.mat-mdc-button-disabled,
@@ -4873,16 +4192,18 @@ body:where(.dui-density-loose) {
 .mdc-card { color: var(--mat-card-subtitle-text-color); }
 .mat-mdc-card-header { padding-top: 6px !important; padding-bottom: 6px !important; padding-left: 6px !important; }
 .mat-mdc-card-header-text { width: 100%; }
+.mat-mdc-chip-set .mat-mdc-chip { margin-top: 4px !important; margin-bottom: 4px !important; }
 .mat-mdc-text-field-wrapper { --mat-mdc-form-field-label-offset-x: -8px; }
-.mat-mdc-text-field-wrapper .mdc-text-field__input { padding-left: 5px; }
 .mat-mdc-input-element:disabled { color: var(--mat-form-field-filled-disabled-input-text-color); }
 input.mat-mdc-input-element { color: var(--mat-form-field-filled-input-text-color); margin-top: .0078em !important; }
 .mat-mdc-input-element { caret-color: var(--mat-form-field-filled-caret-color); }
 .mat-mdc-input-element::placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
 .mat-mdc-input-element::-webkit-input-placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
 .mat-mdc-form-field-invalid .mat-mdc-input-element { caret-color: var(--mat-form-field-filled-error-caret-color); }
-.mat-icon { color: var(--mat-icon-color); }
+.mat-icon { color: var(--mat-icon-color); flex-shrink: 1 !important; min-height: 0px !important; }
 .mat-icon svg { stroke: var(--mat-icon-color) !important; }
+.mat-badge-content { min-width: 0px !important; min-height: 0px !important; }
+.mat-mdc-menu-panel { animation-name: none !important; animation-timing-function: ease !important; transform-origin: top left !important; }
 .mat-mdc-menu-item { min-height: 36px !important; }
 .mat-mdc-menu-item .mat-icon-no-color { color: var(--mat-icon-color) !important; }
 .mat-mdc-option { min-height: 40px !important; }
@@ -4891,18 +4212,16 @@ input.mat-mdc-input-element { color: var(--mat-form-field-filled-input-text-colo
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content,
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end { opacity: 1; }
 
-.mat-h1, .mat-headline, .mat-typography .mat-h1, .mat-typography .mat-headline, .mat-typography h1 { font: 400 20px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h2, .mat-typography .mat-h2, .mat-typography h2 { font: 400 18px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-title, .mat-h3, .mat-subheading-2, .mat-typography .mat-title, .mat-typography .mat-h3, .mat-typography .mat-subheading-2, .mat-typography h3 { font: 400 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h4, .mat-subheading-1, .mat-typography .mat-h4, .mat-typography .mat-subheading-1, .mat-typography h4 { font: 400 13px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h5, .mat-typography .mat-h5, .mat-typography h5 { font: 400 11.62px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
-.mat-h6, .mat-typography .mat-h6, .mat-typography h6 { font: 400 9.38px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
-.mat-body-strong, .mat-body-2, .mat-typography .mat-body-strong, .mat-typography .mat-body-2 { font: 500 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0; }
-.mat-body, .mat-body-1, .mat-typography, .mat-typography .mat-body, .mat-typography .mat-body-1 { font: 400 14px / 16px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0; }
+.mat-h1, .mat-headline, .mat-typography h1 { margin: 0 0 9px; }
+.mat-h2, .mat-typography h2 { margin: 0 0 9px; }
+.mat-title { margin: 0 0 9px; }
+.mat-h3, .mat-subheading-2, .mat-typography h3 { margin: 0 0 9px; }
+.mat-h4, .mat-subheading-1, .mat-typography h4 { margin: 0 0 9px; }
+.mat-h5, .mat-typography h5 { margin: 0 0 9px; }
+.mat-h6, .mat-typography h6 { margin: 0 0 9px; }
 .mat-body p, .mat-body-1 p, .mat-typography p { margin: 0 0 9px; }
-.mat-small, .mat-caption, .mat-typography .mat-small, .mat-typography .mat-caption { font: 400 12px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; }
-.mat-display-4, .mat-typography .mat-display-4 { font: 300 90px / 90px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.05em; margin: 0 0 42px; }
-.mat-display-3, .mat-typography .mat-display-3 { font: 400 44px / 44px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.02em; margin: 0 0 48px; }
-.mat-display-2, .mat-typography .mat-display-2 { font: 400 36px / 38px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.005em; margin: 0 0 48px; }
-.mat-display-1, .mat-typography .mat-display-1 { font: 400 28px / 28px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 48px; }
+.mat-display-4, .mat-typography .mat-display-4 { letter-spacing: -0.05em; margin: 0 0 42px; }
+.mat-display-3, .mat-typography .mat-display-3 { letter-spacing: -0.02em; margin: 0 0 48px; }
+.mat-display-2, .mat-typography .mat-display-2 { letter-spacing: -0.005em; margin: 0 0 48px; }
+.mat-display-1, .mat-typography .mat-display-1 { margin: 0 0 48px; }
 }

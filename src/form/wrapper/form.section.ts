@@ -4,10 +4,10 @@
  */
 
 import { Component, Inject, Optional, Input, ElementRef, ChangeDetectionStrategy } from '@angular/core';
-import { FieldType } from '@dotos/dui/core/form';
-import { FormBuilder, FieldConfig, FORM_CONFIG } from '@dotos/dui/core/form';
-import { CollapseAnimation } from '@dotos/dui/common/animations';
-import { isUndefined } from '@dotos/dui/base';
+import { FieldType } from '@dotos1/dui/core/form';
+import { FormBuilder, FieldConfig, FORM_CONFIG } from '@dotos1/dui/core/form';
+import { CollapseAnimation } from '@dotos1/dui/common/animations';
+import { isUndefined } from '@dotos1/dui/base';
 
 /**
  * Angular component `FormSection` (selector: 'form-section') providing form section presentation and interaction in `src/form/wrapper`.

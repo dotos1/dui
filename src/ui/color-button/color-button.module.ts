@@ -8,16 +8,16 @@ import { CommonModule } from '@angular/common';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
-import { FormModule } from '@dotos/dui/form';
-import { Dui } from '@dotos/dui/core';
+import { FormModule } from '@dotos1/dui/form';
+import { Dui } from '@dotos1/dui/core';
 import { ColorPickerButton } from './color-button';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
-import { IconModule } from '@dotos/dui/common/icon';
-import { ColorCircleModule, ColorCompactModule } from '@dotos/dui/common/colorpicker/components';
-import { TranslateModule } from '@dotos/dui/translator';
+import { IconModule } from '@dotos1/dui/common/icon';
+import { ColorCircleModule, ColorCompactModule } from '@dotos1/dui/common/colorpicker/components';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { MatIconModule } from '@angular/material/icon';
-import { GoogColorModule } from '@dotos/dui/common/colorpicker/components';
+import { GoogColorModule } from '@dotos1/dui/common/colorpicker/components';
 
 /**
  * Angular module `ColorPickerButtonModule` declaring and exporting color picker button module components, directives, pipes, and providers.

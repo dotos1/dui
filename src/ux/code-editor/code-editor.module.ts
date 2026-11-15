@@ -6,7 +6,7 @@
 import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ExtCodeEditorComponent } from './code-editor.component';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular module `CodeEditorModule` declaring and exporting code editor module components, directives, pipes, and providers.

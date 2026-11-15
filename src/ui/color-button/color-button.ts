@@ -6,8 +6,8 @@
 import { ChangeDetectorRef, Component, DoCheck, ElementRef, EventEmitter, HostBinding, Injector, Input, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { ColorEvent } from '@dotos/dui/common/colorpicker/common';
-import { ButtonBase, DuiButtonConfig } from '@dotos/dui/ui/button';
+import { ColorEvent } from '@dotos1/dui/common/colorpicker/common';
+import { ButtonBase, DuiButtonConfig } from '@dotos1/dui/ui/button';
 import { MatTooltip } from '@angular/material/tooltip';
 
 

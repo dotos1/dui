@@ -16,7 +16,7 @@ import {
   HttpUserEvent
 } from '@angular/common/http';
 import { Injectable, Injector, Optional } from '@angular/core';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import { Observable, Observer } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { configuredTokenHosts, isTrustedTokenTarget } from './token-target';

@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';
 import { IframeComponent } from './components/iframe.component';
 import { SafePipe } from './pipes/safe.pipe';
 import { CommonModule } from '@angular/common';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular module `IFrameModule` declaring and exporting i frame module components, directives, pipes, and providers.

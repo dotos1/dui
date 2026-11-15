@@ -201,6 +201,11 @@ if (runSelfTest) {
       css: `.selftest-c {\n  --mdc-legacy-dead-token-w6: #000;\n}\n`,
       expected: '--mdc-legacy-dead-token-w6',
     },
+    {
+      name: 'M2 模式下禁用 M3 系统令牌 (var(--mat-sys-primary))',
+      css: `.selftest-d {\n  color: var(--mat-sys-primary, #3f51b5);\n}\n`,
+      expected: '--mat-sys-primary',
+    },
   ];
 
   const tmpProbe = path.join(os.tmpdir(), `dui-style-ref-selftest-${process.pid}.scss`);
@@ -328,9 +333,9 @@ for (const file of files) {
           continue;
         }
         if (tok.startsWith('--mat-sys-')) {
-          if (!sysVars.has(tok) && !liveVars.has(tok)) {
-            violations.push(`${rel}:${idx + 1} -> 未知的 Material 系统变量 [${tok}]（不在 Material 22 系统令牌集中）`);
-          }
+          violations.push(
+            `${rel}:${idx + 1} -> 严禁在 M2 主题模式下声明或引用 M3 系统令牌 [${tok}]（M2 动态主题不定义该变量，请改用 Material 22 M2 实读组件令牌或 --dui-primary-color / --dui-warn-color）`
+          );
           continue;
         }
         if (!liveVars.has(tok)) {

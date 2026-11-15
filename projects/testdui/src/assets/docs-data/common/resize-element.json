@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/resize-element",
+  "importPath": "@dotos1/dui/common/resize-element",
   "exports": [
     {
       "name": "BoundingRectangle",
@@ -298,5 +298,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ResizableModule } from '@dotos/dui/common/resize-element';"
+  "suggestedUsageSnippet": "import { ResizableModule } from '@dotos1/dui/common/resize-element';"
 }

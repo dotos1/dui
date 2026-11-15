@@ -13,11 +13,11 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { Dui } from '@dotos/dui/core';
-import { FormModule } from '@dotos/dui/form';
-import { MatDatetimepickerModule } from '@dotos/dui/form/date/picker';
-import { NativeDatetimeAdapter } from '@dotos/dui/form/date/adapter';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { FormModule } from '@dotos1/dui/form';
+import { MatDatetimepickerModule } from '@dotos1/dui/form/date/picker';
+import { NativeDatetimeAdapter } from '@dotos1/dui/form/date/adapter';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { DateFieldComponent } from './datefield.component';
 
 /**

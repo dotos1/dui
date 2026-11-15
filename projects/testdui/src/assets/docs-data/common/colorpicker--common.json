@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/colorpicker/common",
+  "importPath": "@dotos1/dui/common/colorpicker/common",
   "exports": [
     {
       "name": "AlphaComponent",
@@ -1570,5 +1570,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { AlphaComponent, AlphaModule } from '@dotos/dui/common/colorpicker/common';\n\n<color-alpha [hsl]=\"...\" [rgb]=\"...\" [pointer]=\"...\" (onChange)=\"...\"></color-alpha>"
+  "suggestedUsageSnippet": "import { AlphaComponent, AlphaModule } from '@dotos1/dui/common/colorpicker/common';\n\n<color-alpha [hsl]=\"...\" [rgb]=\"...\" [pointer]=\"...\" (onChange)=\"...\"></color-alpha>"
 }

@@ -11,8 +11,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { SliderToggleField } from './slide-toggle.component';
 import { FormModule } from '../components/form.module';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `SliderToggleFieldModule` declaring and exporting slider toggle field module components, directives, pipes, and providers.

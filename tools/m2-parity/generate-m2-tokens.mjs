@@ -434,13 +434,20 @@ function parseCssBlocks(css, liveVars) {
       const val = part.slice(colonIdx + 1).trim();
       if (!prop || !val) continue;
 
-      if (prop.startsWith('--mdc-')) {
+      if (prop.startsWith('--mdc-') || prop.startsWith('--mat-sys-')) {
         continue;
       }
-      if ((prop.startsWith('--mat-') || prop.startsWith('--cdk-')) && !prop.startsWith('--mat-sys-') && !liveVars.has(prop)) {
+      if ((prop.startsWith('--mat-') || prop.startsWith('--cdk-')) && !liveVars.has(prop)) {
         continue;
       }
-      declMap.set(prop, decodeSentinelValue(val));
+      let cleanedVal = decodeSentinelValue(val);
+      if (cleanedVal.includes('--mat-sys-')) {
+        cleanedVal = cleanedVal
+          .replace(/var\(--mat-sys-background,\s*transparent\)/g, 'transparent')
+          .replace(/var\(--mat-sys-on-background,\s*inherit\)/g, 'inherit')
+          .replace(/var\((--mat-app-elevation-shadow-level-\d+),\s*[^)]*--mat-sys-shadow[^)]*\)/g, 'var($1)');
+      }
+      declMap.set(prop, cleanedVal);
     }
   }
 
@@ -557,6 +564,23 @@ html {
 @include mat.elevation-classes();
 `);
   const baseBlocks = parseCssBlocks(baseCss, liveVars);
+  const htmlBaseBlock = baseBlocks.find((b) => b.selector === 'html');
+  if (htmlBaseBlock) {
+    // 7.4.52 _badge.ts unthemable geometry parity (`container-size: 0px`, `container-padding: 0px`)
+    htmlBaseBlock.declarations['--mat-badge-container-shape'] = '50%';
+    htmlBaseBlock.declarations['--mat-badge-container-size'] = '0px';
+    htmlBaseBlock.declarations['--mat-badge-small-size-container-size'] = '0px';
+    htmlBaseBlock.declarations['--mat-badge-large-size-container-size'] = '0px';
+    htmlBaseBlock.declarations['--mat-badge-container-padding'] = '0px';
+    htmlBaseBlock.declarations['--mat-badge-small-size-container-padding'] = '0px';
+    htmlBaseBlock.declarations['--mat-badge-large-size-container-padding'] = '0px';
+    htmlBaseBlock.declarations['--mat-badge-line-height'] = 'normal';
+    htmlBaseBlock.declarations['--mat-badge-small-size-line-height'] = 'normal';
+    htmlBaseBlock.declarations['--mat-badge-large-size-line-height'] = 'normal';
+    // 7.4.52 card & slider thumb knob `box-shadow: none` parity
+    htmlBaseBlock.declarations['--mat-card-elevated-container-elevation'] = 'none';
+    htmlBaseBlock.declarations['--mat-slider-handle-elevation'] = 'none';
+  }
 
   // 2. Color templates for light, dark, darkblue (including M2 system map + all component colors + .mat-accent/.mat-warn variants!)
   const colorTemplates = {};
@@ -569,24 +593,48 @@ $raw: ${defineFn}((
 ));
 $t: patch-dui-m2-mode($raw, '${mode}');
 html {
-  @include mat.m2-theme($t);
   @include mat.all-component-colors($t);
 }
 `);
-    const blocks = parseCssBlocks(css, liveVars);
+    const blocks = parseCssBlocks(css, liveVars).filter(
+      (b) =>
+        b.selector !== 'html .mat-mdc-checkbox.mat-primary' &&
+        b.selector !== 'html .mat-badge-accent' &&
+        b.selector !== 'html .mat-badge-warn' &&
+        !b.selector.includes('.mat-mdc-chip-selected.')
+    );
     // 7.4.52 DotOS unselected chip & tooltip surface parity (light: #e0e0e0/#616161, dark: #616161/#616161, darkblue: #455a64/#455a64)
     const unselectedChipBg = mode === 'darkblue' ? '#455a64' : mode === 'dark' ? '#616161' : '#e0e0e0';
     const tooltipBg = mode === 'darkblue' ? '#455a64' : '#616161';
     const htmlColorBlock = blocks.find((b) => b.selector === 'html');
     if (htmlColorBlock) {
+      htmlColorBlock.declarations['--dui-theme-primary'] = '{{primary.default}}';
+      htmlColorBlock.declarations['--dui-theme-on-primary'] = '{{primary.default-contrast@1}}';
+      htmlColorBlock.declarations['--dui-theme-primary-container'] = '{{primary.default@0.12}}';
+      htmlColorBlock.declarations['--dui-theme-accent'] = '{{accent.default}}';
+      htmlColorBlock.declarations['--dui-theme-warn'] = '{{warn.default}}';
+      htmlColorBlock.declarations['--dui-primary-color'] = '{{primary.default}}';
+      htmlColorBlock.declarations['--dui-accent-color'] = '{{accent.default}}';
+      htmlColorBlock.declarations['--dui-warn-color'] = '{{warn.default}}';
+      htmlColorBlock.declarations['--dui-primary-container-color'] = '{{primary.default@0.12}}';
       htmlColorBlock.declarations['--mat-tooltip-container-color'] = tooltipBg;
       htmlColorBlock.declarations['--mat-tooltip-supporting-text-color'] = 'white';
+      // 7.4.52 _icon.ts `foreground.icons` parity (light: rgba(0,0,0,0.54), dark & darkblue: rgba(255,255,255,0.7))
+      htmlColorBlock.declarations['--mat-icon-color'] =
+        mode === 'light' ? 'rgba(0, 0, 0, 0.54)' : 'rgba(255, 255, 255, 0.7)';
+      // 7.4.52 _badge.ts transparent background & inherited foreground parity
+      htmlColorBlock.declarations['--mat-badge-background-color'] = 'transparent';
+      htmlColorBlock.declarations['--mat-badge-text-color'] = 'inherit';
+      // 7.4.52 card & slider thumb knob `box-shadow: none` parity
+      htmlColorBlock.declarations['--mat-card-elevated-container-elevation'] = 'none';
+      htmlColorBlock.declarations['--mat-slider-handle-elevation'] = 'none';
       // 7.4.52 _filled-text-field.ts:50 `container-color: safe_color_change($surface, 0)` (transparent fill container)
       htmlColorBlock.declarations['--mat-form-field-filled-container-color'] = 'transparent';
       // 7.4.52 tokens/mdc/_icon-button.ts:38 exact 0.38 disabled icon alpha & exact disabled button/input/select-arrow alphas
       htmlColorBlock.declarations['--mat-icon-button-disabled-icon-color'] =
         mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.38)';
       const disabledBtnFg = mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.5)';
+      const disabledBtnBg = mode === 'light' ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.12)';
       const disabledInputFg = mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.38)';
       const disabledFabBg =
         mode === 'darkblue'
@@ -594,6 +642,8 @@ html {
           : mode === 'dark'
             ? 'rgba(97, 97, 97, 0.12)'
             : 'rgba(0, 0, 0, 0.12)';
+      htmlColorBlock.declarations['--mat-button-filled-disabled-container-color'] = disabledBtnBg;
+      htmlColorBlock.declarations['--mat-button-protected-disabled-container-color'] = disabledBtnBg;
       htmlColorBlock.declarations['--mat-button-filled-disabled-label-text-color'] = disabledBtnFg;
       htmlColorBlock.declarations['--mat-button-outlined-disabled-label-text-color'] = disabledBtnFg;
       htmlColorBlock.declarations['--mat-button-protected-disabled-label-text-color'] = disabledBtnFg;
@@ -610,6 +660,7 @@ html {
     const chipBlock = blocks.find((b) => b.selector === 'html .mat-mdc-standard-chip');
     if (chipBlock) {
       chipBlock.declarations['--mat-chip-elevated-container-color'] = unselectedChipBg;
+      chipBlock.declarations['--mat-chip-elevated-selected-container-color'] = unselectedChipBg;
       chipBlock.declarations['--mat-chip-elevated-disabled-container-color'] = unselectedChipBg;
     }
     // Ensure .mat-icon.mat-primary/.mat-accent/.mat-warn sets --mat-icon-color to {{palette.text}} as in 7.4.52!
@@ -665,11 +716,23 @@ $t: mat.m2-define-light-theme((
   typography: $typo-${typoKey},
 ));
 html {
-  @include mat.m2-theme($t);
   @include mat.all-component-typographies($t);
 }
 `);
-    typographyTemplates[typoKey] = parseCssBlocks(css, liveVars);
+    const typoBlocks = parseCssBlocks(css, liveVars).filter(
+      (b) =>
+        !b.selector.includes('.mat-typography') &&
+        !/^html\s+\.mat-(h[1-6]|headline|title|subheading|body|small|caption|display)/.test(b.selector)
+    );
+    const htmlTypoBlock = typoBlocks.find((b) => b.selector === 'html');
+    if (htmlTypoBlock) {
+      // 7.4.52 _menu.ts: menu item font-size is fixed 14px across all 3 density/typography scales
+      htmlTypoBlock.declarations['--mat-menu-item-label-text-size'] = '14px';
+      htmlTypoBlock.declarations['--mat-badge-line-height'] = 'normal';
+      htmlTypoBlock.declarations['--mat-badge-small-size-line-height'] = 'normal';
+      htmlTypoBlock.declarations['--mat-badge-large-size-line-height'] = 'normal';
+    }
+    typographyTemplates[typoKey] = typoBlocks;
   }
 
   // Count color tokens & density tokens for verification summary
@@ -775,7 +838,15 @@ $darkblue-t: patch-dui-m2-mode(mat.m2-define-dark-theme((
 )), 'darkblue');
 
 html {
-  @include mat.m2-theme($light-t);
+  --dui-theme-primary: #00897b;
+  --dui-theme-on-primary: #ffffff;
+  --dui-theme-primary-container: rgba(0, 137, 123, 0.12);
+  --dui-theme-accent: #ef6c00;
+  --dui-theme-warn: #c62828;
+  --dui-primary-color: #00897b;
+  --dui-accent-color: #ef6c00;
+  --dui-warn-color: #c62828;
+  --dui-primary-container-color: rgba(0, 137, 123, 0.12);
   @include mat.all-component-bases($light-t);
   @include mat.all-component-colors($light-t);
   @include mat.all-component-typographies($light-t);
@@ -785,17 +856,60 @@ html {
 @include mat.elevation-classes();
 
 html:where([data-theme='dark']) {
-  @include mat.m2-theme($dark-t);
   @include mat.all-component-colors($dark-t);
 }
 
 html:where([data-theme='darkblue']) {
-  @include mat.m2-theme($darkblue-t);
   @include mat.all-component-colors($darkblue-t);
 }
 `;
-  const rawStaticBlocks = parseCssBlocks(compileSass(staticDefaultScss), liveVars);
+  const rawStaticBlocks = parseCssBlocks(compileSass(staticDefaultScss), liveVars).filter(
+    (b) =>
+      !b.selector.endsWith('.mat-mdc-checkbox.mat-primary') &&
+      !b.selector.endsWith('.mat-badge-accent') &&
+      !b.selector.endsWith('.mat-badge-warn') &&
+      !b.selector.includes('.mat-mdc-chip-selected.') &&
+      !b.selector.includes('.mat-typography') &&
+      !/^html\s+\.mat-(h[1-6]|headline|title|subheading|body|small|caption|display)/.test(b.selector)
+  );
   applyDensityOverrides(rawStaticBlocks, '-2');
+  for (const b of rawStaticBlocks) {
+    if (b.selector === 'html') {
+      b.declarations['--mat-icon-color'] = 'rgba(0, 0, 0, 0.54)';
+      b.declarations['--mat-button-filled-disabled-container-color'] = 'rgba(0, 0, 0, 0.12)';
+      b.declarations['--mat-button-protected-disabled-container-color'] = 'rgba(0, 0, 0, 0.12)';
+      b.declarations['--mat-badge-background-color'] = 'transparent';
+      b.declarations['--mat-badge-text-color'] = 'inherit';
+      b.declarations['--mat-badge-container-shape'] = '50%';
+      b.declarations['--mat-badge-container-size'] = '0px';
+      b.declarations['--mat-badge-small-size-container-size'] = '0px';
+      b.declarations['--mat-badge-large-size-container-size'] = '0px';
+      b.declarations['--mat-badge-container-padding'] = '0px';
+      b.declarations['--mat-badge-small-size-container-padding'] = '0px';
+      b.declarations['--mat-badge-large-size-container-padding'] = '0px';
+      b.declarations['--mat-badge-line-height'] = 'normal';
+      b.declarations['--mat-badge-small-size-line-height'] = 'normal';
+      b.declarations['--mat-badge-large-size-line-height'] = 'normal';
+      b.declarations['--mat-card-elevated-container-elevation'] = 'none';
+      b.declarations['--mat-slider-handle-elevation'] = 'none';
+      b.declarations['--mat-menu-item-label-text-size'] = '14px';
+    } else if (b.selector === "html:where([data-theme='dark'])" || b.selector === "html:where([data-theme='darkblue'])") {
+      b.declarations['--mat-icon-color'] = 'rgba(255, 255, 255, 0.7)';
+      b.declarations['--mat-button-filled-disabled-container-color'] = 'rgba(255, 255, 255, 0.12)';
+      b.declarations['--mat-button-protected-disabled-container-color'] = 'rgba(255, 255, 255, 0.12)';
+      b.declarations['--mat-badge-background-color'] = 'transparent';
+      b.declarations['--mat-badge-text-color'] = 'inherit';
+      b.declarations['--mat-card-elevated-container-elevation'] = 'none';
+      b.declarations['--mat-slider-handle-elevation'] = 'none';
+    } else if (b.selector === 'html .mat-mdc-standard-chip' || b.selector.endsWith('] .mat-mdc-standard-chip')) {
+      const isDarkBlue = b.selector.includes('darkblue');
+      const isDark = !isDarkBlue && b.selector.includes('dark');
+      const chipBg = isDarkBlue ? '#455a64' : isDark ? '#616161' : '#e0e0e0';
+      b.declarations['--mat-chip-elevated-container-color'] = chipBg;
+      b.declarations['--mat-chip-elevated-selected-container-color'] = chipBg;
+      b.declarations['--mat-chip-elevated-disabled-container-color'] = chipBg;
+    }
+  }
 
   const densityNormalDecls = Object.entries(densityTemplates['-1'].find((b) => b.selector === 'html')?.declarations ?? {})
     .map(([k, v]) => `  ${k}: ${v};`)
@@ -865,10 +979,9 @@ ${densityLooseDecls}
   input.mat-mdc-input-element { margin-top: -.0625em !important; }
 }
 
-// 7.4.52 S-5 structural rules & px-based M2 typography classes (immune to html { font-size: 62.5% })
+// 7.4.52 S-5 structural rules & exact 7.4.52 M2 typography classes
 .mat-mdc-button { min-height: var(--mat-button-text-container-height); }
 .mat-mdc-unelevated-button { min-height: var(--mat-button-filled-container-height); }
-.mat-mdc-raised-button { min-height: var(--mat-button-protected-container-height, 32px); }
 .mat-mdc-outlined-button { min-height: var(--mat-button-outlined-container-height); }
 .mat-mdc-fab { width: var(--mat-fab-extended-container-height) !important; height: var(--mat-fab-extended-container-height) !important; }
 .mat-mdc-fab.mat-mdc-button-disabled,
@@ -882,16 +995,18 @@ ${densityLooseDecls}
 .mdc-card { color: var(--mat-card-subtitle-text-color); }
 .mat-mdc-card-header { padding-top: 6px !important; padding-bottom: 6px !important; padding-left: 6px !important; }
 .mat-mdc-card-header-text { width: 100%; }
+.mat-mdc-chip-set .mat-mdc-chip { margin-top: 4px !important; margin-bottom: 4px !important; }
 .mat-mdc-text-field-wrapper { --mat-mdc-form-field-label-offset-x: -8px; }
-.mat-mdc-text-field-wrapper .mdc-text-field__input { padding-left: 5px; }
 .mat-mdc-input-element:disabled { color: var(--mat-form-field-filled-disabled-input-text-color); }
 input.mat-mdc-input-element { color: var(--mat-form-field-filled-input-text-color); margin-top: .0078em !important; }
 .mat-mdc-input-element { caret-color: var(--mat-form-field-filled-caret-color); }
 .mat-mdc-input-element::placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
 .mat-mdc-input-element::-webkit-input-placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
 .mat-mdc-form-field-invalid .mat-mdc-input-element { caret-color: var(--mat-form-field-filled-error-caret-color); }
-.mat-icon { color: var(--mat-icon-color); }
+.mat-icon { color: var(--mat-icon-color); flex-shrink: 1 !important; min-height: 0px !important; }
 .mat-icon svg { stroke: var(--mat-icon-color) !important; }
+.mat-badge-content { min-width: 0px !important; min-height: 0px !important; }
+.mat-mdc-menu-panel { animation-name: none !important; animation-timing-function: ease !important; transform-origin: top left !important; }
 .mat-mdc-menu-item { min-height: 36px !important; }
 .mat-mdc-menu-item .mat-icon-no-color { color: var(--mat-icon-color) !important; }
 .mat-mdc-option { min-height: 40px !important; }
@@ -900,20 +1015,18 @@ input.mat-mdc-input-element { color: var(--mat-form-field-filled-input-text-colo
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content,
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end { opacity: 1; }
 
-.mat-h1, .mat-headline, .mat-typography .mat-h1, .mat-typography .mat-headline, .mat-typography h1 { font: 400 20px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h2, .mat-typography .mat-h2, .mat-typography h2 { font: 400 18px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-title, .mat-h3, .mat-subheading-2, .mat-typography .mat-title, .mat-typography .mat-h3, .mat-typography .mat-subheading-2, .mat-typography h3 { font: 400 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h4, .mat-subheading-1, .mat-typography .mat-h4, .mat-typography .mat-subheading-1, .mat-typography h4 { font: 400 13px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h5, .mat-typography .mat-h5, .mat-typography h5 { font: 400 11.62px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
-.mat-h6, .mat-typography .mat-h6, .mat-typography h6 { font: 400 9.38px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
-.mat-body-strong, .mat-body-2, .mat-typography .mat-body-strong, .mat-typography .mat-body-2 { font: 500 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0; }
-.mat-body, .mat-body-1, .mat-typography, .mat-typography .mat-body, .mat-typography .mat-body-1 { font: 400 14px / 16px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0; }
+.mat-h1, .mat-headline, .mat-typography h1 { margin: 0 0 9px; }
+.mat-h2, .mat-typography h2 { margin: 0 0 9px; }
+.mat-title { margin: 0 0 9px; }
+.mat-h3, .mat-subheading-2, .mat-typography h3 { margin: 0 0 9px; }
+.mat-h4, .mat-subheading-1, .mat-typography h4 { margin: 0 0 9px; }
+.mat-h5, .mat-typography h5 { margin: 0 0 9px; }
+.mat-h6, .mat-typography h6 { margin: 0 0 9px; }
 .mat-body p, .mat-body-1 p, .mat-typography p { margin: 0 0 9px; }
-.mat-small, .mat-caption, .mat-typography .mat-small, .mat-typography .mat-caption { font: 400 12px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; }
-.mat-display-4, .mat-typography .mat-display-4 { font: 300 90px / 90px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.05em; margin: 0 0 42px; }
-.mat-display-3, .mat-typography .mat-display-3 { font: 400 44px / 44px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.02em; margin: 0 0 48px; }
-.mat-display-2, .mat-typography .mat-display-2 { font: 400 36px / 38px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.005em; margin: 0 0 48px; }
-.mat-display-1, .mat-typography .mat-display-1 { font: 400 28px / 28px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 48px; }
+.mat-display-4, .mat-typography .mat-display-4 { letter-spacing: -0.05em; margin: 0 0 42px; }
+.mat-display-3, .mat-typography .mat-display-3 { letter-spacing: -0.02em; margin: 0 0 48px; }
+.mat-display-2, .mat-typography .mat-display-2 { letter-spacing: -0.005em; margin: 0 0 48px; }
+.mat-display-1, .mat-typography .mat-display-1 { margin: 0 0 48px; }
 }
 `;
 

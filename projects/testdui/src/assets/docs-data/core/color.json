@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/color",
+  "importPath": "@dotos1/dui/core/color",
   "exports": [
     {
       "name": "bound01",
@@ -2180,5 +2180,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/color';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/color';"
 }

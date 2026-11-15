@@ -6,8 +6,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MenuModule } from '@dotos/dui/ui/menu';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { MenuModule } from '@dotos1/dui/ui/menu';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `MenuExampleComponent` (selector: 'app-menu-example') providing menu example component presentation and interaction in `projects/testdui/src/app/docs/examples/menu`.

@@ -6,11 +6,11 @@
 
 import { LogoutResult } from './logout-result';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { ConfigService } from  '@dotos/dui/core/config';
+import { ConfigService } from  '@dotos1/dui/core/config';
 
 import { AuthLoader } from './auth.loader';
 import { Authentication } from './model/authentication';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 /**
  * Class `CommonAuth` encapsulating common auth data structures and logic in `src/core/auth`.

@@ -1,11 +1,11 @@
 {
-  "importPath": "@dotos/dui/theming",
+  "importPath": "@dotos1/dui/theming",
   "exports": [
     {
       "name": "dui-platform-theme",
       "kind": "function",
       "summary": "SCSS theme architecture providing Material MDC palette tokens, dark/light mode CSS variables, and typography rules.",
-      "summaryZh": "@dotos/dui 平台级 SCSS 主题系统，提供 Material MDC 调色板令牌、深浅色 CSS 变量与排版规范。",
+      "summaryZh": "@dotos1/dui 平台级 SCSS 主题系统，提供 Material MDC 调色板令牌、深浅色 CSS 变量与排版规范。",
       "inputs": [],
       "outputs": [],
       "methods": [],
@@ -13,5 +13,5 @@
       "sourceFile": "src/theming/platform.scss"
     }
   ],
-  "suggestedUsageSnippet": "@use '@dotos/dui/theming/platform.scss';\n@import '@dotos/dui/theming/dui/colors';"
+  "suggestedUsageSnippet": "@use '@dotos1/dui/theming/platform.scss';\n@import '@dotos1/dui/theming/dui/colors';"
 }

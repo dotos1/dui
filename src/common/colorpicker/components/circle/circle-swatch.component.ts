@@ -5,7 +5,7 @@
 
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  OnChanges,  Output,
 } from '@angular/core';
-import { uuid } from '@dotos/dui/util';
+import { uuid } from '@dotos1/dui/util';
 
 /**
  * Angular component `CircleSwatchComponent` (selector: 'color-circle-swatch') providing circle swatch component presentation and interaction in `src/common/colorpicker/components/circle`.

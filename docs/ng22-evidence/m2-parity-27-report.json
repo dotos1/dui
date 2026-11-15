@@ -1,0 +1,1315 @@
+{
+  "generatedAt": "2026-11-15T11:00:06.166Z",
+  "packageUnderTest": "@dotos1/dui@8.0.0-next.2",
+  "baselineReference": {
+    "version": "7.4.52",
+    "commit": "84ee2ed6ce2dc9da033e02a2d4501c1c91bf1d02",
+    "baselineFile": "tools/m2-parity/baseline-7452-styles.json.gz"
+  },
+  "evidenceDirectory": "docs/ng22-evidence",
+  "colorTolerance": {
+    "rgbMaxDelta": 1,
+    "alphaMaxDelta": 0.01
+  },
+  "summary": {
+    "totalCombinations": 27,
+    "componentCategoriesCovered": 16,
+    "targetsPerCombination": 59,
+    "totalComputedStylePropertiesChecked": 767826,
+    "totalExactPropertyMatches": 767502,
+    "totalExactValueCrossVersionBaseCssDiffs": 324,
+    "distinctCrossVersionElementPropertyItems": 12,
+    "totalUnexplainedPropertyMismatches": 0,
+    "coldStartCyclesChecked": 6,
+    "coldStartPropertiesChecked": 170628,
+    "coldStartMismatches": 0,
+    "avgPixelDiffRatio": 0.01308,
+    "maxPixelDiffRatio": 0.015,
+    "passed": true
+  },
+  "coldStartConsistencyChecks": [
+    {
+      "id": "cycle-1-light-dark-darkblue-loose",
+      "description": "light/compact/teal-600 (fill) → dark/normal/blue-500 (fill) → darkblue/loose/indigo-500+amber-700+deep-orange-700 (outline)",
+      "finalConfig": {
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700",
+        "type": "darkblue",
+        "typography": "loose",
+        "formType": "outline"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "mismatchCount": 0,
+      "mismatches": []
+    },
+    {
+      "id": "cycle-2-darkblue-dark-light-compact",
+      "description": "darkblue/loose/indigo-500 (outline) → dark/normal/teal-600 (fill) → light/compact/blue-500+pink-500+red-700 (fill)",
+      "finalConfig": {
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700",
+        "type": "light",
+        "typography": "compact",
+        "formType": "fill"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "mismatchCount": 0,
+      "mismatches": []
+    },
+    {
+      "id": "cycle-3-density-compact-normal-loose-dark",
+      "description": "dark/compact/indigo-500 (fill) → dark/normal/indigo-500 (outline) → dark/loose/teal-600+orange-800+red-800 (fill)",
+      "finalConfig": {
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800",
+        "type": "dark",
+        "typography": "loose",
+        "formType": "fill"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "mismatchCount": 0,
+      "mismatches": []
+    },
+    {
+      "id": "cycle-4-density-loose-normal-compact-darkblue",
+      "description": "darkblue/loose/teal-600 (fill) → darkblue/normal/blue-500 (fill) → darkblue/compact/blue-500+pink-500+red-700 (outline)",
+      "finalConfig": {
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700",
+        "type": "darkblue",
+        "typography": "compact",
+        "formType": "outline"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "mismatchCount": 0,
+      "mismatches": []
+    },
+    {
+      "id": "cycle-5-palette-swap-light-normal",
+      "description": "light/normal/blue-500 (fill) → light/normal/indigo-500 (fill) → light/normal/teal-600+orange-800+red-800 (outline)",
+      "finalConfig": {
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800",
+        "type": "light",
+        "typography": "normal",
+        "formType": "outline"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "mismatchCount": 0,
+      "mismatches": []
+    },
+    {
+      "id": "cycle-6-cross-axes-dark-compact-indigo",
+      "description": "light/loose/blue-500 (outline) → darkblue/compact/teal-600 (fill) → dark/compact/indigo-500+amber-700+deep-orange-700 (fill)",
+      "finalConfig": {
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700",
+        "type": "dark",
+        "typography": "compact",
+        "formType": "fill"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "mismatchCount": 0,
+      "mismatches": []
+    }
+  ],
+  "itemizedCrossVersionBaseCssDiffs": [
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-DELAY",
+      "target": "inputFill",
+      "selector": "[data-parity=\"input-fill\"]",
+      "category": "4-form-field",
+      "prop": "animation-delay",
+      "ref7452Value": "0s",
+      "ng22Value": "0.001s",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（1 毫秒自动填充事件触发延迟）",
+      "reason": "`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-PROBE",
+      "target": "inputFill",
+      "selector": "[data-parity=\"input-fill\"]",
+      "category": "4-form-field",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "cdk-text-field-autofill-end",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（透明空关键帧探针）",
+      "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-DELAY",
+      "target": "inputOutline",
+      "selector": "[data-parity=\"input-outline\"]",
+      "category": "4-form-field",
+      "prop": "animation-delay",
+      "ref7452Value": "0s",
+      "ng22Value": "0.001s",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（1 毫秒自动填充事件触发延迟）",
+      "reason": "`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-PROBE",
+      "target": "inputOutline",
+      "selector": "[data-parity=\"input-outline\"]",
+      "category": "4-form-field",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "cdk-text-field-autofill-end",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（透明空关键帧探针）",
+      "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-DELAY",
+      "target": "inputDisabled",
+      "selector": "[data-parity=\"input-disabled\"]",
+      "category": "4-form-field",
+      "prop": "animation-delay",
+      "ref7452Value": "0s",
+      "ng22Value": "0.001s",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（1 毫秒自动填充事件触发延迟）",
+      "reason": "`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-PROBE",
+      "target": "inputDisabled",
+      "selector": "[data-parity=\"input-disabled\"]",
+      "category": "4-form-field",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "cdk-text-field-autofill-end",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（透明空关键帧探针）",
+      "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
+    },
+    {
+      "ruleId": "MAT22-CHECKBOX-UNICODE-BIDI",
+      "target": "checkboxPrimaryBg",
+      "selector": "[data-parity=\"checkbox-primary\"] .mdc-checkbox__background",
+      "category": "6-checkbox",
+      "prop": "unicode-bidi",
+      "ref7452Value": "isolate",
+      "ng22Value": "normal",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（纯 SVG 勾选图标容器无双向混排文本）",
+      "reason": "Material 22 将 `.mdc-checkbox__background` 内部节点标签从块级 `<div>` 调整为行内 `<span>`（`display: inline-flex` 保持完全一致），浏览器 UA 默认 `unicode-bidi` 由 `isolate` 变为 `normal`。"
+    },
+    {
+      "ruleId": "MAT22-CHECKBOX-UNICODE-BIDI",
+      "target": "checkboxAccentBg",
+      "selector": "[data-parity=\"checkbox-accent\"] .mdc-checkbox__background",
+      "category": "6-checkbox",
+      "prop": "unicode-bidi",
+      "ref7452Value": "isolate",
+      "ng22Value": "normal",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（纯 SVG 勾选图标容器无双向混排文本）",
+      "reason": "Material 22 将 `.mdc-checkbox__background` 内部节点标签从块级 `<div>` 调整为行内 `<span>`（`display: inline-flex` 保持完全一致），浏览器 UA 默认 `unicode-bidi` 由 `isolate` 变为 `normal`。"
+    },
+    {
+      "ruleId": "MAT22-TAB-TOUCH-ACTION",
+      "target": "tabItem",
+      "selector": "[data-parity=\"tabs\"] .mdc-tab",
+      "category": "12-tabs",
+      "prop": "touch-action",
+      "ref7452Value": "auto",
+      "ng22Value": "manipulation",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（仅消除触屏设备双击缩放 300ms 点击延迟）",
+      "reason": "Material 22 `.mdc-tab` 组件基础 CSS 新增 `touch-action: manipulation` 标准触控优化属性。"
+    },
+    {
+      "ruleId": "MAT22-TABLE-LOGICAL-TEXT-ALIGN",
+      "target": "tableHeaderCell",
+      "selector": "[data-parity=\"table-header-cell\"]",
+      "category": "14-table",
+      "prop": "text-align",
+      "ref7452Value": "left",
+      "ng22Value": "start",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（LTR 布局下 `start` 与 `left` 完全等价）",
+      "reason": "Material 22 `.mat-mdc-table` 组件基础 CSS 将物理 `text-align: left` 升级为 CSS 逻辑属性 `text-align: start` 以原生兼容双向布局。"
+    },
+    {
+      "ruleId": "MAT22-TABLE-LOGICAL-TEXT-ALIGN",
+      "target": "tableCell",
+      "selector": "[data-parity=\"table-cell\"]",
+      "category": "14-table",
+      "prop": "text-align",
+      "ref7452Value": "left",
+      "ng22Value": "start",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（LTR 布局下 `start` 与 `left` 完全等价）",
+      "reason": "Material 22 `.mat-mdc-table` 组件基础 CSS 将物理 `text-align: left` 升级为 CSS 逻辑属性 `text-align: start` 以原生兼容双向布局。"
+    },
+    {
+      "ruleId": "MAT22-EXPANSION-UNFOCUSED-OUTLINE",
+      "target": "expansionHeader",
+      "selector": "[data-parity=\"expansion-header\"]",
+      "category": "extra-expansion",
+      "prop": "outline-width",
+      "ref7452Value": "3px",
+      "ng22Value": "0px",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（非聚焦态 `outline-style: none` 下线宽不渲染）",
+      "reason": "7.4.52 非聚焦态 `outline-style: none` 下浏览器默认 `outline-width` 计算值为 `3px`；Material 22 `.mat-expansion-panel-header` 基础样式显式声明 `outline: none` 使 `outline-width` 计算值为 `0px`。"
+    }
+  ],
+  "extraChecks": {
+    "adoptedStyleSheetsCount": 0,
+    "duiStyleTags": [
+      {
+        "id": "dui-sheet-4",
+        "role": "core"
+      },
+      {
+        "id": "dui-sheet-5",
+        "role": "material-theme"
+      },
+      {
+        "id": "dui-sheet-6",
+        "role": "component"
+      }
+    ],
+    "duiThemeVars": {
+      "primary": "#00897b",
+      "accent": "#ef6c00",
+      "warn": "#c62828",
+      "matSysPrimary": ""
+    },
+    "fontSizesUnder625PercentRoot": {
+      "h1": "10px",
+      "btn": "14px"
+    },
+    "zoneCheck": {
+      "beforeZoneText": "angular:0:1",
+      "afterZoneText": "angular:1:1"
+    },
+    "animationsCheck": {
+      "expansionHeights": {
+        "open": 36,
+        "closed": 0,
+        "reopened": 36
+      },
+      "menuOpenHeight": 60,
+      "dialogOpened": true
+    }
+  },
+  "combinations": [
+    {
+      "index": 1,
+      "slug": "01-light-loose-teal-orange",
+      "mode": "light",
+      "density": "loose",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20364,
+        "diffRatio": 0.01473
+      },
+      "screenshots": {
+        "ref7452": "screenshots/01-light-loose-teal-orange-7452.png",
+        "ng22": "screenshots/01-light-loose-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 2,
+      "slug": "02-light-loose-blue-pink",
+      "mode": "light",
+      "density": "loose",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20621,
+        "diffRatio": 0.01492
+      },
+      "screenshots": {
+        "ref7452": "screenshots/02-light-loose-blue-pink-7452.png",
+        "ng22": "screenshots/02-light-loose-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 3,
+      "slug": "03-light-loose-indigo-amber",
+      "mode": "light",
+      "density": "loose",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20733,
+        "diffRatio": 0.015
+      },
+      "screenshots": {
+        "ref7452": "screenshots/03-light-loose-indigo-amber-7452.png",
+        "ng22": "screenshots/03-light-loose-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 4,
+      "slug": "04-light-normal-teal-orange",
+      "mode": "light",
+      "density": "normal",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17701,
+        "diffRatio": 0.0128
+      },
+      "screenshots": {
+        "ref7452": "screenshots/04-light-normal-teal-orange-7452.png",
+        "ng22": "screenshots/04-light-normal-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 5,
+      "slug": "05-light-normal-blue-pink",
+      "mode": "light",
+      "density": "normal",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17958,
+        "diffRatio": 0.01299
+      },
+      "screenshots": {
+        "ref7452": "screenshots/05-light-normal-blue-pink-7452.png",
+        "ng22": "screenshots/05-light-normal-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 6,
+      "slug": "06-light-normal-indigo-amber",
+      "mode": "light",
+      "density": "normal",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 18070,
+        "diffRatio": 0.01307
+      },
+      "screenshots": {
+        "ref7452": "screenshots/06-light-normal-indigo-amber-7452.png",
+        "ng22": "screenshots/06-light-normal-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 7,
+      "slug": "07-light-compact-teal-orange",
+      "mode": "light",
+      "density": "compact",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15606,
+        "diffRatio": 0.01129
+      },
+      "screenshots": {
+        "ref7452": "screenshots/07-light-compact-teal-orange-7452.png",
+        "ng22": "screenshots/07-light-compact-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 8,
+      "slug": "08-light-compact-blue-pink",
+      "mode": "light",
+      "density": "compact",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15862,
+        "diffRatio": 0.01147
+      },
+      "screenshots": {
+        "ref7452": "screenshots/08-light-compact-blue-pink-7452.png",
+        "ng22": "screenshots/08-light-compact-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 9,
+      "slug": "09-light-compact-indigo-amber",
+      "mode": "light",
+      "density": "compact",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15974,
+        "diffRatio": 0.01156
+      },
+      "screenshots": {
+        "ref7452": "screenshots/09-light-compact-indigo-amber-7452.png",
+        "ng22": "screenshots/09-light-compact-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 10,
+      "slug": "10-dark-loose-teal-orange",
+      "mode": "dark",
+      "density": "loose",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20416,
+        "diffRatio": 0.01477
+      },
+      "screenshots": {
+        "ref7452": "screenshots/10-dark-loose-teal-orange-7452.png",
+        "ng22": "screenshots/10-dark-loose-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 11,
+      "slug": "11-dark-loose-blue-pink",
+      "mode": "dark",
+      "density": "loose",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20423,
+        "diffRatio": 0.01477
+      },
+      "screenshots": {
+        "ref7452": "screenshots/11-dark-loose-blue-pink-7452.png",
+        "ng22": "screenshots/11-dark-loose-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 12,
+      "slug": "12-dark-loose-indigo-amber",
+      "mode": "dark",
+      "density": "loose",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20515,
+        "diffRatio": 0.01484
+      },
+      "screenshots": {
+        "ref7452": "screenshots/12-dark-loose-indigo-amber-7452.png",
+        "ng22": "screenshots/12-dark-loose-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 13,
+      "slug": "13-dark-normal-teal-orange",
+      "mode": "dark",
+      "density": "normal",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17781,
+        "diffRatio": 0.01286
+      },
+      "screenshots": {
+        "ref7452": "screenshots/13-dark-normal-teal-orange-7452.png",
+        "ng22": "screenshots/13-dark-normal-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 14,
+      "slug": "14-dark-normal-blue-pink",
+      "mode": "dark",
+      "density": "normal",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17788,
+        "diffRatio": 0.01287
+      },
+      "screenshots": {
+        "ref7452": "screenshots/14-dark-normal-blue-pink-7452.png",
+        "ng22": "screenshots/14-dark-normal-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 15,
+      "slug": "15-dark-normal-indigo-amber",
+      "mode": "dark",
+      "density": "normal",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17880,
+        "diffRatio": 0.01293
+      },
+      "screenshots": {
+        "ref7452": "screenshots/15-dark-normal-indigo-amber-7452.png",
+        "ng22": "screenshots/15-dark-normal-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 16,
+      "slug": "16-dark-compact-teal-orange",
+      "mode": "dark",
+      "density": "compact",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15772,
+        "diffRatio": 0.01141
+      },
+      "screenshots": {
+        "ref7452": "screenshots/16-dark-compact-teal-orange-7452.png",
+        "ng22": "screenshots/16-dark-compact-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 17,
+      "slug": "17-dark-compact-blue-pink",
+      "mode": "dark",
+      "density": "compact",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15779,
+        "diffRatio": 0.01141
+      },
+      "screenshots": {
+        "ref7452": "screenshots/17-dark-compact-blue-pink-7452.png",
+        "ng22": "screenshots/17-dark-compact-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 18,
+      "slug": "18-dark-compact-indigo-amber",
+      "mode": "dark",
+      "density": "compact",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15871,
+        "diffRatio": 0.01148
+      },
+      "screenshots": {
+        "ref7452": "screenshots/18-dark-compact-indigo-amber-7452.png",
+        "ng22": "screenshots/18-dark-compact-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 19,
+      "slug": "19-darkblue-loose-teal-orange",
+      "mode": "darkblue",
+      "density": "loose",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20525,
+        "diffRatio": 0.01485
+      },
+      "screenshots": {
+        "ref7452": "screenshots/19-darkblue-loose-teal-orange-7452.png",
+        "ng22": "screenshots/19-darkblue-loose-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 20,
+      "slug": "20-darkblue-loose-blue-pink",
+      "mode": "darkblue",
+      "density": "loose",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20538,
+        "diffRatio": 0.01486
+      },
+      "screenshots": {
+        "ref7452": "screenshots/20-darkblue-loose-blue-pink-7452.png",
+        "ng22": "screenshots/20-darkblue-loose-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 21,
+      "slug": "21-darkblue-loose-indigo-amber",
+      "mode": "darkblue",
+      "density": "loose",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 20629,
+        "diffRatio": 0.01492
+      },
+      "screenshots": {
+        "ref7452": "screenshots/21-darkblue-loose-indigo-amber-7452.png",
+        "ng22": "screenshots/21-darkblue-loose-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 22,
+      "slug": "22-darkblue-normal-teal-orange",
+      "mode": "darkblue",
+      "density": "normal",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17868,
+        "diffRatio": 0.01293
+      },
+      "screenshots": {
+        "ref7452": "screenshots/22-darkblue-normal-teal-orange-7452.png",
+        "ng22": "screenshots/22-darkblue-normal-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 23,
+      "slug": "23-darkblue-normal-blue-pink",
+      "mode": "darkblue",
+      "density": "normal",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17881,
+        "diffRatio": 0.01293
+      },
+      "screenshots": {
+        "ref7452": "screenshots/23-darkblue-normal-blue-pink-7452.png",
+        "ng22": "screenshots/23-darkblue-normal-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 24,
+      "slug": "24-darkblue-normal-indigo-amber",
+      "mode": "darkblue",
+      "density": "normal",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 17972,
+        "diffRatio": 0.013
+      },
+      "screenshots": {
+        "ref7452": "screenshots/24-darkblue-normal-indigo-amber-7452.png",
+        "ng22": "screenshots/24-darkblue-normal-indigo-amber-ng22.png"
+      }
+    },
+    {
+      "index": 25,
+      "slug": "25-darkblue-compact-teal-orange",
+      "mode": "darkblue",
+      "density": "compact",
+      "palette": {
+        "id": "teal-orange",
+        "primary": "teal-600",
+        "accent": "orange-800",
+        "warn": "red-800"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15824,
+        "diffRatio": 0.01145
+      },
+      "screenshots": {
+        "ref7452": "screenshots/25-darkblue-compact-teal-orange-7452.png",
+        "ng22": "screenshots/25-darkblue-compact-teal-orange-ng22.png"
+      }
+    },
+    {
+      "index": 26,
+      "slug": "26-darkblue-compact-blue-pink",
+      "mode": "darkblue",
+      "density": "compact",
+      "palette": {
+        "id": "blue-pink",
+        "primary": "blue-500",
+        "accent": "pink-500",
+        "warn": "red-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15837,
+        "diffRatio": 0.01146
+      },
+      "screenshots": {
+        "ref7452": "screenshots/26-darkblue-compact-blue-pink-7452.png",
+        "ng22": "screenshots/26-darkblue-compact-blue-pink-ng22.png"
+      }
+    },
+    {
+      "index": 27,
+      "slug": "27-darkblue-compact-indigo-amber",
+      "mode": "darkblue",
+      "density": "compact",
+      "palette": {
+        "id": "indigo-amber",
+        "primary": "indigo-500",
+        "accent": "amber-700",
+        "warn": "deep-orange-700"
+      },
+      "targetsChecked": 59,
+      "propertiesChecked": 28438,
+      "exactMatchCount": 28426,
+      "explainedCrossVersionCount": 12,
+      "explainedByRule": {
+        "MAT22-CDK-AUTOFILL-DELAY": 3,
+        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CHECKBOX-UNICODE-BIDI": 2,
+        "MAT22-TAB-TOUCH-ACTION": 1,
+        "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
+        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+      },
+      "unexplainedMismatchCount": 0,
+      "unexplainedMismatches": [],
+      "pixelDiff": {
+        "width": 1280,
+        "height": 1080,
+        "totalPixels": 1382400,
+        "diffPixels": 15928,
+        "diffRatio": 0.01152
+      },
+      "screenshots": {
+        "ref7452": "screenshots/27-darkblue-compact-indigo-amber-7452.png",
+        "ng22": "screenshots/27-darkblue-compact-indigo-amber-ng22.png"
+      }
+    }
+  ]
+}

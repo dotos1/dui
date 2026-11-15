@@ -9,12 +9,12 @@ import { MatChipInputEvent } from '@angular/material/chips';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { TranslateService } from '@dotos/dui/translator';
-import { ClipboardService } from '@dotos/dui/common/clipboard';
+import { TranslateService } from '@dotos1/dui/translator';
+import { ClipboardService } from '@dotos1/dui/common/clipboard';
 
 import { CardViewTextItemModel } from '../../models';
 import { CardViewUpdateService } from '../../services';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 
 
 

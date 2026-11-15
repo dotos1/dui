@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/message",
+  "importPath": "@dotos1/dui/common/message",
   "exports": [
     {
       "name": "MessageComponent",
@@ -123,5 +123,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MessageComponent, MessageModule } from '@dotos/dui/common/message';\n\n<dui-message [label]=\"...\" [sublabel]=\"...\" [icon]=\"...\"></dui-message>"
+  "suggestedUsageSnippet": "import { MessageComponent, MessageModule } from '@dotos1/dui/common/message';\n\n<dui-message [label]=\"...\" [sublabel]=\"...\" [icon]=\"...\"></dui-message>"
 }

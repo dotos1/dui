@@ -4,11 +4,11 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
-import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
+import { ICanDisable, mixinDisabled } from '@dotos1/dui/core/behaviors';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -27,7 +27,7 @@ import {
   Injector
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { FormBuilder } from '@dotos/dui/core/form';
+import { FormBuilder } from '@dotos1/dui/core/form';
 
 import { Accordion } from './accordion';
 import { Container } from '../container.main';

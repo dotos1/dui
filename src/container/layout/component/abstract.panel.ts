@@ -4,10 +4,10 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
-import { ComponentBase } from '@dotos/dui/core';
+import { DuiConfig } from '@dotos1/dui/base';
+import { ComponentBase } from '@dotos1/dui/core';
 import { ChangeDetectorRef, Directive, ElementRef, Injector, Input, NgZone, OnChanges, OnDestroy, OnInit, Renderer2, SimpleChanges } from '@angular/core';
-import { Container } from '@dotos/dui/container';
+import { Container } from '@dotos1/dui/container';
 import {isArray,each}  from 'lodash-es';
 import { getInputPositiveNumber, getInputboolean } from '../utils';
 import { LayoutComponent } from './layout.component';

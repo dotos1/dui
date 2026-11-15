@@ -1,0 +1,13 @@
+{
+  "status": "OK",
+  "liveVarsCount": 1098,
+  "baseBlocksCount": 28,
+  "lightColorBlocks": 49,
+  "darkColorBlocks": 49,
+  "darkblueColorBlocks": 49,
+  "lightComponentColorDeclarations": 923,
+  "densityTokenCountPerScale": 46,
+  "tsOutPath": "src/theme/m2-token-templates.ts",
+  "scssOutPath": "src/theming/_m2-system.scss"
+}
+git diff --exit-code: 0 (idempotent)

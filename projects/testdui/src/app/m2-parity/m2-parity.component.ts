@@ -5,8 +5,8 @@
 
 import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { DotosConfig, DotosConfigService, Theme, ThemeService } from '@dotos/dui/theme';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
+import { DotosConfig, DotosConfigService, Theme, ThemeService } from '@dotos1/dui/theme';
 
 declare const Zone: { current?: { name?: string } } | undefined;
 

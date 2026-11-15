@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/theme",
+  "importPath": "@dotos1/dui/theme",
   "exports": [
     {
       "name": "_getAmbientMap",
@@ -4071,5 +4071,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DotosConfigModule } from '@dotos/dui/theme';"
+  "suggestedUsageSnippet": "import { DotosConfigModule } from '@dotos1/dui/theme';"
 }

@@ -16,10 +16,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { IconModule } from '@dotos/dui/common/icon';
-import { MobxAngularModule } from '@dotos/dui/core/mobx';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { TranslateModule } from '@dotos/dui/translator';
+import { IconModule } from '@dotos1/dui/common/icon';
+import { MobxAngularModule } from '@dotos1/dui/core/mobx';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 import { LoadingComponent } from './components/loading.component';
 import { TreeNodeCheckboxComponent } from './components/tree-node-checkbox.component';

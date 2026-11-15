@@ -5,16 +5,16 @@
 
 import { Component, OnInit, ViewChild, Input, ElementRef, ViewEncapsulation, AfterViewInit, ViewChildren, QueryList, OnDestroy, ChangeDetectorRef, Renderer2, Injector, ChangeDetectionStrategy } from '@angular/core';
 import {  MatSelectChange } from '@angular/material/select';
-import { MatField } from '@dotos/dui/form';
+import { MatField } from '@dotos1/dui/form';
 
-import { FieldConfig } from '@dotos/dui/core/form';
+import { FieldConfig } from '@dotos1/dui/core/form';
 import { FormControl } from '@angular/forms';
-import { TranslateService } from '@dotos/dui/translator';
-import { DotosConfigService } from '@dotos/dui/theme';
+import { TranslateService } from '@dotos1/dui/translator';
+import { DotosConfigService } from '@dotos1/dui/theme';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { ThemeService, matColor } from '@dotos/dui/theme';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { ThemeService, matColor } from '@dotos1/dui/theme';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import { Router } from '@angular/router';
 
 /**

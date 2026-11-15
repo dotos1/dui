@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/iconpicker",
+  "importPath": "@dotos1/dui/ux/iconpicker",
   "exports": [
     {
       "name": "DATEFIELD_VALIDATORS",
@@ -165,5 +165,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { IconPickerField, IconPickerModule } from '@dotos/dui/ux/iconpicker';\n\n<icon-picker-field></icon-picker-field>"
+  "suggestedUsageSnippet": "import { IconPickerField, IconPickerModule } from '@dotos1/dui/ux/iconpicker';\n\n<icon-picker-field></icon-picker-field>"
 }

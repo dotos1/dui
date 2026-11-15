@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/notifications",
+  "importPath": "@dotos1/dui/common/notifications",
   "exports": [
     {
       "name": "DEFAULT_NOTIFICATION_LIMIT",
@@ -177,5 +177,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { NotificationCountComponent, NotificationsModule } from '@dotos/dui/common/notifications';\n\n<dui-notification-count [color]=\"...\" [positionX]=\"...\" [positionY]=\"...\"></dui-notification-count>"
+  "suggestedUsageSnippet": "import { NotificationCountComponent, NotificationsModule } from '@dotos1/dui/common/notifications';\n\n<dui-notification-count [color]=\"...\" [positionX]=\"...\" [positionY]=\"...\"></dui-notification-count>"
 }

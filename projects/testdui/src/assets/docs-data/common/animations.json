@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/animations",
+  "importPath": "@dotos1/dui/common/animations",
   "exports": [
     {
       "name": "AnimationsModule",
@@ -245,5 +245,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { AnimationsModule } from '@dotos/dui/common/animations';"
+  "suggestedUsageSnippet": "import { AnimationsModule } from '@dotos1/dui/common/animations';"
 }

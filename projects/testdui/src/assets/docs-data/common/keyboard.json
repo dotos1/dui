@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/keyboard",
+  "importPath": "@dotos1/dui/common/keyboard",
   "exports": [
     {
       "name": "AllowIn",
@@ -1151,5 +1151,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { KeyboardShortcutComponent, KeyboardShortcutsModule } from '@dotos/dui/common/keyboard';\n\n<keyboard-shortcut [description]=\"...\" [label]=\"...\" [preventDefault]=\"...\" (fire)=\"...\"></keyboard-shortcut>"
+  "suggestedUsageSnippet": "import { KeyboardShortcutComponent, KeyboardShortcutsModule } from '@dotos1/dui/common/keyboard';\n\n<keyboard-shortcut [description]=\"...\" [label]=\"...\" [preventDefault]=\"...\" (fire)=\"...\"></keyboard-shortcut>"
 }

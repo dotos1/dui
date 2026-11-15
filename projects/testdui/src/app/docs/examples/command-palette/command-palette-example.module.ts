@@ -6,8 +6,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CommandPaletteModule, CommandPaletteService } from '@dotos/dui/ux/command-palette';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { CommandPaletteModule, CommandPaletteService } from '@dotos1/dui/ux/command-palette';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `CommandPaletteExampleComponent` (selector: 'app-command-palette-example') providing command palette example component presentation and interaction in `projects/testdui/src/app/docs/examples/command-palette`.

@@ -30,8 +30,8 @@ import { isUndefined, extend } from './util';
 
 /**
  * Constant/variable `defaultCulture` defining default culture in `src/base`.
- * 默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。
- * @zh 默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。
+ * 默认区域。旧实现放在这里,`@dotos1/dui/translator` 现在有自己的一份。
+ * @zh 默认区域。旧实现放在这里,`@dotos1/dui/translator` 现在有自己的一份。
  */
 export const defaultCulture = 'en-US';
 

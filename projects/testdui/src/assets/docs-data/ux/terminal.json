@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/terminal",
+  "importPath": "@dotos1/dui/ux/terminal",
   "exports": [
     {
       "name": "FunctionsUsingCSI",
@@ -747,5 +747,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { TerminalComponent, TerminalModule } from '@dotos/dui/ux/terminal';\n\n<dui-terminal [dataSource]=\"...\" [rows]=\"...\" [cols]=\"...\" (keyInputEmitter)=\"...\" (keyEventEmitter)=\"...\"></dui-terminal>"
+  "suggestedUsageSnippet": "import { TerminalComponent, TerminalModule } from '@dotos1/dui/ux/terminal';\n\n<dui-terminal [dataSource]=\"...\" [rows]=\"...\" [cols]=\"...\" (keyInputEmitter)=\"...\" (keyEventEmitter)=\"...\"></dui-terminal>"
 }

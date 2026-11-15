@@ -5,7 +5,7 @@
 
 import { Component, Input, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
 import { makeObservable } from 'mobx';
-import { action, observable } from '@dotos/dui/core/mobx';
+import { action, observable } from '@dotos1/dui/core/mobx';
 import { TreeNode } from '../models/tree-node.model';
 import { 
   ElementRef, 

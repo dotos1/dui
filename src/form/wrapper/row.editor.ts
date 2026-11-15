@@ -4,7 +4,7 @@
  */
 
 import { ChangeDetectionStrategy, Component, Inject,Optional } from '@angular/core';
-import { FieldArrayType, FormBuilder, FormConfig } from '@dotos/dui/core/form';
+import { FieldArrayType, FormBuilder, FormConfig } from '@dotos1/dui/core/form';
 
 /**
  * Angular component `RowEditorComponent` (selector: 'row-editor') providing row editor component presentation and interaction in `src/form/wrapper`.

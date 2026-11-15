@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/colorpicker/common/helpers/color.ts`，提供颜色相关的定义与实现。
  */
 
-import { TinyColor } from '@dotos/dui/core/color';
+import { TinyColor } from '@dotos1/dui/core/color';
 import { Color } from './color.interfaces';
 
 /**

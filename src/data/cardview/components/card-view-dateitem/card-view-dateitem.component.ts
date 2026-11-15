@@ -11,10 +11,10 @@ import { Moment } from 'moment';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { MatDatetimepicker } from '@dotos/dui/form/date/picker';
-import { ConfigService } from '@dotos/dui/core/config';
-import { ClipboardService } from '@dotos/dui/common/clipboard';
-import { TranslationService } from '@dotos/dui/translator';
+import { MatDatetimepicker } from '@dotos1/dui/form/date/picker';
+import { ConfigService } from '@dotos1/dui/core/config';
+import { ClipboardService } from '@dotos1/dui/common/clipboard';
+import { TranslationService } from '@dotos1/dui/translator';
 
 import { CardViewDateItemModel } from '../../models';
 import { CardViewUpdateService } from '../../services';

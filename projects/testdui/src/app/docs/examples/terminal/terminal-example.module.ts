@@ -6,8 +6,8 @@
 import { CommonModule } from '@angular/common';
 import { Component, NgModule, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TerminalModule, TerminalComponent } from '@dotos/dui/ux/terminal';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { TerminalModule, TerminalComponent } from '@dotos1/dui/ux/terminal';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `TerminalExampleComponent` (selector: 'app-terminal-example') providing terminal example component presentation and interaction in `projects/testdui/src/app/docs/examples/terminal`.

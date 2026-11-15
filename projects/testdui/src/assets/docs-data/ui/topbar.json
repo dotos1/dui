@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/topbar",
+  "importPath": "@dotos1/dui/ui/topbar",
   "exports": [
     {
       "name": "ToolbarDividerComponent",
@@ -63,5 +63,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ToolbarDividerComponent, TopbarModule } from '@dotos/dui/ui/topbar';\n\n<dui-topbar-divider></dui-topbar-divider>"
+  "suggestedUsageSnippet": "import { ToolbarDividerComponent, TopbarModule } from '@dotos1/dui/ui/topbar';\n\n<dui-topbar-divider></dui-topbar-divider>"
 }

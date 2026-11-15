@@ -6,8 +6,8 @@
 import {
   ChangeDetectionStrategy,  Component,  Input,
 } from '@angular/core';
-import { ColorWrap, isValidHex } from '@dotos/dui/common/colorpicker/common';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
+import { ColorWrap, isValidHex } from '@dotos1/dui/common/colorpicker/common';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
 
 /**
  * "Sketch"-style color picker: saturation panel + hue/alpha sliders + hex/rgb fields +

@@ -5,8 +5,8 @@
 
 import { Component, Output, EventEmitter, ChangeDetectionStrategy, Input, ViewChild } from '@angular/core';
 import { DatatableFooterDirective } from './footer.directive';
-import { DuiPagingBarComponent } from '@dotos/dui/data/paging';
-import { MediaService } from '@dotos/dui/common/media';
+import { DuiPagingBarComponent } from '@dotos1/dui/data/paging';
+import { MediaService } from '@dotos1/dui/common/media';
 
 /**
  * Angular component `DataTableFooterComponent` (selector: 'datatable-footer') providing data table footer component presentation and interaction in `src/data/datatable/footer`.

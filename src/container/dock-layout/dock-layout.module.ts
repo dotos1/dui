@@ -6,7 +6,7 @@
 import { ModuleWithProviders, NgModule } from "@angular/core";
 import { DockLayoutComponentService } from "./dock-layout-component.service";
 import { DockLayoutHostComponent } from "./dock-layout-host.component";
-import { TranslateModule, TranslationService } from "@dotos/dui/translator";
+import { TranslateModule, TranslationService } from "@dotos1/dui/translator";
 
 /**
  * Angular module `DockLayoutModule` declaring and exporting dock layout module components, directives, pipes, and providers.

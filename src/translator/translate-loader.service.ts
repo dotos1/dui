@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 import { Observable, forkJoin, throwError, of } from 'rxjs';
 import { map, catchError, retry } from 'rxjs/operators';
 import { TranslateLoader } from './translate.loader';
-import { ObjectUtils } from '@dotos/dui/base'
+import { ObjectUtils } from '@dotos1/dui/base'
 import { ComponentTranslationModel } from './component.model';
 
 /**
