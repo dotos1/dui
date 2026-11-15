@@ -8,7 +8,7 @@ import {
     Input,
     OnChanges,
     OnDestroy,
-    SimpleChanges
+    SimpleChanges, ChangeDetectionStrategy
 } from '@angular/core';
 import {KeyboardShortcutsService} from './keyboard-shortcuts.service';
 import {ShortcutInput, ShortcutEventOutput} from './keyboard-shortcuts.interfaces';
@@ -24,7 +24,8 @@ import {Observable} from 'rxjs';
 @Component({
     selector: 'keyboard-shortcuts',
     template: '',
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class KeyboardShortcutsComponent implements OnChanges, OnDestroy {
 

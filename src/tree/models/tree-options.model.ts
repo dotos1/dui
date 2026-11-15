@@ -38,12 +38,6 @@ export const TREE_ACTIONS = {
   DRILL_UP: (tree: TreeModel, node: TreeNode, $event) => tree.focusDrillUp(),
   NEXT_NODE: (tree: TreeModel, node: TreeNode, $event) => tree.focusNextNode(),
   PREVIOUS_NODE: (tree: TreeModel, node: TreeNode, $event) => tree.focusPreviousNode(),
-  FIRST_NODE: (tree: TreeModel, _node: TreeNode, _$event: unknown): void => {
-    tree.focusFirstNode();
-  },
-  LAST_NODE: (tree: TreeModel, _node: TreeNode, _$event: unknown): void => {
-    tree.focusLastNode();
-  },
   MOVE_NODE: (tree: TreeModel, node: TreeNode, $event: { ctrlKey? },data) => {
     if(data){
       let { from, to }=data;
@@ -74,8 +68,6 @@ const defaultActionMapping: IActionMapping = {
     [KEYS.LEFT]: TREE_ACTIONS.DRILL_UP,
     [KEYS.DOWN]: TREE_ACTIONS.NEXT_NODE,
     [KEYS.UP]: TREE_ACTIONS.PREVIOUS_NODE,
-    [KEYS.HOME]: TREE_ACTIONS.FIRST_NODE,
-    [KEYS.END]: TREE_ACTIONS.LAST_NODE,
     [KEYS.SPACE]: TREE_ACTIONS.TOGGLE_ACTIVE,
     [KEYS.ENTER]: TREE_ACTIONS.TOGGLE_ACTIVE
   }
@@ -267,8 +259,6 @@ export class TreeOptions {
         [KEYS.LEFT]: TREE_ACTIONS.DRILL_UP,
         [KEYS.DOWN]: TREE_ACTIONS.NEXT_NODE,
         [KEYS.UP]: TREE_ACTIONS.PREVIOUS_NODE,
-        [KEYS.HOME]: TREE_ACTIONS.FIRST_NODE,
-        [KEYS.END]: TREE_ACTIONS.LAST_NODE,
         [KEYS.SPACE]: TREE_ACTIONS.TOGGLE_ACTIVE,
         [KEYS.ENTER]: TREE_ACTIONS.TOGGLE_ACTIVE
       }

@@ -1,30 +1,55 @@
 /**
- * @fileoverview Module `src/tree/components/tree-node-recursive.components.ts` providing mutually recursive Signal-driven tree node components in a single compilation unit for Angular Ivy partial compilation.
- * @zh 模块文件 `src/tree/components/tree-node-recursive.components.ts`，在同一编译单元内定义基于原生 Angular Signal 互相递归引用的树节点组件，兼容 Angular Ivy partial 编译模式且零 MobX 依赖。
+ * @fileoverview Module `src/tree/components/tree-node-recursive.components.ts` providing mutually recursive tree node components in a single compilation unit for Angular Ivy partial compilation.
+ * @zh 模块文件 `src/tree/components/tree-node-recursive.components.ts`，在同一编译单元内定义互相递归引用的树节点组件，以兼容 Angular Ivy partial 编译模式（避免跨文件 NG3003 循环导入报错）。
  */
 
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
-  computed,
   Input,
   OnDestroy,
   OnInit,
-  signal,
+  TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
+import { makeObservable, reaction } from 'mobx';
+import { action, computed, observable } from '@dotos/dui/core/mobx';
 import { TreeNode as TreeNodeApi } from '../defs/api';
-import { TreeNodeTemplates } from '../defs/tree-node-templates';
 import { TreeNode } from '../models/tree-node.model';
-import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TreeModel } from '../models/tree.model';
-
-export { TreeNodeTemplates } from '../defs/tree-node-templates';
+import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 
 /**
- * Angular component `TreeNodeComponent` (selector: 'TreeNode, tree-node') providing Signal-driven tree node presentation and WAI-ARIA treeitem semantics in `src/tree/components`.
- * @zh Angular 组件 `TreeNodeComponent`（selector: 'TreeNode, tree-node'），提供基于 Signal 的树节点渲染与 WAI-ARIA `treeitem` 无障碍语义。
+ * Interface `TreeNodeTemplates` defining template references passed through recursive tree node components.
+ * @zh 接口 `TreeNodeTemplates`，定义递归树节点组件之间传递的模板引用集合。
+ */
+export interface TreeNodeTemplates {
+  /**
+   * Optional property `loadingTemplate` (`TemplateRef<unknown>`) storing loading template.
+   * @zh 可选属性 `loadingTemplate`（类型：`TemplateRef<unknown>`），存储加载状态模板。
+   */
+  loadingTemplate?: TemplateRef<unknown>;
+  /**
+   * Optional property `treeNodeTemplate` (`TemplateRef<unknown>`) storing tree node template.
+   * @zh 可选属性 `treeNodeTemplate`（类型：`TemplateRef<unknown>`），存储树节点内容模板。
+   */
+  treeNodeTemplate?: TemplateRef<unknown>;
+  /**
+   * Optional property `treeNodeWrapperTemplate` (`TemplateRef<unknown>`) storing tree node wrapper template.
+   * @zh 可选属性 `treeNodeWrapperTemplate`（类型：`TemplateRef<unknown>`），存储树节点包裹模板。
+   */
+  treeNodeWrapperTemplate?: TemplateRef<unknown>;
+  /**
+   * Optional property `treeNodeFullTemplate` (`TemplateRef<unknown>`) storing tree node full template.
+   * @zh 可选属性 `treeNodeFullTemplate`（类型：`TemplateRef<unknown>`），存储树节点完整自定义模板。
+   */
+  treeNodeFullTemplate?: TemplateRef<unknown>;
+}
+
+/**
+ * Angular component `TreeNodeComponent` (selector: 'TreeNode, tree-node') providing tree node component presentation and interaction in `src/tree/components`.
+ * @zh Angular 组件 `TreeNodeComponent`（selector: 'TreeNode, tree-node'），提供树形控件节点组件的视图渲染与交互逻辑（位于 `src/tree/components`）。
  */
 @Component({
   selector: 'TreeNode, tree-node',
@@ -38,69 +63,59 @@ export { TreeNodeTemplates } from '../defs/tree-node-templates';
   standalone: false,
 })
 export class TreeNodeComponent {
-  // 私有 Signal 存储节点引用，支持虚拟滚动与父级重载时动态替换节点实例
-  private readonly _nodeSig = signal<TreeNodeApi>(null);
-
   /**
    * Getter for input property `node` (`unknown`) returning node.
    * @zh 输入属性 `node`（类型：`unknown`）的读取器，返回当前节点。
    */
   @Input()
   get node(): TreeNodeApi {
-    return this._nodeSig();
+    return this._node;
   }
-
   /**
-   * Sets the `node` (`node`).
+   * Sets the node (`node`).
    * @zh 设置节点（`node`）。
    * @param node - New node value (`unknown`) / 新的节点值（`unknown`）
    */
   set node(node: TreeNodeApi) {
     this.setNode(node);
   }
-
   /**
-   * Executes `setNode` to update the node Signal.
-   * @zh 执行 `setNode`，更新内部节点 Signal。
+   * Executes `setNode` to handle set node.
+   * @zh 执行 `setNode`，执行设置节点操作。
    * @param node - node parameter (`unknown`) / 节点参数（`unknown`）
    */
-  setNode(node: TreeNodeApi): void {
-    this._nodeSig.set(node);
+  @action setNode(node: TreeNodeApi): void {
+    this._node = node;
   }
 
   /**
-   * Gets `_node` (`unknown`) for backward compatibility.
-   * @zh 获取 `_node`（类型：`unknown`），保留兼容读取器。
+   * Property `_node` (`unknown`) storing node.
+   * @zh 属性 `_node`（类型：`unknown`），存储或配置节点。
    */
-  get _node(): TreeNodeApi {
-    return this._nodeSig();
-  }
-
+  @observable _node: TreeNodeApi = undefined;
   /**
-   * Sets `_node` (`_node`) for backward compatibility.
-   * @zh 设置 `_node`（`_node`），保留兼容写入器。
-   * @param value - New _node value (`unknown`) / 新的节点值（`unknown`）
-   */
-  set _node(value: TreeNodeApi) {
-    this._nodeSig.set(value);
-  }
-
-  /**
-   * Input property `index` (`number`) configuring sibling index.
+   * Input property `index` (`number`) configuring index.
    * @zh 输入属性 `index`（类型：`number`），配置索引。
    */
-  @Input() index = 0;
-
+  @Input() index: number;
   /**
    * Input property `templates` (`TreeNodeTemplates`) configuring templates.
-   * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板集合。
+   * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。
    */
-  @Input() templates!: TreeNodeTemplates;
+  @Input() templates: TreeNodeTemplates;
+
+  /**
+   * Creates an instance of `TreeNodeComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeNodeComponent` 实例，并初始化其依赖项与内部状态。
+   */
+  constructor() {
+    makeObservable(this);
+  }
 }
 
 /**
- * Angular component `TreeNodeChildrenComponent` (selector: 'tree-node-children') providing Signal-driven child group presentation in `src/tree/components`.
- * @zh Angular 组件 `TreeNodeChildrenComponent`（selector: 'tree-node-children'），提供基于 Signal 的子节点分组渲染与 WAI-ARIA `group` 语义。
+ * Angular component `TreeNodeChildrenComponent` (selector: 'tree-node-children') providing tree node children component presentation and interaction in `src/tree/components`.
+ * @zh Angular 组件 `TreeNodeChildrenComponent`（selector: 'tree-node-children'），提供树形控件节点子级列表组件的视图渲染与交互逻辑（位于 `src/tree/components`）。
  */
 @Component({
   selector: 'tree-node-children',
@@ -114,63 +129,58 @@ export class TreeNodeComponent {
   standalone: false,
 })
 export class TreeNodeChildrenComponent {
-  // 使用 Signal 存储 node：父节点重新加载子节点替换 TreeNode 实例时自动通知 OnPush / Zoneless 模板更新
-  private readonly _nodeSig = signal<TreeNode | null>(null);
-
+  // node 必须是 observable：模板跑在 mobxAutorun 里，autorun 的依赖是在
+  // detectChanges 期间收集的。父节点重新加载子节点时会换成全新的 TreeNode 实例
+  // （id 不变），普通 @Input 换实例不产生 mobx 通知，autorun 会一直盯着旧实例，
+  // 新实例后到的 children 就再也刷不出来——表现为节点永远转圈。
   /**
    * Getter for input property `node` (`TreeNode`) returning node.
    * @zh 输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。
    */
   @Input()
   get node(): TreeNode {
-    return this._nodeSig() as TreeNode;
+    return this._node;
   }
-
   /**
-   * Sets the `node` (`node`).
+   * Sets the node (`node`).
    * @zh 设置节点（`node`）。
    * @param node - New node value (`TreeNode`) / 新的节点值（`TreeNode`）
    */
   set node(node: TreeNode) {
     this.setNode(node);
   }
-
   /**
-   * Executes `setNode` to update the node Signal.
-   * @zh 执行 `setNode`，更新内部节点 Signal。
+   * Executes `setNode` to handle set node.
+   * @zh 执行 `setNode`，执行设置节点操作。
    * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
    */
-  setNode(node: TreeNode): void {
-    this._nodeSig.set(node);
+  @action setNode(node: TreeNode): void {
+    this._node = node;
   }
-
   /**
-   * Gets `_node` (`TreeNode`) for backward compatibility.
-   * @zh 获取 `_node`（类型：`TreeNode`），保留兼容读取器。
+   * Property `_node` (`TreeNode`) storing node.
+   * @zh 属性 `_node`（类型：`TreeNode`），存储或配置节点。
    */
-  get _node(): TreeNode {
-    return this._nodeSig() as TreeNode;
-  }
-
-  /**
-   * Sets `_node` (`_node`) for backward compatibility.
-   * @zh 设置 `_node`（`_node`），保留兼容写入器。
-   * @param value - New _node value (`TreeNode`) / 新的节点值（`TreeNode`）
-   */
-  set _node(value: TreeNode) {
-    this._nodeSig.set(value);
-  }
+  @observable _node: TreeNode = undefined;
 
   /**
    * Input property `templates` (`TreeNodeTemplates`) configuring templates.
-   * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板集合。
+   * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。
    */
-  @Input() templates!: TreeNodeTemplates;
+  @Input() templates: TreeNodeTemplates;
+
+  /**
+   * Creates an instance of `TreeNodeChildrenComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeNodeChildrenComponent` 实例，并初始化其依赖项与内部状态。
+   */
+  constructor() {
+    makeObservable(this);
+  }
 }
 
 /**
- * Angular component `TreeNodeCollectionComponent` (selector: 'tree-node-collection') providing Signal-driven viewport node collection rendering in `src/tree/components`.
- * @zh Angular 组件 `TreeNodeCollectionComponent`（selector: 'tree-node-collection'），提供基于 Signal `computed` 派生裁剪的视口节点集合渲染。
+ * Angular component `TreeNodeCollectionComponent` (selector: 'tree-node-collection') providing tree node collection component presentation and interaction in `src/tree/components`.
+ * @zh Angular 组件 `TreeNodeCollectionComponent`（selector: 'tree-node-collection'），提供树形控件节点集合组件的视图渲染与交互逻辑（位于 `src/tree/components`）。
  */
 @Component({
   selector: 'tree-node-collection',
@@ -183,44 +193,16 @@ export class TreeNodeChildrenComponent {
   standalone: false,
 })
 export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
-  private readonly _nodesSig = signal<TreeNode[]>([]);
-  private readonly _virtualScrollSig = signal<TreeVirtualScroll | null>(null);
-  private readonly _viewportNodesOverrideSig = signal<TreeNode[] | null>(null);
-
-  private readonly _viewportNodesComputed = computed<TreeNode[]>(() => {
-    const manual = this._viewportNodesOverrideSig();
-    if (manual !== null) {
-      return manual;
-    }
-    const nodes = this._nodesSig();
-    const vs = this._virtualScrollSig();
-    if (!vs) {
-      return (nodes || []).filter((n: TreeNode) => !n.isHidden);
-    }
-    return vs.getViewportNodes(nodes);
-  });
-
-  private readonly _marginTopComputed = computed<string>(() => {
-    const vpNodes = this.viewportNodes;
-    const firstNode = vpNodes && vpNodes.length ? vpNodes[0] : undefined;
-    const relativePosition =
-      firstNode && firstNode.parent
-        ? firstNode.position - firstNode.parent.position - firstNode.parent.getSelfHeight()
-        : 0;
-    return `${relativePosition}px`;
-  });
-
   /**
    * Getter for input property `nodes` (`TreeNode[]`) returning nodes.
    * @zh 输入属性 `nodes`（类型：`TreeNode[]`）的读取器，返回当前节点列表。
    */
   @Input()
   get nodes(): TreeNode[] {
-    return this._nodesSig();
+    return this._nodes;
   }
-
   /**
-   * Sets the `nodes` (`nodes`).
+   * Sets the nodes (`nodes`).
    * @zh 设置节点列表（`nodes`）。
    * @param nodes - New nodes value (`TreeNode[]`) / 新的节点列表值（`TreeNode[]`）
    */
@@ -232,111 +214,107 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
    * Input property `treeModel` (`TreeModel`) configuring tree model.
    * @zh 输入属性 `treeModel`（类型：`TreeModel`），配置树形控件模型。
    */
-  @Input() treeModel!: TreeModel;
-
+  @Input() treeModel: TreeModel;
   /**
    * Input property `templates` (`TreeNodeTemplates`) configuring templates.
-   * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板集合。
+   * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。
    */
-  @Input() templates!: TreeNodeTemplates;
+  @Input() templates: TreeNodeTemplates;
 
   /**
-   * Gets `_nodes` (`TreeNode[]`) for backward compatibility.
-   * @zh 获取 `_nodes`（类型：`TreeNode[]`），保留兼容读取器。
+   * Property `_nodes` (`TreeNode[]`) storing nodes.
+   * @zh 属性 `_nodes`（类型：`TreeNode[]`），存储或配置节点列表。
    */
-  get _nodes(): TreeNode[] {
-    return this._nodesSig();
+  @observable _nodes: TreeNode[] = undefined;
+  /**
+   * Property `virtualScroll` (`TreeVirtualScroll`) storing virtual scroll.
+   * @zh 属性 `virtualScroll`（类型：`TreeVirtualScroll`），存储或配置虚拟滚动。
+   */
+  private virtualScroll: TreeVirtualScroll;
+  /**
+   * Property `viewportNodes` (`TreeNode[]`) storing viewport nodes.
+   * @zh 属性 `viewportNodes`（类型：`TreeNode[]`），存储或配置视口节点列表。
+   */
+  @observable viewportNodes: TreeNode[] = undefined;
+
+  /**
+   * Gets the current margin top (`marginTop: string`).
+   * @zh 获取当前外边距顶部位置（`marginTop: string`）。
+   */
+  @computed get marginTop(): string {
+    const firstNode = this.viewportNodes && this.viewportNodes.length && this.viewportNodes[0];
+    const relativePosition =
+      firstNode && firstNode.parent
+        ? firstNode.position - firstNode.parent.position - firstNode.parent.getSelfHeight()
+        : 0;
+    return `${relativePosition}px`;
   }
 
   /**
-   * Sets `_nodes` (`_nodes`) for backward compatibility.
-   * @zh 设置 `_nodes`（`_nodes`），保留兼容写入器。
-   * @param value - New _nodes value (`TreeNode[]`) / 新的节点数组（`TreeNode[]`）
-   */
-  set _nodes(value: TreeNode[]) {
-    this._nodesSig.set(value ?? []);
-  }
-
-  /**
-   * Gets the Signal-derived `viewportNodes` (`TreeNode[]`).
-   * @zh 获取由 Signal 实时派生的当前视口可见节点列表（`TreeNode[]`）。
-   */
-  get viewportNodes(): TreeNode[] {
-    return this._viewportNodesComputed();
-  }
-
-  /**
-   * Sets `viewportNodes` override if assigned imperatively.
-   * @zh 命令式设置视口节点列表（`viewportNodes`）。
-   * @param value - New viewportNodes value (`TreeNode[]`) / 视口节点数组（`TreeNode[]`）
-   */
-  set viewportNodes(value: TreeNode[]) {
-    this._viewportNodesOverrideSig.set(value);
-  }
-
-  /**
-   * Gets the current `marginTop` (`string`).
-   * @zh 获取当前虚拟滚动顶部外边距位置（`string`）。
-   */
-  get marginTop(): string {
-    return this._marginTopComputed();
-  }
-
-  /**
-   * Property `_dispose` (`(() => void)[]`) storing cleanup callbacks (default: `[]`).
-   * @zh 属性 `_dispose`（类型：`(() => void)[]`），存储释放回调列表（默认值：`[]`）。
+   * Property `_dispose` (`(() => void)[]`) storing dispose (default: `[]`).
+   * @zh 属性 `_dispose`（类型：`(() => void)[]`），存储或配置释放回调列表（默认值：`[]`）。
    */
   _dispose: Array<() => void> = [];
 
   /**
-   * Executes `setNodes` to update the `_nodesSig` Signal.
-   * @zh 执行 `setNodes`，更新节点集合 Signal 并清除命令式覆盖缓存。
+   * Executes `setNodes` to handle set nodes.
+   * @zh 执行 `setNodes`，执行设置节点列表操作。
    * @param nodes - nodes parameter (`TreeNode[]`) / 节点列表参数（`TreeNode[]`）
    */
-  setNodes(nodes: TreeNode[]): void {
-    this._viewportNodesOverrideSig.set(null);
-    this._nodesSig.set(nodes ?? []);
+  @action setNodes(nodes: TreeNode[]): void {
+    this._nodes = nodes;
   }
 
   /**
    * Creates an instance of `TreeNodeCollectionComponent` and initializes its dependencies and internal state.
-   * @zh 创建 `TreeNodeCollectionComponent` 实例，并初始化变更检测引用。
-   * @param cdr - Injected or initial cdr (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
+   * @zh 创建 `TreeNodeCollectionComponent` 实例，并初始化其依赖项与内部状态。
+   * @param cdr - Injected or initial cdr (`ChangeDetectorRef`) / 注入或传入的变更检测引用（`ChangeDetectorRef`）
    */
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) {
+    makeObservable(this);
+  }
 
   /**
    * Angular lifecycle hook invoked once after component or directive inputs are initialized.
-   * @zh Angular 生命周期钩子：关联所属 `TreeVirtualScroll` 并监听树布局更新。
+   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
    */
   ngOnInit(): void {
-    if (this.treeModel) {
-      this._virtualScrollSig.set(this.treeModel.virtualScroll ?? null);
-      const offLayout = this.treeModel.subscribeToLayout(() => {
-        this._viewportNodesOverrideSig.set(null);
-        this.cdr.markForCheck();
-      });
-      this._dispose.push(offLayout);
-    }
+    this.virtualScroll = this.treeModel.virtualScroll;
+
+    this._dispose = [
+      reaction(
+        (): number[] => {
+          return this.virtualScroll.getViewportNodes(this.nodes).map((n: TreeNode): number => n.index);
+        },
+        (nodeIndexes: number[]) => {
+          this.viewportNodes = nodeIndexes.map((i: number): TreeNode => this.nodes[i]);
+        },
+        { compareStructural: true, fireImmediately: true } as unknown
+      ),
+      reaction(
+        (): TreeNode[] => this.nodes,
+        (nodes: TreeNode[]) => {
+          this.viewportNodes = this.virtualScroll.getViewportNodes(nodes);
+        }
+      ),
+    ];
   }
 
   /**
    * Angular lifecycle hook invoked just before the component, directive, or service is destroyed to release subscriptions and resources.
-   * @zh Angular 生命周期钩子：清理布局监听回调。
+   * @zh Angular 生命周期钩子：在组件、指令或服务销毁前调用，释放订阅与清理资源。
    */
   ngOnDestroy(): void {
     this._dispose.forEach((d: () => void): void => d());
-    this._dispose = [];
   }
 
   /**
-   * Executes `trackNode` to track nodes by unique ID.
-   * @zh 执行 `trackNode`，按节点唯一标识跟踪列表渲染项。
-   * @param _index - index parameter (`number`) / 索引参数（`number`）
+   * Executes `trackNode` to handle track node.
+   * @zh 执行 `trackNode`，按节点标识跟踪列表项。
+   * @param index - index parameter (`number`) / 索引参数（`number`）
    * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
-   * @returns Result of type `string | number` / 类型为 `string | number` 的返回值
    */
-  trackNode(_index: number, node: TreeNode): string | number {
+  trackNode(index: number, node: TreeNode): string | number {
     return node.id;
   }
 }

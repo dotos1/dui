@@ -82,7 +82,8 @@ export interface ITreeConfig {
   host: {
     hostID: 'tree-root' + Math.random().toString(36).substring(2, 15),  
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class TreeComponent implements OnChanges {
 
@@ -558,7 +559,7 @@ setActiveNodeLabel(label: string) {
         if(lastnode.children==undefined){
           let subscription = treeModel.subscribe(TREE_EVENTS.loadNodeChildren, (node) => {
             paths.splice(0,1);
-            let subject1=this.loadNodeByPath(paths,node['node'] as TreeNode);
+            let subject1=this.loadNodeByPath(paths,node.node);
             subject1.subscribe((activeNode)=>{
               subject.next(activeNode);
             });

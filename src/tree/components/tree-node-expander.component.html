@@ -1,11 +1,16 @@
-<ng-container *ngIf="node">
-  <span *ngIf="node.hasChildren" class="toggle-children-wrapper" aria-hidden="true">
-    <mat-icon *ngIf="!node.options.expanderAlign || node.options.expanderAlign === 'left'" aria-hidden="true">
-      {{ node.isExpanded ? 'keyboard_arrow_down' : 'keyboard_arrow_right' }}
+<ng-container *treeMobxAutorun="{dontDetach: true}">
+  <span
+    *ngIf="node.hasChildren"
+    class="toggle-children-wrapper">
+    <mat-icon *ngIf="!node.options.expanderAlign||node.options.expanderAlign==='left'">
+      {{node.isExpanded? 'keyboard_arrow_down' :  'keyboard_arrow_right'}}
     </mat-icon>
-    <mat-icon *ngIf="node.options.expanderAlign && node.options.expanderAlign === 'right'" aria-hidden="true">
-      {{ node.isExpanded ? 'keyboard_arrow_up' : 'keyboard_arrow_down' }}
+    <mat-icon *ngIf="node.options.expanderAlign&&node.options.expanderAlign==='right'">
+      {{node.isExpanded? 'keyboard_arrow_up' :  'keyboard_arrow_down'}}
     </mat-icon>
   </span>
-  <span *ngIf="!node.hasChildren" class="toggle-children-placeholder" aria-hidden="true"></span>
+  <span
+    *ngIf="!node.hasChildren"
+    class="toggle-children-placeholder">
+  </span>
 </ng-container>

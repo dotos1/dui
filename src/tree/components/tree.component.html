@@ -1,7 +1,5 @@
 <tree-viewport #viewport [style.display]="phone ? 'none' : null">
   <div
-    role="tree"
-    [attr.aria-multiselectable]="treeModel.options.useCheckbox ? 'true' : null"
     class="angular-tree-component"
     [class.node-dragging]="treeDraggedElement.isDragging()"
     [class.angular-tree-component-rtl]="treeModel.options.rtl">
