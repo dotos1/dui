@@ -1,3 +1,7 @@
+
+> dui@8.0.0-next.2 generate:m2-tokens
+> node tools/m2-parity/generate-m2-tokens.mjs
+
 {
   "status": "OK",
   "liveVarsCount": 1098,

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T12:02:02.462Z",
+  "generatedAt": "2026-11-15T20:41:18.684Z",
   "packageUnderTest": "@dotos1/dui@8.0.0-next.2",
   "baselineReference": {
     "version": "7.4.52",
@@ -7,25 +7,152 @@
     "baselineFile": "tools/m2-parity/baseline-7452-styles.json.gz"
   },
   "evidenceDirectory": "docs/ng22-evidence",
+  "freezeTransitionsUsed": false,
   "colorTolerance": {
     "rgbMaxDelta": 1,
     "alphaMaxDelta": 0.01
   },
   "summary": {
     "totalCombinations": 27,
-    "componentCategoriesCovered": 16,
-    "targetsPerCombination": 68,
-    "totalComputedStylePropertiesChecked": 884628,
-    "totalExactPropertyMatches": 884304,
-    "totalExactValueCrossVersionBaseCssDiffs": 324,
-    "distinctCrossVersionElementPropertyItems": 12,
+    "materialCategoriesCovered": 16,
+    "duiCustomCategoriesCovered": 6,
+    "downstreamThemeProbesCovered": [
+      "duix",
+      "sdos"
+    ],
+    "interactivePseudoStatesCovered": [
+      "hover",
+      "focus",
+      "focus-visible",
+      "disabled"
+    ],
+    "targetsPerCombination": 123,
+    "totalComputedStylePropertiesChecked": 1600398,
+    "totalExactPropertyMatches": 1599723,
+    "totalExactValueCrossVersionBaseCssDiffs": 675,
+    "distinctCrossVersionElementPropertyItems": 25,
     "totalUnexplainedPropertyMismatches": 0,
+    "duiCustomComponentsPropsChecked": 403434,
+    "duiCustomComponentsUnexplainedMismatches": 0,
+    "duixProbePropsChecked": 78084,
+    "duixProbeUnexplainedMismatches": 0,
+    "sdosProbePropsChecked": 65070,
+    "sdosProbeUnexplainedMismatches": 0,
+    "menuAnimationParityPassed": true,
     "coldStartCyclesChecked": 6,
-    "coldStartPropertiesChecked": 196584,
+    "coldStartPropertiesChecked": 355644,
     "coldStartMismatches": 0,
-    "avgPixelDiffRatio": 0.00178,
-    "maxPixelDiffRatio": 0.00198,
+    "avgPixelDiffRatio": 0.0012,
+    "maxPixelDiffRatio": 0.00132,
+    "edgeAntiAliasingSharePercent": 99.88,
     "passed": true
+  },
+  "menuAnimationParity": {
+    "evidenceFile": "docs/ng22-evidence/menu-animation-parity.json",
+    "passed": true,
+    "ref7452Open": {
+      "t0ms": {
+        "elapsedMs": 9.6,
+        "present": true,
+        "opacity": 0,
+        "transform": "matrix(0.8, 0, 0, 0.8, 0, 0)",
+        "scaleX": 0.8,
+        "scaleY": 0.8,
+        "transformOrigin": "0px 0px",
+        "animationName": "none",
+        "animationDuration": "0s",
+        "animationTimingFunction": "ease"
+      },
+      "t60ms": {
+        "elapsedMs": 59.8,
+        "present": true,
+        "opacity": 0.7712,
+        "transform": "matrix(0.954248, 0, 0, 0.954248, 0, 0)",
+        "scaleX": 0.9542,
+        "scaleY": 0.9542,
+        "transformOrigin": "0px 0px",
+        "animationName": "none",
+        "animationDuration": "0s",
+        "animationTimingFunction": "ease"
+      },
+      "t120ms": {
+        "elapsedMs": 119.6,
+        "present": true,
+        "opacity": 0.9996,
+        "transform": "matrix(0.999919, 0, 0, 0.999919, 0, 0)",
+        "scaleX": 0.9999,
+        "scaleY": 0.9999,
+        "transformOrigin": "0px 0px",
+        "animationName": "none",
+        "animationDuration": "0s",
+        "animationTimingFunction": "ease"
+      },
+      "t180ms": {
+        "elapsedMs": 180.3,
+        "present": true,
+        "opacity": 1,
+        "transform": "none",
+        "scaleX": 1,
+        "scaleY": 1,
+        "transformOrigin": "0px 0px",
+        "animationName": "none",
+        "animationDuration": "0s",
+        "animationTimingFunction": "ease"
+      }
+    },
+    "ng22Open": {
+      "t0ms": {
+        "elapsedMs": 16.4,
+        "present": true,
+        "opacity": 0,
+        "transform": "matrix(0.8, 0, 0, 0.8, 0, 0)",
+        "scaleX": 0.8,
+        "scaleY": 0.8,
+        "transformOrigin": "0px 0px",
+        "animationName": "_mat-menu-enter",
+        "animationDuration": "0.12s",
+        "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
+      },
+      "t60ms": {
+        "elapsedMs": 61.7,
+        "present": true,
+        "opacity": 0.7708,
+        "transform": "matrix(0.954167, 0, 0, 0.954167, 0, 0)",
+        "scaleX": 0.9542,
+        "scaleY": 0.9542,
+        "transformOrigin": "0px 0px",
+        "animationName": "_mat-menu-enter",
+        "animationDuration": "0.12s",
+        "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
+      },
+      "t120ms": {
+        "elapsedMs": 119.6,
+        "present": true,
+        "opacity": 0.9847,
+        "transform": "matrix(0.996931, 0, 0, 0.996931, 0, 0)",
+        "scaleX": 0.9969,
+        "scaleY": 0.9969,
+        "transformOrigin": "0px 0px",
+        "animationName": "_mat-menu-enter",
+        "animationDuration": "0.12s",
+        "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
+      },
+      "t180ms": {
+        "elapsedMs": 180.2,
+        "present": true,
+        "opacity": 1,
+        "transform": "none",
+        "scaleX": 1,
+        "scaleY": 1,
+        "transformOrigin": "0px 0px",
+        "animationName": "_mat-menu-enter",
+        "animationDuration": "0.12s",
+        "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
+      }
+    },
+    "ref7452CloseDetachedMs": 143.2,
+    "ng22CloseDetachedMs": 153.6,
+    "ng22CloseMid65msOpacity": 0.75
   },
   "coldStartConsistencyChecks": [
     {
@@ -39,8 +166,8 @@
         "typography": "loose",
         "formType": "outline"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -55,8 +182,8 @@
         "typography": "compact",
         "formType": "fill"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -71,8 +198,8 @@
         "typography": "loose",
         "formType": "fill"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -87,8 +214,8 @@
         "typography": "compact",
         "formType": "outline"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -103,8 +230,8 @@
         "typography": "normal",
         "formType": "outline"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -119,8 +246,8 @@
         "typography": "compact",
         "formType": "fill"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
       "mismatchCount": 0,
       "mismatches": []
     }
@@ -199,6 +326,42 @@
       "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
     },
     {
+      "ruleId": "MAT22-SELECT-ARROW-TRANSITION-DURATION",
+      "target": "selectArrow",
+      "selector": "[data-parity=\"select-control\"] .mat-mdc-select-arrow",
+      "category": "5-select",
+      "prop": "transition-duration",
+      "ref7452Value": "0s",
+      "ng22Value": "0.08s",
+      "combinationsCount": 27,
+      "visualImpact": "零静态视觉差异（仅下拉面板展开/收起瞬间箭头翻转过渡 80ms，闭合稳态箭头几何完全一致）",
+      "reason": "移除 `FREEZE_TRANSITIONS` 后暴露的真实过渡属性：Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 新增 `transition: transform 80ms linear` 以平滑下拉箭头旋转。"
+    },
+    {
+      "ruleId": "MAT22-SELECT-ARROW-TRANSITION-PROP",
+      "target": "selectArrow",
+      "selector": "[data-parity=\"select-control\"] .mat-mdc-select-arrow",
+      "category": "5-select",
+      "prop": "transition-property",
+      "ref7452Value": "all",
+      "ng22Value": "transform",
+      "combinationsCount": 27,
+      "visualImpact": "零静态视觉差异（仅限定 `.mat-mdc-select-arrow` 过渡目标属性为 `transform`）",
+      "reason": "Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 声明 `transition: transform 80ms linear`，浏览器计算属性由默认 `all` 收窄为 `transform`。"
+    },
+    {
+      "ruleId": "MAT22-SELECT-ARROW-TRANSITION-EASING",
+      "target": "selectArrow",
+      "selector": "[data-parity=\"select-control\"] .mat-mdc-select-arrow",
+      "category": "5-select",
+      "prop": "transition-timing-function",
+      "ref7452Value": "ease",
+      "ng22Value": "linear",
+      "combinationsCount": 27,
+      "visualImpact": "零静态视觉差异（仅限定 80ms 下拉箭头旋转缓动为线性）",
+      "reason": "Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 声明 `transition: transform 80ms linear`，浏览器计算属性由默认 `ease` 变为 `linear`。"
+    },
+    {
       "ruleId": "MAT22-CHECKBOX-UNICODE-BIDI",
       "target": "checkboxPrimaryBg",
       "selector": "[data-parity=\"checkbox-primary\"] .mdc-checkbox__background",
@@ -259,31 +422,159 @@
       "reason": "Material 22 `.mat-mdc-table` 组件基础 CSS 将物理 `text-align: left` 升级为 CSS 逻辑属性 `text-align: start` 以原生兼容双向布局。"
     },
     {
-      "ruleId": "MAT22-EXPANSION-UNFOCUSED-OUTLINE",
-      "target": "expansionHeader",
-      "selector": "[data-parity=\"expansion-header\"]",
-      "category": "extra-expansion",
-      "prop": "outline-width",
-      "ref7452Value": "3px",
-      "ng22Value": "0px",
+      "ruleId": "MAT22-MENU-CSS-KEYFRAMES-DURATION",
+      "target": "menuPanel",
+      "selector": ".mat-mdc-menu-panel",
+      "category": "15-menu",
+      "prop": "animation-duration",
+      "ref7452Value": "0s",
+      "ng22Value": "0.12s",
       "combinationsCount": 27,
-      "visualImpact": "零视觉差异（非聚焦态 `outline-style: none` 下线宽不渲染）",
-      "reason": "7.4.52 非聚焦态 `outline-style: none` 下浏览器默认 `outline-width` 计算值为 `3px`；Material 22 `.mat-expansion-panel-header` 基础样式显式声明 `outline: none` 使 `outline-width` 计算值为 `0px`。"
+      "visualImpact": "零视觉差异（与 `7.4.52` `transformMenu` `120ms` 动画时长 1:1 严格一致）",
+      "reason": "Material 22 原生 CSS `@keyframes _mat-menu-enter` 显式声明 `animation-duration: 120ms`（计算值 `0.12s`），与 `7.4.52` WAAPI `120ms` 完全同速。"
+    },
+    {
+      "ruleId": "MAT22-MENU-CSS-KEYFRAMES-NAME",
+      "target": "menuPanel",
+      "selector": ".mat-mdc-menu-panel",
+      "category": "15-menu",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "_mat-menu-enter",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（`7.4.52` 使用 WAAPI `transformMenu`，`ng22` 使用同名等价 CSS `@keyframes _mat-menu-enter`，见 `menu-animation-parity.json` 逐帧采样）",
+      "reason": "Material 18 通过 `@angular/animations` Web Animations API 驱动菜单开合（CSS `animation-name` 计算值为 `none`）；Material 22 迁移至原生 CSS `@keyframes _mat-menu-enter`（同为 `120ms cubic-bezier(0, 0, 0.2, 1)`）。"
+    },
+    {
+      "ruleId": "MAT22-MENU-CSS-KEYFRAMES-EASING",
+      "target": "menuPanel",
+      "selector": ".mat-mdc-menu-panel",
+      "category": "15-menu",
+      "prop": "animation-timing-function",
+      "ref7452Value": "ease",
+      "ng22Value": "cubic-bezier(0, 0, 0.2, 1)",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（与 `7.4.52` `transformMenu` `cubic-bezier(0, 0, 0.2, 1)` 缓动曲线 1:1 严格一致）",
+      "reason": "Material 22 原生 CSS `@keyframes _mat-menu-enter` 显式声明 `cubic-bezier(0, 0, 0.2, 1)`，与 `7.4.52` WAAPI 曲线完全一致（`7.4.52` 因走 WAAPI 故 CSS 计算属性保持浏览器默认 `ease`）。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-DELAY",
+      "target": "duiDateFormInput",
+      "selector": "[data-parity=\"dui-date-form\"] input.mat-mdc-input-element",
+      "category": "20-dui-datefield",
+      "prop": "animation-delay",
+      "ref7452Value": "0s",
+      "ng22Value": "0.001s",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（1 毫秒自动填充事件触发延迟）",
+      "reason": "`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-PROBE",
+      "target": "duiDateFormInput",
+      "selector": "[data-parity=\"dui-date-form\"] input.mat-mdc-input-element",
+      "category": "20-dui-datefield",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "cdk-text-field-autofill-end",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（透明空关键帧探针）",
+      "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-DELAY",
+      "target": "duiCardViewValue",
+      "selector": "[data-parity=\"dui-card-view\"] .dui-property-value",
+      "category": "21-dui-cardview",
+      "prop": "animation-delay",
+      "ref7452Value": "0s",
+      "ng22Value": "0.001s",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（1 毫秒自动填充事件触发延迟）",
+      "reason": "`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-PROBE",
+      "target": "duiCardViewValue",
+      "selector": "[data-parity=\"dui-card-view\"] .dui-property-value",
+      "category": "21-dui-cardview",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "cdk-text-field-autofill-end",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（透明空关键帧探针）",
+      "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-DELAY",
+      "target": "duiCardViewClickable",
+      "selector": "[data-parity=\"dui-card-view\"] .dui-textitem-clickable-value",
+      "category": "21-dui-cardview",
+      "prop": "animation-delay",
+      "ref7452Value": "0s",
+      "ng22Value": "0.001s",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（1 毫秒自动填充事件触发延迟）",
+      "reason": "`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-PROBE",
+      "target": "duiCardViewClickable",
+      "selector": "[data-parity=\"dui-card-view\"] .dui-textitem-clickable-value",
+      "category": "21-dui-cardview",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "cdk-text-field-autofill-end",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（透明空关键帧探针）",
+      "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-DELAY",
+      "target": "inputFillFocus",
+      "selector": "[data-parity=\"input-fill\"]:focus:focus-visible",
+      "category": "26-interactive-focus",
+      "prop": "animation-delay",
+      "ref7452Value": "0s",
+      "ng22Value": "0.001s",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（1 毫秒自动填充事件触发延迟）",
+      "reason": "`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。"
+    },
+    {
+      "ruleId": "MAT22-CDK-AUTOFILL-PROBE",
+      "target": "inputFillFocus",
+      "selector": "[data-parity=\"input-fill\"]:focus:focus-visible",
+      "category": "26-interactive-focus",
+      "prop": "animation-name",
+      "ref7452Value": "none",
+      "ng22Value": "cdk-text-field-autofill-end",
+      "combinationsCount": 27,
+      "visualImpact": "零视觉差异（透明空关键帧探针）",
+      "reason": "`@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。"
     }
   ],
   "extraChecks": {
     "adoptedStyleSheetsCount": 0,
     "duiStyleTags": [
       {
-        "id": "dui-sheet-4",
+        "id": "dui-sheet-6",
         "role": "core"
       },
       {
-        "id": "dui-sheet-5",
+        "id": "dui-sheet-7",
         "role": "material-theme"
       },
       {
-        "id": "dui-sheet-6",
+        "id": "dui-sheet-8",
+        "role": "component"
+      },
+      {
+        "id": "dui-sheet-9",
+        "role": "component"
+      },
+      {
+        "id": "dui-sheet-10",
         "role": "component"
       }
     ],
@@ -297,9 +588,14 @@
       "btn": "14px",
       "cardTitle": "20px",
       "listItemTitle": "15px",
-      "tableCell": "14px"
+      "tableCell": "14px",
+      "typoH5": "14px",
+      "typoH6": "14px",
+      "typoDisplay1": "14px",
+      "typoDisplay4": "14px"
     },
     "expansionIndicatorBorderColor": "rgba(0, 0, 0, 0.7)",
+    "expansionHeaderOutlineWidth": "3px",
     "zoneCheck": {
       "beforeZoneText": "angular:0:1",
       "afterZoneText": "angular:1:1"
@@ -326,26 +622,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2567,
-        "diffRatio": 0.00186
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198812,
+        "subpixelTol1Pixels": 13,
+        "diffPixels": 2775,
+        "edgeGradientDiffPixels": 2775,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00126
       },
       "screenshots": {
         "ref7452": "screenshots/01-light-loose-teal-orange-7452.png",
@@ -363,26 +668,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2565,
-        "diffRatio": 0.00186
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198816,
+        "subpixelTol1Pixels": 11,
+        "diffPixels": 2773,
+        "edgeGradientDiffPixels": 2773,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00126
       },
       "screenshots": {
         "ref7452": "screenshots/02-light-loose-blue-pink-7452.png",
@@ -400,26 +714,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2663,
-        "diffRatio": 0.00193
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198714,
+        "subpixelTol1Pixels": 15,
+        "diffPixels": 2871,
+        "edgeGradientDiffPixels": 2871,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.0013
       },
       "screenshots": {
         "ref7452": "screenshots/03-light-loose-indigo-amber-7452.png",
@@ -437,26 +760,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2294,
-        "diffRatio": 0.00166
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199081,
+        "subpixelTol1Pixels": 13,
+        "diffPixels": 2506,
+        "edgeGradientDiffPixels": 2506,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00114
       },
       "screenshots": {
         "ref7452": "screenshots/04-light-normal-teal-orange-7452.png",
@@ -474,26 +806,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2292,
-        "diffRatio": 0.00166
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199066,
+        "subpixelTol1Pixels": 19,
+        "diffPixels": 2515,
+        "edgeGradientDiffPixels": 2515,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00114
       },
       "screenshots": {
         "ref7452": "screenshots/05-light-normal-blue-pink-7452.png",
@@ -511,26 +852,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2390,
-        "diffRatio": 0.00173
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198965,
+        "subpixelTol1Pixels": 22,
+        "diffPixels": 2613,
+        "edgeGradientDiffPixels": 2613,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00119
       },
       "screenshots": {
         "ref7452": "screenshots/06-light-normal-indigo-amber-7452.png",
@@ -548,26 +898,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2295,
-        "diffRatio": 0.00166
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199061,
+        "subpixelTol1Pixels": 21,
+        "diffPixels": 2518,
+        "edgeGradientDiffPixels": 2518,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00114
       },
       "screenshots": {
         "ref7452": "screenshots/07-light-compact-teal-orange-7452.png",
@@ -585,26 +944,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2292,
-        "diffRatio": 0.00166
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199065,
+        "subpixelTol1Pixels": 20,
+        "diffPixels": 2515,
+        "edgeGradientDiffPixels": 2515,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00114
       },
       "screenshots": {
         "ref7452": "screenshots/08-light-compact-blue-pink-7452.png",
@@ -622,26 +990,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2390,
-        "diffRatio": 0.00173
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198964,
+        "subpixelTol1Pixels": 23,
+        "diffPixels": 2613,
+        "edgeGradientDiffPixels": 2613,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00119
       },
       "screenshots": {
         "ref7452": "screenshots/09-light-compact-indigo-amber-7452.png",
@@ -659,26 +1036,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2635,
-        "diffRatio": 0.00191
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198775,
+        "subpixelTol1Pixels": 26,
+        "diffPixels": 2799,
+        "edgeGradientDiffPixels": 2799,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00127
       },
       "screenshots": {
         "ref7452": "screenshots/10-dark-loose-teal-orange-7452.png",
@@ -696,26 +1082,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2642,
-        "diffRatio": 0.00191
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198772,
+        "subpixelTol1Pixels": 22,
+        "diffPixels": 2806,
+        "edgeGradientDiffPixels": 2806,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00127
       },
       "screenshots": {
         "ref7452": "screenshots/11-dark-loose-blue-pink-7452.png",
@@ -733,26 +1128,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2735,
-        "diffRatio": 0.00198
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198673,
+        "subpixelTol1Pixels": 28,
+        "diffPixels": 2899,
+        "edgeGradientDiffPixels": 2888,
+        "flatFillDiffPixels": 11,
+        "diffRatio": 0.00132
       },
       "screenshots": {
         "ref7452": "screenshots/12-dark-loose-indigo-amber-7452.png",
@@ -770,26 +1174,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2352,
-        "diffRatio": 0.0017
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199036,
+        "subpixelTol1Pixels": 39,
+        "diffPixels": 2525,
+        "edgeGradientDiffPixels": 2525,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/13-dark-normal-teal-orange-7452.png",
@@ -807,26 +1220,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2359,
-        "diffRatio": 0.00171
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199034,
+        "subpixelTol1Pixels": 32,
+        "diffPixels": 2534,
+        "edgeGradientDiffPixels": 2534,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/14-dark-normal-blue-pink-7452.png",
@@ -844,26 +1266,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2452,
-        "diffRatio": 0.00177
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198937,
+        "subpixelTol1Pixels": 38,
+        "diffPixels": 2625,
+        "edgeGradientDiffPixels": 2609,
+        "flatFillDiffPixels": 16,
+        "diffRatio": 0.00119
       },
       "screenshots": {
         "ref7452": "screenshots/15-dark-normal-indigo-amber-7452.png",
@@ -881,26 +1312,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2353,
-        "diffRatio": 0.0017
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199035,
+        "subpixelTol1Pixels": 39,
+        "diffPixels": 2526,
+        "edgeGradientDiffPixels": 2526,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/16-dark-compact-teal-orange-7452.png",
@@ -918,26 +1358,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2360,
-        "diffRatio": 0.00171
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199033,
+        "subpixelTol1Pixels": 32,
+        "diffPixels": 2535,
+        "edgeGradientDiffPixels": 2535,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/17-dark-compact-blue-pink-7452.png",
@@ -955,26 +1404,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2453,
-        "diffRatio": 0.00177
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198936,
+        "subpixelTol1Pixels": 38,
+        "diffPixels": 2626,
+        "edgeGradientDiffPixels": 2609,
+        "flatFillDiffPixels": 17,
+        "diffRatio": 0.00119
       },
       "screenshots": {
         "ref7452": "screenshots/18-dark-compact-indigo-amber-7452.png",
@@ -992,26 +1450,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2634,
-        "diffRatio": 0.00191
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198767,
+        "subpixelTol1Pixels": 35,
+        "diffPixels": 2798,
+        "edgeGradientDiffPixels": 2798,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00127
       },
       "screenshots": {
         "ref7452": "screenshots/19-darkblue-loose-teal-orange-7452.png",
@@ -1029,26 +1496,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2646,
-        "diffRatio": 0.00191
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198766,
+        "subpixelTol1Pixels": 24,
+        "diffPixels": 2810,
+        "edgeGradientDiffPixels": 2810,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00128
       },
       "screenshots": {
         "ref7452": "screenshots/20-darkblue-loose-blue-pink-7452.png",
@@ -1066,26 +1542,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2738,
-        "diffRatio": 0.00198
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198666,
+        "subpixelTol1Pixels": 32,
+        "diffPixels": 2902,
+        "edgeGradientDiffPixels": 2890,
+        "flatFillDiffPixels": 12,
+        "diffRatio": 0.00132
       },
       "screenshots": {
         "ref7452": "screenshots/21-darkblue-loose-indigo-amber-7452.png",
@@ -1103,26 +1588,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2351,
-        "diffRatio": 0.0017
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199027,
+        "subpixelTol1Pixels": 51,
+        "diffPixels": 2522,
+        "edgeGradientDiffPixels": 2522,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/22-darkblue-normal-teal-orange-7452.png",
@@ -1140,26 +1634,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2363,
-        "diffRatio": 0.00171
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199025,
+        "subpixelTol1Pixels": 36,
+        "diffPixels": 2539,
+        "edgeGradientDiffPixels": 2539,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/23-darkblue-normal-blue-pink-7452.png",
@@ -1177,26 +1680,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2455,
-        "diffRatio": 0.00178
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198926,
+        "subpixelTol1Pixels": 47,
+        "diffPixels": 2627,
+        "edgeGradientDiffPixels": 2611,
+        "flatFillDiffPixels": 16,
+        "diffRatio": 0.00119
       },
       "screenshots": {
         "ref7452": "screenshots/24-darkblue-normal-indigo-amber-7452.png",
@@ -1214,26 +1726,35 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2352,
-        "diffRatio": 0.0017
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199028,
+        "subpixelTol1Pixels": 49,
+        "diffPixels": 2523,
+        "edgeGradientDiffPixels": 2523,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/25-darkblue-compact-teal-orange-7452.png",
@@ -1251,26 +1772,35 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2364,
-        "diffRatio": 0.00171
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2199026,
+        "subpixelTol1Pixels": 34,
+        "diffPixels": 2540,
+        "edgeGradientDiffPixels": 2540,
+        "flatFillDiffPixels": 0,
+        "diffRatio": 0.00115
       },
       "screenshots": {
         "ref7452": "screenshots/26-darkblue-compact-blue-pink-7452.png",
@@ -1288,26 +1818,35 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 68,
-      "propertiesChecked": 32764,
-      "exactMatchCount": 32752,
-      "explainedCrossVersionCount": 12,
+      "targetsChecked": 123,
+      "propertiesChecked": 59274,
+      "exactMatchCount": 59249,
+      "explainedCrossVersionCount": 25,
       "explainedByRule": {
-        "MAT22-CDK-AUTOFILL-DELAY": 3,
-        "MAT22-CDK-AUTOFILL-PROBE": 3,
+        "MAT22-CDK-AUTOFILL-DELAY": 7,
+        "MAT22-CDK-AUTOFILL-PROBE": 7,
+        "MAT22-SELECT-ARROW-TRANSITION-DURATION": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-PROP": 1,
+        "MAT22-SELECT-ARROW-TRANSITION-EASING": 1,
         "MAT22-CHECKBOX-UNICODE-BIDI": 2,
         "MAT22-TAB-TOUCH-ACTION": 1,
         "MAT22-TABLE-LOGICAL-TEXT-ALIGN": 2,
-        "MAT22-EXPANSION-UNFOCUSED-OUTLINE": 1
+        "MAT22-MENU-CSS-KEYFRAMES-DURATION": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-NAME": 1,
+        "MAT22-MENU-CSS-KEYFRAMES-EASING": 1
       },
       "unexplainedMismatchCount": 0,
       "unexplainedMismatches": [],
       "pixelDiff": {
         "width": 1280,
-        "height": 1080,
-        "totalPixels": 1382400,
-        "diffPixels": 2456,
-        "diffRatio": 0.00178
+        "height": 1720,
+        "totalPixels": 2201600,
+        "exactZeroPixels": 2198927,
+        "subpixelTol1Pixels": 45,
+        "diffPixels": 2628,
+        "edgeGradientDiffPixels": 2611,
+        "flatFillDiffPixels": 17,
+        "diffRatio": 0.00119
       },
       "screenshots": {
         "ref7452": "screenshots/27-darkblue-compact-indigo-amber-7452.png",

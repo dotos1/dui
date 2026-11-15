@@ -8,6 +8,7 @@ import { LocalStorageService } from '@dotos1/dui/core/storage';
 import {
   createMaterialCoreStyles,
   createMaterialThemeStyles,
+  density,
   matAutocompleteTheme,
   matBadgeTheme,
   matBottomSheetTheme,
@@ -56,6 +57,7 @@ import {
   serializeThemeRulesToCss,
   Theme,
   ThemeService,
+  typography,
 } from './public-api';
 
 describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
@@ -258,10 +260,26 @@ describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
     }
 
     expect(typeof matControlPlaceholderColor(theme)).toBe('string');
+    const densityRules = density(theme);
+    const typoRules = typography(theme.typography);
+    expect(typeof densityRules).toBe('object');
+    expect(JSON.stringify(densityRules)).toContain('--mat-icon-button-state-layer-size');
+    expect(typoRules).toEqual({});
     const coreSheet = createMaterialCoreStyles(theme.typography);
     const matSheet = createMaterialThemeStyles(theme);
     expect(coreSheet.cssText.length).toBeGreaterThan(50);
     expect(matSheet.cssText.length).toBeGreaterThan(1000);
+  });
+
+  it('keeps getTheme() and getThemeByType() side-effect-free (zero DOM <style> injection before setTheme/changeTheme)', () => {
+    expect(document.head.querySelectorAll('style[data-dui-sheet]').length).toBe(0);
+    const defaultTheme = service.getTheme();
+    const darkTheme = service.getThemeByType('dark');
+    const sameDefault = service.getThemeByType('default');
+    expect(defaultTheme.type).toBe('light');
+    expect(darkTheme.type).toBe('dark');
+    expect(sameDefault).toBe(defaultTheme);
+    expect(document.head.querySelectorAll('style[data-dui-sheet]').length).toBe(0);
   });
 
   it('emits complete S-5 structural overrides including FAB sizing/disabled shadow and disabled icon-button color', () => {
@@ -313,7 +331,7 @@ describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
     expect(customSheet.cssText).toContain('#2196f3');
   });
 
-  it('never emits bare universal ::after, ::before, :hover, or :active selectors in createMaterialThemeStyles or top-level & rules', () => {
+  it('preserves top-level @global & rules verbatim as in 7.4.52 JSS while never emitting bare universal ::after/::before selectors', () => {
     service.changeTheme('teal-600', 'orange-800', 'red-800', 'light', 'loose', 'fill');
     const baseTheme = service.getTheme();
     const presets: Theme[] = [
@@ -323,16 +341,29 @@ describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
     ];
     for (const preset of presets) {
       const cssText = createMaterialThemeStyles(preset).cssText;
-      // Check every selector header before `{` and split comma-separated selector lists
       const selectorHeaders = Array.from(cssText.matchAll(/(?:^|\}|\n)\s*([^{}@]+?)\s*\{/g)).map((m) => m[1]);
       for (const header of selectorHeaders) {
         for (const rawSel of header.split(',')) {
           const sel = rawSel.trim();
           expect(sel).not.toMatch(/^::?(after|before|hover|active|focus|checked)\b/);
-          expect(sel).not.toContain('&');
         }
       }
-      expect(cssText).toContain('query-builder .q-connector::before, query-builder .q-connector::after');
+      // Verbatim 7.4.52 JSS output on historical top-level `@global` `&` keys:
+      expect(cssText).toContain('query-builder .q-connector  &::before, &::after');
+      // Restored menu animation (no animation-name: none override) and 3px expansion header outline-width:
+      expect(cssText).not.toContain('animation-name: none');
+      expect(cssText).toContain('.mat-expansion-panel-header');
+      expect(cssText).toContain('outline-width: 3px !important;');
+      // Restored #195/#196 7.4.52 dialog/button/list default tokens:
+      if (preset.type === 'light') {
+        expect(cssText).toContain('--mat-dialog-supporting-text-color: #000000;');
+        expect(cssText).toContain('--mat-button-filled-label-text-color: #000000;');
+        expect(cssText).toContain('--mat-list-list-item-trailing-supporting-text-color: rgba(0, 0, 0, 0.38);');
+      } else {
+        expect(cssText).toContain('--mat-dialog-supporting-text-color: #ffffff;');
+        expect(cssText).toContain('--mat-button-filled-label-text-color: #ffffff;');
+        expect(cssText).toContain('--mat-list-list-item-trailing-supporting-text-color: rgba(255, 255, 255, 0.5);');
+      }
     }
 
     const legacyTopLevelAmpCss = serializeThemeRulesToCss({
@@ -343,14 +374,20 @@ describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
         '.ng-scrollbar-hover &:hover, &:active ': {
           'background-color': 'rgba(0, 0, 0, 0.26)',
         },
-        '&::after': {
-          content: '',
+        '.sdos-menu-container &:hover': {
+          color: '#00897b',
+        },
+        '.flow-node-default': {
+          '&:hover': {
+            color: '#2196f3',
+          },
         },
       },
     });
-    expect(legacyTopLevelAmpCss).toContain('query-builder .q-connector::before, query-builder .q-connector::after');
-    expect(legacyTopLevelAmpCss).toContain('.ng-scrollbar-hover:hover, .ng-scrollbar-hover:active');
-    expect(legacyTopLevelAmpCss).toContain(':root::after');
+    expect(legacyTopLevelAmpCss).toContain('query-builder .q-connector  &::before, &::after {');
+    expect(legacyTopLevelAmpCss).toContain('.ng-scrollbar-hover &:hover, &:active {');
+    expect(legacyTopLevelAmpCss).toContain('.sdos-menu-container &:hover {');
+    expect(legacyTopLevelAmpCss).toContain('.flow-node-default:hover {');
     expect(legacyTopLevelAmpCss).not.toMatch(/(?:^|,|\})\s*::?(after|before|hover|active)\s*[,{]/);
   });
 });

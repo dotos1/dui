@@ -17,19 +17,19 @@ export function duiScrollbarTheme(theme: Theme): Object {
         ".ng-scrollbar-button-icon svg": {
             "fill": matColor(theme.foreground, 'icons') +" !important"
         },
-        ".ng-scrollbar-button-icon:hover": {
+        ".ng-scrollbar-button-icon &:hover": {
             "background": 'transparent' +" !important"
         },
-        ".ng-scrollbar-button-icon:hover svg": {
+        ".ng-scrollbar-button-icon &:hover svg": {
             "fill": matColor(theme.foreground, 'secondary-text') +" !important"
         },
-        ".ng-scrollbar-button-icon:active": {
+        ".ng-scrollbar-button-icon &:active": {
             "background": 'transparent' +" !important"
         },
-        ".ng-scrollbar-button-icon:active svg": {
+        ".ng-scrollbar-button-icon &:active svg": {
             "fill": matColor(theme.foreground, 'secondary-text') +" !important"
         },
-        ".ng-scrollbar-hover:hover, .ng-scrollbar-hover:active": {
+        ".ng-scrollbar-hover &:hover, &:active ": {
             "background-color": matColor(theme.foreground, 'slider-off') +" !important"
         },
         ".ng-scrollbar-thumb": {

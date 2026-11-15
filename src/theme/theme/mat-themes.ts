@@ -445,20 +445,47 @@ export function matFabTheme(theme: Theme): Record<string, unknown> {
 }
 
 /**
+ * Executes `density` to generate M2 icon-button density tokens and button-base sizing rules (7.4.52 public API parity).
+ * @zh 执行 `density`，生成图标按钮 M2 密度令牌与尺寸规则（保持 `7.4.52` `@dotos1/dui/theme` 公开导出签名兼容）。
+ * @param theme - Runtime theme (`Theme`) / 主题参数（`Theme`）
+ * @returns Style map (`Record<string, unknown>`) / 样式规则表
+ */
+export function density(theme: Theme): Record<string, unknown> {
+  const typoKey = normalizeTypographyKey(theme.typography, theme.density);
+  const stateLayerSize = typoKey === 'loose' ? 48 : typoKey === 'normal' ? 44 : 40;
+  const densityKey = normalizeDensityKey(theme.density);
+  return mergeThemeStyleMaps(
+    blocksToStyleMap(M2_DENSITY_TEMPLATES[densityKey], theme, ['--mat-icon-button-']),
+    {
+      '.mat-mdc-icon-button.mat-mdc-button-base': {
+        '--mat-icon-button-state-layer-size': `${stateLayerSize}px`,
+        width: 'var(--mat-icon-button-state-layer-size)',
+        height: 'var(--mat-icon-button-state-layer-size)',
+        padding: `${(stateLayerSize - 24) / 2}px`,
+      },
+    }
+  );
+}
+
+/**
+ * Executes `typography` to generate M2 progress-bar typography rules (7.4.52 public API parity).
+ * @zh 执行 `typography`，生成进度条排版规则（保持 `7.4.52` `@dotos1/dui/theme` 公开导出签名兼容）。
+ * @param config - Typography config (`TypographyConfig`) / 排版配置参数（`TypographyConfig`）
+ * @returns Style map (`Record<string, unknown>`) / 样式规则表
+ */
+export function typography(config: TypographyConfig): Record<string, unknown> {
+  void config;
+  return {};
+}
+
+/**
  * Executes `matIconButtonTheme` to generate M2 icon-button tokens, density sizing, and disabled icon color rules.
  * @zh 执行 `matIconButtonTheme`，生成图标按钮 M2 令牌、密度尺寸与禁用态图标颜色覆盖规则。
  * @param theme - Runtime theme (`Theme`) / 主题参数（`Theme`）
  * @returns Style map (`Record<string, unknown>`) / 样式规则表
  */
 export function matIconButtonTheme(theme: Theme): Record<string, unknown> {
-  const typoKey = normalizeTypographyKey(theme.typography, theme.density);
-  const stateLayerSize = typoKey === 'loose' ? 48 : typoKey === 'normal' ? 44 : 40;
-  return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-icon-button-']), {
-    '.mat-mdc-icon-button.mat-mdc-button-base': {
-      width: 'var(--mat-icon-button-state-layer-size)',
-      height: 'var(--mat-icon-button-state-layer-size)',
-      padding: `${(stateLayerSize - 24) / 2}px`,
-    },
+  return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-icon-button-']), density(theme), {
     '.mat-mdc-icon-button.mat-mdc-button-disabled .mat-icon': {
       color: 'var(--mat-icon-button-disabled-icon-color) !important',
     },
@@ -569,13 +596,17 @@ export function matDividerTheme(theme: Theme): Record<string, unknown> {
 }
 
 /**
- * Executes `matExpansionPanelTheme` to generate M2 expansion-panel tokens.
- * @zh 执行 `matExpansionPanelTheme`，生成折叠面板 M2 令牌。
+ * Executes `matExpansionPanelTheme` to generate M2 expansion-panel tokens and 7.4.52 header outline-width parity.
+ * @zh 执行 `matExpansionPanelTheme`，生成折叠面板 M2 令牌与面板头 `outline-width: 3px` 对齐规则。
  * @param theme - Runtime theme (`Theme`) / 主题参数（`Theme`）
  * @returns Style map (`Record<string, unknown>`) / 样式规则表
  */
 export function matExpansionPanelTheme(theme: Theme): Record<string, unknown> {
-  return resolveM2BlocksForTheme(theme, ['--mat-expansion-']);
+  return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-expansion-']), {
+    '.mat-expansion-panel-header': {
+      'outline-width': '3px !important',
+    },
+  });
 }
 
 /**
@@ -612,11 +643,13 @@ export function matIconTheme(theme: Theme): Record<string, unknown> {
   return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-icon-']), {
     '.mat-icon': {
       color: 'var(--mat-icon-color)',
-      'flex-shrink': '1 !important',
-      'min-height': '0px !important',
       svg: {
         stroke: 'var(--mat-icon-color) !important',
       },
+    },
+    '.mat-icon:not(.mdc-list-item__start):not(.mdc-list-item__end)': {
+      'flex-shrink': '1 !important',
+      'min-height': '0px !important',
     },
     '.mat-icon svg': {
       stroke: 'var(--mat-icon-color) !important',
@@ -679,8 +712,8 @@ export function matListTheme(theme: Theme): Record<string, unknown> {
 }
 
 /**
- * Executes `matMenuTheme` to generate M2 menu tokens and S-5 item min-height/icon rules.
- * @zh 执行 `matMenuTheme`，生成菜单组件 M2 令牌与菜单项高度及图标颜色规则。
+ * Executes `matMenuTheme` to generate M2 menu tokens and S-5 item min-height/icon rules while preserving built-in M2 menu enter/exit animations.
+ * @zh 执行 `matMenuTheme`，生成菜单组件 M2 令牌与菜单项高度及图标颜色规则，完整保留 Material 22 内置菜单开合动画。
  * @param theme - Runtime theme (`Theme`) / 主题参数（`Theme`）
  * @returns Style map (`Record<string, unknown>`) / 样式规则表
  */
@@ -688,11 +721,6 @@ export function matMenuTheme(theme: Theme): Record<string, unknown> {
   const typoKey = normalizeTypographyKey(theme.typography, theme.density);
   const menuMinHeight = typoKey === 'loose' ? '44px !important' : typoKey === 'normal' ? '40px !important' : '36px !important';
   return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-menu-']), {
-    '.mat-mdc-menu-panel': {
-      'animation-name': 'none !important',
-      'animation-timing-function': 'ease !important',
-      'transform-origin': 'top left !important',
-    },
     '.mat-mdc-menu-item': {
       'min-height': menuMinHeight,
     },

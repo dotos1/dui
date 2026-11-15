@@ -171,7 +171,7 @@ export function duiDateFieldTheme(theme: Theme): Object {
     ".mat-datetimepicker-calendar-body-cell-content": {
       color: matColor(theme.foreground, 'text'),
     },
-    ".mat-datetimepicker-calendar-body-disabled > .mat-datetimepicker-calendar-body-cell-content:not(.mat-datetimepicker-calendar-body-selected)": {
+    ".mat-datetimepicker-calendar-body-cell-content .mat-datetimepicker-calendar-body-disabled > &:not(.mat-datetimepicker-calendar-body-selected)": {
       color: matColor(theme.foreground, 'slider-off-active'),
     },
     // ":not(.mat-datetimepicker-calendar-body-disabled):hover,.mat-datetimepicker-calendar-body-active > .mat-datetimepicker-calendar-body-cell-content:not(.mat-datetimepicker-calendar-body-selected)": {

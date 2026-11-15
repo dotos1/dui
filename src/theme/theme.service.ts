@@ -199,71 +199,11 @@ function splitSelectorList(selector: string): string[] {
 }
 
 /**
- * Resolves a top-level selector (where `parentSelector` is empty) that may contain legacy flattened `&` tokens,
- * strictly preventing bare universal pseudo-element or pseudo-class selectors (`::after`, `::before`, `:hover`, etc.).
- * @zh 在无父级选择器（顶层 `@global`）时安全解析含遗留扁平 `&` 的选择器，严禁产出全局裸 `::after`/`::before` 等污染选择器。
- * @param rawSelector - top-level selector (`string`) / 顶层选择器（`string`）
- * @returns Resolved CSS selector (`string`) / 安全解析后的 CSS 选择器（`string`）
- */
-function resolveTopLevelSelector(rawSelector: string): string {
-  if (!rawSelector.includes('&')) {
-    return rawSelector;
-  }
-  const parts = splitSelectorList(rawSelector);
-  const resolved: string[] = [];
-  let lastPrefix = '';
-
-  for (const rawPart of parts) {
-    // Normalize inline compound `&` without whitespace (e.g. `.foo&.disabled` -> `.foo.disabled`)
-    const part = rawPart.replace(/(\S)&(?=[.:#\[])/g, '$1').trim();
-    if (!part) {
-      continue;
-    }
-    if (!part.includes('&')) {
-      const spaceIdx = part.lastIndexOf(' ');
-      lastPrefix = spaceIdx > 0 ? part.slice(0, spaceIdx).trim() : part;
-      resolved.push(part);
-      continue;
-    }
-
-    const prefixedAmpMatch = part.match(/^(.+?)\s+&([.:#\[][\s\S]*)$/);
-    if (prefixedAmpMatch) {
-      lastPrefix = prefixedAmpMatch[1].trim();
-      resolved.push(`${lastPrefix}${prefixedAmpMatch[2]}`);
-      continue;
-    }
-
-    const leadingAmpMatch = part.match(/^&([.:#\[][\s\S]*)$/);
-    if (leadingAmpMatch) {
-      const suffix = leadingAmpMatch[1];
-      if (lastPrefix) {
-        resolved.push(`${lastPrefix}${suffix}`);
-      } else if (suffix.startsWith(':')) {
-        // Scope top-level `&::after` / `&:hover` to `:root` (CSS Nesting top-level `&` semantics), never universal `*::after`
-        resolved.push(`:root${suffix}`);
-      } else {
-        resolved.push(suffix);
-      }
-      continue;
-    }
-
-    const trailingAmpMatch = part.match(/^(.*?\S)\s+&$/);
-    if (trailingAmpMatch) {
-      resolved.push(trailingAmpMatch[1].trim());
-      continue;
-    }
-
-    const cleaned = part.replace(/\s*&\s*/g, ' ').trim();
-    if (cleaned) {
-      resolved.push(cleaned.startsWith(':') ? `:root${cleaned}` : cleaned);
-    }
-  }
-  return resolved.join(', ');
-}
-
-/**
  * Resolves a child selector against a parent selector, supporting `&` nesting (suffix, prefix, and multi-selector).
- * @zh 将子选择器与父选择器合并，完整支持 `&` 嵌套（后缀、前缀及逗号多选择器笛卡尔展开）。
+ * When `parentSelector` is empty (top-level `@global` keys), preserves `childSelector` verbatim — matching `7.4.52`
+ * `jss` + `jss-plugin-global` + `jss-plugin-nested` character-for-character so neither bare universal `::after`
+ * rules are emitted nor dormant legacy top-level `&` rules are unintentionally activated.
+ * @zh 将子选择器与父选择器合并，完整支持 `&` 嵌套；无父级选择器（顶层 `@global`）时原样保留子选择器，与 `7.4.52` JSS 输出逐字一致。
  * @param parentSelector - parent selector (`string`) / 父级选择器（`string`）
  * @param childSelector - child selector (`string`) / 子级选择器（`string`）
  * @returns Combined CSS selector (`string`) / 合并后的完整 CSS 选择器（`string`）
@@ -271,7 +211,7 @@ function resolveTopLevelSelector(rawSelector: string): string {
 function combineNestedSelector(parentSelector: string, childSelector: string): string {
   const trimmedChild = childSelector.trim();
   if (!parentSelector) {
-    return resolveTopLevelSelector(trimmedChild);
+    return trimmedChild;
   }
   const parents = splitSelectorList(parentSelector);
   const children = splitSelectorList(trimmedChild);
@@ -588,11 +528,13 @@ export class ThemeService {
   }
 
   /**
-   * Creates an instance of `ThemeService` and registers it as the active singleton.
-   * @zh 创建 `ThemeService` 实例并注册为当前单例。
+   * Creates an instance of `ThemeService` and registers it as the active singleton without mounting DOM `<style>` tags.
+   * @zh 创建 `ThemeService` 实例并注册为当前单例（不在构造函数中向 DOM 注入 `<style>` 标签，与 `7.4.52` 保持一致）。
    * @param localStore - Injected local storage service (`LocalStorageService`) / 本地存储服务（`LocalStorageService`）
    */
   public constructor(public localStore: LocalStorageService) {
+    this.dotosConfig = ThemeService.DEFAULT_CONFIG;
+    this.theme = this.buildTheme(this._type);
     ThemeService.instance = this;
   }
 
@@ -876,8 +818,9 @@ export class ThemeService {
   }
 
   /**
-   * Executes `getThemeByType` to obtain the current `Theme` (`'default'`) or construct a `Theme` for a specific mode.
-   * @zh 执行 `getThemeByType`，获取当前主题（`'default'`）或按指定底色类型构造主题对象。
+   * Executes `getThemeByType` to obtain the current `Theme` (`'default'`) or construct a `Theme` for a specific mode
+   * without mutating DOM `<style>` tags (matching `7.4.52` side-effect-free behavior).
+   * @zh 执行 `getThemeByType`，获取当前主题（`'default'`）或按指定底色类型构造内存主题对象（不触发 DOM `<style>` 注入副作用）。
    * @param type - Theme type (`string`) / 主题类型（`string`）
    * @returns Resolved `Theme` object / 解析后的 `Theme` 对象
    */
@@ -885,21 +828,15 @@ export class ThemeService {
     if (type === 'default') {
       return this.getTheme();
     }
-    if (!this._primaryStr) {
-      this.refreshTheme();
-    }
     return this.buildTheme(type);
   }
 
   /**
-   * Executes `getTheme` to return the currently active `Theme` (initializing defaults if not yet initialized).
-   * @zh 执行 `getTheme`，返回当前生效的 `Theme` 对象（若尚未初始化则自动加载默认配置）。
+   * Executes `getTheme` to return the active in-memory `Theme` without mutating DOM `<style>` tags (matching `7.4.52`).
+   * @zh 执行 `getTheme`，返回当前内存中的 `Theme` 对象（不触发 `refreshTheme()` DOM `<style>` 注入副作用，对齐 `7.4.52`）。
    * @returns Active `Theme` object / 当前生效的 `Theme` 对象
    */
   public getTheme(): Theme {
-    if (!this.theme) {
-      this.refreshTheme();
-    }
     return this.theme;
   }
 }
