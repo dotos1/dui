@@ -1,0 +1,31 @@
+# 类型检查压制「只减不增」门（2026-11-14 平台负责人定：@ts-ignore 必须清除，先加门禁）。
+# 规则与脚本在 dotos-ops 维护一份（ts/gates/ts-suppress-gate.mjs），本仓库只放按文件登记的基线 .ts-suppress-baseline.json。
+# 任一文件 @ts-ignore / @ts-nocheck / @ts-expect-error / as any / as unknown as / <any> / eslint-disable 超过基线即红；
+# 清理后执行 node <dotos-ops>/ts/gates/ts-suppress-gate.mjs --root . --update 调低基线并一起提交（不调低也红）。
+# runner：自托管 dotos-apps；只读文件，不装依赖、不执行本仓库代码。
+name: ts-suppress-gate
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ts-suppress-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: 类型检查压制只减不增
+    runs-on: [self-hosted, Linux, X64, dotos-apps]
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          clean: true
+          persist-credentials: false
+      - uses: dotos1/dotos-ops/.github/actions/ts-suppress-gate@master
