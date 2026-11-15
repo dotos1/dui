@@ -20,7 +20,7 @@ import {
   OnInit,
   Output,
   QueryList,
-  ViewChild
+  ViewChild, ChangeDetectionStrategy
 } from '@angular/core';
 
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
@@ -179,7 +179,8 @@ export abstract class _ToggleBase implements AfterContentInit, OnDestroy {
   selector: 'toggle-header',
   templateUrl: './toggle-header.component.html',
   styleUrls: ['./toggle-header.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterViewInit, AfterContentInit,
   AfterContentChecked, AfterViewChecked, OnDestroy {

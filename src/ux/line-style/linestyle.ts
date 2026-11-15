@@ -14,7 +14,7 @@ import {
     QueryList,
     ViewChild,
     ViewChildren,
-    ViewEncapsulation,
+    ViewEncapsulation, ChangeDetectionStrategy,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { FieldConfig } from '@dotos/dui/core/form';
@@ -53,6 +53,7 @@ export const PRE_DEFINED_THEMES = [
     
   },
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LineStyleSelector<F extends FieldConfig = FieldConfig>
   extends MatField

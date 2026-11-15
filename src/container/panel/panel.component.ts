@@ -5,7 +5,7 @@
 
 
 import { DuiConfig } from '@dotos/dui/base';
-import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, EventEmitter, Injector, Input, OnChanges, OnDestroy, OnInit, Output, Renderer2, SimpleChanges, ChangeDetectionStrategy } from '@angular/core';
 import {forEach}  from 'lodash-es';
 import { Observable, Subject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -26,7 +26,8 @@ import { ILayoutTogglable } from './layout-toggle';
     '[style.flex]': 'flex',
     hostID: 'dui-panel' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 

@@ -4,7 +4,7 @@
  */
 
 
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 import { TooltipPosition } from '@angular/material/tooltip';
 import { ThemePalette } from '@angular/material/core';
@@ -21,7 +21,8 @@ import { coerceBoolean } from '@dotos/dui/core/decorators';
   selector: 'copy-button',
   styleUrls: ['copy-button.component.scss'],
   templateUrl: './copy-button.component.html',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CopyButtonComponent {
 

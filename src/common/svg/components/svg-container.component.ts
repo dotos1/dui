@@ -4,7 +4,7 @@
  */
 
 
-import { Component, AfterViewInit, Input, Output, EventEmitter, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { Component, AfterViewInit, Input, Output, EventEmitter, OnChanges, ChangeDetectorRef, ChangeDetectionStrategy } from '@angular/core';
 
 import { SVG, Container, Pattern, Rect } from '@svgdotjs/svg.js';
 
@@ -16,7 +16,8 @@ import { SVG, Container, Pattern, Rect } from '@svgdotjs/svg.js';
   selector: 'svg-container',
   templateUrl: 'svg-container.component.html',
   styleUrls: ['./svg-container.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class SvgContainerComponent implements AfterViewInit, OnChanges {
   /**

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/clipboard/clipboard.component.ts`，提供clipboard组件相关的定义与实现。
  */
 
-import { Component, ViewEncapsulation, OnInit } from '@angular/core';
+import { Component, ViewEncapsulation, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Internal tooltip shown by {@link ClipboardDirective} while hovering over a copyable element.
@@ -16,7 +16,8 @@ import { Component, ViewEncapsulation, OnInit } from '@angular/core';
         `,
   styleUrls: ['./clipboard.component.scss'],
   encapsulation: ViewEncapsulation.None,
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ClipboardComponent implements OnInit {
   /**

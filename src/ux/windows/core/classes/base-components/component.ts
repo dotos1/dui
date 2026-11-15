@@ -12,7 +12,7 @@ import {
     HostBinding,
     Injector,
     Input,
-    Output
+    Output, ChangeDetectionStrategy
 } from '@angular/core';
 import { BehaviorSubject, fromEvent, Observable } from 'rxjs';
 import { filter, share, switchMap } from 'rxjs/operators';
@@ -27,7 +27,8 @@ import { ɵOsBaseViewComponent } from './view';
     host: {
         class: 'dui-element'
     },
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export abstract class ɵOsBaseComponent
     extends ɵOsBaseViewComponent

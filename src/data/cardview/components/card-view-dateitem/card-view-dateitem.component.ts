@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 import moment from 'moment';
 import { Moment } from 'moment';
@@ -33,7 +33,8 @@ import { CardViewUpdateService } from '../../services';
   selector: 'dui-card-view-dateitem',
   templateUrl: './card-view-dateitem.component.html',
   styleUrls: ['./card-view-dateitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewDateItemComponent implements OnInit, OnDestroy {
 

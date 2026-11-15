@@ -12,7 +12,7 @@ import {
   OnDestroy,
   OnChanges,
   SimpleChanges,
-  ComponentRef
+  ComponentRef, ChangeDetectionStrategy
 } from '@angular/core';
 import { Dui } from '@dotos/dui/core';
 
@@ -27,7 +27,8 @@ import { Dui } from '@dotos/dui/core';
   host: {
     hostID: "dui-dynamic-component" + Math.random().toString(36).substring(2, 15)
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   /**

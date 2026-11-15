@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/collapsible/collapsible.component.ts`，提供可折叠面板组件相关的定义与实现。
  */
 
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * A titled panel with a built-in chevron toggle that expands/collapses its projected content.
@@ -15,6 +15,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./collapsible.component.scss'],
   encapsulation: ViewEncapsulation.None,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 
 export class CollapsibleComponent {

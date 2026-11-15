@@ -52,7 +52,7 @@ import {
   SimpleChanges,
   TemplateRef,
   ViewChild,
-  ElementRef
+  ElementRef, ChangeDetectionStrategy
 } from '@angular/core';
 
 /**
@@ -84,7 +84,8 @@ export const VALIDATOR = {
   templateUrl: './query-builder.component.html',
   styleUrls: ['./query-builder.component.scss'],
   providers: [CONTROL_VALUE_ACCESSOR, VALIDATOR],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class QueryBuilderComponent implements OnChanges, ControlValueAccessor, Validator {
   /**

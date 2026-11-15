@@ -371,7 +371,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * totalMessage     [default] = 'total'
    * selectedMessage  [default] = 'selected'
 
-   * @zh 输入属性 `messages`（类型：`{ emptyMessage: any; totalMessage: any; selectedMessage: any; }`），用于配置消息列表。
+   * @zh 输入属性 `messages`（类型：`{ emptyMessage?: string; totalMessage?: string; selectedMessage?: string; }`），用于配置消息列表。
    */
   @Input() messages: {
     emptyMessage?: string;

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/gridster/gridsterPreview.component.ts`，提供网格拖拽布局预览组件相关的定义与实现。
  */
 
-import {Component, ElementRef, OnDestroy, Renderer2, ViewEncapsulation, Inject} from '@angular/core';
+import {Component, ElementRef, OnDestroy, Renderer2, ViewEncapsulation, Inject, ChangeDetectionStrategy} from '@angular/core';
 import {DUI_GRIDSTER} from './gridster-token';
 import type {GridsterComponent} from './gridster.component';
 
@@ -19,7 +19,8 @@ import type {GridsterComponent} from './gridster.component';
   host: {
     hostID: 'dui-gridster-preview' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class GridsterPreviewComponent implements OnDestroy {
   /**

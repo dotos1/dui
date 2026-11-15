@@ -11,7 +11,7 @@ import { Overlay } from '@angular/cdk/overlay';
 import { ComponentPortal } from '@angular/cdk/portal';
 import { DOCUMENT } from '@angular/common';
 import { ChangeDetectorRef, Component, ElementRef, Inject, NgZone, OnInit, Optional, Renderer2, ViewChild,
-   ViewContainerRef, ViewEncapsulation, forwardRef } from '@angular/core';
+   ViewContainerRef, ViewEncapsulation, forwardRef, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 import { DialogService} from '@dotos/dui/common/dialogs';
@@ -65,6 +65,7 @@ export const DATEFIELD_VALIDATORS = {
   },
   encapsulation: ViewEncapsulation.None,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 
 

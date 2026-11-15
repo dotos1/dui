@@ -1,25 +1,3 @@
-:host {
-  --dui-dialog-px8: 6px;
-  --dui-dialog-px16: 12px;
-  --dui-dialog-px20: 15px;
-  --dui-dialog-px64: 48px;
-  color: var(--dui-on-surface, var(--mat-sys-on-surface));
-}
-
-:host-context(.dui-density-normal) {
-  --dui-dialog-px8: 7px;
-  --dui-dialog-px16: 14px;
-  --dui-dialog-px20: 18px;
-  --dui-dialog-px64: 56px;
-}
-
-:host-context(.dui-density-loose) {
-  --dui-dialog-px8: 8px;
-  --dui-dialog-px16: 16px;
-  --dui-dialog-px20: 20px;
-  --dui-dialog-px64: 64px;
-}
-
 .dui-dialog {
   width: 100%;
 }
@@ -28,30 +6,11 @@
   display: flex;
 }
 
-[mat-dialog-title],
-.dui-dialog-title {
-  margin-bottom: var(--dui-dialog-px20) !important;
-  color: var(--dui-on-surface, var(--mat-sys-on-surface));
-}
-
-.dui-dialog-content {
-  margin-bottom: var(--dui-dialog-px16) !important;
-  color: var(--mat-sys-on-surface-variant, var(--dui-on-surface));
-}
-
-/* 对话框动作区采用外边距与 M3/DUI 密度变量，避免相对偏移引发双滚动条 */
 .dui-dialog-actions {
   // [layout="row"]
   flex-direction: row;
   box-sizing: border-box;
   display: flex;
-  margin-top: var(--dui-dialog-px16) !important;
-  margin-left: var(--dui-dialog-px16) !important;
-
-  [dir='rtl'] & {
-    margin-right: var(--dui-dialog-px16) !important;
-    margin-left: 0 !important;
-  }
 
   .dui-dialog-spacer {
     // flex
@@ -60,16 +19,16 @@
 
   ::ng-deep button {
     text-transform: uppercase;
-    margin-left: var(--dui-dialog-px8) !important;
+    margin-left: 8px;
 
     [dir='rtl'] & {
-      margin-right: var(--dui-dialog-px8) !important;
+      margin-right: 8px;
       margin-left: inherit;
     }
 
-    padding-left: var(--dui-dialog-px8) !important;
-    padding-right: var(--dui-dialog-px8) !important;
-    min-width: var(--dui-dialog-px64) !important;
+    padding-left: 8px;
+    padding-right: 8px;
+    min-width: 64px;
   }
 
   ::ng-deep .dui-status-dialog___button {

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/windows/window/components/dynamic-window/base-dynamic-window.component.ts`，提供基础动态窗口组件相关的定义与实现。
  */
 
-import { Component, ComponentRef, Input, OnDestroy, Type } from '@angular/core';
+import { Component, ComponentRef, Input, OnDestroy, Type, ChangeDetectionStrategy } from '@angular/core';
 import { merge, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { ɵOsBaseViewComponent } from '../../../core/classes/base-components';
@@ -29,7 +29,8 @@ import { DynamicWindowConfig } from '../../interfaces';
  */
 @Component({
     template: '',
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export abstract class ɵBaseDynamicWindowComponent
     extends ɵOsBaseViewComponent

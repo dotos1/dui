@@ -6,7 +6,7 @@
   [class.dui-fullscreen]="isFullScreen()"
 >
   <div
-    [class.dui-loading-hidden]="!animation"
+    [@duiFadeInOut]="animation"
     [style.min-height]="getHeight()"
     class="dui-loading"
   >

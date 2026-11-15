@@ -14,22 +14,6 @@
     .search-input-clear {
       flex: 0 0 auto;
       align-self: center;
-      transition: transform 200ms ease-in-out;
-
-      &.search-clear-show {
-        transform: translateX(0%);
-        display: block;
-      }
-
-      &.search-clear-hide-left {
-        transform: translateX(-150%);
-        display: none;
-      }
-
-      &.search-clear-hide-right {
-        transform: translateX(150%);
-        display: none;
-      }
     }
   }
 }

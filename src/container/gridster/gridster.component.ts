@@ -16,7 +16,7 @@ import {
   Renderer2,
   SimpleChanges,
   ViewEncapsulation,
-  forwardRef
+  forwardRef, ChangeDetectionStrategy
 } from '@angular/core';
 import {DUI_GRIDSTER} from './gridster-token';
 import {GridsterComponentInterface} from './gridster.interface';
@@ -41,7 +41,8 @@ import {GridsterUtils} from './gridsterUtils.service';
   encapsulation: ViewEncapsulation.None,
   host: {hostID: 'dui-gridster' + Math.random().toString(36).substring(2, 15)},
   providers: [{provide: DUI_GRIDSTER, useExisting: forwardRef(() => GridsterComponent)}],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class GridsterComponent implements OnInit, OnChanges, OnDestroy, GridsterComponentInterface {
 

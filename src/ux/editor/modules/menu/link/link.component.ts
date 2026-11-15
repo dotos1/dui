@@ -5,7 +5,7 @@
 
 import {
   Component, ElementRef,
-  HostListener, OnDestroy, OnInit,
+  HostListener, OnDestroy, OnInit, ChangeDetectionStrategy,
 } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { EditorView } from 'prosemirror-view';
@@ -23,6 +23,7 @@ import { Link as LinkCommand } from '../MenuCommands';
   selector: 'ux-link',
   templateUrl: './link.component.html',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 

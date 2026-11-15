@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, OnChanges, OnDestroy } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -21,7 +21,8 @@ import { ThemeService } from '@dotos/dui/theme';
   selector: 'dui-card-view-selectitem',
   templateUrl: './card-view-selectitem.component.html',
   styleUrls: ['./card-view-selectitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
 

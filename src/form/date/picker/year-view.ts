@@ -20,6 +20,7 @@ import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos/d
 import {MatDatetimepickerType} from "./datetimepicker-type";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 import {MatDatetimepickerCalendarCell} from "./calendar-body";
+import {slideCalendar} from "./datetimepicker-animations";
 
 /**
  * An internal component used to display a single year in the datepicker.
@@ -30,6 +31,7 @@ import {MatDatetimepickerCalendarCell} from "./calendar-body";
 @Component({
   selector: "mat-datetimepicker-year-view",
   templateUrl: "year-view.html",
+  animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

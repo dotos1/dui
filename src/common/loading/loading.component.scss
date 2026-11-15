@@ -19,14 +19,6 @@
     justify-content: center;
     // flex
     flex: 1;
-    opacity: 1;
-    visibility: visible;
-    transition: opacity 150ms ease-in-out, visibility 150ms ease-in-out;
-
-    &.dui-loading-hidden {
-      opacity: 0;
-      visibility: hidden;
-    }
   }
 
   &.dui-overlay {

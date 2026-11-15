@@ -7,7 +7,7 @@ import {
   Component, ViewChild, ElementRef, forwardRef,
   OnDestroy, ViewEncapsulation, OnInit, Output,
   EventEmitter, Input, Renderer2, SimpleChanges,
-  OnChanges, Injector,
+  OnChanges, Injector, ChangeDetectionStrategy,
 } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Subject } from 'rxjs';
@@ -32,6 +32,7 @@ import EditorError from './utils/error';
   }],
   encapsulation: ViewEncapsulation.None,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class EditorComponent implements ControlValueAccessor, OnInit, OnChanges, OnDestroy {

@@ -18,6 +18,13 @@ import {
   ElementRef,
   NgZone,
 } from '@angular/core';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+} from '@angular/animations';
 import { NG_VALUE_ACCESSOR } from '@angular/forms';
 import { Dir } from '@angular/cdk/bidi';
 import { MatInput } from '@angular/material/input';
@@ -65,6 +72,33 @@ export const _SearchInputMixinBase =
   styleUrls: ['./search-input.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
   inputs: ['value'],
+  animations: [
+    trigger('searchState', [
+      state(
+        'hide-left',
+        style({
+          transform: 'translateX(-150%)',
+          display: 'none',
+        })
+      ),
+      state(
+        'hide-right',
+        style({
+          transform: 'translateX(150%)',
+          display: 'none',
+        })
+      ),
+      state(
+        'show',
+        style({
+          transform: 'translateX(0%)',
+          display: 'block',
+        })
+      ),
+      transition('* => show', animate('200ms ease-in')),
+      transition('show => *', animate('200ms ease-out')),
+    ]),
+  ],
   host:{
     hostID: 'search-input'+   Math.random().toString(36).substring(2, 15),
   },
@@ -125,14 +159,9 @@ export class SearchInputComponent
   /**
    * Input property `value` (`unknown`) configuring value.
    * @zh 输入框当前值（`ControlValueAccessor` 绑定值）。
+   * @zh 输入框当前值（`ControlValueAccessor` 绑定值）。
    */
-  @Input()
-  override get value(): unknown {
-    return super.value;
-  }
-  override set value(v: unknown) {
-    super.value = v;
-  }
+  @Input() override value!: unknown;
 
   /**
    * Output event emitter `searchDebounce` (`EventEmitter<string>`) firing when search debounce occurs.

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/core/form/template/field-template.type.ts`，提供字段模板类型相关的定义与实现。
  */
 
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { FieldType } from './field.type';
 
@@ -18,7 +18,8 @@ import { FieldType } from './field.type';
   host: {
     hostID: 'dui-form-template' + Math.random().toString(36).substring(2, 15)
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class FormTemplateType extends FieldType {
   /**

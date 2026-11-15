@@ -1,6 +1,42 @@
 import { setupZoneTestEnv } from 'jest-preset-angular/setup-env/zone';
 
-declare const jest: any;
+interface JestMockState {
+  calls: unknown[][];
+  contexts?: unknown[];
+  results: Array<{ value?: unknown }>;
+}
+
+interface JestMockFn {
+  (...args: unknown[]): unknown;
+  __jasmineEnhanced?: boolean;
+  mock: JestMockState;
+  mockReturnValue(val: unknown): JestMockFn;
+  mockReturnValueOnce(val: unknown): JestMockFn;
+  mockImplementation(fn: (...args: unknown[]) => unknown): JestMockFn;
+  mockResolvedValue(val: unknown): JestMockFn;
+  mockRejectedValue(err: unknown): JestMockFn;
+  mockClear(): void;
+  mockName(name: string): JestMockFn;
+  and?: Record<string, (...args: unknown[]) => unknown>;
+  calls?: Record<string, (...args: unknown[]) => unknown>;
+}
+
+interface JestGlobalApi {
+  fn(): JestMockFn;
+  spyOn(target: Record<string, unknown>, methodName: string): JestMockFn;
+  restoreAllMocks(): void;
+}
+
+interface JestExpectApi {
+  any(ctor: unknown): unknown;
+  anything(): unknown;
+  objectContaining(sample: Record<string, unknown>): unknown;
+  arrayContaining(sample: unknown[]): unknown;
+  stringMatching(pattern: string | RegExp): unknown;
+  extend?(matchers: Record<string, (...args: unknown[]) => unknown>): void;
+}
+
+declare const jest: JestGlobalApi;
 
 setupZoneTestEnv();
 
@@ -10,11 +46,11 @@ interface JasmineCallInfo {
   returnValue: unknown;
 }
 
-function enhanceJestMockWithJasmineApi<T extends (...args: any[]) => any>(
-  mockFn: any,
-  originalFn?: T,
+function enhanceJestMockWithJasmineApi(
+  mockFn: JestMockFn,
+  originalFn?: (...args: unknown[]) => unknown,
   targetObj?: unknown,
-): any {
+): JestMockFn {
   if (mockFn.__jasmineEnhanced) {
     return mockFn;
   }
@@ -116,8 +152,31 @@ function enhanceJestMockWithJasmineApi<T extends (...args: any[]) => any>(
   return mockFn;
 }
 
-const g: any = globalThis;
-const jestExpect: any = expect;
+interface GlobalTestCompat {
+  ResizeObserver?: unknown;
+  spyOn?: (target: Record<string, unknown>, methodName: string) => JestMockFn;
+  fail?: (reason?: string | Error) => never;
+  jasmine?: {
+    createSpy: (name?: string, originalFn?: (...args: unknown[]) => unknown) => JestMockFn;
+    createSpyObj: (
+      baseNameOrMethodNames: string | ReadonlyArray<string>,
+      methodNamesOrProps?: ReadonlyArray<string> | Record<string, unknown>,
+      propertyNames?: ReadonlyArray<string> | Record<string, unknown>,
+    ) => Record<string, unknown>;
+    any: (ctor: unknown) => unknown;
+    anything: () => unknown;
+    objectContaining: (sample: Record<string, unknown>) => unknown;
+    arrayContaining: (sample: unknown[]) => unknown;
+    stringMatching: (pattern: string | RegExp) => unknown;
+  };
+}
+
+function isJestExpectApi(val: unknown): val is JestExpectApi {
+  return typeof val === 'function' || (typeof val === 'object' && val !== null);
+}
+
+const rawExpect: unknown = Reflect.get(globalThis, 'expect');
+const jestExpect: JestExpectApi | undefined = isJestExpectApi(rawExpect) ? rawExpect : undefined;
 
 if (typeof window !== 'undefined') {
   if (typeof window.matchMedia !== 'function') {
@@ -138,40 +197,63 @@ if (typeof window !== 'undefined') {
   }
 }
 
-if (typeof g.ResizeObserver === 'undefined') {
-  g.ResizeObserver = class MockResizeObserver {
-    observe(): void {}
-    unobserve(): void {}
-    disconnect(): void {}
-  };
+if (typeof Reflect.get(globalThis, 'ResizeObserver') === 'undefined') {
+  Reflect.set(
+    globalThis,
+    'ResizeObserver',
+    class MockResizeObserver {
+      observe(): void {}
+      unobserve(): void {}
+      disconnect(): void {}
+    },
+  );
 }
 
-g.spyOn = function spyOnCompat(target: any, methodName: string): any {
-  const original = typeof target[methodName] === 'function' ? target[methodName] : undefined;
-  const spy: any = jest.spyOn(target, methodName);
-  spy.mockImplementation(() => undefined);
-  return enhanceJestMockWithJasmineApi(spy, original, target);
-};
-
-g.fail = function failCompat(reason?: string | Error): never {
-  throw typeof reason === 'string' ? new Error(reason) : (reason ?? new Error('Test failed via fail()'));
-};
-
-g.jasmine = {
-  ...(g.jasmine ?? {}),
-  createSpy(name?: string, originalFn?: (...args: any[]) => any) {
-    const fn: any = jest.fn();
-    if (name) {
-      fn.mockName(name);
-    }
-    return enhanceJestMockWithJasmineApi(fn, originalFn);
+Reflect.set(
+  globalThis,
+  'spyOn',
+  function spyOnCompat(target: Record<string, unknown>, methodName: string): JestMockFn {
+    const candidate = target[methodName];
+    const original = typeof candidate === 'function'
+      ? (candidate as (...args: unknown[]) => unknown)
+      : undefined;
+    const spy = jest.spyOn(target, methodName);
+    spy.mockImplementation(() => undefined);
+    return enhanceJestMockWithJasmineApi(spy, original, target);
   },
+);
+
+Reflect.set(
+  globalThis,
+  'fail',
+  function failCompat(reason?: string | Error): never {
+    throw typeof reason === 'string' ? new Error(reason) : (reason ?? new Error('Test failed via fail()'));
+  },
+);
+
+const createJasmineSpy = (name?: string, originalFn?: (...args: unknown[]) => unknown): JestMockFn => {
+  const fn = jest.fn();
+  if (name) {
+    fn.mockName(name);
+  }
+  return enhanceJestMockWithJasmineApi(fn, originalFn);
+};
+
+const existingJasmine: unknown = Reflect.get(globalThis, 'jasmine');
+const jasmineBase: Record<string, unknown> =
+  typeof existingJasmine === 'object' && existingJasmine !== null
+    ? { ...(existingJasmine as Record<string, unknown>) }
+    : {};
+
+Reflect.set(globalThis, 'jasmine', {
+  ...jasmineBase,
+  createSpy: createJasmineSpy,
   createSpyObj(
     baseNameOrMethodNames: string | ReadonlyArray<string>,
     methodNamesOrProps?: ReadonlyArray<string> | Record<string, unknown>,
     propertyNames?: ReadonlyArray<string> | Record<string, unknown>,
-  ) {
-    const obj: any = {};
+  ): Record<string, unknown> {
+    const obj: Record<string, unknown> = {};
     const methods = Array.isArray(baseNameOrMethodNames)
       ? baseNameOrMethodNames
       : methodNamesOrProps;
@@ -179,12 +261,14 @@ g.jasmine = {
 
     if (Array.isArray(methods)) {
       for (const m of methods) {
-        obj[m] = g.jasmine.createSpy(m);
+        obj[m] = createJasmineSpy(m);
       }
     } else if (methods && typeof methods === 'object') {
       for (const [k, v] of Object.entries(methods)) {
-        const spy = g.jasmine.createSpy(k);
-        spy.and.returnValue(v);
+        const spy = createJasmineSpy(k);
+        if (spy.and && typeof spy.and['returnValue'] === 'function') {
+          spy.and['returnValue'](v);
+        }
         obj[k] = spy;
       }
     }
@@ -200,12 +284,12 @@ g.jasmine = {
     }
     return obj;
   },
-  any: (ctor: any) => jestExpect.any(ctor),
-  anything: () => jestExpect.anything(),
-  objectContaining: (sample: Record<string, unknown>) => jestExpect.objectContaining(sample),
-  arrayContaining: (sample: unknown[]) => jestExpect.arrayContaining(sample),
-  stringMatching: (pattern: string | RegExp) => jestExpect.stringMatching(pattern),
-};
+  any: (ctor: unknown) => jestExpect?.any(ctor),
+  anything: () => jestExpect?.anything(),
+  objectContaining: (sample: Record<string, unknown>) => jestExpect?.objectContaining(sample),
+  arrayContaining: (sample: unknown[]) => jestExpect?.arrayContaining(sample),
+  stringMatching: (pattern: string | RegExp) => jestExpect?.stringMatching(pattern),
+});
 
 if (typeof jestExpect !== 'undefined' && typeof jestExpect.extend === 'function') {
   jestExpect.extend({
