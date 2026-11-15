@@ -117,13 +117,6 @@
   dependencies:
     tslib "^2.3.0"
 
-"@angular/aria@22.2.7":
-  version "22.2.7"
-  resolved "https://registry.npmjs.org/@angular/aria/-/aria-22.2.7.tgz#9ca5a52b422f5dd49e9205b9a1008d2c5a1d1d18"
-  integrity sha512-P5b60gNcd/8jX/vtx7bAPEgPbFugLxSOPQPBzQvt/3ZIvheTp7NASGkJHdypLIq7cpBqpcFY4Kn1Y9H5FZDjLQ==
-  dependencies:
-    tslib "^2.3.0"
-
 "@angular/build@22.2.7":
   version "22.2.7"
   resolved "https://registry.npmjs.org/@angular/build/-/build-22.2.7.tgz#805e07fd6fc99d6af796eaa080058763e373edf5"

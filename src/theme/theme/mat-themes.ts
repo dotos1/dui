@@ -314,27 +314,27 @@ export function matCoreTheme(theme: Theme): Record<string, unknown> {
       '.mat-theme-loaded-marker': {
         display: 'none',
       },
-      '.mat-h1, .mat-headline, .mat-typography h1': {
+      '.mat-h1, .mat-headline, .mat-typography .mat-h1, .mat-typography .mat-headline, .mat-typography h1': {
         ...(matTypographyLevelToStyles(config, 'headline') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h2, .mat-typography h2': {
+      '.mat-h2, .mat-typography .mat-h2, .mat-typography h2': {
         ...(matTypographyLevelToStyles(config, 'title') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-title': {
+      '.mat-title, .mat-typography .mat-title': {
         ...(matTypographyLevelToStyles(config, 'subheading-2') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h3, .mat-subheading-2, .mat-typography h3': {
+      '.mat-h3, .mat-subheading-2, .mat-typography .mat-h3, .mat-typography .mat-subheading-2, .mat-typography h3': {
         ...(matTypographyLevelToStyles(config, 'subheading-2') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h4, .mat-subheading-1, .mat-typography h4': {
+      '.mat-h4, .mat-subheading-1, .mat-typography .mat-h4, .mat-typography .mat-subheading-1, .mat-typography h4': {
         ...(matTypographyLevelToStyles(config, 'subheading-1') as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h5, .mat-typography h5': {
+      '.mat-h5, .mat-typography .mat-h5, .mat-typography h5': {
         ...(matTypographyFontShorthand(
           multiplyRule(matFontSize(config, 'body-1'), 0.83),
           matFontWeight(config, 'body-1'),
@@ -343,7 +343,7 @@ export function matCoreTheme(theme: Theme): Record<string, unknown> {
         ) as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-h6, .mat-typography h6': {
+      '.mat-h6, .mat-typography .mat-h6, .mat-typography h6': {
         ...(matTypographyFontShorthand(
           multiplyRule(matFontSize(config, 'body-1'), 0.67),
           matFontWeight(config, 'body-1'),
@@ -352,12 +352,19 @@ export function matCoreTheme(theme: Theme): Record<string, unknown> {
         ) as Record<string, unknown>),
         margin: '0 0 ' + px12,
       },
-      '.mat-body-strong, .mat-body-2': matTypographyLevelToStyles(config, 'body-2'),
-      '.mat-body, .mat-body-1, .mat-typography': matTypographyLevelToStyles(config, 'body-1'),
+      '.mat-body-strong, .mat-body-2, .mat-typography .mat-body-strong, .mat-typography .mat-body-2': {
+        ...(matTypographyLevelToStyles(config, 'body-2') as Record<string, unknown>),
+        margin: '0',
+      },
+      '.mat-body, .mat-body-1, .mat-typography, .mat-typography .mat-body, .mat-typography .mat-body-1': {
+        ...(matTypographyLevelToStyles(config, 'body-1') as Record<string, unknown>),
+        margin: '0',
+      },
       '.mat-body p, .mat-body-1 p, .mat-typography p': {
         margin: '0 0 ' + px12,
       },
-      '.mat-small, .mat-caption': matTypographyLevelToStyles(config, 'caption'),
+      '.mat-small, .mat-caption, .mat-typography .mat-small, .mat-typography .mat-caption':
+        matTypographyLevelToStyles(config, 'caption'),
       '.mat-display-4, .mat-typography .mat-display-4': {
         ...(matTypographyLevelToStyles(config, 'display-4') as Record<string, unknown>),
         margin: '0 0 ' + px56,
@@ -425,23 +432,42 @@ export function matButtonTheme(theme: Theme): Record<string, unknown> {
 }
 
 /**
- * Executes `matFabTheme` to generate M2 FAB button tokens.
- * @zh 执行 `matFabTheme`，生成悬浮操作按钮 M2 令牌。
+ * Executes `matFabTheme` to generate M2 FAB button tokens, sizing, and disabled elevation rules.
+ * @zh 执行 `matFabTheme`，生成悬浮操作按钮 M2 令牌、尺寸与禁用态阴影覆盖规则。
  * @param theme - Runtime theme (`Theme`) / 主题参数（`Theme`）
  * @returns Style map (`Record<string, unknown>`) / 样式规则表
  */
 export function matFabTheme(theme: Theme): Record<string, unknown> {
-  return resolveM2BlocksForTheme(theme, ['--mat-fab-']);
+  return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-fab-']), {
+    '.mat-mdc-fab': {
+      width: 'var(--mat-fab-extended-container-height) !important',
+      height: 'var(--mat-fab-extended-container-height) !important',
+    },
+    '.mat-mdc-fab.mat-mdc-button-disabled, .mat-mdc-mini-fab.mat-mdc-button-disabled': {
+      'box-shadow': 'var(--mat-fab-container-elevation-shadow) !important',
+    },
+  });
 }
 
 /**
- * Executes `matIconButtonTheme` to generate M2 icon-button tokens.
- * @zh 执行 `matIconButtonTheme`，生成图标按钮 M2 令牌。
+ * Executes `matIconButtonTheme` to generate M2 icon-button tokens, density sizing, and disabled icon color rules.
+ * @zh 执行 `matIconButtonTheme`，生成图标按钮 M2 令牌、密度尺寸与禁用态图标颜色覆盖规则。
  * @param theme - Runtime theme (`Theme`) / 主题参数（`Theme`）
  * @returns Style map (`Record<string, unknown>`) / 样式规则表
  */
 export function matIconButtonTheme(theme: Theme): Record<string, unknown> {
-  return resolveM2BlocksForTheme(theme, ['--mat-icon-button-']);
+  const typoKey = normalizeTypographyKey(theme.typography, theme.density);
+  const stateLayerSize = typoKey === 'loose' ? 48 : typoKey === 'normal' ? 44 : 40;
+  return mergeThemeStyleMaps(resolveM2BlocksForTheme(theme, ['--mat-icon-button-']), {
+    '.mat-mdc-icon-button.mat-mdc-button-base': {
+      width: 'var(--mat-icon-button-state-layer-size)',
+      height: 'var(--mat-icon-button-state-layer-size)',
+      padding: `${(stateLayerSize - 24) / 2}px`,
+    },
+    '.mat-mdc-icon-button.mat-mdc-button-disabled .mat-icon': {
+      color: 'var(--mat-icon-button-disabled-icon-color) !important',
+    },
+  });
 }
 
 /**
@@ -617,7 +643,7 @@ export function matInputTheme(theme: Theme): Record<string, unknown> {
 
   return {
     '.mat-mdc-input-element:disabled': {
-      color: matColor(theme.foreground, 'disabled-text'),
+      color: 'var(--mat-form-field-filled-disabled-input-text-color)',
     },
     'input.mat-mdc-input-element': {
       color: matColor(theme.foreground, 'text'),

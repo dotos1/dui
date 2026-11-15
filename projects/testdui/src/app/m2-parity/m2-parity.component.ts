@@ -1,13 +1,42 @@
 /**
  * @fileoverview Module `projects/testdui/src/app/m2-parity/m2-parity.component.ts` providing M2 visual parity showcase component.
- * @zh 模块文件 `projects/testdui/src/app/m2-parity/m2-parity.component.ts`，提供 M2 外观与动态主题 27 组合对齐验收组件。
+ * @zh 模块文件 `projects/testdui/src/app/m2-parity/m2-parity.component.ts`，提供覆盖 16 类 Material 组件的 M2 外观与动态主题 27 组合对齐验收组件。
  */
 
 import { ChangeDetectionStrategy, Component, NgZone, OnDestroy, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ThemeService } from '@dotos/dui/theme';
+import { LocalStorageService } from '@dotos/dui/core/storage';
+import { DotosConfig, DotosConfigService, Theme, ThemeService } from '@dotos/dui/theme';
 
 declare const Zone: { current?: { name?: string } } | undefined;
+
+/**
+ * Constant `PARITY_STORAGE_KEY` matching `AppComponent` storage key for cold-start reload verification.
+ * @zh 常量 `PARITY_STORAGE_KEY`，对齐宿主 `AppComponent` 读取的本地存储键以验证冷启动一致性。
+ */
+const PARITY_STORAGE_KEY = 'dotosConfig';
+
+/**
+ * Interface `ParityTableRow` defining sample row structure for `mat-table` parity inspection.
+ * @zh 接口 `ParityTableRow`，定义用于 `mat-table` 外观对齐验收的示例行数据结构。
+ */
+export interface ParityTableRow {
+  /**
+   * Property `code` (`string`) storing row code.
+   * @zh 属性 `code`（类型：`string`），存储编码列文本。
+   */
+  code: string;
+  /**
+   * Property `name` (`string`) storing row name.
+   * @zh 属性 `name`（类型：`string`），存储名称列文本。
+   */
+  name: string;
+  /**
+   * Property `status` (`string`) storing row status.
+   * @zh 属性 `status`（类型：`string`），存储状态列文本。
+   */
+  status: string;
+}
 
 /**
  * Interface `ParityThemeOptions` defining runtime theme switch parameters for browser parity automation.
@@ -49,26 +78,28 @@ export interface ParityThemeOptions {
 declare global {
   interface Window {
     __applyParityTheme?: (opts: ParityThemeOptions) => void;
+    __persistParityConfig?: (opts: ParityThemeOptions) => void;
+    __closeParityDialogs?: () => void;
     __toggleParityPanel?: () => void;
     __triggerParityZoneAsync?: () => void;
   }
 }
 
 /**
- * Angular component `M2ParityDialogComponent` providing dialog transition probe in `projects/testdui/src/app/m2-parity`.
- * @zh Angular 组件 `M2ParityDialogComponent`，用于验证弹窗开合动画与主题样式渲染。
+ * Angular component `M2ParityDialogComponent` providing dialog transition and surface probe in `projects/testdui/src/app/m2-parity`.
+ * @zh Angular 组件 `M2ParityDialogComponent`，用于验证弹窗容器主题表面与开合动画过渡。
  */
 @Component({
   selector: 'app-m2-parity-dialog',
-  template: `<h2 mat-dialog-title>Parity Dialog</h2><mat-dialog-content>Dialog Body</mat-dialog-content>`,
+  template: `<h2 mat-dialog-title data-parity="dialog-title">Parity Dialog</h2><mat-dialog-content data-parity="dialog-content">Dialog Body</mat-dialog-content>`,
   standalone: false,
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class M2ParityDialogComponent {}
 
 /**
- * Angular component `M2ParityComponent` (selector: 'app-m2-parity') providing M2 parity showcase in `projects/testdui/src/app/m2-parity`.
- * @zh Angular 组件 `M2ParityComponent`（selector: 'app-m2-parity'），提供 M2 组件大观与动态主题对比视图。
+ * Angular component `M2ParityComponent` (selector: 'app-m2-parity') providing 16-component M2 parity showcase in `projects/testdui/src/app/m2-parity`.
+ * @zh Angular 组件 `M2ParityComponent`（selector: 'app-m2-parity'），提供覆盖 16 类组件的 M2 组件大观与动态主题对比视图。
  */
 @Component({
   selector: 'app-m2-parity',
@@ -78,6 +109,21 @@ export class M2ParityDialogComponent {}
   changeDetection: ChangeDetectionStrategy.Default,
 })
 export class M2ParityComponent implements OnInit, OnDestroy {
+  /**
+   * Property `displayedColumns` (`string[]`) storing `mat-table` column identifiers.
+   * @zh 属性 `displayedColumns`（类型：`string[]`），定义 `mat-table` 展示列键名。
+   */
+  readonly displayedColumns: string[] = ['code', 'name', 'status'];
+
+  /**
+   * Property `tableRows` (`ParityTableRow[]`) storing deterministic `mat-table` sample rows.
+   * @zh 属性 `tableRows`（类型：`ParityTableRow[]`），存储 `mat-table` 固定验收数据行。
+   */
+  readonly tableRows: ParityTableRow[] = [
+    { code: 'DUI-01', name: 'M2 Sentinel', status: 'Active' },
+    { code: 'DUI-02', name: 'Zone Default', status: 'Ready' },
+  ];
+
   /**
    * Property `panelExpanded` (`boolean`) storing expansion panel open state (default: `true`).
    * @zh 属性 `panelExpanded`（类型：`boolean`），用于存储展开面板开合状态（默认值：`true`）。
@@ -104,23 +150,32 @@ export class M2ParityComponent implements OnInit, OnDestroy {
 
   /**
    * Creates an instance of `M2ParityComponent` and initializes dependencies.
-   * @zh 创建 `M2ParityComponent` 实例并注入主题与弹窗服务。
+   * @zh 创建 `M2ParityComponent` 实例并注入主题、配置、存储与弹窗服务。
    * @param themeService - Injected theme service (`ThemeService`) / 注入的主题服务（`ThemeService`）
+   * @param dotosConfigService - Injected DotOS config service (`DotosConfigService`) / 注入的配置服务（`DotosConfigService`）
+   * @param localStore - Injected local storage service (`LocalStorageService`) / 注入的本地存储服务（`LocalStorageService`）
    * @param dialog - Injected Material dialog service (`MatDialog`) / 注入的弹窗服务（`MatDialog`）
    * @param ngZone - Injected Angular Zone (`NgZone`) / 注入的 Angular Zone（`NgZone`）
    */
   constructor(
     public readonly themeService: ThemeService,
+    private readonly dotosConfigService: DotosConfigService,
+    private readonly localStore: LocalStorageService,
     private readonly dialog: MatDialog,
     private readonly ngZone: NgZone
   ) {}
 
   /**
    * Angular lifecycle hook registering browser parity control hooks on `window`.
-   * @zh Angular 生命周期钩子：初始化 Zone 状态并在 `window` 上注册自动化切换钩子。
+   * @zh Angular 生命周期钩子：初始化 Zone 状态并在 `window` 上注册自动化切换与持久化冷启动钩子。
    */
   ngOnInit(): void {
     this.zoneName = typeof Zone !== 'undefined' && Zone?.current?.name ? Zone.current.name : String(NgZone.isInAngularZone());
+    this.themeService.loadTheme((theme: Theme) => ({
+      '.m2-parity-jss-probe': {
+        borderColor: theme.primary['default'],
+      },
+    }));
 
     window.__applyParityTheme = (opts: ParityThemeOptions): void => {
       this.ngZone.run(() => {
@@ -132,6 +187,34 @@ export class M2ParityComponent implements OnInit, OnDestroy {
           opts.typography,
           opts.formType || 'fill'
         );
+      });
+    };
+
+    window.__persistParityConfig = (opts: ParityThemeOptions): void => {
+      this.ngZone.run(() => {
+        const baseCfg = this.dotosConfigService.defaultConfig;
+        const nextCfg: DotosConfig = {
+          ...baseCfg,
+          theme: {
+            primary: opts.primary,
+            accent: opts.accent,
+            warn: opts.warn,
+            type: opts.type,
+            formType: opts.formType || 'fill',
+          },
+          layout: {
+            ...baseCfg.layout,
+            pagemodel: opts.typography,
+          },
+        };
+        this.localStore.set(PARITY_STORAGE_KEY, nextCfg);
+        this.dotosConfigService.config = nextCfg;
+      });
+    };
+
+    window.__closeParityDialogs = (): void => {
+      this.ngZone.run(() => {
+        this.dialog.closeAll();
       });
     };
 
@@ -153,7 +236,7 @@ export class M2ParityComponent implements OnInit, OnDestroy {
    * @zh 打开示例弹窗以验证浮层主题与开合过渡动画。
    */
   openSampleDialog(): void {
-    this.dialog.open(M2ParityDialogComponent, { width: '320px' });
+    this.dialog.open(M2ParityDialogComponent, { width: '320px', autoFocus: false });
   }
 
   /**
@@ -173,6 +256,8 @@ export class M2ParityComponent implements OnInit, OnDestroy {
    */
   ngOnDestroy(): void {
     delete window.__applyParityTheme;
+    delete window.__persistParityConfig;
+    delete window.__closeParityDialogs;
     delete window.__toggleParityPanel;
     delete window.__triggerParityZoneAsync;
   }
