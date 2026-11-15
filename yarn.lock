@@ -110,6 +110,13 @@
     ora "9.4.1"
     rxjs "7.8.2"
 
+"@angular/animations@22.2.6":
+  version "22.2.6"
+  resolved "https://registry.npmjs.org/@angular/animations/-/animations-22.2.6.tgz#9a0a5fe2001708db3ad65c47d4fc0fc5bd72de83"
+  integrity sha512-KDZ16USi2M0HADBfct0ge7e0FA8+Eem2sBMEatNFmRzcCYwWgtdMOnafCaFru2NbZthfEAy+ICj7wkLeApIjfA==
+  dependencies:
+    tslib "^2.3.0"
+
 "@angular/aria@22.2.7":
   version "22.2.7"
   resolved "https://registry.npmjs.org/@angular/aria/-/aria-22.2.7.tgz#9ca5a52b422f5dd49e9205b9a1008d2c5a1d1d18"
@@ -2276,11 +2283,6 @@
   version "3.5.6"
   resolved "https://registry.npmjs.org/@lmdb/lmdb-win32-x64/-/lmdb-win32-x64-3.5.6.tgz#8e26cbb62abb1454130fe73bd475df3b24a97567"
   integrity sha512-1g7G0knRX2iV/voDu54yxrGqw5Dk0w2oIYb7dgJq8IkOi+m7wbD8Q3QpPFjh0C01G58S88dqGn03len6UPCXsg==
-
-"@material/material-color-utilities@0.3.0":
-  version "0.3.0"
-  resolved "https://registry.npmjs.org/@material/material-color-utilities/-/material-color-utilities-0.3.0.tgz#681b0ecd0820ac012d50d371912227f6b2dc7817"
-  integrity sha512-ztmtTd6xwnuh2/xu+Vb01btgV8SQWYCaK56CkRK8gEkWe5TuDyBcYJ0wgkMRn+2VcE9KUmhvkz+N9GHrqw/C0g==
 
 "@modelcontextprotocol/core@2.3.1":
   version "2.3.1"
@@ -6917,6 +6919,11 @@ mkdirp@^0.5.5:
   integrity sha512-FP+p8RB8OWpF3YZBCrP5gtADmtXApB5AMLn+vdyA+PyxCjrCs00mjyUozssO33cwDeT3wNGdLxJ5M//YqtHAJw==
   dependencies:
     minimist "^1.2.6"
+
+mobx@^6.13.7:
+  version "6.16.1"
+  resolved "https://registry.npmjs.org/mobx/-/mobx-6.16.1.tgz#8b3166186d1298b1848395e10e64b5c43d6dc43b"
+  integrity sha512-syNcDdX3KT+Jq3je6eGjBhuc24Z68td2VG0zNFqRswaE433D9SNH5VRy/xrGbJsUixfppLLccXhAW9JSf6n+SQ==
 
 moment@^2.29.1:
   version "2.31.0"
