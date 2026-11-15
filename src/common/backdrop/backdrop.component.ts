@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/backdrop/backdrop.component.ts`，提供背景遮罩组件相关的定义与实现。
  */
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * A simple full-screen dimming backdrop overlay, toggled on/off via the `shown` input.
@@ -13,7 +13,8 @@ import { Component, Input } from '@angular/core';
   selector: 'dui-backdrop',
   templateUrl: './backdrop.component.html',
   styleUrls: ['./backdrop.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class BackdropComponent {
   /**

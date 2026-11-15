@@ -5,7 +5,7 @@
 
 
 import { DuiConfig } from '@dotos/dui/base';
-import { Component, SimpleChanges, Input, ViewChild, ViewContainerRef, Injector, ChangeDetectorRef, ElementRef, Renderer2, OnChanges } from '@angular/core';
+import { Component, SimpleChanges, Input, ViewChild, ViewContainerRef, Injector, ChangeDetectorRef, ElementRef, Renderer2, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { Dui } from '@dotos/dui/core';
 import { AbstractPanel } from '../panel/abstract.panel';
@@ -38,7 +38,8 @@ let nextId = 0;
     class: 'accordion',
     hostID: 'dui-accordion' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class Accordion extends AbstractPanel implements OnChanges{
 

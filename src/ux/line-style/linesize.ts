@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/line-style/linesize.ts`，提供linesize相关的定义与实现。
  */
 
-import { Component, OnInit, ViewChild, Input, ElementRef, ViewEncapsulation, AfterViewInit, ViewChildren, QueryList, OnDestroy, ChangeDetectorRef, Renderer2, Injector } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, ElementRef, ViewEncapsulation, AfterViewInit, ViewChildren, QueryList, OnDestroy, ChangeDetectorRef, Renderer2, Injector, ChangeDetectionStrategy } from '@angular/core';
 import {  MatSelectChange } from '@angular/material/select';
 import { MatField } from '@dotos/dui/form';
 
@@ -47,6 +47,7 @@ const PRE_DEFINED_THEMES = [
     
   },
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LineSizeSelector<F extends FieldConfig = FieldConfig> extends MatField
  implements OnInit,OnDestroy,AfterViewInit{

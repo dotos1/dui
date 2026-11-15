@@ -3,7 +3,8 @@
  * @zh 模块文件 `src/core/auth/lock/lockscreen.dialog.ts`，提供lockscreen对话框相关的定义与实现。
  */
 
-import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { duiAnimations } from '@dotos/dui/common/animations';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { TranslationService } from '@dotos/dui/translator';
 import { Router } from '@angular/router';
@@ -14,6 +15,7 @@ import { AuthService } from '@dotos/dui/core/auth';
 import { ThemeService } from '@dotos/dui/theme';
 import {  take, takeUntil } from 'rxjs/operators';
 import { DotosConfigService } from '@dotos/dui/theme';
+import { LockTheme } from './lockscreen.theme';
 import { LocalStorageService } from '@dotos/dui/core/storage';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
@@ -37,7 +39,9 @@ export const USER_STATUS_CODES = {
   templateUrl: './lockscreen.dialog.html',
   styleUrls: ['./lockscreen.dialog.scss'],
   encapsulation: ViewEncapsulation.None,
+  animations: duiAnimations,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LockscreenDialog implements OnInit,OnDestroy {
   /**
@@ -180,6 +184,7 @@ export class LockscreenDialog implements OnInit,OnDestroy {
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((config) => {
         this.themeService.changeThemeWithConfig(config);
+        this.themeService.loadTheme(LockTheme);
         this.changeDetectionRef.detectChanges();
       });
       let values=this.localStore.get('dotosConfig');

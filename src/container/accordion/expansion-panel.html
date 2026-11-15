@@ -4,7 +4,7 @@
 </expansion-panel-header>
 <mat-divider ></mat-divider>
 
-<div [class.dui-expanded]="expanded" [class.dui-collapsed]="!expanded" class="expansion-panel-content" [id]="id">
+<div [class.dui-expanded]="expanded" class="expansion-panel-content" [@bodyExpansion]="_getExpandedState()" [id]="id">
   <div class="expansion-panel-body">
     <ng-content></ng-content>
     <ng-container #content></ng-container>

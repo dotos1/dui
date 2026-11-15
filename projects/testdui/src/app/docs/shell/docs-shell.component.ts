@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/shell/docs-shell.component.ts`，提供文档shell组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Angular component `DocsShellComponent` (selector: 'app-docs-shell') providing docs shell component presentation and interaction in `projects/testdui/src/app/docs/shell`.
@@ -14,5 +14,6 @@ import { Component } from '@angular/core';
   templateUrl: './docs-shell.component.html',
   styleUrls: ['./docs-shell.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DocsShellComponent {}

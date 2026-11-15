@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CardViewArrayItemModel } from '../../models';
@@ -18,7 +18,8 @@ import { ThemeService } from '@dotos/dui/theme';
   selector: 'dui-card-view-arrayitem',
   templateUrl: './card-view-arrayitem.component.html',
   styleUrls: ['./card-view-arrayitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewArrayItemComponent  implements OnDestroy{
 

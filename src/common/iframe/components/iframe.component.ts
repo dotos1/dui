@@ -14,7 +14,7 @@ import {
   Renderer2,
   ViewChild,
   SimpleChanges,
-  OnChanges
+  OnChanges, ChangeDetectionStrategy
 } from '@angular/core';
 import { BehaviorSubject, forkJoin, fromEvent, Observable, ReplaySubject, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
@@ -69,7 +69,8 @@ import { DomSanitizer } from '@angular/platform-browser';
             left: 0;
         }
     `],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestroy {
   /**

@@ -18,7 +18,7 @@ import {
   ViewChildren,
   QueryList,
   DoCheck,
-  OnInit
+  OnInit, ChangeDetectionStrategy
 } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { MatMenuTrigger } from '@angular/material/menu';
@@ -45,6 +45,7 @@ import { CONTEXT_MENU_DIRECTION } from './direction.token';
   },
   encapsulation: ViewEncapsulation.None,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,DoCheck, AfterViewInit {

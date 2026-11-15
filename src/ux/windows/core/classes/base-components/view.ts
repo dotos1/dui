@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/windows/core/classes/base-components/view.ts`，提供视图相关的定义与实现。
  */
 
-import { AfterViewInit, Component, OnDestroy } from '@angular/core';
+import { AfterViewInit, Component, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Observable, ReplaySubject, Subject } from 'rxjs';
 import { first } from 'rxjs/operators';
 
@@ -13,7 +13,8 @@ import { first } from 'rxjs/operators';
  */
 @Component({
     template: '',
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export abstract class ɵOsBaseViewComponent implements AfterViewInit, OnDestroy {
     /**

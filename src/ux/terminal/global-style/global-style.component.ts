@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/terminal/global-style/global-style.component.ts`，提供全局样式组件相关的定义与实现。
  */
 
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Angular component `GlobalStyleComponent` (selector: 'global-style') providing global style component presentation and interaction in `src/ux/terminal/global-style`.
@@ -14,7 +14,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
   templateUrl: './global-style.component.html',
   styleUrls: ['./xterm.scss'],
   encapsulation: ViewEncapsulation.None,
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class GlobalStyleComponent {
 

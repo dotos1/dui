@@ -10,9 +10,9 @@ import {
   QueryList,
   AfterContentInit,
   OnInit,
-  OnDestroy,
+  OnDestroy, ChangeDetectionStrategy,
 } from '@angular/core';
-import { DotosConfig, DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { DotosConfig, DotosConfigService, duiDialogTheme, ThemeService } from '@dotos/dui/theme';
 import { Subject } from 'rxjs';
 
 import {  takeUntil } from 'rxjs/operators';
@@ -61,6 +61,7 @@ export class duiDialogStatusDirective {}
   templateUrl: './dialog.component.html',
   styleUrls: ['./dialog.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{
@@ -120,6 +121,7 @@ export class duiDialogComponent implements AfterContentInit ,OnInit,OnDestroy{
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((config) => {
         this.setTheme(config);
+        this._themeService.loadTheme(duiDialogTheme);
     });
   }
 

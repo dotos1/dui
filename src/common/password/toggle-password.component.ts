@@ -4,7 +4,7 @@
  */
 
 
-import { AfterViewInit, Component, ElementRef } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Toggle button placed inside a `mat-form-field` that switches its sibling
@@ -17,6 +17,7 @@ import { AfterViewInit, Component, ElementRef } from '@angular/core';
   templateUrl: 'toggle-password.component.html',
   styleUrls: [],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 
 export class TogglePasswordComponent implements AfterViewInit {

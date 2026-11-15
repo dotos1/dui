@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import {  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  OnDestroy,  OnInit,  Output,
+import {  Component,  EventEmitter,  Input,  NgModule,  OnChanges,  OnDestroy,  OnInit,  Output, ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { Subscription } from 'rxjs';
@@ -44,6 +44,7 @@ export interface ColorEvent {
   selector: 'color-wrap',
   template: ``,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class ColorWrap implements OnInit, OnChanges, OnDestroy {

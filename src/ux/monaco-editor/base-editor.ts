@@ -13,7 +13,7 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  ViewChild,
+  ViewChild, ChangeDetectionStrategy,
 } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { MONACO_EDITOR_CONFIG, MonacoEditorConfig } from './config';
@@ -55,7 +55,8 @@ export const cultureDists = {
  */
 @Component({
   template: '',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export abstract class BaseEditor implements OnInit,AfterViewInit, OnDestroy {
 

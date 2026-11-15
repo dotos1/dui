@@ -5,7 +5,7 @@
 
 import {
   Component, ElementRef, Renderer2, Input, Output, EventEmitter, OnInit, ChangeDetectorRef, OnChanges,
-  AfterViewInit, OnDestroy, NgZone
+  AfterViewInit, OnDestroy, NgZone, ChangeDetectionStrategy
 } from '@angular/core';
 import { PositionStore } from '@dotos/dui/core/position';
 import {
@@ -27,7 +27,8 @@ import { Dui } from '@dotos/dui/core';
   host: {
      hostID: 'dui-resizable' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy, IResizable {
 

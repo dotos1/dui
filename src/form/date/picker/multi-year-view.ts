@@ -20,6 +20,7 @@ import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos/d
 import {MatDatetimepickerType} from "./datetimepicker-type";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 import {MatDatetimepickerCalendarCell} from "./calendar-body";
+import {slideCalendar} from "./datetimepicker-animations";
 
 
 /**
@@ -43,6 +44,7 @@ export const yearsPerRow = 4;
 @Component({
   selector: "mat-datetimepicker-multi-year-view",
   templateUrl: "multi-year-view.html",
+  animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

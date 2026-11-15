@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/highlight/copy-code-button/copy-code-button.component.ts`，提供复制编码按钮组件相关的定义与实现。
  */
 
-import { Component,  Input, ViewChild, HostListener } from '@angular/core';
+import { Component,  Input, ViewChild, HostListener, ChangeDetectionStrategy } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
 
 /**
@@ -30,6 +30,7 @@ export interface ICopyCodeTooltips {
   selector: 'copy-code-button',
   templateUrl: './copy-code-button.component.html',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class CopyCodeButtonComponent {

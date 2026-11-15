@@ -13,7 +13,7 @@ import {
   Renderer2,
   ViewEncapsulation,
   Inject,
-  HostBinding
+  HostBinding, ChangeDetectionStrategy
 } from '@angular/core';
 
 import {GridsterItem} from './gridsterItem.interface';
@@ -35,7 +35,8 @@ import {GridsterComponent} from './gridster.component';
   host: {
     hostID: 'dui-gridster-item' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class GridsterItemComponent implements OnInit, OnDestroy, GridsterItemComponentInterface {
   /**

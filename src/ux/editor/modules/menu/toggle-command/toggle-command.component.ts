@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/editor/modules/menu/toggle-command/toggle-command.component.ts`，提供开关命令组件相关的定义与实现。
  */
 
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { EditorView } from 'prosemirror-view';
 import { Subscription } from 'rxjs';
 
@@ -20,7 +20,8 @@ import { TBItems, ToolbarItem } from '../../../types';
 @Component({
   selector: 'ux-toggle-command',
   templateUrl: './toggle-command.component.html',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class ToggleCommandComponent implements OnInit, OnDestroy {

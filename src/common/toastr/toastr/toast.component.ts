@@ -4,6 +4,13 @@
  */
 
 import {
+  animate,
+  state,
+  style,
+  transition,
+  trigger
+} from '@angular/animations';
+import {
   ChangeDetectionStrategy,
   Component,
   HostBinding,
@@ -47,6 +54,15 @@ import { ToastrService } from './toastr.service';
   `,
     styleUrls: ['./toastr.scss'],
     encapsulation: ViewEncapsulation.None,
+  animations: [
+    trigger('flyInOut', [
+      state('inactive', style({ opacity: 0 })),
+      state('active', style({ opacity: 1 })),
+      state('removed', style({ opacity: 0 })),
+      transition('inactive => active', animate('{{ easeTime }}ms {{ easing }}')),
+      transition('active => removed', animate('{{ easeTime }}ms {{ easing }}')),
+    ]),
+  ],
   preserveWhitespaces: false,
   changeDetection: ChangeDetectionStrategy.OnPush,
   standalone: false,
@@ -106,22 +122,12 @@ export class Toast<ConfigPayload = unknown> implements OnDestroy {
   }>;
 
   /**
-   * Host-bound getter `opacityStyle` (`number`) computing native CSS opacity from `state()`.
-   * @zh 内部使用，根据 `state()` 计算宿主原生 CSS 透明度。
+   * Host-bound getter `_state` (`{…}`) computing state.
+   * @zh 内部使用，绑定 `flyInOut` 动画触发器。
+   * @zh 内部使用，绑定 `flyInOut` 动画触发器。
    */
-  @HostBinding('style.opacity')
-  get opacityStyle(): number {
-    return this.state().value === 'active' ? 1 : 0;
-  }
-
-  /**
-   * Host-bound getter `transitionStyle` (`string`) computing native CSS transition from `state()`.
-   * @zh 内部使用，根据 `state()` 计算宿主原生 CSS 过渡属性。
-   */
-  @HostBinding('style.transition')
-  get transitionStyle(): string {
-    const { easeTime, easing } = this.state().params;
-    return `opacity ${easeTime}ms ${easing}`;
+  @HostBinding('@flyInOut') get _state() {
+    return this.state();
   }
 
   /**

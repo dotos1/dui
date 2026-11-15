@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/tutorial/pages/tutorial-page/tutorial-page.component.ts`，提供tutorial页面组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Angular component `TutorialPageComponent` (selector: 'app-tutorial-page') providing tutorial page component presentation and interaction in `projects/testdui/src/app/tutorial/pages/tutorial-page`.
@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
   templateUrl: './tutorial-page.component.html',
   styleUrls: ['./tutorial-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class TutorialPageComponent {
   /**
@@ -30,19 +31,21 @@ yarn add @dotos/dui`;
    * Property `peerDepsSnippet` (`string`) storing peer deps snippet.
    * @zh 属性 `peerDepsSnippet`（类型：`string`），用于存储或配置peerDepsSnippet。
    */
-  readonly peerDepsSnippet = `npm install @angular/cdk @angular/material`;
+  readonly peerDepsSnippet = `npm install @angular/animations @angular/cdk @angular/material`;
 
   /**
    * Property `appModuleSnippet` (`string`) storing app module snippet.
    * @zh 属性 `appModuleSnippet`（类型：`string`），用于存储或配置app模块Snippet。
    */
   readonly appModuleSnippet = `import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TranslateModule } from '@dotos/dui/translator';
 import { DotosConfigModule, dotosConfig } from '@dotos/dui/theme';
 
 @NgModule({
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     TranslateModule.forRoot(),
     DotosConfigModule.forRoot(dotosConfig),
   ],

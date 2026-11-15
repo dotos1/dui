@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/theme-settings/theme-settings.component.ts`，提供主题设置项组件相关的定义与实现。
  */
 
-import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnDestroy, OnInit, Output, ChangeDetectionStrategy } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -36,6 +36,7 @@ interface SelectOption {
   templateUrl: './theme-settings.component.html',
   styleUrls: ['./theme-settings.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ThemeSettingsComponent implements OnInit, OnDestroy {
   /**

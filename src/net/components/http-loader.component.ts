@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { BehaviorSubject, merge, Observable, Subscription, timer } from 'rxjs';
 import { debounce, distinctUntilChanged, partition, switchMap, tap } from 'rxjs/operators';
 import { PendingRequestsInterceptor } from '../services/pending-requests-interceptor.service';
@@ -21,7 +21,8 @@ import { SpinnerVisibilityService } from '../services/spinner-visibility.service
   host: {
     hostID: 'dui-http-loader' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class HttpLoaderComponent implements OnDestroy, OnInit {
 

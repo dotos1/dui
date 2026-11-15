@@ -150,28 +150,6 @@ $mat-calendar-next-icon-transform: translateX(-2px) rotate(45deg);
   }
 }
 
-@keyframes duiCalendarSlideLeft {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(100%); }
-  51% { transform: translateX(-100%); }
-  100% { transform: translateX(0); }
-}
-
-@keyframes duiCalendarSlideRight {
-  0% { transform: translateX(0); }
-  50% { transform: translateX(-100%); }
-  51% { transform: translateX(100%); }
-  100% { transform: translateX(0); }
-}
-
-.dui-calendar-slide-left {
-  animation: duiCalendarSlideLeft 180ms ease-in-out;
-}
-
-.dui-calendar-slide-right {
-  animation: duiCalendarSlideRight 180ms ease-in-out;
-}
-
 .mat-datetimepicker-calendar-table {
   border-spacing: 0;
   border-collapse: collapse;

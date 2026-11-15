@@ -19,6 +19,7 @@ import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos/d
 
 import {MatDatetimepickerCalendarCell} from "./calendar-body";
 import {MatDatetimepickerType} from "./datetimepicker-type";
+import {slideCalendar} from "./datetimepicker-animations";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 
 /**
@@ -36,6 +37,7 @@ const DAYS_PER_WEEK = 7;
 @Component({
   selector: "mat-datetimepicker-month-view",
   templateUrl: "month-view.html",
+  animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {hostID: "mat-datetimepicker-month-view" + Math.random().toString(36).substring(2, 15) },
@@ -279,7 +281,6 @@ export class MatDatetimepickerMonthView<D> implements AfterContentInit {
    */
   private calendarState(direction: string): void {
     this._calendarState = direction;
-    queueMicrotask(() => this._calendarStateDone());
   }
 
 }

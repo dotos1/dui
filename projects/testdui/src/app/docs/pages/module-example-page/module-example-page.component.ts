@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-page.component.ts`，提供 `@dotos/dui` 模块的可交互示例演练工作台组件实现。
  */
 
-import { Component, OnDestroy, OnInit, Optional } from '@angular/core';
+import { Component, OnDestroy, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Subject } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
@@ -162,6 +162,7 @@ export interface KeyValueDemoEntry {
   templateUrl: './module-example-page.component.html',
   styleUrls: ['./module-example-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ModuleExamplePageComponent implements OnInit, OnDestroy {
   /**

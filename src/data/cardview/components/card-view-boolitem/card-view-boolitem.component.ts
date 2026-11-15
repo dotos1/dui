@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { MatCheckboxChange } from '@angular/material/checkbox';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -18,7 +18,8 @@ import { CardViewUpdateService } from '../../services';
 @Component({
   selector: 'dui-card-view-boolitem',
   templateUrl: './card-view-boolitem.component.html',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class CardViewBoolItemComponent implements OnDestroy {

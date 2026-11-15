@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, NgModule, AfterViewInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { Dui } from '@dotos/dui/core';
 import { DockLayoutModule, DockLayoutHostComponent } from '@dotos/dui/container/dock-layout';
@@ -18,6 +18,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
   selector: 'app-dock-widget',
   template: `<div style="padding:12px;">停靠面板内容：{{ label }}</div>`,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DockWidgetComponent {
   /**
@@ -41,6 +42,7 @@ export class DockWidgetComponent {
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DockLayoutExampleComponent implements AfterViewInit {
   /**

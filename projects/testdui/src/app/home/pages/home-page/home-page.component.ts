@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/home/pages/home-page/home-page.component.ts`，提供home页面组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Interface `FeatureItem` defining the contract and properties for feature item.
@@ -68,6 +68,7 @@ interface EcosystemItem {
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class HomePageComponent {
   /**

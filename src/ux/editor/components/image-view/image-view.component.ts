@@ -5,7 +5,7 @@
 
 import {
   Component, ElementRef, EventEmitter,
-  Input, OnDestroy, Output, ViewChild,
+  Input, OnDestroy, Output, ViewChild, ChangeDetectionStrategy,
 } from '@angular/core';
 import { EditorView } from 'prosemirror-view';
 
@@ -18,6 +18,7 @@ import { EditorView } from 'prosemirror-view';
   templateUrl: './image-view.component.html',
   styleUrls: ['./image-view.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 

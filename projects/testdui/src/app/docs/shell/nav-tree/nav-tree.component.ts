@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/shell/nav-tree/nav-tree.component.ts`，提供nav树形控件组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { DocsDataService } from '../../services/docs-data.service';
@@ -19,6 +19,7 @@ import { getCategoryMeta } from '../../models/category-meta';
   templateUrl: './nav-tree.component.html',
   styleUrls: ['./nav-tree.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class NavTreeComponent {
   /**

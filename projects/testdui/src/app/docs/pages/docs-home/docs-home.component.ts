@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/pages/docs-home/docs-home.component.ts`，提供文档home组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { DocsDataService } from '../../services/docs-data.service';
@@ -19,6 +19,7 @@ import { getCategoryMeta } from '../../models/category-meta';
   templateUrl: './docs-home.component.html',
   styleUrls: ['./docs-home.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DocsHomeComponent {
   /**

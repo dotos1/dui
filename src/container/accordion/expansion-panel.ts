@@ -5,6 +5,7 @@
 
 
 import { DuiConfig } from '@dotos/dui/base';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
 import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
@@ -71,7 +72,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
    * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
-  @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef = undefined;
+  @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   /**
    * label?: string
@@ -315,6 +316,13 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
   providers: [
     { provide: _ExpansionPanelMixinBase, useExisting: forwardRef(() => ExpansionPanel) },
     { provide: DUI_EXPANSION_PANEL, useExisting: forwardRef(() => ExpansionPanel) }
+  ],
+  animations: [
+    trigger('bodyExpansion', [
+      state('collapsed', style({ height: '0px', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
+    ]),
   ],
   standalone: false
 })

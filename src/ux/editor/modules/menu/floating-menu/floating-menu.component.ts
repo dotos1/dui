@@ -5,7 +5,7 @@
 
 import {
   Component, ElementRef, HostBinding,
-  HostListener, Input, OnDestroy, OnInit,
+  HostListener, Input, OnDestroy, OnInit, ChangeDetectionStrategy,
 } from '@angular/core';
 import { NodeSelection } from 'prosemirror-state';
 import { EditorView } from 'prosemirror-view';
@@ -44,6 +44,7 @@ interface BubblePosition {
   templateUrl: './floating-menu.component.html',
   styleUrls: ['./floating-menu.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class FloatingMenuComponent implements OnInit, OnDestroy {

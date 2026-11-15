@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CardViewMapItemModel } from '../../models/card-view-mapitem.model';
@@ -18,7 +18,8 @@ import { CardViewUpdateService } from '../../services/card-view-update.service';
   selector: 'dui-card-view-mapitem',
   templateUrl: './card-view-mapitem.component.html',
   styleUrls: ['./card-view-mapitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class CardViewMapItemComponent implements OnDestroy {
