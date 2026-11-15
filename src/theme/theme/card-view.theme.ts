@@ -61,7 +61,7 @@ export function duiCardViewTheme(theme: Theme): Object {
       ".dui-textitem-default-value": {
         color: matColor(theme.foreground, "text", 0.54)
       },
-      ".dui-textitem-scroll &:hover::-webkit-scrollbar-thumb": {
+      ".dui-textitem-scroll:hover::-webkit-scrollbar-thumb": {
           "background-color": matColor(theme.foreground, "text", 0.25)
       },
       ".dui-property-field.dui-card-textitem-field:hover .dui-property-clear-value":{

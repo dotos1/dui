@@ -7,15 +7,6 @@ $_dui_m2_system_emitted: false !default;
   $_dui_m2_system_emitted: true;
 
 html {
-  --dui-theme-primary: #00897b;
-  --dui-theme-on-primary: #ffffff;
-  --dui-theme-primary-container: rgba(0, 137, 123, 0.12);
-  --dui-theme-accent: #ef6c00;
-  --dui-theme-warn: #c62828;
-  --dui-primary-color: #00897b;
-  --dui-accent-color: #ef6c00;
-  --dui-warn-color: #c62828;
-  --dui-primary-container-color: rgba(0, 137, 123, 0.12);
   --mat-card-elevated-container-shape: 4px;
   --mat-card-outlined-container-shape: 4px;
   --mat-card-filled-container-shape: 4px;
@@ -62,7 +53,7 @@ html {
   --mat-slide-toggle-selected-hover-state-layer-opacity: 0.04;
   --mat-slide-toggle-selected-icon-size: 18px;
   --mat-slide-toggle-selected-pressed-handle-horizontal-margin: 0;
-  --mat-slide-toggle-selected-pressed-state-layer-opacity: 0.12;
+  --mat-slide-toggle-selected-pressed-state-layer-opacity: 0.1;
   --mat-slide-toggle-selected-track-outline-width: 1px;
   --mat-slide-toggle-selected-with-icon-handle-horizontal-margin: 0;
   --mat-slide-toggle-track-height: 14px;
@@ -72,7 +63,7 @@ html {
   --mat-slide-toggle-unselected-focus-state-layer-opacity: 0.12;
   --mat-slide-toggle-unselected-handle-horizontal-margin: 0;
   --mat-slide-toggle-unselected-handle-size: 20px;
-  --mat-slide-toggle-unselected-hover-state-layer-opacity: 0.12;
+  --mat-slide-toggle-unselected-hover-state-layer-opacity: 0.04;
   --mat-slide-toggle-unselected-icon-size: 18px;
   --mat-slide-toggle-unselected-pressed-handle-horizontal-margin: 0;
   --mat-slide-toggle-unselected-pressed-state-layer-opacity: 0.1;
@@ -220,6 +211,11 @@ html {
   --mat-stepper-header-focus-state-layer-shape: 4px;
   --mat-stepper-header-hover-state-layer-shape: 4px;
   --mat-timepicker-container-shape: 4px;
+  --mat-badge-line-height: normal;
+  --mat-badge-small-size-line-height: normal;
+  --mat-badge-large-size-line-height: normal;
+  --mat-card-elevated-container-elevation: none;
+  --mat-slider-handle-elevation: none;
   --mat-app-background-color: #fafafa;
   --mat-app-text-color: rgba(0, 0, 0, 0.87);
   --mat-app-elevation-shadow-level-0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -263,14 +259,13 @@ html {
   --mat-pseudo-checkbox-minimal-selected-checkmark-color: #ef6c00;
   --mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-card-elevated-container-color: white;
-  --mat-card-elevated-container-elevation: none;
   --mat-card-outlined-container-color: white;
   --mat-card-outlined-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   --mat-card-outlined-outline-color: rgba(0, 0, 0, 0.12);
   --mat-card-subtitle-text-color: rgba(0, 0, 0, 0.7);
   --mat-card-filled-container-color: white;
   --mat-card-filled-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-tooltip-container-color: #424242;
+  --mat-tooltip-container-color: #616161;
   --mat-tooltip-supporting-text-color: white;
   --mat-form-field-focus-select-arrow-color: color-mix(in srgb, #00897b 87%, transparent);
   --mat-form-field-filled-caret-color: #00897b;
@@ -291,40 +286,40 @@ html {
   --mat-form-field-error-focus-trailing-icon-color: unset;
   --mat-form-field-error-hover-trailing-icon-color: unset;
   --mat-form-field-error-trailing-icon-color: unset;
-  --mat-form-field-enabled-select-arrow-color: rgba(0, 0, 0, 0.7);
-  --mat-form-field-disabled-select-arrow-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-form-field-enabled-select-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-form-field-disabled-select-arrow-color: rgba(0, 0, 0, 0.38);
   --mat-form-field-hover-state-layer-opacity: 0.04;
   --mat-form-field-focus-state-layer-opacity: 0.12;
-  --mat-form-field-filled-container-color: #f6f6f6;
-  --mat-form-field-filled-disabled-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 4%, transparent);
-  --mat-form-field-filled-label-text-color: rgba(0, 0, 0, 0.7);
-  --mat-form-field-filled-hover-label-text-color: rgba(0, 0, 0, 0.7);
-  --mat-form-field-filled-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-form-field-filled-container-color: transparent;
+  --mat-form-field-filled-disabled-container-color: #fafafa;
+  --mat-form-field-filled-label-text-color: rgba(0, 0, 0, 0.6);
+  --mat-form-field-filled-hover-label-text-color: rgba(0, 0, 0, 0.6);
+  --mat-form-field-filled-disabled-label-text-color: rgba(0, 0, 0, 0.38);
   --mat-form-field-filled-input-text-color: rgba(0, 0, 0, 0.87);
-  --mat-form-field-filled-disabled-input-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
-  --mat-form-field-filled-input-text-placeholder-color: rgba(0, 0, 0, 0.7);
+  --mat-form-field-filled-disabled-input-text-color: rgba(0, 0, 0, 0.38);
+  --mat-form-field-filled-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
   --mat-form-field-filled-error-hover-label-text-color: #c62828;
   --mat-form-field-filled-error-focus-label-text-color: #c62828;
   --mat-form-field-filled-error-label-text-color: #c62828;
   --mat-form-field-filled-error-caret-color: #c62828;
-  --mat-form-field-filled-active-indicator-color: rgba(0, 0, 0, 0.7);
-  --mat-form-field-filled-disabled-active-indicator-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
+  --mat-form-field-filled-active-indicator-color: rgba(0, 0, 0, 0.42);
+  --mat-form-field-filled-disabled-active-indicator-color: rgba(0, 0, 0, 0.06);
   --mat-form-field-filled-hover-active-indicator-color: rgba(0, 0, 0, 0.87);
   --mat-form-field-filled-error-active-indicator-color: #c62828;
   --mat-form-field-filled-error-focus-active-indicator-color: #c62828;
   --mat-form-field-filled-error-hover-active-indicator-color: #c62828;
-  --mat-form-field-outlined-label-text-color: rgba(0, 0, 0, 0.7);
-  --mat-form-field-outlined-hover-label-text-color: rgba(0, 0, 0, 0.87);
-  --mat-form-field-outlined-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-form-field-outlined-label-text-color: rgba(0, 0, 0, 0.6);
+  --mat-form-field-outlined-hover-label-text-color: rgba(0, 0, 0, 0.6);
+  --mat-form-field-outlined-disabled-label-text-color: rgba(0, 0, 0, 0.38);
   --mat-form-field-outlined-input-text-color: rgba(0, 0, 0, 0.87);
-  --mat-form-field-outlined-disabled-input-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
-  --mat-form-field-outlined-input-text-placeholder-color: rgba(0, 0, 0, 0.7);
+  --mat-form-field-outlined-disabled-input-text-color: rgba(0, 0, 0, 0.38);
+  --mat-form-field-outlined-input-text-placeholder-color: rgba(0, 0, 0, 0.6);
   --mat-form-field-outlined-error-caret-color: #c62828;
   --mat-form-field-outlined-error-focus-label-text-color: #c62828;
   --mat-form-field-outlined-error-label-text-color: #c62828;
   --mat-form-field-outlined-error-hover-label-text-color: #c62828;
   --mat-form-field-outlined-outline-color: rgba(0, 0, 0, 0.38);
-  --mat-form-field-outlined-disabled-outline-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
+  --mat-form-field-outlined-disabled-outline-color: rgba(0, 0, 0, 0.06);
   --mat-form-field-outlined-hover-outline-color: rgba(0, 0, 0, 0.87);
   --mat-form-field-outlined-error-focus-outline-color: #c62828;
   --mat-form-field-outlined-error-hover-outline-color: #c62828;
@@ -333,52 +328,52 @@ html {
   --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.7);
-  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
   --mat-select-focused-arrow-color: #00897b;
   --mat-select-invalid-arrow-color: #c62828;
   --mat-autocomplete-background-color: white;
   --mat-dialog-container-color: white;
   --mat-dialog-subhead-color: rgba(0, 0, 0, 0.87);
   --mat-dialog-supporting-text-color: rgba(0, 0, 0, 0.7);
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
+  --mat-slide-toggle-selected-icon-color: #ffffff;
+  --mat-slide-toggle-disabled-selected-icon-color: #ffffff;
   --mat-slide-toggle-selected-focus-state-layer-color: #00897b;
   --mat-slide-toggle-selected-handle-color: #00897b;
   --mat-slide-toggle-selected-hover-state-layer-color: #00897b;
   --mat-slide-toggle-selected-pressed-state-layer-color: #00897b;
-  --mat-slide-toggle-selected-focus-handle-color: #00897b;
-  --mat-slide-toggle-selected-hover-handle-color: #00897b;
-  --mat-slide-toggle-selected-pressed-handle-color: #00897b;
-  --mat-slide-toggle-selected-focus-track-color: #4db6ac;
-  --mat-slide-toggle-selected-hover-track-color: #4db6ac;
-  --mat-slide-toggle-selected-pressed-track-color: #4db6ac;
-  --mat-slide-toggle-selected-track-color: #4db6ac;
+  --mat-slide-toggle-selected-focus-handle-color: #00695c;
+  --mat-slide-toggle-selected-hover-handle-color: #00695c;
+  --mat-slide-toggle-selected-pressed-handle-color: #00695c;
+  --mat-slide-toggle-selected-focus-track-color: #26a69a;
+  --mat-slide-toggle-selected-hover-track-color: #26a69a;
+  --mat-slide-toggle-selected-pressed-track-color: #26a69a;
+  --mat-slide-toggle-selected-track-color: #26a69a;
   --mat-slide-toggle-disabled-unselected-track-outline-color: transparent;
-  --mat-slide-toggle-selected-track-outline-color: transparent;
+  --mat-slide-toggle-selected-track-outline-color: currentColor;
   --mat-slide-toggle-track-outline-color: transparent;
-  --mat-slide-toggle-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
-  --mat-slide-toggle-disabled-handle-elevation-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-disabled-selected-handle-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-disabled-selected-track-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-disabled-unselected-handle-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-disabled-unselected-icon-color: #f6f6f6;
-  --mat-slide-toggle-disabled-unselected-track-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-handle-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-handle-surface-color: white;
+  --mat-slide-toggle-disabled-label-text-color: rgba(0, 0, 0, 0.38);
+  --mat-slide-toggle-disabled-handle-elevation-shadow: none;
+  --mat-slide-toggle-disabled-selected-handle-color: #212121;
+  --mat-slide-toggle-disabled-selected-track-color: #424242;
+  --mat-slide-toggle-disabled-unselected-handle-color: #212121;
+  --mat-slide-toggle-disabled-unselected-icon-color: #ffffff;
+  --mat-slide-toggle-disabled-unselected-track-color: #424242;
+  --mat-slide-toggle-handle-elevation-shadow: none;
+  --mat-slide-toggle-handle-surface-color: transparent;
   --mat-slide-toggle-label-text-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-unselected-hover-handle-color: #424242;
-  --mat-slide-toggle-unselected-focus-handle-color: #424242;
-  --mat-slide-toggle-unselected-focus-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-unselected-focus-track-color: rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-unselected-icon-color: #f6f6f6;
-  --mat-slide-toggle-unselected-handle-color: rgba(0, 0, 0, 0.7);
-  --mat-slide-toggle-unselected-hover-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-unselected-hover-track-color: rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-unselected-pressed-handle-color: #424242;
-  --mat-slide-toggle-unselected-pressed-track-color: rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-unselected-pressed-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-slide-toggle-unselected-track-color: rgba(0, 0, 0, 0.12);
+  --mat-slide-toggle-unselected-hover-handle-color: #212121;
+  --mat-slide-toggle-unselected-focus-handle-color: #212121;
+  --mat-slide-toggle-unselected-focus-state-layer-color: #424242;
+  --mat-slide-toggle-unselected-focus-track-color: #e0e0e0;
+  --mat-slide-toggle-unselected-icon-color: #ffffff;
+  --mat-slide-toggle-unselected-handle-color: #616161;
+  --mat-slide-toggle-unselected-hover-state-layer-color: #424242;
+  --mat-slide-toggle-unselected-hover-track-color: #e0e0e0;
+  --mat-slide-toggle-unselected-pressed-handle-color: #212121;
+  --mat-slide-toggle-unselected-pressed-track-color: #e0e0e0;
+  --mat-slide-toggle-unselected-pressed-state-layer-color: #424242;
+  --mat-slide-toggle-unselected-track-color: #e0e0e0;
   --mat-slider-active-track-color: #00897b;
   --mat-slider-focus-handle-color: #00897b;
   --mat-slider-handle-color: #00897b;
@@ -389,7 +384,6 @@ html {
   --mat-slider-ripple-color: #00897b;
   --mat-slider-with-tick-marks-active-container-color: white;
   --mat-slider-with-tick-marks-inactive-container-color: #00897b;
-  --mat-slider-handle-elevation: none;
   --mat-slider-disabled-active-track-color: rgba(0, 0, 0, 0.87);
   --mat-slider-disabled-handle-color: rgba(0, 0, 0, 0.87);
   --mat-slider-disabled-inactive-track-color: rgba(0, 0, 0, 0.87);
@@ -449,7 +443,7 @@ html {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(0, 0, 0, 0.87);
   --mat-button-filled-container-color: white;
   --mat-button-filled-disabled-container-color: rgba(0, 0, 0, 0.12);
-  --mat-button-filled-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-button-filled-disabled-label-text-color: rgba(0, 0, 0, 0.38);
   --mat-button-filled-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-button-filled-focus-state-layer-opacity: 0.12;
   --mat-button-filled-hover-state-layer-opacity: 0.04;
@@ -457,7 +451,7 @@ html {
   --mat-button-filled-pressed-state-layer-opacity: 0.12;
   --mat-button-filled-ripple-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
   --mat-button-filled-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-button-outlined-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-button-outlined-disabled-label-text-color: rgba(0, 0, 0, 0.38);
   --mat-button-outlined-disabled-outline-color: rgba(0, 0, 0, 0.12);
   --mat-button-outlined-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-button-outlined-focus-state-layer-opacity: 0.12;
@@ -469,7 +463,7 @@ html {
   --mat-button-outlined-state-layer-color: rgba(0, 0, 0, 0.87);
   --mat-button-protected-container-color: white;
   --mat-button-protected-disabled-container-color: rgba(0, 0, 0, 0.12);
-  --mat-button-protected-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-button-protected-disabled-label-text-color: rgba(0, 0, 0, 0.38);
   --mat-button-protected-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-button-protected-focus-state-layer-opacity: 0.12;
   --mat-button-protected-hover-state-layer-opacity: 0.04;
@@ -477,7 +471,7 @@ html {
   --mat-button-protected-pressed-state-layer-opacity: 0.12;
   --mat-button-protected-ripple-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
   --mat-button-protected-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-button-text-disabled-label-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-button-text-disabled-label-text-color: rgba(0, 0, 0, 0.38);
   --mat-button-text-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-button-text-focus-state-layer-opacity: 0.12;
   --mat-button-text-hover-state-layer-opacity: 0.04;
@@ -495,7 +489,7 @@ html {
   --mat-button-tonal-pressed-state-layer-opacity: 0.12;
   --mat-button-tonal-ripple-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
   --mat-button-tonal-state-layer-color: rgba(0, 0, 0, 0.87);
-  --mat-icon-button-disabled-icon-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-icon-button-disabled-icon-color: rgba(0, 0, 0, 0.38);
   --mat-icon-button-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-icon-button-focus-state-layer-opacity: 0.12;
   --mat-icon-button-hover-state-layer-opacity: 0.04;
@@ -516,8 +510,8 @@ html {
   --mat-fab-small-focus-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-fab-small-hover-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-fab-small-pressed-container-elevation-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-  --mat-fab-disabled-state-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
-  --mat-fab-disabled-state-foreground-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-fab-disabled-state-container-color: rgba(0, 0, 0, 0.12);
+  --mat-fab-disabled-state-foreground-color: rgba(0, 0, 0, 0.38);
   --mat-fab-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-fab-focus-state-layer-opacity: 0.12;
   --mat-fab-foreground-color: rgba(0, 0, 0, 0.87);
@@ -525,8 +519,8 @@ html {
   --mat-fab-pressed-state-layer-opacity: 0.12;
   --mat-fab-ripple-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
   --mat-fab-small-container-color: white;
-  --mat-fab-small-disabled-state-container-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 12%, transparent);
-  --mat-fab-small-disabled-state-foreground-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-fab-small-disabled-state-container-color: rgba(0, 0, 0, 0.12);
+  --mat-fab-small-disabled-state-foreground-color: rgba(0, 0, 0, 0.38);
   --mat-fab-small-disabled-state-layer-color: rgba(0, 0, 0, 0.7);
   --mat-fab-small-focus-state-layer-opacity: 0.12;
   --mat-fab-small-foreground-color: rgba(0, 0, 0, 0.87);
@@ -639,14 +633,21 @@ html {
   --mat-tree-node-text-color: rgba(0, 0, 0, 0.87);
   --mat-timepicker-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-timepicker-container-background-color: white;
+  --dui-theme-primary: #00897b;
+  --dui-theme-on-primary: #ffffff;
+  --dui-theme-primary-container: rgba(0, 137, 123, 0.12);
+  --dui-theme-accent: #ef6c00;
+  --dui-theme-warn: #c62828;
+  --dui-primary-color: #00897b;
+  --dui-accent-color: #ef6c00;
+  --dui-warn-color: #c62828;
+  --dui-primary-container-color: rgba(0, 137, 123, 0.12);
+  --mat-progress-bar-track-color: transparent;
   --mat-badge-text-font: Roboto, "Helvetica Neue", sans-serif;
-  --mat-badge-line-height: normal;
   --mat-badge-text-size: 12px;
   --mat-badge-text-weight: 600;
   --mat-badge-small-size-text-size: 9px;
-  --mat-badge-small-size-line-height: normal;
   --mat-badge-large-size-text-size: 24px;
-  --mat-badge-large-size-line-height: normal;
   --mat-bottom-sheet-container-text-font: Roboto, "Helvetica Neue", sans-serif;
   --mat-bottom-sheet-container-text-line-height: 16px;
   --mat-bottom-sheet-container-text-size: 14px;
@@ -947,6 +948,111 @@ html .mat-mdc-standard-chip {
   --mat-chip-label-text-weight: 400;
 }
 
+.mat-app-background {
+  background-color: var(--mat-app-background-color, transparent);
+  color: var(--mat-app-text-color, inherit);
+}
+
+.mat-elevation-z0, .mat-mdc-elevation-specific.mat-elevation-z0 {
+  box-shadow: var(--mat-app-elevation-shadow-level-0);
+}
+
+.mat-elevation-z1, .mat-mdc-elevation-specific.mat-elevation-z1 {
+  box-shadow: var(--mat-app-elevation-shadow-level-1);
+}
+
+.mat-elevation-z2, .mat-mdc-elevation-specific.mat-elevation-z2 {
+  box-shadow: var(--mat-app-elevation-shadow-level-2);
+}
+
+.mat-elevation-z3, .mat-mdc-elevation-specific.mat-elevation-z3 {
+  box-shadow: var(--mat-app-elevation-shadow-level-3);
+}
+
+.mat-elevation-z4, .mat-mdc-elevation-specific.mat-elevation-z4 {
+  box-shadow: var(--mat-app-elevation-shadow-level-4);
+}
+
+.mat-elevation-z5, .mat-mdc-elevation-specific.mat-elevation-z5 {
+  box-shadow: var(--mat-app-elevation-shadow-level-5);
+}
+
+.mat-elevation-z6, .mat-mdc-elevation-specific.mat-elevation-z6 {
+  box-shadow: var(--mat-app-elevation-shadow-level-6);
+}
+
+.mat-elevation-z7, .mat-mdc-elevation-specific.mat-elevation-z7 {
+  box-shadow: var(--mat-app-elevation-shadow-level-7);
+}
+
+.mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
+  box-shadow: var(--mat-app-elevation-shadow-level-8);
+}
+
+.mat-elevation-z9, .mat-mdc-elevation-specific.mat-elevation-z9 {
+  box-shadow: var(--mat-app-elevation-shadow-level-9);
+}
+
+.mat-elevation-z10, .mat-mdc-elevation-specific.mat-elevation-z10 {
+  box-shadow: var(--mat-app-elevation-shadow-level-10);
+}
+
+.mat-elevation-z11, .mat-mdc-elevation-specific.mat-elevation-z11 {
+  box-shadow: var(--mat-app-elevation-shadow-level-11);
+}
+
+.mat-elevation-z12, .mat-mdc-elevation-specific.mat-elevation-z12 {
+  box-shadow: var(--mat-app-elevation-shadow-level-12);
+}
+
+.mat-elevation-z13, .mat-mdc-elevation-specific.mat-elevation-z13 {
+  box-shadow: var(--mat-app-elevation-shadow-level-13);
+}
+
+.mat-elevation-z14, .mat-mdc-elevation-specific.mat-elevation-z14 {
+  box-shadow: var(--mat-app-elevation-shadow-level-14);
+}
+
+.mat-elevation-z15, .mat-mdc-elevation-specific.mat-elevation-z15 {
+  box-shadow: var(--mat-app-elevation-shadow-level-15);
+}
+
+.mat-elevation-z16, .mat-mdc-elevation-specific.mat-elevation-z16 {
+  box-shadow: var(--mat-app-elevation-shadow-level-16);
+}
+
+.mat-elevation-z17, .mat-mdc-elevation-specific.mat-elevation-z17 {
+  box-shadow: var(--mat-app-elevation-shadow-level-17);
+}
+
+.mat-elevation-z18, .mat-mdc-elevation-specific.mat-elevation-z18 {
+  box-shadow: var(--mat-app-elevation-shadow-level-18);
+}
+
+.mat-elevation-z19, .mat-mdc-elevation-specific.mat-elevation-z19 {
+  box-shadow: var(--mat-app-elevation-shadow-level-19);
+}
+
+.mat-elevation-z20, .mat-mdc-elevation-specific.mat-elevation-z20 {
+  box-shadow: var(--mat-app-elevation-shadow-level-20);
+}
+
+.mat-elevation-z21, .mat-mdc-elevation-specific.mat-elevation-z21 {
+  box-shadow: var(--mat-app-elevation-shadow-level-21);
+}
+
+.mat-elevation-z22, .mat-mdc-elevation-specific.mat-elevation-z22 {
+  box-shadow: var(--mat-app-elevation-shadow-level-22);
+}
+
+.mat-elevation-z23, .mat-mdc-elevation-specific.mat-elevation-z23 {
+  box-shadow: var(--mat-app-elevation-shadow-level-23);
+}
+
+.mat-elevation-z24, .mat-mdc-elevation-specific.mat-elevation-z24 {
+  box-shadow: var(--mat-app-elevation-shadow-level-24);
+}
+
 html .mat-accent {
   --mat-option-selected-state-label-text-color: #ef6c00;
   --mat-option-label-text-color: rgba(0, 0, 0, 0.87);
@@ -1014,17 +1120,17 @@ html .mat-primary {
 
 html .mat-mdc-progress-bar {
   --mat-progress-bar-active-indicator-color: #00897b;
-  --mat-progress-bar-track-color: rgba(0, 137, 123, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
 html .mat-mdc-progress-bar.mat-accent {
   --mat-progress-bar-active-indicator-color: #ef6c00;
-  --mat-progress-bar-track-color: rgba(239, 108, 0, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
 html .mat-mdc-progress-bar.mat-warn {
   --mat-progress-bar-active-indicator-color: #c62828;
-  --mat-progress-bar-track-color: rgba(198, 40, 40, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
 html .mat-mdc-form-field.mat-accent {
@@ -1039,8 +1145,8 @@ html .mat-mdc-form-field.mat-accent {
   --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.7);
-  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
   --mat-select-focused-arrow-color: #ef6c00;
   --mat-select-invalid-arrow-color: #c62828;
 }
@@ -1057,42 +1163,42 @@ html .mat-mdc-form-field.mat-warn {
   --mat-select-enabled-trigger-text-color: rgba(0, 0, 0, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(0, 0, 0, 0.7);
-  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(0, 0, 0, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(0, 0, 0, 0.54);
+  --mat-select-disabled-arrow-color: rgba(0, 0, 0, 0.38);
   --mat-select-focused-arrow-color: #c62828;
   --mat-select-invalid-arrow-color: #c62828;
 }
 
 html .mat-mdc-slide-toggle.mat-accent {
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-hover-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #ef6c00;
+  --mat-slide-toggle-selected-icon-color: #ffffff;
+  --mat-slide-toggle-disabled-selected-icon-color: #ffffff;
+  --mat-slide-toggle-selected-focus-state-layer-color: #fb8c00;
+  --mat-slide-toggle-selected-handle-color: #fb8c00;
+  --mat-slide-toggle-selected-hover-state-layer-color: #fb8c00;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #fb8c00;
   --mat-slide-toggle-selected-focus-handle-color: #ef6c00;
   --mat-slide-toggle-selected-hover-handle-color: #ef6c00;
   --mat-slide-toggle-selected-pressed-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-focus-track-color: #ffb74d;
-  --mat-slide-toggle-selected-hover-track-color: #ffb74d;
-  --mat-slide-toggle-selected-pressed-track-color: #ffb74d;
-  --mat-slide-toggle-selected-track-color: #ffb74d;
+  --mat-slide-toggle-selected-focus-track-color: #ffa726;
+  --mat-slide-toggle-selected-hover-track-color: #ffa726;
+  --mat-slide-toggle-selected-pressed-track-color: #ffa726;
+  --mat-slide-toggle-selected-track-color: #ffa726;
 }
 
 html .mat-mdc-slide-toggle.mat-warn {
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-handle-color: #c62828;
-  --mat-slide-toggle-selected-hover-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #c62828;
+  --mat-slide-toggle-selected-icon-color: #ffffff;
+  --mat-slide-toggle-disabled-selected-icon-color: #ffffff;
+  --mat-slide-toggle-selected-focus-state-layer-color: #e53935;
+  --mat-slide-toggle-selected-handle-color: #e53935;
+  --mat-slide-toggle-selected-hover-state-layer-color: #e53935;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #e53935;
   --mat-slide-toggle-selected-focus-handle-color: #c62828;
   --mat-slide-toggle-selected-hover-handle-color: #c62828;
   --mat-slide-toggle-selected-pressed-handle-color: #c62828;
-  --mat-slide-toggle-selected-focus-track-color: #e57373;
-  --mat-slide-toggle-selected-hover-track-color: #e57373;
-  --mat-slide-toggle-selected-pressed-track-color: #e57373;
-  --mat-slide-toggle-selected-track-color: #e57373;
+  --mat-slide-toggle-selected-focus-track-color: #ef5350;
+  --mat-slide-toggle-selected-hover-track-color: #ef5350;
+  --mat-slide-toggle-selected-pressed-track-color: #ef5350;
+  --mat-slide-toggle-selected-track-color: #ef5350;
 }
 
 html .mat-mdc-radio-button.mat-primary {
@@ -1350,7 +1456,7 @@ html .mat-mdc-checkbox.mat-warn {
 
 html .mat-mdc-button.mat-primary, html .mat-mdc-unelevated-button.mat-primary, html .mat-mdc-raised-button.mat-primary, html .mat-mdc-outlined-button.mat-primary, html .mat-tonal-button.mat-primary {
   --mat-button-filled-container-color: #00897b;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #00897b;
@@ -1358,7 +1464,7 @@ html .mat-mdc-button.mat-primary, html .mat-mdc-unelevated-button.mat-primary, h
   --mat-button-outlined-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
   --mat-button-outlined-state-layer-color: #00897b;
   --mat-button-protected-container-color: #00897b;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #00897b;
@@ -1372,7 +1478,7 @@ html .mat-mdc-button.mat-primary, html .mat-mdc-unelevated-button.mat-primary, h
 
 html .mat-mdc-button.mat-accent, html .mat-mdc-unelevated-button.mat-accent, html .mat-mdc-raised-button.mat-accent, html .mat-mdc-outlined-button.mat-accent, html .mat-tonal-button.mat-accent {
   --mat-button-filled-container-color: #ef6c00;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #ef6c00;
@@ -1380,7 +1486,7 @@ html .mat-mdc-button.mat-accent, html .mat-mdc-unelevated-button.mat-accent, htm
   --mat-button-outlined-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
   --mat-button-outlined-state-layer-color: #ef6c00;
   --mat-button-protected-container-color: #ef6c00;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #ef6c00;
@@ -1394,7 +1500,7 @@ html .mat-mdc-button.mat-accent, html .mat-mdc-unelevated-button.mat-accent, htm
 
 html .mat-mdc-button.mat-warn, html .mat-mdc-unelevated-button.mat-warn, html .mat-mdc-raised-button.mat-warn, html .mat-mdc-outlined-button.mat-warn, html .mat-tonal-button.mat-warn {
   --mat-button-filled-container-color: #c62828;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #c62828;
@@ -1402,7 +1508,7 @@ html .mat-mdc-button.mat-warn, html .mat-mdc-unelevated-button.mat-warn, html .m
   --mat-button-outlined-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
   --mat-button-outlined-state-layer-color: #c62828;
   --mat-button-protected-container-color: #c62828;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #c62828;
@@ -1434,10 +1540,10 @@ html .mat-mdc-icon-button.mat-warn {
 
 html .mat-mdc-fab.mat-primary, html .mat-mdc-mini-fab.mat-primary {
   --mat-fab-container-color: #00897b;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
   --mat-fab-small-container-color: #00897b;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
@@ -1445,10 +1551,10 @@ html .mat-mdc-fab.mat-primary, html .mat-mdc-mini-fab.mat-primary {
 
 html .mat-mdc-fab.mat-accent, html .mat-mdc-mini-fab.mat-accent {
   --mat-fab-container-color: #ef6c00;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
   --mat-fab-small-container-color: #ef6c00;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
@@ -1456,10 +1562,10 @@ html .mat-mdc-fab.mat-accent, html .mat-mdc-mini-fab.mat-accent {
 
 html .mat-mdc-fab.mat-warn, html .mat-mdc-mini-fab.mat-warn {
   --mat-fab-container-color: #c62828;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
   --mat-fab-small-container-color: #c62828;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
@@ -1618,112 +1724,7 @@ html .mat-mdc-list-item.mdc-list-item--with-leading-avatar.mdc-list-item--with-t
   height: 64px;
 }
 
-.mat-app-background {
-  background-color: var(--mat-app-background-color, transparent);
-  color: var(--mat-app-text-color, inherit);
-}
-
-.mat-elevation-z0, .mat-mdc-elevation-specific.mat-elevation-z0 {
-  box-shadow: var(--mat-app-elevation-shadow-level-0);
-}
-
-.mat-elevation-z1, .mat-mdc-elevation-specific.mat-elevation-z1 {
-  box-shadow: var(--mat-app-elevation-shadow-level-1);
-}
-
-.mat-elevation-z2, .mat-mdc-elevation-specific.mat-elevation-z2 {
-  box-shadow: var(--mat-app-elevation-shadow-level-2);
-}
-
-.mat-elevation-z3, .mat-mdc-elevation-specific.mat-elevation-z3 {
-  box-shadow: var(--mat-app-elevation-shadow-level-3);
-}
-
-.mat-elevation-z4, .mat-mdc-elevation-specific.mat-elevation-z4 {
-  box-shadow: var(--mat-app-elevation-shadow-level-4);
-}
-
-.mat-elevation-z5, .mat-mdc-elevation-specific.mat-elevation-z5 {
-  box-shadow: var(--mat-app-elevation-shadow-level-5);
-}
-
-.mat-elevation-z6, .mat-mdc-elevation-specific.mat-elevation-z6 {
-  box-shadow: var(--mat-app-elevation-shadow-level-6);
-}
-
-.mat-elevation-z7, .mat-mdc-elevation-specific.mat-elevation-z7 {
-  box-shadow: var(--mat-app-elevation-shadow-level-7);
-}
-
-.mat-elevation-z8, .mat-mdc-elevation-specific.mat-elevation-z8 {
-  box-shadow: var(--mat-app-elevation-shadow-level-8);
-}
-
-.mat-elevation-z9, .mat-mdc-elevation-specific.mat-elevation-z9 {
-  box-shadow: var(--mat-app-elevation-shadow-level-9);
-}
-
-.mat-elevation-z10, .mat-mdc-elevation-specific.mat-elevation-z10 {
-  box-shadow: var(--mat-app-elevation-shadow-level-10);
-}
-
-.mat-elevation-z11, .mat-mdc-elevation-specific.mat-elevation-z11 {
-  box-shadow: var(--mat-app-elevation-shadow-level-11);
-}
-
-.mat-elevation-z12, .mat-mdc-elevation-specific.mat-elevation-z12 {
-  box-shadow: var(--mat-app-elevation-shadow-level-12);
-}
-
-.mat-elevation-z13, .mat-mdc-elevation-specific.mat-elevation-z13 {
-  box-shadow: var(--mat-app-elevation-shadow-level-13);
-}
-
-.mat-elevation-z14, .mat-mdc-elevation-specific.mat-elevation-z14 {
-  box-shadow: var(--mat-app-elevation-shadow-level-14);
-}
-
-.mat-elevation-z15, .mat-mdc-elevation-specific.mat-elevation-z15 {
-  box-shadow: var(--mat-app-elevation-shadow-level-15);
-}
-
-.mat-elevation-z16, .mat-mdc-elevation-specific.mat-elevation-z16 {
-  box-shadow: var(--mat-app-elevation-shadow-level-16);
-}
-
-.mat-elevation-z17, .mat-mdc-elevation-specific.mat-elevation-z17 {
-  box-shadow: var(--mat-app-elevation-shadow-level-17);
-}
-
-.mat-elevation-z18, .mat-mdc-elevation-specific.mat-elevation-z18 {
-  box-shadow: var(--mat-app-elevation-shadow-level-18);
-}
-
-.mat-elevation-z19, .mat-mdc-elevation-specific.mat-elevation-z19 {
-  box-shadow: var(--mat-app-elevation-shadow-level-19);
-}
-
-.mat-elevation-z20, .mat-mdc-elevation-specific.mat-elevation-z20 {
-  box-shadow: var(--mat-app-elevation-shadow-level-20);
-}
-
-.mat-elevation-z21, .mat-mdc-elevation-specific.mat-elevation-z21 {
-  box-shadow: var(--mat-app-elevation-shadow-level-21);
-}
-
-.mat-elevation-z22, .mat-mdc-elevation-specific.mat-elevation-z22 {
-  box-shadow: var(--mat-app-elevation-shadow-level-22);
-}
-
-.mat-elevation-z23, .mat-mdc-elevation-specific.mat-elevation-z23 {
-  box-shadow: var(--mat-app-elevation-shadow-level-23);
-}
-
-.mat-elevation-z24, .mat-mdc-elevation-specific.mat-elevation-z24 {
-  box-shadow: var(--mat-app-elevation-shadow-level-24);
-}
-
-html:where([data-theme=dark]) {
+html:where([data-theme='dark']) {
   --mat-app-background-color: #212121;
   --mat-app-text-color: rgba(255, 255, 255, 0.87);
   --mat-app-elevation-shadow-level-0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -1767,15 +1768,15 @@ html:where([data-theme=dark]) {
   --mat-pseudo-checkbox-minimal-selected-checkmark-color: #ef6c00;
   --mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-card-elevated-container-color: #424242;
-  --mat-card-elevated-container-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --mat-card-elevated-container-elevation: none;
   --mat-card-outlined-container-color: #424242;
   --mat-card-outlined-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   --mat-card-outlined-outline-color: rgba(255, 255, 255, 0.12);
   --mat-card-subtitle-text-color: rgba(255, 255, 255, 0.7);
   --mat-card-filled-container-color: #424242;
   --mat-card-filled-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-tooltip-container-color: white;
-  --mat-tooltip-supporting-text-color: rgba(0, 0, 0, 0.87);
+  --mat-tooltip-container-color: #616161;
+  --mat-tooltip-supporting-text-color: white;
   --mat-form-field-focus-select-arrow-color: color-mix(in srgb, #00897b 87%, transparent);
   --mat-form-field-filled-caret-color: #00897b;
   --mat-form-field-filled-focus-active-indicator-color: #00897b;
@@ -1795,40 +1796,40 @@ html:where([data-theme=dark]) {
   --mat-form-field-error-focus-trailing-icon-color: unset;
   --mat-form-field-error-hover-trailing-icon-color: unset;
   --mat-form-field-error-trailing-icon-color: unset;
-  --mat-form-field-enabled-select-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-disabled-select-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-form-field-enabled-select-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-form-field-disabled-select-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-form-field-hover-state-layer-opacity: 0.04;
   --mat-form-field-focus-state-layer-opacity: 0.12;
-  --mat-form-field-filled-container-color: #616161;
-  --mat-form-field-filled-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 4%, transparent);
-  --mat-form-field-filled-label-text-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-filled-hover-label-text-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-filled-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-form-field-filled-container-color: transparent;
+  --mat-form-field-filled-disabled-container-color: #464646;
+  --mat-form-field-filled-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-filled-hover-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-filled-disabled-label-text-color: rgba(255, 255, 255, 0.38);
   --mat-form-field-filled-input-text-color: rgba(255, 255, 255, 0.87);
-  --mat-form-field-filled-disabled-input-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-form-field-filled-input-text-placeholder-color: rgba(255, 255, 255, 0.7);
+  --mat-form-field-filled-disabled-input-text-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-filled-input-text-placeholder-color: rgba(255, 255, 255, 0.6);
   --mat-form-field-filled-error-hover-label-text-color: #c62828;
   --mat-form-field-filled-error-focus-label-text-color: #c62828;
   --mat-form-field-filled-error-label-text-color: #c62828;
   --mat-form-field-filled-error-caret-color: #c62828;
-  --mat-form-field-filled-active-indicator-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-filled-disabled-active-indicator-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
+  --mat-form-field-filled-active-indicator-color: rgba(255, 255, 255, 0.42);
+  --mat-form-field-filled-disabled-active-indicator-color: rgba(255, 255, 255, 0.06);
   --mat-form-field-filled-hover-active-indicator-color: rgba(255, 255, 255, 0.87);
   --mat-form-field-filled-error-active-indicator-color: #c62828;
   --mat-form-field-filled-error-focus-active-indicator-color: #c62828;
   --mat-form-field-filled-error-hover-active-indicator-color: #c62828;
-  --mat-form-field-outlined-label-text-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-outlined-hover-label-text-color: rgba(255, 255, 255, 0.87);
-  --mat-form-field-outlined-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-form-field-outlined-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-outlined-hover-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-outlined-disabled-label-text-color: rgba(255, 255, 255, 0.38);
   --mat-form-field-outlined-input-text-color: rgba(255, 255, 255, 0.87);
-  --mat-form-field-outlined-disabled-input-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-form-field-outlined-input-text-placeholder-color: rgba(255, 255, 255, 0.7);
+  --mat-form-field-outlined-disabled-input-text-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-outlined-input-text-placeholder-color: rgba(255, 255, 255, 0.6);
   --mat-form-field-outlined-error-caret-color: #c62828;
   --mat-form-field-outlined-error-focus-label-text-color: #c62828;
   --mat-form-field-outlined-error-label-text-color: #c62828;
   --mat-form-field-outlined-error-hover-label-text-color: #c62828;
   --mat-form-field-outlined-outline-color: rgba(255, 255, 255, 0.38);
-  --mat-form-field-outlined-disabled-outline-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
+  --mat-form-field-outlined-disabled-outline-color: rgba(255, 255, 255, 0.06);
   --mat-form-field-outlined-hover-outline-color: rgba(255, 255, 255, 0.87);
   --mat-form-field-outlined-error-focus-outline-color: #c62828;
   --mat-form-field-outlined-error-hover-outline-color: #c62828;
@@ -1837,52 +1838,52 @@ html:where([data-theme=dark]) {
   --mat-select-enabled-trigger-text-color: rgba(255, 255, 255, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(255, 255, 255, 0.7);
-  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-select-focused-arrow-color: #00897b;
   --mat-select-invalid-arrow-color: #c62828;
   --mat-autocomplete-background-color: #424242;
   --mat-dialog-container-color: #424242;
   --mat-dialog-subhead-color: rgba(255, 255, 255, 0.87);
   --mat-dialog-supporting-text-color: rgba(255, 255, 255, 0.7);
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #00897b;
-  --mat-slide-toggle-selected-handle-color: #00897b;
-  --mat-slide-toggle-selected-hover-state-layer-color: #00897b;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #00897b;
-  --mat-slide-toggle-selected-focus-handle-color: #00897b;
-  --mat-slide-toggle-selected-hover-handle-color: #00897b;
-  --mat-slide-toggle-selected-pressed-handle-color: #00897b;
+  --mat-slide-toggle-selected-icon-color: #212121;
+  --mat-slide-toggle-disabled-selected-icon-color: #212121;
+  --mat-slide-toggle-selected-focus-state-layer-color: #26a69a;
+  --mat-slide-toggle-selected-handle-color: #26a69a;
+  --mat-slide-toggle-selected-hover-state-layer-color: #26a69a;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #26a69a;
+  --mat-slide-toggle-selected-focus-handle-color: #26a69a;
+  --mat-slide-toggle-selected-hover-handle-color: #26a69a;
+  --mat-slide-toggle-selected-pressed-handle-color: #26a69a;
   --mat-slide-toggle-selected-focus-track-color: #00897b;
   --mat-slide-toggle-selected-hover-track-color: #00897b;
   --mat-slide-toggle-selected-pressed-track-color: #00897b;
   --mat-slide-toggle-selected-track-color: #00897b;
   --mat-slide-toggle-disabled-unselected-track-outline-color: transparent;
-  --mat-slide-toggle-selected-track-outline-color: transparent;
+  --mat-slide-toggle-selected-track-outline-color: currentColor;
   --mat-slide-toggle-track-outline-color: transparent;
-  --mat-slide-toggle-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-slide-toggle-disabled-handle-elevation-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-disabled-selected-handle-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-disabled-selected-track-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-disabled-unselected-handle-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-disabled-unselected-icon-color: #616161;
-  --mat-slide-toggle-disabled-unselected-track-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-handle-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-handle-surface-color: #424242;
+  --mat-slide-toggle-disabled-label-text-color: rgba(255, 255, 255, 0.5);
+  --mat-slide-toggle-disabled-handle-elevation-shadow: none;
+  --mat-slide-toggle-disabled-selected-handle-color: #424242;
+  --mat-slide-toggle-disabled-selected-track-color: #f5f5f5;
+  --mat-slide-toggle-disabled-unselected-handle-color: #424242;
+  --mat-slide-toggle-disabled-unselected-icon-color: #212121;
+  --mat-slide-toggle-disabled-unselected-track-color: #f5f5f5;
+  --mat-slide-toggle-handle-elevation-shadow: none;
+  --mat-slide-toggle-handle-surface-color: transparent;
   --mat-slide-toggle-label-text-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-hover-handle-color: white;
-  --mat-slide-toggle-unselected-focus-handle-color: white;
-  --mat-slide-toggle-unselected-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-focus-track-color: rgba(255, 255, 255, 0.12);
-  --mat-slide-toggle-unselected-icon-color: #616161;
-  --mat-slide-toggle-unselected-handle-color: rgba(255, 255, 255, 0.7);
-  --mat-slide-toggle-unselected-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-hover-track-color: rgba(255, 255, 255, 0.12);
-  --mat-slide-toggle-unselected-pressed-handle-color: white;
-  --mat-slide-toggle-unselected-pressed-track-color: rgba(255, 255, 255, 0.12);
-  --mat-slide-toggle-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-track-color: rgba(255, 255, 255, 0.12);
+  --mat-slide-toggle-unselected-hover-handle-color: #fafafa;
+  --mat-slide-toggle-unselected-focus-handle-color: #fafafa;
+  --mat-slide-toggle-unselected-focus-state-layer-color: #f5f5f5;
+  --mat-slide-toggle-unselected-focus-track-color: #616161;
+  --mat-slide-toggle-unselected-icon-color: #212121;
+  --mat-slide-toggle-unselected-handle-color: #9e9e9e;
+  --mat-slide-toggle-unselected-hover-state-layer-color: #f5f5f5;
+  --mat-slide-toggle-unselected-hover-track-color: #616161;
+  --mat-slide-toggle-unselected-pressed-handle-color: #fafafa;
+  --mat-slide-toggle-unselected-pressed-track-color: #616161;
+  --mat-slide-toggle-unselected-pressed-state-layer-color: #f5f5f5;
+  --mat-slide-toggle-unselected-track-color: #616161;
   --mat-slider-active-track-color: #00897b;
   --mat-slider-focus-handle-color: #00897b;
   --mat-slider-handle-color: #00897b;
@@ -1893,7 +1894,7 @@ html:where([data-theme=dark]) {
   --mat-slider-ripple-color: #00897b;
   --mat-slider-with-tick-marks-active-container-color: white;
   --mat-slider-with-tick-marks-inactive-container-color: #00897b;
-  --mat-slider-handle-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --mat-slider-handle-elevation: none;
   --mat-slider-disabled-active-track-color: rgba(255, 255, 255, 0.87);
   --mat-slider-disabled-handle-color: rgba(255, 255, 255, 0.87);
   --mat-slider-disabled-inactive-track-color: rgba(255, 255, 255, 0.87);
@@ -1952,8 +1953,8 @@ html:where([data-theme=dark]) {
   --mat-checkbox-unselected-hover-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-button-filled-container-color: #424242;
-  --mat-button-filled-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-button-filled-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-filled-disabled-container-color: rgba(255, 255, 255, 0.12);
+  --mat-button-filled-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-filled-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-filled-focus-state-layer-opacity: 0.12;
   --mat-button-filled-hover-state-layer-opacity: 0.04;
@@ -1961,7 +1962,7 @@ html:where([data-theme=dark]) {
   --mat-button-filled-pressed-state-layer-opacity: 0.12;
   --mat-button-filled-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-filled-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-button-outlined-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-outlined-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-outlined-disabled-outline-color: rgba(255, 255, 255, 0.12);
   --mat-button-outlined-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-outlined-focus-state-layer-opacity: 0.12;
@@ -1972,8 +1973,8 @@ html:where([data-theme=dark]) {
   --mat-button-outlined-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-outlined-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-button-protected-container-color: #424242;
-  --mat-button-protected-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-button-protected-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-protected-disabled-container-color: rgba(255, 255, 255, 0.12);
+  --mat-button-protected-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-protected-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-protected-focus-state-layer-opacity: 0.12;
   --mat-button-protected-hover-state-layer-opacity: 0.04;
@@ -1981,7 +1982,7 @@ html:where([data-theme=dark]) {
   --mat-button-protected-pressed-state-layer-opacity: 0.12;
   --mat-button-protected-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-protected-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-button-text-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-text-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-text-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-text-focus-state-layer-opacity: 0.12;
   --mat-button-text-hover-state-layer-opacity: 0.04;
@@ -1999,7 +2000,7 @@ html:where([data-theme=dark]) {
   --mat-button-tonal-pressed-state-layer-opacity: 0.12;
   --mat-button-tonal-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-tonal-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-icon-button-disabled-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-icon-button-disabled-icon-color: rgba(255, 255, 255, 0.38);
   --mat-icon-button-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-icon-button-focus-state-layer-opacity: 0.12;
   --mat-icon-button-hover-state-layer-opacity: 0.04;
@@ -2020,8 +2021,8 @@ html:where([data-theme=dark]) {
   --mat-fab-small-focus-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-fab-small-hover-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-fab-small-pressed-container-elevation-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-  --mat-fab-disabled-state-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-fab-disabled-state-foreground-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-fab-disabled-state-container-color: rgba(97, 97, 97, 0.12);
+  --mat-fab-disabled-state-foreground-color: rgba(255, 255, 255, 0.5);
   --mat-fab-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-fab-focus-state-layer-opacity: 0.12;
   --mat-fab-foreground-color: rgba(255, 255, 255, 0.87);
@@ -2029,8 +2030,8 @@ html:where([data-theme=dark]) {
   --mat-fab-pressed-state-layer-opacity: 0.12;
   --mat-fab-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-fab-small-container-color: #424242;
-  --mat-fab-small-disabled-state-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-fab-small-disabled-state-foreground-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-fab-small-disabled-state-container-color: rgba(97, 97, 97, 0.12);
+  --mat-fab-small-disabled-state-foreground-color: rgba(255, 255, 255, 0.5);
   --mat-fab-small-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-fab-small-focus-state-layer-opacity: 0.12;
   --mat-fab-small-foreground-color: rgba(255, 255, 255, 0.87);
@@ -2047,8 +2048,8 @@ html:where([data-theme=dark]) {
   --mat-table-row-item-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-table-row-item-outline-color: rgba(255, 255, 255, 0.12);
   --mat-progress-spinner-active-indicator-color: #00897b;
-  --mat-badge-background-color: #00897b;
-  --mat-badge-text-color: white;
+  --mat-badge-background-color: transparent;
+  --mat-badge-text-color: inherit;
   --mat-badge-disabled-state-background-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-badge-disabled-state-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-bottom-sheet-container-text-color: rgba(255, 255, 255, 0.87);
@@ -2110,7 +2111,7 @@ html:where([data-theme=dark]) {
   --mat-expansion-header-text-color: rgba(255, 255, 255, 0.87);
   --mat-expansion-header-description-color: rgba(255, 255, 255, 0.7);
   --mat-expansion-header-indicator-color: rgba(255, 255, 255, 0.7);
-  --mat-icon-color: inherit;
+  --mat-icon-color: rgba(255, 255, 255, 0.7);
   --mat-sidenav-container-elevation-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
   --mat-sidenav-container-divider-color: rgba(255, 255, 255, 0.12);
   --mat-sidenav-container-background-color: #424242;
@@ -2143,9 +2144,19 @@ html:where([data-theme=dark]) {
   --mat-tree-node-text-color: rgba(255, 255, 255, 0.87);
   --mat-timepicker-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-timepicker-container-background-color: #424242;
+  --dui-theme-primary: #00897b;
+  --dui-theme-on-primary: #ffffff;
+  --dui-theme-primary-container: rgba(0, 137, 123, 0.12);
+  --dui-theme-accent: #ef6c00;
+  --dui-theme-warn: #c62828;
+  --dui-primary-color: #00897b;
+  --dui-accent-color: #ef6c00;
+  --dui-warn-color: #c62828;
+  --dui-primary-container-color: rgba(0, 137, 123, 0.12);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=dark]) .mat-accent {
+html:where([data-theme='dark']) .mat-accent {
   --mat-option-selected-state-label-text-color: #ef6c00;
   --mat-option-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-option-hover-state-layer-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 4%, transparent);
@@ -2172,7 +2183,7 @@ html:where([data-theme=dark]) .mat-accent {
   --mat-progress-spinner-active-indicator-color: #ef6c00;
 }
 
-html:where([data-theme=dark]) .mat-warn {
+html:where([data-theme='dark']) .mat-warn {
   --mat-option-selected-state-label-text-color: #c62828;
   --mat-option-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-option-hover-state-layer-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 4%, transparent);
@@ -2199,7 +2210,7 @@ html:where([data-theme=dark]) .mat-warn {
   --mat-progress-spinner-active-indicator-color: #c62828;
 }
 
-html:where([data-theme=dark]) .mat-primary {
+html:where([data-theme='dark']) .mat-primary {
   --mat-pseudo-checkbox-full-selected-icon-color: #00897b;
   --mat-pseudo-checkbox-full-selected-checkmark-color: #212121;
   --mat-pseudo-checkbox-full-unselected-icon-color: rgba(255, 255, 255, 0.7);
@@ -2210,22 +2221,22 @@ html:where([data-theme=dark]) .mat-primary {
   --mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
 }
 
-html:where([data-theme=dark]) .mat-mdc-progress-bar {
+html:where([data-theme='dark']) .mat-mdc-progress-bar {
   --mat-progress-bar-active-indicator-color: #00897b;
-  --mat-progress-bar-track-color: rgba(0, 137, 123, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=dark]) .mat-mdc-progress-bar.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-progress-bar.mat-accent {
   --mat-progress-bar-active-indicator-color: #ef6c00;
-  --mat-progress-bar-track-color: rgba(239, 108, 0, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=dark]) .mat-mdc-progress-bar.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-progress-bar.mat-warn {
   --mat-progress-bar-active-indicator-color: #c62828;
-  --mat-progress-bar-track-color: rgba(198, 40, 40, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=dark]) .mat-mdc-form-field.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-form-field.mat-accent {
   --mat-form-field-focus-select-arrow-color: color-mix(in srgb, #ef6c00 87%, transparent);
   --mat-form-field-filled-caret-color: #ef6c00;
   --mat-form-field-filled-focus-active-indicator-color: #ef6c00;
@@ -2237,13 +2248,13 @@ html:where([data-theme=dark]) .mat-mdc-form-field.mat-accent {
   --mat-select-enabled-trigger-text-color: rgba(255, 255, 255, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(255, 255, 255, 0.7);
-  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-select-focused-arrow-color: #ef6c00;
   --mat-select-invalid-arrow-color: #c62828;
 }
 
-html:where([data-theme=dark]) .mat-mdc-form-field.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-form-field.mat-warn {
   --mat-form-field-focus-select-arrow-color: color-mix(in srgb, #c62828 87%, transparent);
   --mat-form-field-filled-caret-color: #c62828;
   --mat-form-field-filled-focus-active-indicator-color: #c62828;
@@ -2255,17 +2266,17 @@ html:where([data-theme=dark]) .mat-mdc-form-field.mat-warn {
   --mat-select-enabled-trigger-text-color: rgba(255, 255, 255, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(255, 255, 255, 0.7);
-  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-select-focused-arrow-color: #c62828;
   --mat-select-invalid-arrow-color: #c62828;
 }
 
-html:where([data-theme=dark]) .mat-mdc-standard-chip {
+html:where([data-theme='dark']) .mat-mdc-standard-chip {
   --mat-chip-disabled-label-text-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-elevated-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-chip-elevated-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-chip-elevated-selected-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
+  --mat-chip-elevated-container-color: #616161;
+  --mat-chip-elevated-disabled-container-color: #616161;
+  --mat-chip-elevated-selected-container-color: #616161;
   --mat-chip-flat-disabled-selected-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-chip-focus-state-layer-opacity: 0.12;
@@ -2284,39 +2295,39 @@ html:where([data-theme=dark]) .mat-mdc-standard-chip {
   --mat-chip-with-trailing-icon-trailing-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-slide-toggle.mat-accent {
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-hover-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-focus-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-hover-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-pressed-handle-color: #ef6c00;
+html:where([data-theme='dark']) .mat-mdc-slide-toggle.mat-accent {
+  --mat-slide-toggle-selected-icon-color: #212121;
+  --mat-slide-toggle-disabled-selected-icon-color: #212121;
+  --mat-slide-toggle-selected-focus-state-layer-color: #ffa726;
+  --mat-slide-toggle-selected-handle-color: #ffa726;
+  --mat-slide-toggle-selected-hover-state-layer-color: #ffa726;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #ffa726;
+  --mat-slide-toggle-selected-focus-handle-color: #ffa726;
+  --mat-slide-toggle-selected-hover-handle-color: #ffa726;
+  --mat-slide-toggle-selected-pressed-handle-color: #ffa726;
   --mat-slide-toggle-selected-focus-track-color: #fb8c00;
   --mat-slide-toggle-selected-hover-track-color: #fb8c00;
   --mat-slide-toggle-selected-pressed-track-color: #fb8c00;
   --mat-slide-toggle-selected-track-color: #fb8c00;
 }
 
-html:where([data-theme=dark]) .mat-mdc-slide-toggle.mat-warn {
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-handle-color: #c62828;
-  --mat-slide-toggle-selected-hover-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-focus-handle-color: #c62828;
-  --mat-slide-toggle-selected-hover-handle-color: #c62828;
-  --mat-slide-toggle-selected-pressed-handle-color: #c62828;
+html:where([data-theme='dark']) .mat-mdc-slide-toggle.mat-warn {
+  --mat-slide-toggle-selected-icon-color: #212121;
+  --mat-slide-toggle-disabled-selected-icon-color: #212121;
+  --mat-slide-toggle-selected-focus-state-layer-color: #ef5350;
+  --mat-slide-toggle-selected-handle-color: #ef5350;
+  --mat-slide-toggle-selected-hover-state-layer-color: #ef5350;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #ef5350;
+  --mat-slide-toggle-selected-focus-handle-color: #ef5350;
+  --mat-slide-toggle-selected-hover-handle-color: #ef5350;
+  --mat-slide-toggle-selected-pressed-handle-color: #ef5350;
   --mat-slide-toggle-selected-focus-track-color: #e53935;
   --mat-slide-toggle-selected-hover-track-color: #e53935;
   --mat-slide-toggle-selected-pressed-track-color: #e53935;
   --mat-slide-toggle-selected-track-color: #e53935;
 }
 
-html:where([data-theme=dark]) .mat-mdc-radio-button.mat-primary {
+html:where([data-theme='dark']) .mat-mdc-radio-button.mat-primary {
   --mat-radio-checked-ripple-color: #00897b;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -2333,7 +2344,7 @@ html:where([data-theme=dark]) .mat-mdc-radio-button.mat-primary {
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-radio-button.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-radio-button.mat-accent {
   --mat-radio-checked-ripple-color: #ef6c00;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -2350,7 +2361,7 @@ html:where([data-theme=dark]) .mat-mdc-radio-button.mat-accent {
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-radio-button.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-radio-button.mat-warn {
   --mat-radio-checked-ripple-color: #c62828;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -2367,7 +2378,7 @@ html:where([data-theme=dark]) .mat-mdc-radio-button.mat-warn {
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mdc-list-item__start, html:where([data-theme=dark]) .mdc-list-item__end {
+html:where([data-theme='dark']) .mdc-list-item__start, html:where([data-theme='dark']) .mdc-list-item__end {
   --mat-radio-checked-ripple-color: #00897b;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -2384,7 +2395,7 @@ html:where([data-theme=dark]) .mdc-list-item__start, html:where([data-theme=dark
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-accent .mdc-list-item__start, html:where([data-theme=dark]) .mat-accent .mdc-list-item__end {
+html:where([data-theme='dark']) .mat-accent .mdc-list-item__start, html:where([data-theme='dark']) .mat-accent .mdc-list-item__end {
   --mat-radio-checked-ripple-color: #ef6c00;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -2401,7 +2412,7 @@ html:where([data-theme=dark]) .mat-accent .mdc-list-item__start, html:where([dat
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-warn .mdc-list-item__start, html:where([data-theme=dark]) .mat-warn .mdc-list-item__end {
+html:where([data-theme='dark']) .mat-warn .mdc-list-item__start, html:where([data-theme='dark']) .mat-warn .mdc-list-item__end {
   --mat-radio-checked-ripple-color: #c62828;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -2418,7 +2429,7 @@ html:where([data-theme=dark]) .mat-warn .mdc-list-item__start, html:where([data-
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-list-option {
+html:where([data-theme='dark']) .mat-mdc-list-option {
   --mat-checkbox-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -2438,7 +2449,7 @@ html:where([data-theme=dark]) .mat-mdc-list-option {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-list-option.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-list-option.mat-accent {
   --mat-checkbox-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -2458,7 +2469,7 @@ html:where([data-theme=dark]) .mat-mdc-list-option.mat-accent {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-list-option.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-list-option.mat-warn {
   --mat-checkbox-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -2478,15 +2489,15 @@ html:where([data-theme=dark]) .mat-mdc-list-option.mat-warn {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__primary-text, html:where([data-theme=dark]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__start, html:where([data-theme=dark]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text, html:where([data-theme=dark]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__start {
+html:where([data-theme='dark']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__primary-text, html:where([data-theme='dark']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__start, html:where([data-theme='dark']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text, html:where([data-theme='dark']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__start {
   color: #00897b;
 }
 
-html:where([data-theme=dark]) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__start, html:where([data-theme=dark]) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content, html:where([data-theme=dark]) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end {
+html:where([data-theme='dark']) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__start, html:where([data-theme='dark']) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content, html:where([data-theme='dark']) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end {
   opacity: 1;
 }
 
-html:where([data-theme=dark]) .mat-mdc-tab-group, html:where([data-theme=dark]) .mat-mdc-tab-nav-bar {
+html:where([data-theme='dark']) .mat-mdc-tab-group, html:where([data-theme='dark']) .mat-mdc-tab-nav-bar {
   --mat-tab-disabled-ripple-color: rgba(255, 255, 255, 0.7);
   --mat-tab-pagination-icon-color: rgba(255, 255, 255, 0.87);
   --mat-tab-inactive-label-text-color: rgba(255, 255, 255, 0.7);
@@ -2502,7 +2513,7 @@ html:where([data-theme=dark]) .mat-mdc-tab-group, html:where([data-theme=dark]) 
   --mat-tab-active-indicator-color: #00897b;
 }
 
-html:where([data-theme=dark]) .mat-mdc-tab-group.mat-accent, html:where([data-theme=dark]) .mat-mdc-tab-nav-bar.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-tab-group.mat-accent, html:where([data-theme='dark']) .mat-mdc-tab-nav-bar.mat-accent {
   --mat-tab-disabled-ripple-color: rgba(255, 255, 255, 0.7);
   --mat-tab-pagination-icon-color: rgba(255, 255, 255, 0.87);
   --mat-tab-inactive-label-text-color: rgba(255, 255, 255, 0.7);
@@ -2518,7 +2529,7 @@ html:where([data-theme=dark]) .mat-mdc-tab-group.mat-accent, html:where([data-th
   --mat-tab-active-indicator-color: #ef6c00;
 }
 
-html:where([data-theme=dark]) .mat-mdc-tab-group.mat-warn, html:where([data-theme=dark]) .mat-mdc-tab-nav-bar.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-tab-group.mat-warn, html:where([data-theme='dark']) .mat-mdc-tab-nav-bar.mat-warn {
   --mat-tab-disabled-ripple-color: rgba(255, 255, 255, 0.7);
   --mat-tab-pagination-icon-color: rgba(255, 255, 255, 0.87);
   --mat-tab-inactive-label-text-color: rgba(255, 255, 255, 0.7);
@@ -2534,22 +2545,22 @@ html:where([data-theme=dark]) .mat-mdc-tab-group.mat-warn, html:where([data-them
   --mat-tab-active-indicator-color: #c62828;
 }
 
-html:where([data-theme=dark]) .mat-mdc-tab-group.mat-background-primary, html:where([data-theme=dark]) .mat-mdc-tab-nav-bar.mat-background-primary {
+html:where([data-theme='dark']) .mat-mdc-tab-group.mat-background-primary, html:where([data-theme='dark']) .mat-mdc-tab-nav-bar.mat-background-primary {
   --mat-tab-background-color: #00897b;
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-tab-group.mat-background-accent, html:where([data-theme=dark]) .mat-mdc-tab-nav-bar.mat-background-accent {
+html:where([data-theme='dark']) .mat-mdc-tab-group.mat-background-accent, html:where([data-theme='dark']) .mat-mdc-tab-nav-bar.mat-background-accent {
   --mat-tab-background-color: #ef6c00;
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-tab-group.mat-background-warn, html:where([data-theme=dark]) .mat-mdc-tab-nav-bar.mat-background-warn {
+html:where([data-theme='dark']) .mat-mdc-tab-group.mat-background-warn, html:where([data-theme='dark']) .mat-mdc-tab-nav-bar.mat-background-warn {
   --mat-tab-background-color: #c62828;
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-checkbox.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-checkbox.mat-warn {
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-selected-checkmark-color: white;
@@ -2567,9 +2578,9 @@ html:where([data-theme=dark]) .mat-mdc-checkbox.mat-warn {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-mdc-button.mat-primary, html:where([data-theme=dark]) .mat-mdc-unelevated-button.mat-primary, html:where([data-theme=dark]) .mat-mdc-raised-button.mat-primary, html:where([data-theme=dark]) .mat-mdc-outlined-button.mat-primary, html:where([data-theme=dark]) .mat-tonal-button.mat-primary {
+html:where([data-theme='dark']) .mat-mdc-button.mat-primary, html:where([data-theme='dark']) .mat-mdc-unelevated-button.mat-primary, html:where([data-theme='dark']) .mat-mdc-raised-button.mat-primary, html:where([data-theme='dark']) .mat-mdc-outlined-button.mat-primary, html:where([data-theme='dark']) .mat-tonal-button.mat-primary {
   --mat-button-filled-container-color: #00897b;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #00897b;
@@ -2577,7 +2588,7 @@ html:where([data-theme=dark]) .mat-mdc-button.mat-primary, html:where([data-them
   --mat-button-outlined-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
   --mat-button-outlined-state-layer-color: #00897b;
   --mat-button-protected-container-color: #00897b;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #00897b;
@@ -2589,9 +2600,9 @@ html:where([data-theme=dark]) .mat-mdc-button.mat-primary, html:where([data-them
   --mat-button-tonal-state-layer-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-button.mat-accent, html:where([data-theme=dark]) .mat-mdc-unelevated-button.mat-accent, html:where([data-theme=dark]) .mat-mdc-raised-button.mat-accent, html:where([data-theme=dark]) .mat-mdc-outlined-button.mat-accent, html:where([data-theme=dark]) .mat-tonal-button.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-button.mat-accent, html:where([data-theme='dark']) .mat-mdc-unelevated-button.mat-accent, html:where([data-theme='dark']) .mat-mdc-raised-button.mat-accent, html:where([data-theme='dark']) .mat-mdc-outlined-button.mat-accent, html:where([data-theme='dark']) .mat-tonal-button.mat-accent {
   --mat-button-filled-container-color: #ef6c00;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #ef6c00;
@@ -2599,7 +2610,7 @@ html:where([data-theme=dark]) .mat-mdc-button.mat-accent, html:where([data-theme
   --mat-button-outlined-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
   --mat-button-outlined-state-layer-color: #ef6c00;
   --mat-button-protected-container-color: #ef6c00;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #ef6c00;
@@ -2611,9 +2622,9 @@ html:where([data-theme=dark]) .mat-mdc-button.mat-accent, html:where([data-theme
   --mat-button-tonal-state-layer-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-button.mat-warn, html:where([data-theme=dark]) .mat-mdc-unelevated-button.mat-warn, html:where([data-theme=dark]) .mat-mdc-raised-button.mat-warn, html:where([data-theme=dark]) .mat-mdc-outlined-button.mat-warn, html:where([data-theme=dark]) .mat-tonal-button.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-button.mat-warn, html:where([data-theme='dark']) .mat-mdc-unelevated-button.mat-warn, html:where([data-theme='dark']) .mat-mdc-raised-button.mat-warn, html:where([data-theme='dark']) .mat-mdc-outlined-button.mat-warn, html:where([data-theme='dark']) .mat-tonal-button.mat-warn {
   --mat-button-filled-container-color: #c62828;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #c62828;
@@ -2621,7 +2632,7 @@ html:where([data-theme=dark]) .mat-mdc-button.mat-warn, html:where([data-theme=d
   --mat-button-outlined-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
   --mat-button-outlined-state-layer-color: #c62828;
   --mat-button-protected-container-color: #c62828;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #c62828;
@@ -2633,58 +2644,58 @@ html:where([data-theme=dark]) .mat-mdc-button.mat-warn, html:where([data-theme=d
   --mat-button-tonal-state-layer-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-icon-button.mat-primary {
+html:where([data-theme='dark']) .mat-mdc-icon-button.mat-primary {
   --mat-icon-button-icon-color: #00897b;
   --mat-icon-button-state-layer-color: #00897b;
   --mat-icon-button-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
 }
 
-html:where([data-theme=dark]) .mat-mdc-icon-button.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-icon-button.mat-accent {
   --mat-icon-button-icon-color: #ef6c00;
   --mat-icon-button-state-layer-color: #ef6c00;
   --mat-icon-button-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
 }
 
-html:where([data-theme=dark]) .mat-mdc-icon-button.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-icon-button.mat-warn {
   --mat-icon-button-icon-color: #c62828;
   --mat-icon-button-state-layer-color: #c62828;
   --mat-icon-button-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
 }
 
-html:where([data-theme=dark]) .mat-mdc-fab.mat-primary, html:where([data-theme=dark]) .mat-mdc-mini-fab.mat-primary {
+html:where([data-theme='dark']) .mat-mdc-fab.mat-primary, html:where([data-theme='dark']) .mat-mdc-mini-fab.mat-primary {
   --mat-fab-container-color: #00897b;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
   --mat-fab-small-container-color: #00897b;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-fab.mat-accent, html:where([data-theme=dark]) .mat-mdc-mini-fab.mat-accent {
+html:where([data-theme='dark']) .mat-mdc-fab.mat-accent, html:where([data-theme='dark']) .mat-mdc-mini-fab.mat-accent {
   --mat-fab-container-color: #ef6c00;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
   --mat-fab-small-container-color: #ef6c00;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
 }
 
-html:where([data-theme=dark]) .mat-mdc-fab.mat-warn, html:where([data-theme=dark]) .mat-mdc-mini-fab.mat-warn {
+html:where([data-theme='dark']) .mat-mdc-fab.mat-warn, html:where([data-theme='dark']) .mat-mdc-mini-fab.mat-warn {
   --mat-fab-container-color: #c62828;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
   --mat-fab-small-container-color: #c62828;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
 }
 
-html:where([data-theme=dark]) .mat-datepicker-content.mat-accent, html:where([data-theme=dark]) .mat-datepicker-toggle-active.mat-accent {
+html:where([data-theme='dark']) .mat-datepicker-content.mat-accent, html:where([data-theme='dark']) .mat-datepicker-toggle-active.mat-accent {
   --mat-datepicker-calendar-date-in-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
@@ -2716,7 +2727,7 @@ html:where([data-theme=dark]) .mat-datepicker-content.mat-accent, html:where([da
   --mat-datepicker-calendar-container-text-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-datepicker-content.mat-warn, html:where([data-theme=dark]) .mat-datepicker-toggle-active.mat-warn {
+html:where([data-theme='dark']) .mat-datepicker-content.mat-warn, html:where([data-theme='dark']) .mat-datepicker-toggle-active.mat-warn {
   --mat-datepicker-calendar-date-in-range-state-background-color: color-mix(in srgb, #c62828 20%, transparent);
   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
@@ -2748,19 +2759,19 @@ html:where([data-theme=dark]) .mat-datepicker-content.mat-warn, html:where([data
   --mat-datepicker-calendar-container-text-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=dark]) .mat-icon.mat-primary {
+html:where([data-theme='dark']) .mat-icon.mat-primary {
   --mat-icon-color: #00897b;
 }
 
-html:where([data-theme=dark]) .mat-icon.mat-accent {
+html:where([data-theme='dark']) .mat-icon.mat-accent {
   --mat-icon-color: #ef6c00;
 }
 
-html:where([data-theme=dark]) .mat-icon.mat-warn {
+html:where([data-theme='dark']) .mat-icon.mat-warn {
   --mat-icon-color: #c62828;
 }
 
-html:where([data-theme=dark]) .mat-step-header.mat-accent {
+html:where([data-theme='dark']) .mat-step-header.mat-accent {
   --mat-stepper-header-icon-foreground-color: white;
   --mat-stepper-header-selected-state-icon-background-color: #ef6c00;
   --mat-stepper-header-selected-state-icon-foreground-color: white;
@@ -2770,7 +2781,7 @@ html:where([data-theme=dark]) .mat-step-header.mat-accent {
   --mat-stepper-header-edit-state-icon-foreground-color: white;
 }
 
-html:where([data-theme=dark]) .mat-step-header.mat-warn {
+html:where([data-theme='dark']) .mat-step-header.mat-warn {
   --mat-stepper-header-icon-foreground-color: white;
   --mat-stepper-header-selected-state-icon-background-color: #c62828;
   --mat-stepper-header-selected-state-icon-foreground-color: white;
@@ -2780,22 +2791,22 @@ html:where([data-theme=dark]) .mat-step-header.mat-warn {
   --mat-stepper-header-edit-state-icon-foreground-color: white;
 }
 
-html:where([data-theme=dark]) .mat-toolbar.mat-primary {
+html:where([data-theme='dark']) .mat-toolbar.mat-primary {
   --mat-toolbar-container-background-color: #00897b;
   --mat-toolbar-container-text-color: white;
 }
 
-html:where([data-theme=dark]) .mat-toolbar.mat-accent {
+html:where([data-theme='dark']) .mat-toolbar.mat-accent {
   --mat-toolbar-container-background-color: #ef6c00;
   --mat-toolbar-container-text-color: white;
 }
 
-html:where([data-theme=dark]) .mat-toolbar.mat-warn {
+html:where([data-theme='dark']) .mat-toolbar.mat-warn {
   --mat-toolbar-container-background-color: #c62828;
   --mat-toolbar-container-text-color: white;
 }
 
-html:where([data-theme=darkblue]) {
+html:where([data-theme='darkblue']) {
   --mat-app-background-color: #263238;
   --mat-app-text-color: rgba(255, 255, 255, 0.87);
   --mat-app-elevation-shadow-level-0: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
@@ -2839,15 +2850,15 @@ html:where([data-theme=darkblue]) {
   --mat-pseudo-checkbox-minimal-selected-checkmark-color: #ef6c00;
   --mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-card-elevated-container-color: #37474f;
-  --mat-card-elevated-container-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --mat-card-elevated-container-elevation: none;
   --mat-card-outlined-container-color: #37474f;
   --mat-card-outlined-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
   --mat-card-outlined-outline-color: rgba(255, 255, 255, 0.12);
   --mat-card-subtitle-text-color: rgba(255, 255, 255, 0.7);
   --mat-card-filled-container-color: #37474f;
   --mat-card-filled-container-elevation: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-tooltip-container-color: white;
-  --mat-tooltip-supporting-text-color: rgba(0, 0, 0, 0.87);
+  --mat-tooltip-container-color: #455a64;
+  --mat-tooltip-supporting-text-color: white;
   --mat-form-field-focus-select-arrow-color: color-mix(in srgb, #00897b 87%, transparent);
   --mat-form-field-filled-caret-color: #00897b;
   --mat-form-field-filled-focus-active-indicator-color: #00897b;
@@ -2867,40 +2878,40 @@ html:where([data-theme=darkblue]) {
   --mat-form-field-error-focus-trailing-icon-color: unset;
   --mat-form-field-error-hover-trailing-icon-color: unset;
   --mat-form-field-error-trailing-icon-color: unset;
-  --mat-form-field-enabled-select-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-disabled-select-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-form-field-enabled-select-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-form-field-disabled-select-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-form-field-hover-state-layer-opacity: 0.04;
   --mat-form-field-focus-state-layer-opacity: 0.12;
-  --mat-form-field-filled-container-color: #455a64;
-  --mat-form-field-filled-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 4%, transparent);
-  --mat-form-field-filled-label-text-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-filled-hover-label-text-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-filled-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-form-field-filled-container-color: transparent;
+  --mat-form-field-filled-disabled-container-color: #3b4b53;
+  --mat-form-field-filled-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-filled-hover-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-filled-disabled-label-text-color: rgba(255, 255, 255, 0.38);
   --mat-form-field-filled-input-text-color: rgba(255, 255, 255, 0.87);
-  --mat-form-field-filled-disabled-input-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-form-field-filled-input-text-placeholder-color: rgba(255, 255, 255, 0.7);
+  --mat-form-field-filled-disabled-input-text-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-filled-input-text-placeholder-color: rgba(255, 255, 255, 0.6);
   --mat-form-field-filled-error-hover-label-text-color: #c62828;
   --mat-form-field-filled-error-focus-label-text-color: #c62828;
   --mat-form-field-filled-error-label-text-color: #c62828;
   --mat-form-field-filled-error-caret-color: #c62828;
-  --mat-form-field-filled-active-indicator-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-filled-disabled-active-indicator-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
+  --mat-form-field-filled-active-indicator-color: rgba(255, 255, 255, 0.42);
+  --mat-form-field-filled-disabled-active-indicator-color: rgba(255, 255, 255, 0.06);
   --mat-form-field-filled-hover-active-indicator-color: rgba(255, 255, 255, 0.87);
   --mat-form-field-filled-error-active-indicator-color: #c62828;
   --mat-form-field-filled-error-focus-active-indicator-color: #c62828;
   --mat-form-field-filled-error-hover-active-indicator-color: #c62828;
-  --mat-form-field-outlined-label-text-color: rgba(255, 255, 255, 0.7);
-  --mat-form-field-outlined-hover-label-text-color: rgba(255, 255, 255, 0.87);
-  --mat-form-field-outlined-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-form-field-outlined-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-outlined-hover-label-text-color: rgba(255, 255, 255, 0.6);
+  --mat-form-field-outlined-disabled-label-text-color: rgba(255, 255, 255, 0.38);
   --mat-form-field-outlined-input-text-color: rgba(255, 255, 255, 0.87);
-  --mat-form-field-outlined-disabled-input-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-form-field-outlined-input-text-placeholder-color: rgba(255, 255, 255, 0.7);
+  --mat-form-field-outlined-disabled-input-text-color: rgba(255, 255, 255, 0.38);
+  --mat-form-field-outlined-input-text-placeholder-color: rgba(255, 255, 255, 0.6);
   --mat-form-field-outlined-error-caret-color: #c62828;
   --mat-form-field-outlined-error-focus-label-text-color: #c62828;
   --mat-form-field-outlined-error-label-text-color: #c62828;
   --mat-form-field-outlined-error-hover-label-text-color: #c62828;
   --mat-form-field-outlined-outline-color: rgba(255, 255, 255, 0.38);
-  --mat-form-field-outlined-disabled-outline-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
+  --mat-form-field-outlined-disabled-outline-color: rgba(255, 255, 255, 0.06);
   --mat-form-field-outlined-hover-outline-color: rgba(255, 255, 255, 0.87);
   --mat-form-field-outlined-error-focus-outline-color: #c62828;
   --mat-form-field-outlined-error-hover-outline-color: #c62828;
@@ -2909,52 +2920,52 @@ html:where([data-theme=darkblue]) {
   --mat-select-enabled-trigger-text-color: rgba(255, 255, 255, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(255, 255, 255, 0.7);
-  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-select-focused-arrow-color: #00897b;
   --mat-select-invalid-arrow-color: #c62828;
   --mat-autocomplete-background-color: #37474f;
   --mat-dialog-container-color: #37474f;
   --mat-dialog-subhead-color: rgba(255, 255, 255, 0.87);
   --mat-dialog-supporting-text-color: rgba(255, 255, 255, 0.7);
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #00897b;
-  --mat-slide-toggle-selected-handle-color: #00897b;
-  --mat-slide-toggle-selected-hover-state-layer-color: #00897b;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #00897b;
-  --mat-slide-toggle-selected-focus-handle-color: #00897b;
-  --mat-slide-toggle-selected-hover-handle-color: #00897b;
-  --mat-slide-toggle-selected-pressed-handle-color: #00897b;
+  --mat-slide-toggle-selected-icon-color: #212121;
+  --mat-slide-toggle-disabled-selected-icon-color: #212121;
+  --mat-slide-toggle-selected-focus-state-layer-color: #26a69a;
+  --mat-slide-toggle-selected-handle-color: #26a69a;
+  --mat-slide-toggle-selected-hover-state-layer-color: #26a69a;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #26a69a;
+  --mat-slide-toggle-selected-focus-handle-color: #26a69a;
+  --mat-slide-toggle-selected-hover-handle-color: #26a69a;
+  --mat-slide-toggle-selected-pressed-handle-color: #26a69a;
   --mat-slide-toggle-selected-focus-track-color: #00897b;
   --mat-slide-toggle-selected-hover-track-color: #00897b;
   --mat-slide-toggle-selected-pressed-track-color: #00897b;
   --mat-slide-toggle-selected-track-color: #00897b;
   --mat-slide-toggle-disabled-unselected-track-outline-color: transparent;
-  --mat-slide-toggle-selected-track-outline-color: transparent;
+  --mat-slide-toggle-selected-track-outline-color: currentColor;
   --mat-slide-toggle-track-outline-color: transparent;
-  --mat-slide-toggle-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
-  --mat-slide-toggle-disabled-handle-elevation-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.2), 0px 0px 0px 0px rgba(0, 0, 0, 0.14), 0px 0px 0px 0px rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-disabled-selected-handle-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-disabled-selected-track-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-disabled-unselected-handle-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-disabled-unselected-icon-color: #455a64;
-  --mat-slide-toggle-disabled-unselected-track-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-handle-elevation-shadow: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
-  --mat-slide-toggle-handle-surface-color: #37474f;
+  --mat-slide-toggle-disabled-label-text-color: rgba(255, 255, 255, 0.5);
+  --mat-slide-toggle-disabled-handle-elevation-shadow: none;
+  --mat-slide-toggle-disabled-selected-handle-color: #424242;
+  --mat-slide-toggle-disabled-selected-track-color: #f5f5f5;
+  --mat-slide-toggle-disabled-unselected-handle-color: #424242;
+  --mat-slide-toggle-disabled-unselected-icon-color: #212121;
+  --mat-slide-toggle-disabled-unselected-track-color: #f5f5f5;
+  --mat-slide-toggle-handle-elevation-shadow: none;
+  --mat-slide-toggle-handle-surface-color: transparent;
   --mat-slide-toggle-label-text-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-hover-handle-color: white;
-  --mat-slide-toggle-unselected-focus-handle-color: white;
-  --mat-slide-toggle-unselected-focus-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-focus-track-color: rgba(255, 255, 255, 0.12);
-  --mat-slide-toggle-unselected-icon-color: #455a64;
-  --mat-slide-toggle-unselected-handle-color: rgba(255, 255, 255, 0.7);
-  --mat-slide-toggle-unselected-hover-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-hover-track-color: rgba(255, 255, 255, 0.12);
-  --mat-slide-toggle-unselected-pressed-handle-color: white;
-  --mat-slide-toggle-unselected-pressed-track-color: rgba(255, 255, 255, 0.12);
-  --mat-slide-toggle-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-slide-toggle-unselected-track-color: rgba(255, 255, 255, 0.12);
+  --mat-slide-toggle-unselected-hover-handle-color: #fafafa;
+  --mat-slide-toggle-unselected-focus-handle-color: #fafafa;
+  --mat-slide-toggle-unselected-focus-state-layer-color: #f5f5f5;
+  --mat-slide-toggle-unselected-focus-track-color: #616161;
+  --mat-slide-toggle-unselected-icon-color: #212121;
+  --mat-slide-toggle-unselected-handle-color: #9e9e9e;
+  --mat-slide-toggle-unselected-hover-state-layer-color: #f5f5f5;
+  --mat-slide-toggle-unselected-hover-track-color: #616161;
+  --mat-slide-toggle-unselected-pressed-handle-color: #fafafa;
+  --mat-slide-toggle-unselected-pressed-track-color: #616161;
+  --mat-slide-toggle-unselected-pressed-state-layer-color: #f5f5f5;
+  --mat-slide-toggle-unselected-track-color: #616161;
   --mat-slider-active-track-color: #00897b;
   --mat-slider-focus-handle-color: #00897b;
   --mat-slider-handle-color: #00897b;
@@ -2965,7 +2976,7 @@ html:where([data-theme=darkblue]) {
   --mat-slider-ripple-color: #00897b;
   --mat-slider-with-tick-marks-active-container-color: white;
   --mat-slider-with-tick-marks-inactive-container-color: #00897b;
-  --mat-slider-handle-elevation: 0px 2px 1px -1px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 1px 3px 0px rgba(0, 0, 0, 0.12);
+  --mat-slider-handle-elevation: none;
   --mat-slider-disabled-active-track-color: rgba(255, 255, 255, 0.87);
   --mat-slider-disabled-handle-color: rgba(255, 255, 255, 0.87);
   --mat-slider-disabled-inactive-track-color: rgba(255, 255, 255, 0.87);
@@ -3024,8 +3035,8 @@ html:where([data-theme=darkblue]) {
   --mat-checkbox-unselected-hover-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-button-filled-container-color: #37474f;
-  --mat-button-filled-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-button-filled-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-filled-disabled-container-color: rgba(255, 255, 255, 0.12);
+  --mat-button-filled-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-filled-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-filled-focus-state-layer-opacity: 0.12;
   --mat-button-filled-hover-state-layer-opacity: 0.04;
@@ -3033,7 +3044,7 @@ html:where([data-theme=darkblue]) {
   --mat-button-filled-pressed-state-layer-opacity: 0.12;
   --mat-button-filled-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-filled-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-button-outlined-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-outlined-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-outlined-disabled-outline-color: rgba(255, 255, 255, 0.12);
   --mat-button-outlined-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-outlined-focus-state-layer-opacity: 0.12;
@@ -3044,8 +3055,8 @@ html:where([data-theme=darkblue]) {
   --mat-button-outlined-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-outlined-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-button-protected-container-color: #37474f;
-  --mat-button-protected-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-button-protected-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-protected-disabled-container-color: rgba(255, 255, 255, 0.12);
+  --mat-button-protected-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-protected-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-protected-focus-state-layer-opacity: 0.12;
   --mat-button-protected-hover-state-layer-opacity: 0.04;
@@ -3053,7 +3064,7 @@ html:where([data-theme=darkblue]) {
   --mat-button-protected-pressed-state-layer-opacity: 0.12;
   --mat-button-protected-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-protected-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-button-text-disabled-label-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-button-text-disabled-label-text-color: rgba(255, 255, 255, 0.5);
   --mat-button-text-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-button-text-focus-state-layer-opacity: 0.12;
   --mat-button-text-hover-state-layer-opacity: 0.04;
@@ -3071,7 +3082,7 @@ html:where([data-theme=darkblue]) {
   --mat-button-tonal-pressed-state-layer-opacity: 0.12;
   --mat-button-tonal-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-button-tonal-state-layer-color: rgba(255, 255, 255, 0.87);
-  --mat-icon-button-disabled-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-icon-button-disabled-icon-color: rgba(255, 255, 255, 0.38);
   --mat-icon-button-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-icon-button-focus-state-layer-opacity: 0.12;
   --mat-icon-button-hover-state-layer-opacity: 0.04;
@@ -3092,8 +3103,8 @@ html:where([data-theme=darkblue]) {
   --mat-fab-small-focus-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-fab-small-hover-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-fab-small-pressed-container-elevation-shadow: 0px 7px 8px -4px rgba(0, 0, 0, 0.2), 0px 12px 17px 2px rgba(0, 0, 0, 0.14), 0px 5px 22px 4px rgba(0, 0, 0, 0.12);
-  --mat-fab-disabled-state-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-fab-disabled-state-foreground-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-fab-disabled-state-container-color: rgba(120, 144, 156, 0.12);
+  --mat-fab-disabled-state-foreground-color: rgba(255, 255, 255, 0.5);
   --mat-fab-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-fab-focus-state-layer-opacity: 0.12;
   --mat-fab-foreground-color: rgba(255, 255, 255, 0.87);
@@ -3101,8 +3112,8 @@ html:where([data-theme=darkblue]) {
   --mat-fab-pressed-state-layer-opacity: 0.12;
   --mat-fab-ripple-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-fab-small-container-color: #37474f;
-  --mat-fab-small-disabled-state-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-fab-small-disabled-state-foreground-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-fab-small-disabled-state-container-color: rgba(120, 144, 156, 0.12);
+  --mat-fab-small-disabled-state-foreground-color: rgba(255, 255, 255, 0.5);
   --mat-fab-small-disabled-state-layer-color: rgba(255, 255, 255, 0.7);
   --mat-fab-small-focus-state-layer-opacity: 0.12;
   --mat-fab-small-foreground-color: rgba(255, 255, 255, 0.87);
@@ -3119,8 +3130,8 @@ html:where([data-theme=darkblue]) {
   --mat-table-row-item-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-table-row-item-outline-color: rgba(255, 255, 255, 0.12);
   --mat-progress-spinner-active-indicator-color: #00897b;
-  --mat-badge-background-color: #00897b;
-  --mat-badge-text-color: white;
+  --mat-badge-background-color: transparent;
+  --mat-badge-text-color: inherit;
   --mat-badge-disabled-state-background-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-badge-disabled-state-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-bottom-sheet-container-text-color: rgba(255, 255, 255, 0.87);
@@ -3182,7 +3193,7 @@ html:where([data-theme=darkblue]) {
   --mat-expansion-header-text-color: rgba(255, 255, 255, 0.87);
   --mat-expansion-header-description-color: rgba(255, 255, 255, 0.7);
   --mat-expansion-header-indicator-color: rgba(255, 255, 255, 0.7);
-  --mat-icon-color: inherit;
+  --mat-icon-color: rgba(255, 255, 255, 0.7);
   --mat-sidenav-container-elevation-shadow: 0px 8px 10px -5px rgba(0, 0, 0, 0.2), 0px 16px 24px 2px rgba(0, 0, 0, 0.14), 0px 6px 30px 5px rgba(0, 0, 0, 0.12);
   --mat-sidenav-container-divider-color: rgba(255, 255, 255, 0.12);
   --mat-sidenav-container-background-color: #37474f;
@@ -3215,9 +3226,19 @@ html:where([data-theme=darkblue]) {
   --mat-tree-node-text-color: rgba(255, 255, 255, 0.87);
   --mat-timepicker-container-elevation-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
   --mat-timepicker-container-background-color: #37474f;
+  --dui-theme-primary: #00897b;
+  --dui-theme-on-primary: #ffffff;
+  --dui-theme-primary-container: rgba(0, 137, 123, 0.12);
+  --dui-theme-accent: #ef6c00;
+  --dui-theme-warn: #c62828;
+  --dui-primary-color: #00897b;
+  --dui-accent-color: #ef6c00;
+  --dui-warn-color: #c62828;
+  --dui-primary-container-color: rgba(0, 137, 123, 0.12);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=darkblue]) .mat-accent {
+html:where([data-theme='darkblue']) .mat-accent {
   --mat-option-selected-state-label-text-color: #ef6c00;
   --mat-option-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-option-hover-state-layer-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 4%, transparent);
@@ -3244,7 +3265,7 @@ html:where([data-theme=darkblue]) .mat-accent {
   --mat-progress-spinner-active-indicator-color: #ef6c00;
 }
 
-html:where([data-theme=darkblue]) .mat-warn {
+html:where([data-theme='darkblue']) .mat-warn {
   --mat-option-selected-state-label-text-color: #c62828;
   --mat-option-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-option-hover-state-layer-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 4%, transparent);
@@ -3271,7 +3292,7 @@ html:where([data-theme=darkblue]) .mat-warn {
   --mat-progress-spinner-active-indicator-color: #c62828;
 }
 
-html:where([data-theme=darkblue]) .mat-primary {
+html:where([data-theme='darkblue']) .mat-primary {
   --mat-pseudo-checkbox-full-selected-icon-color: #00897b;
   --mat-pseudo-checkbox-full-selected-checkmark-color: #263238;
   --mat-pseudo-checkbox-full-unselected-icon-color: rgba(255, 255, 255, 0.7);
@@ -3282,22 +3303,22 @@ html:where([data-theme=darkblue]) .mat-primary {
   --mat-pseudo-checkbox-minimal-disabled-selected-checkmark-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-progress-bar {
+html:where([data-theme='darkblue']) .mat-mdc-progress-bar {
   --mat-progress-bar-active-indicator-color: #00897b;
-  --mat-progress-bar-track-color: rgba(0, 137, 123, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-progress-bar.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-progress-bar.mat-accent {
   --mat-progress-bar-active-indicator-color: #ef6c00;
-  --mat-progress-bar-track-color: rgba(239, 108, 0, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-progress-bar.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-progress-bar.mat-warn {
   --mat-progress-bar-active-indicator-color: #c62828;
-  --mat-progress-bar-track-color: rgba(198, 40, 40, 0.25);
+  --mat-progress-bar-track-color: transparent;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-form-field.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-form-field.mat-accent {
   --mat-form-field-focus-select-arrow-color: color-mix(in srgb, #ef6c00 87%, transparent);
   --mat-form-field-filled-caret-color: #ef6c00;
   --mat-form-field-filled-focus-active-indicator-color: #ef6c00;
@@ -3309,13 +3330,13 @@ html:where([data-theme=darkblue]) .mat-mdc-form-field.mat-accent {
   --mat-select-enabled-trigger-text-color: rgba(255, 255, 255, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(255, 255, 255, 0.7);
-  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-select-focused-arrow-color: #ef6c00;
   --mat-select-invalid-arrow-color: #c62828;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-form-field.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-form-field.mat-warn {
   --mat-form-field-focus-select-arrow-color: color-mix(in srgb, #c62828 87%, transparent);
   --mat-form-field-filled-caret-color: #c62828;
   --mat-form-field-filled-focus-active-indicator-color: #c62828;
@@ -3327,17 +3348,17 @@ html:where([data-theme=darkblue]) .mat-mdc-form-field.mat-warn {
   --mat-select-enabled-trigger-text-color: rgba(255, 255, 255, 0.87);
   --mat-select-disabled-trigger-text-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-select-placeholder-text-color: rgba(255, 255, 255, 0.7);
-  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.7);
-  --mat-select-disabled-arrow-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
+  --mat-select-enabled-arrow-color: rgba(255, 255, 255, 0.54);
+  --mat-select-disabled-arrow-color: rgba(255, 255, 255, 0.38);
   --mat-select-focused-arrow-color: #c62828;
   --mat-select-invalid-arrow-color: #c62828;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-standard-chip {
+html:where([data-theme='darkblue']) .mat-mdc-standard-chip {
   --mat-chip-disabled-label-text-color: rgba(255, 255, 255, 0.87);
-  --mat-chip-elevated-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-chip-elevated-disabled-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
-  --mat-chip-elevated-selected-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
+  --mat-chip-elevated-container-color: #455a64;
+  --mat-chip-elevated-disabled-container-color: #455a64;
+  --mat-chip-elevated-selected-container-color: #455a64;
   --mat-chip-flat-disabled-selected-container-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 12%, transparent);
   --mat-chip-focus-state-layer-color: rgba(255, 255, 255, 0.87);
   --mat-chip-focus-state-layer-opacity: 0.12;
@@ -3356,39 +3377,39 @@ html:where([data-theme=darkblue]) .mat-mdc-standard-chip {
   --mat-chip-with-trailing-icon-trailing-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-slide-toggle.mat-accent {
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-hover-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #ef6c00;
-  --mat-slide-toggle-selected-focus-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-hover-handle-color: #ef6c00;
-  --mat-slide-toggle-selected-pressed-handle-color: #ef6c00;
+html:where([data-theme='darkblue']) .mat-mdc-slide-toggle.mat-accent {
+  --mat-slide-toggle-selected-icon-color: #212121;
+  --mat-slide-toggle-disabled-selected-icon-color: #212121;
+  --mat-slide-toggle-selected-focus-state-layer-color: #ffa726;
+  --mat-slide-toggle-selected-handle-color: #ffa726;
+  --mat-slide-toggle-selected-hover-state-layer-color: #ffa726;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #ffa726;
+  --mat-slide-toggle-selected-focus-handle-color: #ffa726;
+  --mat-slide-toggle-selected-hover-handle-color: #ffa726;
+  --mat-slide-toggle-selected-pressed-handle-color: #ffa726;
   --mat-slide-toggle-selected-focus-track-color: #fb8c00;
   --mat-slide-toggle-selected-hover-track-color: #fb8c00;
   --mat-slide-toggle-selected-pressed-track-color: #fb8c00;
   --mat-slide-toggle-selected-track-color: #fb8c00;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-slide-toggle.mat-warn {
-  --mat-slide-toggle-selected-icon-color: white;
-  --mat-slide-toggle-disabled-selected-icon-color: white;
-  --mat-slide-toggle-selected-focus-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-handle-color: #c62828;
-  --mat-slide-toggle-selected-hover-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-pressed-state-layer-color: #c62828;
-  --mat-slide-toggle-selected-focus-handle-color: #c62828;
-  --mat-slide-toggle-selected-hover-handle-color: #c62828;
-  --mat-slide-toggle-selected-pressed-handle-color: #c62828;
+html:where([data-theme='darkblue']) .mat-mdc-slide-toggle.mat-warn {
+  --mat-slide-toggle-selected-icon-color: #212121;
+  --mat-slide-toggle-disabled-selected-icon-color: #212121;
+  --mat-slide-toggle-selected-focus-state-layer-color: #ef5350;
+  --mat-slide-toggle-selected-handle-color: #ef5350;
+  --mat-slide-toggle-selected-hover-state-layer-color: #ef5350;
+  --mat-slide-toggle-selected-pressed-state-layer-color: #ef5350;
+  --mat-slide-toggle-selected-focus-handle-color: #ef5350;
+  --mat-slide-toggle-selected-hover-handle-color: #ef5350;
+  --mat-slide-toggle-selected-pressed-handle-color: #ef5350;
   --mat-slide-toggle-selected-focus-track-color: #e53935;
   --mat-slide-toggle-selected-hover-track-color: #e53935;
   --mat-slide-toggle-selected-pressed-track-color: #e53935;
   --mat-slide-toggle-selected-track-color: #e53935;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-radio-button.mat-primary {
+html:where([data-theme='darkblue']) .mat-mdc-radio-button.mat-primary {
   --mat-radio-checked-ripple-color: #00897b;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -3405,7 +3426,7 @@ html:where([data-theme=darkblue]) .mat-mdc-radio-button.mat-primary {
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-radio-button.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-radio-button.mat-accent {
   --mat-radio-checked-ripple-color: #ef6c00;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -3422,7 +3443,7 @@ html:where([data-theme=darkblue]) .mat-mdc-radio-button.mat-accent {
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-radio-button.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-radio-button.mat-warn {
   --mat-radio-checked-ripple-color: #c62828;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -3439,7 +3460,7 @@ html:where([data-theme=darkblue]) .mat-mdc-radio-button.mat-warn {
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mdc-list-item__start, html:where([data-theme=darkblue]) .mdc-list-item__end {
+html:where([data-theme='darkblue']) .mdc-list-item__start, html:where([data-theme='darkblue']) .mdc-list-item__end {
   --mat-radio-checked-ripple-color: #00897b;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -3456,7 +3477,7 @@ html:where([data-theme=darkblue]) .mdc-list-item__start, html:where([data-theme=
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-accent .mdc-list-item__start, html:where([data-theme=darkblue]) .mat-accent .mdc-list-item__end {
+html:where([data-theme='darkblue']) .mat-accent .mdc-list-item__start, html:where([data-theme='darkblue']) .mat-accent .mdc-list-item__end {
   --mat-radio-checked-ripple-color: #ef6c00;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -3473,7 +3494,7 @@ html:where([data-theme=darkblue]) .mat-accent .mdc-list-item__start, html:where(
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-warn .mdc-list-item__start, html:where([data-theme=darkblue]) .mat-warn .mdc-list-item__end {
+html:where([data-theme='darkblue']) .mat-warn .mdc-list-item__start, html:where([data-theme='darkblue']) .mat-warn .mdc-list-item__end {
   --mat-radio-checked-ripple-color: #c62828;
   --mat-radio-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-radio-disabled-selected-icon-color: rgba(255, 255, 255, 0.87);
@@ -3490,7 +3511,7 @@ html:where([data-theme=darkblue]) .mat-warn .mdc-list-item__start, html:where([d
   --mat-radio-unselected-pressed-icon-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-list-option {
+html:where([data-theme='darkblue']) .mat-mdc-list-option {
   --mat-checkbox-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -3510,7 +3531,7 @@ html:where([data-theme=darkblue]) .mat-mdc-list-option {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-list-option.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-list-option.mat-accent {
   --mat-checkbox-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -3530,7 +3551,7 @@ html:where([data-theme=darkblue]) .mat-mdc-list-option.mat-accent {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-list-option.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-list-option.mat-warn {
   --mat-checkbox-disabled-label-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-label-text-color: rgba(255, 255, 255, 0.87);
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
@@ -3550,15 +3571,15 @@ html:where([data-theme=darkblue]) .mat-mdc-list-option.mat-warn {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__primary-text, html:where([data-theme=darkblue]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__start, html:where([data-theme=darkblue]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text, html:where([data-theme=darkblue]) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__start {
+html:where([data-theme='darkblue']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__primary-text, html:where([data-theme='darkblue']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--selected .mdc-list-item__start, html:where([data-theme='darkblue']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__primary-text, html:where([data-theme='darkblue']) .mat-mdc-list-base.mat-mdc-list-base .mdc-list-item--activated .mdc-list-item__start {
   color: #00897b;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__start, html:where([data-theme=darkblue]) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content, html:where([data-theme=darkblue]) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end {
+html:where([data-theme='darkblue']) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__start, html:where([data-theme='darkblue']) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content, html:where([data-theme='darkblue']) .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end {
   opacity: 1;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-tab-group, html:where([data-theme=darkblue]) .mat-mdc-tab-nav-bar {
+html:where([data-theme='darkblue']) .mat-mdc-tab-group, html:where([data-theme='darkblue']) .mat-mdc-tab-nav-bar {
   --mat-tab-disabled-ripple-color: rgba(255, 255, 255, 0.7);
   --mat-tab-pagination-icon-color: rgba(255, 255, 255, 0.87);
   --mat-tab-inactive-label-text-color: rgba(255, 255, 255, 0.7);
@@ -3574,7 +3595,7 @@ html:where([data-theme=darkblue]) .mat-mdc-tab-group, html:where([data-theme=dar
   --mat-tab-active-indicator-color: #00897b;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-accent, html:where([data-theme=darkblue]) .mat-mdc-tab-nav-bar.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-tab-group.mat-accent, html:where([data-theme='darkblue']) .mat-mdc-tab-nav-bar.mat-accent {
   --mat-tab-disabled-ripple-color: rgba(255, 255, 255, 0.7);
   --mat-tab-pagination-icon-color: rgba(255, 255, 255, 0.87);
   --mat-tab-inactive-label-text-color: rgba(255, 255, 255, 0.7);
@@ -3590,7 +3611,7 @@ html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-accent, html:where([dat
   --mat-tab-active-indicator-color: #ef6c00;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-warn, html:where([data-theme=darkblue]) .mat-mdc-tab-nav-bar.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-tab-group.mat-warn, html:where([data-theme='darkblue']) .mat-mdc-tab-nav-bar.mat-warn {
   --mat-tab-disabled-ripple-color: rgba(255, 255, 255, 0.7);
   --mat-tab-pagination-icon-color: rgba(255, 255, 255, 0.87);
   --mat-tab-inactive-label-text-color: rgba(255, 255, 255, 0.7);
@@ -3606,22 +3627,22 @@ html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-warn, html:where([data-
   --mat-tab-active-indicator-color: #c62828;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-background-primary, html:where([data-theme=darkblue]) .mat-mdc-tab-nav-bar.mat-background-primary {
+html:where([data-theme='darkblue']) .mat-mdc-tab-group.mat-background-primary, html:where([data-theme='darkblue']) .mat-mdc-tab-nav-bar.mat-background-primary {
   --mat-tab-background-color: #00897b;
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-background-accent, html:where([data-theme=darkblue]) .mat-mdc-tab-nav-bar.mat-background-accent {
+html:where([data-theme='darkblue']) .mat-mdc-tab-group.mat-background-accent, html:where([data-theme='darkblue']) .mat-mdc-tab-nav-bar.mat-background-accent {
   --mat-tab-background-color: #ef6c00;
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-tab-group.mat-background-warn, html:where([data-theme=darkblue]) .mat-mdc-tab-nav-bar.mat-background-warn {
+html:where([data-theme='darkblue']) .mat-mdc-tab-group.mat-background-warn, html:where([data-theme='darkblue']) .mat-mdc-tab-nav-bar.mat-background-warn {
   --mat-tab-background-color: #c62828;
   --mat-tab-foreground-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-checkbox.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-checkbox.mat-warn {
   --mat-checkbox-disabled-selected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-disabled-unselected-icon-color: color-mix(in srgb, rgba(255, 255, 255, 0.87) 38%, transparent);
   --mat-checkbox-selected-checkmark-color: white;
@@ -3639,9 +3660,9 @@ html:where([data-theme=darkblue]) .mat-mdc-checkbox.mat-warn {
   --mat-checkbox-unselected-pressed-state-layer-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-button.mat-primary, html:where([data-theme=darkblue]) .mat-mdc-unelevated-button.mat-primary, html:where([data-theme=darkblue]) .mat-mdc-raised-button.mat-primary, html:where([data-theme=darkblue]) .mat-mdc-outlined-button.mat-primary, html:where([data-theme=darkblue]) .mat-tonal-button.mat-primary {
+html:where([data-theme='darkblue']) .mat-mdc-button.mat-primary, html:where([data-theme='darkblue']) .mat-mdc-unelevated-button.mat-primary, html:where([data-theme='darkblue']) .mat-mdc-raised-button.mat-primary, html:where([data-theme='darkblue']) .mat-mdc-outlined-button.mat-primary, html:where([data-theme='darkblue']) .mat-tonal-button.mat-primary {
   --mat-button-filled-container-color: #00897b;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #00897b;
@@ -3649,7 +3670,7 @@ html:where([data-theme=darkblue]) .mat-mdc-button.mat-primary, html:where([data-
   --mat-button-outlined-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
   --mat-button-outlined-state-layer-color: #00897b;
   --mat-button-protected-container-color: #00897b;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #00897b;
@@ -3661,9 +3682,9 @@ html:where([data-theme=darkblue]) .mat-mdc-button.mat-primary, html:where([data-
   --mat-button-tonal-state-layer-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-button.mat-accent, html:where([data-theme=darkblue]) .mat-mdc-unelevated-button.mat-accent, html:where([data-theme=darkblue]) .mat-mdc-raised-button.mat-accent, html:where([data-theme=darkblue]) .mat-mdc-outlined-button.mat-accent, html:where([data-theme=darkblue]) .mat-tonal-button.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-button.mat-accent, html:where([data-theme='darkblue']) .mat-mdc-unelevated-button.mat-accent, html:where([data-theme='darkblue']) .mat-mdc-raised-button.mat-accent, html:where([data-theme='darkblue']) .mat-mdc-outlined-button.mat-accent, html:where([data-theme='darkblue']) .mat-tonal-button.mat-accent {
   --mat-button-filled-container-color: #ef6c00;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #ef6c00;
@@ -3671,7 +3692,7 @@ html:where([data-theme=darkblue]) .mat-mdc-button.mat-accent, html:where([data-t
   --mat-button-outlined-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
   --mat-button-outlined-state-layer-color: #ef6c00;
   --mat-button-protected-container-color: #ef6c00;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #ef6c00;
@@ -3683,9 +3704,9 @@ html:where([data-theme=darkblue]) .mat-mdc-button.mat-accent, html:where([data-t
   --mat-button-tonal-state-layer-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-button.mat-warn, html:where([data-theme=darkblue]) .mat-mdc-unelevated-button.mat-warn, html:where([data-theme=darkblue]) .mat-mdc-raised-button.mat-warn, html:where([data-theme=darkblue]) .mat-mdc-outlined-button.mat-warn, html:where([data-theme=darkblue]) .mat-tonal-button.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-button.mat-warn, html:where([data-theme='darkblue']) .mat-mdc-unelevated-button.mat-warn, html:where([data-theme='darkblue']) .mat-mdc-raised-button.mat-warn, html:where([data-theme='darkblue']) .mat-mdc-outlined-button.mat-warn, html:where([data-theme='darkblue']) .mat-tonal-button.mat-warn {
   --mat-button-filled-container-color: #c62828;
-  --mat-button-filled-label-text-color: white;
+  --mat-button-filled-label-text-color: #ffffff;
   --mat-button-filled-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-filled-state-layer-color: white;
   --mat-button-outlined-label-text-color: #c62828;
@@ -3693,7 +3714,7 @@ html:where([data-theme=darkblue]) .mat-mdc-button.mat-warn, html:where([data-the
   --mat-button-outlined-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
   --mat-button-outlined-state-layer-color: #c62828;
   --mat-button-protected-container-color: #c62828;
-  --mat-button-protected-label-text-color: white;
+  --mat-button-protected-label-text-color: #ffffff;
   --mat-button-protected-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-button-protected-state-layer-color: white;
   --mat-button-text-label-text-color: #c62828;
@@ -3705,58 +3726,58 @@ html:where([data-theme=darkblue]) .mat-mdc-button.mat-warn, html:where([data-the
   --mat-button-tonal-state-layer-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-icon-button.mat-primary {
+html:where([data-theme='darkblue']) .mat-mdc-icon-button.mat-primary {
   --mat-icon-button-icon-color: #00897b;
   --mat-icon-button-state-layer-color: #00897b;
   --mat-icon-button-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-icon-button.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-icon-button.mat-accent {
   --mat-icon-button-icon-color: #ef6c00;
   --mat-icon-button-state-layer-color: #ef6c00;
   --mat-icon-button-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-icon-button.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-icon-button.mat-warn {
   --mat-icon-button-icon-color: #c62828;
   --mat-icon-button-state-layer-color: #c62828;
   --mat-icon-button-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-fab.mat-primary, html:where([data-theme=darkblue]) .mat-mdc-mini-fab.mat-primary {
+html:where([data-theme='darkblue']) .mat-mdc-fab.mat-primary, html:where([data-theme='darkblue']) .mat-mdc-mini-fab.mat-primary {
   --mat-fab-container-color: #00897b;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #00897b 12%, transparent);
   --mat-fab-small-container-color: #00897b;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-fab.mat-accent, html:where([data-theme=darkblue]) .mat-mdc-mini-fab.mat-accent {
+html:where([data-theme='darkblue']) .mat-mdc-fab.mat-accent, html:where([data-theme='darkblue']) .mat-mdc-mini-fab.mat-accent {
   --mat-fab-container-color: #ef6c00;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #ef6c00 12%, transparent);
   --mat-fab-small-container-color: #ef6c00;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-mdc-fab.mat-warn, html:where([data-theme=darkblue]) .mat-mdc-mini-fab.mat-warn {
+html:where([data-theme='darkblue']) .mat-mdc-fab.mat-warn, html:where([data-theme='darkblue']) .mat-mdc-mini-fab.mat-warn {
   --mat-fab-container-color: #c62828;
-  --mat-fab-foreground-color: white;
+  --mat-fab-foreground-color: #ffffff;
   --mat-fab-ripple-color: color-mix(in srgb, #c62828 12%, transparent);
   --mat-fab-small-container-color: #c62828;
-  --mat-fab-small-foreground-color: white;
+  --mat-fab-small-foreground-color: #ffffff;
   --mat-fab-small-ripple-color: color-mix(in srgb, white 12%, transparent);
   --mat-fab-small-state-layer-color: white;
   --mat-fab-state-layer-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-datepicker-content.mat-accent, html:where([data-theme=darkblue]) .mat-datepicker-toggle-active.mat-accent {
+html:where([data-theme='darkblue']) .mat-datepicker-content.mat-accent, html:where([data-theme='darkblue']) .mat-datepicker-toggle-active.mat-accent {
   --mat-datepicker-calendar-date-in-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
@@ -3788,7 +3809,7 @@ html:where([data-theme=darkblue]) .mat-datepicker-content.mat-accent, html:where
   --mat-datepicker-calendar-container-text-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-datepicker-content.mat-warn, html:where([data-theme=darkblue]) .mat-datepicker-toggle-active.mat-warn {
+html:where([data-theme='darkblue']) .mat-datepicker-content.mat-warn, html:where([data-theme='darkblue']) .mat-datepicker-toggle-active.mat-warn {
   --mat-datepicker-calendar-date-in-range-state-background-color: color-mix(in srgb, #c62828 20%, transparent);
   --mat-datepicker-calendar-date-in-comparison-range-state-background-color: color-mix(in srgb, #ef6c00 20%, transparent);
   --mat-datepicker-calendar-date-in-overlap-range-state-background-color: #a8dab5;
@@ -3820,19 +3841,19 @@ html:where([data-theme=darkblue]) .mat-datepicker-content.mat-warn, html:where([
   --mat-datepicker-calendar-container-text-color: rgba(255, 255, 255, 0.87);
 }
 
-html:where([data-theme=darkblue]) .mat-icon.mat-primary {
+html:where([data-theme='darkblue']) .mat-icon.mat-primary {
   --mat-icon-color: #00897b;
 }
 
-html:where([data-theme=darkblue]) .mat-icon.mat-accent {
+html:where([data-theme='darkblue']) .mat-icon.mat-accent {
   --mat-icon-color: #ef6c00;
 }
 
-html:where([data-theme=darkblue]) .mat-icon.mat-warn {
+html:where([data-theme='darkblue']) .mat-icon.mat-warn {
   --mat-icon-color: #c62828;
 }
 
-html:where([data-theme=darkblue]) .mat-step-header.mat-accent {
+html:where([data-theme='darkblue']) .mat-step-header.mat-accent {
   --mat-stepper-header-icon-foreground-color: white;
   --mat-stepper-header-selected-state-icon-background-color: #ef6c00;
   --mat-stepper-header-selected-state-icon-foreground-color: white;
@@ -3842,7 +3863,7 @@ html:where([data-theme=darkblue]) .mat-step-header.mat-accent {
   --mat-stepper-header-edit-state-icon-foreground-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-step-header.mat-warn {
+html:where([data-theme='darkblue']) .mat-step-header.mat-warn {
   --mat-stepper-header-icon-foreground-color: white;
   --mat-stepper-header-selected-state-icon-background-color: #c62828;
   --mat-stepper-header-selected-state-icon-foreground-color: white;
@@ -3852,17 +3873,17 @@ html:where([data-theme=darkblue]) .mat-step-header.mat-warn {
   --mat-stepper-header-edit-state-icon-foreground-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-toolbar.mat-primary {
+html:where([data-theme='darkblue']) .mat-toolbar.mat-primary {
   --mat-toolbar-container-background-color: #00897b;
   --mat-toolbar-container-text-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-toolbar.mat-accent {
+html:where([data-theme='darkblue']) .mat-toolbar.mat-accent {
   --mat-toolbar-container-background-color: #ef6c00;
   --mat-toolbar-container-text-color: white;
 }
 
-html:where([data-theme=darkblue]) .mat-toolbar.mat-warn {
+html:where([data-theme='darkblue']) .mat-toolbar.mat-warn {
   --mat-toolbar-container-background-color: #c62828;
   --mat-toolbar-container-text-color: white;
 }

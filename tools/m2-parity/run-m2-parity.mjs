@@ -4,10 +4,11 @@
  *
  * 严格覆盖第三轮返工 T1 / T4-1 / G2 全部要求：
  *   1. 全覆盖 16 类组件（按钮、图标按钮、FAB、表单字段、选择框、复选框、开关、滑块、进度条、
- *      徽标、卡片、标签页、列表、表格、菜单弹层、对话框弹层）及禁用态、纸片、展开面板与字阶类（共 59 个采样目标）；
+ *      徽标、卡片、标签页、列表、表格、菜单弹层、对话框弹层）及禁用态容器、下划线伪元素、
+ *      开关轨道/滑块伪元素与阴影、进度条缓冲轨道、展开面板箭头伪元素与字阶类（共 68 个采样目标）；
  *   2. 3 套底色（light/dark/darkblue）× 3 档密度（loose/normal/compact）× 3 套调色板 = 27 组合；
- *   3. 54 张全页截图像素比对 + 对全部 59 个目标元素遍历 Array.from(getComputedStyle(el))
- *      全部标准 CSS 属性（每组合约 28,438 项，27 组合共约 767,826 项）逐属性按值对比（颜色容差严格 RGB <= ±1）；
+ *   3. 54 张全页截图像素比对 + 对全部 68 个目标元素/伪元素遍历 Array.from(getComputedStyle(el, pseudo))
+ *      全部标准 CSS 属性逐属性按值对比（颜色容差严格 RGB <= ±1，alpha <= ±0.01）；
  *   4. 6 轮运行时连续切换（覆盖 light <-> dark <-> darkblue、compact <-> normal <-> loose、多套调色板及 fill/outline）
  *      与写入 localStorage 冷启动刷新后的全量 getComputedStyle 逐属性严格零差异（0 mismatch）；
  *   5. 严禁按 (target, prop) 通配豁免：跨版本 Material 18 -> 22 组件底层基础 CSS 差异必须逐项精确校验
@@ -342,7 +343,7 @@ const PALETTES = [
 ];
 
 /**
- * Full 16-category target manifest (59 elements total).
+ * Full 16-category target manifest (68 elements & pseudo-elements total).
  * Menu & Dialog elements are sampled while live overlays are opened in DOM.
  */
 const PARITY_TARGETS = [
@@ -364,30 +365,38 @@ const PARITY_TARGETS = [
   { key: 'btnFabPrimary', category: '3-fab', sel: '[data-parity="btn-fab-primary"]' },
   { key: 'btnFabAccent', category: '3-fab', sel: '[data-parity="btn-fab-accent"]' },
   { key: 'btnFabDisabled', category: '3-fab', sel: '[data-parity="btn-fab-disabled"]' },
-  // 4. 表单字段 (form-field)
+  // 4. 表单字段 (form-field — 含禁用容器与底部指示线伪元素)
   { key: 'ffFillWrapper', category: '4-form-field', sel: '[data-parity="ff-fill"] .mat-mdc-text-field-wrapper' },
+  { key: 'ffFillLineRippleBefore', category: '4-form-field', sel: '[data-parity="ff-fill"] .mdc-line-ripple', pseudo: '::before' },
   { key: 'inputFill', category: '4-form-field', sel: '[data-parity="input-fill"]' },
   { key: 'ffOutlineWrapper', category: '4-form-field', sel: '[data-parity="ff-outline"] .mat-mdc-text-field-wrapper' },
   { key: 'inputOutline', category: '4-form-field', sel: '[data-parity="input-outline"]' },
+  { key: 'ffDisabledWrapper', category: '4-form-field', sel: '[data-parity="ff-disabled"] .mat-mdc-text-field-wrapper' },
+  { key: 'ffDisabledLineRippleBefore', category: '4-form-field', sel: '[data-parity="ff-disabled"] .mdc-line-ripple', pseudo: '::before' },
   { key: 'inputDisabled', category: '4-form-field', sel: '[data-parity="input-disabled"]' },
-  // 5. 选择框 (select)
+  // 5. 选择框 (select — 含底部指示线伪元素)
   { key: 'ffSelectWrapper', category: '5-select', sel: '[data-parity="ff-select"] .mat-mdc-text-field-wrapper' },
+  { key: 'ffSelectLineRippleBefore', category: '5-select', sel: '[data-parity="ff-select"] .mdc-line-ripple', pseudo: '::before' },
   { key: 'selectTrigger', category: '5-select', sel: '[data-parity="select-control"] .mat-mdc-select-trigger' },
   { key: 'selectArrow', category: '5-select', sel: '[data-parity="select-control"] .mat-mdc-select-arrow' },
   // 6. 复选框 (checkbox)
   { key: 'checkboxPrimaryBg', category: '6-checkbox', sel: '[data-parity="checkbox-primary"] .mdc-checkbox__background' },
   { key: 'checkboxAccentBg', category: '6-checkbox', sel: '[data-parity="checkbox-accent"] .mdc-checkbox__background' },
-  // 7. 开关 (slide-toggle)
+  // 7. 开关 (slide-toggle — 含轨道/滑块 ::after 伪元素与阴影层)
   { key: 'slideToggleSwitch', category: '7-slide-toggle', sel: '[data-parity="slide-primary"] .mdc-switch' },
   { key: 'slideToggleTrack', category: '7-slide-toggle', sel: '[data-parity="slide-primary"] .mdc-switch__track' },
+  { key: 'slideToggleTrackAfter', category: '7-slide-toggle', sel: '[data-parity="slide-primary"] .mdc-switch__track', pseudo: '::after' },
   { key: 'slideToggleHandle', category: '7-slide-toggle', sel: '[data-parity="slide-primary"] .mdc-switch__handle' },
+  { key: 'slideToggleHandleAfter', category: '7-slide-toggle', sel: '[data-parity="slide-primary"] .mdc-switch__handle', pseudo: '::after' },
+  { key: 'slideToggleShadow', category: '7-slide-toggle', sel: '[data-parity="slide-primary"] .mdc-switch__shadow' },
   // 8. 滑块 (slider)
   { key: 'sliderHost', category: '8-slider', sel: '[data-parity="slider-primary"]' },
   { key: 'sliderTrackActive', category: '8-slider', sel: '[data-parity="slider-primary"] .mdc-slider__track--active_fill' },
   { key: 'sliderThumbKnob', category: '8-slider', sel: '[data-parity="slider-primary"] .mdc-slider__thumb-knob' },
-  // 9. 进度条 (progress-bar)
+  // 9. 进度条 (progress-bar — 含右侧缓冲轨道)
   { key: 'progressHost', category: '9-progress-bar', sel: '[data-parity="progress-primary"]' },
   { key: 'progressPrimaryBar', category: '9-progress-bar', sel: '[data-parity="progress-primary"] .mdc-linear-progress__bar-inner' },
+  { key: 'progressBufferBar', category: '9-progress-bar', sel: '[data-parity="progress-primary"] .mdc-linear-progress__buffer-bar' },
   // 10. 徽标 (badge)
   { key: 'badgeContent', category: '10-badge', sel: '[data-parity="badge-host"] .mat-badge-content' },
   // 11. 卡片 (card)
@@ -410,11 +419,12 @@ const PARITY_TARGETS = [
   { key: 'menuItem', category: '15-menu', sel: '.mat-mdc-menu-item', overlay: 'menu' },
   // 16. 对话框 (dialog - overlay)
   { key: 'dialogContainer', category: '16-dialog', sel: '.mat-mdc-dialog-container', overlay: 'dialog' },
-  // Chips, Expansion & M2 Typography classes
+  // Chips, Expansion (incl. indicator ::after arrow) & M2 Typography classes
   { key: 'chipUnselected', category: 'extra-chips', sel: '[data-parity="chip-unselected"]' },
   { key: 'chipSelected', category: 'extra-chips', sel: '[data-parity="chip-selected"]' },
   { key: 'expansionPanel', category: 'extra-expansion', sel: '[data-parity="expansion"]' },
   { key: 'expansionHeader', category: 'extra-expansion', sel: '[data-parity="expansion-header"]' },
+  { key: 'expansionIndicatorAfter', category: 'extra-expansion', sel: '[data-parity="expansion-header"] .mat-expansion-indicator', pseudo: '::after' },
   { key: 'typoH1', category: 'extra-typography', sel: '[data-parity="typo-h1"]' },
   { key: 'typoH2', category: 'extra-typography', sel: '[data-parity="typo-h2"]' },
   { key: 'typoH3', category: 'extra-typography', sel: '[data-parity="typo-h3"]' },
@@ -447,7 +457,6 @@ const EXACT_VALUE_CROSS_VERSION_ENTRIES = [
     prop: 'animation-delay',
     expectedRef7452: '0s',
     expectedNg22: '0.001s',
-    altExpectedNg22: ['1e-06s', '0.000001s', '1ms', '-0.001s'],
     visualImpact: '零视觉差异（1 毫秒自动填充事件触发延迟）',
     reason:
       '`@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。',
@@ -486,31 +495,16 @@ const EXACT_VALUE_CROSS_VERSION_ENTRIES = [
     prop: 'outline-width',
     expectedRef7452: '3px',
     expectedNg22: '0px',
-    altExpectedRef7452: ['1px'],
     visualImpact: '零视觉差异（非聚焦态 `outline-style: none` 下线宽不渲染）',
     reason:
       '7.4.52 非聚焦态 `outline-style: none` 下浏览器默认 `outline-width` 计算值为 `3px`；Material 22 `.mat-expansion-panel-header` 基础样式显式声明 `outline: none` 使 `outline-width` 计算值为 `0px`。',
   },
-  {
-    id: 'MAT22-EXPANSION-HEADER-LINE-HEIGHT',
-    targets: ['expansionHeader'],
-    prop: 'line-height',
-    expectedRef7452: 'normal',
-    expectedNg22ByDensity: { loose: '24px', normal: '22px', compact: '20px' },
-    altExpectedNg22: ['24px', '20px', 'normal'],
-    visualImpact: '零视觉差异（头部容器 flex 居中定高 48px/64px，内部标题几何高度完全一致）',
-    reason:
-      '7.4.52 `.mat-expansion-panel-header` 未读取 `--mat-expansion-header-text-line-height`（回退 `normal`）；Material 22 组件基础样式将其绑定至 `var(--mat-expansion-header-text-line-height)`，而头部自身为固定高度 Flex 容器，子元素位置与尺寸零变化。',
-  },
 ];
 
-function matchExactCrossVersionEntry(targetKey, prop, rVal, nVal, density) {
+function matchExactCrossVersionEntry(targetKey, prop, rVal, nVal) {
   for (const entry of EXACT_VALUE_CROSS_VERSION_ENTRIES) {
     if (!entry.targets.includes(targetKey) || entry.prop !== prop) continue;
-    const refCandidates = [entry.expectedRef7452, ...(entry.altExpectedRef7452 || [])].filter(Boolean);
-    const ng22Primary = entry.expectedNg22ByDensity ? entry.expectedNg22ByDensity[density] : entry.expectedNg22;
-    const ng22Candidates = [ng22Primary, ...(entry.altExpectedNg22 || [])].filter(Boolean);
-    if (refCandidates.includes(rVal) && ng22Candidates.includes(nVal)) {
+    if (entry.expectedRef7452 === rVal && entry.expectedNg22 === nVal) {
       return entry;
     }
   }
@@ -523,26 +517,28 @@ function buildFullProbeExpr() {
     const nextFrames = () => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
     const waitOverlaySettle = () => new Promise((r) => setTimeout(() => requestAnimationFrame(() => requestAnimationFrame(r)), 180));
 
-    function readAllStyles(sel) {
-      const el = document.querySelector(sel);
+    function readAllStyles(target) {
+      const el = document.querySelector(target.sel);
       if (!el) return { __missing: true };
-      const cs = getComputedStyle(el);
+      const cs = target.pseudo ? getComputedStyle(el, target.pseudo) : getComputedStyle(el);
       const map = {};
       for (let i = 0; i < cs.length; i++) {
         const prop = cs[i];
         if (prop.startsWith('--')) continue;
         map[prop] = cs.getPropertyValue(prop);
       }
-      const rect = el.getBoundingClientRect();
-      map.__rectHeight = String(Math.round(rect.height));
-      map.__rectWidth = String(Math.round(rect.width));
+      if (!target.pseudo) {
+        const rect = el.getBoundingClientRect();
+        map.__rectHeight = String(Math.round(rect.height));
+        map.__rectWidth = String(Math.round(rect.width));
+      }
       return map;
     }
 
     const snap = {};
     for (const t of targets) {
       if (!t.overlay) {
-        snap[t.key] = readAllStyles(t.sel);
+        snap[t.key] = readAllStyles(t);
       }
     }
 
@@ -551,7 +547,7 @@ function buildFullProbeExpr() {
       menuTrigger.click();
       await waitOverlaySettle();
       for (const t of targets.filter((x) => x.overlay === 'menu')) {
-        snap[t.key] = readAllStyles(t.sel);
+        snap[t.key] = readAllStyles(t);
       }
       const backdrop = document.querySelector('.cdk-overlay-backdrop');
       if (backdrop) backdrop.click();
@@ -563,7 +559,7 @@ function buildFullProbeExpr() {
       dlgTrigger.click();
       await waitOverlaySettle();
       for (const t of targets.filter((x) => x.overlay === 'dialog')) {
-        snap[t.key] = readAllStyles(t.sel);
+        snap[t.key] = readAllStyles(t);
       }
       if (window.__closeParityDialogs) {
         window.__closeParityDialogs();
@@ -896,7 +892,7 @@ async function main() {
                 comboExactMatches++;
                 continue;
               }
-              const entry = matchExactCrossVersionEntry(t.key, prop, rVal, nVal, density);
+              const entry = matchExactCrossVersionEntry(t.key, prop, rVal, nVal);
               if (entry) {
                 comboCrossVersionCount++;
                 crossVersionByRule[entry.id] = (crossVersionByRule[entry.id] || 0) + 1;
@@ -905,7 +901,7 @@ async function main() {
                   itemizedDiffMap.set(itemKey, {
                     ruleId: entry.id,
                     target: t.key,
-                    selector: t.sel,
+                    selector: t.pseudo ? `${t.sel}${t.pseudo}` : t.sel,
                     category: t.category,
                     prop,
                     ref7452Value: rVal,
@@ -1056,10 +1052,17 @@ async function main() {
       document.documentElement.style.fontSize = '62.5%';
       await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
       const fontSizesUnder625 = {
-        h1: getComputedStyle(document.querySelector('[data-parity="typo-h1"]')).fontSize,
         btn: getComputedStyle(document.querySelector('[data-parity="btn-flat-primary"]')).fontSize,
+        cardTitle: getComputedStyle(document.querySelector('[data-parity="card-title"]')).fontSize,
+        listItemTitle: getComputedStyle(document.querySelector('[data-parity="list-item"] .mdc-list-item__primary-text')).fontSize,
+        tableCell: getComputedStyle(document.querySelector('[data-parity="table-cell"]')).fontSize,
       };
       document.documentElement.style.fontSize = prevHtmlFontSize;
+
+      const expansionIndicatorBorderColor = getComputedStyle(
+        document.querySelector('[data-parity="expansion-header"] .mat-expansion-indicator'),
+        '::after'
+      ).borderTopColor;
 
       const zoneBtn = document.querySelector('[data-parity="zone-btn"]');
       const beforeZoneText = document.querySelector('[data-parity="zone-probe"]').textContent.trim();
@@ -1099,6 +1102,7 @@ async function main() {
         duiStyleTags: duiSheets,
         duiThemeVars,
         fontSizesUnder625PercentRoot: fontSizesUnder625,
+        expansionIndicatorBorderColor,
         zoneCheck: { beforeZoneText, afterZoneText },
         animationsCheck: {
           expansionHeights: { open: expHeightOpen, closed: expHeightClosed, reopened: expHeightReopened },
@@ -1123,6 +1127,10 @@ async function main() {
       extraChecks.duiThemeVars.primary === '#00897b' &&
       extraChecks.duiThemeVars.matSysPrimary === '' &&
       extraChecks.fontSizesUnder625PercentRoot.btn === '14px' &&
+      extraChecks.fontSizesUnder625PercentRoot.cardTitle === '20px' &&
+      extraChecks.fontSizesUnder625PercentRoot.listItemTitle === '15px' &&
+      extraChecks.fontSizesUnder625PercentRoot.tableCell === '14px' &&
+      extraChecks.expansionIndicatorBorderColor === 'rgba(0, 0, 0, 0.7)' &&
       extraChecks.zoneCheck.afterZoneText.startsWith('angular:1:') &&
       extraChecks.animationsCheck.expansionHeights.open > 20 &&
       extraChecks.animationsCheck.expansionHeights.closed === 0 &&
@@ -1176,18 +1184,19 @@ async function main() {
       `- 生成时间：\`${report.generatedAt}\``,
       `- 对照基线：\`${baselineData.refVersion}\`（\`github/master\` 提交 \`${baselineData.refCommit}\`，入库基线文件 \`${baselineFileRel}\`）`,
       `- 待测版本：\`@dotos1/dui@8.0.0-next.2\`（仓库内独立复现目录 \`${outDirRel}\`）`,
-      `- 覆盖组件大类：**16 类全覆盖**（按钮、图标按钮、FAB、表单字段、选择框、复选框、开关、滑块、进度条、徽标、卡片、标签页、列表、表格、菜单弹层、对话框弹层）+ 纸片、展开面板、字阶类（共 **${PARITY_TARGETS.length}** 个采样节点）`,
+      `- 覆盖组件大类：**16 类全覆盖**（按钮、图标按钮、FAB、表单字段、选择框、复选框、开关、滑块、进度条、徽标、卡片、标签页、列表、表格、菜单弹层、对话框弹层）+ 禁用容器、下划线伪元素、开关轨道/滑块伪元素与阴影、进度条缓冲轨道、展开面板箭头伪元素与字阶类（共 **${PARITY_TARGETS.length}** 个采样节点）`,
       `- 组合总数：**${report.summary.totalCombinations}**（\`light / dark / darkblue\` × \`loose / normal / compact\` × 3 套调色板，54 张全页实测截图位于 \`${outDirRel}/screenshots/\`）`,
       `- 颜色比对容差：**严格 \`RGB <= ±1\`、\`alpha <= ±0.01\`**（禁止按 \`(target, prop)\` 通配豁免，100% 按新旧精确属性值逐项校验）`,
-      `- 全量 \`Array.from(getComputedStyle(el))\` 逐属性比对总数：**${report.summary.totalComputedStylePropertiesChecked.toLocaleString('en-US')}** 项`,
+      `- 全量 \`Array.from(getComputedStyle(el, pseudo))\` 逐属性比对总数：**${report.summary.totalComputedStylePropertiesChecked.toLocaleString('en-US')}** 项`,
       `  - 与 \`7.4.52\` 逐值完全一致：**${report.summary.totalExactPropertyMatches.toLocaleString('en-US')}** 项（**${((report.summary.totalExactPropertyMatches / report.summary.totalComputedStylePropertiesChecked) * 100).toFixed(3)}%**）`,
-      `  - Material 18 → 22 组件底层非视觉基础 CSS 逐值确认项：**${report.summary.totalExactValueCrossVersionBaseCssDiffs.toLocaleString('en-US')}** 项（共 **${itemizedDiffList.length}** 条具体元素属性对，全部零视觉差异，见 §3 逐项清单供平台负责人确认）`,
+      `  - Material 18 → 22 组件底层基础 CSS 逐值确认项：**${report.summary.totalExactValueCrossVersionBaseCssDiffs.toLocaleString('en-US')}** 项（共 **${itemizedDiffList.length}** 条具体元素属性对，见 §3 逐项清单供平台负责人确认）`,
       `  - **未解释或偏离 \`7.4.52\` 外观的属性差异数：\`${report.summary.totalUnexplainedPropertyMismatches}\`（硬门禁必须 = 0）**`,
       `- 6 轮运行时连续切换 vs \`localStorage\` 冷启动刷新逐属性比对（T1.4）：**${report.summary.coldStartPropertiesChecked.toLocaleString('en-US')}** 项，**差异数 = \`${report.summary.coldStartMismatches}\`（严格 0 差异）**`,
       `- 54 张全页截图像素差异率（容差 \`RGB <= ±1\`）：平均 **${(report.summary.avgPixelDiffRatio * 100).toFixed(3)}%**，最大 **${(report.summary.maxPixelDiffRatio * 100).toFixed(3)}%**`,
       `- \`adoptedStyleSheets\` 数量：\`${extraChecks.adoptedStyleSheetsCount}\`（100% 恢复真实 \`<style>\` 标签注入，顺序 \`${extraChecks.duiStyleTags.map((s) => s.role).join(' -> ')}\`）`,
       `- 动态 M2 根变量校验（T4-1）：\`--dui-theme-primary=${extraChecks.duiThemeVars.primary}\`、\`--mat-sys-primary="${extraChecks.duiThemeVars.matSysPrimary}"\`（零 \`--mat-sys-*\` M3 系统变量）`,
-      `- \`html { font-size: 62.5% }\` 下组件字号防缩水校验：\`btn=${extraChecks.fontSizesUnder625PercentRoot.btn}\`、\`h1=${extraChecks.fontSizesUnder625PercentRoot.h1}\`（零 \`rem\` 缩水）`,
+      `- \`html { font-size: 62.5% }\` 下 M2 组件 \`px\` 锁定字阶防 \`rem\` 缩水校验（loose 档）：\`btn=${extraChecks.fontSizesUnder625PercentRoot.btn}\`、\`cardTitle=${extraChecks.fontSizesUnder625PercentRoot.cardTitle}\`、\`listItemTitle=${extraChecks.fontSizesUnder625PercentRoot.listItemTitle}\`、\`tableCell=${extraChecks.fontSizesUnder625PercentRoot.tableCell}\`（全部精确锁定 \`px\` 值，零 \`rem\` 缩水）`,
+      `- 折叠面板箭头伪元素颜色校验：\`.mat-expansion-indicator::after border-top-color=${extraChecks.expansionIndicatorBorderColor}\`（对齐 \`7.4.52\`，零全局裸 \`::after\` 污染）`,
       `- W1 \`Zone.js\` 异步自动刷新校验：\`${extraChecks.zoneCheck.afterZoneText}\``,
       `- W4 真实动画校验：折叠面板 \`open=${extraChecks.animationsCheck.expansionHeights.open}px -> closed=${extraChecks.animationsCheck.expansionHeights.closed}px -> reopened=${extraChecks.animationsCheck.expansionHeights.reopened}px\`，菜单高度 \`${extraChecks.animationsCheck.menuOpenHeight}px\`，弹窗打开 \`${extraChecks.animationsCheck.dialogOpened}\``,
       `- 综合结论：**${passed ? 'PASS' : 'FAIL'}**`,
@@ -1228,7 +1237,7 @@ async function main() {
       '',
       '## 3. T1.5 Material 18 → 22 组件内部底层基础 CSS 差异逐条完整清单（供平台负责人确认）',
       '',
-      '> 说明：上一轮全部用户可见外观差异（`.mat-h1~caption` 字阶尺寸/行高/间距与根容器高度、`color="primary"` 复选框强调色、选中纸片底色与纵向外边距、`mat-badge` 透明底色与紧凑尺寸、卡片与滑块圆柄无阴影、彩色图标按钮内 `<mat-icon>` 前景色、菜单入场动画与菜单项 `14px` 固定字号、凸起按钮 `min-height: auto`、输入框 `padding-left: 0px`）已 **100% 恢复为 `7.4.52` 原始表现**。下表全量列出剩余仅存于 `@angular/material@22` / `@angular/cdk@22` 组件内部基础样式表的非视觉底层属性项（均按旧值与新值精确断言，无任何通配豁免）：',
+      '> 说明：全部用户可见外观表现（禁用态 `fill` 表单容器底色 `#fafafa/#464646/#3b4b53` 与 `0.06` 底线、启用态 `fill`/`select` `0.42` 底线、`mat-progress-bar` 透明缓冲轨道、`mat-slide-toggle` 选中态 `600/800/400` 色阶与 `currentColor` 轨道轮廓及无阴影滑块、`.mat-expansion-indicator::after` 箭头颜色与零全局裸 `::after` 污染、`.mat-h1~caption` 字阶间距与根容器高度、`color="primary"` 复选框强调色、选中纸片底色与纵向外边距、`mat-badge` 透明底色与紧凑尺寸、卡片与滑块圆柄无阴影、彩色图标按钮内 `<mat-icon>` 前景色、菜单入场动画与菜单项 `14px` 固定字号、凸起按钮 `min-height: auto`、输入框 `padding-left: 0px`）均已对齐 `7.4.52`。下表全量列出剩余仅存于 `@angular/material@22` / `@angular/cdk@22` 组件内部基础样式表的非视觉底层属性项（均按旧值与新值精确断言，无任何通配豁免）：',
       '',
       '| 规则 ID | 采样节点 (`selector`) | CSS 属性 | `7.4.52` 精确值 | `ng22` 精确值 | 出现组合数 | 视觉影响 | 技术原因说明 |',
       '| --- | --- | --- | --- | --- | ---: | --- | --- |'

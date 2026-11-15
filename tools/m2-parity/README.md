@@ -4,7 +4,7 @@
 
 - `generate-m2-tokens.mjs`：构建期哨兵调色板提取器。调用 `@angular/material@22` 官方 M2 Sass API（`mat.m2-define-light-theme`、`mat.m2-define-dark-theme`、`mat.all-component-colors`、`mat.all-component-densities`、`mat.color-variants-backwards-compatibility`）自动生成 `src/theme/m2-token-templates.ts` 与 `src/theming/_m2-system.scss`（零 HCT 算法，零 `--mat-sys-*` M3 系统变量）。
 - `run-m2-parity.mjs`：真实无头 Chrome（CDP）27 组合（`light / dark / darkblue` × `loose / normal / compact` × 3 套调色板）全属性 `getComputedStyle` 逐值比对、全页像素截图比对与 6 轮运行时连续切换 vs `localStorage` 冷启动刷新零差异校验脚本。
-- `baseline-7452-styles.json.gz`：从 `github/master`（`7.4.52`）在相同 `/m2-parity` 16 类组件大观路由（59 个采样节点）下实测采集并压缩入库的 27 组合全量 `getComputedStyle` 基线快照（含 `7.4.52` 提交哈希与 27 张 `docs/ng22-evidence/screenshots/*-7452.png` 基线截图）。
+- `baseline-7452-styles.json.gz`：从 `github/master`（`7.4.52`）在相同 `/m2-parity` 16 类组件大观路由（68 个采样节点，覆盖根宿主、内部子层包装器及 `::before`/`::after` 伪元素）下实测采集并压缩入库的 27 组合全量 `getComputedStyle` 基线快照（含 `7.4.52` 提交哈希与 27 张 `docs/ng22-evidence/screenshots/*-7452.png` 基线截图）。
 
 ## 1. 仓库内一键独立复现（无需任何外部目录）
 

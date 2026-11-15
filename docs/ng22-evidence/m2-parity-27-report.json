@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-11-15T11:00:06.166Z",
+  "generatedAt": "2026-11-15T12:02:02.462Z",
   "packageUnderTest": "@dotos1/dui@8.0.0-next.2",
   "baselineReference": {
     "version": "7.4.52",
@@ -14,17 +14,17 @@
   "summary": {
     "totalCombinations": 27,
     "componentCategoriesCovered": 16,
-    "targetsPerCombination": 59,
-    "totalComputedStylePropertiesChecked": 767826,
-    "totalExactPropertyMatches": 767502,
+    "targetsPerCombination": 68,
+    "totalComputedStylePropertiesChecked": 884628,
+    "totalExactPropertyMatches": 884304,
     "totalExactValueCrossVersionBaseCssDiffs": 324,
     "distinctCrossVersionElementPropertyItems": 12,
     "totalUnexplainedPropertyMismatches": 0,
     "coldStartCyclesChecked": 6,
-    "coldStartPropertiesChecked": 170628,
+    "coldStartPropertiesChecked": 196584,
     "coldStartMismatches": 0,
-    "avgPixelDiffRatio": 0.01308,
-    "maxPixelDiffRatio": 0.015,
+    "avgPixelDiffRatio": 0.00178,
+    "maxPixelDiffRatio": 0.00198,
     "passed": true
   },
   "coldStartConsistencyChecks": [
@@ -39,8 +39,8 @@
         "typography": "loose",
         "formType": "outline"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -55,8 +55,8 @@
         "typography": "compact",
         "formType": "fill"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -71,8 +71,8 @@
         "typography": "loose",
         "formType": "fill"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -87,8 +87,8 @@
         "typography": "compact",
         "formType": "outline"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -103,8 +103,8 @@
         "typography": "normal",
         "formType": "outline"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
       "mismatchCount": 0,
       "mismatches": []
     },
@@ -119,8 +119,8 @@
         "typography": "compact",
         "formType": "fill"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
       "mismatchCount": 0,
       "mismatches": []
     }
@@ -294,9 +294,12 @@
       "matSysPrimary": ""
     },
     "fontSizesUnder625PercentRoot": {
-      "h1": "10px",
-      "btn": "14px"
+      "btn": "14px",
+      "cardTitle": "20px",
+      "listItemTitle": "15px",
+      "tableCell": "14px"
     },
+    "expansionIndicatorBorderColor": "rgba(0, 0, 0, 0.7)",
     "zoneCheck": {
       "beforeZoneText": "angular:0:1",
       "afterZoneText": "angular:1:1"
@@ -323,9 +326,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -341,8 +344,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20364,
-        "diffRatio": 0.01473
+        "diffPixels": 2567,
+        "diffRatio": 0.00186
       },
       "screenshots": {
         "ref7452": "screenshots/01-light-loose-teal-orange-7452.png",
@@ -360,9 +363,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -378,8 +381,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20621,
-        "diffRatio": 0.01492
+        "diffPixels": 2565,
+        "diffRatio": 0.00186
       },
       "screenshots": {
         "ref7452": "screenshots/02-light-loose-blue-pink-7452.png",
@@ -397,9 +400,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -415,8 +418,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20733,
-        "diffRatio": 0.015
+        "diffPixels": 2663,
+        "diffRatio": 0.00193
       },
       "screenshots": {
         "ref7452": "screenshots/03-light-loose-indigo-amber-7452.png",
@@ -434,9 +437,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -452,8 +455,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17701,
-        "diffRatio": 0.0128
+        "diffPixels": 2294,
+        "diffRatio": 0.00166
       },
       "screenshots": {
         "ref7452": "screenshots/04-light-normal-teal-orange-7452.png",
@@ -471,9 +474,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -489,8 +492,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17958,
-        "diffRatio": 0.01299
+        "diffPixels": 2292,
+        "diffRatio": 0.00166
       },
       "screenshots": {
         "ref7452": "screenshots/05-light-normal-blue-pink-7452.png",
@@ -508,9 +511,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -526,8 +529,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 18070,
-        "diffRatio": 0.01307
+        "diffPixels": 2390,
+        "diffRatio": 0.00173
       },
       "screenshots": {
         "ref7452": "screenshots/06-light-normal-indigo-amber-7452.png",
@@ -545,9 +548,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -563,8 +566,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15606,
-        "diffRatio": 0.01129
+        "diffPixels": 2295,
+        "diffRatio": 0.00166
       },
       "screenshots": {
         "ref7452": "screenshots/07-light-compact-teal-orange-7452.png",
@@ -582,9 +585,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -600,8 +603,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15862,
-        "diffRatio": 0.01147
+        "diffPixels": 2292,
+        "diffRatio": 0.00166
       },
       "screenshots": {
         "ref7452": "screenshots/08-light-compact-blue-pink-7452.png",
@@ -619,9 +622,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -637,8 +640,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15974,
-        "diffRatio": 0.01156
+        "diffPixels": 2390,
+        "diffRatio": 0.00173
       },
       "screenshots": {
         "ref7452": "screenshots/09-light-compact-indigo-amber-7452.png",
@@ -656,9 +659,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -674,8 +677,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20416,
-        "diffRatio": 0.01477
+        "diffPixels": 2635,
+        "diffRatio": 0.00191
       },
       "screenshots": {
         "ref7452": "screenshots/10-dark-loose-teal-orange-7452.png",
@@ -693,9 +696,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -711,8 +714,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20423,
-        "diffRatio": 0.01477
+        "diffPixels": 2642,
+        "diffRatio": 0.00191
       },
       "screenshots": {
         "ref7452": "screenshots/11-dark-loose-blue-pink-7452.png",
@@ -730,9 +733,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -748,8 +751,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20515,
-        "diffRatio": 0.01484
+        "diffPixels": 2735,
+        "diffRatio": 0.00198
       },
       "screenshots": {
         "ref7452": "screenshots/12-dark-loose-indigo-amber-7452.png",
@@ -767,9 +770,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -785,8 +788,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17781,
-        "diffRatio": 0.01286
+        "diffPixels": 2352,
+        "diffRatio": 0.0017
       },
       "screenshots": {
         "ref7452": "screenshots/13-dark-normal-teal-orange-7452.png",
@@ -804,9 +807,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -822,8 +825,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17788,
-        "diffRatio": 0.01287
+        "diffPixels": 2359,
+        "diffRatio": 0.00171
       },
       "screenshots": {
         "ref7452": "screenshots/14-dark-normal-blue-pink-7452.png",
@@ -841,9 +844,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -859,8 +862,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17880,
-        "diffRatio": 0.01293
+        "diffPixels": 2452,
+        "diffRatio": 0.00177
       },
       "screenshots": {
         "ref7452": "screenshots/15-dark-normal-indigo-amber-7452.png",
@@ -878,9 +881,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -896,8 +899,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15772,
-        "diffRatio": 0.01141
+        "diffPixels": 2353,
+        "diffRatio": 0.0017
       },
       "screenshots": {
         "ref7452": "screenshots/16-dark-compact-teal-orange-7452.png",
@@ -915,9 +918,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -933,8 +936,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15779,
-        "diffRatio": 0.01141
+        "diffPixels": 2360,
+        "diffRatio": 0.00171
       },
       "screenshots": {
         "ref7452": "screenshots/17-dark-compact-blue-pink-7452.png",
@@ -952,9 +955,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -970,8 +973,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15871,
-        "diffRatio": 0.01148
+        "diffPixels": 2453,
+        "diffRatio": 0.00177
       },
       "screenshots": {
         "ref7452": "screenshots/18-dark-compact-indigo-amber-7452.png",
@@ -989,9 +992,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1007,8 +1010,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20525,
-        "diffRatio": 0.01485
+        "diffPixels": 2634,
+        "diffRatio": 0.00191
       },
       "screenshots": {
         "ref7452": "screenshots/19-darkblue-loose-teal-orange-7452.png",
@@ -1026,9 +1029,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1044,8 +1047,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20538,
-        "diffRatio": 0.01486
+        "diffPixels": 2646,
+        "diffRatio": 0.00191
       },
       "screenshots": {
         "ref7452": "screenshots/20-darkblue-loose-blue-pink-7452.png",
@@ -1063,9 +1066,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1081,8 +1084,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 20629,
-        "diffRatio": 0.01492
+        "diffPixels": 2738,
+        "diffRatio": 0.00198
       },
       "screenshots": {
         "ref7452": "screenshots/21-darkblue-loose-indigo-amber-7452.png",
@@ -1100,9 +1103,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1118,8 +1121,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17868,
-        "diffRatio": 0.01293
+        "diffPixels": 2351,
+        "diffRatio": 0.0017
       },
       "screenshots": {
         "ref7452": "screenshots/22-darkblue-normal-teal-orange-7452.png",
@@ -1137,9 +1140,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1155,8 +1158,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17881,
-        "diffRatio": 0.01293
+        "diffPixels": 2363,
+        "diffRatio": 0.00171
       },
       "screenshots": {
         "ref7452": "screenshots/23-darkblue-normal-blue-pink-7452.png",
@@ -1174,9 +1177,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1192,8 +1195,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 17972,
-        "diffRatio": 0.013
+        "diffPixels": 2455,
+        "diffRatio": 0.00178
       },
       "screenshots": {
         "ref7452": "screenshots/24-darkblue-normal-indigo-amber-7452.png",
@@ -1211,9 +1214,9 @@
         "accent": "orange-800",
         "warn": "red-800"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1229,8 +1232,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15824,
-        "diffRatio": 0.01145
+        "diffPixels": 2352,
+        "diffRatio": 0.0017
       },
       "screenshots": {
         "ref7452": "screenshots/25-darkblue-compact-teal-orange-7452.png",
@@ -1248,9 +1251,9 @@
         "accent": "pink-500",
         "warn": "red-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1266,8 +1269,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15837,
-        "diffRatio": 0.01146
+        "diffPixels": 2364,
+        "diffRatio": 0.00171
       },
       "screenshots": {
         "ref7452": "screenshots/26-darkblue-compact-blue-pink-7452.png",
@@ -1285,9 +1288,9 @@
         "accent": "amber-700",
         "warn": "deep-orange-700"
       },
-      "targetsChecked": 59,
-      "propertiesChecked": 28438,
-      "exactMatchCount": 28426,
+      "targetsChecked": 68,
+      "propertiesChecked": 32764,
+      "exactMatchCount": 32752,
       "explainedCrossVersionCount": 12,
       "explainedByRule": {
         "MAT22-CDK-AUTOFILL-DELAY": 3,
@@ -1303,8 +1306,8 @@
         "width": 1280,
         "height": 1080,
         "totalPixels": 1382400,
-        "diffPixels": 15928,
-        "diffRatio": 0.01152
+        "diffPixels": 2456,
+        "diffRatio": 0.00178
       },
       "screenshots": {
         "ref7452": "screenshots/27-darkblue-compact-indigo-amber-7452.png",
