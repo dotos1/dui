@@ -22,6 +22,8 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatSliderModule } from '@angular/material/slider';
+import { MatTableModule } from '@angular/material/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { RouterModule, Routes } from '@angular/router';
 import { M2ParityComponent, M2ParityDialogComponent } from './m2-parity.component';
@@ -62,6 +64,8 @@ export const m2ParityRoutes: Routes = [
     MatRadioModule,
     MatSelectModule,
     MatSlideToggleModule,
+    MatSliderModule,
+    MatTableModule,
     MatTabsModule,
     RouterModule.forChild(m2ParityRoutes),
   ],

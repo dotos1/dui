@@ -1,41 +1,56 @@
 <div class="m2-parity-root mat-app-background" data-parity="root">
   <section class="m2-parity-grid">
-    <!-- 1. Buttons & Actions -->
+    <!-- Card 1: Buttons, Icon Buttons, FABs (incl. Disabled S-5 states) -->
     <mat-card class="m2-parity-card" data-parity="card">
-      <mat-card-header>
-        <mat-card-title data-parity="card-title">Buttons &amp; Actions</mat-card-title>
-        <mat-card-subtitle data-parity="card-subtitle">M2 Palette &amp; Density</mat-card-subtitle>
+      <mat-card-header data-parity="card-header">
+        <mat-card-title data-parity="card-title">Buttons, Icon Buttons &amp; FAB</mat-card-title>
+        <mat-card-subtitle data-parity="card-subtitle">M2 Palette, Density &amp; S-5 Disabled States</mat-card-subtitle>
       </mat-card-header>
       <mat-card-content class="m2-parity-row">
         <button mat-flat-button color="primary" data-parity="btn-flat-primary">Flat Primary</button>
         <button mat-flat-button color="accent" data-parity="btn-flat-accent">Flat Accent</button>
         <button mat-flat-button color="warn" data-parity="btn-flat-warn">Flat Warn</button>
+        <button mat-flat-button [disabled]="true" data-parity="btn-flat-disabled">Disabled</button>
         <button mat-raised-button color="primary" data-parity="btn-raised-primary">Raised</button>
         <button mat-stroked-button color="primary" data-parity="btn-stroked-primary">Stroked</button>
         <button mat-button color="primary" data-parity="btn-basic-primary">Text</button>
         <button mat-icon-button color="primary" aria-label="Settings" data-parity="btn-icon-primary">
-          <mat-icon>settings</mat-icon>
+          <mat-icon data-parity="btn-icon-primary-glyph">settings</mat-icon>
+        </button>
+        <button mat-icon-button [disabled]="true" aria-label="Disabled Icon" data-parity="btn-icon-disabled">
+          <mat-icon data-parity="btn-icon-disabled-glyph">block</mat-icon>
+        </button>
+        <button mat-fab color="primary" aria-label="Create" data-parity="btn-fab-primary">
+          <mat-icon>edit</mat-icon>
         </button>
         <button mat-mini-fab color="accent" aria-label="Add" data-parity="btn-fab-accent">
           <mat-icon>add</mat-icon>
         </button>
+        <button mat-fab [disabled]="true" aria-label="Disabled FAB" data-parity="btn-fab-disabled">
+          <mat-icon>lock</mat-icon>
+        </button>
       </mat-card-content>
     </mat-card>
 
-    <!-- 2. Form Fields (Fill & Outline + Select) -->
+    <!-- Card 2: Form Fields (Fill, Outline, Disabled Input) & Select -->
     <mat-card class="m2-parity-card" data-parity="card-forms">
       <mat-card-header>
-        <mat-card-title>Form Controls</mat-card-title>
+        <mat-card-title>Form Fields &amp; Select</mat-card-title>
       </mat-card-header>
       <mat-card-content class="m2-parity-row">
         <mat-form-field appearance="fill" data-parity="ff-fill">
           <mat-label>Fill Label</mat-label>
-          <input matInput value="DotOS M2" data-parity="input-fill" />
+          <input matInput value="DotOS M2" placeholder="Fill hint" data-parity="input-fill" />
         </mat-form-field>
 
         <mat-form-field appearance="outline" data-parity="ff-outline">
           <mat-label>Outline Label</mat-label>
-          <input matInput value="DotOS M2" data-parity="input-outline" />
+          <input matInput value="DotOS M2" placeholder="Outline hint" data-parity="input-outline" />
+        </mat-form-field>
+
+        <mat-form-field appearance="fill" data-parity="ff-disabled">
+          <mat-label>Disabled Input</mat-label>
+          <input matInput value="Readonly" [disabled]="true" data-parity="input-disabled" />
         </mat-form-field>
 
         <mat-form-field appearance="fill" data-parity="ff-select">
@@ -48,10 +63,10 @@
       </mat-card-content>
     </mat-card>
 
-    <!-- 3. Selection Controls & Chips & Progress -->
+    <!-- Card 3: Checkbox, Slide Toggle, Slider, Badge, Chips & Progress Bar -->
     <mat-card class="m2-parity-card" data-parity="card-selection">
       <mat-card-header>
-        <mat-card-title>Selection, Chips &amp; Indicators</mat-card-title>
+        <mat-card-title>Selection, Switch, Slider, Badge &amp; Progress</mat-card-title>
       </mat-card-header>
       <mat-card-content>
         <div class="m2-parity-row">
@@ -60,24 +75,27 @@
           <mat-radio-group value="r1" class="m2-parity-row">
             <mat-radio-button value="r1" color="primary" data-parity="radio-primary">Radio</mat-radio-button>
           </mat-radio-group>
-          <mat-slide-toggle [checked]="true" color="primary" data-parity="slide-primary">Slide</mat-slide-toggle>
+          <mat-slide-toggle [checked]="true" color="primary" data-parity="slide-primary">Switch</mat-slide-toggle>
           <span matBadge="8" matBadgeColor="warn" matBadgeOverlap="false" data-parity="badge-host">Alerts</span>
         </div>
 
-        <mat-divider class="m2-parity-divider" data-parity="divider"></mat-divider>
-
         <div class="m2-parity-row">
+          <mat-slider min="0" max="100" color="primary" class="m2-parity-slider" data-parity="slider-primary">
+            <input matSliderThumb [value]="60" data-parity="slider-input" />
+          </mat-slider>
           <mat-chip-listbox aria-label="Chips">
             <mat-chip-option data-parity="chip-unselected">Unselected</mat-chip-option>
             <mat-chip-option [selected]="true" color="primary" data-parity="chip-selected">Selected</mat-chip-option>
           </mat-chip-listbox>
         </div>
 
+        <mat-divider class="m2-parity-divider" data-parity="divider"></mat-divider>
+
         <mat-progress-bar mode="determinate" [value]="65" color="primary" data-parity="progress-primary"></mat-progress-bar>
       </mat-card-content>
     </mat-card>
 
-    <!-- 4. Tabs, List, Expansion Panel & Typography -->
+    <!-- Card 4: Tabs, List, Table, Menu, Dialog, Expansion Panel & Typography -->
     <mat-card class="m2-parity-card" data-parity="card-containers">
       <mat-tab-group animationDuration="0ms" data-parity="tabs">
         <mat-tab label="Overview">
@@ -91,6 +109,23 @@
           <div>Details Content</div>
         </mat-tab>
       </mat-tab-group>
+
+      <table mat-table [dataSource]="tableRows" class="m2-parity-table" data-parity="table">
+        <ng-container matColumnDef="code">
+          <th mat-header-cell *matHeaderCellDef data-parity="table-header-cell">Code</th>
+          <td mat-cell *matCellDef="let row" data-parity="table-cell">{{ row.code }}</td>
+        </ng-container>
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef>Name</th>
+          <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+        </ng-container>
+        <ng-container matColumnDef="status">
+          <th mat-header-cell *matHeaderCellDef>Status</th>
+          <td mat-cell *matCellDef="let row">{{ row.status }}</td>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns" data-parity="table-header-row"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;" data-parity="table-row"></tr>
+      </table>
 
       <mat-expansion-panel [expanded]="panelExpanded" (opened)="panelOpenedCount = panelOpenedCount + 1" data-parity="expansion">
         <mat-expansion-panel-header data-parity="expansion-header">

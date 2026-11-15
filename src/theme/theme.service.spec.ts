@@ -260,4 +260,23 @@ describe('W3 M2 Dynamic ThemeService & Sentinel Token Resolution', () => {
     expect(coreSheet.cssText.length).toBeGreaterThan(50);
     expect(matSheet.cssText.length).toBeGreaterThan(1000);
   });
+
+  it('emits complete S-5 structural overrides including FAB sizing/disabled shadow and disabled icon-button color', () => {
+    service.changeTheme('teal-600', 'orange-800', 'red-800', 'light', 'loose', 'fill');
+    const looseCss = document.head.querySelector('style[data-dui-role="material-theme"]')?.textContent ?? '';
+    expect(looseCss).toContain('.mat-mdc-fab');
+    expect(looseCss).toContain('width: var(--mat-fab-extended-container-height) !important;');
+    expect(looseCss).toContain('height: var(--mat-fab-extended-container-height) !important;');
+    expect(looseCss).toContain('.mat-mdc-fab.mat-mdc-button-disabled, .mat-mdc-mini-fab.mat-mdc-button-disabled');
+    expect(looseCss).toContain('box-shadow: var(--mat-fab-container-elevation-shadow) !important;');
+    expect(looseCss).toContain('.mat-mdc-icon-button.mat-mdc-button-disabled .mat-icon');
+    expect(looseCss).toContain('color: var(--mat-icon-button-disabled-icon-color) !important;');
+    expect(looseCss).toContain('padding: 12px;');
+    expect(looseCss).toContain('margin-top: -.0625em !important;');
+
+    service.changeTheme('teal-600', 'orange-800', 'red-800', 'dark', 'compact', 'fill');
+    const compactCss = document.head.querySelector('style[data-dui-role="material-theme"]')?.textContent ?? '';
+    expect(compactCss).toContain('padding: 8px;');
+    expect(compactCss).toContain('margin-top: .0078em !important;');
+  });
 });

@@ -227,14 +227,14 @@ const SASS_THEME_PATCH_HELPERS = `
       hover: rgba(255, 255, 255, 0.04),
       card: #424242,
       dialog: #424242,
-      disabled-button: rgba(255, 255, 255, 0.12),
+      disabled-button: #616161,
       raised-button: #424242,
       focused-button: rgba(255, 255, 255, 0.12),
       selected-button: #212121,
       selected-disabled-button: #424242,
-      disabled-button-toggle: black,
+      disabled-button-toggle: #616161,
       unselected-chip: #616161,
-      disabled-list-option: #424242,
+      disabled-list-option: #616161,
       tooltip: #616161,
     ));
     $fg: map.merge($fg, (
@@ -247,12 +247,12 @@ const SASS_THEME_PATCH_HELPERS = `
       elevation: black,
       hint-text: rgba(255, 255, 255, 0.5),
       secondary-text: rgba(255, 255, 255, 0.7),
-      icon: white,
-      icons: white,
+      icon: rgba(255, 255, 255, 0.7),
+      icons: rgba(255, 255, 255, 0.7),
       text: rgba(255, 255, 255, 0.87),
       slider-min: white,
       slider-off: rgba(255, 255, 255, 0.3),
-      slider-off-active: rgba(255, 255, 255, 0.38),
+      slider-off-active: rgba(255, 255, 255, 0.3),
     ));
     $sys: map.merge($sys, (
       background: #212121,
@@ -583,6 +583,29 @@ html {
       htmlColorBlock.declarations['--mat-tooltip-supporting-text-color'] = 'white';
       // 7.4.52 _filled-text-field.ts:50 `container-color: safe_color_change($surface, 0)` (transparent fill container)
       htmlColorBlock.declarations['--mat-form-field-filled-container-color'] = 'transparent';
+      // 7.4.52 tokens/mdc/_icon-button.ts:38 exact 0.38 disabled icon alpha & exact disabled button/input/select-arrow alphas
+      htmlColorBlock.declarations['--mat-icon-button-disabled-icon-color'] =
+        mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.38)';
+      const disabledBtnFg = mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.5)';
+      const disabledInputFg = mode === 'light' ? 'rgba(0, 0, 0, 0.38)' : 'rgba(255, 255, 255, 0.38)';
+      const disabledFabBg =
+        mode === 'darkblue'
+          ? 'rgba(120, 144, 156, 0.12)'
+          : mode === 'dark'
+            ? 'rgba(97, 97, 97, 0.12)'
+            : 'rgba(0, 0, 0, 0.12)';
+      htmlColorBlock.declarations['--mat-button-filled-disabled-label-text-color'] = disabledBtnFg;
+      htmlColorBlock.declarations['--mat-button-outlined-disabled-label-text-color'] = disabledBtnFg;
+      htmlColorBlock.declarations['--mat-button-protected-disabled-label-text-color'] = disabledBtnFg;
+      htmlColorBlock.declarations['--mat-button-text-disabled-label-text-color'] = disabledBtnFg;
+      htmlColorBlock.declarations['--mat-fab-disabled-state-foreground-color'] = disabledBtnFg;
+      htmlColorBlock.declarations['--mat-fab-small-disabled-state-foreground-color'] = disabledBtnFg;
+      htmlColorBlock.declarations['--mat-fab-disabled-state-container-color'] = disabledFabBg;
+      htmlColorBlock.declarations['--mat-fab-small-disabled-state-container-color'] = disabledFabBg;
+      htmlColorBlock.declarations['--mat-form-field-filled-disabled-input-text-color'] = disabledInputFg;
+      htmlColorBlock.declarations['--mat-form-field-outlined-disabled-input-text-color'] = disabledInputFg;
+      htmlColorBlock.declarations['--mat-select-enabled-arrow-color'] =
+        mode === 'light' ? 'rgba(0, 0, 0, 0.54)' : 'rgba(255, 255, 255, 0.54)';
     }
     const chipBlock = blocks.find((b) => b.selector === 'html .mat-mdc-standard-chip');
     if (chipBlock) {
@@ -805,6 +828,7 @@ ${serializedStaticBlocks}
 
 html:where([data-density='compact']) {
 ${densityCompactDecls}
+  input.mat-mdc-input-element { margin-top: .0078em !important; }
 }
 body:where(.dui-density-compact) {
 ${densityCompactDecls}
@@ -812,10 +836,12 @@ ${densityCompactDecls}
   .mat-mdc-menu-item { min-height: 36px !important; }
   .mat-mdc-option { min-height: 40px !important; }
   .mat-pseudo-checkbox { width: 16px !important; height: 16px !important; }
+  input.mat-mdc-input-element { margin-top: .0078em !important; }
 }
 
 html:where([data-density='normal']) {
 ${densityNormalDecls}
+  input.mat-mdc-input-element { margin-top: .0078em !important; }
 }
 body:where(.dui-density-normal) {
 ${densityNormalDecls}
@@ -823,10 +849,12 @@ ${densityNormalDecls}
   .mat-mdc-menu-item { min-height: 40px !important; }
   .mat-mdc-option { min-height: 44px !important; }
   .mat-pseudo-checkbox { width: 18px !important; height: 18px !important; }
+  input.mat-mdc-input-element { margin-top: .0078em !important; }
 }
 
 html:where([data-density='loose']) {
 ${densityLooseDecls}
+  input.mat-mdc-input-element { margin-top: -.0625em !important; }
 }
 body:where(.dui-density-loose) {
 ${densityLooseDecls}
@@ -834,14 +862,34 @@ ${densityLooseDecls}
   .mat-mdc-menu-item { min-height: 44px !important; }
   .mat-mdc-option { min-height: 48px !important; }
   .mat-pseudo-checkbox { width: 20px !important; height: 20px !important; }
+  input.mat-mdc-input-element { margin-top: -.0625em !important; }
 }
 
 // 7.4.52 S-5 structural rules & px-based M2 typography classes (immune to html { font-size: 62.5% })
+.mat-mdc-button { min-height: var(--mat-button-text-container-height); }
+.mat-mdc-unelevated-button { min-height: var(--mat-button-filled-container-height); }
+.mat-mdc-raised-button { min-height: var(--mat-button-protected-container-height, 32px); }
+.mat-mdc-outlined-button { min-height: var(--mat-button-outlined-container-height); }
+.mat-mdc-fab { width: var(--mat-fab-extended-container-height) !important; height: var(--mat-fab-extended-container-height) !important; }
+.mat-mdc-fab.mat-mdc-button-disabled,
+.mat-mdc-mini-fab.mat-mdc-button-disabled { box-shadow: var(--mat-fab-container-elevation-shadow) !important; }
+.mat-mdc-icon-button.mat-mdc-button-base {
+  width: var(--mat-icon-button-state-layer-size);
+  height: var(--mat-icon-button-state-layer-size);
+  padding: calc((var(--mat-icon-button-state-layer-size) - 24px) / 2);
+}
+.mat-mdc-icon-button.mat-mdc-button-disabled .mat-icon { color: var(--mat-icon-button-disabled-icon-color) !important; }
 .mdc-card { color: var(--mat-card-subtitle-text-color); }
 .mat-mdc-card-header { padding-top: 6px !important; padding-bottom: 6px !important; padding-left: 6px !important; }
 .mat-mdc-card-header-text { width: 100%; }
 .mat-mdc-text-field-wrapper { --mat-mdc-form-field-label-offset-x: -8px; }
 .mat-mdc-text-field-wrapper .mdc-text-field__input { padding-left: 5px; }
+.mat-mdc-input-element:disabled { color: var(--mat-form-field-filled-disabled-input-text-color); }
+input.mat-mdc-input-element { color: var(--mat-form-field-filled-input-text-color); margin-top: .0078em !important; }
+.mat-mdc-input-element { caret-color: var(--mat-form-field-filled-caret-color); }
+.mat-mdc-input-element::placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
+.mat-mdc-input-element::-webkit-input-placeholder { color: var(--mat-form-field-filled-input-text-placeholder-color); }
+.mat-mdc-form-field-invalid .mat-mdc-input-element { caret-color: var(--mat-form-field-filled-error-caret-color); }
 .mat-icon { color: var(--mat-icon-color); }
 .mat-icon svg { stroke: var(--mat-icon-color) !important; }
 .mat-mdc-menu-item { min-height: 36px !important; }
@@ -852,16 +900,16 @@ ${densityLooseDecls}
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content,
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__end { opacity: 1; }
 
-.mat-h1, .mat-headline, .mat-typography h1 { font: 400 20px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h2, .mat-typography h2 { font: 400 18px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-title, .mat-h3, .mat-subheading-2, .mat-typography h3 { font: 400 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h4, .mat-subheading-1, .mat-typography h4 { font: 400 13px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
-.mat-h5, .mat-typography h5 { font: 400 11.62px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
-.mat-h6, .mat-typography h6 { font: 400 9.38px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
-.mat-body-strong, .mat-body-2 { font: 500 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; }
-.mat-body, .mat-body-1, .mat-typography { font: 400 14px / 16px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; }
+.mat-h1, .mat-headline, .mat-typography .mat-h1, .mat-typography .mat-headline, .mat-typography h1 { font: 400 20px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
+.mat-h2, .mat-typography .mat-h2, .mat-typography h2 { font: 400 18px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
+.mat-title, .mat-h3, .mat-subheading-2, .mat-typography .mat-title, .mat-typography .mat-h3, .mat-typography .mat-subheading-2, .mat-typography h3 { font: 400 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
+.mat-h4, .mat-subheading-1, .mat-typography .mat-h4, .mat-typography .mat-subheading-1, .mat-typography h4 { font: 400 13px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0 0 9px; }
+.mat-h5, .mat-typography .mat-h5, .mat-typography h5 { font: 400 11.62px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
+.mat-h6, .mat-typography .mat-h6, .mat-typography h6 { font: 400 9.38px / 16px Roboto, "Helvetica Neue", sans-serif; margin: 0 0 9px; }
+.mat-body-strong, .mat-body-2, .mat-typography .mat-body-strong, .mat-typography .mat-body-2 { font: 500 14px / 20px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0; }
+.mat-body, .mat-body-1, .mat-typography, .mat-typography .mat-body, .mat-typography .mat-body-1 { font: 400 14px / 16px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; margin: 0; }
 .mat-body p, .mat-body-1 p, .mat-typography p { margin: 0 0 9px; }
-.mat-small, .mat-caption { font: 400 12px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; }
+.mat-small, .mat-caption, .mat-typography .mat-small, .mat-typography .mat-caption { font: 400 12px / 18px Roboto, "Helvetica Neue", sans-serif; letter-spacing: normal; }
 .mat-display-4, .mat-typography .mat-display-4 { font: 300 90px / 90px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.05em; margin: 0 0 42px; }
 .mat-display-3, .mat-typography .mat-display-3 { font: 400 44px / 44px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.02em; margin: 0 0 48px; }
 .mat-display-2, .mat-typography .mat-display-2 { font: 400 36px / 38px Roboto, "Helvetica Neue", sans-serif; letter-spacing: -0.005em; margin: 0 0 48px; }
