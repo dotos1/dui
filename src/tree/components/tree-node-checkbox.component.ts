@@ -1,76 +1,70 @@
 /**
- * @fileoverview Module `src/tree/components/tree-node-checkbox.component.ts` providing Signal-backed tree node checkbox component.
- * @zh 模块文件 `src/tree/components/tree-node-checkbox.component.ts`，提供基于原生 Angular Signal 的树节点复选框组件实现（零 MobX 依赖）。
+ * @fileoverview Module `src/tree/components/tree-node-checkbox.component.ts` providing tree node checkbox component definitions and implementation.
+ * @zh 模块文件 `src/tree/components/tree-node-checkbox.component.ts`，提供树形控件节点复选框组件相关的定义与实现。
  */
 
-import { ChangeDetectionStrategy, Component, Input, signal, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { makeObservable } from 'mobx';
+import { action, observable } from '@dotos/dui/core/mobx';
 import { TreeNode } from '../models/tree-node.model';
 
 /**
- * Angular component `TreeNodeCheckboxComponent` (selector: 'tree-node-checkbox') providing tree node checkbox presentation and interaction in `src/tree/components`.
- * @zh Angular 组件 `TreeNodeCheckboxComponent`（selector: 'tree-node-checkbox'），提供树形控件节点复选框组件的视图渲染与勾选交互。
+ * Angular component `TreeNodeCheckboxComponent` (selector: 'tree-node-checkbox') providing tree node checkbox component presentation and interaction in `src/tree/components`.
+ * @zh Angular 组件 `TreeNodeCheckboxComponent`（selector: 'tree-node-checkbox'），提供树形控件节点复选框组件的视图渲染与交互逻辑（位于 `src/tree/components`）。
  */
 @Component({
   selector: 'tree-node-checkbox',
-  encapsulation: ViewEncapsulation.None,
+   encapsulation: ViewEncapsulation.None,
   templateUrl: 'tree-node-checkbox.component.html',
-  changeDetection: ChangeDetectionStrategy.OnPush,
+    changeDetection: ChangeDetectionStrategy.OnPush, 
   host: {
-    hostID: 'tree-node-checkbox' + Math.random().toString(36).substring(2, 15),
+    hostID: 'tree-node-checkbox' + Math.random().toString(36).substring(2, 15)
   },
-  standalone: false,
+  standalone: false
 })
 export class TreeNodeCheckboxComponent {
-  // 私有 Signal 追踪输入节点实例替换
-  private readonly _nodeSig = signal<TreeNode | null>(null);
-
+  //同 TreeNodeChildrenComponent：模板在 mobxAutorun 里，换实例必须走 observable
   /**
-   * Getter for input property `node` (`TreeNode`) returning current node.
+   * Getter for input property `node` (`TreeNode`) returning node.
    * @zh 输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。
    */
   @Input()
-  get node(): TreeNode {
-    return this._nodeSig() as TreeNode;
+  get node() {
+    return this._node;
   }
-
   /**
-   * Sets the `node` (`node`).
+   * Sets the node (`node`).
    * @zh 设置节点（`node`）。
    * @param node - New node value (`TreeNode`) / 新的节点值（`TreeNode`）
    */
-  set node(node: TreeNode) {
+  set node(node) {
     this.setNode(node);
   }
-
   /**
-   * Executes `setNode` to update the node Signal.
-   * @zh 执行 `setNode`，更新内部节点 Signal。
-   * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
+   * Executes `setNode` to handle set node.
+   * @zh 执行 `setNode`，用于集合节点。
+   * @param node - node parameter (`any`) / 节点参数（`any`）
    */
-  setNode(node: TreeNode): void {
-    this._nodeSig.set(node);
+  @action setNode(node) {
+    this._node = node;
   }
+  /**
+   * Property `_node` (`TreeNode`) storing node.
+   * @zh 属性 `_node`（类型：`TreeNode`），用于存储或配置节点。
+   */
+  @observable _node: TreeNode = undefined;
 
   /**
-   * Gets `_node` (`TreeNode`) for backward compatibility.
-   * @zh 获取 `_node`（类型：`TreeNode`），保留兼容读取器。
+   * Input property `label` (`string`) configuring label.
+   * @zh 输入属性 `label`（类型：`string`），用于配置标签。
    */
-  get _node(): TreeNode {
-    return this._nodeSig() as TreeNode;
+  @Input() label: string;
+
+  /**
+   * Creates an instance of `TreeNodeCheckboxComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeNodeCheckboxComponent` 实例，并初始化其依赖项与内部状态。
+   */
+  constructor() {
+    makeObservable(this);
   }
-
-  /**
-   * Sets `_node` (`_node`) for backward compatibility.
-   * @zh 设置 `_node`（`_node`），保留兼容写入器。
-   * @param value - New _node value (`TreeNode`) / 新的节点值（`TreeNode`）
-   */
-  set _node(value: TreeNode) {
-    this._nodeSig.set(value);
-  }
-
-  /**
-   * Input property `label` (`string`) configuring checkbox label.
-   * @zh 输入属性 `label`（类型：`string`），配置复选框文本标签。
-   */
-  @Input() label = '';
 }

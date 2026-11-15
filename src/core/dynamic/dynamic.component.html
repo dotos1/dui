@@ -1,24 +1,3 @@
-<div fxFlex class="dui-dynamic-host">
-  <div *ngIf="resolvedCard" class="dui-dynamic-card">
-    <div *ngIf="resolvedCard.title || resolvedCard.subtitle || resolvedCard.status" class="dui-dynamic-card__header">
-      <div class="dui-dynamic-card__titles">
-        <div *ngIf="resolvedCard.title" class="dui-dynamic-card__title">{{ resolvedCard.title }}</div>
-        <div *ngIf="resolvedCard.subtitle" class="dui-dynamic-card__subtitle">{{ resolvedCard.subtitle }}</div>
-      </div>
-      <span
-        *ngIf="resolvedCard.status"
-        class="dui-dynamic-card__badge"
-        [attr.data-tone]="resolvedCard.statusTone"
-      >{{ resolvedCard.status }}</span>
-    </div>
-    <div *ngIf="resolvedCard.fields.length > 0" class="dui-dynamic-card__grid">
-      <div *ngFor="let item of resolvedCard.fields" class="dui-dynamic-card__field">
-        <span class="dui-dynamic-card__label">{{ item.label }}</span>
-        <span class="dui-dynamic-card__value">{{ item.value }}</span>
-      </div>
-    </div>
-  </div>
-  <div #microHost class="dui-dynamic-micro-host"></div>
-  <ng-container #jitHost></ng-container>
-  <ng-content></ng-content>
+<div fxFlex>
+    <ng-content></ng-content>
 </div>

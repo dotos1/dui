@@ -5,14 +5,9 @@
   },
   "assets": [
     "./theming",
-    "./i18n",
-    "./llms.txt",
-    "./llms-full.txt",
-    "./examples",
-    "./skills"
+    "./i18n"
   ],
   "allowedNonPeerDependencies": [
-    "@material/material-color-utilities",
     "buffer"
   ]
 }
