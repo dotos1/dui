@@ -6,7 +6,7 @@
 import { AfterViewInit, Directive, OnDestroy, OnInit, TemplateRef, Type, ViewChild } from '@angular/core';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
 import { Dui } from '@dotos1/dui/core';
-import { FieldType as CoreFieldType, ExtErrorStateMatcher, FieldConfig } from '@dotos1/dui/core/form';
+import { FieldType as CoreFieldType, ExtErrorStateMatcher, FieldConfig, IObserver, observe } from '@dotos1/dui/core/form';
 import { TranslateService } from '@dotos1/dui/translator';
 import {isUndefined}  from 'lodash-es';
 import { Subject } from 'rxjs';
@@ -67,6 +67,15 @@ export abstract class MatField<F extends FieldConfig = FieldConfig> extends Core
   _errorState = false;
 
   /**
+   * Property `_focusedObserver` (`IObserver<boolean>`) watching `field.focused` to notify `mat-form-field`.
+   * @zh 属性 `_focusedObserver`（类型：`IObserver<boolean>`）：监听 `field.focused` 的变化并发出 `stateChanges`。
+   * Material 22 的 `mat-form-field` 不再用宿主绑定 `[class.mat-focused]` 随变更检测刷新，
+   * 只在控件 `stateChanges` 发出时调 `_updateFocusState()`；失焦（`FormAttributes.onBlur`、`FocusMonitor`）
+   * 只改了 `field.focused`，不通知就会让前一个字段一直保留 `mat-focused` / `mdc-text-field--focused`。
+   */
+  private _focusedObserver?: IObserver<boolean>;
+
+  /**
    * Property `invalidText` (`string`) storing invalid text (default: `'The value in this field is invalid'`).
    * @zh 属性 `invalidText`（类型：`string`），用于存储或配置无效文本（默认值：`'The value in this field is invalid'`）。
    */
@@ -124,6 +133,14 @@ export abstract class MatField<F extends FieldConfig = FieldConfig> extends Core
     if (this.formField) {
       this.formField._control = this.formFieldControl;
     }
+    this._focusedObserver?.unsubscribe();
+    if (this._field) {
+      this._focusedObserver = observe<boolean>(this.field, ['focused'], ({ firstChange }) => {
+        if (!firstChange) {
+          this.stateChanges.next();
+        }
+      });
+    }
   }
 
   /**
@@ -148,6 +165,8 @@ export abstract class MatField<F extends FieldConfig = FieldConfig> extends Core
     if (this.formField) {
       delete this.formField._control;
     }
+    this._focusedObserver?.unsubscribe();
+    this._focusedObserver = undefined;
     this.stateChanges.complete();
   }
 

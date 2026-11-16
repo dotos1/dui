@@ -420,10 +420,10 @@ type IObserveFn<T> = (change: { currentValue: T; previousValue?: T; firstChange:
  */
 export interface IObserver<T> {
   /**
-   * Property `setValue` (`(value: T) => void`) storing set value.
-   * @zh 属性 `setValue`（类型：`(value: T) => void`），用于存储或配置集合值。
+   * Property `setValue` (`(value: T, emitEvent?: boolean) => void`) silently stores a value; with `emitEvent` it also notifies the other observers.
+   * @zh 属性 `setValue`（类型：`(value: T, emitEvent?: boolean) => void`）：静默写值；`emitEvent` 为真时同时通知同一属性上的其它监听者（不回调自己）。
    */
-  setValue: (value: T) => void;
+  setValue: (value: T, emitEvent?: boolean) => void;
   /**
    * Property `unsubscribe` (`Function`) storing unsubscribe.
    * @zh 属性 `unsubscribe`（类型：`Function`），用于存储或配置取消订阅。
@@ -533,8 +533,16 @@ export function observe<T = Parameters<{ (x) }>[0]>(o, paths: string[], setFn: I
   }
 
   return {
-    setValue(value: T) {
+    setValue(value: T, emitEvent = false) {
+      const previousValue: T = state.value;
       state.value = value;
+      // emitEvent 为真时通知其它监听者（不含本监听者自己，避免回环），例如 MatField 需要知道 focused 变了。
+      if (emitEvent && previousValue !== value) {
+        const listeners: IObserveFn<T>[] = state.onChange;
+        listeners
+          .filter((changeFn: IObserveFn<T>): boolean => changeFn !== setFn)
+          .forEach((changeFn: IObserveFn<T>): void => changeFn({ previousValue, currentValue: value, firstChange: false }));
+      }
     },
     unsubscribe() {
       state.onChange = state.onChange.filter((changeFn) => changeFn !== setFn);
