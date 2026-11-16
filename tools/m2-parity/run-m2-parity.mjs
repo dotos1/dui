@@ -429,6 +429,8 @@ const PARITY_TARGETS = [
   { key: 'ffSelectLineRippleBefore', category: '5-select', sel: '[data-parity="ff-select"] .mdc-line-ripple', pseudo: '::before' },
   { key: 'selectTrigger', category: '5-select', sel: '[data-parity="select-control"] .mat-mdc-select-trigger' },
   { key: 'selectArrow', category: '5-select', sel: '[data-parity="select-control"] .mat-mdc-select-arrow' },
+  // 下拉打开态：Material 22 会把箭头翻转 180°，7.4.52 不翻转；必须采样打开态，否则静态比对看不出
+  { key: 'selectArrowOpen', category: '5-select', sel: '[data-parity="select-control"] .mat-mdc-select-arrow', overlay: 'select' },
   // 6. 复选框 (checkbox)
   { key: 'checkboxPrimaryBg', category: '6-checkbox', sel: '[data-parity="checkbox-primary"] .mdc-checkbox__background' },
   { key: 'checkboxAccentBg', category: '6-checkbox', sel: '[data-parity="checkbox-accent"] .mdc-checkbox__background' },
@@ -656,36 +658,6 @@ const EXACT_VALUE_CROSS_VERSION_ENTRIES = [
     reason:
       'Material 22 原生 CSS `@keyframes _mat-menu-enter` 显式声明 `cubic-bezier(0, 0, 0.2, 1)`，与 `7.4.52` WAAPI 曲线完全一致（`7.4.52` 因走 WAAPI 故 CSS 计算属性保持浏览器默认 `ease`）。',
   },
-  {
-    id: 'MAT22-SELECT-ARROW-TRANSITION-DURATION',
-    targets: ['selectArrow'],
-    prop: 'transition-duration',
-    expectedRef7452: '0s',
-    expectedNg22: '0.08s',
-    visualImpact: '零静态视觉差异（仅下拉面板展开/收起瞬间箭头翻转过渡 80ms，闭合稳态箭头几何完全一致）',
-    reason:
-      '移除 `FREEZE_TRANSITIONS` 后暴露的真实过渡属性：Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 新增 `transition: transform 80ms linear` 以平滑下拉箭头旋转。',
-  },
-  {
-    id: 'MAT22-SELECT-ARROW-TRANSITION-PROP',
-    targets: ['selectArrow'],
-    prop: 'transition-property',
-    expectedRef7452: 'all',
-    expectedNg22: 'transform',
-    visualImpact: '零静态视觉差异（仅限定 `.mat-mdc-select-arrow` 过渡目标属性为 `transform`）',
-    reason:
-      'Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 声明 `transition: transform 80ms linear`，浏览器计算属性由默认 `all` 收窄为 `transform`。',
-  },
-  {
-    id: 'MAT22-SELECT-ARROW-TRANSITION-EASING',
-    targets: ['selectArrow'],
-    prop: 'transition-timing-function',
-    expectedRef7452: 'ease',
-    expectedNg22: 'linear',
-    visualImpact: '零静态视觉差异（仅限定 80ms 下拉箭头旋转缓动为线性）',
-    reason:
-      'Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 声明 `transition: transform 80ms linear`，浏览器计算属性由默认 `ease` 变为 `linear`。',
-  },
 ];
 
 function matchExactCrossVersionEntry(targetKey, prop, rVal, nVal) {
@@ -757,6 +729,23 @@ function buildStaticAndOverlayProbeExpr() {
       await waitNaturalSettle(240);
     }
 
+    // 下拉打开态放在对话框之后采样，避免下拉浮层收起与对话框打开互相干扰尺寸
+    const selectTrigger = document.querySelector('[data-parity="select-control"] .mat-mdc-select-trigger');
+    if (selectTrigger) {
+      selectTrigger.click();
+      await waitNaturalSettle(240);
+      for (const t of targets.filter((x) => x.overlay === 'select')) {
+        snap[t.key] = readAllStyles(t);
+      }
+      const selBackdrop = document.querySelector('.cdk-overlay-backdrop');
+      if (selBackdrop) selBackdrop.click();
+      else document.activeElement?.dispatchEvent(new KeyboardEvent('keydown', { key: 'Escape', bubbles: true }));
+      const selDeadline = performance.now() + 800;
+      while (document.querySelector('.mat-mdc-select-panel') && performance.now() < selDeadline) {
+        await new Promise((r) => setTimeout(r, 16));
+      }
+      await waitNaturalSettle(240);
+    }
     return snap;
   })()`;
 }

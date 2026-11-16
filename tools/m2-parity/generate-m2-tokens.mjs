@@ -1151,6 +1151,10 @@ input.mat-mdc-input-element { color: var(--mat-form-field-filled-input-text-colo
 .mat-mdc-menu-item { min-height: 36px !important; }
 .mat-mdc-menu-item .mat-icon-no-color { color: var(--mat-icon-color) !important; }
 .mat-mdc-option { min-height: 40px !important; }
+/* 7.4.52（Material 18）下拉箭头：打开不翻转、无过渡、聚焦色为主色 87%。Material 22 组件样式运行期插在后面，选择器需高一级才能盖住 */
+.mat-mdc-select.mat-select-open .mat-mdc-select-arrow { transform: none; }
+.mat-mdc-select .mat-mdc-select-arrow-wrapper .mat-mdc-select-arrow { transition: all 0s ease 0s; }
+.mat-mdc-form-field.mat-focused:not(.mat-form-field-invalid) .mat-mdc-select .mat-mdc-select-arrow { color: var(--mat-form-field-focus-select-arrow-color); }
 .mat-mdc-dialog-container { box-shadow: var(--mat-dialog-container-elevation-shadow); }
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__start,
 .mat-list .mat-mdc-list-base .mdc-list-item--disabled .mdc-list-item__content,
