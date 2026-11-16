@@ -41,3 +41,14 @@ git worktree remove ../dui-ref-7452
 ```
 
 `--capture-ref-dir` 会在检出的 `7.4.52` 工作树中临时挂载与当前分支完全同源的 `/m2-parity` 验收组件（采集结束后自动还原工作树干净状态），启动真实无头 Chrome 同步采集 `7.4.52` 真实菜单动画曲线、27 组合全量样式与截图并写入 `tools/m2-parity/baseline-7452-styles.json.gz`。
+
+## 3. 字段失焦检查（`focus-blur-check.mjs`）
+
+6.3.0 校核回归：form-card 里点字段 A 再点字段 B，A 仍高亮。Material 22 的 `mat-form-field` 只在控件 `stateChanges` 发出时刷新 `mat-focused` / `mdc-text-field--focused`，dui 的 `MatField` 失焦时没有发出。脚本在 testdui `/focus-check?formType=fill|outline` 宿主页上用真实鼠标点击逐对字段，断言前一个字段失焦后不再处于聚焦态（class、标签颜色、轮廓线宽、下划线高亮）：
+
+```bash
+npx ng build testdui --configuration development
+node tools/m2-parity/focus-blur-check.mjs
+```
+
+7.4.52 对照：把 `projects/testdui/src/app/focus-check` 拷到 `github/master` 工作树（`@dotos1/` 改 `@dotos/`，加同名路由）构建后，加 `--dist <工作树>/dist/testdui/browser --mat-focused-only` 运行。7.4.52 的 `mat-focused` 是宿主绑定、随变更检测刷新，所以通过；它的内层 `mdc-text-field--focused` 同样靠 `stateChanges`，非必填字段本来就会残留，故对照只断言 `mat-focused`。

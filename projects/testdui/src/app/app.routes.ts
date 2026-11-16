@@ -16,6 +16,10 @@ export const routes: Routes = [
     loadChildren: () => import('./m2-parity/m2-parity.module').then(m => m.M2ParityModule),
   },
   {
+    path: 'focus-check',
+    loadChildren: () => import('./focus-check/focus-check.module').then(m => m.FocusCheckModule),
+  },
+  {
     path: 'color',
     loadChildren: () => import('./color/testcolor.module').then(m => m.TestColorModule),
   },

@@ -221,7 +221,8 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    * @param $event - event parameter (`any`) / 事件参数（`any`）
    */
   onFocus($event) {
-    this.focusObserver && this.focusObserver.setValue(true);
+    // 第二个参数：通知 MatField 等其它监听者，让 mat-form-field 刷新聚焦态（Material 22 只认 stateChanges）。
+    this.focusObserver && this.focusObserver.setValue(true, true);
     if (this.field.focus) {
       this.field.focus(this.field, $event);
     }
@@ -233,7 +234,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    * @param $event - event parameter (`any`) / 事件参数（`any`）
    */
   onBlur($event) {
-    this.focusObserver && this.focusObserver.setValue(false);
+    this.focusObserver && this.focusObserver.setValue(false, true);
     if (this.field.blur) {
       this.field.blur(this.field, $event);
     }
