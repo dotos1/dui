@@ -5,7 +5,6 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -26,7 +25,6 @@ import { TranslateModule } from '@dotos1/dui/translator';
   ],
   imports: [
     CommonModule,
-    FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,

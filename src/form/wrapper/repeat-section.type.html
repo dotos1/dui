@@ -1,5 +1,5 @@
-<div fxLayout='column' fxFlex style='overflow:hidden'>
-  <div fxLayout='row' style='overflow:hidden;height:40px'>
+<div style="display: flex; flex-direction: column; flex: 1 1 0%; box-sizing: border-box; overflow: hidden;">
+  <div style="display: flex; flex-direction: row; box-sizing: border-box; overflow: hidden; height: 40px;">
     <span class="repeat-label" style='margin-top:8px;margin-bottom:8px'> {{field.label|translate}}</span>
     <span style='flex: 1 1 auto;'></span>
     <dui-button *ngIf="field.showAdd" [config]="field.button" [ownerCt]="this"></dui-button>
@@ -19,7 +19,7 @@
           </button>
         </mat-panel-title>
       </mat-expansion-panel-header>
-      <div fxLayout="row wrap" fxLayoutAlign="start center">
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; justify-content: flex-start; align-items: center; align-content: center;">
         <dui-field [field]="item"></dui-field>
       </div>
     </mat-expansion-panel>

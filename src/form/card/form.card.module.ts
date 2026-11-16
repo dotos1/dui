@@ -13,7 +13,6 @@ import {  MatFormFieldModule, } from '@angular/material/form-field';
 import { MatDividerModule  } from '@angular/material/divider';
 import { MatPaginatorModule  } from '@angular/material/paginator';
 import { FormCard } from './form.card';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { Dui } from '@dotos1/dui/core';
 import { TranslateModule } from '@dotos1/dui/translator';
 
@@ -33,7 +32,6 @@ import { TranslateModule } from '@dotos1/dui/translator';
     MatCardModule,
     TranslateModule,
     MatPaginatorModule,
-    FlexLayoutModule
   ],
   exports: [FormCard],
 })

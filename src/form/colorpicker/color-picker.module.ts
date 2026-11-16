@@ -8,7 +8,6 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -38,7 +37,6 @@ import { TranslateModule } from '@dotos1/dui/translator';
   ],
   imports: [
     CommonModule,
-    FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,

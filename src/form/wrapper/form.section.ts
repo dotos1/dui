@@ -8,6 +8,7 @@ import { FieldType } from '@dotos1/dui/core/form';
 import { FormBuilder, FieldConfig, FORM_CONFIG } from '@dotos1/dui/core/form';
 import { CollapseAnimation } from '@dotos1/dui/common/animations';
 import { isUndefined } from '@dotos1/dui/base';
+import { buildRowWrapFlexStyle } from '../components/flex-style.util';
 
 /**
  * Angular component `FormSection` (selector: 'form-section') providing form section presentation and interaction in `src/form/wrapper`.
@@ -88,5 +89,15 @@ export class FormSection<F extends FieldConfig = FieldConfig> extends FieldType<
    */
   toggle() {
     this.collapsed = !this.collapsed;
+  }
+
+  /**
+   * Computes flex layout styles for a section child field item.
+   * @zh 计算分组子字段项的原生 CSS Flex 布局样式。
+   * @param item - item parameter (`FieldConfig`) / 子字段配置参数（`FieldConfig`）
+   * @returns Result of type `Record<string, string>` / 类型为 `Record<string, string>` 的返回值
+   */
+  getItemFlexStyle(item: FieldConfig): Record<string, string> {
+    return buildRowWrapFlexStyle(item.flex ? item.flex : 100);
   }
 }

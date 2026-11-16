@@ -1,5 +1,5 @@
-<div class="dynamic-slider-wrapper relative push-top" fxFlex fxLayout="row" >
-  <div fxLayout="column" fxLayoutAlign ="start top" fxFlex >
+<div class="dynamic-slider-wrapper relative push-top" style="display: flex; flex-direction: row; flex: 1 1 0%; box-sizing: border-box;">
+  <div style="display: flex; flex-direction: column; box-sizing: border-box; justify-content: flex-start; align-items: stretch; align-content: stretch; flex: 1 1 0%;">
       <mat-label [id]="field.name" *ngIf="field.label && field.hideLabel !== true&&field" style="padding-inline-start: 10px;">
         {{ field.label|translate }}
         <span *ngIf="field.required && field.hideRequiredMarker !== true" class="mat-mdc-form-field-required-marker">*</span>

@@ -26,6 +26,7 @@ import { isPhoneTerminal } from '@dotos1/dui/base';
 import { Dui } from '@dotos1/dui/core';
 import { FieldConfig, FieldConfigCache, FormBuilder, FormConfig, FormOptions, TypeOption, assignModelValue, clearControl, clone, getKeyPath, isUndefined } from '@dotos1/dui/core/form';
 import { FormAction, Load, Submit } from '../action/index';
+import { buildRowWrapFlexStyle } from './flex-style.util';
 
 
 /** 手机长表单每批渲染的字段数 */
@@ -366,10 +367,10 @@ export class FormComponent implements DoCheck, OnChanges, OnDestroy {
     return isPhoneTerminal() ? 100 : (item.flex ? item.flex : 100);
   }
 
-  public getStyle(field) {
-    return {
-      'display': field.hidden ? "none" : ""
-    };
+  public getStyle(field): Record<string, string> {
+    const style = buildRowWrapFlexStyle(this.flexOf(field));
+    style['display'] = field.hidden ? 'none' : '';
+    return style;
   }
   /**
    * Executes `changeModel` to handle change model.

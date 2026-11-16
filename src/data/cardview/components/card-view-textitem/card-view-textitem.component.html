@@ -50,8 +50,8 @@
   </div>
   <div *ngSwitchCase="'clickableTemplate'" role="button" class="dui-textitem-clickable"
     [ngClass]="{ 'dui-property-read-only': !isEditable }"
-    [attr.data-automation-id]="'card-textitem-toggle-' + property.key" (click)="clicked()" fxLayout="row"
-    fxLayoutAlign="space-between center">
+    [attr.data-automation-id]="'card-textitem-toggle-' + property.key" (click)="clicked()"
+    style="display: flex; flex-direction: row; box-sizing: border-box; justify-content: space-between; align-items: center; align-content: center;">
     <mat-form-field class="dui-property-field dui-card-textitem-field" [floatLabel]="'always'"  [appearance]="themeService.formType|async">
       <mat-label [attr.data-automation-id]="'card-textitem-label-' + property.key"  *ngIf="showProperty || isEditable">
         {{ property.label | translate }}
@@ -60,7 +60,7 @@
         [ngClass]="{ 'dui-textitem-clickable-value': !isEditable }" [placeholder]="property.default"
         [(ngModel)]="editedValue" (blur)="update()" (keydown.enter)="update()" [disabled]="!isEditable"
         [attr.data-automation-id]="'card-textitem-value-' + property.key">
-      <button mat-icon-button matSuffix fxFlex="0 0 auto" *ngIf="showClickableIcon" class="dui-textitem-action"
+      <button mat-icon-button matSuffix style="flex: 0 0 auto; box-sizing: border-box;" *ngIf="showClickableIcon" class="dui-textitem-action"
         [attr.title]="'ACTIONS.EDIT' | translate"
         [attr.data-automation-id]="'card-textitem-clickable-icon-' + property.key">
         <mat-icon class="dui-textitem-icon">{{ property?.icon }}</mat-icon>

@@ -11,7 +11,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import {
   duiDialogComponent,
   duiDialogTitleDirective,
@@ -80,7 +79,6 @@ const DIALOGS_ENTRY_COMPONENTS = [
     MatIconModule,
     ReactiveFormsModule,
     TranslateModule,
-    FlexLayoutModule
   ],
   declarations: [...DIALOGS],
   exports: [...DIALOGS],

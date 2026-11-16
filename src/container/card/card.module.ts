@@ -16,7 +16,6 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 import { Dui } from '@dotos1/dui/core';
 import { TranslateModule } from '@dotos1/dui/translator';
@@ -35,10 +34,8 @@ import { DuiCardComponent } from './card.component';
     MatIconModule,
     MatTabsModule,
     MatDividerModule,
-    FlexLayoutModule,
     MatListModule,
     TranslateModule,
-    FlexLayoutModule,
     MatPaginatorModule,
     MatSelectModule,
   ],

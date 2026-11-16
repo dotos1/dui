@@ -45,7 +45,7 @@
       <div class="icon-grid">
         <div *ngFor="let icon of customIcons; trackBy: trackByMetaName">
           <button *ngIf="icon" class="btn-default" title="{{icon.meta_name}}" (click)="selectCustomIcon(icon)">
-            <div fxLayout="column" fxLayoutAlign="space-between center" >
+            <div style="display: flex; flex-direction: column; box-sizing: border-box; justify-content: space-between; align-items: center; align-content: center;">
               <div *ngIf="icon.svgElm!==undefined"  class="metatile" style='width: 36px; height: 36px;'  [innerHTML]="icon.svgElm"></div> 
               <div *ngIf="icon.svgElm===undefined"  class="metatile" [ngStyle]="getBackGround(icon)" style='width: 36px; height: 36px;' ></div> 
            </div>
