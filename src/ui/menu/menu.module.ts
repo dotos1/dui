@@ -16,7 +16,6 @@ import { RouterModule } from '@angular/router';
 import { IconModule } from '@dotos1/dui/common/icon';
 import { Dui } from '@dotos1/dui/core';
 import { TranslateModule } from '@dotos1/dui/translator';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ExtensionsModule } from '@dotos1/dui/common/dynamic';
 
 import { MenuBarComponent } from './menu-bar.component';
@@ -39,7 +38,6 @@ import { MenuDirective } from './menu-item.directive';
     MatCheckboxModule,
     IconModule,
     ExtensionsModule,
-    FlexLayoutModule,
     TranslateModule,
     RouterModule
   ],

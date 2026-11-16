@@ -12,7 +12,6 @@ import { LockscreenDialog } from './lockscreen.dialog';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { encrypt } from '@dotos1/dui/core/crypt';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
@@ -32,7 +31,6 @@ import { DialogsModule } from '@dotos1/dui/common/dialogs';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     ClickOutsideModule,
     TranslateModule,
     MatButtonModule,

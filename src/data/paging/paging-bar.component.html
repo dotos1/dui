@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="start center" class="md-caption dui-paging-bar" (change)="$event.stopPropagation()">
+<div style="display: flex; flex-direction: row; box-sizing: border-box; justify-content: flex-start; align-items: center; align-content: center;" class="md-caption dui-paging-bar" (change)="$event.stopPropagation()">
   <ng-content></ng-content>
   <button mat-icon-button class="dui-paging-bar-first-page" type="button" *ngIf="firstLast" [disabled]="isMinPage()"
     (click)="firstPage()">

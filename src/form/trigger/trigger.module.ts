@@ -17,7 +17,6 @@ import { FormModule } from '../components/form.module';
 import { TriggerField } from './trigger.field';
 import { Dui, StyleModule } from '@dotos1/dui/core';
 import { TreeModule } from '@dotos1/dui/tree';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
@@ -38,7 +37,6 @@ import { TranslateModule } from '@dotos1/dui/translator';
     A11yModule,
     TreeModule,
     TranslateModule,
-    FlexLayoutModule,
     FormModule.forChild(),
   ],
   exports: [

@@ -248,6 +248,42 @@ export class DuiCardComponent extends Container implements OnChanges{
   public fxLayout: string = 'row';
 
   /**
+   * Computes merged content container styles combining `fxLayout` direction/wrap with `style`.
+   * @zh 计算合并了 `fxLayout` 弹性方向/换行配置与 `style` 的卡片内容容器样式。
+   * @returns Result of type `DuiStyle` / 类型为 `DuiStyle` 的返回值
+   */
+  public getContentLayoutStyle(): DuiStyle {
+    const raw = (this.fxLayout || 'row').toLowerCase().trim();
+    const parts = raw.split(/\s+/);
+    const validDirs = ['row', 'column', 'row-reverse', 'column-reverse'];
+    const direction = validDirs.includes(parts[0]) ? parts[0] : 'row';
+    const isInline = parts.includes('inline');
+    const wrapToken = parts.find((p, idx) => idx > 0 && p !== 'inline');
+    let flexWrap: string | undefined;
+    if (wrapToken) {
+      if (wrapToken === 'reverse' || wrapToken === 'wrap-reverse' || wrapToken === 'reverse-wrap') {
+        flexWrap = 'wrap-reverse';
+      } else if (wrapToken === 'no' || wrapToken === 'none' || wrapToken === 'nowrap') {
+        flexWrap = 'nowrap';
+      } else {
+        flexWrap = 'wrap';
+      }
+    }
+    const baseStyle: DuiStyle = {
+      display: isInline ? 'inline-flex' : 'flex',
+      'box-sizing': 'border-box',
+      'flex-direction': direction,
+    };
+    if (flexWrap) {
+      baseStyle['flex-wrap'] = flexWrap;
+    }
+    return {
+      ...baseStyle,
+      ...(this.style || {}),
+    };
+  }
+
+  /**
    * Property `style` (`DuiStyle`) storing style.
    * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式。
    */

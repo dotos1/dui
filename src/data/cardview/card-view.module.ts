@@ -20,7 +20,6 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatCardModule } from '@angular/material/card';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 import { Dui } from '@dotos1/dui/core';
 import { MatDatetimepickerModule } from '@dotos1/dui/form/date/picker';
@@ -42,7 +41,6 @@ import {
   imports: [
     CommonModule,
     FormsModule,
-    FlexLayoutModule,
     TranslateModule,//.forChild(),
     MatDatepickerModule,
     MatNativeDateModule,

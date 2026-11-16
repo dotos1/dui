@@ -9,7 +9,6 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -53,7 +52,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatTabsModule,
     MatSelectModule,
-    FlexLayoutModule,
     FormModule.forChild()
   ],
   exports: [
