@@ -4,7 +4,7 @@
  */
 
 import { Injectable, Inject } from '@angular/core';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { of } from 'rxjs';
 
 /**

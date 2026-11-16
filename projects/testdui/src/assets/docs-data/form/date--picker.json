@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/date/picker",
+  "importPath": "@dotos1/dui/form/date/picker",
   "exports": [
     {
       "name": "CLOCK_INNER_RADIUS",
@@ -1303,5 +1303,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MatDatetimepicker, MatDatetimepickerModule } from '@dotos/dui/form/date/picker';\n\n<mat-datetimepicker [multiYearSelector]=\"...\" [twelvehour]=\"...\" [startView]=\"...\" (selectedChanged)=\"...\" (openedStream)=\"...\"></mat-datetimepicker>"
+  "suggestedUsageSnippet": "import { MatDatetimepicker, MatDatetimepickerModule } from '@dotos1/dui/form/date/picker';\n\n<mat-datetimepicker [multiYearSelector]=\"...\" [twelvehour]=\"...\" [startView]=\"...\" (selectedChanged)=\"...\" (openedStream)=\"...\"></mat-datetimepicker>"
 }

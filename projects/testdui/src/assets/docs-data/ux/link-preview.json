@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/link-preview",
+  "importPath": "@dotos1/dui/ux/link-preview",
   "exports": [
     {
       "name": "LinkPreviewCacheService",
@@ -446,5 +446,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { LinkPreviewComponent, LinkPreviewModule } from '@dotos/dui/ux/link-preview';\n\n<link-preview [links]=\"...\" [parseForLinksStr]=\"...\" [getApiEndpoint$]=\"...\" (previewClicked)=\"...\"></link-preview>"
+  "suggestedUsageSnippet": "import { LinkPreviewComponent, LinkPreviewModule } from '@dotos1/dui/ux/link-preview';\n\n<link-preview [links]=\"...\" [parseForLinksStr]=\"...\" [getApiEndpoint$]=\"...\" (previewClicked)=\"...\"></link-preview>"
 }

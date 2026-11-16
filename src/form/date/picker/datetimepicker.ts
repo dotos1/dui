@@ -29,7 +29,7 @@ import {
 import {MatDialog, MatDialogRef} from "@angular/material/dialog";
 import {Subject, Subscription} from "rxjs";
 import {first} from "rxjs/operators";
-import {DatetimeAdapter} from "@dotos/dui/form/date/adapter";
+import {DatetimeAdapter} from "@dotos1/dui/form/date/adapter";
 
 import {MatCalendarView, MatDatetimepickerCalendar} from "./calendar";
 import {createMissingDateImplError} from "./datetimepicker-errors";

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/behaviors",
+  "importPath": "@dotos1/dui/core/behaviors",
   "exports": [
     {
       "name": "ICanDisable",
@@ -194,5 +194,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/behaviors';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/behaviors';"
 }

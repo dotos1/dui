@@ -4,7 +4,7 @@
  */
 
 
-import { DuiBase } from '@dotos/dui/base';
+import { DuiBase } from '@dotos1/dui/base';
 import { BehaviorSubject } from 'rxjs';
 import { EventEmitter } from 'events';
 

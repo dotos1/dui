@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux",
+  "importPath": "@dotos1/dui/ux",
   "exports": [
     {
       "name": "CodeEditorModule",
@@ -368,5 +368,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ExtCodeEditorComponent, CodeEditorModule } from '@dotos/dui/ux';\n\n<td-code-editor [value]=\"...\" [language]=\"...\" [editorStyle]=\"...\" (onEditorInitialized)=\"...\" (onEditorConfigurationChanged)=\"...\"></td-code-editor>"
+  "suggestedUsageSnippet": "import { ExtCodeEditorComponent, CodeEditorModule } from '@dotos1/dui/ux';\n\n<td-code-editor [value]=\"...\" [language]=\"...\" [editorStyle]=\"...\" (onEditorInitialized)=\"...\" (onEditorConfigurationChanged)=\"...\"></td-code-editor>"
 }

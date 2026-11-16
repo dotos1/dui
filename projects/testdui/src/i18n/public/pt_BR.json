@@ -88,7 +88,7 @@
     "STEP4_H2": "Alternar temas em tempo de execução",
     "STEP4_P2": "Com o ThemeService, é possível alterar dinamicamente a cor primária, secundária, de alerta e o modo claro/escuro em tempo de execução, sem necessidade de recompilar:",
     "STEP5_H1": "Regras de empacotamento de pontos de entrada secundários",
-    "STEP5_P1": "O DUI usa pontos de entrada secundários do ng-packagr. Cada pasta de funcionalidade contém seus próprios ng-package.json, index.ts e public-api.ts. Sempre importe entre pontos de entrada via @dotos/dui/<category>/<module> em vez de caminhos relativos profundos:",
+    "STEP5_P1": "O DUI usa pontos de entrada secundários do ng-packagr. Cada pasta de funcionalidade contém seus próprios ng-package.json, index.ts e public-api.ts. Sempre importe entre pontos de entrada via @dotos1/dui/<category>/<module> em vez de caminhos relativos profundos:",
     "STEP5_H2": "Ciclo de vida de assinaturas RxJS e desempenho com OnPush",
     "STEP5_P2": "Sempre limpe assinaturas Observable de longa duração no ngOnDestroy usando takeUntil(this.destroy$) para evitar vazamentos de memória, e prefira ChangeDetectionStrategy.OnPush para componentes de alta frequência:",
     "STEP5_H3": "JSDoc bilíngue (@zh) e geração automática de documentação",

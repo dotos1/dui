@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/crypt",
+  "importPath": "@dotos1/dui/core/crypt",
   "exports": [
     {
       "name": "base64",
@@ -581,5 +581,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/crypt';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/crypt';"
 }

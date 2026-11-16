@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core",
+  "importPath": "@dotos1/dui/core",
   "exports": [
     {
       "name": "applyCssTransform",
@@ -1388,5 +1388,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { RtlModule } from '@dotos/dui/core';"
+  "suggestedUsageSnippet": "import { RtlModule } from '@dotos1/dui/core';"
 }

@@ -5,7 +5,7 @@
 
 import {
   Component, ElementRef,
-  HostListener, OnDestroy, OnInit,
+  HostListener, OnDestroy, OnInit, ChangeDetectionStrategy,
 } from '@angular/core';
 import { AbstractControl, FormControl, FormGroup, Validators } from '@angular/forms';
 import { NodeSelection } from 'prosemirror-state';
@@ -25,6 +25,7 @@ import { Image as ImageCommand } from '../MenuCommands';
   selector: 'ux-image',
   templateUrl: './image.component.html',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class ImageComponent implements OnInit, OnDestroy {

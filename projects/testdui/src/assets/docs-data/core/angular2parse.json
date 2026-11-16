@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/angular2parse",
+  "importPath": "@dotos1/dui/core/angular2parse",
   "exports": [
     {
       "name": "_ParseAST",
@@ -4416,5 +4416,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { Angular2ParseModule } from '@dotos/dui/core/angular2parse';"
+  "suggestedUsageSnippet": "import { Angular2ParseModule } from '@dotos1/dui/core/angular2parse';"
 }

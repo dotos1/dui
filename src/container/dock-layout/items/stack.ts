@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/items/stack.ts`，提供栈相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { ComponentItemConfig, ItemConfig } from '../config/config';
 import { ResolvedComponentItemConfig, ResolvedHeaderedItemConfig, ResolvedItemConfig, ResolvedStackItemConfig } from '../config/resolved-config';
 import { Header } from '../controls/header';

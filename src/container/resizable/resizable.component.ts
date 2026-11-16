@@ -5,15 +5,15 @@
 
 import {
   Component, ElementRef, Renderer2, Input, Output, EventEmitter, OnInit, ChangeDetectorRef, OnChanges,
-  AfterViewInit, OnDestroy, NgZone
+  AfterViewInit, OnDestroy, NgZone, ChangeDetectionStrategy
 } from '@angular/core';
-import { PositionStore } from '@dotos/dui/core/position';
+import { PositionStore } from '@dotos1/dui/core/position';
 import {
   IPoint, IPosionOptions, ISize, IPositionState, IPositionEvent, IRectangle, IResizable
-} from '@dotos/dui/core/position';
-import { RESIZE_INIT, MOUSE_DOWN, RESIZE_STOP, RESIZE } from '@dotos/dui/core/position';
-import { resizeReducer, defaultBound } from '@dotos/dui/core/position';
-import { Dui } from '@dotos/dui/core';
+} from '@dotos1/dui/core/position';
+import { RESIZE_INIT, MOUSE_DOWN, RESIZE_STOP, RESIZE } from '@dotos1/dui/core/position';
+import { resizeReducer, defaultBound } from '@dotos1/dui/core/position';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular component `ResizableComponent` (selector: '[Resizable]') providing resizable component presentation and interaction in `src/container/resizable`.
@@ -27,7 +27,8 @@ import { Dui } from '@dotos/dui/core';
   host: {
      hostID: 'dui-resizable' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ResizableComponent implements OnInit, OnChanges, AfterViewInit, OnDestroy, IResizable {
 

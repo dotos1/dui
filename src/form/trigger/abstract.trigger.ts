@@ -22,13 +22,13 @@ import {
 
 } from '@angular/core';
 import {  MatDialogRef } from "@angular/material/dialog";
-import { TriggerPopup } from '@dotos/dui/common/trigger';
-import { TranslateService } from '@dotos/dui/translator';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
+import { TranslateService } from '@dotos1/dui/translator';
 import {isObjectLike}  from 'lodash-es';
 import { Subject } from "rxjs";
 import { first, takeUntil } from "rxjs/operators";
 import { MatField } from '../base/mat.field';
-import { DialogService} from '@dotos/dui/common/dialogs';
+import { DialogService} from '@dotos1/dui/common/dialogs';
 
 /**
  * Change event object emitted by Md2Select.

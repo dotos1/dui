@@ -4,7 +4,7 @@
  */
 
 import { FormArray } from '@angular/forms';
-import { DuiBase } from '@dotos/dui/base';
+import { DuiBase } from '@dotos1/dui/base';
 import {filter}  from 'lodash-es';
 import { findControl, registerControl, unregisterControl } from '../extensions/field-form/utils';
 import { FieldConfig, FormExtension } from '../models';

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/dynamic",
+  "importPath": "@dotos1/dui/core/dynamic",
   "exports": [
     {
       "name": "DynamicComponent",
@@ -81,5 +81,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DynamicComponent, DynamicModule } from '@dotos/dui/core/dynamic';\n\n<dui-dynamic [tmpl]=\"...\" [data]=\"...\"></dui-dynamic>"
+  "suggestedUsageSnippet": "import { DynamicComponent, DynamicModule } from '@dotos1/dui/core/dynamic';\n\n<dui-dynamic [tmpl]=\"...\" [data]=\"...\"></dui-dynamic>"
 }

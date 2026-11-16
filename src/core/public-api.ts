@@ -11,5 +11,5 @@ export * from './style/index';
 export * from './WindowRef';
 export { Dui } from './dui';
 export { ComponentBase, DuiPlugin } from './component.base';
-export type { DuiConfig, DuiStyle, DuiListeners, DuiListener, DuiExpression, DuiExpressionProperties, DuiCompiledExpression, DuiPluginConfig } from '@dotos/dui/base';
+export type { DuiConfig, DuiStyle, DuiListeners, DuiListener, DuiExpression, DuiExpressionProperties, DuiCompiledExpression, DuiPluginConfig } from '@dotos1/dui/base';
 export { WindowService } from './window.service';

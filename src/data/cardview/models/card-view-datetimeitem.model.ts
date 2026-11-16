@@ -4,8 +4,8 @@
  */
 
 
-import { TranslationService } from '@dotos/dui/translator';
-import { DynamicComponentModel } from '@dotos/dui/core/services';
+import { TranslationService } from '@dotos1/dui/translator';
+import { DynamicComponentModel } from '@dotos1/dui/core/services';
 import { CardViewDateItemModel } from './card-view-dateitem.model';
 import { CardViewItem,CardViewDateItemProperties } from '../interfaces';
 

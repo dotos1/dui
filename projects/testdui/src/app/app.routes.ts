@@ -12,6 +12,10 @@ import { RouterModule, Routes } from '@angular/router';
  */
 export const routes: Routes = [
   {
+    path: 'm2-parity',
+    loadChildren: () => import('./m2-parity/m2-parity.module').then(m => m.M2ParityModule),
+  },
+  {
     path: 'color',
     loadChildren: () => import('./color/testcolor.module').then(m => m.TestColorModule),
   },

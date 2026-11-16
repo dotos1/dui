@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/base",
+  "importPath": "@dotos1/dui/base",
   "exports": [
     {
       "name": "addClass",
@@ -361,8 +361,8 @@
     {
       "name": "defaultCulture",
       "kind": "constant",
-      "summary": "Constant/variable `defaultCulture` defining default culture in `src/base`.\n默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。",
-      "summaryZh": "默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。",
+      "summary": "Constant/variable `defaultCulture` defining default culture in `src/base`.\n默认区域。旧实现放在这里,`@dotos1/dui/translator` 现在有自己的一份。",
+      "summaryZh": "默认区域。旧实现放在这里,`@dotos1/dui/translator` 现在有自己的一份。",
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -1691,5 +1691,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/base';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/base';"
 }

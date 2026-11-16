@@ -12,7 +12,7 @@ import {
 import { Keys } from '../utils/keys';
 import { SortDirection } from '../types/sort-direction.type';
 import { TableColumn } from '../types/table-column.type';
-import { TranslatePipe } from '@dotos/dui/translator';
+import { TranslatePipe } from '@dotos1/dui/translator';
 
 /**
  * Type alias `TreeStatus` representing tree status (`'collapsed' | 'expanded' | 'loading' | 'disabled'`).

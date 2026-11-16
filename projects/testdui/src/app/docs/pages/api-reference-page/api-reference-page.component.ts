@@ -3,11 +3,11 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/pages/api-reference-page/api-reference-page.component.ts`，提供API接口引用页面组件相关的定义与实现。
  */
 
-import { Component, Optional } from '@angular/core';
+import { Component, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 
 import { DocsDataService } from '../../services/docs-data.service';
 import { ApiExport, ApiInput, ApiMethod, ApiOutput, ApiProperty, ModuleApiFile } from '../../models/api-record.model';
@@ -22,6 +22,7 @@ import { preferZh } from '../../util/i18n-text';
   templateUrl: './api-reference-page.component.html',
   styleUrls: ['./api-reference-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ApiReferencePageComponent {
   /**

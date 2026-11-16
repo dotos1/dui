@@ -3801,15 +3801,3 @@
 .context-view .monaco-menu {
   min-width: 130px;
 }
-
-/* 使用静态 M3 / DUI 主题令牌自适应亮/暗/工业深蓝模式下的编辑器文本与光标颜色 */
-.mtk1 {
-  color: var(--mat-sys-on-surface-variant, var(--dui-on-surface)) !important;
-}
-
-.monaco-editor .cursors-layer .cursor {
-  background-color: var(--dui-on-surface, var(--mat-sys-on-surface)) !important;
-  border-color: var(--dui-outline-variant, var(--mat-sys-outline-variant)) !important;
-  color: var(--dui-on-surface, var(--mat-sys-on-surface)) !important;
-}
-

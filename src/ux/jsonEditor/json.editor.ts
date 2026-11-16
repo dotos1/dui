@@ -6,8 +6,8 @@
 import { Component,  ChangeDetectionStrategy, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Inject} from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { ToastrService } from '@dotos/dui/common/toastr';
-import { EditorComponent } from '@dotos/dui/ux/monaco-editor';
+import { ToastrService } from '@dotos1/dui/common/toastr';
+import { EditorComponent } from '@dotos1/dui/ux/monaco-editor';
 
 /**
  * Angular component `JsonEditor` (selector: 'json-editor') providing json editor presentation and interaction in `src/ux/jsonEditor`.

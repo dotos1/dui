@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 import { DEFAULT_SEPARATOR } from '../card-view-textitem/card-view-textitem.component';
 import { CardViewItem } from '../../interfaces';
 
@@ -16,7 +16,8 @@ import { CardViewItem } from '../../interfaces';
   selector: 'dui-card-view',
   templateUrl: './card-view.component.html',
   styleUrls: ['./card-view.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewComponent {
   /**

@@ -4,7 +4,7 @@
  */
 
 import {  ChangeDetectionStrategy,  Component,  Input,} from '@angular/core';
-import { MatColors } from '@dotos/dui/core/color';
+import { MatColors } from '@dotos1/dui/core/color';
 
 /**
  * Constant/variable `amber` defining amber in `src/common/colorpicker/components/circle`.
@@ -97,8 +97,8 @@ export const teal = MatColors.getColorName('teal');
  */
 export const yellow = MatColors.getColorName('yellow');
 
-import { ColorWrap, isValidHex } from '@dotos/dui/common/colorpicker/common';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
+import { ColorWrap, isValidHex } from '@dotos1/dui/common/colorpicker/common';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
 
 /**
  * Color picker rendered as a grid of round color swatches, with no fine-grained

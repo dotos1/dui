@@ -7,7 +7,7 @@
 
 import { DatePipe } from '@angular/common';
 import { Pipe, PipeTransform } from '@angular/core';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 /**
  * Angular pipe `LocalizedDatePipe` (name: 'LocalizedDate') transforming values for localized date pipe display in templates.
  * @zh Angular 管道 `LocalizedDatePipe`（name: 'LocalizedDate'），在模板中转换数据以用于Localized日期管道展示。

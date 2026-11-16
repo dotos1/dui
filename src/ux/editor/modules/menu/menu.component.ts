@@ -5,7 +5,7 @@
 
 import {
   Component, Input,
-  OnInit, TemplateRef,
+  OnInit, TemplateRef, ChangeDetectionStrategy,
 } from '@angular/core';
 
 
@@ -161,6 +161,7 @@ const DEFAULT_COLOR_PRESETS = [
   templateUrl: './menu.component.html',
   providers: [MenuService],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 

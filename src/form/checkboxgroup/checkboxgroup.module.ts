@@ -13,8 +13,8 @@ import { CheckboxGroupField } from './checkboxgroup.component';
 import { MatCheckGroup } from './checkboxgroup.exp';
 import { SelectPipeModule } from '../base/select.module';
 import { FormModule } from '../components/form.module';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `CheckboxGroupModule` declaring and exporting checkbox group module components, directives, pipes, and providers.

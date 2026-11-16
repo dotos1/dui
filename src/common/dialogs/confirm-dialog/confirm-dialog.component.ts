@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/dialogs/confirm-dialog/confirm-dialog.component.ts`，提供confirm对话框组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 /**
@@ -15,6 +15,7 @@ import { MatDialogRef } from '@angular/material/dialog';
   templateUrl: './confirm-dialog.component.html',
   styleUrls: ['./confirm-dialog.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class ConfirmDialogComponent {

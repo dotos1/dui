@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/panel/split.component.ts`，提供分割面板组件相关的定义与实现。
  */
 
-import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
+import { Component, Input, ElementRef, Renderer2, ChangeDetectionStrategy } from '@angular/core';
 
 
 /**
@@ -17,7 +17,8 @@ import { Component, Input, ElementRef, Renderer2 } from '@angular/core';
   host: {
     hostID: 'dui-split-gutter' + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class SplitComponent {
 

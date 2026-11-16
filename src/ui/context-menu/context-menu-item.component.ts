@@ -4,9 +4,9 @@
  */
 
 
-import { Component, Input, ViewEncapsulation, Injector, ChangeDetectorRef, DoCheck, OnInit } from '@angular/core';
+import { Component, Input, ViewEncapsulation, Injector, ChangeDetectorRef, DoCheck, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
-import { MenuModel,MenuBase } from '@dotos/dui/ui/menu';
+import { MenuModel,MenuBase } from '@dotos1/dui/ui/menu';
 
 /**
  * Angular component `ContextMenuItemComponent` (selector: 'dui-context-menu-item') providing context menu item component presentation and interaction in `src/ui/context-menu`.
@@ -20,6 +20,7 @@ import { MenuModel,MenuBase } from '@dotos/dui/ui/menu';
     hostID: 'dui-context-menu-item' + Math.random().toString(36).substring(2, 15)
   },
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ContextMenuItemComponent extends MenuBase implements OnInit,DoCheck {
   /**

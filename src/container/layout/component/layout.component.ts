@@ -3,8 +3,8 @@
  * @zh 模块文件 `src/container/layout/component/layout.component.ts`，提供布局组件相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
-import { ComponentBase } from '@dotos/dui/core';
+import { DuiConfig } from '@dotos1/dui/base';
+import { ComponentBase } from '@dotos1/dui/core';
 import {
     AfterViewInit,
     ChangeDetectionStrategy,
@@ -22,7 +22,7 @@ import {
     ViewChildren,
     ViewEncapsulation,
 } from '@angular/core';
-import { Container } from '@dotos/dui/container';
+import { Container } from '@dotos1/dui/container';
 import {isArray,each}  from 'lodash-es';
 import { Observable, Subject, Subscriber } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';

@@ -7,8 +7,8 @@ import {CommonModule} from '@angular/common';
 import { NgModule} from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { FormModule } from '../components';
 
 import { RangeSliderFieldComponent } from './range-slider.field';

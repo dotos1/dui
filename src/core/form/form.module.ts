@@ -7,8 +7,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ValidationMessage } from './template/form.validation-message';
 import { FormTemplateType } from './template/field-template.type';
-import { DuiBase } from '@dotos/dui/base';
-import { TranslateModule } from '@dotos/dui/translator';
+import { DuiBase } from '@dotos1/dui/base';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `AbstractFormModule` declaring and exporting abstract form module components, directives, pipes, and providers.

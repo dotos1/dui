@@ -1,11 +1,11 @@
 {
-  "importPath": "@dotos/dui/i18n",
+  "importPath": "@dotos1/dui/i18n",
   "exports": [
     {
       "name": "DUI_LOCALE_BUNDLES",
       "kind": "constant",
-      "summary": "12 built-in locale dictionary bundles (zh_CN, zh_TW, en_US, ja_JP, ko_KR, fr_FR, de_DE, es_419, pt_BR, ru_RU, id_ID, ar_SA) for @dotos/dui.",
-      "summaryZh": "@dotos/dui 内置 12 语种国际化字典资源包（zh_CN、zh_TW、en_US、ja_JP、ko_KR、fr_FR、de_DE、es_419、pt_BR、ru_RU、id_ID、ar_SA）。",
+      "summary": "12 built-in locale dictionary bundles (zh_CN, zh_TW, en_US, ja_JP, ko_KR, fr_FR, de_DE, es_419, pt_BR, ru_RU, id_ID, ar_SA) for @dotos1/dui.",
+      "summaryZh": "@dotos1/dui 内置 12 语种国际化字典资源包（zh_CN、zh_TW、en_US、ja_JP、ko_KR、fr_FR、de_DE、es_419、pt_BR、ru_RU、id_ID、ar_SA）。",
       "inputs": [],
       "outputs": [],
       "methods": [],
@@ -13,5 +13,5 @@
       "sourceFile": "src/i18n/dui/zh_CN.json"
     }
   ],
-  "suggestedUsageSnippet": "import { TranslationService } from '@dotos/dui/translator';\n\n// Switch active locale across all DUI components:\ntranslationService.use('zh_CN');"
+  "suggestedUsageSnippet": "import { TranslationService } from '@dotos1/dui/translator';\n\n// Switch active locale across all DUI components:\ntranslationService.use('zh_CN');"
 }

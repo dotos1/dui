@@ -5,7 +5,7 @@
 
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { DOTOS_CONFIG } from './config.service';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 /**
  * Angular module `DotosConfigModule` declaring and exporting dotos config module components, directives, pipes, and providers.

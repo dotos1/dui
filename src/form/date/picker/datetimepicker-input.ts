@@ -19,7 +19,7 @@ import {
 import {MAT_INPUT_VALUE_ACCESSOR} from "@angular/material/input";
 import {MatFormField} from "@angular/material/form-field";
 import {Subscription} from "rxjs";
-import {DatetimeAdapter,MAT_DATETIME_FORMATS, MatDatetimeFormats} from "@dotos/dui/form/date/adapter";
+import {DatetimeAdapter,MAT_DATETIME_FORMATS, MatDatetimeFormats} from "@dotos1/dui/form/date/adapter";
 
 import {MatDatetimepicker} from "./datetimepicker";
 import {createMissingDateImplError} from "./datetimepicker-errors";

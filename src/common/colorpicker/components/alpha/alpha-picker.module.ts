@@ -5,8 +5,8 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { AlphaModule, CheckboardModule } from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+import { AlphaModule, CheckboardModule } from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import { AlphaPickerComponent } from './alpha-picker.component';
 
 /**

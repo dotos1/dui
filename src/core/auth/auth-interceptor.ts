@@ -5,7 +5,7 @@
 
 import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
 import { Injectable, Injector, Optional } from '@angular/core';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import { Observable } from 'rxjs';
 import { configuredTokenHosts, isTrustedTokenTarget } from './token-target';
 

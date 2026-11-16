@@ -17,7 +17,8 @@ import { TreeNode } from '../models/tree-node.model';
   host: {
     hostID: 'tree-loading-component' + Math.random().toString(36).substring(2, 15)
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class LoadingComponent {
   /**

@@ -18,7 +18,7 @@ import {
 } from '@angular/core';
 import { MatMenu } from '@angular/material/menu';
 import { Router } from '@angular/router';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import { MenuBase } from './menu-base';
 import { MenuDirective } from './menu-item.directive';
 import { MenuModel } from './menu-model';

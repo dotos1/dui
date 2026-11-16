@@ -25,7 +25,7 @@ import {
 } from './toastr-config';
 import { ToastrService } from './toastr.service';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular component `ToastNoAnimation` (selector: '[toast-component]') providing toast no animation presentation and interaction in `src/common/toastr/toastr`.

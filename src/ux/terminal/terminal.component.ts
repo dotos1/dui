@@ -3,13 +3,13 @@
  * @zh 模块文件 `src/ux/terminal/terminal.component.ts`，提供终端组件相关的定义与实现。
  */
 
-import { DuiStyle } from '@dotos/dui/base';
+import { DuiStyle } from '@dotos1/dui/base';
 import { Component,  ViewChild, ElementRef, Input, Output, EventEmitter, OnDestroy, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, OnChanges, Renderer2, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { ITerminalOptions, Terminal } from 'xterm';
 import { FitAddon } from 'xterm-addon-fit';
 import { Subject, Observable, Subscription } from 'rxjs';
 import { ResizeObserver } from '@juggle/resize-observer';
-import { ResizeEvent } from '@dotos/dui/common/resize-element';
+import { ResizeEvent } from '@dotos1/dui/common/resize-element';
 import { NgTerminal } from './terminal';
 
 /**

@@ -14,8 +14,11 @@ import {
   TemplateRef,
   ViewChild,
   HostBinding,
-  ChangeDetectorRef,
+  HostListener,
+  ChangeDetectorRef, ChangeDetectionStrategy,
 } from '@angular/core';
+
+import { duiCollapseAnimation } from './collapse.animation';
 
 /**
  * @hidden Marks the internal view-container anchor that {@link MessageComponent} attaches
@@ -44,7 +47,9 @@ export class MessageContainerDirective {
   selector: 'dui-message',
   templateUrl: './message.component.html',
   styleUrls: ['./message.component.scss'],
+  animations: [duiCollapseAnimation],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class MessageComponent implements AfterViewInit {
   /**
@@ -86,12 +91,13 @@ export class MessageComponent implements AfterViewInit {
   @ViewChild(TemplateRef) _template!: TemplateRef<unknown>;
 
   /**
-   * Binding host to collapsed CSS class when message is closed.
-   * @zh 宿主绑定读取器 `collapsedAnimation`（绑定至 `class.dui-message-collapsed`），标记折叠状态。
+   * Binding host to duiCollapse animation
+
+   * @zh 宿主绑定读取器 `collapsedAnimation`（绑定至 `@duiCollapse`），计算并返回已折叠动画。
    */
-  @HostBinding('class.dui-message-collapsed')
-  get collapsedAnimation(): boolean {
-    return !this._opened;
+  @HostBinding('@duiCollapse')
+  get collapsedAnimation() {
+    return { value: !this._opened, duration: 100 };
   }
 
   /**
@@ -217,10 +223,12 @@ export class MessageComponent implements AfterViewInit {
   }
 
   /**
-   * Detach element when close transition finishes, setting animating state to false,
-   * hidden state to true, and detaching template from DOM.
-   * @zh 收起过渡完成后卸载内部视图并更新隐藏状态。
+   * Detach element when close animation is finished to set animating state to false
+   * hidden state to true and detach element from DOM
+
+   * @zh 宿主事件监听方法 `animationDoneListener`，响应 `@duiCollapse.done` 事件以处理动画完成监听器。
    */
+  @HostListener('@duiCollapse.done')
   animationDoneListener(): void {
     if (!this._opened) {
       this._hidden = true;
@@ -285,35 +293,14 @@ export class MessageComponent implements AfterViewInit {
   }
 
   /**
-   * Method to set the state before starting an animation and deterministically settle completion.
-   * @zh 启动展开/收起过渡并在完成后确定性收敛状态（JSDOM 下微任务完成）。
+   * Method to set the state before starting an animation
+
+   * @zh 执行 `_startAnimationState`，用于开始动画状态。
    */
   private _startAnimationState(): void {
     this._animating = true;
     this._hidden = false;
     this._changeDetectorRef.markForCheck();
-    const el: HTMLElement | undefined = this._elementRef?.nativeElement;
-    if (typeof el?.animate === 'function') {
-      const fromHeight = this._opened ? '0px' : `${el.offsetHeight || 52}px`;
-      const toHeight = this._opened ? `${el.scrollHeight || 52}px` : '0px';
-      let settled = false;
-      const done = (): void => {
-        if (settled) {
-          return;
-        }
-        settled = true;
-        this.animationDoneListener();
-      };
-      const anim = el.animate([{ height: fromHeight }, { height: toHeight }], {
-        duration: 100,
-        easing: 'ease-in-out',
-      });
-      anim.onfinish = done;
-      anim.oncancel = done;
-      setTimeout(done, 132);
-    } else {
-      queueMicrotask(() => this.animationDoneListener());
-    }
   }
 
   /**

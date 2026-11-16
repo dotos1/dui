@@ -3,8 +3,8 @@
   "note": "由 dotos-ops ts/gates/ts-suppress-gate.mjs 生成。只能变小：清理后用 --update 调低，不要手工调高。",
   "totals": {
     "ts-comment": 52,
-    "type-escape": 243,
-    "any-annotation": 1437
+    "type-escape": 242,
+    "any-annotation": 1416
   },
   "files": {
     "projects/testdui/src/app/app.component.ts": {
@@ -39,9 +39,6 @@
     },
     "projects/testdui/tools/ts-ast-extract.ts": {
       "type-escape": 2
-    },
-    "setup-jest.ts": {
-      "any-annotation": 13
     },
     "src/base/base.ts": {
       "type-escape": 2
@@ -262,7 +259,7 @@
     },
     "src/common/keyboard/keyboard-shortcuts.service.ts": {
       "type-escape": 2,
-      "any-annotation": 6
+      "any-annotation": 2
     },
     "src/common/keyboard/portal.ts": {
       "any-annotation": 2
@@ -672,7 +669,7 @@
     },
     "src/data/datatable/datatable.component.ts": {
       "type-escape": 1,
-      "any-annotation": 25
+      "any-annotation": 22
     },
     "src/data/datatable/declarations.d.ts": {
       "any-annotation": 1
@@ -931,10 +928,6 @@
     "src/tree/directives/tree-drop.directive.ts": {
       "type-escape": 2,
       "any-annotation": 6
-    },
-    "src/tree/models/tree-node.model.ts": {
-      "type-escape": 1,
-      "any-annotation": 1
     },
     "src/tree/models/tree-options.model.ts": {
       "type-escape": 2,

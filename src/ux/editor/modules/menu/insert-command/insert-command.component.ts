@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/editor/modules/menu/insert-command/insert-command.component.ts`，提供插入命令组件相关的定义与实现。
  */
 
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { EditorView } from 'prosemirror-view';
 import { Subscription } from 'rxjs';
 
@@ -21,6 +21,7 @@ import { TBItems, ToolbarItem } from '../../../types';
   selector: 'ux-insert-command',
   templateUrl: './insert-command.component.html',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 
 export class InsertCommandComponent implements OnInit, OnDestroy {

@@ -4,12 +4,12 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
-import { TranslateModule, TranslationService } from '@dotos/dui/translator';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { TranslateModule, TranslationService } from '@dotos1/dui/translator';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `TranslatorExampleComponent` (selector: 'app-translator-example') providing live i18n language switching interaction.
@@ -39,13 +39,14 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class TranslatorExampleComponent {
   /**
    * Property `exampleSource` (`string`) storing example source code snippet.
    * @zh 属性 `exampleSource`（类型：`string`），用于存储或配置示例代码片段。
    */
-  readonly exampleSource = `import { TranslationService } from '@dotos/dui/translator';
+  readonly exampleSource = `import { TranslationService } from '@dotos1/dui/translator';
 
 constructor(public translation: TranslationService) {}
 

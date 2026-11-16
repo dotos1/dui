@@ -7,10 +7,10 @@
     "strict": false,
 
     "paths": {
-      "@dotos/dui": [
+      "@dotos1/dui": [
         "./src"
       ],
-      "@dotos/dui/*": [
+      "@dotos1/dui/*": [
         "./src/*"
       ],
       "src/*": ["./src/*"],
@@ -30,6 +30,7 @@
     "sourceMap": true,
     "declaration": true,
     "declarationMap": true,
+    "useDefineForClassFields": false,
     "lib": [
       "ES2022",
       "dom"

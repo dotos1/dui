@@ -20,7 +20,7 @@ import {
   OnInit,
   Output,
   QueryList,
-  ViewChild
+  ViewChild, ChangeDetectionStrategy
 } from '@angular/core';
 
 import { BehaviorSubject, Subject, Subscription } from 'rxjs';
@@ -29,8 +29,8 @@ import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 import { distinctUntilChanged, startWith, takeUntil } from 'rxjs/operators';
 import { Platform } from '@angular/cdk/platform';
 import { MatButtonToggle, MatButtonToggleGroup } from '@angular/material/button-toggle';
-import { coerceBoolean } from '@dotos/dui/core/decorators';
-import { MediaBreakpoints } from '@dotos/dui/core/media';
+import { coerceBoolean } from '@dotos1/dui/core/decorators';
+import { MediaBreakpoints } from '@dotos1/dui/core/media';
 
 /**
  * Interface `ToggleHeaderOption` defining the contract and properties for toggle header option.
@@ -179,7 +179,8 @@ export abstract class _ToggleBase implements AfterContentInit, OnDestroy {
   selector: 'toggle-header',
   templateUrl: './toggle-header.component.html',
   styleUrls: ['./toggle-header.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ToggleHeaderComponent extends _ToggleBase implements OnInit, AfterViewInit, AfterContentInit,
   AfterContentChecked, AfterViewChecked, OnDestroy {

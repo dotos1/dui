@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/dragselect",
+  "importPath": "@dotos1/dui/common/dragselect",
   "exports": [
     {
       "name": "Action",
@@ -737,5 +737,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { SelectContainerComponent, DragToSelectModule } from '@dotos/dui/common/dragselect';\n\n<dts-select-container [selectedItems]=\"...\" [selectOnDrag]=\"...\" [disabled]=\"...\" (selectedItemsChange)=\"...\" (select)=\"...\"></dts-select-container>"
+  "suggestedUsageSnippet": "import { SelectContainerComponent, DragToSelectModule } from '@dotos1/dui/common/dragselect';\n\n<dts-select-container [selectedItems]=\"...\" [selectOnDrag]=\"...\" [disabled]=\"...\" (selectedItemsChange)=\"...\" (select)=\"...\"></dts-select-container>"
 }

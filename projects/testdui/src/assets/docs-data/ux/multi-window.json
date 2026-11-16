@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/multi-window",
+  "importPath": "@dotos1/dui/ux/multi-window",
   "exports": [
     {
       "name": "AppWindow",
@@ -710,5 +710,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MultiWindowModule } from '@dotos/dui/ux/multi-window';"
+  "suggestedUsageSnippet": "import { MultiWindowModule } from '@dotos1/dui/ux/multi-window';"
 }

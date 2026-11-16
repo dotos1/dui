@@ -1,16 +1,5 @@
 :host {
   display: block;
-  /* 通过静态 CSS 变量自适应紧凑/常规/宽松三档密度与主题前景文字色 */
-  --mat-form-field-container-vertical-padding: 12px;
-  color: var(--dui-on-surface, var(--mat-sys-on-surface));
-}
-
-:host-context(.dui-density-normal) {
-  --mat-form-field-container-vertical-padding: 14px;
-}
-
-:host-context(.dui-density-loose) {
-  --mat-form-field-container-vertical-padding: 16px;
 }
 
 .search-box {
@@ -27,17 +16,6 @@
   search-input {
     margin-left: 4px;
     margin-right: 4px;
-    transition: width 200ms ease-in-out, margin 200ms ease-in-out;
-
-    &.search-input-expanded {
-      width: 100%;
-    }
-
-    &.search-input-collapsed {
-      width: 0%;
-      margin: 0;
-      overflow: hidden;
-    }
   }
 }
 .mat-toolbar

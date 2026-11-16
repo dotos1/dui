@@ -22,7 +22,7 @@ import {
     PLATFORM_ID,
     ViewChild,
     ViewEncapsulation,
-    booleanAttribute,
+    booleanAttribute, ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { PerfectScrollbarDirective } from './perfect-scrollbar.directive';
@@ -49,6 +49,7 @@ import {
     ],
     encapsulation: ViewEncapsulation.None,
     standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default,
 })
 export class PerfectScrollbarComponent implements OnInit, OnDestroy, DoCheck {
     /**

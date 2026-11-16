@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/cookie",
+  "importPath": "@dotos1/dui/core/cookie",
   "exports": [
     {
       "name": "Cookie",
@@ -208,5 +208,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/cookie';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/cookie';"
 }

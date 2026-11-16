@@ -11,7 +11,7 @@ import {
 import {
   DatetimeAdapter,
   MAT_DATETIME_FORMATS
-} from "@dotos/dui/form/date/adapter";
+} from "@dotos1/dui/form/date/adapter";
 import { MomentDatetimeAdapter } from "./moment-datetime-adapter";
 import { MAT_MOMENT_DATETIME_FORMATS } from "./moment-datetime-formats";
 

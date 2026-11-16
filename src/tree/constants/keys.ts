@@ -1,20 +1,18 @@
 /**
- * @fileoverview Module `src/tree/constants/keys.ts` providing keyboard keyCode constants for WAI-ARIA tree navigation.
- * @zh 模块文件 `src/tree/constants/keys.ts`，提供符合 WAI-ARIA 树键盘导航标准的按键编码常量。
+ * @fileoverview Module `src/tree/constants/keys.ts` providing keys definitions and implementation.
+ * @zh 模块文件 `src/tree/constants/keys.ts`，提供键列表相关的定义与实现。
  */
 
 /**
- * Constant/variable `KEYS` defining keyboard key codes in `src/tree/constants`.
- * @zh 常量/变量 `KEYS`，定义 `src/tree/constants` 中的键盘按键码映射。
+ * Constant/variable `KEYS` defining keys in `src/tree/constants`.
+ * @zh 常量/变量 `KEYS`，定义 `src/tree/constants` 中的键列表。
  */
 export const KEYS = {
-  END: 35,
-  HOME: 36,
   LEFT: 37,
   UP: 38,
   RIGHT: 39,
   DOWN: 40,
   ENTER: 13,
   SPACE: 32,
-  CONTEXT_MENU: 32,
+  CONTEXT_MENU: 32
 };

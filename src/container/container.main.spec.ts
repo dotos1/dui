@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, ComponentRef, ViewContainerRef, ViewRef } from '@angular/core';
-import { ComponentBase } from '@dotos/dui/core';
-import { MixedCollection } from '@dotos/dui/core/cache';
-import { DuiToolbarComponent } from '@dotos/dui/ui/toolbar';
+import { ComponentBase } from '@dotos1/dui/core';
+import { MixedCollection } from '@dotos1/dui/core/cache';
+import { DuiToolbarComponent } from '@dotos1/dui/ui/toolbar';
 import { Container } from './container.main';
 
 function fakeDetectRef(): ChangeDetectorRef {

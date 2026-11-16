@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/editor/modules/menu/bubble/bubble.component.ts`，提供bubble组件相关的定义与实现。
  */
 
-import { Component, Input, OnDestroy, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { SafeHtml } from '@angular/platform-browser';
 import { EditorView } from 'prosemirror-view';
 import { Subscription } from 'rxjs';
@@ -24,6 +24,7 @@ import { EditorService } from '../../../editor.service';
   templateUrl: './bubble.component.html',
   styleUrls: ['./bubble.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class BubbleComponent implements OnInit, OnDestroy {

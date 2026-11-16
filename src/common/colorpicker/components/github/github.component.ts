@@ -4,8 +4,8 @@
  */
 
 import {  ChangeDetectionStrategy,  Component,  Input,} from '@angular/core';
-import { ColorWrap, isValidHex } from '@dotos/dui/common/colorpicker/common';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
+import { ColorWrap, isValidHex } from '@dotos1/dui/common/colorpicker/common';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
 
 /**
  * Color picker rendered as a small popover-style swatch grid with a directional pointer

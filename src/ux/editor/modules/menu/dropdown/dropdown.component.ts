@@ -5,7 +5,7 @@
 
 import {
   Component, ElementRef,
-  HostListener, Input, OnDestroy, OnInit,
+  HostListener, Input, OnDestroy, OnInit, ChangeDetectionStrategy,
 } from '@angular/core';
 import { EditorView } from 'prosemirror-view';
 import { Subscription } from 'rxjs';
@@ -23,6 +23,7 @@ import { TBHeadingItems } from '../../../types';
   selector: 'ux-dropdown',
   templateUrl: './dropdown.component.html',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class DropdownComponent implements OnInit, OnDestroy {

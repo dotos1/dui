@@ -4,7 +4,7 @@
  */
 
 /*
- * `@dotos/dui/base`
+ * `@dotos1/dui/base`
  *
  * <p>这个入口原先是 `@legacy/legacy-base` 的内核 fork(改了 import 路径、
  * 把 `legacy_instances` 改名成 `dui_instances`)。全部换成自研实现,

@@ -13,7 +13,7 @@ import {
 } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError } from "rxjs/operators";
-import { ToastrService } from "@dotos/dui/common/toastr";
+import { ToastrService } from "@dotos1/dui/common/toastr";
 
 /**
  * Injectable Angular service `ErrorInterceptor` managing error interceptor state and operations in `src/net/http/interceptors`.

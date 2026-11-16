@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/perfect-scrollbar",
+  "importPath": "@dotos1/dui/common/perfect-scrollbar",
   "exports": [
     {
       "name": "ForceNativeScrollDirective",
@@ -695,5 +695,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { PerfectScrollbarComponent, PerfectScrollbarModule } from '@dotos/dui/common/perfect-scrollbar';\n\n<perfect-scrollbar [disabled]=\"...\" [usePSClass]=\"...\" [autoPropagation]=\"...\" (psScrollY)=\"...\" (psScrollX)=\"...\"></perfect-scrollbar>"
+  "suggestedUsageSnippet": "import { PerfectScrollbarComponent, PerfectScrollbarModule } from '@dotos1/dui/common/perfect-scrollbar';\n\n<perfect-scrollbar [disabled]=\"...\" [usePSClass]=\"...\" [autoPropagation]=\"...\" (psScrollY)=\"...\" (psScrollX)=\"...\"></perfect-scrollbar>"
 }

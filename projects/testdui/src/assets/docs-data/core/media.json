@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/media",
+  "importPath": "@dotos1/dui/core/media",
   "exports": [
     {
       "name": "Media",
@@ -113,5 +113,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/media';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/media';"
 }

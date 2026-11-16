@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/tree",
+  "importPath": "@dotos1/dui/tree",
   "exports": [
     {
       "name": "IActionHandler",
@@ -3148,5 +3148,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { LoadingComponent, TreeModule } from '@dotos/dui/tree';\n\n<tree-loading-component [template]=\"...\" [node]=\"...\"></tree-loading-component>"
+  "suggestedUsageSnippet": "import { LoadingComponent, TreeModule } from '@dotos1/dui/tree';\n\n<tree-loading-component [template]=\"...\" [node]=\"...\"></tree-loading-component>"
 }

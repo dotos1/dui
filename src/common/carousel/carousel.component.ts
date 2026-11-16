@@ -3,6 +3,7 @@
  * @zh 模块文件 `src/common/carousel/carousel.component.ts`，提供carousel组件相关的定义与实现。
  */
 
+import { animate, style, AnimationBuilder } from '@angular/animations';
 import { ListKeyManager } from '@angular/cdk/a11y';
 import { isPlatformBrowser } from '@angular/common';
 import {
@@ -20,7 +21,7 @@ import {
   PLATFORM_ID,
   QueryList,
   Renderer2,
-  ViewChild
+  ViewChild, ChangeDetectionStrategy
 } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { interval, BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -60,7 +61,8 @@ enum Direction {
   selector: 'mat-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class MatCarouselComponent
   implements AfterContentInit, AfterViewInit, MatCarousel, OnDestroy {
@@ -340,10 +342,12 @@ export class MatCarouselComponent
   /**
    * Creates an instance of `MatCarouselComponent` and initializes its dependencies and internal state.
    * @zh 创建 `MatCarouselComponent` 实例，并初始化其依赖项与内部状态。
+   * @param animationBuilder - Injected or initial animation builder (`AnimationBuilder`) / 注入或传入的动画构建器（`AnimationBuilder`）
    * @param renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param platformId - Injected or initial platform id (`Object`) / 注入或传入的platform唯一标识（`Object`）
+   * @param platformId - Injected or initial platform id (`any`) / 注入或传入的platform唯一标识（`any`）
    */
   constructor(
+    private animationBuilder: AnimationBuilder,
     private renderer: Renderer2,
     @Inject(PLATFORM_ID) private platformId
   ) {}
@@ -724,43 +728,28 @@ export class MatCarouselComponent
   }
 
   /**
-   * Executes `playAnimation` to handle play animation using native CSS transitions / Web Animations API.
-   * @zh 执行 `playAnimation`，使用原生 CSS 过渡 / Web Animations API 完成幻灯片位移动画。
+   * Executes `playAnimation` to handle play animation.
+   * @zh 执行 `playAnimation`，用于play动画。
    */
   private playAnimation(): void {
-    const el = this.carouselList?.nativeElement;
-    if (!el) {
-      return;
-    }
     const translation = this.getTranslation(this.getOffset());
-    this.playing = true;
-    this.renderer.setStyle(el, 'transition', `transform ${this.timings}`);
-    this.renderer.setStyle(el, 'transform', translation);
+    const factory = this.animationBuilder.build(
+      animate(this.timings, style({ transform: translation }))
+    );
+    const animation = factory.create(this.carouselList.nativeElement);
 
-    if (typeof el.animate === 'function') {
-      const durationMatch = /^(\d+(?:\.\d+)?)(ms|s)/.exec(this.timings.trim());
-      const durationMs = durationMatch
-        ? (durationMatch[2] === 's' ? parseFloat(durationMatch[1]) * 1000 : parseFloat(durationMatch[1]))
-        : 250;
-      let settled = false;
-      const finish = (): void => {
-        if (settled) {
-          return;
-        }
-        settled = true;
-        this.playing = false;
-        this.change.emit(this.currentIndex);
-      };
-      const anim = el.animate([{ transform: translation }], { duration: durationMs });
-      anim.onfinish = finish;
-      anim.oncancel = finish;
-      setTimeout(finish, durationMs + 32);
-    } else {
-      queueMicrotask(() => {
-        this.playing = false;
-        this.change.emit(this.currentIndex);
-      });
-    }
+    animation.onStart(() => (this.playing = true));
+    animation.onDone(() => {
+      this.change.emit(this.currentIndex);
+      this.playing = false;
+      this.renderer.setStyle(
+        this.carouselList.nativeElement,
+        'transform',
+        translation
+      );
+      animation.destroy();
+    });
+    animation.play();
   }
 
   /**

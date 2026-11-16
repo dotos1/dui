@@ -7,7 +7,7 @@ import { Component, Input, Output, EventEmitter, Optional, Injector } from '@ang
 import { ChangeDetectionStrategy } from '@angular/core'
 import { coerceNumberProperty } from '@angular/cdk/coercion';
 import { Dir } from '@angular/cdk/bidi';
-import { MediaService } from '@dotos/dui/common/media';
+import { MediaService } from '@dotos1/dui/common/media';
 
 /**
  * Interface `IPageChangeEvent` defining the contract and properties for i page change event.

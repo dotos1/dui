@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/button/toggle-button.component.ts`，提供开关按钮组件相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -18,7 +18,7 @@ import {
 import { MatButtonToggleAppearance } from '@angular/material/button-toggle';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ComponentBase, Dui } from '@dotos/dui/core';
+import { ComponentBase, Dui } from '@dotos1/dui/core';
 import {isFunction,isObjectLike}  from 'lodash-es';
 
 /**

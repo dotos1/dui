@@ -6,7 +6,7 @@
 
 
 import { Observable } from 'rxjs';
-import { DynamicComponentModel } from '@dotos/dui/core/services';
+import { DynamicComponentModel } from '@dotos1/dui/core/services';
 import { CardViewBaseItemModel } from './card-view-baseitem.model';
 import { CardViewItem,CardViewArrayItemProperties } from '../interfaces';
 

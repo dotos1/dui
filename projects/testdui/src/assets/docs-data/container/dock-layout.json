@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/container/dock-layout",
+  "importPath": "@dotos1/dui/container/dock-layout",
   "exports": [
     {
       "name": "AbstractContentItem",
@@ -5402,5 +5402,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DockLayoutModule } from '@dotos/dui/container/dock-layout';"
+  "suggestedUsageSnippet": "import { DockLayoutModule } from '@dotos1/dui/container/dock-layout';"
 }

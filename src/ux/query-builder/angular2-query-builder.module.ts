@@ -16,7 +16,7 @@ import { QueryButtonGroupDirective } from './query-button-group.directive';
 import { QuerySwitchGroupDirective } from './query-switch-group.directive';
 import { QueryRemoveButtonDirective } from './query-remove-button.directive';
 import { QueryEmptyWarningDirective } from './query-empty-warning.directive';
-import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `QueryBuilderModule` declaring and exporting query builder module components, directives, pipes, and providers.

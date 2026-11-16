@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/windows",
+  "importPath": "@dotos1/dui/ux/windows",
   "exports": [
     {
       "name": "AppendToBodyConfig",
@@ -4496,5 +4496,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ɵDynamicWindowComponent, DragAndDropModule } from '@dotos/dui/ux/windows';\n\n<dui-dynamic-window></dui-dynamic-window>"
+  "suggestedUsageSnippet": "import { ɵDynamicWindowComponent, DragAndDropModule } from '@dotos1/dui/ux/windows';\n\n<dui-dynamic-window></dui-dynamic-window>"
 }

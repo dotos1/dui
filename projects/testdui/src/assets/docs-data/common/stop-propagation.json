@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/stop-propagation",
+  "importPath": "@dotos1/dui/common/stop-propagation",
   "exports": [
     {
       "name": "StopDropPropagationDirective",
@@ -71,5 +71,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { StopPropagationModule } from '@dotos/dui/common/stop-propagation';"
+  "suggestedUsageSnippet": "import { StopPropagationModule } from '@dotos1/dui/common/stop-propagation';"
 }

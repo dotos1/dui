@@ -4,10 +4,10 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DatatableModule } from '@dotos/dui/data/datatable';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { DatatableModule } from '@dotos1/dui/data/datatable';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `DatatableExampleComponent` (selector: 'app-datatable-example') providing datatable example component presentation and interaction in `projects/testdui/src/app/docs/examples/datatable`.
@@ -23,6 +23,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DatatableExampleComponent {
   /**

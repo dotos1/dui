@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/clipboard",
+  "importPath": "@dotos1/dui/common/clipboard",
   "exports": [
     {
       "name": "ClipboardComponent",
@@ -300,5 +300,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ClipboardComponent, ClipboardModule } from '@dotos/dui/common/clipboard';\n\n<dui-copy-content-tooltip></dui-copy-content-tooltip>"
+  "suggestedUsageSnippet": "import { ClipboardComponent, ClipboardModule } from '@dotos1/dui/common/clipboard';\n\n<dui-copy-content-tooltip></dui-copy-content-tooltip>"
 }

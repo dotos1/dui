@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/search-box",
+  "importPath": "@dotos1/dui/common/search-box",
   "exports": [
     {
       "name": "_SearchInputMixinBase",
@@ -389,5 +389,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { SearchBoxComponent, SearchBoxModule } from '@dotos/dui/common/search-box';\n\n<search-box [config]=\"...\" [backIcon]=\"...\" [searchIcon]=\"...\" (searchDebounce)=\"...\" (onSearch)=\"...\"></search-box>"
+  "suggestedUsageSnippet": "import { SearchBoxComponent, SearchBoxModule } from '@dotos1/dui/common/search-box';\n\n<search-box [config]=\"...\" [backIcon]=\"...\" [searchIcon]=\"...\" (searchDebounce)=\"...\" (onSearch)=\"...\"></search-box>"
 }

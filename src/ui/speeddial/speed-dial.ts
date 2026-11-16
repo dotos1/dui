@@ -19,7 +19,7 @@ import {
   Output,
   QueryList,
   Renderer2,
-  ViewEncapsulation,
+  ViewEncapsulation, ChangeDetectionStrategy,
 } from '@angular/core';
 import { MatMiniFabButton } from '@angular/material/button';
 import { Subscription, forkJoin, fromEvent, race, timer } from 'rxjs';
@@ -55,6 +55,7 @@ export type AnimationMode = 'fling' | 'scale';
         <ng-content select="[mat-mini-fab]" *ngIf="miniFabVisible"></ng-content>`,
         host: {hostID: 'speed-dial-actions' + Math.random().toString(36).substring(2, 15)},
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class SpeedDialActionsComponent implements AfterContentInit {
 
@@ -249,7 +250,8 @@ export class SpeedDialActionsComponent implements AfterContentInit {
     encapsulation: ViewEncapsulation.None,
     host: {
         hostID: 'speed-dial' + Math.random().toString(36).substring(2, 15)},
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class SpeedDialComponent implements OnDestroy, AfterContentInit {

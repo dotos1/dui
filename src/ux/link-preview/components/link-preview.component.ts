@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/link-preview/components/link-preview.component.ts`，提供链接预览组件相关的定义与实现。
  */
 
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output, ChangeDetectionStrategy } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, Subscription } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
@@ -32,6 +32,7 @@ type FrameName = string;
   templateUrl: './link-preview.component.html',
   styleUrls: ['./link-preview.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class LinkPreviewComponent implements OnChanges, OnDestroy {

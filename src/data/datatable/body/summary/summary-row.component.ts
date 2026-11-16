@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/data/datatable/body/summary/summary-row.component.ts`，提供汇总行组件相关的定义与实现。
  */
 
-import { Component, Input, OnChanges, PipeTransform, TemplateRef } from '@angular/core';
+import { Component, Input, OnChanges, PipeTransform, TemplateRef, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Interface `ISummaryColumn` defining the contract and properties for i summary column.
@@ -72,7 +72,8 @@ function noopSumFunc(cells): void {
   host: {
     class: 'datatable-summary-row'
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class DataTableSummaryRowComponent implements OnChanges {

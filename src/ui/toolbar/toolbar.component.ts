@@ -3,11 +3,11 @@
  * @zh 模块文件 `src/ui/toolbar/toolbar.component.ts`，提供工具栏组件相关的定义与实现。
  */
 
-import { DuiConfig, DuiStyle } from '@dotos/dui/base';
+import { DuiConfig, DuiStyle } from '@dotos1/dui/base';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
-import { Container, ContainerItem } from '@dotos/dui/container';
-import { ComponentBase, Dui } from '@dotos/dui/core';
+import { Container, ContainerItem } from '@dotos1/dui/container';
+import { ComponentBase, Dui } from '@dotos1/dui/core';
 import { isArray, isObjectLike, isString } from 'lodash-es';
 
 /**

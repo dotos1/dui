@@ -9,8 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 
 import {
   AlphaModule,  CheckboardModule,  EditableInputModule,  HueModule,  SaturationModule,  SwatchModule,
-} from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+} from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import {GradientDialogComponent } from './gradient-dialog.component';
 import {GradientFieldsComponent } from './gradient-fields.component';
 // import {GradientPresetColorsComponent } from './gradient-preset-colors.component';

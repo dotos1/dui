@@ -10,7 +10,7 @@ import {
   Component,
   HostBinding,
   Input,
-  ViewEncapsulation
+  ViewEncapsulation, ChangeDetectionStrategy
 } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { MatIconRegistry } from '@angular/material/icon';
@@ -33,7 +33,8 @@ import { FontLoaderService } from './font-loader.service';
   host: {
     hostID: 'dui-icon' + Math.random().toString(36).substring(2, 15)
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class IconComponent {
   /**

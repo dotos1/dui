@@ -9,7 +9,7 @@ import { Inject, Injectable, Optional, Renderer2, RendererFactory2 } from '@angu
 import { Observable, of } from 'rxjs';
 import { finalize, map, share } from 'rxjs/operators';
 import { InlineSVGConfig } from './inline-svg.config';
-import { parseSanitizedSvg } from '@dotos/dui/base';
+import { parseSanitizedSvg } from '@dotos1/dui/base';
 
 /**
  * Injectable Angular service `SVGCacheService` managing svg cache service state and operations in `src/common/inline-svg`.

@@ -16,7 +16,7 @@ import {
   Output,
   SimpleChanges,
   ViewChild,
-  ViewEncapsulation
+  ViewEncapsulation, ChangeDetectionStrategy
 } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR } from '@angular/forms';
 
@@ -452,7 +452,8 @@ interface VisibleCalendar {
       multi: true
     }
   ],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class DaterangepickerComponent implements OnInit, OnChanges {
   /**

@@ -1,20 +1,34 @@
 /**
- * @fileoverview Module `src/common/popover/popover-animations.ts` providing popover CSS animation metadata.
- * @zh 模块文件 `src/common/popover/popover-animations.ts`，提供气泡卡片纯 CSS 动画描述元数据。
+ * @fileoverview Module `src/common/popover/popover-animations.ts` providing popover animations definitions and implementation.
+ * @zh 模块文件 `src/common/popover/popover-animations.ts`，提供气泡卡片动画相关的定义与实现。
  */
 
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition,
+  AnimationTriggerMetadata,
+} from '@angular/animations';
+
 /**
- * Pure CSS animation metadata `transformPopover` replacing legacy `@angular/animations` trigger.
- * @zh 纯 CSS 动画描述元数据 `transformPopover`，替代旧版 `@angular/animations` 触发器。
+ * Angular animation trigger `transformPopover` defining state transitions for transform popover.
+ * @zh Angular 动画触发器 `transformPopover`，定义转换气泡卡片的状态过渡动画。
  */
-export const transformPopover: Readonly<{
-  name: string;
-  enterDuration: number;
-  leaveDuration: number;
-  easing: string;
-}> = {
-  name: 'transformPopover',
-  enterDuration: 200,
-  leaveDuration: 50,
-  easing: 'cubic-bezier(0.25, 0.8, 0.25, 1)',
-};
+export const transformPopover: AnimationTriggerMetadata = trigger('transformPopover', [
+  state('enter', style({
+    opacity: 1,
+    transform: `scale(1)`
+  })),
+  transition('void => *', [
+    style({
+      opacity: 0,
+      transform: `scale(0)`
+    }),
+    animate(`200ms cubic-bezier(0.25, 0.8, 0.25, 1)`)
+  ]),
+  transition('* => void', [
+    animate('50ms 100ms linear', style({opacity: 0}))
+  ])
+]);

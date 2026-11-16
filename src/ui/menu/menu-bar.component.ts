@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/menu/menu-bar.component.ts`，提供菜单条组件相关的定义与实现。
  */
 
-import { ChangeDetectorRef, Component, DoCheck, HostListener, Injector, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, DoCheck, HostListener, Injector, Input, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { MenuBase } from './menu-base';
 import { MenuBarItem } from './menu-model';
@@ -21,6 +21,7 @@ import { MenuBarItem } from './menu-model';
     hostID: 'dui-menu-bar' + Math.random().toString(36).substring(2, 15)
   },
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class MenuBarComponent extends MenuBase implements OnInit,DoCheck{
 

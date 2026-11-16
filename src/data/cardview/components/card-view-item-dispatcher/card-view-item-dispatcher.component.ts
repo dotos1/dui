@@ -10,7 +10,7 @@ import {
   OnChanges,
   SimpleChange,
   SimpleChanges,
-  ViewChild
+  ViewChild, ChangeDetectionStrategy
 } from '@angular/core';
 import { CardViewItem } from '../../interfaces';
 import { CardItemTypeService } from '../../services';
@@ -24,7 +24,8 @@ import { DEFAULT_SEPARATOR } from '../card-view-textitem/card-view-textitem.comp
 @Component({
   selector: 'dui-card-view-item-dispatcher',
   template: '<ng-template dui-card-view-content-proxy></ng-template>',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewItemDispatcherComponent implements OnChanges {
   /**

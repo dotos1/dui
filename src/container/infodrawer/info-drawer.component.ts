@@ -4,7 +4,7 @@
  */
 
 
-import { Component, ContentChildren, EventEmitter, Input, Output, QueryList, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import { Component, ContentChildren, EventEmitter, Input, Output, QueryList, TemplateRef, ViewChild, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 /**
  * Angular component `InfoDrawerTabComponent` (selector: 'dui-info-drawer-tab') providing info drawer tab component presentation and interaction in `src/container/infodrawer`.
@@ -15,6 +15,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
   template: '<ng-template><ng-content></ng-content></ng-template>',
   host: {hostID: 'dui-info-drawer-tab' + Math.random().toString(36).substring(2, 15)},
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class InfoDrawerTabComponent {
 
@@ -53,7 +54,8 @@ export class InfoDrawerTabComponent {
     'class': 'dui-info-drawer', 
     hostID: 'dui-info-drawer' + Math.random().toString(36).substring(2, 15)
    },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class InfoDrawerComponent {
   /**

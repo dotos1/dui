@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/svg",
+  "importPath": "@dotos1/dui/common/svg",
   "exports": [
     {
       "name": "SvgCircleDirective",
@@ -954,5 +954,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { SvgContainerComponent, SvgModule } from '@dotos/dui/common/svg';\n\n<svg-container [containerId]=\"...\" [height]=\"...\" [showGrid]=\"...\" (clickEvent)=\"...\" (doubleClickEvent)=\"...\"></svg-container>"
+  "suggestedUsageSnippet": "import { SvgContainerComponent, SvgModule } from '@dotos1/dui/common/svg';\n\n<svg-container [containerId]=\"...\" [height]=\"...\" [showGrid]=\"...\" (clickEvent)=\"...\" (doubleClickEvent)=\"...\"></svg-container>"
 }

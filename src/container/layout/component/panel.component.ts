@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/layout/component/panel.component.ts`，提供面板组件相关的定义与实现。
  */
 
-import {  Component, OnDestroy, OnInit } from '@angular/core'
+import {  Component, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core'
 import { AbstractPanel } from './abstract.panel';
 
 /**
@@ -17,7 +17,8 @@ import { AbstractPanel } from './abstract.panel';
   host: {
     '[style.flex]': 'flex'
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class DuiPanelComponent  extends AbstractPanel  implements OnInit, OnDestroy {
 

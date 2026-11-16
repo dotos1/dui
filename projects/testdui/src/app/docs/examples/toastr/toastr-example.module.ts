@@ -4,11 +4,11 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
-import { ToastrService } from '@dotos/dui/common/toastr';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { ToastrService } from '@dotos1/dui/common/toastr';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `ToastrExampleComponent` (selector: 'app-toastr-example') providing toastr example component presentation and interaction in `projects/testdui/src/app/docs/examples/toastr`.
@@ -29,6 +29,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ToastrExampleComponent {
   /**

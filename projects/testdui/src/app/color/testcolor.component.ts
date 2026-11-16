@@ -4,7 +4,7 @@
  */
 
 import { ChangeDetectionStrategy, Component, ViewChild } from "@angular/core";
-import { FormComponent } from "@dotos/dui/form";
+import { FormComponent } from "@dotos1/dui/form";
 
 /**
  * Angular component `TestColorComponent` (selector: 'test-color') providing test color component presentation and interaction in `projects/testdui/src/app/color`.

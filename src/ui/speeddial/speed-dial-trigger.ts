@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/speeddial/speed-dial-trigger.ts`，提供速度dial触发相关的定义与实现。
  */
 
-import { Component, HostBinding, HostListener, Injector, Input, } from '@angular/core';
+import { Component, HostBinding, HostListener, Injector, Input, ChangeDetectionStrategy, } from '@angular/core';
 import { SpeedDialComponent } from './speed-dial';
 
 /**
@@ -18,7 +18,8 @@ import { SpeedDialComponent } from './speed-dial';
   host: {
     hostID: 'speed-dial-trigger' + Math.random().toString(36).substring(2, 15)
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class SpeedDialTriggerComponent {
 

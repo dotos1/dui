@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/editor",
+  "importPath": "@dotos1/dui/ux/editor",
   "exports": [
     {
       "name": "Align",
@@ -2304,5 +2304,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { BubbleComponent, EditorMenuModule } from '@dotos/dui/ux/editor';\n\n<ux-bubble [editor]=\"...\"></ux-bubble>"
+  "suggestedUsageSnippet": "import { BubbleComponent, EditorMenuModule } from '@dotos1/dui/ux/editor';\n\n<ux-bubble [editor]=\"...\"></ux-bubble>"
 }

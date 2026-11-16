@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/mobx",
+  "importPath": "@dotos1/dui/core/mobx",
   "exports": [
     {
       "name": "action",
@@ -141,5 +141,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MobxAngularModule } from '@dotos/dui/core/mobx';"
+  "suggestedUsageSnippet": "import { MobxAngularModule } from '@dotos1/dui/core/mobx';"
 }
