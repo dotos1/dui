@@ -1,4 +1,4 @@
-<mat-select fxFlex [id]="id" [formControl]="formControl" [formAttributes]="field" [tabindex]="field.tabindex || 0"
+<mat-select style="flex: 1 1 0%; box-sizing: border-box;" [id]="id" [formControl]="formControl" [formAttributes]="field" [tabindex]="field.tabindex || 0"
   [placeholder]="field.placeholder" [compareWith]="field.compareWith || compareWith" [multiple]="field.multiple"
   (selectionChange)="change($event)" [errorStateMatcher]="errorStateMatcher"  (opened)="openedChange()">
   <mat-select-trigger #matSelectTrigger>

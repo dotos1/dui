@@ -6,7 +6,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
@@ -40,7 +39,6 @@ import { JsonEditor } from './json.editor';
     CardModule,
     ButtonModule,
     DialogsModule,
-    FlexLayoutModule,
     MonacoEditorModule.forRoot({})
   ]
 })

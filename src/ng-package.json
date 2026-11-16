@@ -8,6 +8,14 @@
     "./i18n"
   ],
   "allowedNonPeerDependencies": [
-    "buffer"
+    "@floating-ui/dom",
+    "@juggle/resize-observer",
+    "buffer",
+    "colornames",
+    "element-resize-detector",
+    "fuse.js",
+    "minimatch-browser",
+    "perfect-scrollbar",
+    "tslib"
   ]
 }

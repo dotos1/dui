@@ -12,7 +12,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 import { Dui } from '@dotos1/dui/core';
 import { FormModule } from '@dotos1/dui/form';
@@ -33,7 +32,6 @@ import { NumberRangeFieldComponent } from './numberrange.field';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     MatFormFieldModule,
     MatInputModule,
     MatIconModule,

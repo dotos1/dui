@@ -8,7 +8,6 @@ import { CommonModule } from '@angular/common';
 import { FormModule } from '../components/form.module';
 import { TranslateModule, TranslationService } from '@dotos1/dui/translator';
 import { Dui } from '@dotos1/dui/core';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { LabelField } from './label-field';
 
 
@@ -22,7 +21,6 @@ import { LabelField } from './label-field';
   ],
   imports: [
     CommonModule,
-    FlexLayoutModule,
     TranslateModule,
     FormModule.forChild()
   ],

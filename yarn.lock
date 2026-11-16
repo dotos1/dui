@@ -7084,13 +7084,6 @@ ng-packagr@22.2.6:
     sass-embedded "^1.103.1"
     tinyglobby "^0.2.12"
 
-ngx-flexible-layout@^22.0.0:
-  version "22.0.0"
-  resolved "https://registry.npmjs.org/ngx-flexible-layout/-/ngx-flexible-layout-22.0.0.tgz#9db0f85efb30fa21342868fb8b98a21a9b87b251"
-  integrity sha512-WQfnIJh6TKv0L2rNViBUOG2WjCg70ybXM3fziKTbrCSVUv1Rgh/K9/YFZZNUlOY/Zv+LiZi8p8R1dRT9kyvrBA==
-  dependencies:
-    tslib "^2.3.0"
-
 node-addon-api@^6.1.0:
   version "6.1.0"
   resolved "https://registry.npmjs.org/node-addon-api/-/node-addon-api-6.1.0.tgz#ac8470034e58e67d0c6f1204a18ae6995d9c0d76"

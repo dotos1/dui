@@ -13,7 +13,6 @@ import {NgModule} from '@angular/core';
 import {MatRippleModule} from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {TabPanel} from './tabpanel.component';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { Dui } from '@dotos1/dui/core';
 import { TranslateModule } from '@dotos1/dui/translator';
 
@@ -28,7 +27,6 @@ import { TranslateModule } from '@dotos1/dui/translator';
     TranslateModule,
     MatRippleModule,
     ObserversModule,
-    FlexLayoutModule,
     ScrollingModule,
     MatTabsModule
   ],

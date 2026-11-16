@@ -4,7 +4,7 @@
                     [checked]="node.isSelected"
                     (click)="node.mouseAction('checkboxClick', $event)"
                     [indeterminate]="node.isPartiallySelected"
-                    fxFlex>
+                    style="flex: 1 1 0%; box-sizing: border-box;">
                     {{label|translate}}
       </mat-checkbox>
     </ng-container>
