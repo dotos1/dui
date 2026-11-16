@@ -71,7 +71,12 @@
         },
         {
           "name": "updateSelectedColor",
-          "params": [],
+          "params": [
+            {
+              "name": "emitModelChange",
+              "type": "boolean"
+            }
+          ],
           "returnType": "void",
           "description": "Update selected color",
           "descriptionZh": "执行 `updateSelectedColor`，用于更新已选中颜色。"

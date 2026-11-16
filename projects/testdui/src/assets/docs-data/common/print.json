@@ -126,7 +126,7 @@
         {
           "name": "printComplete",
           "type": "any",
-          "description": "Output event emitter `printComplete` (`EventEmitter<any>`) firing when print complete occurs.",
+          "description": "Output event emitter `printComplete` (`any`) firing when print complete occurs.",
           "descriptionZh": "打印流程完成时发出。"
         }
       ],

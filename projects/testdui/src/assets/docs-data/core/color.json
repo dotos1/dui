@@ -296,14 +296,14 @@
         {
           "name": "hueRange",
           "type": "[number, number] | null",
-          "description": "Property `hueRange` (`[number, number] | null`) storing hue range.",
-          "descriptionZh": "属性 `hueRange`（类型：`[number, number] | null`），用于存储或配置色相范围。"
+          "description": "Property `hueRange` (`[number, number]`) storing hue range.",
+          "descriptionZh": "属性 `hueRange`（类型：`[number, number]`），用于存储或配置色相范围。"
         },
         {
           "name": "lowerBounds",
           "type": "Array<[number, number]>",
-          "description": "Property `lowerBounds` (`Array<[number, number]>`) storing lower bounds.",
-          "descriptionZh": "属性 `lowerBounds`（类型：`Array<[number, number]>`），用于存储或配置下限边界框。"
+          "description": "Property `lowerBounds` (`[number, number][]`) storing lower bounds.",
+          "descriptionZh": "属性 `lowerBounds`（类型：`[number, number][]`），用于存储或配置下限边界框。"
         }
       ]
     },
@@ -442,20 +442,20 @@
         {
           "name": "h",
           "type": "number | string",
-          "description": "Property `h` (`number | string`) storing h.",
-          "descriptionZh": "属性 `h`（类型：`number | string`），用于存储或配置h。"
+          "description": "Property `h` (`string | number`) storing h.",
+          "descriptionZh": "属性 `h`（类型：`string | number`），用于存储或配置h。"
         },
         {
           "name": "s",
           "type": "number | string",
-          "description": "Property `s` (`number | string`) storing s.",
-          "descriptionZh": "属性 `s`（类型：`number | string`），用于存储或配置s。"
+          "description": "Property `s` (`string | number`) storing s.",
+          "descriptionZh": "属性 `s`（类型：`string | number`），用于存储或配置s。"
         },
         {
           "name": "l",
           "type": "number | string",
-          "description": "Property `l` (`number | string`) storing l.",
-          "descriptionZh": "属性 `l`（类型：`number | string`），用于存储或配置l。"
+          "description": "Property `l` (`string | number`) storing l.",
+          "descriptionZh": "属性 `l`（类型：`string | number`），用于存储或配置l。"
         }
       ]
     },
@@ -522,20 +522,20 @@
         {
           "name": "h",
           "type": "number | string",
-          "description": "Property `h` (`number | string`) storing h.",
-          "descriptionZh": "属性 `h`（类型：`number | string`），用于存储或配置h。"
+          "description": "Property `h` (`string | number`) storing h.",
+          "descriptionZh": "属性 `h`（类型：`string | number`），用于存储或配置h。"
         },
         {
           "name": "s",
           "type": "number | string",
-          "description": "Property `s` (`number | string`) storing s.",
-          "descriptionZh": "属性 `s`（类型：`number | string`），用于存储或配置s。"
+          "description": "Property `s` (`string | number`) storing s.",
+          "descriptionZh": "属性 `s`（类型：`string | number`），用于存储或配置s。"
         },
         {
           "name": "v",
           "type": "number | string",
-          "description": "Property `v` (`number | string`) storing v.",
-          "descriptionZh": "属性 `v`（类型：`number | string`），用于存储或配置v。"
+          "description": "Property `v` (`string | number`) storing v.",
+          "descriptionZh": "属性 `v`（类型：`string | number`），用于存储或配置v。"
         }
       ]
     },
@@ -819,15 +819,15 @@
           "name": "all",
           "type": "any",
           "default": "matColors",
-          "description": "Property `all` (`any`) storing all (default: `matColors`).",
-          "descriptionZh": "属性 `all`（类型：`any`），用于存储或配置全部（默认值：`matColors`）。"
+          "description": "Property `all` (`{…}`) storing all (default: `matColors`).",
+          "descriptionZh": "属性 `all`（类型：`{…}`），用于存储或配置全部（默认值：`matColors`）。"
         },
         {
           "name": "presets",
           "type": "any",
           "default": "matPresetColors",
-          "description": "Property `presets` (`any`) storing presets (default: `matPresetColors`).",
-          "descriptionZh": "属性 `presets`（类型：`any`），用于存储或配置presets（默认值：`matPresetColors`）。"
+          "description": "Property `presets` (`string[]`) storing presets (default: `matPresetColors`).",
+          "descriptionZh": "属性 `presets`（类型：`string[]`），用于存储或配置presets（默认值：`matPresetColors`）。"
         }
       ]
     },
@@ -970,8 +970,8 @@
         {
           "name": "count",
           "type": "number | null",
-          "description": "Property `count` (`number | null`) storing count.",
-          "descriptionZh": "属性 `count`（类型：`number | null`），用于存储或配置计数。"
+          "description": "Property `count` (`number`) storing count.",
+          "descriptionZh": "属性 `count`（类型：`number`），用于存储或配置计数。"
         }
       ]
     },
@@ -994,14 +994,14 @@
         {
           "name": "hue",
           "type": "| number | string | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | 'purple' | 'pink' | 'monochrome'",
-          "description": "Property `hue` (`| number | string | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | '...`) storing hue.",
-          "descriptionZh": "属性 `hue`（类型：`| number | string | 'red' | 'orange' | 'yellow' | 'green' | 'blue' | '...`），用于存储或配置色相。"
+          "description": "Property `hue` (`string | number`) storing hue.",
+          "descriptionZh": "属性 `hue`（类型：`string | number`），用于存储或配置色相。"
         },
         {
           "name": "luminosity",
           "type": "'random' | 'bright' | 'dark' | 'light'",
-          "description": "Property `luminosity` (`'random' | 'bright' | 'dark' | 'light'`) storing luminosity.",
-          "descriptionZh": "属性 `luminosity`（类型：`'random' | 'bright' | 'dark' | 'light'`），用于存储或配置luminosity。"
+          "description": "Property `luminosity` (`\"random\" | \"bright\" | \"dark\" | \"light\"`) storing luminosity.",
+          "descriptionZh": "属性 `luminosity`（类型：`\"random\" | \"bright\" | \"dark\" | \"light\"`），用于存储或配置luminosity。"
         },
         {
           "name": "alpha",
@@ -1024,26 +1024,26 @@
         {
           "name": "r",
           "type": "number | string",
-          "description": "Property `r` (`number | string`) storing r.",
-          "descriptionZh": "属性 `r`（类型：`number | string`），用于存储或配置r。"
+          "description": "Property `r` (`string | number`) storing r.",
+          "descriptionZh": "属性 `r`（类型：`string | number`），用于存储或配置r。"
         },
         {
           "name": "g",
           "type": "number | string",
-          "description": "Property `g` (`number | string`) storing g.",
-          "descriptionZh": "属性 `g`（类型：`number | string`），用于存储或配置g。"
+          "description": "Property `g` (`string | number`) storing g.",
+          "descriptionZh": "属性 `g`（类型：`string | number`），用于存储或配置g。"
         },
         {
           "name": "b",
           "type": "number | string",
-          "description": "Property `b` (`number | string`) storing b.",
-          "descriptionZh": "属性 `b`（类型：`number | string`），用于存储或配置b。"
+          "description": "Property `b` (`string | number`) storing b.",
+          "descriptionZh": "属性 `b`（类型：`string | number`），用于存储或配置b。"
         },
         {
           "name": "a",
           "type": "number | string",
-          "description": "Property `a` (`number | string`) storing a.",
-          "descriptionZh": "属性 `a`（类型：`number | string`），用于存储或配置a。"
+          "description": "Property `a` (`string | number`) storing a.",
+          "descriptionZh": "属性 `a`（类型：`string | number`），用于存储或配置a。"
         }
       ]
     },
@@ -1088,20 +1088,20 @@
         {
           "name": "r",
           "type": "number | string",
-          "description": "Property `r` (`number | string`) storing r.",
-          "descriptionZh": "属性 `r`（类型：`number | string`），用于存储或配置r。"
+          "description": "Property `r` (`string | number`) storing r.",
+          "descriptionZh": "属性 `r`（类型：`string | number`），用于存储或配置r。"
         },
         {
           "name": "g",
           "type": "number | string",
-          "description": "Property `g` (`number | string`) storing g.",
-          "descriptionZh": "属性 `g`（类型：`number | string`），用于存储或配置g。"
+          "description": "Property `g` (`string | number`) storing g.",
+          "descriptionZh": "属性 `g`（类型：`string | number`），用于存储或配置g。"
         },
         {
           "name": "b",
           "type": "number | string",
-          "description": "Property `b` (`number | string`) storing b.",
-          "descriptionZh": "属性 `b`（类型：`number | string`），用于存储或配置b。"
+          "description": "Property `b` (`string | number`) storing b.",
+          "descriptionZh": "属性 `b`（类型：`string | number`），用于存储或配置b。"
         }
       ]
     },
@@ -2050,62 +2050,62 @@
         {
           "name": "readability",
           "type": "typeof readability",
-          "description": "Property `readability` (`typeof readability`) storing readability.",
-          "descriptionZh": "属性 `readability`（类型：`typeof readability`），用于存储或配置readability。"
+          "description": "Property `readability` (`(color1: ColorInput, color2: ColorInput) => number`) storing readability.",
+          "descriptionZh": "属性 `readability`（类型：`(color1: ColorInput, color2: ColorInput) => number`），用于存储或配置readability。"
         },
         {
           "name": "random",
           "type": "typeof random",
-          "description": "Property `random` (`typeof random`) storing random.",
-          "descriptionZh": "属性 `random`（类型：`typeof random`），用于存储或配置随机。"
+          "description": "Property `random` (`{…}`) storing random.",
+          "descriptionZh": "属性 `random`（类型：`{…}`），用于存储或配置随机。"
         },
         {
           "name": "names",
           "type": "typeof names",
-          "description": "Property `names` (`typeof names`) storing names.",
-          "descriptionZh": "属性 `names`（类型：`typeof names`），用于存储或配置名称列表。"
+          "description": "Property `names` (`{ [key: string]: string; }`) storing names.",
+          "descriptionZh": "属性 `names`（类型：`{ [key: string]: string; }`），用于存储或配置名称列表。"
         },
         {
           "name": "fromRatio",
           "type": "typeof fromRatio",
-          "description": "Property `fromRatio` (`typeof fromRatio`) storing from ratio.",
-          "descriptionZh": "属性 `fromRatio`（类型：`typeof fromRatio`），用于存储或配置从比例。"
+          "description": "Property `fromRatio` (`(ratio: RatioInput, opts?: any) => TinyColor`) storing from ratio.",
+          "descriptionZh": "属性 `fromRatio`（类型：`(ratio: RatioInput, opts?: any) => TinyColor`），用于存储或配置从比例。"
         },
         {
           "name": "legacyRandom",
           "type": "typeof legacyRandom",
-          "description": "Property `legacyRandom` (`typeof legacyRandom`) storing legacy random.",
-          "descriptionZh": "属性 `legacyRandom`（类型：`typeof legacyRandom`），用于存储或配置legacy随机。"
+          "description": "Property `legacyRandom` (`() => TinyColor`) storing legacy random.",
+          "descriptionZh": "属性 `legacyRandom`（类型：`() => TinyColor`），用于存储或配置legacy随机。"
         },
         {
           "name": "toMsFilter",
           "type": "typeof toMsFilter",
-          "description": "Property `toMsFilter` (`typeof toMsFilter`) storing to ms filter.",
-          "descriptionZh": "属性 `toMsFilter`（类型：`typeof toMsFilter`），用于存储或配置转换为毫秒过滤。"
+          "description": "Property `toMsFilter` (`(firstColor: ColorInput, secondColor?: ColorInput) => string`) storing to ms filter.",
+          "descriptionZh": "属性 `toMsFilter`（类型：`(firstColor: ColorInput, secondColor?: ColorInput) => string`），用于存储或配置转换为毫秒过滤。"
         },
         {
           "name": "inputToRGB",
           "type": "typeof inputToRGB",
-          "description": "Property `inputToRGB` (`typeof inputToRGB`) storing input to rgb.",
-          "descriptionZh": "属性 `inputToRGB`（类型：`typeof inputToRGB`），用于存储或配置输入属性转换为RGB颜色。"
+          "description": "Property `inputToRGB` (`(color: any) => {…}`) storing input to rgb.",
+          "descriptionZh": "属性 `inputToRGB`（类型：`(color: any) => {…}`），用于存储或配置输入属性转换为RGB颜色。"
         },
         {
           "name": "stringInputToObject",
           "type": "typeof stringInputToObject",
-          "description": "Property `stringInputToObject` (`typeof stringInputToObject`) storing string input to object.",
-          "descriptionZh": "属性 `stringInputToObject`（类型：`typeof stringInputToObject`），用于存储或配置字符串输入属性转换为对象。"
+          "description": "Property `stringInputToObject` (`(color: string) => false | {…}`) storing string input to object.",
+          "descriptionZh": "属性 `stringInputToObject`（类型：`(color: string) => false | {…}`），用于存储或配置字符串输入属性转换为对象。"
         },
         {
           "name": "isValidCSSUnit",
           "type": "typeof isValidCSSUnit",
-          "description": "Property `isValidCSSUnit` (`typeof isValidCSSUnit`) storing is valid css unit.",
-          "descriptionZh": "属性 `isValidCSSUnit`（类型：`typeof isValidCSSUnit`），用于存储或配置是否为有效CSS样式Unit。"
+          "description": "Property `isValidCSSUnit` (`(color: string | number) => RegExpExecArray`) storing is valid css unit.",
+          "descriptionZh": "属性 `isValidCSSUnit`（类型：`(color: string | number) => RegExpExecArray`），用于存储或配置是否为有效CSS样式Unit。"
         },
         {
           "name": "mostReadable",
           "type": "typeof mostReadable",
-          "description": "Property `mostReadable` (`typeof mostReadable`) storing most readable.",
-          "descriptionZh": "属性 `mostReadable`（类型：`typeof mostReadable`），用于存储或配置mostReadable。"
+          "description": "Property `mostReadable` (`(baseColor: ColorInput, colorList: ColorInput[], args?: WCAG2FallbackParms) => TinyColor | null`) storing most readable.",
+          "descriptionZh": "属性 `mostReadable`（类型：`(baseColor: ColorInput, colorList: ColorInput[], args?: WCAG2FallbackParms) => TinyColor | null`），用于存储或配置mostReadable。"
         }
       ]
     },
@@ -2168,14 +2168,14 @@
         {
           "name": "level",
           "type": "'AA' | 'AAA'",
-          "description": "Property `level` (`'AA' | 'AAA'`) storing level.",
-          "descriptionZh": "属性 `level`（类型：`'AA' | 'AAA'`），用于存储或配置层级。"
+          "description": "Property `level` (`\"AA\" | \"AAA\"`) storing level.",
+          "descriptionZh": "属性 `level`（类型：`\"AA\" | \"AAA\"`），用于存储或配置层级。"
         },
         {
           "name": "size",
           "type": "'large' | 'small'",
-          "description": "Property `size` (`'large' | 'small'`) storing size.",
-          "descriptionZh": "属性 `size`（类型：`'large' | 'small'`），用于存储或配置尺寸。"
+          "description": "Property `size` (`\"small\" | \"large\"`) storing size.",
+          "descriptionZh": "属性 `size`（类型：`\"small\" | \"large\"`），用于存储或配置尺寸。"
         }
       ]
     }

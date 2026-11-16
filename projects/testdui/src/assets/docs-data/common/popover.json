@@ -138,7 +138,7 @@
           "name": "close",
           "type": "any",
           "description": "Event emitted when the popover is closed.",
-          "descriptionZh": "输出事件 `close`（类型：`EventEmitter`），当触发关闭时向外发出事件。"
+          "descriptionZh": "输出事件 `close`（类型：`EventEmitter<void>`），当触发关闭时向外发出事件。"
         }
       ],
       "methods": [
@@ -332,7 +332,7 @@
         {
           "name": "templateRef",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.",
+          "description": "Template/content query reference `templateRef` (`TemplateRef<unknown>`) targeting template ref.",
           "descriptionZh": "弹出层内容的模板引用。"
         }
       ]
@@ -541,8 +541,8 @@
         {
           "name": "templateRef",
           "type": "TemplateRef<unknown>",
-          "description": "Property `templateRef` (`TemplateRef<any>`) storing template ref.",
-          "descriptionZh": "属性 `templateRef`（类型：`TemplateRef<any>`），用于存储或配置模板引用。"
+          "description": "Property `templateRef` (`TemplateRef<unknown>`) storing template ref.",
+          "descriptionZh": "属性 `templateRef`（类型：`TemplateRef<unknown>`），用于存储或配置模板引用。"
         },
         {
           "name": "close",
@@ -595,8 +595,8 @@
         {
           "name": "_elementRef",
           "type": "ElementRef",
-          "description": "Property `_elementRef` (`ElementRef`) storing element ref.",
-          "descriptionZh": "属性 `_elementRef`（类型：`ElementRef`），用于存储或配置元素引用。"
+          "description": "Property `_elementRef` (`ElementRef<any>`) storing element ref.",
+          "descriptionZh": "属性 `_elementRef`（类型：`ElementRef<any>`），用于存储或配置元素引用。"
         }
       ]
     },
@@ -732,13 +732,13 @@
         {
           "name": "opened",
           "type": "any",
-          "description": "Output event emitter `opened` (`EventEmitter`) firing when opened occurs.",
+          "description": "Output event emitter `opened` (`EventEmitter<void>`) firing when opened occurs.",
           "descriptionZh": "弹出层打开时发出。"
         },
         {
           "name": "closed",
           "type": "any",
-          "description": "Output event emitter `closed` (`EventEmitter`) firing when closed occurs.",
+          "description": "Output event emitter `closed` (`EventEmitter<void>`) firing when closed occurs.",
           "descriptionZh": "弹出层关闭时发出。"
         }
       ],
@@ -838,14 +838,14 @@
           "name": "popoverOpened",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": "Property `popoverOpened` (`Subject`) storing popover opened (default: `new Subject<void>()`).",
+          "description": "Property `popoverOpened` (`Subject<void>`) storing popover opened (default: `new Subject<void>()`).",
           "descriptionZh": "弹出层打开时发出。"
         },
         {
           "name": "popoverClosed",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": "Property `popoverClosed` (`Subject`) storing popover closed (default: `new Subject<void>()`).",
+          "description": "Property `popoverClosed` (`Subject<void>`) storing popover closed (default: `new Subject<void>()`).",
           "descriptionZh": "弹出层关闭时发出。"
         },
         {

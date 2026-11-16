@@ -5,11 +5,11 @@
   },
   "assets": [
     "./theming",
-    "./i18n"
+    "./i18n",
+    "./llms.txt",
+    "./THIRD-PARTY-NOTICES.md"
   ],
   "allowedNonPeerDependencies": [
-    "@floating-ui/dom",
-    "@juggle/resize-observer",
     "buffer",
     "colornames",
     "element-resize-detector",

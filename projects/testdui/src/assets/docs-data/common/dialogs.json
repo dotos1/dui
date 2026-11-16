@@ -105,8 +105,8 @@
     {
       "name": "DialogService",
       "kind": "service",
-      "summary": "High-level wrapper over Angular Material's `MatDialog` providing ready-made\nalert/confirm/prompt/status dialogs, plus optional draggable-dialog support.",
-      "summaryZh": "对 Angular Material `MatDialog` 的高层封装，提供开箱即用的\n提示/确认/输入/状态对话框，并可选支持可拖拽对话框。",
+      "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/common/dialogs/services/dialog.service.ts",
       "inputs": [],
       "outputs": [],
@@ -218,8 +218,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "DIALOGS_ENTRY_COMPONENTS",
-          "description": "Property `entryComponents` (`any`) storing entry components (default: `DIALOGS_ENTRY_COMPONENTS`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`DIALOGS_ENTRY_COMPONENTS`）。"
+          "description": "Property `entryComponents` (`(typeof AlertDialogComponent | typeof ConfirmDialogComponent | typeof PromptDialogComponent)[]`) storing entry components (default: `DIALOGS_ENTRY_COMPONENTS`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof AlertDialogComponent | typeof ConfirmDialogComponent | typeof PromptDialogComponent)[]`），用于存储或配置条目组件列表（默认值：`DIALOGS_ENTRY_COMPONENTS`）。"
         }
       ]
     },
@@ -262,25 +262,25 @@
         {
           "name": "dialogTitle",
           "type": "QueryList<duiDialogTitleDirective>",
-          "description": "Template/content query reference `dialogTitle` (`@ContentChildren`) targeting dialog title.",
+          "description": "Template/content query reference `dialogTitle` (`QueryList<duiDialogTitleDirective>`) targeting dialog title.",
           "descriptionZh": "投影进来的标题区域（`duiDialogTitle`），最多允许一个。"
         },
         {
           "name": "dialogContent",
           "type": "QueryList<duiDialogContentDirective>",
-          "description": "Template/content query reference `dialogContent` (`@ContentChildren`) targeting dialog content.",
+          "description": "Template/content query reference `dialogContent` (`QueryList<duiDialogContentDirective>`) targeting dialog content.",
           "descriptionZh": "投影进来的内容区域（`duiDialogContent`），最多允许一个。"
         },
         {
           "name": "dialogActions",
           "type": "QueryList<duiDialogActionsDirective>",
-          "description": "Template/content query reference `dialogActions` (`@ContentChildren`) targeting dialog actions.",
+          "description": "Template/content query reference `dialogActions` (`QueryList<duiDialogActionsDirective>`) targeting dialog actions.",
           "descriptionZh": "投影进来的操作按钮区域（`duiDialogActions`），最多允许一个。"
         },
         {
           "name": "dialogStatus",
           "type": "QueryList<duiDialogStatusDirective>",
-          "description": "Template/content query reference `dialogStatus` (`@ContentChildren`) targeting dialog status.",
+          "description": "Template/content query reference `dialogStatus` (`QueryList<duiDialogStatusDirective>`) targeting dialog status.",
           "descriptionZh": "投影进来的状态提示区域（`duiDialogStatus`），最多允许一个。"
         }
       ]
@@ -424,8 +424,8 @@
         {
           "name": "config",
           "type": "MatDialogConfig",
-          "description": "Property `config` (`MatDialogConfig`) storing config.",
-          "descriptionZh": "属性 `config`（类型：`MatDialogConfig`），用于存储或配置配置。"
+          "description": "Property `config` (`MatDialogConfig<any>`) storing config.",
+          "descriptionZh": "属性 `config`（类型：`MatDialogConfig<any>`），用于存储或配置配置。"
         },
         {
           "name": "constraint",
@@ -460,14 +460,14 @@
         {
           "name": "matDialogRef",
           "type": "MatDialogRef<T>",
-          "description": "Property `matDialogRef` (`MatDialogRef<T>`) storing mat dialog ref.",
-          "descriptionZh": "属性 `matDialogRef`（类型：`MatDialogRef<T>`），用于存储或配置Material对话框引用。"
+          "description": "Property `matDialogRef` (`MatDialogRef<T, any>`) storing mat dialog ref.",
+          "descriptionZh": "属性 `matDialogRef`（类型：`MatDialogRef<T, any>`），用于存储或配置Material对话框引用。"
         },
         {
           "name": "dragRefSubject",
           "type": "Subject<DragRef>",
-          "description": "Property `dragRefSubject` (`Subject<DragRef>`) storing drag ref subject.",
-          "descriptionZh": "属性 `dragRefSubject`（类型：`Subject<DragRef>`），用于存储或配置拖拽引用主题流。"
+          "description": "Property `dragRefSubject` (`Subject<DragRef<any>>`) storing drag ref subject.",
+          "descriptionZh": "属性 `dragRefSubject`（类型：`Subject<DragRef<any>>`），用于存储或配置拖拽引用主题流。"
         }
       ]
     },
@@ -484,8 +484,8 @@
         {
           "name": "value",
           "type": "string|number",
-          "description": "Property `value` (`string|number`) storing value.",
-          "descriptionZh": "属性 `value`（类型：`string|number`），用于存储或配置值。"
+          "description": "Property `value` (`string | number`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string | number`），用于存储或配置值。"
         },
         {
           "name": "minLength",
@@ -584,6 +584,30 @@
           "descriptionZh": "属性 `detailsLabels`（类型：`StatusDialogDetailsLabels`），用于存储或配置详情列表标签。"
         }
       ]
+    },
+    {
+      "name": "phoneDialogConfig",
+      "kind": "function",
+      "summary": "On a phone a dialog is a full-screen page; caller sizes are ignored. Desktop config passes through untouched.",
+      "summaryZh": "手机类下弹窗一律全屏（调用方写死的宽高不生效），桌面原样返回（施工图 M2-13）。",
+      "sourceFile": "src/common/dialogs/services/dialog.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "phoneDialogConfig",
+          "params": [
+            {
+              "name": "config",
+              "type": "MatDialogConfig<D>"
+            }
+          ],
+          "returnType": "MatDialogConfig<D> | undefined",
+          "description": "On a phone a dialog is a full-screen page; caller sizes are ignored. Desktop config passes through untouched.",
+          "descriptionZh": "手机类下弹窗一律全屏（调用方写死的宽高不生效），桌面原样返回（施工图 M2-13）。"
+        }
+      ],
+      "properties": []
     },
     {
       "name": "PromptDialogComponent",
@@ -730,7 +754,7 @@
           "name": "formControl",
           "type": "any",
           "default": "new FormControl()",
-          "description": "Property `formControl` (`FormControl`) storing form control (default: `new FormControl()`).",
+          "description": "Property `formControl` (`FormControl<any>`) storing form control (default: `new FormControl()`).",
           "descriptionZh": "绑定输入框值的表单控件。"
         }
       ]

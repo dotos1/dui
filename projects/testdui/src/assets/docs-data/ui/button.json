@@ -13,7 +13,7 @@
         {
           "name": "getEl",
           "params": [],
-          "returnType": "any",
+          "returnType": "HTMLElement",
           "description": "Executes `getEl` to handle get el.",
           "descriptionZh": "执行 `getEl`，用于获取DOM元素。"
         },
@@ -22,10 +22,10 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiButtonConfig"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `init` to handle init.",
           "descriptionZh": "执行 `init`，用于初始化。"
         },
@@ -34,10 +34,10 @@
           "params": [
             {
               "name": "items",
-              "type": "any"
+              "type": "Array<DuiButtonMenuItem | string>"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `processItems` to handle process items.",
           "descriptionZh": "执行 `processItems`，用于处理条目列表。"
         },
@@ -62,14 +62,14 @@
           "params": [
             {
               "name": "value",
-              "type": "any"
+              "type": "unknown"
             },
             {
               "name": "e",
-              "type": "any"
+              "type": "unknown"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onValueChange` to handle on value change.",
           "descriptionZh": "执行 `onValueChange`，用于当值变更。"
         },
@@ -95,7 +95,7 @@
         {
           "name": "hasIcon",
           "params": [],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `hasIcon` to handle has icon.",
           "descriptionZh": "执行 `hasIcon`，用于是否包含图标。"
         },
@@ -137,7 +137,7 @@
         {
           "name": "getValue",
           "params": [],
-          "returnType": "any",
+          "returnType": "string",
           "description": "Executes `getValue` to handle get value.",
           "descriptionZh": "执行 `getValue`，用于获取值。"
         },
@@ -145,8 +145,8 @@
           "name": "setValue",
           "params": [
             {
-              "name": "v",
-              "type": "any"
+              "name": "value",
+              "type": "unknown"
             }
           ],
           "returnType": "void",
@@ -158,10 +158,10 @@
           "params": [
             {
               "name": "e",
-              "type": "any"
+              "type": "Event"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onClick` to handle on click.",
           "descriptionZh": "执行 `onClick`，用于当点击。"
         },
@@ -184,10 +184,10 @@
           "params": [
             {
               "name": "disabled",
-              "type": "any"
+              "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onDisableChange` to handle on disable change.",
           "descriptionZh": "执行 `onDisableChange`，用于当禁用变更。"
         }
@@ -201,16 +201,16 @@
         },
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiButtonConfig",
           "default": "{}",
-          "description": "Property `config` (`any`) storing config (default: `{}`).",
-          "descriptionZh": "属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。"
+          "description": "Property `config` (`DuiButtonConfig`) storing config (default: `{}`).",
+          "descriptionZh": "属性 `config`（类型：`DuiButtonConfig`），用于存储或配置配置（默认值：`{}`）。"
         },
         {
           "name": "data",
-          "type": "any",
-          "description": "Property `data` (`any`) storing data.",
-          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据。"
+          "type": "unknown",
+          "description": "点击时传给 handler 的数据（缺省传按钮自身）",
+          "descriptionZh": null
         },
         {
           "name": "ownerCt",
@@ -222,8 +222,8 @@
           "name": "click",
           "type": "any",
           "default": "new EventEmitter()",
-          "description": "Property `click` (`EventEmitter`) storing click (default: `new EventEmitter<any>()`).",
-          "descriptionZh": "属性 `click`（类型：`EventEmitter`），用于存储或配置点击（默认值：`new EventEmitter<any>()`）。"
+          "description": "Property `click` (`EventEmitter<any>`) storing click (default: `new EventEmitter<any>()`).",
+          "descriptionZh": "属性 `click`（类型：`EventEmitter<any>`），用于存储或配置点击（默认值：`new EventEmitter<any>()`）。"
         },
         {
           "name": "type",
@@ -234,7 +234,7 @@
         },
         {
           "name": "items",
-          "type": "any",
+          "type": "Array<DuiButtonMenuItem | string>",
           "description": "Gets the current items (`items: any`).",
           "descriptionZh": "获取当前条目列表（`items: any`）。"
         },
@@ -246,33 +246,33 @@
         },
         {
           "name": "flex",
-          "type": "any",
-          "description": "Property `flex` (`any`) storing flex.",
-          "descriptionZh": "属性 `flex`（类型：`any`），用于存储或配置flex。"
+          "type": "number | string",
+          "description": "Property `flex` (`string | number`) storing flex.",
+          "descriptionZh": "属性 `flex`（类型：`string | number`），用于存储或配置flex。"
         },
         {
           "name": "title",
-          "type": "any",
-          "description": "Property `title` (`any`) storing title.",
-          "descriptionZh": "属性 `title`（类型：`any`），用于存储或配置标题。"
+          "type": "string",
+          "description": "Property `title` (`string`) storing title.",
+          "descriptionZh": "属性 `title`（类型：`string`），用于存储或配置标题。"
         },
         {
           "name": "text",
-          "type": "any",
-          "description": "Property `text` (`any`) storing text.",
-          "descriptionZh": "属性 `text`（类型：`any`），用于存储或配置文本。"
+          "type": "string",
+          "description": "Property `text` (`string`) storing text.",
+          "descriptionZh": "属性 `text`（类型：`string`），用于存储或配置文本。"
         },
         {
           "name": "value",
-          "type": "any",
-          "description": "Property `value` (`any`) storing value.",
-          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+          "type": "string",
+          "description": "Property `value` (`string`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string`），用于存储或配置值。"
         },
         {
           "name": "default",
-          "type": "any",
-          "description": "Property `default` (`any`) storing default.",
-          "descriptionZh": "属性 `default`（类型：`any`），用于存储或配置默认。"
+          "type": "string",
+          "description": "Property `default` (`string`) storing default.",
+          "descriptionZh": "属性 `default`（类型：`string`），用于存储或配置默认。"
         },
         {
           "name": "disableRipple",
@@ -290,15 +290,15 @@
         },
         {
           "name": "toolTip",
-          "type": "any",
-          "description": "Property `toolTip` (`any`) storing tool tip.",
-          "descriptionZh": "属性 `toolTip`（类型：`any`），用于存储或配置tool提示。"
+          "type": "string",
+          "description": "Property `toolTip` (`string`) storing tool tip.",
+          "descriptionZh": "属性 `toolTip`（类型：`string`），用于存储或配置tool提示。"
         },
         {
           "name": "icon",
-          "type": "any",
-          "description": "Property `icon` (`any`) storing icon.",
-          "descriptionZh": "属性 `icon`（类型：`any`），用于存储或配置图标。"
+          "type": "string",
+          "description": "Property `icon` (`string`) storing icon.",
+          "descriptionZh": "属性 `icon`（类型：`string`），用于存储或配置图标。"
         },
         {
           "name": "iconType",
@@ -316,16 +316,16 @@
         },
         {
           "name": "handler",
-          "type": "any",
-          "description": "Property `handler` (`any`) storing handler.",
-          "descriptionZh": "属性 `handler`（类型：`any`），用于存储或配置处理器。"
+          "type": "Function",
+          "description": "Property `handler` (`Function`) storing handler.",
+          "descriptionZh": "属性 `handler`（类型：`Function`），用于存储或配置处理器。"
         },
         {
           "name": "change",
           "type": "any",
-          "default": "(value)=>{}",
-          "description": "Property `change` (`any`) storing change (default: `(value)=>{}`).",
-          "descriptionZh": "属性 `change`（类型：`any`），用于存储或配置变更（默认值：`(value)=>{}`）。"
+          "default": "(value: unknown): void => {}",
+          "description": "Property `change` (`(value: unknown) => void`) storing change (default: `(value)=>{}`).",
+          "descriptionZh": "属性 `change`（类型：`(value: unknown) => void`），用于存储或配置变更（默认值：`(value)=>{}`）。"
         },
         {
           "name": "tabIndex",
@@ -336,15 +336,15 @@
         },
         {
           "name": "menu",
-          "type": "any",
-          "description": "Property `menu` (`any`) storing menu.",
-          "descriptionZh": "属性 `menu`（类型：`any`），用于存储或配置菜单。"
+          "type": "unknown",
+          "description": "Property `menu` (`unknown`) storing menu.",
+          "descriptionZh": "属性 `menu`（类型：`unknown`），用于存储或配置菜单。"
         },
         {
           "name": "style",
-          "type": "any",
-          "description": "Property `style` (`any`) storing style.",
-          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
+          "type": "DuiStyle",
+          "description": "Property `style` (`DuiStyle`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`DuiStyle`），用于存储或配置样式。"
         },
         {
           "name": "checked",
@@ -372,6 +372,18 @@
           "type": "QueryList<MatMenuTrigger>",
           "description": "Property `triggers` (`QueryList<MatMenuTrigger>`) storing triggers.",
           "descriptionZh": "属性 `triggers`（类型：`QueryList<MatMenuTrigger>`），用于存储或配置触发。"
+        },
+        {
+          "name": "resolver",
+          "type": "unknown",
+          "description": "Legacy compatibility placeholder for component factory resolver.",
+          "descriptionZh": "属性 `resolver`（类型：`unknown`），历史兼容占位字段。"
+        },
+        {
+          "name": "injector",
+          "type": "Injector",
+          "description": "Property `injector` (`Injector`) storing injector.",
+          "descriptionZh": "属性 `injector`（类型：`Injector`），用于存储或配置注入器。"
         }
       ]
     },
@@ -385,10 +397,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiButtonConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiButtonConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiButtonConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "data",
@@ -420,8 +432,8 @@
         {
           "name": "click",
           "type": "any",
-          "description": "Output event emitter `click` (`EventEmitter`) firing when click occurs.",
-          "descriptionZh": "输出事件 `click`（类型：`EventEmitter`），当触发点击时向外发出事件。"
+          "description": "Output event emitter `click` (`EventEmitter<any>`) firing when click occurs.",
+          "descriptionZh": "输出事件 `click`（类型：`EventEmitter<any>`），当触发点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -449,7 +461,7 @@
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": "Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.",
+          "description": "Template/content query reference `matTooltip` (`MatTooltip`) targeting mat tooltip.",
           "descriptionZh": "模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。"
         },
         {
@@ -469,7 +481,7 @@
         {
           "name": "triggers",
           "type": "QueryList<MatMenuTrigger>",
-          "description": "Template/content query reference `triggers` (`@ViewChildren`) targeting triggers.",
+          "description": "Template/content query reference `triggers` (`QueryList<MatMenuTrigger>`) targeting triggers.",
           "descriptionZh": "模板/内容视图查询引用 `triggers`（`@ViewChildren`），指向触发。"
         }
       ]
@@ -488,8 +500,98 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     MatDivider,\n    ButtonComponent,]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ MatDivider, ButtonComponent,]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ MatDivider, ButtonComponent,]`）。"
+          "description": "Property `entryComponents` (`(typeof MatDivider | typeof ButtonComponent)[]`) storing entry components (default: `[ MatDivider, ButtonComponent,]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof MatDivider | typeof ButtonComponent)[]`），用于存储或配置条目组件列表（默认值：`[ MatDivider, ButtonComponent,]`）。"
+        }
+      ]
+    },
+    {
+      "name": "DuiButtonConfig",
+      "kind": "interface",
+      "summary": "按钮配置",
+      "summaryZh": null,
+      "sourceFile": "src/ui/button/button.base.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "parentType",
+          "type": "'toolbar' | 'menu' | string",
+          "description": "放在哪里：工具栏（缺省）或菜单里",
+          "descriptionZh": null
+        },
+        {
+          "name": "color",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableRipple",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconPosition",
+          "type": "'before' | 'after' | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "shortcut",
+          "type": "string",
+          "description": "菜单里显示的快捷键提示",
+          "descriptionZh": null
+        },
+        {
+          "name": "children",
+          "type": "Array<DuiButtonMenuItem | string>",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "dropdown",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiButtonMenuItem",
+      "kind": "interface",
+      "summary": "按钮下拉 / 子菜单项（'-' 表示分隔线）",
+      "summaryZh": null,
+      "sourceFile": "src/ui/button/button.base.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "value",
+          "type": "string | number | boolean",
+          "description": "下拉按钮（dropdown）选项值或复选（checkbox）菜单项状态",
+          "descriptionZh": null
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "description": "分隔线、复选框等特殊项",
+          "descriptionZh": null
+        },
+        {
+          "name": "children",
+          "type": "Array<DuiButtonMenuItem | string>",
+          "description": "嵌套子菜单项",
+          "descriptionZh": null
+        },
+        {
+          "name": "parentItem",
+          "type": "ComponentBase",
+          "description": "下拉模式下指回所属按钮",
+          "descriptionZh": null
         }
       ]
     },
@@ -503,10 +605,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "data",
@@ -648,15 +750,15 @@
         {
           "name": "childMenu",
           "type": "any",
-          "description": "Template/content query reference `childMenu` (`@ViewChild`) targeting child menu.",
+          "description": "Template/content query reference `childMenu` (`any`) targeting child menu.",
           "descriptionZh": "模板/内容视图查询引用 `childMenu`（`@ViewChild`），指向子级菜单。"
         },
         {
           "name": "items",
           "type": "any",
           "default": "[]",
-          "description": "Property `items` (`Array<any>`) storing items (default: `[]`).",
-          "descriptionZh": "属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。"
+          "description": "Property `items` (`any[]`) storing items (default: `[]`).",
+          "descriptionZh": "属性 `items`（类型：`any[]`），用于存储或配置条目列表（默认值：`[]`）。"
         },
         {
           "name": "disableRipple",
@@ -750,8 +852,8 @@
           "name": "change",
           "type": "any",
           "default": "(e) => { }",
-          "description": "Property `change` (`any`) storing change (default: `(e) => { }`).",
-          "descriptionZh": "属性 `change`（类型：`any`），用于存储或配置变更（默认值：`(e) => { }`）。"
+          "description": "Property `change` (`(e: any) => void`) storing change (default: `(e) => { }`).",
+          "descriptionZh": "属性 `change`（类型：`(e: any) => void`），用于存储或配置变更（默认值：`(e) => { }`）。"
         }
       ]
     },
@@ -769,8 +871,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ToggleButtonComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ToggleButtonComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ToggleButtonComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof ToggleButtonComponent)[]`) storing entry components (default: `[ToggleButtonComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ToggleButtonComponent)[]`），用于存储或配置条目组件列表（默认值：`[ToggleButtonComponent]`）。"
         }
       ]
     }
