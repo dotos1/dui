@@ -89,7 +89,7 @@ jobs:
         run: |
           if [ -n "${VERSION}" ]; then
             # 指定版本：不走 prebuild 的自动补丁号（预发布号 patch 会变成正式版 8.0.0）
-            (cd src && npm --no-git-tag-version version "${VERSION}")
+            (cd src && npm --no-git-tag-version --allow-same-version version "${VERSION}")
             npm run build-dui && npm run npm_pack
           else
             npm run package
