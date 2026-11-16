@@ -14,14 +14,38 @@ import { observe } from '@dotos1/dui/core/form';
 import { Subject } from 'rxjs';
 import { MatField } from './mat.field';
 
+/** 测试里用到的 mat-form-field 内部成员。 */
+interface FakeFormField {
+  _elementRef: { nativeElement: HTMLElement };
+  _textField: { nativeElement: HTMLElement };
+  _lineRipple: null;
+  _isFocused: boolean | null;
+  _control?: unknown;
+  _updateFocusState(): void;
+}
+
+/** 字段配置里测试关心的部分。 */
+interface FieldStub {
+  name: string;
+  focused?: boolean;
+}
+
+/** 测试里用到的 MatField 成员。 */
+interface MatFieldUnderTest {
+  _field: FieldStub;
+  stateChanges: Subject<void>;
+  formFieldControl: unknown;
+  ngOnInit(): void;
+  ngOnDestroy(): void;
+  onContainerClick(event: MouseEvent): void;
+}
+
 /** 一个最小的 mat-form-field：真实 `_updateFocusState`，宿主与内层 text-field 用 div 代替。 */
-function fakeFormField(): any {
-  const host = document.createElement('div');
-  const textField = document.createElement('div');
-  const ff: any = Object.create(MatFormField.prototype);
+function fakeFormField(): FakeFormField {
+  const ff: FakeFormField = Object.create(MatFormField.prototype);
   Object.assign(ff, {
-    _elementRef: { nativeElement: host },
-    _textField: { nativeElement: textField },
+    _elementRef: { nativeElement: document.createElement('div') },
+    _textField: { nativeElement: document.createElement('div') },
     _lineRipple: null,
     _isFocused: null,
   });
@@ -29,11 +53,11 @@ function fakeFormField(): any {
 }
 
 /** 不起 TestBed：直接拿 MatField 原型，配字段与 mat-form-field，再按 Material 22 的方式订阅 stateChanges。 */
-function mountField(name: string): { field: any; ff: any; self: any; blur: () => void; focus: () => void } {
-  const field: any = { name };
+function mountField(name: string): { field: FieldStub; ff: FakeFormField; self: MatFieldUnderTest; blur: () => void; focus: () => void } {
+  const field: FieldStub = { name };
   const ff = fakeFormField();
   Object.defineProperty(field, '__formField__', { value: ff, enumerable: false, configurable: true });
-  const self: any = Object.create(MatField.prototype);
+  const self: MatFieldUnderTest = Object.create(MatField.prototype);
   self._field = field;
   self.stateChanges = new Subject<void>();
   self.ngOnInit();
@@ -49,7 +73,7 @@ function mountField(name: string): { field: any; ff: any; self: any; blur: () =>
   };
 }
 
-const isFocused = (ff: any) => ({
+const isFocused = (ff: FakeFormField): { mat: boolean; mdc: boolean } => ({
   mat: ff._elementRef.nativeElement.classList.contains('mat-focused'),
   mdc: ff._textField.nativeElement.classList.contains('mdc-text-field--focused'),
 });
@@ -94,7 +118,7 @@ describe('MatField 失焦后通知 mat-form-field（6.3.0 回归）', () => {
 
 describe('observe().setValue(value, emitEvent)', () => {
   it('默认静默；emitEvent 时只通知其它监听者、不回调自己', () => {
-    const o: any = {};
+    const o: { focused?: boolean } = {};
     const self = jasmine.createSpy('self');
     const other = jasmine.createSpy('other');
     const mine = observe<boolean>(o, ['focused'], self);
