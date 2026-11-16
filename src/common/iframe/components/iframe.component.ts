@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/iframe/components/iframe.component.ts`，提供iframe组件相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
   AfterViewInit,
   ChangeDetectorRef,
@@ -14,13 +14,13 @@ import {
   Renderer2,
   ViewChild,
   SimpleChanges,
-  OnChanges
+  OnChanges, ChangeDetectionStrategy
 } from '@angular/core';
 import { BehaviorSubject, forkJoin, fromEvent, Observable, ReplaySubject, Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged, filter, map, takeUntil, tap } from 'rxjs/operators';
 import elementResizeDetectorMaker from 'element-resize-detector';
 import { IframeEvent, IframeEventName } from '../interfaces/iframe-event';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 
@@ -69,7 +69,8 @@ import { DomSanitizer } from '@angular/platform-browser';
             left: 0;
         }
     `],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class IframeComponent implements OnInit, OnChanges,AfterViewInit, OnDestroy {
   /**

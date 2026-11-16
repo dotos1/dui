@@ -7,7 +7,7 @@ import { NgModule } from '@angular/core';import { CommonModule } from '@angular/
 import { LayoutComponent } from './component/layout.component'
 import { SplitAreaDirective } from './directive/split-area.directive'
 import { DuiPanelComponent } from './component/panel.component'
-import { Dui } from '@dotos/dui/core'
+import { Dui } from '@dotos1/dui/core'
 
 /**
  * Angular module `DuiLayoutModule` declaring and exporting dui layout module components, directives, pipes, and providers.

@@ -11,9 +11,9 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { MatListModule } from '@angular/material/list';
-import { Dui } from '@dotos/dui/core';
-import { IconModule } from '@dotos/dui/common/icon';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { IconModule } from '@dotos1/dui/common/icon';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { ToggleButtonComponent } from './toggle-button.component';
 /**
  * Angular module `ToggleButtonModule` declaring and exporting toggle button module components, directives, pipes, and providers.

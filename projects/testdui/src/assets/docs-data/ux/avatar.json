@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/avatar",
+  "importPath": "@dotos1/dui/ux/avatar",
   "exports": [
     {
       "name": "Avatar",
@@ -292,5 +292,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { AvatarComponent, AvatarModule } from '@dotos/dui/ux/avatar';\n\n<dui-avatar [round]=\"...\" [size]=\"...\" [textSizeRatio]=\"...\" (clickOnAvatar)=\"...\"></dui-avatar>"
+  "suggestedUsageSnippet": "import { AvatarComponent, AvatarModule } from '@dotos1/dui/ux/avatar';\n\n<dui-avatar [round]=\"...\" [size]=\"...\" [textSizeRatio]=\"...\" (clickOnAvatar)=\"...\"></dui-avatar>"
 }

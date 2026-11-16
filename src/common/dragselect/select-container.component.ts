@@ -19,7 +19,7 @@ import {
   AfterViewInit,
   PLATFORM_ID,
   Inject,
-  AfterContentInit
+  AfterContentInit, ChangeDetectionStrategy
 } from '@angular/core';
 
 import { isPlatformBrowser } from '@angular/common';
@@ -96,7 +96,8 @@ import { KeyboardEventsService } from './keyboard-events.service';
     ></div>
   `,
   styleUrls: ['./select-container.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class SelectContainerComponent implements AfterViewInit, OnDestroy, AfterContentInit {
   /**

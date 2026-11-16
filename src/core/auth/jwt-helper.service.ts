@@ -6,7 +6,7 @@
 
 import { Injectable } from '@angular/core';
 
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 /**
  * Injectable Angular service `JwtHelperService` managing jwt helper service state and operations in `src/core/auth`.

@@ -4,10 +4,10 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { PanelModule, DuiTabsModule } from '@dotos/dui/container';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { PanelModule, DuiTabsModule } from '@dotos1/dui/container';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `ContainerExampleComponent` (selector: 'app-container-example') providing container example component presentation and interaction in `projects/testdui/src/app/docs/examples/container`.
@@ -23,6 +23,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ContainerExampleComponent {
   /**

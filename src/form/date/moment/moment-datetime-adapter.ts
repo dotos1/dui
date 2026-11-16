@@ -9,7 +9,7 @@ import {MAT_MOMENT_DATE_ADAPTER_OPTIONS, MatMomentDateAdapterOptions} from "@ang
 
 import  moment from 'moment';
 import {Moment} from 'moment';
-import { DatetimeAdapter } from "@dotos/dui/form/date/adapter";
+import { DatetimeAdapter } from "@dotos1/dui/form/date/adapter";
 
 // const moment:any = 'default' in moment? moment['default'] : moment;
 

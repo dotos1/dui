@@ -4,8 +4,8 @@
  */
 
 /* tslint:disable */
-import {AfterContentInit, Component, ElementRef, EventEmitter, Input, Output} from "@angular/core";
-import {DatetimeAdapter} from "@dotos/dui/form/date/adapter";
+import {AfterContentInit, Component, ElementRef, EventEmitter, Input, Output, ChangeDetectionStrategy} from "@angular/core";
+import {DatetimeAdapter} from "@dotos1/dui/form/date/adapter";
 import {MatDatetimepickerFilterType} from "./datetimepicker-filtertype";
 
 /**
@@ -50,7 +50,8 @@ export type MatClockView = "hour" | "minute";
     "(mousedown)": "_handleMousedown($event)",
     hostID: "mat-datetimepicker-clock" + Math.random().toString(36).substring(2, 15),
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class MatDatetimepickerClock<D> implements AfterContentInit {
 

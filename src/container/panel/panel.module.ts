@@ -19,7 +19,7 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { PanelComponent } from './panel.component';
 import { SplitComponent } from './split.component';
 import { DuiLayoutToggleDirective, DuiLayoutCloseDirective, DuiLayoutOpenDirective } from './layout.directives';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 /**
  * Angular module `PanelModule` declaring and exporting panel module components, directives, pipes, and providers.
  * @zh Angular 模块 `PanelModule`，声明并导出面板模块相关的组件、指令、管道与服务提供者。

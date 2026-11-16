@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/data/datatable",
+  "importPath": "@dotos1/dui/data/datatable",
   "exports": [
     {
       "name": "adjustColumnWidths",
@@ -6603,5 +6603,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DataTableBodyCellComponent, DatatableModule } from '@dotos/dui/data/datatable';\n\n<datatable-body-cell [displayCheck]=\"...\" [group]=\"...\" [rowHeight]=\"...\" (activate)=\"...\" (treeAction)=\"...\"></datatable-body-cell>"
+  "suggestedUsageSnippet": "import { DataTableBodyCellComponent, DatatableModule } from '@dotos1/dui/data/datatable';\n\n<datatable-body-cell [displayCheck]=\"...\" [group]=\"...\" [rowHeight]=\"...\" (activate)=\"...\" (treeAction)=\"...\"></datatable-body-cell>"
 }

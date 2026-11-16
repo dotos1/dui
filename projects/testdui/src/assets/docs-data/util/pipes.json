@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/util/pipes",
+  "importPath": "@dotos1/dui/util/pipes",
   "exports": [
     {
       "name": "BytesPipe",
@@ -651,5 +651,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DuiPipesModule } from '@dotos/dui/util/pipes';"
+  "suggestedUsageSnippet": "import { DuiPipesModule } from '@dotos1/dui/util/pipes';"
 }

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/icon-sprite/icon-sprite.component.ts`，提供图标sprite组件相关的定义与实现。
  */
 
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input, OnChanges, ChangeDetectionStrategy } from '@angular/core';
 import { IconSpriteService } from './icon-sprite.service';
 
 /**
@@ -16,7 +16,8 @@ import { IconSpriteService } from './icon-sprite.service';
   selector: 'svg-icon-sprite',
   styleUrls: ['./icon-sprite.component.scss'],
   templateUrl: './icon-sprite.component.html',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class IconSpriteComponent implements OnChanges {
 

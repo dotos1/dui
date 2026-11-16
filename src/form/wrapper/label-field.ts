@@ -9,8 +9,8 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 import { Subject } from 'rxjs';
 import { Renderer2, ElementRef } from '@angular/core';
 import { Platform } from '@angular/cdk/platform';
-import { FieldConfig } from '@dotos/dui/core/form';
-import { FieldWrapper } from '@dotos/dui/core/form';
+import { FieldConfig } from '@dotos1/dui/core/form';
+import { FieldWrapper } from '@dotos1/dui/core/form';
 
 /**
  * Angular component `LabelWrapperField` (selector: 'label-field-wrapper') providing label wrapper field presentation and interaction in `src/form/wrapper`.

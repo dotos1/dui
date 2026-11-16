@@ -5,7 +5,7 @@
 
 import {
   Component,  AfterViewInit,  ElementRef,  Input,  Output,  EventEmitter,  Renderer2,
-  SecurityContext,  OnChanges,  SimpleChanges,  HostBinding,  NgZone,  OnDestroy,
+  SecurityContext,  OnChanges,  SimpleChanges,  HostBinding,  NgZone,  OnDestroy, ChangeDetectionStrategy,
 } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import {  scrollToAnchor,  genHeadingId,  isAnchorLink,  removeTrailingHash,
@@ -173,6 +173,7 @@ function addIdsToHeadings(html: string): string {
   styleUrls: ['./markdown.component.scss'],
   templateUrl: './markdown.component.html',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class MarkdownComponent
   implements OnChanges, AfterViewInit, OnDestroy

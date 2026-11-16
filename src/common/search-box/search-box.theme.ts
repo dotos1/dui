@@ -4,7 +4,7 @@
  */
 
 
-import { Theme } from '@dotos/dui/theme';
+import { Theme } from '@dotos1/dui/theme';
 
 /**
  * Executes `dotosSearchBoxTheme` to handle dotos search box theme.

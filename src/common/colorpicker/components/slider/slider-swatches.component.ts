@@ -6,7 +6,7 @@
 import {
   ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
-import { HSL } from '@dotos/dui/common/colorpicker/common';
+import { HSL } from '@dotos1/dui/common/colorpicker/common';
 
 /**
  * Angular component `SliderSwatchesComponent` (selector: 'color-slider-swatches') providing slider swatches component presentation and interaction in `src/common/colorpicker/components/slider`.

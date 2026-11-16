@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/keyboard/keyboard-shortcuts-help-item.component.ts`，提供键盘快捷键列表help条目组件相关的定义与实现。
  */
 
-import {Component, Input} from '@angular/core';
+import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
 import {Shortcut} from './keyboard-shortcuts.interfaces';
 import {symbols} from './keys';
 import {identity} from './utils';
@@ -18,7 +18,8 @@ import {identity} from './utils';
     selector: 'keyboard-shortcuts-help-item',
     templateUrl: './keyboard-shortcuts-help-item.component.html',
     styleUrls: ['./keyboard-shortcuts-help-item.component.scss'],
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class KeyboardShortcutsHelpItemComponent  {
     /**

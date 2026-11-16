@@ -4,12 +4,12 @@
  */
 
 
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CardViewArrayItemModel } from '../../models';
 import { CardViewUpdateService } from '../../services';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 /**
  * Angular component `CardViewArrayItemComponent` (selector: 'dui-card-view-arrayitem') providing card view array item component presentation and interaction in `src/data/cardview/components/card-view-arrayitem`.
  * @zh Angular 组件 `CardViewArrayItemComponent`（selector: 'dui-card-view-arrayitem'），提供卡片视图数组条目组件的视图渲染与交互逻辑（位于 `src/data/cardview/components/card-view-arrayitem`）。
@@ -18,7 +18,8 @@ import { ThemeService } from '@dotos/dui/theme';
   selector: 'dui-card-view-arrayitem',
   templateUrl: './card-view-arrayitem.component.html',
   styleUrls: ['./card-view-arrayitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewArrayItemComponent  implements OnDestroy{
 

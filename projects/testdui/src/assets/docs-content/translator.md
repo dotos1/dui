@@ -1,6 +1,6 @@
 ## 概述
 
-`translator`（`@dotos/dui/translator`）是 DUI 的国际化（i18n）与多语言翻译运行时框架，提供 `TranslateModule`、`TranslateService`、`TranslatePipe`（`| translate`）、`TranslateDirective`，以及面向多模块分片语言包管理的更高层门面服务 `TranslationService`。
+`translator`（`@dotos1/dui/translator`）是 DUI 的国际化（i18n）与多语言翻译运行时框架，提供 `TranslateModule`、`TranslateService`、`TranslatePipe`（`| translate`）、`TranslateDirective`，以及面向多模块分片语言包管理的更高层门面服务 `TranslationService`。
 
 ## 核心模块与职责
 
@@ -19,7 +19,7 @@
 
 ```typescript
 import { Component } from '@angular/core';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 
 @Component({
   selector: 'app-lang-switcher',

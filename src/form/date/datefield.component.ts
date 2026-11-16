@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/form/date/datefield.component.ts`，提供datefield组件相关的定义与实现。
  */
 
-import { isPhoneTerminal } from '@dotos/dui/base';
+import { isPhoneTerminal } from '@dotos1/dui/base';
 import {
   Component, ViewChild, ChangeDetectionStrategy, ViewEncapsulation, Input, SimpleChanges,
   ChangeDetectorRef, AfterContentInit, OnChanges, OnDestroy,  EventEmitter,
@@ -21,14 +21,14 @@ import {
 } from "@angular/forms";
 import {  MAT_INPUT_VALUE_ACCESSOR } from "@angular/material/input";
 
-import { Dui } from '@dotos/dui/core';
-import { TranslateService } from '@dotos/dui/translator';
-import { DatetimeAdapter, MAT_DATETIME_FORMATS, MatDatetimeFormats } from "@dotos/dui/form/date/adapter";
-import { MomentDatetimeAdapter } from '@dotos/dui/form/date/moment';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateService } from '@dotos1/dui/translator';
+import { DatetimeAdapter, MAT_DATETIME_FORMATS, MatDatetimeFormats } from "@dotos1/dui/form/date/adapter";
+import { MomentDatetimeAdapter } from '@dotos1/dui/form/date/moment';
 
-import { MatDatetimepickerFilterType } from "@dotos/dui/form/date/picker";
-import { MatDatetimepicker,createMissingDateImplError } from "@dotos/dui/form/date/picker";
-import { MatField } from '@dotos/dui/form';
+import { MatDatetimepickerFilterType } from "@dotos1/dui/form/date/picker";
+import { MatDatetimepicker,createMissingDateImplError } from "@dotos1/dui/form/date/picker";
+import { MatField } from '@dotos1/dui/form';
 
 /**
  * Constant/variable `MAT_DATETIMEPICKER_VALUE_ACCESSOR` defining mat datetimepicker value accessor in `src/form/date`.

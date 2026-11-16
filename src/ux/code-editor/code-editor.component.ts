@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/code-editor/code-editor.component.ts`，提供编码编辑器组件相关的定义与实现。
  */
 
-import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, forwardRef, NgZone } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, forwardRef, NgZone, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
 
@@ -57,6 +57,7 @@ declare const require;
     multi: true,
   }],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy, ControlValueAccessor {

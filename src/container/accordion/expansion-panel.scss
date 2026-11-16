@@ -11,17 +11,8 @@
 }
 
 .expansion-panel-content {
-  transition: height 225ms $mat-fast-out-slow-in-timing-function, visibility 225ms $mat-fast-out-slow-in-timing-function;
-
-  &.dui-collapsed {
-    height: 0;
-    visibility: hidden;
-    overflow: hidden;
-  }
-
   .dui-expanded & {
     overflow: visible;
-    visibility: visible;
   }
 
   &,

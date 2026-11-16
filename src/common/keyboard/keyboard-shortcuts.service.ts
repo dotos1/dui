@@ -150,10 +150,10 @@ export class KeyboardShortcutsService implements OnDestroy {
 
 
     /**
-     * Property `mapEvent` (`(event: any) => ParsedShortcut`) storing map event.
-     * @zh 属性 `mapEvent`（类型：`(event: any) => ParsedShortcut`），用于存储或配置映射表事件。
+     * Property `mapEvent` (`(event: KeyboardEvent) => ParsedShortcut`) storing map event.
+     * @zh 属性 `mapEvent`（类型：`(event: KeyboardEvent) => ParsedShortcut`），用于存储或配置映射表事件。
      */
-    private mapEvent = (event) => {
+    private mapEvent = (event: KeyboardEvent): ParsedShortcut => {
         return this._shortcuts
             .filter((shortcut) => !shortcut.isSequence)
             .map((shortcut) =>
@@ -182,32 +182,63 @@ export class KeyboardShortcutsService implements OnDestroy {
      * Property `keydown$` (`Observable<KeyboardEvent>`) storing keydown (default: `fromEvent(this.document, "keydown")`).
      * @zh 属性 `keydown$`（类型：`Observable<KeyboardEvent>`），用于存储或配置按键按下（默认值：`fromEvent(this.document, "keydown")`）。
      */
-    private keydown$: Observable<KeyboardEvent>;
+    private keydown$: Observable<KeyboardEvent> = fromEvent(this.document, "keydown");
 
     /**
      * Property `ignore$` (`Observable<Event>`) storing ignore.
      * @zh 属性 `ignore$`（类型：`Observable<Event>`），用于存储或配置忽略。
      */
-    private ignore$: Observable<Event>;
+    private ignore$ = this.pressed$.pipe(
+        filter((e) => e.event.defaultPrevented),
+        switchMap(() => this.clicks$.pipe(first())),
+        tap((e: Event) => {
+            e.preventDefault();
+            e.stopPropagation();
+        }),
+        repeat()
+    );
 
     /**
-     * Property `clicks$` (`Observable<Event>`) storing clicks.
-     * @zh 属性 `clicks$`（类型：`Observable<Event>`），用于存储或配置点击。
+     * Property `clicks$` (`Observable<unknown>`) storing clicks.
+     * @zh 属性 `clicks$`（类型：`Observable<unknown>`），用于存储或配置点击。
      */
-    private clicks$: Observable<Event>;
+    private clicks$ = fromEvent(this.document, "click", { capture: true });
 
     /**
-     * Property `keyup$` (`Observable<Event>`) storing keyup (default: `fromEvent(this.document, "keyup")`).
-     * @zh 属性 `keyup$`（类型：`Observable<Event>`），用于存储或配置按键抬起（默认值：`fromEvent(this.document, "keyup")`）。
+     * Property `keyup$` (`Observable<unknown>`) storing keyup (default: `fromEvent(this.document, "keyup")`).
+     * @zh 属性 `keyup$`（类型：`Observable<unknown>`），用于存储或配置按键抬起（默认值：`fromEvent(this.document, "keyup")`）。
      */
-    private keyup$: Observable<Event>;
+    private keyup$ = fromEvent(this.document, "keyup");
 
 
     /**
-     * Property `keydownCombo$` (`Observable<ParsedShortcut>`) storing keydown combo.
-     * @zh 属性 `keydownCombo$`（类型：`Observable<ParsedShortcut>`），用于存储或配置按键按下Combo。
+     * Property `keydownCombo$` (`Observable<unknown>`) storing keydown combo.
+     * @zh 属性 `keydownCombo$`（类型：`Observable<unknown>`），用于存储或配置按键按下Combo。
      */
-    private keydownCombo$: Observable<unknown>;
+    private keydownCombo$ = this.keydown$.pipe(
+        filter(() => !this.disabled),
+        map(this.mapEvent),
+        filter(
+            (shortcut: ParsedShortcut) =>
+                !shortcut.target || shortcut.event.target === shortcut.target
+        ),
+        filter((shortcut: ParsedShortcut) => isFunction(shortcut.command)),
+        filter((shortcut) => this.isAllowed(shortcut)),
+        tap((shortcut) => {
+            if (!shortcut.preventDefault) {
+                return;
+            }
+            shortcut.event.preventDefault();
+            shortcut.event.stopPropagation();
+        }),
+        throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
+        // 命令出错只记日志不往外抛:原来这里抛出(外加 catchError 原样再抛)会让订阅终止,
+        // 一个命令出错一次,此后所有组合键都失效,直到刷新页面
+        tap((shortcut) => runShortcutCommand(shortcut.command, { event: shortcut.event, key: shortcut.key })),
+        tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
+        takeUntil(this.keyup$),
+        repeat()
+    );
 
 
     /**
@@ -225,10 +256,103 @@ export class KeyboardShortcutsService implements OnDestroy {
         .pipe(switchMap(() => timer(KeyboardShortcutsService.TIMEOUT_SEQUENCE)));
 
     /**
-     * Property `keydownSequence$` (`Observable<ParsedShortcut>`) storing keydown sequence.
-     * @zh 属性 `keydownSequence$`（类型：`Observable<ParsedShortcut>`），用于存储或配置按键按下Sequence。
+     * Property `keydownSequence$` (`Observable<unknown>`) storing keydown sequence.
+     * @zh 属性 `keydownSequence$`（类型：`Observable<unknown>`），用于存储或配置按键按下Sequence。
      */
-    private keydownSequence$: Observable<unknown>;
+    private keydownSequence$ = this.keydown$.pipe(
+        map((event) => ({
+            event,
+            sequences: this._sequences
+        })),
+        scan(
+            (acc: { events; command?; sequences }, arg: { event?; sequences? }) => {
+                const { event } = arg;
+                const currentLength = acc.events.length;
+                const sequences = currentLength ? acc.sequences : arg.sequences;
+                const [characters] = this.characterFromEvent(event);
+                const allChars = Array.isArray(characters)
+                    ? [...characters, event.key]
+                    : [characters, event.key];
+                const result = sequences
+                    .map((sequence) => {
+                        const sequences = sequence.sequence.filter((seque) =>
+                            allChars.some(
+                                (key) =>
+                                    (_SPECIAL_CASES[seque[currentLength]] ||
+                                        seque[currentLength]) === key
+                            )
+                        );
+                        const partialMatch = sequences.length > 0;
+                        if (sequence.fullMatch) {
+                            return sequence;
+                        }
+                        return {
+                            ...sequence,
+                            sequence: sequences,
+                            partialMatch,
+                            event: event,
+                            fullMatch:
+                                partialMatch &&
+                                this.isFullMatch({ command: sequence, events: acc.events })
+                        };
+                    })
+                    .filter((sequences) => sequences.partialMatch || sequences.fullMatch);
+
+                const [match] = result;
+                if (!match || this.modifiersOn(event)) {
+                    return { events: [], sequences: this._sequences };
+                }
+
+                const guess = maxArrayProp("priority", result);
+                if (result.length > 1 && guess.fullMatch) {
+                    return { events: [], command: guess, sequences: this._sequences };
+                }
+                if (result.length > 1) {
+                    return {
+                        events: [...acc.events, event],
+                        command: result,
+                        sequences: result
+                    };
+                }
+                if (match.fullMatch) {
+                    return { events: [], command: match, sequences: this._sequences };
+                }
+                return {
+                    events: [...acc.events, event],
+                    command: result,
+                    sequences: result
+                };
+            },
+            { events: [], sequences: [] }
+        ),
+        switchMap(({ command }) => {
+            if (Array.isArray(command)) {
+
+                return timer(500).pipe(
+                    map(() => ({
+                        command: command.filter((command) => command.fullMatch)[0]
+                    }))
+                );
+            }
+            return of({ command });
+        }),
+        takeUntil(this.pressed$),
+        filter(({ command }) => command && command.fullMatch),
+        map(({ command }) => command),
+        filter((shortcut: ParsedShortcut) => isFunction(shortcut.command)),
+        filter(
+            (shortcut: ParsedShortcut) =>
+                !shortcut.target || shortcut.event.target === shortcut.target
+        ),
+        filter(this.isAllowed),
+        tap((shortcut) => !shortcut.preventDefault || shortcut.event.preventDefault()),
+        throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
+        // 同上:序列快捷键的命令出错也不能让整条序列流终止
+        tap((shortcut) => runShortcutCommand(shortcut.command, { event: shortcut.event, key: shortcut.key })),
+        tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
+        takeUntil(this.resetCounter$),
+        repeat()
+    );
 
 
     /**
@@ -260,136 +384,6 @@ export class KeyboardShortcutsService implements OnDestroy {
      * @param document - Injected or initial document (`any`) / 注入或传入的文档对象（`any`）
      */
     constructor(@Inject(DOCUMENT) private document) {
-        this.keydown$ = fromEvent<KeyboardEvent>(this.document, "keydown");
-        this.clicks$ = fromEvent<Event>(this.document, "click", { capture: true });
-        this.keyup$ = fromEvent<Event>(this.document, "keyup");
-        this.ignore$ = this.pressed$.pipe(
-            filter((e) => e.event.defaultPrevented),
-            switchMap(() => this.clicks$.pipe(first())),
-            tap((e: Event) => {
-                e.preventDefault();
-                e.stopPropagation();
-            }),
-            repeat()
-        );
-        this.keydownCombo$ = this.keydown$.pipe(
-            filter(() => !this.disabled),
-            map(this.mapEvent),
-            filter(
-                (shortcut: ParsedShortcut) =>
-                    !shortcut.target || shortcut.event.target === shortcut.target
-            ),
-            filter((shortcut: ParsedShortcut) => isFunction(shortcut.command)),
-            filter((shortcut) => this.isAllowed(shortcut)),
-            tap((shortcut) => {
-                if (!shortcut.preventDefault) {
-                    return;
-                }
-                shortcut.event.preventDefault();
-                shortcut.event.stopPropagation();
-            }),
-            throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
-            // 命令出错只记日志不往外抛:原来这里抛出(外加 catchError 原样再抛)会让订阅终止,
-            // 一个命令出错一次,此后所有组合键都失效,直到刷新页面
-            tap((shortcut) => runShortcutCommand(shortcut.command, { event: shortcut.event, key: shortcut.key })),
-            tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
-            takeUntil(this.keyup$),
-            repeat()
-        );
-        this.keydownSequence$ = this.keydown$.pipe(
-            map((event) => ({
-                event,
-                sequences: this._sequences
-            })),
-            scan(
-                (acc: { events; command?; sequences }, arg: { event?; sequences? }) => {
-                    const { event } = arg;
-                    const currentLength = acc.events.length;
-                    const sequences = currentLength ? acc.sequences : arg.sequences;
-                    const [characters] = this.characterFromEvent(event);
-                    const allChars = Array.isArray(characters)
-                        ? [...characters, event.key]
-                        : [characters, event.key];
-                    const result = sequences
-                        .map((sequence) => {
-                            const sequences = sequence.sequence.filter((seque) =>
-                                allChars.some(
-                                    (key) =>
-                                        (_SPECIAL_CASES[seque[currentLength]] ||
-                                            seque[currentLength]) === key
-                                )
-                            );
-                            const partialMatch = sequences.length > 0;
-                            if (sequence.fullMatch) {
-                                return sequence;
-                            }
-                            return {
-                                ...sequence,
-                                sequence: sequences,
-                                partialMatch,
-                                event: event,
-                                fullMatch:
-                                    partialMatch &&
-                                    this.isFullMatch({ command: sequence, events: acc.events })
-                            };
-                        })
-                        .filter((sequences) => sequences.partialMatch || sequences.fullMatch);
-
-                    const [match] = result;
-                    if (!match || this.modifiersOn(event)) {
-                        return { events: [], sequences: this._sequences };
-                    }
-
-                    const guess = maxArrayProp("priority", result);
-                    if (result.length > 1 && guess.fullMatch) {
-                        return { events: [], command: guess, sequences: this._sequences };
-                    }
-                    if (result.length > 1) {
-                        return {
-                            events: [...acc.events, event],
-                            command: result,
-                            sequences: result
-                        };
-                    }
-                    if (match.fullMatch) {
-                        return { events: [], command: match, sequences: this._sequences };
-                    }
-                    return {
-                        events: [...acc.events, event],
-                        command: result,
-                        sequences: result
-                    };
-                },
-                { events: [], sequences: [] }
-            ),
-            switchMap(({ command }) => {
-                if (Array.isArray(command)) {
-
-                    return timer(500).pipe(
-                        map(() => ({
-                            command: command.filter((command) => command.fullMatch)[0]
-                        }))
-                    );
-                }
-                return of({ command });
-            }),
-            takeUntil(this.pressed$),
-            filter(({ command }) => command && command.fullMatch),
-            map(({ command }) => command),
-            filter((shortcut: ParsedShortcut) => isFunction(shortcut.command)),
-            filter(
-                (shortcut: ParsedShortcut) =>
-                    !shortcut.target || shortcut.event.target === shortcut.target
-            ),
-            filter(this.isAllowed),
-            tap((shortcut) => !shortcut.preventDefault || shortcut.event.preventDefault()),
-            throttle((shortcut) => timer(shortcut.throttleTime ?? shortcut.throttle ?? 0)),
-            // 同上:序列快捷键的命令出错也不能让整条序列流终止
-            tap((shortcut) => runShortcutCommand(shortcut.command, { event: shortcut.event, key: shortcut.key })),
-            tap((shortcut) => this._pressed.next({ event: shortcut.event, key: shortcut.key })),
-            takeUntil(this.resetCounter$),
-            repeat()
-        );
         this.subscriptions.push(
             this.keydownSequence$.subscribe(),
             this.keydownCombo$.subscribe()
@@ -514,10 +508,10 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
     /**
-     * Property `getKeys` (`(keys: string[]) => ((event: any) => boolean)[]`) storing get keys.
-     * @zh 属性 `getKeys`（类型：`(keys: string[]) => ((event: any) => boolean)[]`），用于存储或配置获取键列表。
+     * Property `getKeys` (`(keys: string[]) => Array<(event: KeyboardEvent) => boolean>`) storing get keys.
+     * @zh 属性 `getKeys`（类型：`(keys: string[]) => Array<(event: KeyboardEvent) => boolean>`），用于存储或配置获取键列表。
      */
-    private getKeys = (keys: string[]) => {
+    private getKeys = (keys: string[]): Array<(event: KeyboardEvent) => boolean> => {
         return keys
             .map((key) => key.trim())
             .filter((key) => key !== "+")
@@ -525,7 +519,7 @@ export class KeyboardShortcutsService implements OnDestroy {
                 key = _SPECIAL_CASES[key] || key;
                 // eslint-disable-next-line no-prototype-builtins
                 if (modifiers.hasOwnProperty(key)) {
-                    return (event) => {
+                    return (event: KeyboardEvent) => {
                         return !!event[modifiers[key]];
                     };
                 }

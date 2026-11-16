@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/iframe",
+  "importPath": "@dotos1/dui/common/iframe",
   "exports": [
     {
       "name": "IframeComponent",
@@ -231,5 +231,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { IframeComponent, IFrameModule } from '@dotos/dui/common/iframe';\n\n<dui-iframe [config]=\"...\" [scrolling]=\"...\" [resizeDebounceMillis]=\"...\" (iframeEvent)=\"...\"></dui-iframe>"
+  "suggestedUsageSnippet": "import { IframeComponent, IFrameModule } from '@dotos1/dui/common/iframe';\n\n<dui-iframe [config]=\"...\" [scrolling]=\"...\" [resizeDebounceMillis]=\"...\" (iframeEvent)=\"...\"></dui-iframe>"
 }

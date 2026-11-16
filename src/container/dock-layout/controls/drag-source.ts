@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/controls/drag-source.ts`，提供拖拽源相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { ComponentItemConfig as ConfigComponentItemConfig } from '../config/config'; // remove alias in version 3
 import { ResolvedRowOrColumnItemConfig } from "../config/resolved-config";
 import { UnexpectedNullError } from '../errors/internal-error';

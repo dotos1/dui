@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/date",
+  "importPath": "@dotos1/dui/form/date",
   "exports": [
     {
       "name": "DateFieldComponent",
@@ -178,5 +178,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { DateFieldComponent, DateFieldModule } from '@dotos/dui/form/date';\n\n<date-field [matDatepickerFilter]=\"...\" [min]=\"...\" [max]=\"...\" (dateChange)=\"...\" (dateInput)=\"...\"></date-field>"
+  "suggestedUsageSnippet": "import { DateFieldComponent, DateFieldModule } from '@dotos1/dui/form/date';\n\n<date-field [matDatepickerFilter]=\"...\" [min]=\"...\" [max]=\"...\" (dateChange)=\"...\" (dateInput)=\"...\"></date-field>"
 }

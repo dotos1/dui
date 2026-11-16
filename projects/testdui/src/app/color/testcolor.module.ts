@@ -5,9 +5,9 @@
 
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
-import { LoadingModule, LoadingService } from '@dotos/dui/common/loading';
-import { ColorFieldModule, FormModule, FormWrapperModule } from "@dotos/dui/form";
-import { IconPickerModule } from '@dotos/dui/ux/iconpicker';
+import { LoadingModule, LoadingService } from '@dotos1/dui/common/loading';
+import { ColorFieldModule, FormModule, FormWrapperModule } from "@dotos1/dui/form";
+import { IconPickerModule } from '@dotos1/dui/ux/iconpicker';
 import { TestColorComponent } from "./testcolor.component";
 /**
  * Constant/variable `FrameRootRoutes` defining frame root routes in `projects/testdui/src/app/color`.

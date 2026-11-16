@@ -6,7 +6,7 @@
 import { Directive, EventEmitter, ElementRef, HostListener, Input, Output } from '@angular/core';
 import { HostBinding, Renderer2 } from '@angular/core';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
-import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
+import { ICanDisable, mixinDisabled } from '@dotos1/dui/core/behaviors';
 
 import { FileUploader, FileUploaderOptions, FilterFunction } from './file-uploader';
 

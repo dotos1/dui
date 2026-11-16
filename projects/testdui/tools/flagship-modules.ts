@@ -4,9 +4,9 @@
  */
 
 /**
- * 全量 102 个 `@dotos/dui` 二级入口模块清单，均在文档站里提供可交互的 Examples 页面。
+ * 全量 102 个 `@dotos1/dui` 二级入口模块清单，均在文档站里提供可交互的 Examples 页面。
  * category/moduleId 与 `generate-api-docs.ts` 对入口目录计算出的 category/moduleId 完全一致（空层级用 "index"）。
- * @zh 全量 102 个 `@dotos/dui` 二级入口模块清单，均在文档站里提供真正可交互的 Examples 页面。
+ * @zh 全量 102 个 `@dotos1/dui` 二级入口模块清单，均在文档站里提供真正可交互的 Examples 页面。
  */
 export const FLAGSHIP_MODULES: Array<{ category: string; moduleId: string }> = [
   { category: 'base', moduleId: 'index' },

@@ -4,10 +4,10 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TopbarModule } from '@dotos/dui/ui/topbar';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { TopbarModule } from '@dotos1/dui/ui/topbar';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `TopbarExampleComponent` (selector: 'app-topbar-example') providing topbar example component presentation and interaction in `projects/testdui/src/app/docs/examples/topbar`.
@@ -26,6 +26,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'html'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class TopbarExampleComponent {
   /**

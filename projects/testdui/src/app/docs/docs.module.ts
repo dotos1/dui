@@ -13,8 +13,8 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { MarkdownModule } from '@dotos/dui/ux/markdown';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { MarkdownModule } from '@dotos1/dui/ux/markdown';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 import { DocsRoutingModule } from './docs-routing.module';
 

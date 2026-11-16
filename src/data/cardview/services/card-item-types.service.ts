@@ -5,7 +5,7 @@
 
 
 import { Injectable, Type } from '@angular/core';
-import { DynamicComponentMapper, DynamicComponentResolveFunction, DynamicComponentResolver } from '@dotos/dui/core/services';
+import { DynamicComponentMapper, DynamicComponentResolveFunction, DynamicComponentResolver } from '@dotos1/dui/core/services';
 import { CardViewArrayItemComponent } from '../components/card-view-arrayitem/card-view-arrayitem.component';
 import { CardViewBoolItemComponent } from '../components/card-view-boolitem/card-view-boolitem.component';
 import { CardViewDateItemComponent } from '../components/card-view-dateitem/card-view-dateitem.component';

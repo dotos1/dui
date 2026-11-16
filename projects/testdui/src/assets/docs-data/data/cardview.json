@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/data/cardview",
+  "importPath": "@dotos1/dui/data/cardview",
   "exports": [
     {
       "name": "CardItemTypeService",
@@ -1950,5 +1950,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { CardViewArrayItemComponent, CardViewModule } from '@dotos/dui/data/cardview';\n\n<dui-card-view-arrayitem [property]=\"...\"></dui-card-view-arrayitem>"
+  "suggestedUsageSnippet": "import { CardViewArrayItemComponent, CardViewModule } from '@dotos1/dui/data/cardview';\n\n<dui-card-view-arrayitem [property]=\"...\"></dui-card-view-arrayitem>"
 }

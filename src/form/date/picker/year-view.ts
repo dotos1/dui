@@ -15,11 +15,12 @@ import {
   Output,
   ViewEncapsulation
 } from "@angular/core";
-import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos/dui/form/date/adapter";
+import {MAT_DATETIME_FORMATS, MatDatetimeFormats,DatetimeAdapter} from "@dotos1/dui/form/date/adapter";
 
 import {MatDatetimepickerType} from "./datetimepicker-type";
 import {createMissingDateImplError} from "./datetimepicker-errors";
 import {MatDatetimepickerCalendarCell} from "./calendar-body";
+import {slideCalendar} from "./datetimepicker-animations";
 
 /**
  * An internal component used to display a single year in the datepicker.
@@ -30,6 +31,7 @@ import {MatDatetimepickerCalendarCell} from "./calendar-body";
 @Component({
   selector: "mat-datetimepicker-year-view",
   templateUrl: "year-view.html",
+  animations: [slideCalendar],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
   host: {

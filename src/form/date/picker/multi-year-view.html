@@ -1,9 +1,8 @@
-<table class="mat-datetimepicker-calendar-table">
+﻿<table class="mat-datetimepicker-calendar-table">
   <thead class="mat-datetimepicker-calendar-table-header"></thead>
-  <tbody (animationend)="_calendarStateDone()"
+  <tbody (@slideCalendar.done)="_calendarStateDone()"
          (selectedValueChange)="_yearSelected($event)"
-         [class.dui-calendar-slide-left]="_calendarState === 'left'"
-         [class.dui-calendar-slide-right]="_calendarState === 'right'"
+         [@slideCalendar]="_calendarState"
          [activeCell]="_getActiveCell()"
          [numCols]="4"
          [rows]="_years"

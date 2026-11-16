@@ -17,15 +17,15 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { FormModule } from '../components/form.module';
 
-import { DuiPipesModule } from '@dotos/dui/util/pipes';
-import { Dui, StyleModule } from '@dotos/dui/core';
+import { DuiPipesModule } from '@dotos1/dui/util/pipes';
+import { Dui, StyleModule } from '@dotos1/dui/core';
 import { ColorPickerContent } from './color-picker.content';
 import { ColorPickerField } from './color-picker.field';
-import { ColorCompactModule } from '@dotos/dui/common/colorpicker/components';
-import { ColorChromeModule } from '@dotos/dui/common/colorpicker/components';
-import { ColorGithubModule } from '@dotos/dui/common/colorpicker/components';
-import { ColorSketchModule } from '@dotos/dui/common/colorpicker/components';
-import { TranslateModule } from '@dotos/dui/translator';
+import { ColorCompactModule } from '@dotos1/dui/common/colorpicker/components';
+import { ColorChromeModule } from '@dotos1/dui/common/colorpicker/components';
+import { ColorGithubModule } from '@dotos1/dui/common/colorpicker/components';
+import { ColorSketchModule } from '@dotos1/dui/common/colorpicker/components';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `ColorFieldModule` declaring and exporting color field module components, directives, pipes, and providers.

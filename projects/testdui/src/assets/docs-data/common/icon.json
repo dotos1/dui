@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/icon",
+  "importPath": "@dotos1/dui/common/icon",
   "exports": [
     {
       "name": "FontLoaderService",
@@ -302,5 +302,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { IconComponent, IconModule } from '@dotos/dui/common/icon';\n\n<dui-icon [color]=\"...\" [disabled]=\"...\" [iconStyle]=\"...\"></dui-icon>"
+  "suggestedUsageSnippet": "import { IconComponent, IconModule } from '@dotos1/dui/common/icon';\n\n<dui-icon [color]=\"...\" [disabled]=\"...\" [iconStyle]=\"...\"></dui-icon>"
 }

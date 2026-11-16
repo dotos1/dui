@@ -4,7 +4,7 @@
  */
 
 import { Input, HostListener, Renderer2, ElementRef, AfterViewInit, OnDestroy, Directive } from '@angular/core';
-import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
+import { ICanDisable, mixinDisabled } from '@dotos1/dui/core/behaviors';
 
 import { Subscription } from 'rxjs';
 

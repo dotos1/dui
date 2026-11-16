@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/storage",
+  "importPath": "@dotos1/dui/core/storage",
   "exports": [
     {
       "name": "ILocalStorageEvent",
@@ -267,5 +267,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { LocalStorageModule } from '@dotos/dui/core/storage';"
+  "suggestedUsageSnippet": "import { LocalStorageModule } from '@dotos1/dui/core/storage';"
 }

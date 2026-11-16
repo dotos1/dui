@@ -4,10 +4,11 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
-import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
+import { ICanDisable, mixinDisabled } from '@dotos1/dui/core/behaviors';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -26,7 +27,7 @@ import {
   Injector
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { FormBuilder } from '@dotos/dui/core/form';
+import { FormBuilder } from '@dotos1/dui/core/form';
 
 import { Accordion } from './accordion';
 import { Container } from '../container.main';
@@ -71,7 +72,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
    * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
-  @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef = undefined;
+  @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   /**
    * label?: string
@@ -315,6 +316,13 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
   providers: [
     { provide: _ExpansionPanelMixinBase, useExisting: forwardRef(() => ExpansionPanel) },
     { provide: DUI_EXPANSION_PANEL, useExisting: forwardRef(() => ExpansionPanel) }
+  ],
+  animations: [
+    trigger('bodyExpansion', [
+      state('collapsed', style({ height: '0px', visibility: 'hidden' })),
+      state('expanded', style({ height: '*', visibility: 'visible' })),
+      transition('expanded <=> collapsed', animate(EXPANSION_PANEL_ANIMATION_TIMING)),
+    ]),
   ],
   standalone: false
 })

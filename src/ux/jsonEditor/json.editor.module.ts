@@ -13,12 +13,12 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 
-import { CardModule } from '@dotos/dui/container';
-import { Dui } from '@dotos/dui/core';
-import { ButtonModule } from '@dotos/dui/ui/button';
-import { DialogsModule } from '@dotos/dui/common/dialogs';
-import { TranslationService } from '@dotos/dui/translator';
-import { MonacoEditorModule } from '@dotos/dui/ux/monaco-editor';
+import { CardModule } from '@dotos1/dui/container';
+import { Dui } from '@dotos1/dui/core';
+import { ButtonModule } from '@dotos1/dui/ui/button';
+import { DialogsModule } from '@dotos1/dui/common/dialogs';
+import { TranslationService } from '@dotos1/dui/translator';
+import { MonacoEditorModule } from '@dotos1/dui/ux/monaco-editor';
 
 import { JsonEditor } from './json.editor';
 /**

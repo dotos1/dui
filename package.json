@@ -27,12 +27,15 @@
     "npm_pack": "cd dist/dui && npm pack",
     "package": "npm run prebuild && npm run build-dui && npm run npm_pack",
     "publish": "cd dist/dui && rm -f *.tgz && npm publish  --ignore-scripts",
-    "unpublish": "cd dist/dui && npm unpublish @dotos/dui@latest  --force",
+    "unpublish": "cd dist/dui && npm unpublish @dotos1/dui@latest  --force",
     "gate:standalone": "node tools/ng-upgrade/ensure-standalone-false.mjs --check",
     "test:jest": "jest --runInBand",
-    "test:m3-theme": "node --test tools/ng-upgrade/m3-theme-service.test.mjs"
+    "generate:m2-tokens": "node tools/m2-parity/generate-m2-tokens.mjs",
+    "test:m2-theme": "jest --runInBand src/theme/theme.service.spec.ts",
+    "parity:m2": "node tools/m2-parity/run-m2-parity.mjs"
   },
   "dependencies": {
+    "@angular/animations": "22.2.6",
     "@angular/cdk": "22.2.7",
     "@angular/common": "22.2.6",
     "@angular/compiler": "22.2.6",
@@ -59,6 +62,7 @@
     "lodash-es": "^4.17.21",
     "material-icons": "^1.13.12",
     "minimatch-browser": "^1.0.0",
+    "mobx": "^6.13.7",
     "moment": "^2.29.1",
     "monaco-editor": "0.50.0",
     "monaco-editor-nls": "^3.1.0",
@@ -81,9 +85,7 @@
     "xterm": "^5.3.0",
     "xterm-addon-fit": "^0.8.0",
     "xterm-addon-web-links": "^0.9.0",
-    "zone.js": "~0.15.1",
-    "@material/material-color-utilities": "0.3.0",
-    "@angular/aria": "22.2.7"
+    "zone.js": "~0.15.1"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^22.2.7",
@@ -102,6 +104,7 @@
     "karma-jasmine-html-reporter": "2.1.0",
     "ng-packagr": "22.2.6",
     "postcss-rtlcss": "^6.0.0",
+    "sass": "^1.103.1",
     "ts-jest": "^29.4.12",
     "typescript": "~6.0.3"
   },

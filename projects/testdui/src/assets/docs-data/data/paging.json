@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/data/paging",
+  "importPath": "@dotos1/dui/data/paging",
   "exports": [
     {
       "name": "DuiPagingBarComponent",
@@ -264,5 +264,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { DuiPagingBarComponent, DuiPagingModule } from '@dotos/dui/data/paging';\n\n<dui-paging-bar [firstLast]=\"...\" [initialPage]=\"...\" [pageLinkCount]=\"...\" (onChange)=\"...\"></dui-paging-bar>"
+  "suggestedUsageSnippet": "import { DuiPagingBarComponent, DuiPagingModule } from '@dotos1/dui/data/paging';\n\n<dui-paging-bar [firstLast]=\"...\" [initialPage]=\"...\" [pageLinkCount]=\"...\" (onChange)=\"...\"></dui-paging-bar>"
 }

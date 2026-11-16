@@ -77,6 +77,10 @@
       }
       .mat-button-toggle-button {
         height: 28px;
+        transition: all 0s ease 0s;
+        .mat-button-toggle-checkbox-wrapper {
+          display: none;
+        }
         .mat-button-toggle-label-content {
           line-height: 26px;
           font-weight: 400;

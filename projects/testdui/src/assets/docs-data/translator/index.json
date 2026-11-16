@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/translator",
+  "importPath": "@dotos1/dui/translator",
   "exports": [
     {
       "name": "DateFormatOptions",
@@ -151,7 +151,7 @@
     {
       "name": "Internationalization",
       "kind": "class",
-      "summary": "Class `Internationalization` encapsulating internationalization data structures and logic in `src/translator`.\n与旧 `Internationalization` 同名同签名的门面。\n\n<p>只实现 `getDateFormat` / `getNumberFormat` —— 全仓库唯一的使用者是\n`@dotos/duix/grid` 的 `core/format.ts`,它只调这两个。\n旧类还有 `getDateParser` / `getNumberParser` / `formatDate` / `parseDate` …,\n<b>全部零使用者</b>,不重建(`PEEL-GUIDE.md` §门 4h 的反面:\n「没人用」不是不迁的理由,但也不是\"照搬一份\"的理由 —— 迁的是有人用的)。",
+      "summary": "Class `Internationalization` encapsulating internationalization data structures and logic in `src/translator`.\n与旧 `Internationalization` 同名同签名的门面。\n\n<p>只实现 `getDateFormat` / `getNumberFormat` —— 全仓库唯一的使用者是\n`@dotos1/duix/grid` 的 `core/format.ts`,它只调这两个。\n旧类还有 `getDateParser` / `getNumberParser` / `formatDate` / `parseDate` …,\n<b>全部零使用者</b>,不重建(`PEEL-GUIDE.md` §门 4h 的反面:\n「没人用」不是不迁的理由,但也不是\"照搬一份\"的理由 —— 迁的是有人用的)。",
       "summaryZh": "与旧 `Internationalization` 同名同签名的门面。",
       "sourceFile": "src/translator/intl.ts",
       "inputs": [],
@@ -495,7 +495,7 @@
     {
       "name": "t",
       "kind": "function",
-      "summary": "模块级的取译文入口。\n\n<p><b>为什么要有这一个。</b>翻译服务只能靠构造函数注入，于是三类文件没法接进多语言：\n描述符数组这样的<b>数据文件</b>（`const PARAMS = [{ label: '…' }]`，根本没有类）、\n纯函数模块（推断、算法、格式化），以及那些不是 Angular 组件的老面板。\n平台里这类文案有几千条，逐个去改构造函数既改不动、也改不对 —— 数据文件里压根没有构造函数。\n\n<p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos/duix/datastore` 早就这么拿\nHttpClient 与 ToastrService），不新起一套机制。\n\n<p><b>取不到服务时返回 key 本身</b>，与 `translate` 管道的行为一致：宁可显示\n`CROSSSECTION.BOTTOMBOX` 也不要显示 `undefined`，而且一眼就看得出是哪个键没配。\n宿主应用在根注入器就绪后要设 `ServiceLocator.injector = injector`，这一条本来就要做。\n\n<p><b>什么时候不要用它</b>：组件里能注入就注入 —— 注入的那份能跟着语言切换重新求值，\n而这个函数是<b>当场取值</b>。放在模块顶层的常量里（`const LABEL = t('X')`）等于把\n启动那一刻的语言钉死了，要在用到的时候才调。",
+      "summary": "模块级的取译文入口。\n\n<p><b>为什么要有这一个。</b>翻译服务只能靠构造函数注入，于是三类文件没法接进多语言：\n描述符数组这样的<b>数据文件</b>（`const PARAMS = [{ label: '…' }]`，根本没有类）、\n纯函数模块（推断、算法、格式化），以及那些不是 Angular 组件的老面板。\n平台里这类文案有几千条，逐个去改构造函数既改不动、也改不对 —— 数据文件里压根没有构造函数。\n\n<p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos1/duix/datastore` 早就这么拿\nHttpClient 与 ToastrService），不新起一套机制。\n\n<p><b>取不到服务时返回 key 本身</b>，与 `translate` 管道的行为一致：宁可显示\n`CROSSSECTION.BOTTOMBOX` 也不要显示 `undefined`，而且一眼就看得出是哪个键没配。\n宿主应用在根注入器就绪后要设 `ServiceLocator.injector = injector`，这一条本来就要做。\n\n<p><b>什么时候不要用它</b>：组件里能注入就注入 —— 注入的那份能跟着语言切换重新求值，\n而这个函数是<b>当场取值</b>。放在模块顶层的常量里（`const LABEL = t('X')`）等于把\n启动那一刻的语言钉死了，要在用到的时候才调。",
       "summaryZh": "执行 `t`，用于t。",
       "sourceFile": "src/translator/t.ts",
       "inputs": [],
@@ -514,7 +514,7 @@
             }
           ],
           "returnType": "string",
-          "description": "模块级的取译文入口。\n\n<p><b>为什么要有这一个。</b>翻译服务只能靠构造函数注入，于是三类文件没法接进多语言：\n描述符数组这样的<b>数据文件</b>（`const PARAMS = [{ label: '…' }]`，根本没有类）、\n纯函数模块（推断、算法、格式化），以及那些不是 Angular 组件的老面板。\n平台里这类文案有几千条，逐个去改构造函数既改不动、也改不对 —— 数据文件里压根没有构造函数。\n\n<p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos/duix/datastore` 早就这么拿\nHttpClient 与 ToastrService），不新起一套机制。\n\n<p><b>取不到服务时返回 key 本身</b>，与 `translate` 管道的行为一致：宁可显示\n`CROSSSECTION.BOTTOMBOX` 也不要显示 `undefined`，而且一眼就看得出是哪个键没配。\n宿主应用在根注入器就绪后要设 `ServiceLocator.injector = injector`，这一条本来就要做。\n\n<p><b>什么时候不要用它</b>：组件里能注入就注入 —— 注入的那份能跟着语言切换重新求值，\n而这个函数是<b>当场取值</b>。放在模块顶层的常量里（`const LABEL = t('X')`）等于把\n启动那一刻的语言钉死了，要在用到的时候才调。",
+          "description": "模块级的取译文入口。\n\n<p><b>为什么要有这一个。</b>翻译服务只能靠构造函数注入，于是三类文件没法接进多语言：\n描述符数组这样的<b>数据文件</b>（`const PARAMS = [{ label: '…' }]`，根本没有类）、\n纯函数模块（推断、算法、格式化），以及那些不是 Angular 组件的老面板。\n平台里这类文案有几千条，逐个去改构造函数既改不动、也改不对 —— 数据文件里压根没有构造函数。\n\n<p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos1/duix/datastore` 早就这么拿\nHttpClient 与 ToastrService），不新起一套机制。\n\n<p><b>取不到服务时返回 key 本身</b>，与 `translate` 管道的行为一致：宁可显示\n`CROSSSECTION.BOTTOMBOX` 也不要显示 `undefined`，而且一眼就看得出是哪个键没配。\n宿主应用在根注入器就绪后要设 `ServiceLocator.injector = injector`，这一条本来就要做。\n\n<p><b>什么时候不要用它</b>：组件里能注入就注入 —— 注入的那份能跟着语言切换重新求值，\n而这个函数是<b>当场取值</b>。放在模块顶层的常量里（`const LABEL = t('X')`）等于把\n启动那一刻的语言钉死了，要在用到的时候才调。",
           "descriptionZh": "执行 `t`，用于t。"
         }
       ],
@@ -1944,5 +1944,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { TranslateModule } from '@dotos/dui/translator';"
+  "suggestedUsageSnippet": "import { TranslateModule } from '@dotos1/dui/translator';"
 }

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/context-menu",
+  "importPath": "@dotos1/dui/ui/context-menu",
   "exports": [
     {
       "name": "CONTEXT_MENU_DIRECTION",
@@ -263,5 +263,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ContextMenuComponent, ContextMenuModule } from '@dotos/dui/ui/context-menu';\n\n<dui-context-menu [popup]=\"...\" [children]=\"...\"></dui-context-menu>"
+  "suggestedUsageSnippet": "import { ContextMenuComponent, ContextMenuModule } from '@dotos1/dui/ui/context-menu';\n\n<dui-context-menu [popup]=\"...\" [children]=\"...\"></dui-context-menu>"
 }

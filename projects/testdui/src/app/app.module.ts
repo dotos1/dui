@@ -7,6 +7,7 @@ import { Overlay, ScrollStrategy } from '@angular/cdk/overlay';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Injector, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
@@ -14,13 +15,13 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { ToastrModule } from '@dotos/dui/common/toastr';
-import { ServiceLocator } from '@dotos/dui/core/services';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { HttpLoaderModule } from '@dotos/dui/net';
-import { DotosConfigModule, DotosConfigService, ThemeService, dotosConfig } from '@dotos/dui/theme';
-import { TranslateModule, TranslateService, TranslationService } from '@dotos/dui/translator';
-import { CommandPaletteModule } from '@dotos/dui/ux/command-palette';
+import { ToastrModule } from '@dotos1/dui/common/toastr';
+import { ServiceLocator } from '@dotos1/dui/core/services';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
+import { HttpLoaderModule } from '@dotos1/dui/net';
+import { DotosConfigModule, DotosConfigService, ThemeService, dotosConfig } from '@dotos1/dui/theme';
+import { TranslateModule, TranslateService, TranslationService } from '@dotos1/dui/translator';
+import { CommandPaletteModule } from '@dotos1/dui/ux/command-palette';
 
 import { ThemeSettingsModule } from './theme-settings/theme-settings.module';
 
@@ -37,6 +38,7 @@ import { AppRoutingModule } from './app.routes';
     ],
     imports: [
       AppRoutingModule,
+      BrowserAnimationsModule,
       BrowserModule,
       MatButtonModule,
       MatIconModule,

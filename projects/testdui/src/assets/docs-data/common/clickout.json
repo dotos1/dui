@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/clickout",
+  "importPath": "@dotos1/dui/common/clickout",
   "exports": [
     {
       "name": "ClickOutsideDirective",
@@ -68,5 +68,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ClickOutsideModule } from '@dotos/dui/common/clickout';"
+  "suggestedUsageSnippet": "import { ClickOutsideModule } from '@dotos1/dui/common/clickout';"
 }

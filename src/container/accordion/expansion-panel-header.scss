@@ -4,7 +4,6 @@
   align-items: center;
   padding: 0 18px;
   width: 100%;
-  transition: height 225ms cubic-bezier(0.4, 0, 0.2, 1);
 
 
   &:focus,
@@ -45,15 +44,6 @@
   flex-grow: 2;
 }
 
-
-.dui-expansion-indicator {
-  display: inline-block;
-  transition: transform 225ms cubic-bezier(0.4, 0, 0.2, 1);
-
-  &.dui-expanded {
-    transform: rotate(180deg);
-  }
-}
 
 .dui-expansion-indicator::after {
   border-style: solid;

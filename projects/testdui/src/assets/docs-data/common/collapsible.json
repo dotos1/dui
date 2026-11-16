@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/collapsible",
+  "importPath": "@dotos1/dui/common/collapsible",
   "exports": [
     {
       "name": "CollapseDirective",
@@ -112,5 +112,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { CollapsibleComponent, CollapsibleModule } from '@dotos/dui/common/collapsible';\n\n<dui-collapsible [title]=\"...\" [collapsed]=\"...\"></dui-collapsible>"
+  "suggestedUsageSnippet": "import { CollapsibleComponent, CollapsibleModule } from '@dotos1/dui/common/collapsible';\n\n<dui-collapsible [title]=\"...\" [collapsed]=\"...\"></dui-collapsible>"
 }

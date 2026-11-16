@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/breadcrumbs",
+  "importPath": "@dotos1/dui/common/breadcrumbs",
   "exports": [
     {
       "name": "BreadcrumbComponent",
@@ -140,5 +140,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { BreadcrumbComponent, BreadcrumbsModule } from '@dotos/dui/common/breadcrumbs';\n\n<dui-breadcrumb, a[dui-breadcrumb]></dui-breadcrumb, a[dui-breadcrumb]>"
+  "suggestedUsageSnippet": "import { BreadcrumbComponent, BreadcrumbsModule } from '@dotos1/dui/common/breadcrumbs';\n\n<dui-breadcrumb, a[dui-breadcrumb]></dui-breadcrumb, a[dui-breadcrumb]>"
 }

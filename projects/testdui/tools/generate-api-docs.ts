@@ -103,7 +103,7 @@ function computeEntryPoints(): EntryPoint[] {
     const relDir = toPosix(path.relative(SRC_ROOT, dirAbs));
 
     if (relDir === '') {
-      // Root `src/ng-package.json` (`@dotos/dui` bare entry) has no real exports
+      // Root `src/ng-package.json` (`@dotos1/dui` bare entry) has no real exports
       // (public-api.ts is a placeholder `export default {}`) — skip it.
       continue;
     }
@@ -124,7 +124,7 @@ function computeEntryPoints(): EntryPoint[] {
     entryPoints.push({
       category,
       moduleId,
-      importPath: `@dotos/dui/${relDir}`,
+      importPath: `@dotos1/dui/${relDir}`,
       entryFileAbs,
       dirAbs,
     });
@@ -200,7 +200,7 @@ function main(): void {
     { id: string; importPath: string; moduleCount: number; modules: any[] }
   >();
   for (const id of ALL_CATEGORY_IDS) {
-    manifestCategories.set(id, { id, importPath: `@dotos/dui/${id}`, moduleCount: 0, modules: [] });
+    manifestCategories.set(id, { id, importPath: `@dotos1/dui/${id}`, moduleCount: 0, modules: [] });
   }
 
   let failures = 0;
@@ -272,13 +272,13 @@ function main(): void {
     const resourceCategories: Array<{ category: string; importPath: string; exports: ApiExport[]; snippet: string }> = [
       {
         category: 'i18n',
-        importPath: '@dotos/dui/i18n',
+        importPath: '@dotos1/dui/i18n',
         exports: [
           {
             name: 'DUI_LOCALE_BUNDLES',
             kind: 'constant',
-            summary: '12 built-in locale dictionary bundles (zh_CN, zh_TW, en_US, ja_JP, ko_KR, fr_FR, de_DE, es_419, pt_BR, ru_RU, id_ID, ar_SA) for @dotos/dui.',
-            summaryZh: '@dotos/dui 内置 12 语种国际化字典资源包（zh_CN、zh_TW、en_US、ja_JP、ko_KR、fr_FR、de_DE、es_419、pt_BR、ru_RU、id_ID、ar_SA）。',
+            summary: '12 built-in locale dictionary bundles (zh_CN, zh_TW, en_US, ja_JP, ko_KR, fr_FR, de_DE, es_419, pt_BR, ru_RU, id_ID, ar_SA) for @dotos1/dui.',
+            summaryZh: '@dotos1/dui 内置 12 语种国际化字典资源包（zh_CN、zh_TW、en_US、ja_JP、ko_KR、fr_FR、de_DE、es_419、pt_BR、ru_RU、id_ID、ar_SA）。',
             inputs: [],
             outputs: [],
             methods: [],
@@ -286,17 +286,17 @@ function main(): void {
             sourceFile: 'src/i18n/dui/zh_CN.json',
           },
         ],
-        snippet: `import { TranslationService } from '@dotos/dui/translator';\n\n// Switch active locale across all DUI components:\ntranslationService.use('zh_CN');`,
+        snippet: `import { TranslationService } from '@dotos1/dui/translator';\n\n// Switch active locale across all DUI components:\ntranslationService.use('zh_CN');`,
       },
       {
         category: 'theming',
-        importPath: '@dotos/dui/theming',
+        importPath: '@dotos1/dui/theming',
         exports: [
           {
             name: 'dui-platform-theme',
             kind: 'function',
             summary: 'SCSS theme architecture providing Material MDC palette tokens, dark/light mode CSS variables, and typography rules.',
-            summaryZh: '@dotos/dui 平台级 SCSS 主题系统，提供 Material MDC 调色板令牌、深浅色 CSS 变量与排版规范。',
+            summaryZh: '@dotos1/dui 平台级 SCSS 主题系统，提供 Material MDC 调色板令牌、深浅色 CSS 变量与排版规范。',
             inputs: [],
             outputs: [],
             methods: [],
@@ -304,7 +304,7 @@ function main(): void {
             sourceFile: 'src/theming/platform.scss',
           },
         ],
-        snippet: `@use '@dotos/dui/theming/platform.scss';\n@import '@dotos/dui/theming/dui/colors';`,
+        snippet: `@use '@dotos1/dui/theming/platform.scss';\n@import '@dotos1/dui/theming/dui/colors';`,
       },
     ];
     for (const rc of resourceCategories) {

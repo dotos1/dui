@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/services",
+  "importPath": "@dotos1/dui/core/services",
   "exports": [
     {
       "name": "CommonServicesModule",
@@ -578,5 +578,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { CommonServicesModule } from '@dotos/dui/core/services';"
+  "suggestedUsageSnippet": "import { CommonServicesModule } from '@dotos1/dui/core/services';"
 }

@@ -4,10 +4,10 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SpeedDialModule } from '@dotos/dui/ui/speeddial';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { SpeedDialModule } from '@dotos1/dui/ui/speeddial';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `SpeeddialExampleComponent` (selector: 'app-speeddial-example') providing speeddial example component presentation and interaction in `projects/testdui/src/app/docs/examples/speeddial`.
@@ -26,6 +26,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class SpeeddialExampleComponent {
   /**

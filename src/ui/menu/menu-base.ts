@@ -5,7 +5,7 @@
 
 import { ChangeDetectorRef, DoCheck, Injectable, Injector, Input } from '@angular/core';
 import { Router } from '@angular/router';
-import { ComponentBase, Dui } from '@dotos/dui/core';
+import { ComponentBase, Dui } from '@dotos1/dui/core';
 import {isFunction,isObjectLike}  from 'lodash-es';
 import { MenuBarItem, MenuModel } from './menu-model';
 /**

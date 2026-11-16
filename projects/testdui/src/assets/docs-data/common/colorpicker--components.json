@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/colorpicker/components",
+  "importPath": "@dotos1/dui/common/colorpicker/components",
   "exports": [
     {
       "name": "AlphaPickerComponent",
@@ -1655,5 +1655,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { AlphaPickerComponent, ColorAlphaModule } from '@dotos/dui/common/colorpicker/components';\n\n<color-alpha-picker [width]=\"...\" [height]=\"...\" [direction]=\"...\"></color-alpha-picker>"
+  "suggestedUsageSnippet": "import { AlphaPickerComponent, ColorAlphaModule } from '@dotos1/dui/common/colorpicker/components';\n\n<color-alpha-picker [width]=\"...\" [height]=\"...\" [direction]=\"...\"></color-alpha-picker>"
 }

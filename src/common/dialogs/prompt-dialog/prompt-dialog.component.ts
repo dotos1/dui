@@ -9,7 +9,7 @@ import {
   ElementRef,
   AfterViewInit,
   NgZone,
-  OnDestroy,
+  OnDestroy, ChangeDetectionStrategy,
 } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 import { LEFT_ARROW, RIGHT_ARROW } from '@angular/cdk/keycodes';
@@ -17,7 +17,7 @@ import { fromEvent, Subject } from 'rxjs';
 import {  takeUntil } from 'rxjs/operators';
 import { MatInput } from '@angular/material/input';
 import { FormControl } from '@angular/forms';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Single-input dialog with built-in validation (length/min/max/pattern/required); normally
@@ -30,6 +30,7 @@ import { ThemeService } from '@dotos/dui/theme';
   templateUrl: './prompt-dialog.component.html',
   styleUrls: ['./prompt-dialog.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class PromptDialogComponent implements AfterViewInit, OnDestroy {

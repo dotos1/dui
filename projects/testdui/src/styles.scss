@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
+@use "../../../src/theming/m2-system";
 
 // Generates the `.{palette}-{hue}` utility classes (e.g. `.blue-500`) that
-// `color-picker` (@dotos/dui/common/matcolorpicker) relies on to render swatches.
+// `color-picker` (@dotos1/dui/common/matcolorpicker) relies on to render swatches.
 @import "../../../src/theming/dui/colors";
 
 html {

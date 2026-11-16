@@ -5,9 +5,9 @@
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Injector, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { ComponentBase, Dui, DuiConfig, DuiStyle } from '@dotos/dui/core';
+import { ComponentBase, Dui, DuiConfig, DuiStyle } from '@dotos1/dui/core';
 import { PageEvent } from '@angular/material/paginator';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import {concat,isUndefined,isString}  from 'lodash-es';
 import { Container } from '../container.main';
 

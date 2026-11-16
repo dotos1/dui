@@ -10,14 +10,16 @@ import { DragDropModule } from '@angular/cdk/drag-drop';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
+import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { IconModule } from '@dotos/dui/common/icon';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { TranslateModule } from '@dotos/dui/translator';
+import { IconModule } from '@dotos1/dui/common/icon';
+import { MobxAngularModule } from '@dotos1/dui/core/mobx';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 import { LoadingComponent } from './components/loading.component';
 import { TreeNodeCheckboxComponent } from './components/tree-node-checkbox.component';
@@ -83,6 +85,7 @@ import { TreeModel } from './models/tree.model';
   ],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     MatTooltipModule,
     MatIconModule,
     MatCheckboxModule,
@@ -92,6 +95,7 @@ import { TreeModel } from './models/tree.model';
     TranslateModule,
     IconModule,
     MatProgressSpinnerModule,
+    MobxAngularModule,
     DragDropModule
   ],
   providers: [

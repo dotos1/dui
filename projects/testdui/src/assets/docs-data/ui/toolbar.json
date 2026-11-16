@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/toolbar",
+  "importPath": "@dotos1/dui/ui/toolbar",
   "exports": [
     {
       "name": "DuiToolbarComponent",
@@ -509,5 +509,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { DuiToolbarComponent, DuiToolbarModule } from '@dotos/dui/ui/toolbar';\n\n<dui-toolbar [config]=\"...\" [height]=\"...\"></dui-toolbar>"
+  "suggestedUsageSnippet": "import { DuiToolbarComponent, DuiToolbarModule } from '@dotos1/dui/ui/toolbar';\n\n<dui-toolbar [config]=\"...\" [height]=\"...\"></dui-toolbar>"
 }

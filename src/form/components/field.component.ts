@@ -21,12 +21,12 @@ import {
   ChangeDetectorRef,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { isPhoneTerminal } from '@dotos/dui/base';
-import { FormConfig } from '@dotos/dui/core/form';
-import { FieldConfig,FieldConfigCache } from '@dotos/dui/core/form';
-import { defineHiddenProp, observe, observeDeep, getFieldValue, assignFieldValue } from '@dotos/dui/core/form';
-import { FieldWrapper } from '@dotos/dui/core/form';
-import { FieldType } from '@dotos/dui/core/form';
+import { isPhoneTerminal } from '@dotos1/dui/base';
+import { FormConfig } from '@dotos1/dui/core/form';
+import { FieldConfig,FieldConfigCache } from '@dotos1/dui/core/form';
+import { defineHiddenProp, observe, observeDeep, getFieldValue, assignFieldValue } from '@dotos1/dui/core/form';
+import { FieldWrapper } from '@dotos1/dui/core/form';
+import { FieldType } from '@dotos1/dui/core/form';
 import { isObservable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
 

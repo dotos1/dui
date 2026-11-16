@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/matcolorpicker",
+  "importPath": "@dotos1/dui/common/matcolorpicker",
   "exports": [
     {
       "name": "ColorPickerComponent",
@@ -164,5 +164,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ColorPickerComponent, ColorPickerModule } from '@dotos/dui/common/matcolorpicker';\n\n<color-picker [color]=\"...\" (colorChanged)=\"...\"></color-picker>"
+  "suggestedUsageSnippet": "import { ColorPickerComponent, ColorPickerModule } from '@dotos1/dui/common/matcolorpicker';\n\n<color-picker [color]=\"...\" (colorChanged)=\"...\"></color-picker>"
 }

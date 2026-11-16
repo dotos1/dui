@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/search-box/search-box.component.ts`，提供搜索盒子容器组件相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
   Component,
   ViewChild,
@@ -17,13 +17,22 @@ import {
   SimpleChanges,
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import {
+  trigger,
+  state,
+  style,
+  transition,
+  animate,
+  AUTO_STYLE,
+} from '@angular/animations';
 
 import { SearchInputComponent } from './search-input/search-input.component';
 import { Subject, noop} from 'rxjs';
 import {  takeUntil } from 'rxjs/operators';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import { ActivatedRoute } from '@angular/router';
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+import { dotosSearchBoxTheme } from './search-box.theme';
+import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Class `SearchBoxBase` encapsulating search box base data structures and logic in `src/common/search-box`.
@@ -55,6 +64,26 @@ export class SearchBoxBase {
   templateUrl: './search-box.component.html',
   styleUrls: ['./search-box.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
+  animations: [
+    trigger('inputState', [
+      state(
+        '0',
+        style({
+          width: '0%',
+          margin: '0px',
+        })
+      ),
+      state(
+        '1',
+        style({
+          width: '100%',
+          margin: AUTO_STYLE,
+        })
+      ),
+      transition('0 => 1', animate('200ms ease-in')),
+      transition('1 => 0', animate('200ms ease-out')),
+    ]),
+  ],
   host:{
     hostID: 'search-box'+   Math.random().toString(36).substring(2, 15),
   },
@@ -283,6 +312,11 @@ export class SearchBoxComponent implements ControlValueAccessor {
           this._searchVisible=true;
         }
       });
+    this._dotosConfigService.config
+    .pipe(takeUntil(this._unsubscribeAll))
+    .subscribe(() => {
+      this._themeService.loadTheme(dotosSearchBoxTheme);
+    });  
 
   }
   /**

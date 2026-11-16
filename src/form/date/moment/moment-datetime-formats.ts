@@ -4,7 +4,7 @@
  */
 
 import { MatDateFormats } from "@angular/material/core";
-import { MatDatetimeFormats } from "@dotos/dui/form/date/adapter";
+import { MatDatetimeFormats } from "@dotos1/dui/form/date/adapter";
 
 /**
  * Constant/variable `MAT_MOMENT_DATETIME_FORMATS` defining mat moment datetime formats in `src/form/date/moment`.

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/cache",
+  "importPath": "@dotos1/dui/core/cache",
   "exports": [
     {
       "name": "BaseObject",
@@ -823,5 +823,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/cache';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/cache';"
 }

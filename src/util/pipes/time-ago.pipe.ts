@@ -4,7 +4,7 @@
  */
 
 import { Pipe, PipeTransform } from '@angular/core';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 
 /**
  * Angular pipe `TimeAgoPipe` (name: 'timeAgo') transforming values for time ago pipe display in templates.

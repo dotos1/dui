@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/pages/category-page/category-page.component.ts`，提供分类页面组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
@@ -21,6 +21,7 @@ import { getCategoryMeta } from '../../models/category-meta';
   templateUrl: './category-page.component.html',
   styleUrls: ['./category-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class CategoryPageComponent {
   /**

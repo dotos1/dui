@@ -8,7 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { CollapseDirective } from './collapse.directive';
 import { CollapsibleComponent } from './collapsible.component';
-import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateModule } from '@dotos1/dui/translator';
 /**
  * Angular module `CollapsibleModule` declaring and exporting collapsible module components, directives, pipes, and providers.
  * @zh Angular 模块 `CollapsibleModule`，声明并导出可折叠面板模块相关的组件、指令、管道与服务提供者。

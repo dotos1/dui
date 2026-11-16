@@ -16,7 +16,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
 import {isString}  from 'lodash-es';
 
-import { ComponentBase, DuiConfig, DuiStyle } from '@dotos/dui/core';
+import { ComponentBase, DuiConfig, DuiStyle } from '@dotos1/dui/core';
 
 /** 按钮下拉 / 子菜单项（'-' 表示分隔线） */
 export interface DuiButtonMenuItem extends DuiConfig {

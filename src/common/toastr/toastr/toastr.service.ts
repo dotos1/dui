@@ -19,7 +19,7 @@ import {
   ToastToken,
   TOAST_CONFIG,
 } from './toastr-config';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 
 
 /**

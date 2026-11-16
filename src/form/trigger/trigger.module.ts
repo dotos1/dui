@@ -15,10 +15,10 @@ import { MatInputModule } from '@angular/material/input';
 import { FormModule } from '../components/form.module';
 
 import { TriggerField } from './trigger.field';
-import { Dui, StyleModule } from '@dotos/dui/core';
-import { TreeModule } from '@dotos/dui/tree';
+import { Dui, StyleModule } from '@dotos1/dui/core';
+import { TreeModule } from '@dotos1/dui/tree';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
-import { TranslateModule } from '@dotos/dui/translator';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `TriggerModule` declaring and exporting trigger module components, directives, pipes, and providers.

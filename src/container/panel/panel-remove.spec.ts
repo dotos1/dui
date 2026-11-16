@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, ComponentRef, ViewContainerRef, ViewRef } from '@angular/core';
-import { ComponentBase } from '@dotos/dui/core';
+import { ComponentBase } from '@dotos1/dui/core';
 import { Container } from '../container.main';
 import { AbstractPanel } from './abstract.panel';
 import { AbstractPanel as LayoutAbstractPanel } from '../layout/component/abstract.panel';

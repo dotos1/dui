@@ -5,7 +5,7 @@
 
 import {
   Component, ElementRef,
-  HostListener, OnDestroy, Input, OnInit,
+  HostListener, OnDestroy, Input, OnInit, ChangeDetectionStrategy,
 } from '@angular/core';
 import { EditorView } from 'prosemirror-view';
 import { Subscription } from 'rxjs';
@@ -30,6 +30,7 @@ type Command = typeof TextColor | typeof TextBackgroundColor;
   templateUrl: './color-picker.component.html',
   styleUrls: ['./color-picker.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class ColorPickerComponent implements OnInit, OnDestroy {

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/loading",
+  "importPath": "@dotos1/dui/common/loading",
   "exports": [
     {
       "name": "IInternalLoadingOptions",
@@ -834,5 +834,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { LoadingComponent, LoadingModule } from '@dotos/dui/common/loading';\n\n<dui-loading></dui-loading>"
+  "suggestedUsageSnippet": "import { LoadingComponent, LoadingModule } from '@dotos1/dui/common/loading';\n\n<dui-loading></dui-loading>"
 }

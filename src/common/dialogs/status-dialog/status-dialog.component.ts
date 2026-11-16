@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/common/dialogs/status-dialog/status-dialog.component.ts`，提供状态对话框组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
 
 /**
@@ -40,6 +40,7 @@ export type StatusDialogDetailsLabels = {
   templateUrl: './status-dialog.component.html',
   styleUrls: ['./status-dialog.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class StatusDialogComponent {

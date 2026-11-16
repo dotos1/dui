@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/print",
+  "importPath": "@dotos1/dui/common/print",
   "exports": [
     {
       "name": "PrintDirective",
@@ -171,5 +171,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { PrintModule } from '@dotos/dui/common/print';"
+  "suggestedUsageSnippet": "import { PrintModule } from '@dotos1/dui/common/print';"
 }

@@ -3,11 +3,11 @@
  * @zh 模块文件 `src/ui/color-button/color-button.ts`，提供颜色按钮相关的定义与实现。
  */
 
-import { ChangeDetectorRef, Component, DoCheck, ElementRef, EventEmitter, HostBinding, Injector, Input, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, DoCheck, ElementRef, EventEmitter, HostBinding, Injector, Input, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { ColorEvent } from '@dotos/dui/common/colorpicker/common';
-import { ButtonBase, DuiButtonConfig } from '@dotos/dui/ui/button';
+import { ColorEvent } from '@dotos1/dui/common/colorpicker/common';
+import { ButtonBase, DuiButtonConfig } from '@dotos1/dui/ui/button';
 import { MatTooltip } from '@angular/material/tooltip';
 
 
@@ -23,6 +23,7 @@ import { MatTooltip } from '@angular/material/tooltip';
     '[style.display]': 'flex'
   },
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
 

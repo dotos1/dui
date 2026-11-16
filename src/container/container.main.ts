@@ -5,8 +5,8 @@
 
 import { ChangeDetectorRef, Injector, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import { ComponentBase, Dui, DuiConfig } from '@dotos/dui/core';
-import { MixedCollection } from '@dotos/dui/core/cache';
+import { ComponentBase, Dui, DuiConfig } from '@dotos1/dui/core';
+import { MixedCollection } from '@dotos1/dui/core/cache';
 import {isArray,each,isFunction,isObjectLike,isUndefined} from 'lodash-es';
 
 /** 容器子项：配置对象，或已创建的组件实例 */

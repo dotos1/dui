@@ -1,5 +1,7 @@
-<div [style.margin-top]="marginTop">
-  <ng-container *ngFor="let node of viewportNodes; let i = index; trackBy: trackNode">
-    <tree-node [node]="node" [index]="i" [templates]="templates"></tree-node>
-  </ng-container>
-</div>
+<ng-container *treeMobxAutorun="{ dontDetach: true }">
+  <div >
+    <ng-container    *ngFor="let node of viewportNodes; let i = index; trackBy: trackNode">
+      <tree-node   [node]="node" [index]="i"   [templates]="templates"></tree-node>
+    </ng-container>
+  </div>
+</ng-container>

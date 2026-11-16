@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/card",
+  "importPath": "@dotos1/dui/form/card",
   "exports": [
     {
       "name": "FormCard",
@@ -101,5 +101,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { FormCard, FormCardModule } from '@dotos/dui/form/card';\n\n<form-card [config]=\"...\"></form-card>"
+  "suggestedUsageSnippet": "import { FormCard, FormCardModule } from '@dotos1/dui/form/card';\n\n<form-card [config]=\"...\"></form-card>"
 }

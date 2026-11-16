@@ -13,8 +13,7 @@
   </button>
   <search-input
     #searchInput
-    [class.search-input-expanded]="alwaysVisible || searchVisible"
-    [class.search-input-collapsed]="!(alwaysVisible || searchVisible)"
+    [@inputState]="alwaysVisible || searchVisible"
     [debounce]="debounce"
     [(ngModel)]="value"
     [showUnderline]="showUnderline"

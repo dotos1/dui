@@ -14,9 +14,9 @@ import { MatSliderModule } from '@angular/material/slider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { FlexLayoutModule } from 'ngx-flexible-layout';
 
-import { Dui } from '@dotos/dui/core';
-import { FormModule } from '@dotos/dui/form';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { FormModule } from '@dotos1/dui/form';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 import { DateRangeFieldComponent } from './daterange.field';
 import { NumberRangeFieldComponent } from './numberrange.field';

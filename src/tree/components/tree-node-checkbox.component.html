@@ -1,8 +1,10 @@
-<mat-checkbox
-  *ngIf="node"
-  class="tree-node-checkbox"
-  [checked]="node.isSelected"
-  (click)="node.mouseAction('checkboxClick', $event)"
-  [indeterminate]="node.isPartiallySelected">
-  {{ label | translate }}
-</mat-checkbox>
+
+    <ng-container *mobxAutorun="{dontDetach: true}">
+      <mat-checkbox class="tree-node-checkbox"
+                    [checked]="node.isSelected"
+                    (click)="node.mouseAction('checkboxClick', $event)"
+                    [indeterminate]="node.isPartiallySelected"
+                    fxFlex>
+                    {{label|translate}}
+      </mat-checkbox>
+    </ng-container>

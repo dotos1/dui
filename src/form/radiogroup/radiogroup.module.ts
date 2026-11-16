@@ -12,8 +12,8 @@ import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatRadioModule } from '@angular/material/radio';
 import { RadioGroupField } from './radiogroup.component';
 import { SelectPipeModule } from '../base/select.module';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 /**
  * Angular module `RadioGroupModule` declaring and exporting radio group module components, directives, pipes, and providers.
  * @zh Angular 模块 `RadioGroupModule`，声明并导出单选框分组模块相关的组件、指令、管道与服务提供者。

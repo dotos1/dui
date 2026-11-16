@@ -6,8 +6,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Load } from './load.service';
 import { Submit } from './submit.service';
-import { Dui } from '@dotos/dui/core';
-import { LoadingService } from '@dotos/dui/common/loading';
+import { Dui } from '@dotos1/dui/core';
+import { LoadingService } from '@dotos1/dui/common/loading';
 
 /**
  * Type alias `ACTION_TYPES` representing action types (`{ 'load': Load; 'submit': Submit }`).

@@ -48,9 +48,7 @@
           <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path>
         </svg>
       </div>
-      <div [class.dui-calendar-slide-left]="_calendarState === 'left'"
-           [class.dui-calendar-slide-right]="_calendarState === 'right'"
-           (animationend)="_calendarStateDone()"
+      <div (@slideCalendar.done)="_calendarStateDone()" [@slideCalendar]="_calendarState"
            class="mat-datetimepicker-calendar-period-button">
         <strong>{{ _monthYearLabel }}</strong>
       </div>

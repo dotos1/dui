@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/jsonEditor",
+  "importPath": "@dotos1/dui/ux/jsonEditor",
   "exports": [
     {
       "name": "JsonEditor",
@@ -75,5 +75,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { JsonEditor, JsonEditorModule } from '@dotos/dui/ux/jsonEditor';\n\n<json-editor></json-editor>"
+  "suggestedUsageSnippet": "import { JsonEditor, JsonEditorModule } from '@dotos1/dui/ux/jsonEditor';\n\n<json-editor></json-editor>"
 }
