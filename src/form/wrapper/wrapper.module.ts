@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from '../components/form.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
@@ -79,7 +78,6 @@ export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
     MatButtonModule,
     MatCheckboxModule,
     MatDividerModule,
-    FlexLayoutModule,
     MatIconModule,
     MatExpansionModule,
     AbstractFormModule,

@@ -19,7 +19,7 @@ import { EditorComponent } from '@dotos1/dui/ux/monaco-editor';
   <card #codeContainer [config]="cardConfig">
     <monaco-editor class="monaco-editor"
       [options]="editorOptions"
-      [(ngModel)]="codeValue"  fxFlexFill  fxFlex style="overflow:hidden" >
+      [(ngModel)]="codeValue" style="margin: 0; width: 100%; height: 100%; min-width: 100%; min-height: 100%; flex: 1 1 0%; box-sizing: border-box; overflow: hidden;">
     </monaco-editor>
   </card>
   `,

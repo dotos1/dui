@@ -3,8 +3,7 @@
 <div *ngIf="!templates.treeNodeWrapperTemplate" 
      cdkDropList 
      class="node-wrapper" 
-     fxLayout="row" 
-     fxLayoutAlign="start center" 
+     style="display: flex; flex-direction: row; box-sizing: border-box; justify-content: flex-start; align-items: center; align-content: center;" 
      [class.node-wrapper-active]="node.isActive"[class.node-wrapper-focused]="node.isFocused" 
      matTooltip={{node.toolTip}}   
      matTooltipPosition='below' 
@@ -24,7 +23,7 @@
     [treeAllowDrop]="node.allowDrop"[allowDragoverStyling]="node.allowDragoverStyling()"
     [treeDrag]="node"
     [treeDragEnabled]="node.allowDrag()"
-   fxFlex>
+    style="flex: 1 1 0%; box-sizing: border-box;">
     <tree-node-content [node]="node" [index]="index" [template]="templates.treeNodeTemplate">
     </tree-node-content>
     <tree-node-expander *ngIf="node.options.expanderAlign&&node.options.expanderAlign==='right'" [node]="node">

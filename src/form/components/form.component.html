@@ -1,6 +1,6 @@
-<div class="form-container" fxLayout="row wrap" fxLayoutAlign="start center" >
+<div class="form-container" style="display: flex; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; justify-content: flex-start; align-items: center; align-content: center;">
   <ng-template let-item ngFor [ngForOf]="renderItems">
-    <div *ngIf="item.xtype!=='hidden-field'" class="pad-xs" [fxFlex]="flexOf(item)"
+    <div *ngIf="item.xtype!=='hidden-field'" class="pad-xs"
       [ngStyle]="getStyle(item)">
       <dui-field *ngIf="item.xtype!=='hidden-field'" hide-deprecation [field]="item" [ngClass]="item.className"
         (modelChange)="changeModel($event)">

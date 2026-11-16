@@ -1,15 +1,15 @@
-<div fxLayout='column' fxFlex style='overflow:hidden'>
+<div style="display: flex; flex-direction: column; flex: 1 1 0%; box-sizing: border-box; overflow: hidden;">
   <mat-divider ></mat-divider>
-  <div fxLayout='row' style='overflow:hidden;height:40px'>
+  <div style="display: flex; flex-direction: row; box-sizing: border-box; overflow: hidden; height: 40px;">
     <span class="section-label" style='margin-top:8px;margin-bottom:8px'> {{field.label|translate}}</span>
     <span style='flex: 1 1 auto;'></span>
     <mat-icon *ngIf="field.toggleable" style='margin-bottom:8px;margin-top: 8px;' (click)="toggle()">
       {{ !collapsed?'keyboard_arrow_up' :'keyboard_arrow_down'}}
     </mat-icon>
   </div>
-  <div [style.position]="'relative'" fxLayout="row wrap" fxLayoutAlign='start center' [@duiCollapse]="collapsed">
+  <div style="position: relative; display: flex; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; justify-content: flex-start; align-items: center; align-content: center;" [@duiCollapse]="collapsed">
     <ng-template let-item ngFor [ngForOf]="field.fieldGroup">
-      <div class="pad-xs" [fxFlex]="item.flex ? item.flex : 100">
+      <div class="pad-xs" [ngStyle]="getItemFlexStyle(item)">
         <dui-field [field]="item" [ngClass]="item.className">
         </dui-field>
       </div>

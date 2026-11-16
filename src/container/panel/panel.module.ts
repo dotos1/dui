@@ -14,7 +14,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { A11yModule } from '@angular/cdk/a11y';
 import { PanelComponent } from './panel.component';
 import { SplitComponent } from './split.component';
@@ -33,7 +32,6 @@ import { Dui } from '@dotos1/dui/core';
     MatListModule,
     MatSidenavModule,
     MatToolbarModule,
-    FlexLayoutModule,
     MatCardModule,
     ScrollingModule,
     A11yModule

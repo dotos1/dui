@@ -6,7 +6,146 @@
 
 import { DuiBase } from '@dotos1/dui/base';
 import { BehaviorSubject } from 'rxjs';
-import { EventEmitter } from 'events';
+
+/** 集合事件回调函数类型 */
+export type CollectionEventListener = (...args: unknown[]) => void;
+
+/**
+ * 浏览器与 Node 通用的轻量事件发射器基类，替代 Node `events.EventEmitter`。
+ * @zh 类 `CollectionEventEmitter`，为有序集合提供零外部依赖的事件监听与派发能力。
+ */
+export class CollectionEventEmitter {
+  /** 事件名到监听器列表的映射 */
+  private _events: Map<string | symbol, CollectionEventListener[]> = new Map();
+
+  /**
+   * Registers an event listener for the specified event name.
+   * @zh 注册指定事件名的监听函数。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @param listener - listener parameter (`CollectionEventListener`) / 监听函数参数（`CollectionEventListener`）
+   * @returns Result of type `this` / 类型为 `this` 的返回值
+   */
+  on(eventName: string | symbol, listener: CollectionEventListener): this {
+    const list = this._events.get(eventName) || [];
+    list.push(listener);
+    this._events.set(eventName, list);
+    return this;
+  }
+
+  /**
+   * Alias for `on` registering an event listener.
+   * @zh `on` 的别名方法，用于注册事件监听函数。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @param listener - listener parameter (`CollectionEventListener`) / 监听函数参数（`CollectionEventListener`）
+   * @returns Result of type `this` / 类型为 `this` 的返回值
+   */
+  addListener(eventName: string | symbol, listener: CollectionEventListener): this {
+    return this.on(eventName, listener);
+  }
+
+  /**
+   * Registers a one-time event listener for the specified event name.
+   * @zh 注册只触发一次的事件监听函数。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @param listener - listener parameter (`CollectionEventListener`) / 监听函数参数（`CollectionEventListener`）
+   * @returns Result of type `this` / 类型为 `this` 的返回值
+   */
+  once(eventName: string | symbol, listener: CollectionEventListener): this {
+    const wrapper: CollectionEventListener = (...args: unknown[]) => {
+      this.removeListener(eventName, wrapper);
+      listener.apply(this, args);
+    };
+    return this.on(eventName, wrapper);
+  }
+
+  /**
+   * Removes a registered listener for the specified event name.
+   * @zh 移除指定事件名下的目标监听函数。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @param listener - listener parameter (`CollectionEventListener`) / 监听函数参数（`CollectionEventListener`）
+   * @returns Result of type `this` / 类型为 `this` 的返回值
+   */
+  removeListener(eventName: string | symbol, listener: CollectionEventListener): this {
+    const list = this._events.get(eventName);
+    if (!list) {
+      return this;
+    }
+    const idx = list.indexOf(listener);
+    if (idx !== -1) {
+      list.splice(idx, 1);
+    }
+    if (list.length === 0) {
+      this._events.delete(eventName);
+    }
+    return this;
+  }
+
+  /**
+   * Alias for `removeListener` detaching an event listener.
+   * @zh `removeListener` 的别名方法，用于取消监听函数。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @param listener - listener parameter (`CollectionEventListener`) / 监听函数参数（`CollectionEventListener`）
+   * @returns Result of type `this` / 类型为 `this` 的返回值
+   */
+  off(eventName: string | symbol, listener: CollectionEventListener): this {
+    return this.removeListener(eventName, listener);
+  }
+
+  /**
+   * Removes all listeners, or those of the specified event name.
+   * @zh 移除全部事件监听函数，或指定事件名下的全部监听函数。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @returns Result of type `this` / 类型为 `this` 的返回值
+   */
+  removeAllListeners(eventName?: string | symbol): this {
+    if (eventName !== undefined) {
+      this._events.delete(eventName);
+    } else {
+      this._events.clear();
+    }
+    return this;
+  }
+
+  /**
+   * Synchronously invokes each listener registered for the event name.
+   * @zh 同步触发指定事件名下注册的全部监听函数。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @param args - args parameter (`unknown[]`) / 事件参数列表（`unknown[]`）
+   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   */
+  emit(eventName: string | symbol, ...args: unknown[]): boolean {
+    const list = this._events.get(eventName);
+    if (!list || list.length === 0) {
+      return false;
+    }
+    for (const fn of [...list]) {
+      fn.apply(this, args);
+    }
+    return true;
+  }
+
+  /**
+   * Returns a copy of the array of listeners for the event name.
+   * @zh 返回指定事件名下监听函数数组的浅拷贝。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @returns Result of type `CollectionEventListener[]` / 类型为 `CollectionEventListener[]` 的返回值
+   */
+  listeners(eventName: string | symbol): CollectionEventListener[] {
+    const list = this._events.get(eventName);
+    return list ? [...list] : [];
+  }
+
+  /**
+   * Returns the number of listeners listening to the event name.
+   * @zh 返回指定事件名下注册的监听函数数量。
+   * @param eventName - event name parameter (`string | symbol`) / 事件名参数（`string | symbol`）
+   * @returns Result of type `number` / 类型为 `number` 的返回值
+   */
+  listenerCount(eventName: string | symbol): number {
+    const list = this._events.get(eventName);
+    return list ? list.length : 0;
+  }
+}
 
 /** 集合元素的键 */
 export type CollectionKey = string | number;
@@ -18,7 +157,7 @@ export type CollectionKeyFn<T> = (o: T) => CollectionKey;
  * 有序集合：保留插入顺序，同时维护「键 → 元素」映射。
  * @zh 类 `MixedCollection`，元素类型为 `T`。
  */
-export class MixedCollection<T> extends EventEmitter {
+export class MixedCollection<T> extends CollectionEventEmitter {
   /** 元素（按顺序） */
   items: T[] = [];
   /** 键 → 元素 */

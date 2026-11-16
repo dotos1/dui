@@ -6,7 +6,6 @@
 import { CommonModule } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Inject, ModuleWithProviders, NgModule, Optional } from '@angular/core';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Dui } from '@dotos1/dui/core';
 import { ConfigOption, CoreExtension, FORM_CONFIG, FieldExpressionExtension, FieldFormExtension, 
@@ -49,7 +48,6 @@ export function defaultFormConfig(formConfig: FormConfig): ConfigOption {
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
     TranslateModule,
     ReactiveFormsModule
   ],
