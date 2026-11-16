@@ -12,6 +12,10 @@ import { RouterModule, Routes } from '@angular/router';
  */
 export const routes: Routes = [
   {
+    path: 'focus-check',
+    loadChildren: () => import('./focus-check/focus-check.module').then(m => m.FocusCheckModule),
+  },
+  {
     path: 'color',
     loadChildren: () => import('./color/testcolor.module').then(m => m.TestColorModule),
   },
