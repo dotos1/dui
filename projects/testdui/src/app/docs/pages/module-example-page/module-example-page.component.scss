@@ -1428,3 +1428,105 @@
   font-size: 12.5px;
   color: #64748b;
 }
+
+// ===== 在线代码实时沙箱（WP3-A）=====
+.studio__live-toggle {
+  border-color: rgba(250, 204, 21, 0.55);
+  color: #fde68a;
+  font-weight: 600;
+}
+
+.studio__live-toggle--on {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  border-color: transparent;
+  color: #fff;
+  box-shadow: 0 0 0 2px rgba(245, 158, 11, 0.25);
+}
+
+.demo-live {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.studio__code-header {
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.studio__code-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.studio__code-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background: #fff;
+  color: #0f172a;
+  font-size: 12.5px;
+  cursor: pointer;
+
+  mat-icon {
+    font-size: 18px;
+    width: 18px;
+    height: 18px;
+  }
+
+  &:hover {
+    background: #f1f5f9;
+  }
+}
+
+.studio__code-btn--primary {
+  background: #1868f2;
+  border-color: #1868f2;
+  color: #fff;
+
+  &:hover {
+    background: #0f56d0;
+  }
+}
+
+.studio__code-tabs {
+  margin-top: 4px;
+}
+
+.studio__code-subtitle {
+  margin: 14px 0 6px;
+  font-size: 13px;
+  color: #475569;
+}
+
+.studio__diag {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: #fef2f2;
+  border: 1px solid #fca5a5;
+  color: #b91c1c;
+  font-size: 12.5px;
+}
+
+.studio__diag--ok {
+  align-items: center;
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #15803d;
+}
+
+.studio__diag-msg {
+  margin: 4px 0 0;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+}
