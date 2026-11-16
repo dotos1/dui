@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-11-15T20:39:27.943Z",
+  "generatedAt": "2026-11-16T01:18:49.712Z",
   "packageUnderTest": "@dotos1/dui@8.0.0-next.2",
   "baselineVersion": "7.4.52",
-  "baselineCommit": "84ee2ed6ce2dc9da033e02a2d4501c1c91bf1d02",
+  "baselineCommit": "2911c9dcfb5d4057e52976c598e1f9d85a3b9bba",
   "freezeTransitionsUsed": false,
   "ref7452Mechanism": "@angular/animations trigger transformMenu (120ms cubic-bezier(0, 0, 0.2, 1) open / 100ms 25ms linear close)",
   "ng22Mechanism": "@angular/material@22 CSS @keyframes _mat-menu-enter (120ms cubic-bezier(0, 0, 0.2, 1)) / _mat-menu-exit (100ms 25ms linear)",
@@ -15,7 +15,7 @@
   "ref7452": {
     "open": {
       "t0ms": {
-        "elapsedMs": 9.6,
+        "elapsedMs": 10.7,
         "present": true,
         "opacity": 0,
         "transform": "matrix(0.8, 0, 0, 0.8, 0, 0)",
@@ -27,10 +27,10 @@
         "animationTimingFunction": "ease"
       },
       "t60ms": {
-        "elapsedMs": 59.8,
+        "elapsedMs": 60.1,
         "present": true,
-        "opacity": 0.7712,
-        "transform": "matrix(0.954248, 0, 0, 0.954248, 0, 0)",
+        "opacity": 0.7711,
+        "transform": "matrix(0.954225, 0, 0, 0.954225, 0, 0)",
         "scaleX": 0.9542,
         "scaleY": 0.9542,
         "transformOrigin": "0px 0px",
@@ -39,7 +39,7 @@
         "animationTimingFunction": "ease"
       },
       "t120ms": {
-        "elapsedMs": 119.6,
+        "elapsedMs": 120,
         "present": true,
         "opacity": 0.9996,
         "transform": "matrix(0.999919, 0, 0, 0.999919, 0, 0)",
@@ -51,7 +51,7 @@
         "animationTimingFunction": "ease"
       },
       "t180ms": {
-        "elapsedMs": 180.3,
+        "elapsedMs": 179.8,
         "present": true,
         "opacity": 1,
         "transform": "none",
@@ -65,7 +65,7 @@
     },
     "close": {
       "t0ms": {
-        "elapsedMs": 5.3,
+        "elapsedMs": 6.7,
         "present": true,
         "opacity": 1,
         "transform": "none",
@@ -77,9 +77,9 @@
         "animationTimingFunction": "ease"
       },
       "t65ms": {
-        "elapsedMs": 68.2,
+        "elapsedMs": 59,
         "present": true,
-        "opacity": 0.7498,
+        "opacity": 0.75,
         "transform": "none",
         "scaleX": 1,
         "scaleY": 1,
@@ -89,9 +89,9 @@
         "animationTimingFunction": "ease"
       },
       "t100ms": {
-        "elapsedMs": 105.8,
+        "elapsedMs": 96.9,
         "present": true,
-        "opacity": 0.2505,
+        "opacity": 0.416,
         "transform": "none",
         "scaleX": 1,
         "scaleY": 1,
@@ -100,10 +100,10 @@
         "animationDuration": "0s",
         "animationTimingFunction": "ease"
       },
-      "detachedAtMs": 143.2,
+      "detachedAtMs": 147.3,
       "trace": [
         {
-          "elapsedMs": 5.3,
+          "elapsedMs": 6.7,
           "present": true,
           "opacity": 1,
           "transform": "none",
@@ -115,7 +115,7 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 18.1,
+          "elapsedMs": 21.3,
           "present": true,
           "opacity": 1,
           "transform": "none",
@@ -127,7 +127,7 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 30.6,
+          "elapsedMs": 33.8,
           "present": true,
           "opacity": 1,
           "transform": "none",
@@ -139,9 +139,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 43.1,
+          "elapsedMs": 46.5,
           "present": true,
-          "opacity": 0.9165,
+          "opacity": 0.9166,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -151,9 +151,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 55.5,
+          "elapsedMs": 59,
           "present": true,
-          "opacity": 0.7498,
+          "opacity": 0.75,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -163,9 +163,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 68.2,
+          "elapsedMs": 71.7,
           "present": true,
-          "opacity": 0.7498,
+          "opacity": 0.5827,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -175,9 +175,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 80.7,
+          "elapsedMs": 84.2,
           "present": true,
-          "opacity": 0.5835,
+          "opacity": 0.5827,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -187,9 +187,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 93.2,
+          "elapsedMs": 96.9,
           "present": true,
-          "opacity": 0.4168,
+          "opacity": 0.416,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -199,9 +199,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 105.8,
+          "elapsedMs": 109.5,
           "present": true,
-          "opacity": 0.2505,
+          "opacity": 0.2506,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -211,9 +211,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 118.2,
+          "elapsedMs": 122.3,
           "present": true,
-          "opacity": 0.2505,
+          "opacity": 0.0827,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -223,9 +223,9 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 130.7,
+          "elapsedMs": 134.8,
           "present": true,
-          "opacity": 0.0835,
+          "opacity": 0.0827,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -235,7 +235,7 @@
           "animationTimingFunction": "ease"
         },
         {
-          "elapsedMs": 143.2,
+          "elapsedMs": 147.3,
           "present": false,
           "opacity": null,
           "transform": null,
@@ -248,7 +248,7 @@
   "ng22": {
     "open": {
       "t0ms": {
-        "elapsedMs": 16.4,
+        "elapsedMs": 16.3,
         "present": true,
         "opacity": 0,
         "transform": "matrix(0.8, 0, 0, 0.8, 0, 0)",
@@ -260,10 +260,10 @@
         "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
       },
       "t60ms": {
-        "elapsedMs": 61.7,
+        "elapsedMs": 60.5,
         "present": true,
-        "opacity": 0.7708,
-        "transform": "matrix(0.954167, 0, 0, 0.954167, 0, 0)",
+        "opacity": 0.7712,
+        "transform": "matrix(0.954236, 0, 0, 0.954236, 0, 0)",
         "scaleX": 0.9542,
         "scaleY": 0.9542,
         "transformOrigin": "0px 0px",
@@ -272,10 +272,10 @@
         "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
       },
       "t120ms": {
-        "elapsedMs": 119.6,
+        "elapsedMs": 120.9,
         "present": true,
         "opacity": 0.9847,
-        "transform": "matrix(0.996931, 0, 0, 0.996931, 0, 0)",
+        "transform": "matrix(0.996945, 0, 0, 0.996945, 0, 0)",
         "scaleX": 0.9969,
         "scaleY": 0.9969,
         "transformOrigin": "0px 0px",
@@ -284,7 +284,7 @@
         "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
       },
       "t180ms": {
-        "elapsedMs": 180.2,
+        "elapsedMs": 181,
         "present": true,
         "opacity": 1,
         "transform": "none",
@@ -298,7 +298,7 @@
     },
     "close": {
       "t0ms": {
-        "elapsedMs": 0.9,
+        "elapsedMs": 0.8,
         "present": true,
         "opacity": 1,
         "transform": "none",
@@ -310,9 +310,9 @@
         "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
       },
       "t65ms": {
-        "elapsedMs": 65.4,
+        "elapsedMs": 57.5,
         "present": true,
-        "opacity": 0.75,
+        "opacity": 0.9166,
         "transform": "none",
         "scaleX": 1,
         "scaleY": 1,
@@ -322,9 +322,9 @@
         "animationTimingFunction": "linear"
       },
       "t100ms": {
-        "elapsedMs": 103,
+        "elapsedMs": 102.8,
         "present": true,
-        "opacity": 0.417,
+        "opacity": 0.4166,
         "transform": "none",
         "scaleX": 1,
         "scaleY": 1,
@@ -333,10 +333,10 @@
         "animationDuration": "0.1s",
         "animationTimingFunction": "linear"
       },
-      "detachedAtMs": 153.6,
+      "detachedAtMs": 157.4,
       "trace": [
         {
-          "elapsedMs": 0.9,
+          "elapsedMs": 0.8,
           "present": true,
           "opacity": 1,
           "transform": "none",
@@ -348,7 +348,7 @@
           "animationTimingFunction": "cubic-bezier(0, 0, 0.2, 1)"
         },
         {
-          "elapsedMs": 13.4,
+          "elapsedMs": 17.1,
           "present": true,
           "opacity": 1,
           "transform": "none",
@@ -360,7 +360,7 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 26,
+          "elapsedMs": 30.1,
           "present": true,
           "opacity": 1,
           "transform": "none",
@@ -372,7 +372,7 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 39.5,
+          "elapsedMs": 42.8,
           "present": true,
           "opacity": 1,
           "transform": "none",
@@ -384,9 +384,9 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 52.3,
+          "elapsedMs": 57.5,
           "present": true,
-          "opacity": 0.917,
+          "opacity": 0.9166,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -396,9 +396,9 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 65.4,
+          "elapsedMs": 77.1,
           "present": true,
-          "opacity": 0.75,
+          "opacity": 0.7496,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -408,9 +408,9 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 77.9,
+          "elapsedMs": 89.9,
           "present": true,
-          "opacity": 0.5834,
+          "opacity": 0.5829,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -420,9 +420,9 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 90.6,
+          "elapsedMs": 102.8,
           "present": true,
-          "opacity": 0.5834,
+          "opacity": 0.4166,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -432,9 +432,9 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 103,
+          "elapsedMs": 116.1,
           "present": true,
-          "opacity": 0.417,
+          "opacity": 0.2506,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -444,9 +444,9 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 115.6,
+          "elapsedMs": 128.8,
           "present": true,
-          "opacity": 0.25,
+          "opacity": 0.0839,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -456,9 +456,9 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 128.3,
+          "elapsedMs": 141.6,
           "present": true,
-          "opacity": 0.0834,
+          "opacity": 0.0836,
           "transform": "none",
           "scaleX": 1,
           "scaleY": 1,
@@ -468,19 +468,7 @@
           "animationTimingFunction": "linear"
         },
         {
-          "elapsedMs": 141,
-          "present": true,
-          "opacity": 0.083,
-          "transform": "none",
-          "scaleX": 1,
-          "scaleY": 1,
-          "transformOrigin": "0px 0px",
-          "animationName": "_mat-menu-exit",
-          "animationDuration": "0.1s",
-          "animationTimingFunction": "linear"
-        },
-        {
-          "elapsedMs": 153.6,
+          "elapsedMs": 157.4,
           "present": false,
           "opacity": null,
           "transform": null,

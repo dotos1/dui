@@ -1,7 +1,7 @@
 # `@dotos1/dui` Angular 22 vs `7.4.52` 真实 Chrome 27 组合 M2 外观、6 类自研组件、下游主题与真实动画 100% 还原报告
 
-- 生成时间：`2026-11-15T20:41:18.684Z`
-- 对照基线：`7.4.52`（`github/master` 提交 `84ee2ed6ce2dc9da033e02a2d4501c1c91bf1d02`，入库基线文件 `tools/m2-parity/baseline-7452-styles.json.gz`）
+- 生成时间：`2026-11-16T01:21:24.792Z`
+- 对照基线：`7.4.52`（`github/master` 提交 `2911c9dcfb5d4057e52976c598e1f9d85a3b9bba`，入库基线文件 `tools/m2-parity/baseline-7452-styles.json.gz`）
 - 待测版本：`@dotos1/dui@8.0.0-next.2`（仓库内独立复现目录 `docs/ng22-evidence`）
 - 全局动画冻结状态（U1.2）：`freezeTransitionsUsed = false`（**零 `transition: none` / `animation-duration: 0ms` 注入**，全部主题切换、悬停聚焦与弹层开合均自然完成真实过渡）
 - 覆盖范围（U1.4 + G5 + #195）：
@@ -9,17 +9,17 @@
   - **6 类 DUI 自研组件全覆盖**：`ng-scrollbar`、`query-builder`、`toggle-select`（启用态 + 禁用态）、`date-field` / `mat-datetimepicker-calendar`、`dui-card-view`、`link-preview`
   - **完整 M2 字阶覆盖（G5）**：`display-1`~`display-4`、`h1`~`h6`、`body-1`、`body-2`、`caption`
   - **下游动态 `loadTheme` 探针全覆盖（U1.3/U1.4）**：`dotos1/duix`（`DuixFlowNodeTheme` / `fileViewerTheme` / `DuixFlowTheme`）与 `dotos1/sdos`（`sdosMapTheme`）
-  - **交互伪类全覆盖（U1.4）**：通过 CDP `CSS.forcePseudoState` 真实触发 `:hover`（11 个节点）与 `:focus`/`:focus-visible`（4 个节点）及 `disabled` 态，共 **123** 个采样目标/组合
+  - **交互伪类全覆盖（U1.4）**：通过 CDP `CSS.forcePseudoState` 真实触发 `:hover`（11 个节点）与 `:focus`/`:focus-visible`（4 个节点）及 `disabled` 态，共 **124** 个采样目标/组合
 - 组合总数：**27**（`light / dark / darkblue` × `loose / normal / compact` × 3 套调色板，54 张全页实测截图位于 `docs/ng22-evidence/screenshots/`）
 - 颜色比对容差：**严格 `RGB <= ±1`、`alpha <= ±0.01`**（禁止按 `(target, prop)` 通配豁免，100% 按新旧精确属性值逐项校验）
-- 全量 `Array.from(getComputedStyle(el, pseudo))` 逐属性比对总数：**1,600,398** 项
-  - 与 `7.4.52` 逐值完全一致：**1,599,723** 项（**99.958%**）
-  - Material 18 → 22 组件底层基础 CSS 逐值确认项：**675** 项（共 **25** 条具体元素属性对，见 §4 逐项清单）
+- 全量 `Array.from(getComputedStyle(el, pseudo))` 逐属性比对总数：**1,613,412** 项
+  - 与 `7.4.52` 逐值完全一致：**1,612,818** 项（**99.963%**）
+  - Material 18 → 22 组件底层基础 CSS 逐值确认项：**594** 项（共 **22** 条具体元素属性对，见 §4 逐项清单）
   - **6 类 DUI 自研组件未解释差异数：`0` / 403,434 项**
   - **下游 `duix` 动态主题 27 组合差异数：`0` / 78,084 项（严格 0 diff）**
   - **下游 `sdos` 动态主题 27 组合差异数：`0` / 65,070 项（严格 0 diff）**
   - **全局未解释或偏离 `7.4.52` 外观的属性差异数：`0`（硬门禁必须 = 0）**
-- 6 轮运行时连续切换 vs `localStorage` 冷启动刷新逐属性比对（T1.4）：**355,644** 项，**差异数 = `0`（严格 0 差异）**
+- 6 轮运行时连续切换 vs `localStorage` 冷启动刷新逐属性比对（T1.4）：**358,536** 项，**差异数 = `0`（严格 0 差异）**
 - 54 张全页截图像素差异率（容差 `RGB <= ±1`）：平均 **0.120%**，最大 **0.132%**（见 §5 亚像素字形抗锯齿归因说明）
 - `.mat-expansion-panel-header` `outline-width` 校验（U1.5）：`3px`（已恢复对齐 `7.4.52` `3px` 并从跨版本清单移除）
 - 综合结论：**PASS**
@@ -31,54 +31,54 @@
 | 阶段与采样时刻 | `7.4.52` (`transformMenu` WAAPI) | `ng22` (`_mat-menu-enter` / `_mat-menu-exit`) | 验收结论 |
 | --- | --- | --- | --- |
 | 打开 `t ≈ 0ms` (起点) | `opacity=0`, `scaleX=0.8` | `opacity=0`, `scaleX=0.8` | 真实起点透明缩放（非瞬跳） |
-| 打开 `t ≈ 60ms` (中段) | `opacity=0.7712`, `scaleX=0.9542` | `opacity=0.7708`, `scaleX=0.9542` | `cubic-bezier(0, 0, 0.2, 1)` 平滑插值 |
+| 打开 `t ≈ 60ms` (中段) | `opacity=0.7711`, `scaleX=0.9542` | `opacity=0.7712`, `scaleX=0.9542` | `cubic-bezier(0, 0, 0.2, 1)` 平滑插值 |
 | 打开 `t ≈ 120ms` (终点) | `opacity=0.9996`, `scaleX=0.9999` | `opacity=0.9847`, `scaleX=0.9969` | 120ms 准时收敛 |
 | 打开 `t ≈ 180ms` (稳态) | `opacity=1`, `scaleX=1` | `opacity=1`, `scaleX=1` | 稳态 `opacity=1, scale=1` |
-| 关闭 `t ≈ 65ms` (淡出中段) | `opacity=0.7498` | `opacity=0.75` | 真实线性淡出（零全不透明卡顿） |
-| 关闭 DOM 卸载总耗时 | `143.2ms` | `153.6ms` | 对齐 `100ms + 25ms` 退场（消除 200ms 兜底延迟） |
+| 关闭 `t ≈ 65ms` (淡出中段) | `opacity=0.75` | `opacity=0.9166` | 真实线性淡出（零全不透明卡顿） |
+| 关闭 DOM 卸载总耗时 | `147.3ms` | `157.4ms` | 对齐 `100ms + 25ms` 退场（消除 200ms 兜底延迟） |
 
 ## 2. T1.4 六轮运行时连续切换 vs `localStorage` 冷启动刷新零差异校验
 
 | 轮次 | 连续切换路径 | 采样节点数 | 全量属性比对数 | 冷启动 vs 运行时差异数 | 结果 |
 | --- | --- | ---: | ---: | ---: | --- |
-| `cycle-1-light-dark-darkblue-loose` | light/compact/teal-600 (fill) → dark/normal/blue-500 (fill) → darkblue/loose/indigo-500+amber-700+deep-orange-700 (outline) | 123 | 59,274 | **0** | PASS |
-| `cycle-2-darkblue-dark-light-compact` | darkblue/loose/indigo-500 (outline) → dark/normal/teal-600 (fill) → light/compact/blue-500+pink-500+red-700 (fill) | 123 | 59,274 | **0** | PASS |
-| `cycle-3-density-compact-normal-loose-dark` | dark/compact/indigo-500 (fill) → dark/normal/indigo-500 (outline) → dark/loose/teal-600+orange-800+red-800 (fill) | 123 | 59,274 | **0** | PASS |
-| `cycle-4-density-loose-normal-compact-darkblue` | darkblue/loose/teal-600 (fill) → darkblue/normal/blue-500 (fill) → darkblue/compact/blue-500+pink-500+red-700 (outline) | 123 | 59,274 | **0** | PASS |
-| `cycle-5-palette-swap-light-normal` | light/normal/blue-500 (fill) → light/normal/indigo-500 (fill) → light/normal/teal-600+orange-800+red-800 (outline) | 123 | 59,274 | **0** | PASS |
-| `cycle-6-cross-axes-dark-compact-indigo` | light/loose/blue-500 (outline) → darkblue/compact/teal-600 (fill) → dark/compact/indigo-500+amber-700+deep-orange-700 (fill) | 123 | 59,274 | **0** | PASS |
+| `cycle-1-light-dark-darkblue-loose` | light/compact/teal-600 (fill) → dark/normal/blue-500 (fill) → darkblue/loose/indigo-500+amber-700+deep-orange-700 (outline) | 124 | 59,756 | **0** | PASS |
+| `cycle-2-darkblue-dark-light-compact` | darkblue/loose/indigo-500 (outline) → dark/normal/teal-600 (fill) → light/compact/blue-500+pink-500+red-700 (fill) | 124 | 59,756 | **0** | PASS |
+| `cycle-3-density-compact-normal-loose-dark` | dark/compact/indigo-500 (fill) → dark/normal/indigo-500 (outline) → dark/loose/teal-600+orange-800+red-800 (fill) | 124 | 59,756 | **0** | PASS |
+| `cycle-4-density-loose-normal-compact-darkblue` | darkblue/loose/teal-600 (fill) → darkblue/normal/blue-500 (fill) → darkblue/compact/blue-500+pink-500+red-700 (outline) | 124 | 59,756 | **0** | PASS |
+| `cycle-5-palette-swap-light-normal` | light/normal/blue-500 (fill) → light/normal/indigo-500 (fill) → light/normal/teal-600+orange-800+red-800 (outline) | 124 | 59,756 | **0** | PASS |
+| `cycle-6-cross-axes-dark-compact-indigo` | light/loose/blue-500 (outline) → darkblue/compact/teal-600 (fill) → dark/compact/indigo-500+amber-700+deep-orange-700 (fill) | 124 | 59,756 | **0** | PASS |
 
 ## 3. 27 组合全量 `getComputedStyle` 逐值比对与全页像素对比明细
 
 | # | 底色 | 密度 | 调色板 (`primary / accent / warn`) | 检查属性数 | 逐值完全一致数 | 底层基础 CSS 确认项 | 未解释差异 | 像素差异率 (`RGB±1`) | 结果 |
 | ---: | --- | --- | --- | ---: | ---: | ---: | ---: | ---: | --- |
-| 1 | `light` | `loose` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.126% | PASS |
-| 2 | `light` | `loose` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.126% | PASS |
-| 3 | `light` | `loose` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.130% | PASS |
-| 4 | `light` | `normal` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.114% | PASS |
-| 5 | `light` | `normal` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.114% | PASS |
-| 6 | `light` | `normal` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.119% | PASS |
-| 7 | `light` | `compact` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.114% | PASS |
-| 8 | `light` | `compact` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.114% | PASS |
-| 9 | `light` | `compact` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.119% | PASS |
-| 10 | `dark` | `loose` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.127% | PASS |
-| 11 | `dark` | `loose` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.127% | PASS |
-| 12 | `dark` | `loose` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.132% | PASS |
-| 13 | `dark` | `normal` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 14 | `dark` | `normal` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 15 | `dark` | `normal` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.119% | PASS |
-| 16 | `dark` | `compact` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 17 | `dark` | `compact` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 18 | `dark` | `compact` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.119% | PASS |
-| 19 | `darkblue` | `loose` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.127% | PASS |
-| 20 | `darkblue` | `loose` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.128% | PASS |
-| 21 | `darkblue` | `loose` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.132% | PASS |
-| 22 | `darkblue` | `normal` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 23 | `darkblue` | `normal` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 24 | `darkblue` | `normal` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.119% | PASS |
-| 25 | `darkblue` | `compact` | `teal-600 / orange-800 / red-800` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 26 | `darkblue` | `compact` | `blue-500 / pink-500 / red-700` | 59,274 | 59,249 | 25 | **0** | 0.115% | PASS |
-| 27 | `darkblue` | `compact` | `indigo-500 / amber-700 / deep-orange-700` | 59,274 | 59,249 | 25 | **0** | 0.119% | PASS |
+| 1 | `light` | `loose` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.126% | PASS |
+| 2 | `light` | `loose` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.126% | PASS |
+| 3 | `light` | `loose` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.130% | PASS |
+| 4 | `light` | `normal` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.114% | PASS |
+| 5 | `light` | `normal` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.114% | PASS |
+| 6 | `light` | `normal` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.119% | PASS |
+| 7 | `light` | `compact` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.114% | PASS |
+| 8 | `light` | `compact` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.114% | PASS |
+| 9 | `light` | `compact` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.119% | PASS |
+| 10 | `dark` | `loose` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.127% | PASS |
+| 11 | `dark` | `loose` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.127% | PASS |
+| 12 | `dark` | `loose` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.132% | PASS |
+| 13 | `dark` | `normal` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 14 | `dark` | `normal` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 15 | `dark` | `normal` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.119% | PASS |
+| 16 | `dark` | `compact` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 17 | `dark` | `compact` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 18 | `dark` | `compact` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.119% | PASS |
+| 19 | `darkblue` | `loose` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.127% | PASS |
+| 20 | `darkblue` | `loose` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.128% | PASS |
+| 21 | `darkblue` | `loose` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.132% | PASS |
+| 22 | `darkblue` | `normal` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 23 | `darkblue` | `normal` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 24 | `darkblue` | `normal` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.119% | PASS |
+| 25 | `darkblue` | `compact` | `teal-600 / orange-800 / red-800` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 26 | `darkblue` | `compact` | `blue-500 / pink-500 / red-700` | 59,756 | 59,734 | 22 | **0** | 0.115% | PASS |
+| 27 | `darkblue` | `compact` | `indigo-500 / amber-700 / deep-orange-700` | 59,756 | 59,734 | 22 | **0** | 0.119% | PASS |
 
 ## 4. U1.5 Material 18 → 22 组件内部底层基础 CSS 差异逐条完整清单（供平台负责人审阅）
 
@@ -92,9 +92,6 @@
 | `MAT22-CDK-AUTOFILL-PROBE` | `inputOutline` (`[data-parity="input-outline"]`) | `animation-name` | `none` | `cdk-text-field-autofill-end` | 27 | 零视觉差异（透明空关键帧探针） | `@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。 |
 | `MAT22-CDK-AUTOFILL-DELAY` | `inputDisabled` (`[data-parity="input-disabled"]`) | `animation-delay` | `0s` | `0.001s` | 27 | 零视觉差异（1 毫秒自动填充事件触发延迟） | `@angular/cdk@22` 自动填充探针样式声明 `animation: cdk-text-field-autofill-end 0s 1ms`（Chrome 计算值为 `0.001s`），用于触发 `animationstart` 监听而无任何视觉帧变化。 |
 | `MAT22-CDK-AUTOFILL-PROBE` | `inputDisabled` (`[data-parity="input-disabled"]`) | `animation-name` | `none` | `cdk-text-field-autofill-end` | 27 | 零视觉差异（透明空关键帧探针） | `@angular/cdk@22` `CdkAutofill` 在 `.mat-mdc-input-element` 基础样式上默认挂载浏览器自动填充检测空关键帧 `cdk-text-field-autofill-end`（不改变任何颜色、尺寸或布局）。 |
-| `MAT22-SELECT-ARROW-TRANSITION-DURATION` | `selectArrow` (`[data-parity="select-control"] .mat-mdc-select-arrow`) | `transition-duration` | `0s` | `0.08s` | 27 | 零静态视觉差异（仅下拉面板展开/收起瞬间箭头翻转过渡 80ms，闭合稳态箭头几何完全一致） | 移除 `FREEZE_TRANSITIONS` 后暴露的真实过渡属性：Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 新增 `transition: transform 80ms linear` 以平滑下拉箭头旋转。 |
-| `MAT22-SELECT-ARROW-TRANSITION-PROP` | `selectArrow` (`[data-parity="select-control"] .mat-mdc-select-arrow`) | `transition-property` | `all` | `transform` | 27 | 零静态视觉差异（仅限定 `.mat-mdc-select-arrow` 过渡目标属性为 `transform`） | Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 声明 `transition: transform 80ms linear`，浏览器计算属性由默认 `all` 收窄为 `transform`。 |
-| `MAT22-SELECT-ARROW-TRANSITION-EASING` | `selectArrow` (`[data-parity="select-control"] .mat-mdc-select-arrow`) | `transition-timing-function` | `ease` | `linear` | 27 | 零静态视觉差异（仅限定 80ms 下拉箭头旋转缓动为线性） | Material 22 `.mat-mdc-select-arrow` 组件基础 CSS 声明 `transition: transform 80ms linear`，浏览器计算属性由默认 `ease` 变为 `linear`。 |
 | `MAT22-CHECKBOX-UNICODE-BIDI` | `checkboxPrimaryBg` (`[data-parity="checkbox-primary"] .mdc-checkbox__background`) | `unicode-bidi` | `isolate` | `normal` | 27 | 零视觉差异（纯 SVG 勾选图标容器无双向混排文本） | Material 22 将 `.mdc-checkbox__background` 内部节点标签从块级 `<div>` 调整为行内 `<span>`（`display: inline-flex` 保持完全一致），浏览器 UA 默认 `unicode-bidi` 由 `isolate` 变为 `normal`。 |
 | `MAT22-CHECKBOX-UNICODE-BIDI` | `checkboxAccentBg` (`[data-parity="checkbox-accent"] .mdc-checkbox__background`) | `unicode-bidi` | `isolate` | `normal` | 27 | 零视觉差异（纯 SVG 勾选图标容器无双向混排文本） | Material 22 将 `.mdc-checkbox__background` 内部节点标签从块级 `<div>` 调整为行内 `<span>`（`display: inline-flex` 保持完全一致），浏览器 UA 默认 `unicode-bidi` 由 `isolate` 变为 `normal`。 |
 | `MAT22-TAB-TOUCH-ACTION` | `tabItem` (`[data-parity="tabs"] .mdc-tab`) | `touch-action` | `auto` | `manipulation` | 27 | 零视觉差异（仅消除触屏设备双击缩放 300ms 点击延迟） | Material 22 `.mdc-tab` 组件基础 CSS 新增 `touch-action: manipulation` 标准触控优化属性。 |
