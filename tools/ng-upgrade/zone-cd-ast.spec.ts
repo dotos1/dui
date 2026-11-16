@@ -57,7 +57,7 @@ describe('W1 @Component explicit changeDetection AST guard', () => {
       visit(sf);
     }
 
-    expect(componentCount).toBeGreaterThan(50);
+    expect(componentCount).toBeGreaterThanOrEqual(290); // 与 master 守卫一致（实有 297 个组件），防止扫描范围被意外缩小
     expect(missingChangeDetection).toEqual([]);
   });
 });
