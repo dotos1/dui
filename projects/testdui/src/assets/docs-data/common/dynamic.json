@@ -41,7 +41,7 @@
         {
           "name": "content",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `content` (`@ViewChild`) targeting content.",
+          "description": "Template/content query reference `content` (`ViewContainerRef`) targeting content.",
           "descriptionZh": "承载动态创建组件的视图容器。"
         },
         {

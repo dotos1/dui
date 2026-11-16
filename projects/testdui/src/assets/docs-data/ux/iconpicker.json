@@ -76,15 +76,15 @@
         {
           "name": "input",
           "type": "ElementRef",
-          "description": "Template/content query reference `input` (`@ViewChild`) targeting input.",
+          "description": "Template/content query reference `input` (`ElementRef<any>`) targeting input.",
           "descriptionZh": "模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。"
         },
         {
           "name": "mode",
           "type": "'auto' | 'portrait' | 'landscape'",
           "default": "'auto'",
-          "description": "Property `mode` (`'auto' | 'portrait' | 'landscape'`) storing mode (default: `'auto'`).",
-          "descriptionZh": "属性 `mode`（类型：`'auto' | 'portrait' | 'landscape'`），用于存储或配置模式（默认值：`'auto'`）。"
+          "description": "Property `mode` (`\"auto\" | \"portrait\" | \"landscape\"`) storing mode (default: `'auto'`).",
+          "descriptionZh": "属性 `mode`（类型：`\"auto\" | \"portrait\" | \"landscape\"`），用于存储或配置模式（默认值：`'auto'`）。"
         },
         {
           "name": "label",
@@ -138,10 +138,10 @@
         },
         {
           "name": "fontStyle",
-          "type": "any",
+          "type": "DuiStyle",
           "default": "{}",
-          "description": "Property `fontStyle` (`any`) storing font style (default: `{}`).",
-          "descriptionZh": "属性 `fontStyle`（类型：`any`），用于存储或配置字体样式（默认值：`{}`）。"
+          "description": "Property `fontStyle` (`DuiStyle`) storing font style (default: `{}`).",
+          "descriptionZh": "属性 `fontStyle`（类型：`DuiStyle`），用于存储或配置字体样式（默认值：`{}`）。"
         }
       ]
     },
@@ -159,8 +159,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    IconPickerField,\n    IconPickerComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ IconPickerField, IconPickerComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ IconPickerField, IconPickerComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof IconPickerField | typeof IconPickerComponent)[]`) storing entry components (default: `[ IconPickerField, IconPickerComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof IconPickerField | typeof IconPickerComponent)[]`），用于存储或配置条目组件列表（默认值：`[ IconPickerField, IconPickerComponent]`）。"
         }
       ]
     }

@@ -42,10 +42,6 @@ const FLAGSHIP_EXAMPLE_ROUTES: Routes = [
   { path: 'theme/index/examples', loadChildren: () => import('./examples/theme/theme-example.module').then(m => m.ThemeExampleModule) },
   { path: 'translator/index/examples', loadChildren: () => import('./examples/translator/translator-example.module').then(m => m.TranslatorExampleModule) },
   { path: 'ux/command-palette/examples', loadChildren: () => import('./examples/command-palette/command-palette-example.module').then(m => m.CommandPaletteExampleModule) },
-  { path: 'ux/markdown/examples', loadChildren: () => import('./examples/markdown/markdown-example.module').then(m => m.MarkdownExampleModule) },
-  { path: 'ux/terminal/examples', loadChildren: () => import('./examples/terminal/terminal-example.module').then(m => m.TerminalExampleModule) },
-  { path: 'ux/editor/examples', loadChildren: () => import('./examples/editor/editor-example.module').then(m => m.EditorExampleModule) },
-  { path: 'ux/monaco-editor/examples', loadChildren: () => import('./examples/monaco-editor/monaco-editor-example.module').then(m => m.MonacoEditorExampleModule) },
   { path: 'ux/highlight/examples', loadChildren: () => import('./examples/highlight/highlight-example.module').then(m => m.HighlightExampleModule) },
 ];
 

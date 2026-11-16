@@ -24,7 +24,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": []
@@ -63,8 +63,8 @@
           "name": "counter$",
           "type": "any",
           "default": "new BehaviorSubject<number>(0)",
-          "description": "Property `counter$` (`BehaviorSubject`) storing counter (default: `new BehaviorSubject<number>(0)`).",
-          "descriptionZh": "属性 `counter$`（类型：`BehaviorSubject`），用于存储或配置计数器（默认值：`new BehaviorSubject<number>(0)`）。"
+          "description": "Property `counter$` (`BehaviorSubject<number>`) storing counter (default: `new BehaviorSubject<number>(0)`).",
+          "descriptionZh": "属性 `counter$`（类型：`BehaviorSubject<number>`），用于存储或配置计数器（默认值：`new BehaviorSubject<number>(0)`）。"
         }
       ]
     },
@@ -123,8 +123,8 @@
         {
           "name": "keysChanged",
           "type": "{ key: string; newValue: unknown; oldValue: unknown; }[]",
-          "description": "Property `keysChanged` (`{ key: string; newValue: any; oldValue: any; }[]`) storing keys changed.",
-          "descriptionZh": "属性 `keysChanged`（类型：`{ key: string; newValue: any; oldValue: any; }[]`），用于存储或配置键列表已变更。"
+          "description": "Property `keysChanged` (`{ key: string; newValue: unknown; oldValue: unknown; }[]`) storing keys changed.",
+          "descriptionZh": "属性 `keysChanged`（类型：`{ key: string; newValue: unknown; oldValue: unknown; }[]`），用于存储或配置键列表已变更。"
         }
       ]
     },
@@ -147,20 +147,20 @@
         {
           "name": "value",
           "type": "unknown",
-          "description": "Property `value` (`any`) storing value.",
-          "descriptionZh": "属性 `value`（类型：`any`），用于存储或配置值。"
+          "description": "Property `value` (`unknown`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`unknown`），用于存储或配置值。"
         },
         {
           "name": "oldValue",
           "type": "unknown",
-          "description": "Property `oldValue` (`any`) storing old value.",
-          "descriptionZh": "属性 `oldValue`（类型：`any`），用于存储或配置旧值。"
+          "description": "Property `oldValue` (`unknown`) storing old value.",
+          "descriptionZh": "属性 `oldValue`（类型：`unknown`），用于存储或配置旧值。"
         },
         {
           "name": "newValue",
           "type": "unknown",
-          "description": "Property `newValue` (`any`) storing new value.",
-          "descriptionZh": "属性 `newValue`（类型：`any`），用于存储或配置新值。"
+          "description": "Property `newValue` (`unknown`) storing new value.",
+          "descriptionZh": "属性 `newValue`（类型：`unknown`），用于存储或配置新值。"
         }
       ]
     },
@@ -694,8 +694,8 @@
           "name": "status$",
           "type": "any",
           "default": "new Subject<SubjectStatus>()",
-          "description": "Property `status$` (`Subject`) storing status (default: `new Subject<SubjectStatus>()`).",
-          "descriptionZh": "属性 `status$`（类型：`Subject`），用于存储或配置状态（默认值：`new Subject<SubjectStatus>()`）。"
+          "description": "Property `status$` (`Subject<SubjectStatus>`) storing status (default: `new Subject<SubjectStatus>()`).",
+          "descriptionZh": "属性 `status$`（类型：`Subject<SubjectStatus>`），用于存储或配置状态（默认值：`new Subject<SubjectStatus>()`）。"
         },
         {
           "name": "status",

@@ -24,7 +24,7 @@
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
+          "description": "Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         },
         {
@@ -36,14 +36,14 @@
         {
           "name": "radius",
           "type": "string|number",
-          "description": "Input property `radius` (`string|number`) configuring radius.",
+          "description": "Input property `radius` (`string | number`) configuring radius.",
           "descriptionZh": "滑动条的圆角半径。"
         },
         {
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": "Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).",
+          "description": "Input property `direction` (`\"horizontal\" | \"vertical\"`) configuring direction (default: `'horizontal'`).",
           "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
@@ -73,7 +73,7 @@
         {
           "name": "gradient",
           "type": "{ [key: string]: string }",
-          "description": "Property `gradient` (`{ [key: string]: string }`) storing gradient.",
+          "description": "Property `gradient` (`{ [key: string]: string; }`) storing gradient.",
           "descriptionZh": "根据当前颜色计算出的渐变背景样式。"
         },
         {
@@ -149,7 +149,7 @@
         {
           "name": "gridStyles",
           "type": "{ [key: string]: string }",
-          "description": "Property `gridStyles` (`{ [key: string]: string }`) storing grid styles.",
+          "description": "Property `gridStyles` (`{ [key: string]: string; }`) storing grid styles.",
           "descriptionZh": "根据输入计算出的棋盘格背景样式。"
         }
       ]
@@ -263,19 +263,19 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<ColorEvent>`) firing when on change occurs.",
           "descriptionZh": "颜色变化时发出（防抖前）。"
         },
         {
           "name": "onChangeComplete",
           "type": "any",
-          "description": "Output event emitter `onChangeComplete` (`EventEmitter`) firing when on change complete occurs.",
+          "description": "Output event emitter `onChangeComplete` (`EventEmitter<ColorEvent>`) firing when on change complete occurs.",
           "descriptionZh": "颜色变化完成后发出（对 `onChange` 做了防抖）。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter<ColorEvent>`) firing when on swatch hover occurs.",
           "descriptionZh": "悬停在色块上时发出。"
         }
       ],
@@ -424,7 +424,7 @@
         {
           "name": "coordinatesChange",
           "type": "any",
-          "description": "Output event emitter `coordinatesChange` (`Subject`) firing when coordinates change occurs.",
+          "description": "Output event emitter `coordinatesChange` (`Subject<{…}>`) firing when coordinates change occurs.",
           "descriptionZh": "拖拽/点击坐标（相对宿主元素）变化时发出。"
         }
       ],
@@ -533,7 +533,7 @@
         {
           "name": "style",
           "type": "{ wrap?: { [key: string]: string }; input: { [key: string]: string }; label: { [key: string]: string }; }",
-          "description": "Input property `style` (`{ wrap?: { [key: string]: string }; input: { [key: string]: string };...`) configuring style.",
+          "description": "Input property `style` (`{…}`) configuring style.",
           "descriptionZh": "包裹层/输入框/标签各自的内联样式。"
         },
         {
@@ -578,7 +578,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.",
           "descriptionZh": "字段值变化时发出。"
         }
       ],
@@ -676,19 +676,19 @@
         {
           "name": "wrapStyle",
           "type": "{ [key: string]: string }",
-          "description": "Property `wrapStyle` (`{ [key: string]: string }`) storing wrap style.",
+          "description": "Property `wrapStyle` (`{ [key: string]: string; }`) storing wrap style.",
           "descriptionZh": "包裹层的内联样式。"
         },
         {
           "name": "inputStyle",
           "type": "{ [key: string]: string }",
-          "description": "Property `inputStyle` (`{ [key: string]: string }`) storing input style.",
+          "description": "Property `inputStyle` (`{ [key: string]: string; }`) storing input style.",
           "descriptionZh": "输入框的内联样式。"
         },
         {
           "name": "labelStyle",
           "type": "{ [key: string]: string }",
-          "description": "Property `labelStyle` (`{ [key: string]: string }`) storing label style.",
+          "description": "Property `labelStyle` (`{ [key: string]: string; }`) storing label style.",
           "descriptionZh": "标签的内联样式。"
         },
         {
@@ -928,7 +928,7 @@
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
+          "description": "Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         },
         {
@@ -954,7 +954,7 @@
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": "Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).",
+          "description": "Input property `direction` (`\"horizontal\" | \"vertical\"`) configuring direction (default: `'horizontal'`).",
           "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
@@ -962,7 +962,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<{ data: HSLAsource; $event: Event; }>`) firing when on change occurs.",
           "descriptionZh": "色相值变化时发出。"
         }
       ],
@@ -1186,13 +1186,13 @@
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
+          "description": "Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.",
           "descriptionZh": "指示器手柄的内联样式。"
         },
         {
           "name": "circle",
           "type": "{ [key: string]: string }",
-          "description": "Input property `circle` (`{ [key: string]: string }`) configuring circle.",
+          "description": "Input property `circle` (`{ [key: string]: string; }`) configuring circle.",
           "descriptionZh": "指示器圆点的内联样式。"
         }
       ],
@@ -1200,7 +1200,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<{ data: HSVAsource; $event: Event; }>`) firing when on change occurs.",
           "descriptionZh": "饱和度/明度变化时发出。"
         }
       ],
@@ -1273,7 +1273,7 @@
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
-          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
+          "description": "Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         },
         {
@@ -1293,7 +1293,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.",
           "descriptionZh": "明暗值变化时发出。"
         }
       ],
@@ -1315,7 +1315,7 @@
         {
           "name": "gradient",
           "type": "{ [key: string]: string }",
-          "description": "Property `gradient` (`{ [key: string]: string }`) storing gradient.",
+          "description": "Property `gradient` (`{ [key: string]: string; }`) storing gradient.",
           "descriptionZh": "根据当前色相计算出的渐变背景样式。"
         },
         {
@@ -1409,14 +1409,14 @@
           "name": "style",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": "Input property `style` (`{ [key: string]: string }`) configuring style (default: `{}`).",
+          "description": "Input property `style` (`{ [key: string]: string; }`) configuring style (default: `{}`).",
           "descriptionZh": "应用到色块上的内联样式。"
         },
         {
           "name": "focusStyle",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": "Input property `focusStyle` (`{ [key: string]: string }`) configuring focus style (default: `{}`).",
+          "description": "Input property `focusStyle` (`{ [key: string]: string; }`) configuring focus style (default: `{}`).",
           "descriptionZh": "获得焦点时叠加的内联样式。"
         },
         {
@@ -1430,13 +1430,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<{ hex: string; $event: Event; }>`) firing when on click occurs.",
           "descriptionZh": "色块被点击/回车确认时发出。"
         },
         {
           "name": "onHover",
           "type": "any",
-          "description": "Output event emitter `onHover` (`EventEmitter`) firing when on hover occurs.",
+          "description": "Output event emitter `onHover` (`EventEmitter<{ hex: string; $event: Event; }>`) firing when on hover occurs.",
           "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
@@ -1500,14 +1500,14 @@
           "name": "divStyles",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": "Property `divStyles` (`{ [key: string]: string }`) storing div styles (default: `{}`).",
+          "description": "Property `divStyles` (`{ [key: string]: string; }`) storing div styles (default: `{}`).",
           "descriptionZh": "色块的基础样式。"
         },
         {
           "name": "focusStyles",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": "Property `focusStyles` (`{ [key: string]: string }`) storing focus styles (default: `{}`).",
+          "description": "Property `focusStyles` (`{ [key: string]: string; }`) storing focus styles (default: `{}`).",
           "descriptionZh": "色块的聚焦样式（基础样式与 `focusStyle` 合并后的结果）。"
         },
         {

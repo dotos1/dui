@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * G-TSC —— dui 全部 103 个 ng-package.json 入口点的 TypeScript 类型检查门。
+ * G-TSC —— dui 全部 96 个 ng-package.json 入口点（1 根入口 + 95 二级入口）的 TypeScript 类型检查门。
  */
 'use strict';
 

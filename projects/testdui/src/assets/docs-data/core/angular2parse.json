@@ -1821,26 +1821,26 @@
         {
           "name": "Object",
           "type": "typeof Object",
-          "description": "Property `Object` (`typeof Object`) storing object.",
-          "descriptionZh": "属性 `Object`（类型：`typeof Object`），用于存储或配置对象。"
+          "description": "Property `Object` (`ObjectConstructor`) storing object.",
+          "descriptionZh": "属性 `Object`（类型：`ObjectConstructor`），用于存储或配置对象。"
         },
         {
           "name": "Array",
           "type": "typeof Array",
-          "description": "Property `Array` (`typeof Array`) storing array.",
-          "descriptionZh": "属性 `Array`（类型：`typeof Array`），用于存储或配置数组。"
+          "description": "Property `Array` (`ArrayConstructor`) storing array.",
+          "descriptionZh": "属性 `Array`（类型：`ArrayConstructor`），用于存储或配置数组。"
         },
         {
           "name": "Map",
           "type": "typeof Map",
-          "description": "Property `Map` (`typeof Map`) storing map.",
-          "descriptionZh": "属性 `Map`（类型：`typeof Map`），用于存储或配置映射表。"
+          "description": "Property `Map` (`MapConstructor`) storing map.",
+          "descriptionZh": "属性 `Map`（类型：`MapConstructor`），用于存储或配置映射表。"
         },
         {
           "name": "Set",
           "type": "typeof Set",
-          "description": "Property `Set` (`typeof Set`) storing set.",
-          "descriptionZh": "属性 `Set`（类型：`typeof Set`），用于存储或配置集合。"
+          "description": "Property `Set` (`SetConstructor`) storing set.",
+          "descriptionZh": "属性 `Set`（类型：`SetConstructor`），用于存储或配置集合。"
         },
         {
           "name": "Date",
@@ -1857,8 +1857,8 @@
         {
           "name": "JSON",
           "type": "typeof JSON",
-          "description": "Property `JSON` (`typeof JSON`) storing json.",
-          "descriptionZh": "属性 `JSON`（类型：`typeof JSON`），用于存储或配置JSON。"
+          "description": "Property `JSON` (`JSON`) storing json.",
+          "descriptionZh": "属性 `JSON`（类型：`JSON`），用于存储或配置JSON。"
         },
         {
           "name": "Math",
@@ -1893,8 +1893,8 @@
         {
           "name": "frameworkStabilizers",
           "type": "Array<Function>",
-          "description": "Property `frameworkStabilizers` (`Array<Function>`) storing framework stabilizers.",
-          "descriptionZh": "属性 `frameworkStabilizers`（类型：`Array<Function>`），用于存储或配置frameworkStabilizers。"
+          "description": "Property `frameworkStabilizers` (`Function[]`) storing framework stabilizers.",
+          "descriptionZh": "属性 `frameworkStabilizers`（类型：`Function[]`），用于存储或配置frameworkStabilizers。"
         },
         {
           "name": "setTimeout",
@@ -1960,7 +1960,7 @@
       "name": "compileToJSON",
       "kind": "function",
       "summary": "Executes `compileToJSON` to handle compile to json.",
-      "summaryZh": "执行 `compileToJSON`，用于compile转换为JSON。",
+      "summaryZh": "执行 `compileToJSON`，用于编译转换为JSON。",
       "sourceFile": "src/core/angular2parse/util/lang.ts",
       "inputs": [],
       "outputs": [],
@@ -1975,7 +1975,7 @@
           ],
           "returnType": "any",
           "description": "Executes `compileToJSON` to handle compile to json.",
-          "descriptionZh": "执行 `compileToJSON`，用于compile转换为JSON。"
+          "descriptionZh": "执行 `compileToJSON`，用于编译转换为JSON。"
         }
       ],
       "properties": []
@@ -2777,7 +2777,7 @@
           ],
           "returnType": "Function",
           "description": "Executes `eval` to handle eval.",
-          "descriptionZh": "执行 `eval`，用于eval。"
+          "descriptionZh": "执行 `eval`，用于求值。"
         },
         {
           "name": "calc",

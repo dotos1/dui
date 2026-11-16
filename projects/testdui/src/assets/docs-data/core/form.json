@@ -15,8 +15,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[FormTemplateType,ValidationMessage]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[FormTemplateType,ValidationMessage]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[FormTemplateType,ValidationMessage]`）。"
+          "description": "Property `entryComponents` (`(typeof FormTemplateType | typeof ValidationMessage)[]`) storing entry components (default: `[FormTemplateType,ValidationMessage]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof FormTemplateType | typeof ValidationMessage)[]`），用于存储或配置条目组件列表（默认值：`[FormTemplateType,ValidationMessage]`）。"
         }
       ]
     },
@@ -203,8 +203,8 @@
         {
           "name": "extras",
           "type": "{ immutable?: boolean; showError?: (field: FieldType) => boolean; checkExpressionOn?: 'modelChange' | 'changeDetectionCheck'; lazyRender?: boolean; resetFieldOnHide?: boolean; }",
-          "description": "Property `extras` (`{ immutable?: boolean; showError?: (field: FieldType) => boolean; chec...`) storing extras.",
-          "descriptionZh": "属性 `extras`（类型：`{ immutable?: boolean; showError?: (field: FieldType) => boolean; chec...`），用于存储或配置extras。"
+          "description": "Property `extras` (`{…}`) storing extras.",
+          "descriptionZh": "属性 `extras`（类型：`{…}`），用于存储或配置extras。"
         }
       ]
     },
@@ -260,7 +260,7 @@
       "name": "defineHiddenProp",
       "kind": "function",
       "summary": "Executes `defineHiddenProp` to handle define hidden prop.",
-      "summaryZh": "执行 `defineHiddenProp`，用于define隐藏属性。",
+      "summaryZh": "执行 `defineHiddenProp`，用于定义隐藏属性。",
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -283,7 +283,7 @@
           ],
           "returnType": "any",
           "description": "Executes `defineHiddenProp` to handle define hidden prop.",
-          "descriptionZh": "执行 `defineHiddenProp`，用于define隐藏属性。"
+          "descriptionZh": "执行 `defineHiddenProp`，用于定义隐藏属性。"
         }
       ],
       "properties": []
@@ -444,7 +444,7 @@
           "name": "validation",
           "type": "{ messages?: { [messageProperties: string]: ValidationMessageOption['message']; }; show?: boolean; [additionalProperties: string]: unknown; }",
           "description": "An object with a few useful properties\n- `validation.messages`: A map of message names that will be displayed when the field has errors.\n- `validation.show`: A boolean you as the developer can set to force displaying errors whatever the state of field. This is useful when you're trying to call the user's attention to some fields for some reason.",
-          "descriptionZh": "属性 `validation`（类型：`{ messages?: { [messageProperties: string]: ValidationMessageOption['m...`），用于存储或配置校验。"
+          "descriptionZh": "属性 `validation`（类型：`{…}`），用于存储或配置校验。"
         },
         {
           "name": "validators",
@@ -480,13 +480,13 @@
           "name": "hideExpression",
           "type": "any",
           "description": "Conditionally hiding Field based on values from other Fields",
-          "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any, field?: FieldConfig)...`），用于存储或配置隐藏表达式。"
+          "descriptionZh": "属性 `hideExpression`（类型：`any`），用于存储或配置隐藏表达式。"
         },
         {
           "name": "expressionProperties",
           "type": "{ [property: string]: string | ({ (model, formState, field?: FieldConfig) }) | Observable<unknown>; }",
           "description": "An object where the name is a property to be set on the main field config and the value is an expression used to assign that property.",
-          "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any, field?: F...`），用于存储或配置表达式属性列表。"
+          "descriptionZh": "属性 `expressionProperties`（类型：`{…}`），用于存储或配置表达式属性列表。"
         },
         {
           "name": "className",
@@ -522,7 +522,7 @@
           "name": "modelOptions",
           "type": "{ debounce?: { default: number; }; /** * @see https://angular.io/api/forms/AbstractControl#updateOn */ updateOn?: 'change' | 'blur' | 'submit'; }",
           "description": "An object with a few useful properties to control the model changes\n- `debounce`: integer value which contains the debounce model update value in milliseconds. A value of 0 triggers an immediate update.\n- `updateOn`: string event value that instructs when the control should be updated",
-          "descriptionZh": "属性 `modelOptions`（类型：`{ debounce?: { default: number; }; updateOn?: 'change' | 'blur' | 'sub...`），用于存储或配置模型配置选项。"
+          "descriptionZh": "属性 `modelOptions`（类型：`{ debounce?: { default: number; }; updateOn?: \"change\" | \"blur\" | \"submit\"; }`），用于存储或配置模型配置选项。"
         },
         {
           "name": "hooks",
@@ -534,7 +534,7 @@
           "name": "parsers",
           "type": "any",
           "description": "Array of functions to execute, as a pipeline, whenever the model updates, usually via user input.",
-          "descriptionZh": "属性 `parsers`（类型：`((value: any) => any)[]`），用于存储或配置解析器。"
+          "descriptionZh": "属性 `parsers`（类型：`any`），用于存储或配置解析器。"
         },
         {
           "name": "model",
@@ -558,13 +558,13 @@
           "name": "form",
           "type": "FormGroup | FormArray",
           "description": "The parent form.",
-          "descriptionZh": "属性 `form`（类型：`FormGroup | FormArray`），用于存储或配置表单。"
+          "descriptionZh": "属性 `form`（类型：`FormGroup<any> | FormArray<any>`），用于存储或配置表单。"
         },
         {
           "name": "formControl",
           "type": "AbstractControl",
           "description": "This is the [FormControl](https://angular.io/api/forms/FormControl) for the field.\nIt provides you more control like running validators, calculating status, and resetting state.",
-          "descriptionZh": "属性 `formControl`（类型：`AbstractControl`），用于存储或配置表单表单控件。"
+          "descriptionZh": "属性 `formControl`（类型：`AbstractControl<any, any, any>`），用于存储或配置表单表单控件。"
         },
         {
           "name": "optionsTypes",
@@ -689,7 +689,7 @@
         {
           "name": "attributes",
           "type": "{ [names: string]: string | number }",
-          "description": "Property `attributes` (`{ [names: string]: string | number }`) storing attributes.\n扩展属性，用于上述未定义的个性化设置",
+          "description": "Property `attributes` (`{ [names: string]: string | number; }`) storing attributes.\n扩展属性，用于上述未定义的个性化设置",
           "descriptionZh": "扩展属性，用于上述未定义的个性化设置"
         },
         {
@@ -821,8 +821,8 @@
         {
           "name": "dataSource",
           "type": "{ url?: string; method?: string; pageble?: boolean; pageSize?: number; }",
-          "description": "Property `dataSource` (`{ url?: string; method?: string; pageble?: boolean; pageSize?: number;...`) storing data source.",
-          "descriptionZh": "属性 `dataSource`（类型：`{ url?: string; method?: string; pageble?: boolean; pageSize?: number;...`），用于存储或配置数据源。"
+          "description": "Property `dataSource` (`{ url?: string; method?: string; pageble?: boolean; pageSize?: number; }`) storing data source.",
+          "descriptionZh": "属性 `dataSource`（类型：`{ url?: string; method?: string; pageble?: boolean; pageSize?: number; }`），用于存储或配置数据源。"
         },
         {
           "name": "mask",
@@ -851,8 +851,8 @@
         {
           "name": "form",
           "type": "FormGroup | FormArray",
-          "description": "Property `form` (`FormGroup | FormArray`) storing form.",
-          "descriptionZh": "属性 `form`（类型：`FormGroup | FormArray`），用于存储或配置表单。"
+          "description": "Property `form` (`FormGroup<any> | FormArray<any>`) storing form.",
+          "descriptionZh": "属性 `form`（类型：`FormGroup<any> | FormArray<any>`），用于存储或配置表单。"
         },
         {
           "name": "model",
@@ -863,8 +863,8 @@
         {
           "name": "formControl",
           "type": "AbstractControl",
-          "description": "Property `formControl` (`AbstractControl`) storing form control.",
-          "descriptionZh": "属性 `formControl`（类型：`AbstractControl`），用于存储或配置表单表单控件。"
+          "description": "Property `formControl` (`AbstractControl<any, any, any>`) storing form control.",
+          "descriptionZh": "属性 `formControl`（类型：`AbstractControl<any, any, any>`），用于存储或配置表单表单控件。"
         },
         {
           "name": "parent",
@@ -881,8 +881,8 @@
         {
           "name": "_expressions",
           "type": "{ [property: string]: (ingoreCache: boolean) => boolean }",
-          "description": "Property `_expressions` (`{ [property: string]: (ingoreCache: boolean) => boolean }`) storing expressions.",
-          "descriptionZh": "属性 `_expressions`（类型：`{ [property: string]: (ingoreCache: boolean) => boolean }`），用于存储或配置表达式。"
+          "description": "Property `_expressions` (`{ [property: string]: (ingoreCache: boolean) => boolean; }`) storing expressions.",
+          "descriptionZh": "属性 `_expressions`（类型：`{ [property: string]: (ingoreCache: boolean) => boolean; }`），用于存储或配置表达式。"
         },
         {
           "name": "_hide",
@@ -905,14 +905,14 @@
         {
           "name": "_componentRefs",
           "type": "ComponentRef<FieldType>[]",
-          "description": "Property `_componentRefs` (`ComponentRef<FieldType>[]`) storing component refs.",
-          "descriptionZh": "属性 `_componentRefs`（类型：`ComponentRef<FieldType>[]`），用于存储或配置组件引用。"
+          "description": "Property `_componentRefs` (`ComponentRef<FieldType<FieldConfig>>[]`) storing component refs.",
+          "descriptionZh": "属性 `_componentRefs`（类型：`ComponentRef<FieldType<FieldConfig>>[]`），用于存储或配置组件引用。"
         },
         {
           "name": "_keyPath",
           "type": "{ key: FieldConfig['name']; path: string[]; }",
-          "description": "Property `_keyPath` (`{ key: FieldConfig['name']; path: string[]; }`) storing key path.",
-          "descriptionZh": "属性 `_keyPath`（类型：`{ key: FieldConfig['name']; path: string[]; }`），用于存储或配置键路径。"
+          "description": "Property `_keyPath` (`{ key: FieldConfig[\"name\"]; path: string[]; }`) storing key path.",
+          "descriptionZh": "属性 `_keyPath`（类型：`{ key: FieldConfig[\"name\"]; path: string[]; }`），用于存储或配置键路径。"
         }
       ]
     },
@@ -1022,8 +1022,8 @@
         {
           "name": "form",
           "type": "any",
-          "description": "Getter for input property `form` (`any`) returning form.",
-          "descriptionZh": "输入属性 `form`（类型：`any`）的读取器，返回当前表单。"
+          "description": "Getter for input property `form` (`FormGroup<any>`) returning form.",
+          "descriptionZh": "输入属性 `form`（类型：`FormGroup<any>`）的读取器，返回当前表单。"
         },
         {
           "name": "option",
@@ -1051,8 +1051,8 @@
         {
           "name": "defaultOptions",
           "type": "any",
-          "description": "Property `defaultOptions` (`F`) storing default options.",
-          "descriptionZh": "属性 `defaultOptions`（类型：`F`），用于存储或配置默认配置选项。"
+          "description": "Property `defaultOptions` (`any`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
         },
         {
           "name": "field",
@@ -1129,7 +1129,7 @@
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "description": "Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.",
           "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         }
       ]
@@ -1395,43 +1395,43 @@
           "name": "types",
           "type": "{ [name: string]: TypeOption }",
           "default": "{}",
-          "description": "Property `types` (`{ [name: string]: TypeOption }`) storing types (default: `{}`).",
-          "descriptionZh": "属性 `types`（类型：`{ [name: string]: TypeOption }`），用于存储或配置类型列表（默认值：`{}`）。"
+          "description": "Property `types` (`{ [name: string]: TypeOption; }`) storing types (default: `{}`).",
+          "descriptionZh": "属性 `types`（类型：`{ [name: string]: TypeOption; }`），用于存储或配置类型列表（默认值：`{}`）。"
         },
         {
           "name": "validators",
           "type": "{ [name: string]: ValidatorOption }",
           "default": "{}",
-          "description": "Property `validators` (`{ [name: string]: ValidatorOption }`) storing validators (default: `{}`).",
-          "descriptionZh": "属性 `validators`（类型：`{ [name: string]: ValidatorOption }`），用于存储或配置校验器列表（默认值：`{}`）。"
+          "description": "Property `validators` (`{ [name: string]: ValidatorOption; }`) storing validators (default: `{}`).",
+          "descriptionZh": "属性 `validators`（类型：`{ [name: string]: ValidatorOption; }`），用于存储或配置校验器列表（默认值：`{}`）。"
         },
         {
           "name": "wrappers",
           "type": "{ [name: string]: WrapperOption }",
           "default": "{}",
-          "description": "Property `wrappers` (`{ [name: string]: WrapperOption }`) storing wrappers (default: `{}`).",
-          "descriptionZh": "属性 `wrappers`（类型：`{ [name: string]: WrapperOption }`），用于存储或配置包装器列表（默认值：`{}`）。"
+          "description": "Property `wrappers` (`{ [name: string]: WrapperOption; }`) storing wrappers (default: `{}`).",
+          "descriptionZh": "属性 `wrappers`（类型：`{ [name: string]: WrapperOption; }`），用于存储或配置包装器列表（默认值：`{}`）。"
         },
         {
           "name": "messages",
           "type": "{ [name: string]: ValidationMessageOption['message'] }",
           "default": "{}",
-          "description": "Property `messages` (`{ [name: string]: ValidationMessageOption['message'] }`) storing messages (default: `{}`).",
-          "descriptionZh": "属性 `messages`（类型：`{ [name: string]: ValidationMessageOption['message'] }`），用于存储或配置消息列表（默认值：`{}`）。"
+          "description": "Property `messages` (`{ [name: string]: any; }`) storing messages (default: `{}`).",
+          "descriptionZh": "属性 `messages`（类型：`{ [name: string]: any; }`），用于存储或配置消息列表（默认值：`{}`）。"
         },
         {
           "name": "extras",
           "type": "ConfigOption['extras']",
           "default": "{\n    checkExpressionOn: 'changeDetectionCheck',\n    lazyRender: false,\n    showError(field: FieldType) {\n      return (\n        field.formControl &&\n        field.formControl.invalid &&\n        (field.formControl.touched ||\n          (field.option.parentForm && field.option.parentForm.submitted) ||\n          !!(field.field.validation && field.field.validation.show))\n      );\n    },\n  }",
-          "description": "Property `extras` (`ConfigOption['extras']`) storing extras.",
-          "descriptionZh": "属性 `extras`（类型：`ConfigOption['extras']`），用于存储或配置extras。"
+          "description": "Property `extras` (`{…}`) storing extras.",
+          "descriptionZh": "属性 `extras`（类型：`{…}`），用于存储或配置extras。"
         },
         {
           "name": "extensions",
           "type": "{ [name: string]: FormExtension }",
           "default": "{}",
-          "description": "Property `extensions` (`{ [name: string]: FormExtension }`) storing extensions (default: `{}`).",
-          "descriptionZh": "属性 `extensions`（类型：`{ [name: string]: FormExtension }`），用于存储或配置extensions（默认值：`{}`）。"
+          "description": "Property `extensions` (`{ [name: string]: FormExtension; }`) storing extensions (default: `{}`).",
+          "descriptionZh": "属性 `extensions`（类型：`{ [name: string]: FormExtension; }`），用于存储或配置extensions（默认值：`{}`）。"
         }
       ]
     },
@@ -1635,8 +1635,8 @@
         {
           "name": "parentForm",
           "type": "FormGroupDirective | null",
-          "description": "Property `parentForm` (`FormGroupDirective | null`) storing parent form.",
-          "descriptionZh": "属性 `parentForm`（类型：`FormGroupDirective | null`），用于存储或配置父级表单。"
+          "description": "Property `parentForm` (`FormGroupDirective`) storing parent form.",
+          "descriptionZh": "属性 `parentForm`（类型：`FormGroupDirective`），用于存储或配置父级表单。"
         }
       ]
     },
@@ -1658,9 +1658,9 @@
         },
         {
           "name": "_resolver",
-          "type": "ComponentFactoryResolver",
-          "description": "Property `_resolver` (`ComponentFactoryResolver`) storing resolver.",
-          "descriptionZh": "属性 `_resolver`（类型：`ComponentFactoryResolver`），用于存储或配置解析器。"
+          "type": "unknown",
+          "description": "Property `_resolver` (`unknown`) storing legacy resolver placeholder.",
+          "descriptionZh": "属性 `_resolver`（类型：`unknown`），历史兼容占位字段。"
         },
         {
           "name": "_injector",
@@ -1855,9 +1855,9 @@
       "properties": [
         {
           "name": "setValue",
-          "type": "(value: T) => void",
-          "description": "Property `setValue` (`(value: T) => void`) storing set value.",
-          "descriptionZh": "属性 `setValue`（类型：`(value: T) => void`），用于存储或配置集合值。"
+          "type": "(value: T, emitEvent?: boolean) => void",
+          "description": "Property `setValue` (`(value: T, emitEvent?: boolean) => void`) silently stores a value; with `emitEvent` it also notifies the other observers.",
+          "descriptionZh": "属性 `setValue`（类型：`(value: T, emitEvent?: boolean) => void`）：静默写值；`emitEvent` 为真时同时通知同一属性上的其它监听者（不回调自己）。"
         },
         {
           "name": "unsubscribe",
@@ -1919,7 +1919,7 @@
       "name": "observe",
       "kind": "function",
       "summary": "Executes `observe` to handle observe.",
-      "summaryZh": "执行 `observe`，用于observe。",
+      "summaryZh": "执行 `observe`，用于观察。",
       "sourceFile": "src/core/form/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1942,7 +1942,7 @@
           ],
           "returnType": "IObserver<T>",
           "description": "Executes `observe` to handle observe.",
-          "descriptionZh": "执行 `observe`，用于observe。"
+          "descriptionZh": "执行 `observe`，用于观察。"
         }
       ],
       "properties": []
@@ -2032,6 +2032,48 @@
       "properties": []
     },
     {
+      "name": "TypeOption",
+      "kind": "interface",
+      "summary": "Interface `TypeOption` defining the contract and properties for type option.",
+      "summaryZh": "接口 `TypeOption`，定义类型选项的数据结构契约与属性规范。",
+      "sourceFile": "src/core/form/models/config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "name",
+          "type": "string",
+          "description": "Property `name` (`string`) storing name.",
+          "descriptionZh": "属性 `name`（类型：`string`），用于存储或配置名称。"
+        },
+        {
+          "name": "component",
+          "type": "any",
+          "description": "Property `component` (`any`) storing component.",
+          "descriptionZh": "属性 `component`（类型：`any`），用于存储或配置组件。"
+        },
+        {
+          "name": "wrappers",
+          "type": "string[]",
+          "description": "Property `wrappers` (`string[]`) storing wrappers.",
+          "descriptionZh": "属性 `wrappers`（类型：`string[]`），用于存储或配置包装器列表。"
+        },
+        {
+          "name": "extends",
+          "type": "string",
+          "description": "Property `extends` (`string`) storing extends.",
+          "descriptionZh": "属性 `extends`（类型：`string`），用于存储或配置extends。"
+        },
+        {
+          "name": "defaultOptions",
+          "type": "FieldConfig",
+          "description": "Property `defaultOptions` (`FieldConfig`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`FieldConfig`），用于存储或配置默认配置选项。"
+        }
+      ]
+    },
+    {
       "name": "ValidationMessage",
       "kind": "component",
       "selector": "validation-message",
@@ -2052,8 +2094,8 @@
         {
           "name": "errorMessage$",
           "type": "any",
-          "description": "Property `errorMessage$` (`Observable<any>`) storing error message.",
-          "descriptionZh": "属性 `errorMessage$`（类型：`Observable<any>`），用于存储或配置错误消息。"
+          "description": "Property `errorMessage$` (`any`) storing error message.",
+          "descriptionZh": "属性 `errorMessage$`（类型：`any`），用于存储或配置错误消息。"
         },
         {
           "name": "errorMessage",

@@ -71,7 +71,7 @@
         {
           "name": "displayBinding",
           "type": "string | undefined",
-          "description": "Host-bound getter `displayBinding` (`style.display`) computing display binding.",
+          "description": "Host-bound getter `displayBinding` (`string`) computing display binding.",
           "descriptionZh": "内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。"
         }
       ]

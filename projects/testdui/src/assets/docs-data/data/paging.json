@@ -110,7 +110,7 @@
           "params": [],
           "returnType": "any",
           "description": "Refresh the current page, has the same effect as clicking the 'refresh' button.",
-          "descriptionZh": "执行 `doRefresh`，用于do刷新。"
+          "descriptionZh": "执行 `doRefresh`，用于执行刷新。"
         }
       ],
       "properties": [
@@ -139,7 +139,7 @@
           "name": "afterPageText",
           "type": "'of {0}'",
           "description": null,
-          "descriptionZh": "属性 `afterPageText`（类型：`'of {0}'`），用于存储或配置之后页面文本。"
+          "descriptionZh": "属性 `afterPageText`（类型：`\"of {0}\"`），用于存储或配置之后页面文本。"
         },
         {
           "name": "freshDisable",

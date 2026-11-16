@@ -74,26 +74,26 @@
         {
           "name": "top",
           "type": "boolean | number",
-          "description": "Property `top` (`boolean | number`) storing top.",
-          "descriptionZh": "属性 `top`（类型：`boolean | number`），用于存储或配置顶部位置。"
+          "description": "Property `top` (`number | boolean`) storing top.",
+          "descriptionZh": "属性 `top`（类型：`number | boolean`），用于存储或配置顶部位置。"
         },
         {
           "name": "bottom",
           "type": "boolean | number",
-          "description": "Property `bottom` (`boolean | number`) storing bottom.",
-          "descriptionZh": "属性 `bottom`（类型：`boolean | number`），用于存储或配置底部位置。"
+          "description": "Property `bottom` (`number | boolean`) storing bottom.",
+          "descriptionZh": "属性 `bottom`（类型：`number | boolean`），用于存储或配置底部位置。"
         },
         {
           "name": "left",
           "type": "boolean | number",
-          "description": "Property `left` (`boolean | number`) storing left.",
-          "descriptionZh": "属性 `left`（类型：`boolean | number`），用于存储或配置左侧位置。"
+          "description": "Property `left` (`number | boolean`) storing left.",
+          "descriptionZh": "属性 `left`（类型：`number | boolean`），用于存储或配置左侧位置。"
         },
         {
           "name": "right",
           "type": "boolean | number",
-          "description": "Property `right` (`boolean | number`) storing right.",
-          "descriptionZh": "属性 `right`（类型：`boolean | number`），用于存储或配置右侧位置。"
+          "description": "Property `right` (`number | boolean`) storing right.",
+          "descriptionZh": "属性 `right`（类型：`number | boolean`），用于存储或配置右侧位置。"
         }
       ]
     },
@@ -137,7 +137,7 @@
           "type": "'fixed' | 'absolute'",
           "default": "'fixed'",
           "description": "Define the positioning of the ghost element (can be fixed or absolute)",
-          "descriptionZh": "输入属性 `ghostElementPositioning`（类型：`'fixed' | 'absolute'`），用于配置ghost元素位置（默认值：`'fixed'`）。"
+          "descriptionZh": "输入属性 `ghostElementPositioning`（类型：`\"fixed\" | \"absolute\"`），用于配置ghost元素位置（默认值：`'fixed'`）。"
         },
         {
           "name": "allowNegativeResizes",
@@ -159,19 +159,19 @@
           "name": "resizeStart",
           "type": "any",
           "description": "Called when the mouse is pressed and a resize event is about to begin. `$event` is a `ResizeEvent` object.",
-          "descriptionZh": "输出事件 `resizeStart`（类型：`EventEmitter`），当触发调整尺寸开始时向外发出事件。"
+          "descriptionZh": "输出事件 `resizeStart`（类型：`EventEmitter<ResizeEvent>`），当触发调整尺寸开始时向外发出事件。"
         },
         {
           "name": "resizing",
           "type": "any",
           "description": "Called as the mouse is dragged after a resize event has begun. `$event` is a `ResizeEvent` object.",
-          "descriptionZh": "输出事件 `resizing`（类型：`EventEmitter`），当触发调整尺寸中时向外发出事件。"
+          "descriptionZh": "输出事件 `resizing`（类型：`EventEmitter<ResizeEvent>`），当触发调整尺寸中时向外发出事件。"
         },
         {
           "name": "resizeEnd",
           "type": "any",
           "description": "Called after the mouse is released after a resize event. `$event` is a `ResizeEvent` object.",
-          "descriptionZh": "输出事件 `resizeEnd`（类型：`EventEmitter`），当触发调整尺寸结束时向外发出事件。"
+          "descriptionZh": "输出事件 `resizeEnd`（类型：`EventEmitter<ResizeEvent>`），当触发调整尺寸结束时向外发出事件。"
         }
       ],
       "methods": [],

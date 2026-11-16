@@ -33,7 +33,7 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
           "description": "Config object applied via {@link Dui.apply}; can set `hasDefault`/`defaultGrp` to\nstart with the input expanded.",
           "descriptionZh": "通过 {@link Dui.apply} 应用的配置对象；可设置 `hasDefault`/`defaultGrp` 使输入框初始为展开状态。"
@@ -252,8 +252,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    SearchBoxComponent\n  ]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ SearchBoxComponent ]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ SearchBoxComponent ]`）。"
+          "description": "Property `entryComponents` (`(typeof SearchBoxComponent)[]`) storing entry components (default: `[ SearchBoxComponent ]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof SearchBoxComponent)[]`），用于存储或配置条目组件列表（默认值：`[ SearchBoxComponent ]`）。"
         }
       ]
     },

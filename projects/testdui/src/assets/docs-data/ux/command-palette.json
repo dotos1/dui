@@ -175,8 +175,8 @@
           "name": "trackByItemText",
           "type": "any",
           "default": "(_index: number, item: { text? }) => item ? item.text : _index",
-          "description": "Property `trackByItemText` (`any`) storing track by item text.",
-          "descriptionZh": "属性 `trackByItemText`（类型：`any`），用于存储或配置track按条目文本。"
+          "description": "Property `trackByItemText` (`(_index: number, item: { text?: any; }) => any`) storing track by item text.",
+          "descriptionZh": "属性 `trackByItemText`（类型：`(_index: number, item: { text?: any; }) => any`），用于存储或配置track按条目文本。"
         }
       ]
     },
@@ -328,8 +328,8 @@
           "name": "inputControl",
           "type": "FormControl",
           "default": "new FormControl('')",
-          "description": "Property `inputControl` (`FormControl`) storing input control (default: `new FormControl('')`).",
-          "descriptionZh": "属性 `inputControl`（类型：`FormControl`），用于存储或配置输入属性表单控件（默认值：`new FormControl('')`）。"
+          "description": "Property `inputControl` (`FormControl<any>`) storing input control (default: `new FormControl('')`).",
+          "descriptionZh": "属性 `inputControl`（类型：`FormControl<any>`），用于存储或配置输入属性表单控件（默认值：`new FormControl('')`）。"
         },
         {
           "name": "clearBtnVisible",

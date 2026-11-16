@@ -85,7 +85,7 @@
           ],
           "returnType": "any",
           "description": "Executes `trackById` to handle track by id.",
-          "descriptionZh": "执行 `trackById`，用于track按唯一标识。"
+          "descriptionZh": "执行 `trackById`，用于跟踪按唯一标识。"
         },
         {
           "name": "contextMenu",
@@ -99,7 +99,7 @@
         {
           "name": "extendMenus",
           "type": "QueryList<MenuDirective>",
-          "description": "Template/content query reference `extendMenus` (`@ViewChildren`) targeting extend menus.",
+          "description": "Template/content query reference `extendMenus` (`QueryList<MenuDirective>`) targeting extend menus.",
           "descriptionZh": "模板/内容视图查询引用 `extendMenus`（`@ViewChildren`），指向extend菜单。"
         },
         {
@@ -111,7 +111,7 @@
         {
           "name": "menuTrigger",
           "type": "MatMenuTrigger",
-          "description": "Template/content query reference `menuTrigger` (`@ViewChild`) targeting menu trigger.",
+          "description": "Template/content query reference `menuTrigger` (`MatMenuTrigger`) targeting menu trigger.",
           "descriptionZh": "模板/内容视图查询引用 `menuTrigger`（`@ViewChild`），指向菜单触发。"
         },
         {
@@ -169,7 +169,7 @@
           ],
           "returnType": "any",
           "description": "Executes `trackById` to handle track by id.",
-          "descriptionZh": "执行 `trackById`，用于track按唯一标识。"
+          "descriptionZh": "执行 `trackById`，用于跟踪按唯一标识。"
         },
         {
           "name": "contextMenu",
@@ -195,8 +195,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ContextMenuComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ContextMenuComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ContextMenuComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof ContextMenuComponent)[]`) storing entry components (default: `[ContextMenuComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ContextMenuComponent)[]`），用于存储或配置条目组件列表（默认值：`[ContextMenuComponent]`）。"
         }
       ]
     },

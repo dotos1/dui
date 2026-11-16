@@ -5,7 +5,7 @@
   </h1>
   <p class="category-page__tagline">{{ categoryTagline(category.id) }}</p>
 
-  <dui-markdown *ngIf="markdown$ | async as markdown" [content]="markdown"></dui-markdown>
+  <app-docs-markdown *ngIf="markdown$ | async as markdown" [content]="markdown"></app-docs-markdown>
 
   <h2 class="category-page__subheading" *ngIf="category.modules.length">模块列表</h2>
   <div class="category-page__grid">

@@ -57,8 +57,8 @@
         {
           "name": "bgColor",
           "type": "string | undefined",
-          "description": "Input property `bgColor` (`string | undefined`) configuring bg color.",
-          "descriptionZh": "输入属性 `bgColor`（类型：`string | undefined`），用于配置背景颜色。"
+          "description": "Input property `bgColor` (`string`) configuring bg color.",
+          "descriptionZh": "输入属性 `bgColor`（类型：`string`），用于配置背景颜色。"
         },
         {
           "name": "fgColor",
@@ -70,15 +70,15 @@
         {
           "name": "borderColor",
           "type": "string | undefined",
-          "description": "Input property `borderColor` (`string | undefined`) configuring border color.",
-          "descriptionZh": "输入属性 `borderColor`（类型：`string | undefined`），用于配置边框颜色。"
+          "description": "Input property `borderColor` (`string`) configuring border color.",
+          "descriptionZh": "输入属性 `borderColor`（类型：`string`），用于配置边框颜色。"
         },
         {
           "name": "style",
           "type": "Style",
           "default": "{}",
-          "description": "Input property `style` (`Style`) configuring style (default: `{}`).",
-          "descriptionZh": "输入属性 `style`（类型：`Style`），用于配置样式（默认值：`{}`）。"
+          "description": "Input property `style` (`Partial<CSSStyleDeclaration>`) configuring style (default: `{}`).",
+          "descriptionZh": "输入属性 `style`（类型：`Partial<CSSStyleDeclaration>`），用于配置样式（默认值：`{}`）。"
         },
         {
           "name": "cornerRadius",
@@ -129,7 +129,7 @@
         {
           "name": "imgElement",
           "type": "ElementRef",
-          "description": "Template/content query reference `imgElement` (`@ViewChild`) targeting img element.",
+          "description": "Template/content query reference `imgElement` (`ElementRef<any>`) targeting img element.",
           "descriptionZh": "模板/内容视图查询引用 `imgElement`（`@ViewChild`），指向图片元素。"
         },
         {
@@ -156,22 +156,22 @@
           "name": "avatarText",
           "type": "string | null",
           "default": "null",
-          "description": "Property `avatarText` (`string | null`) storing avatar text (default: `null`).",
-          "descriptionZh": "属性 `avatarText`（类型：`string | null`），用于存储或配置头像文本（默认值：`null`）。"
+          "description": "Property `avatarText` (`string`) storing avatar text (default: `null`).",
+          "descriptionZh": "属性 `avatarText`（类型：`string`），用于存储或配置头像文本（默认值：`null`）。"
         },
         {
           "name": "avatarStyle",
           "type": "Style",
           "default": "{}",
-          "description": "Property `avatarStyle` (`Style`) storing avatar style (default: `{}`).",
-          "descriptionZh": "属性 `avatarStyle`（类型：`Style`），用于存储或配置头像样式（默认值：`{}`）。"
+          "description": "Property `avatarStyle` (`Partial<CSSStyleDeclaration>`) storing avatar style (default: `{}`).",
+          "descriptionZh": "属性 `avatarStyle`（类型：`Partial<CSSStyleDeclaration>`），用于存储或配置头像样式（默认值：`{}`）。"
         },
         {
           "name": "hostStyle",
           "type": "Style",
           "default": "{}",
-          "description": "Property `hostStyle` (`Style`) storing host style (default: `{}`).",
-          "descriptionZh": "属性 `hostStyle`（类型：`Style`），用于存储或配置宿主样式（默认值：`{}`）。"
+          "description": "Property `hostStyle` (`Partial<CSSStyleDeclaration>`) storing host style (default: `{}`).",
+          "descriptionZh": "属性 `hostStyle`（类型：`Partial<CSSStyleDeclaration>`），用于存储或配置宿主样式（默认值：`{}`）。"
         },
         {
           "name": "isImageAvatar",

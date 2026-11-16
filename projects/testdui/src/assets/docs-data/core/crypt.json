@@ -539,8 +539,8 @@
           "name": "add32",
           "type": "any",
           "default": "function (a, b) {\n    return (a + b) & 0xFFFFFFFF;\n  }",
-          "description": "Property `add32` (`any`) storing add32.",
-          "descriptionZh": "属性 `add32`（类型：`any`），用于存储或配置add32。"
+          "description": "Property `add32` (`(a: any, b: any) => number`) storing add32.",
+          "descriptionZh": "属性 `add32`（类型：`(a: any, b: any) => number`），用于存储或配置add32。"
         }
       ]
     },
