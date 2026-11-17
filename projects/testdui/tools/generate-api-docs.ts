@@ -178,12 +178,14 @@ function main(): void {
   let entryPoints = computeEntryPoints();
   console.log(`[docs:generate] found ${entryPoints.length} entry points`);
 
-  // For local debugging: DOCS_GEN_FILTER="ui/button,theme,ux/markdown" npm run docs:generate
+  // For local debugging: DOCS_GEN_FILTER="ui/button,theme,ux/highlight" npm run docs:generate
   const filter = process.env['DOCS_GEN_FILTER'];
   if (filter) {
     const wanted = new Set(filter.split(','));
     entryPoints = entryPoints.filter((e) => wanted.has(toPosix(path.relative(SRC_ROOT, e.dirAbs))));
     console.log(`[docs:generate] DOCS_GEN_FILTER active, narrowed to ${entryPoints.length} entry points`);
+  } else {
+    fs.rmSync(OUT_ROOT, { recursive: true, force: true });
   }
 
   const compilerOptions = loadCompilerOptions();

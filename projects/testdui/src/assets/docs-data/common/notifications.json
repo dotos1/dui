@@ -25,7 +25,7 @@
           "type": "'primary' | 'accent' | 'warn'",
           "default": "'warn'",
           "description": "color?: \"primary\" | \"accent\" | \"warn\"\nSets the theme color of the notification tip. Defaults to \"warn\"",
-          "descriptionZh": "输入属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于配置颜色（默认值：`'warn'`）。"
+          "descriptionZh": "输入属性 `color`（类型：`\"primary\" | \"accent\" | \"warn\"`），用于配置颜色（默认值：`'warn'`）。"
         },
         {
           "name": "positionX",
@@ -76,7 +76,7 @@
         {
           "name": "hideHost",
           "type": "boolean",
-          "description": "Host-bound getter `hideHost` (`class.dui-notification-hidden`) computing hide host.",
+          "description": "Host-bound getter `hideHost` (`boolean`) computing hide host.",
           "descriptionZh": "内部使用，当通知提示不显示且无投影内容时隐藏宿主元素。"
         },
         {

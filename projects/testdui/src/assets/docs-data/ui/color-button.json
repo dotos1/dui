@@ -11,20 +11,22 @@
       "inputs": [
         {
           "name": "config",
-          "type": "{ parentType?; title?; disabled?; style?; iconCls?; color?; items?; tooltip?; [key: string]: unknown }",
+          "type": "DuiButtonConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiButtonConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiButtonConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "data",
-          "type": "any",
-          "description": "Input property `data` (`any`) configuring data.",
-          "descriptionZh": "输入属性 `data`（类型：`any`），用于配置数据。"
+          "type": "unknown",
+          "default": "undefined",
+          "description": "Input property `data` (`unknown`) configuring data.",
+          "descriptionZh": "输入属性 `data`（类型：`unknown`），用于配置数据。"
         },
         {
           "name": "ownerCt",
           "type": "any",
+          "default": "undefined",
           "description": "Input property `ownerCt` (`any`) configuring owner ct.",
           "descriptionZh": "输入属性 `ownerCt`（类型：`any`），用于配置所属者Ct。"
         }
@@ -33,8 +35,8 @@
         {
           "name": "click",
           "type": "any",
-          "description": "Output event emitter `click` (`EventEmitter`) firing when click occurs.",
-          "descriptionZh": "输出事件 `click`（类型：`EventEmitter`），当触发点击时向外发出事件。"
+          "description": "Output event emitter `click` (`EventEmitter<any>`) firing when click occurs.",
+          "descriptionZh": "输出事件 `click`（类型：`EventEmitter<any>`），当触发点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -67,46 +69,48 @@
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": "Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.",
+          "default": "undefined",
+          "description": "Template/content query reference `matTooltip` (`MatTooltip`) targeting mat tooltip.",
           "descriptionZh": "模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。"
         },
         {
           "name": "triggers",
           "type": "QueryList<MatMenuTrigger>",
-          "description": "Template/content query reference `triggers` (`@ViewChildren`) targeting triggers.",
+          "default": "undefined",
+          "description": "Template/content query reference `triggers` (`QueryList<MatMenuTrigger>`) targeting triggers.",
           "descriptionZh": "模板/内容视图查询引用 `triggers`（`@ViewChildren`），指向触发。"
         },
         {
           "name": "state",
           "type": "any",
           "default": "{\n    h: 150,\n    s: 0.50,\n    l: 0.20,\n    a: 1,\n  }",
-          "description": "Property `state` (`any`) storing state (default: `{ h: 150, s: 0.50, l: 0.20, a: 1, }`).",
-          "descriptionZh": "属性 `state`（类型：`any`），用于存储或配置状态（默认值：`{ h: 150, s: 0.50, l: 0.20, a: 1, }`）。"
+          "description": "Property `state` (`{ h: number; s: number; l: number; a: number; }`) storing state (default: `{ h: 150, s: 0.50, l: 0.20, a: 1, }`).",
+          "descriptionZh": "属性 `state`（类型：`{ h: number; s: number; l: number; a: number; }`），用于存储或配置状态（默认值：`{ h: 150, s: 0.50, l: 0.20, a: 1, }`）。"
         },
         {
           "name": "displayFlex",
           "type": "string",
-          "description": "Host-bound getter `displayFlex` (`style.display`) computing display flex.",
+          "description": "Host-bound getter `displayFlex` (`string`) computing display flex.",
           "descriptionZh": "宿主绑定读取器 `displayFlex`（绑定至 `style.display`），计算并返回displayFlex。"
         },
         {
           "name": "paddingLeft",
           "type": "string",
-          "description": "Host-bound getter `paddingLeft` (`style.padding-left.px`) computing padding left.",
+          "description": "Host-bound getter `paddingLeft` (`string`) computing padding left.",
           "descriptionZh": "宿主绑定读取器 `paddingLeft`（绑定至 `style.padding-left.px`），计算并返回内边距左侧位置。"
         },
         {
           "name": "paddingRight",
           "type": "string",
-          "description": "Host-bound getter `paddingRight` (`style.padding-right.px`) computing padding right.",
+          "description": "Host-bound getter `paddingRight` (`string`) computing padding right.",
           "descriptionZh": "宿主绑定读取器 `paddingRight`（绑定至 `style.padding-right.px`），计算并返回内边距右侧位置。"
         },
         {
           "name": "iconStyle",
           "type": "any",
           "default": "{ \"border-bottom-color\":\"#000\"}",
-          "description": "Property `iconStyle` (`any`) storing icon style (default: `{ \"border-bottom-color\":\"#000\"}`).",
-          "descriptionZh": "属性 `iconStyle`（类型：`any`），用于存储或配置图标样式（默认值：`{ \"border-bottom-color\":\"#000\"}`）。"
+          "description": "Property `iconStyle` (`{ \"border-bottom-color\": string; }`) storing icon style (default: `{ \"border-bottom-color\":\"#000\"}`).",
+          "descriptionZh": "属性 `iconStyle`（类型：`{ \"border-bottom-color\": string; }`），用于存储或配置图标样式（默认值：`{ \"border-bottom-color\":\"#000\"}`）。"
         }
       ]
     },
@@ -124,8 +128,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    ColorPickerButton,\n  ]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ ColorPickerButton, ]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ ColorPickerButton, ]`）。"
+          "description": "Property `entryComponents` (`(typeof ColorPickerButton)[]`) storing entry components (default: `[ ColorPickerButton, ]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ColorPickerButton)[]`），用于存储或配置条目组件列表（默认值：`[ ColorPickerButton, ]`）。"
         }
       ]
     }

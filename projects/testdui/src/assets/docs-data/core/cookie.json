@@ -26,8 +26,8 @@
         {
           "name": "expires",
           "type": "string|Date",
-          "description": "Property `expires` (`string|Date`) storing expires.",
-          "descriptionZh": "属性 `expires`（类型：`string|Date`），用于存储或配置expires。"
+          "description": "Property `expires` (`string | Date`) storing expires.",
+          "descriptionZh": "属性 `expires`（类型：`string | Date`），用于存储或配置expires。"
         },
         {
           "name": "maxAge",

@@ -149,7 +149,7 @@
           "params": [],
           "returnType": "any",
           "description": "Executes `doCheck` to handle do check.",
-          "descriptionZh": "执行 `doCheck`，用于do检查。"
+          "descriptionZh": "执行 `doCheck`，用于执行检查。"
         },
         {
           "name": "checkExpressionChange",
@@ -371,7 +371,7 @@
         {
           "name": "extendMenus",
           "type": "QueryList<MenuDirective>",
-          "description": "Template/content query reference `extendMenus` (`@ViewChildren`) targeting extend menus.",
+          "description": "Template/content query reference `extendMenus` (`QueryList<MenuDirective>`) targeting extend menus.",
           "descriptionZh": "模板/内容视图查询引用 `extendMenus`（`@ViewChildren`），指向extend菜单。"
         },
         {
@@ -383,7 +383,7 @@
         {
           "name": "childMenu",
           "type": "MatMenu",
-          "description": "Template/content query reference `childMenu` (`@ViewChild`) targeting child menu.",
+          "description": "Template/content query reference `childMenu` (`MatMenu`) targeting child menu.",
           "descriptionZh": "模板/内容视图查询引用 `childMenu`（`@ViewChild`），指向子级菜单。"
         },
         {
@@ -470,8 +470,8 @@
         {
           "name": "value",
           "type": "boolean|string",
-          "description": "Property `value` (`boolean|string`) storing value.",
-          "descriptionZh": "属性 `value`（类型：`boolean|string`），用于存储或配置值。"
+          "description": "Property `value` (`string | boolean`) storing value.",
+          "descriptionZh": "属性 `value`（类型：`string | boolean`），用于存储或配置值。"
         },
         {
           "name": "order",
@@ -656,20 +656,20 @@
         {
           "name": "hideExpression",
           "type": "any",
-          "description": "Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.",
-          "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。"
+          "description": "Property `hideExpression` (`any`) storing hide expression.",
+          "descriptionZh": "属性 `hideExpression`（类型：`any`），用于存储或配置隐藏表达式。"
         },
         {
           "name": "disableExpression",
           "type": "any",
-          "description": "Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.",
-          "descriptionZh": "属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。"
+          "description": "Property `disableExpression` (`any`) storing disable expression.",
+          "descriptionZh": "属性 `disableExpression`（类型：`any`），用于存储或配置禁用表达式。"
         },
         {
           "name": "expressionProperties",
           "type": "any",
-          "description": "Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.",
-          "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。"
+          "description": "Property `expressionProperties` (`any`) storing expression properties.",
+          "descriptionZh": "属性 `expressionProperties`（类型：`any`），用于存储或配置表达式属性列表。"
         },
         {
           "name": "badge",
@@ -680,8 +680,8 @@
         {
           "name": "children",
           "type": "Array<MenuModel>",
-          "description": "Property `children` (`Array<MenuModel>`) storing children.",
-          "descriptionZh": "属性 `children`（类型：`Array<MenuModel>`），用于存储或配置子级列表。"
+          "description": "Property `children` (`MenuModel[]`) storing children.",
+          "descriptionZh": "属性 `children`（类型：`MenuModel[]`），用于存储或配置子级列表。"
         },
         {
           "name": "handler",
@@ -723,8 +723,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     MatDivider,\n     MenuBarComponent,\n    MenuItemComponent,]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof MatDivider | typeof MenuBarComponent | typeof MenuItemComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof MatDivider | typeof MenuBarComponent | typeof MenuItemComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     }

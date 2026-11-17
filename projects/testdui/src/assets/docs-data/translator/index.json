@@ -543,7 +543,7 @@
           ],
           "returnType": "string | Function",
           "description": "Executes `compile` to handle compile.",
-          "descriptionZh": "执行 `compile`，用于compile。"
+          "descriptionZh": "执行 `compile`，用于编译。"
         },
         {
           "name": "compileTranslations",
@@ -559,7 +559,7 @@
           ],
           "returnType": "any",
           "description": "Executes `compileTranslations` to handle compile translations.",
-          "descriptionZh": "执行 `compileTranslations`，用于compile翻译文本。"
+          "descriptionZh": "执行 `compileTranslations`，用于编译翻译文本。"
         }
       ],
       "properties": []
@@ -587,7 +587,7 @@
           ],
           "returnType": "string",
           "description": "Executes `interpolate` to handle interpolate.",
-          "descriptionZh": "执行 `interpolate`，用于interpolate。"
+          "descriptionZh": "执行 `interpolate`，用于插值。"
         },
         {
           "name": "getValue",
@@ -766,7 +766,7 @@
           ],
           "returnType": "string | Function",
           "description": "Executes `compile` to handle compile.",
-          "descriptionZh": "执行 `compile`，用于compile。"
+          "descriptionZh": "执行 `compile`，用于编译。"
         },
         {
           "name": "compileTranslations",
@@ -782,7 +782,7 @@
           ],
           "returnType": "any",
           "description": "Executes `compileTranslations` to handle compile translations.",
-          "descriptionZh": "执行 `compileTranslations`，用于compile翻译文本。"
+          "descriptionZh": "执行 `compileTranslations`，用于编译翻译文本。"
         }
       ],
       "properties": []
@@ -1141,7 +1141,7 @@
           ],
           "returnType": "string",
           "description": "Interpolates a string to replace parameters\n\"This is a {{ key }}\" ==> \"This is a value\", with params = { key: \"value\" }",
-          "descriptionZh": "执行 `interpolate`，用于interpolate。"
+          "descriptionZh": "执行 `interpolate`，用于插值。"
         },
         {
           "name": "getValue",
@@ -1226,8 +1226,8 @@
         {
           "name": "lastParams",
           "type": "any",
-          "description": "Property `lastParams` (`any[]`) storing last params.",
-          "descriptionZh": "属性 `lastParams`（类型：`any[]`），用于存储或配置末尾参数集合。"
+          "description": "Property `lastParams` (`any`) storing last params.",
+          "descriptionZh": "属性 `lastParams`（类型：`any`），用于存储或配置末尾参数集合。"
         },
         {
           "name": "onTranslationChange",
@@ -1550,8 +1550,8 @@
         {
           "name": "loadingTranslations",
           "type": "any",
-          "description": "Property `loadingTranslations` (`Observable<any>`) storing loading translations.",
-          "descriptionZh": "属性 `loadingTranslations`（类型：`Observable<any>`），用于存储或配置加载中翻译文本。"
+          "description": "Property `loadingTranslations` (`any`) storing loading translations.",
+          "descriptionZh": "属性 `loadingTranslations`（类型：`any`），用于存储或配置加载中翻译文本。"
         },
         {
           "name": "onTranslationChange",
@@ -1647,17 +1647,17 @@
         },
         {
           "name": "translations",
-          "type": "any",
+          "type": "Record<string, Object>",
           "default": "{}",
           "description": "a list of translations per lang",
-          "descriptionZh": "属性 `translations`（类型：`any`），用于存储或配置翻译文本（默认值：`{}`）。"
+          "descriptionZh": "属性 `translations`（类型：`Record<string, Object>`），用于存储或配置翻译文本（默认值：`{}`）。"
         },
         {
           "name": "langs",
           "type": "Array<string>",
           "default": "[]",
           "description": "an array of langs",
-          "descriptionZh": "属性 `langs`（类型：`Array<string>`），用于存储或配置语言（默认值：`[]`）。"
+          "descriptionZh": "属性 `langs`（类型：`string[]`），用于存储或配置语言（默认值：`[]`）。"
         },
         {
           "name": "onTranslationChange",

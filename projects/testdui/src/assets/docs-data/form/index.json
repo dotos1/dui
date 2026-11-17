@@ -25,8 +25,8 @@
         {
           "name": "selectedChanged",
           "type": "any",
-          "description": "Output event emitter `selectedChanged` (`EventEmitter`) firing when selected changed occurs.",
-          "descriptionZh": "输出事件 `selectedChanged`（类型：`EventEmitter`），当触发已选中已变更时向外发出事件。"
+          "description": "Output event emitter `selectedChanged` (`EventEmitter<any>`) firing when selected changed occurs.",
+          "descriptionZh": "输出事件 `selectedChanged`（类型：`EventEmitter<any>`），当触发已选中已变更时向外发出事件。"
         },
         {
           "name": "openedStream",
@@ -171,8 +171,8 @@
         {
           "name": "result",
           "type": "any",
-          "description": "Output event emitter `result` (`EventEmitter`) firing when result occurs.",
-          "descriptionZh": "输出事件 `result`（类型：`EventEmitter`），当触发结果时向外发出事件。"
+          "description": "Output event emitter `result` (`EventEmitter<{ key: string; data: string; }>`) firing when result occurs.",
+          "descriptionZh": "输出事件 `result`（类型：`EventEmitter<{ key: string; data: string; }>`），当触发结果时向外发出事件。"
         }
       ],
       "methods": [
@@ -189,14 +189,14 @@
           "name": "selectData",
           "type": "any",
           "default": "[]",
-          "description": "Property `selectData` (`Array<any>`) storing select data (default: `[]`).",
-          "descriptionZh": "属性 `selectData`（类型：`Array<any>`），用于存储或配置下拉选择数据（默认值：`[]`）。"
+          "description": "Property `selectData` (`any[]`) storing select data (default: `[]`).",
+          "descriptionZh": "属性 `selectData`（类型：`any[]`），用于存储或配置下拉选择数据（默认值：`[]`）。"
         },
         {
           "name": "filteredData",
           "type": "any",
-          "description": "Property `filteredData` (`Observable<Array<any>>`) storing filtered data.",
-          "descriptionZh": "属性 `filteredData`（类型：`Observable<Array<any>>`），用于存储或配置已过滤数据。"
+          "description": "Property `filteredData` (`any`) storing filtered data.",
+          "descriptionZh": "属性 `filteredData`（类型：`any`），用于存储或配置已过滤数据。"
         },
         {
           "name": "filterString",
@@ -209,43 +209,43 @@
           "name": "filter",
           "type": "any",
           "default": "(filter: string) => {\n    this.filterString = filter;\n    this.selectData=[];\n    if(this.field.options==undefined){\n      return [];\n    }\n    let opts = this.field.options.map(o => ({ ...o, selected: false }));\n    if (filter && filter.length > 0) {\n      const selectedValues = String(filter).split(',').map(s => s.trim());\n      opts.forEach(option => {\n        let seleted = selectedValues.includes(String(option.value));\n        option[\"selected\"] = seleted;\n        if (seleted) {\n          this.selectData.push(option);\n        }\n      });\n\n      return opts;\n    } else {\n      return opts.slice();\n    }\n  }",
-          "description": "Property `filter` (`any`) storing filter.",
-          "descriptionZh": "属性 `filter`（类型：`any`），用于存储或配置过滤。"
+          "description": "Property `filter` (`(filter: string) => any`) storing filter.",
+          "descriptionZh": "属性 `filter`（类型：`(filter: string) => any`），用于存储或配置过滤。"
         },
         {
           "name": "displayFn",
           "type": "any",
           "default": "(): string => ''",
-          "description": "Property `displayFn` (`any`) storing display fn (default: `(): string => ''`).",
-          "descriptionZh": "属性 `displayFn`（类型：`any`），用于存储或配置display函数（默认值：`(): string => ''`）。"
+          "description": "Property `displayFn` (`() => string`) storing display fn (default: `(): string => ''`).",
+          "descriptionZh": "属性 `displayFn`（类型：`() => string`），用于存储或配置display函数（默认值：`(): string => ''`）。"
         },
         {
           "name": "optionClicked",
           "type": "any",
           "default": "(event: Event, data): void => {\n    event.stopPropagation();\n    this.toggleSelection(data);\n  }",
-          "description": "Property `optionClicked` (`any`) storing option clicked.",
-          "descriptionZh": "属性 `optionClicked`（类型：`any`），用于存储或配置选项点击。"
+          "description": "Property `optionClicked` (`(event: Event, data: any) => void`) storing option clicked.",
+          "descriptionZh": "属性 `optionClicked`（类型：`(event: Event, data: any) => void`），用于存储或配置选项点击。"
         },
         {
           "name": "toggleSelection",
           "type": "any",
           "default": "(data): void => {\n    data.selected = !data.selected;\n    if (data.selected === true) {\n      this.selectData.push(data);\n    } else {\n      const i = this.selectData.findIndex(val =>val.value === data.value);\n      this.selectData.splice(i, 1);\n    }\n    this.emitAdjustedData();\n  }",
-          "description": "Property `toggleSelection` (`any`) storing toggle selection.",
-          "descriptionZh": "属性 `toggleSelection`（类型：`any`），用于存储或配置开关Selection。"
+          "description": "Property `toggleSelection` (`(data: any) => void`) storing toggle selection.",
+          "descriptionZh": "属性 `toggleSelection`（类型：`(data: any) => void`），用于存储或配置开关Selection。"
         },
         {
           "name": "emitAdjustedData",
           "type": "any",
           "default": "(): void => {\n    const results: Array<string> = []\n    this.selectData.forEach((data: { value? }) => {\n      results.push(data.value);\n    });\n\n    this.formControl.setValue(results.join(','));\n\n    this.result.emit({ key: this.field.name, data: results.join(',') });\n  }",
-          "description": "Property `emitAdjustedData` (`any`) storing emit adjusted data.",
-          "descriptionZh": "属性 `emitAdjustedData`（类型：`any`），用于存储或配置发出Adjusted数据。"
+          "description": "Property `emitAdjustedData` (`() => void`) storing emit adjusted data.",
+          "descriptionZh": "属性 `emitAdjustedData`（类型：`() => void`），用于存储或配置发出Adjusted数据。"
         },
         {
           "name": "removeChip",
           "type": "any",
           "default": "(data): void => {\n    this.toggleSelection(data);\n  }",
-          "description": "Property `removeChip` (`any`) storing remove chip.",
-          "descriptionZh": "属性 `removeChip`（类型：`any`），用于存储或配置移除纸片标签。"
+          "description": "Property `removeChip` (`(data: any) => void`) storing remove chip.",
+          "descriptionZh": "属性 `removeChip`（类型：`(data: any) => void`），用于存储或配置移除纸片标签。"
         }
       ]
     },
@@ -263,8 +263,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    ArrayInputComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ ArrayInputComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ ArrayInputComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof ArrayInputComponent)[]`) storing entry components (default: `[ ArrayInputComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ArrayInputComponent)[]`），用于存储或配置条目组件列表（默认值：`[ ArrayInputComponent]`）。"
         }
       ]
     },
@@ -332,15 +332,15 @@
         {
           "name": "checkbox",
           "type": "MatCheckbox",
-          "description": "Template/content query reference `checkbox` (`@ViewChild`) targeting checkbox.",
+          "description": "Template/content query reference `checkbox` (`MatCheckbox`) targeting checkbox.",
           "descriptionZh": "模板/内容视图查询引用 `checkbox`（`@ViewChild`），指向复选框。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    indeterminate: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    align: 'start',\n    color: 'accent',  // start or end\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options.",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
+          "description": "Property `defaultOptions` (`{…}`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。"
         }
       ]
     },
@@ -358,8 +358,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[CheckboxField]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[CheckboxField]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[CheckboxField]`）。"
+          "description": "Property `entryComponents` (`(typeof CheckboxField)[]`) storing entry components (default: `[CheckboxField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof CheckboxField)[]`），用于存储或配置条目组件列表（默认值：`[CheckboxField]`）。"
         }
       ]
     },
@@ -422,22 +422,22 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByOption` to handle track by option.",
-          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
+          "descriptionZh": "执行 `trackByOption`，用于跟踪按选项。"
         }
       ],
       "properties": [
         {
           "name": "checkboxes",
           "type": "QueryList<MatCheckbox>",
-          "description": "Template/content query reference `checkboxes` (`@ViewChildren`) targeting checkboxes.",
+          "description": "Template/content query reference `checkboxes` (`QueryList<MatCheckbox>`) targeting checkboxes.",
           "descriptionZh": "模板/内容视图查询引用 `checkboxes`（`@ViewChildren`），指向复选框。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    color: 'accent',\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options.",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
+          "description": "Property `defaultOptions` (`{…}`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。"
         },
         {
           "name": "align",
@@ -483,8 +483,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[CheckboxGroupField]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[CheckboxGroupField]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[CheckboxGroupField]`）。"
+          "description": "Property `entryComponents` (`(typeof CheckboxGroupField)[]`) storing entry components (default: `[CheckboxGroupField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof CheckboxGroupField)[]`），用于存储或配置条目组件列表（默认值：`[CheckboxGroupField]`）。"
         }
       ]
     },
@@ -502,8 +502,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    ColorPickerContent,\n    ColorPickerField\n  ]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof ColorPickerField | typeof ColorPickerContent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ColorPickerField | typeof ColorPickerContent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -532,8 +532,8 @@
         {
           "name": "colorChanged",
           "type": "any",
-          "description": "Output event emitter `colorChanged` (`EventEmitter<any>`) firing when color changed occurs.",
-          "descriptionZh": "输出事件 `colorChanged`（类型：`EventEmitter<any>`），当触发颜色已变更时向外发出事件。"
+          "description": "Output event emitter `colorChanged` (`any`) firing when color changed occurs.",
+          "descriptionZh": "输出事件 `colorChanged`（类型：`any`），当触发颜色已变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -598,7 +598,7 @@
           ],
           "returnType": "void",
           "description": "Go to palettes view\n\nparam event",
-          "descriptionZh": "执行 `goToPalettesView`，用于go转换为调色板视图。"
+          "descriptionZh": "执行 `goToPalettesView`，用于跳转到转换为调色板视图。"
         },
         {
           "name": "onMenuOpen",
@@ -714,7 +714,7 @@
         {
           "name": "input",
           "type": "ElementRef",
-          "description": "Template/content query reference `input` (`@ViewChild`) targeting input.",
+          "description": "Template/content query reference `input` (`ElementRef<any>`) targeting input.",
           "descriptionZh": "模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。"
         },
         {
@@ -727,15 +727,15 @@
           "name": "colorType",
           "type": "'sketch' | 'chrome' | 'compact' | 'github' | 'material'",
           "default": "'sketch'",
-          "description": "Property `colorType` (`'sketch' | 'chrome' | 'compact' | 'github' | 'material'`) storing color type (default: `'sketch'`).",
-          "descriptionZh": "属性 `colorType`（类型：`'sketch' | 'chrome' | 'compact' | 'github' | 'material'`），用于存储或配置颜色类型（默认值：`'sketch'`）。"
+          "description": "Property `colorType` (`\"compact\" | \"sketch\" | \"chrome\" | \"github\" | \"material\"`) storing color type (default: `'sketch'`).",
+          "descriptionZh": "属性 `colorType`（类型：`\"compact\" | \"sketch\" | \"chrome\" | \"github\" | \"material\"`），用于存储或配置颜色类型（默认值：`'sketch'`）。"
         },
         {
           "name": "params",
-          "type": "any",
+          "type": "Record<string, unknown>",
           "default": "{}",
-          "description": "Property `params` (`any`) storing params (default: `{}`).",
-          "descriptionZh": "属性 `params`（类型：`any`），用于存储或配置参数集合（默认值：`{}`）。"
+          "description": "Property `params` (`Record<string, unknown>`) storing params (default: `{}`).",
+          "descriptionZh": "属性 `params`（类型：`Record<string, unknown>`），用于存储或配置参数集合（默认值：`{}`）。"
         },
         {
           "name": "label",
@@ -797,8 +797,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    TextFieldComponent,\n    DisplayFieldComponent,\n    HiddenFieldComponent,\n    NumberFieldComponent,\n    TextAreaComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof TextFieldComponent | typeof HiddenFieldComponent | typeof NumberFieldComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof TextFieldComponent | typeof HiddenFieldComponent | typeof NumberFieldComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -879,15 +879,15 @@
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "description": "Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.",
           "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
-          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
+          "description": "Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "errorState",
@@ -987,6 +987,13 @@
           "type": "FieldConfig",
           "description": "Input property `field` (`FieldConfig`) configuring field.",
           "descriptionZh": "输入属性 `field`（类型：`FieldConfig`），用于配置字段。"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "''",
+          "description": "Input property `className` (`string`) configuring fallback host CSS class name (default: `\"\"`).",
+          "descriptionZh": "输入属性 `className`（类型：`string`），用于配置宿主默认 CSS 类名（默认值：`\"\"`）。"
         }
       ],
       "outputs": [],
@@ -1008,17 +1015,24 @@
       ],
       "properties": [
         {
+          "name": "phone",
+          "type": "any",
+          "default": "isPhoneTerminal()",
+          "description": "Whether the terminal is a phone. Only then the field name is exposed on the host (layout assertions, locating a field).",
+          "descriptionZh": "是否手机类。手机类下才把字段名放到宿主属性上（布局断言、定位字段用），桌面 DOM 不变。"
+        },
+        {
           "name": "containerRef",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `containerRef` (`@ViewChild`) targeting container ref.",
+          "description": "Template/content query reference `containerRef` (`ViewContainerRef`) targeting container ref.",
           "descriptionZh": "模板/内容视图查询引用 `containerRef`（`@ViewChild`），指向容器引用。"
         },
         {
           "name": "valueChangesUnsubscribe",
           "type": "any",
           "default": "() => {}",
-          "description": "Property `valueChangesUnsubscribe` (`any`) storing value changes unsubscribe (default: `() => {}`).",
-          "descriptionZh": "属性 `valueChangesUnsubscribe`（类型：`any`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。"
+          "description": "Property `valueChangesUnsubscribe` (`() => void`) storing value changes unsubscribe (default: `() => {}`).",
+          "descriptionZh": "属性 `valueChangesUnsubscribe`（类型：`() => void`），用于存储或配置值变更集合取消订阅（默认值：`() => {}`）。"
         }
       ]
     },
@@ -1167,28 +1181,35 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByOption` to handle track by option.",
-          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
+          "descriptionZh": "执行 `trackByOption`，用于跟踪按选项。"
         }
       ],
       "properties": [
         {
           "name": "matSelect",
           "type": "MatSelect",
-          "description": "Template/content query reference `matSelect` (`@ViewChild`) targeting mat select.",
+          "description": "Template/content query reference `matSelect` (`MatSelect`) targeting mat select.",
           "descriptionZh": "模板/内容视图查询引用 `matSelect`（`@ViewChild`），指向Material下拉选择。"
+        },
+        {
+          "name": "phone",
+          "type": "any",
+          "default": "isPhoneTerminal()",
+          "description": "Whether the terminal is a phone: the panel becomes a full-screen page with a close bar.",
+          "descriptionZh": "是否手机类：选择面板变全屏页并带关闭条（施工图 M2-15）。桌面为 false，模板与原来一致。"
         },
         {
           "name": "matSearch",
           "type": "MatSelectSearchComponent",
-          "description": "Template/content query reference `matSearch` (`@ViewChild`) targeting mat search.",
+          "description": "Template/content query reference `matSearch` (`MatSelectSearchComponent`) targeting mat search.",
           "descriptionZh": "模板/内容视图查询引用 `matSearch`（`@ViewChild`），指向Material搜索。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    options: []\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ options: [] }`).",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ options: [] }`）。"
+          "description": "Property `defaultOptions` (`{ options: any[]; }`) storing default options (default: `{ options: [] }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{ options: any[]; }`），用于存储或配置默认配置选项（默认值：`{ options: [] }`）。"
         },
         {
           "name": "isAlive",
@@ -1224,6 +1245,18 @@
           "default": "false",
           "description": "Property `searching` (`boolean`) storing searching (default: `false`).",
           "descriptionZh": "属性 `searching`（类型：`boolean`），用于存储或配置搜索（默认值：`false`）。"
+        },
+        {
+          "name": "fallbackOption",
+          "type": "{ value: unknown; text: string } | null",
+          "description": "Gets the echo option shown when the field is disabled/readonly and the current value matches none of the loaded options.",
+          "descriptionZh": "停用 / 只读态下，当前值对不上任何已加载选项时，补一个只放服务端回显文字（`field.inputValue`）的选项，避免显示空白；其它情况返回 null（启用态行为不变）。"
+        },
+        {
+          "name": "echoText",
+          "type": "string",
+          "description": "Gets the server-echoed text (`field.inputValue`) to show in the trigger while the field is disabled/readonly and has a value; empty otherwise (enabled behavior unchanged).",
+          "descriptionZh": "停用 / 只读态且有值时，触发器显示的服务端回显文字（`field.inputValue`）；其它情况为空串（启用态行为不变）。"
         }
       ]
     },
@@ -1621,8 +1654,8 @@
           "name": "config",
           "type": "{ items? }",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`{ items?: any; }`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`{ items?: any; }`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "form",
@@ -1660,14 +1693,14 @@
         {
           "name": "modelChange",
           "type": "any",
-          "description": "Output event emitter `modelChange` (`EventEmitter`) firing when model change occurs.",
-          "descriptionZh": "输出事件 `modelChange`（类型：`EventEmitter`），当触发模型变更时向外发出事件。"
+          "description": "Output event emitter `modelChange` (`EventEmitter<any>`) firing when model change occurs.",
+          "descriptionZh": "输出事件 `modelChange`（类型：`EventEmitter<any>`），当触发模型变更时向外发出事件。"
         },
         {
           "name": "formInit",
           "type": "any",
-          "description": "Output event emitter `formInit` (`EventEmitter`) firing when form init occurs.",
-          "descriptionZh": "输出事件 `formInit`（类型：`EventEmitter`），当触发表单初始化时向外发出事件。"
+          "description": "Output event emitter `formInit` (`EventEmitter<any>`) firing when form init occurs.",
+          "descriptionZh": "输出事件 `formInit`（类型：`EventEmitter<any>`），当触发表单初始化时向外发出事件。"
         }
       ],
       "methods": [
@@ -1691,6 +1724,25 @@
           "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
+          "name": "renderAll",
+          "params": [],
+          "returnType": "void",
+          "description": "Render all fields now (e.g. to reveal the first validation error on a phone).",
+          "descriptionZh": "立即渲染全部字段（如手机校验失败要定位到第一个错误）。"
+        },
+        {
+          "name": "flexOf",
+          "params": [
+            {
+              "name": "item",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Flex basis of a field: the backend value on desktop, always 100 (single column) on a phone.",
+          "descriptionZh": "字段的 flex：桌面用后端下发值；手机类下固定 100（单列），后端值不变。"
+        },
+        {
           "name": "getStyle",
           "params": [
             {
@@ -1698,9 +1750,9 @@
               "type": "any"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `getStyle` to handle get style.",
-          "descriptionZh": "执行 `getStyle`，用于获取样式。"
+          "returnType": "Record<string, string>",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "changeModel",
@@ -1759,7 +1811,7 @@
           ],
           "returnType": "any",
           "description": "Executes `doAction` to handle do action.",
-          "descriptionZh": "执行 `doAction`，用于do动作。"
+          "descriptionZh": "执行 `doAction`，用于执行动作。"
         },
         {
           "name": "updateField",
@@ -1876,7 +1928,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "TypeOption",
           "description": "Executes `getComponent` to handle get component.",
           "descriptionZh": "执行 `getComponent`，用于获取组件。"
         },
@@ -1965,6 +2017,12 @@
           "descriptionZh": "属性 `fileUpload`（类型：`boolean`），用于存储或配置文件上传（默认值：`false`）。"
         },
         {
+          "name": "renderItems",
+          "type": "FieldConfig[]",
+          "description": "Fields to render. Desktop renders all. On a phone long forms render in batches so the first paint stays fast;\ncontrols and validators exist for every field regardless (built by FormBuilder).",
+          "descriptionZh": "要渲染的字段。桌面全部渲染；手机长表单分批渲染（字段控件和校验器在构建时已全部建好，不受影响）。"
+        },
+        {
           "name": "valid",
           "type": "boolean",
           "description": "Gets the current valid (`valid: boolean`).",
@@ -1995,6 +2053,18 @@
       "outputs": [],
       "methods": [
         {
+          "name": "flexOf",
+          "params": [
+            {
+              "name": "item",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "number | string",
+          "description": "Flex basis of a field: the backend value on desktop, always 100 (single column) on a phone.",
+          "descriptionZh": "字段的 flex：桌面用后端下发值；手机类下固定 100（单列），后端值不变。"
+        },
+        {
           "name": "getStyle",
           "params": [
             {
@@ -2002,9 +2072,9 @@
               "type": "any"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `getStyle` to handle get style.",
-          "descriptionZh": "执行 `getStyle`，用于获取样式。"
+          "returnType": "Record<string, string>",
+          "description": null,
+          "descriptionZh": null
         }
       ],
       "properties": [
@@ -2012,8 +2082,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    defaultValue: {},\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ defaultValue: {}, }`).",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ defaultValue: {}, }`）。"
+          "description": "Property `defaultOptions` (`{ defaultValue: {}; }`) storing default options (default: `{ defaultValue: {}, }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{ defaultValue: {}; }`），用于存储或配置默认配置选项（默认值：`{ defaultValue: {}, }`）。"
         }
       ]
     },
@@ -2051,8 +2121,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    FormComponent,\n    FormGroup,\n    FieldComponent,]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof FormComponent | typeof FormGroup | typeof FieldComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof FormComponent | typeof FormGroup | typeof FieldComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -2104,6 +2174,18 @@
           "returnType": "any",
           "description": "Executes `toggle` to handle toggle.",
           "descriptionZh": "执行 `toggle`，用于开关。"
+        },
+        {
+          "name": "getItemFlexStyle",
+          "params": [
+            {
+              "name": "item",
+              "type": "FieldConfig"
+            }
+          ],
+          "returnType": "Record<string, string>",
+          "description": "Computes flex layout styles for a section child field item.",
+          "descriptionZh": "计算分组子字段项的原生 CSS Flex 布局样式。"
         }
       ],
       "properties": [
@@ -2118,8 +2200,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    defaultValue: [],\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ defaultValue: [], }`).",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ defaultValue: [], }`）。"
+          "description": "Property `defaultOptions` (`{ defaultValue: any[]; }`) storing default options (default: `{ defaultValue: [], }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{ defaultValue: any[]; }`），用于存储或配置默认配置选项（默认值：`{ defaultValue: [], }`）。"
         }
       ]
     },
@@ -2137,8 +2219,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "FIELD_TYPE_COMPONENTS",
-          "description": "Property `entryComponents` (`any`) storing entry components (default: `FIELD_TYPE_COMPONENTS`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`FIELD_TYPE_COMPONENTS`）。"
+          "description": "Property `entryComponents` (`(typeof FormSection | typeof ExtFieldWrapper | typeof WrapperFormField | typeof LabelWrapperField | typeof Fieldset | typeof WrapperEditorField | typeof RepeatTypeComponent | typeof RowEditorComponent)[]`) storing entry components (default: `FIELD_TYPE_COMPONENTS`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof FormSection | typeof ExtFieldWrapper | typeof WrapperFormField | typeof LabelWrapperField | typeof Fieldset | typeof WrapperEditorField | typeof RepeatTypeComponent | typeof RowEditorComponent)[]`），用于存储或配置条目组件列表（默认值：`FIELD_TYPE_COMPONENTS`）。"
         }
       ]
     },
@@ -2268,8 +2350,8 @@
         {
           "name": "input",
           "type": "ElementRef",
-          "description": "Property `input` (`ElementRef`) storing input.",
-          "descriptionZh": "属性 `input`（类型：`ElementRef`），用于存储或配置输入属性。"
+          "description": "Property `input` (`ElementRef<any>`) storing input.",
+          "descriptionZh": "属性 `input`（类型：`ElementRef<any>`），用于存储或配置输入属性。"
         },
         {
           "name": "type",
@@ -2332,8 +2414,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    LabelField\n  ]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ LabelField ]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ LabelField ]`）。"
+          "description": "Property `entryComponents` (`(typeof LabelField)[]`) storing entry components (default: `[ LabelField ]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof LabelField)[]`），用于存储或配置条目组件列表（默认值：`[ LabelField ]`）。"
         }
       ]
     },
@@ -2402,15 +2484,15 @@
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "description": "Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.",
           "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
-          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
+          "description": "Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "underTip",
@@ -2584,19 +2666,19 @@
           "name": "align",
           "type": "'start' | 'end'",
           "description": "Alignment of the radio-buttons relative to their labels. Can be 'before' or 'after'.",
-          "descriptionZh": "输入属性 `align`（类型：`'start' | 'end'`）的读取器，返回当前对齐。"
+          "descriptionZh": "输入属性 `align`（类型：`\"end\" | \"start\"`）的读取器，返回当前对齐。"
         },
         {
           "name": "labelPosition",
           "type": "any",
           "description": "Whether the labels should appear after or before the radio-buttons. Defaults to 'after'",
-          "descriptionZh": "输入属性 `labelPosition`（类型：`any`）的读取器，返回当前标签位置。"
+          "descriptionZh": "输入属性 `labelPosition`（类型：`\"before\" | \"after\"`）的读取器，返回当前标签位置。"
         },
         {
           "name": "value",
           "type": "Array<string>",
           "description": "Value of the radio button.",
-          "descriptionZh": "输入属性 `value`（类型：`Array<string>`）的读取器，返回当前值。"
+          "descriptionZh": "输入属性 `value`（类型：`string[]`）的读取器，返回当前值。"
         },
         {
           "name": "disabled",
@@ -2614,7 +2696,7 @@
           "name": "selected",
           "type": "any",
           "description": "Whether the radio button is selected.",
-          "descriptionZh": "输入属性 `selected`（类型：`any`）的读取器，返回当前已选中。"
+          "descriptionZh": "输入属性 `selected`（类型：`MatCheckbox[]`）的读取器，返回当前已选中。"
         }
       ],
       "outputs": [
@@ -2739,13 +2821,13 @@
         {
           "name": "matPrefix",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `matPrefix` (`@ViewChild`) targeting mat prefix.",
+          "description": "Template/content query reference `matPrefix` (`TemplateRef<unknown>`) targeting mat prefix.",
           "descriptionZh": "模板/内容视图查询引用 `matPrefix`（`@ViewChild`），指向Material前缀。"
         },
         {
           "name": "matSuffix",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `matSuffix` (`@ViewChild`) targeting mat suffix.",
+          "description": "Template/content query reference `matSuffix` (`TemplateRef<unknown>`) targeting mat suffix.",
           "descriptionZh": "模板/内容视图查询引用 `matSuffix`（`@ViewChild`），指向Material后缀。"
         },
         {
@@ -2771,8 +2853,8 @@
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
-          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
+          "description": "Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "invalidText",
@@ -3053,22 +3135,22 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByOption` to handle track by option.",
-          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
+          "descriptionZh": "执行 `trackByOption`，用于跟踪按选项。"
         }
       ],
       "properties": [
         {
           "name": "radioGroup",
           "type": "MatRadioGroup",
-          "description": "Template/content query reference `radioGroup` (`@ViewChild`) targeting radio group.",
+          "description": "Template/content query reference `radioGroup` (`MatRadioGroup`) targeting radio group.",
           "descriptionZh": "模板/内容视图查询引用 `radioGroup`（`@ViewChild`），指向单选框分组。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    options: [],\n    tabindex: -1,\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options.",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
+          "description": "Property `defaultOptions` (`{…}`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。"
         },
         {
           "name": "readOnly",
@@ -3093,8 +3175,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[RadioGroupField]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[RadioGroupField]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[RadioGroupField]`）。"
+          "description": "Property `entryComponents` (`(typeof RadioGroupField)[]`) storing entry components (default: `[RadioGroupField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof RadioGroupField)[]`），用于存储或配置条目组件列表（默认值：`[RadioGroupField]`）。"
         }
       ]
     },
@@ -3126,22 +3208,22 @@
           "name": "startCtrl",
           "type": "any",
           "default": "new FormControl(20)",
-          "description": "Property `startCtrl` (`FormControl`) storing start ctrl (default: `new FormControl(20)`).",
-          "descriptionZh": "属性 `startCtrl`（类型：`FormControl`），用于存储或配置开始Ctrl（默认值：`new FormControl(20)`）。"
+          "description": "Property `startCtrl` (`FormControl<number>`) storing start ctrl (default: `new FormControl(20)`).",
+          "descriptionZh": "属性 `startCtrl`（类型：`FormControl<number>`），用于存储或配置开始Ctrl（默认值：`new FormControl(20)`）。"
         },
         {
           "name": "endCtrl",
           "type": "any",
           "default": "new FormControl(80)",
-          "description": "Property `endCtrl` (`FormControl`) storing end ctrl (default: `new FormControl(80)`).",
-          "descriptionZh": "属性 `endCtrl`（类型：`FormControl`），用于存储或配置结束Ctrl（默认值：`new FormControl(80)`）。"
+          "description": "Property `endCtrl` (`FormControl<number>`) storing end ctrl (default: `new FormControl(80)`).",
+          "descriptionZh": "属性 `endCtrl`（类型：`FormControl<number>`），用于存储或配置结束Ctrl（默认值：`new FormControl(80)`）。"
         },
         {
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options.",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
+          "description": "Property `defaultOptions` (`{ hideFieldUnderline: boolean; floatLabel: string; }`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{ hideFieldUnderline: boolean; floatLabel: string; }`），用于存储或配置默认配置选项。"
         }
       ]
     },
@@ -3159,8 +3241,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[RangeSliderFieldComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[RangeSliderFieldComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[RangeSliderFieldComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof RangeSliderFieldComponent)[]`) storing entry components (default: `[RangeSliderFieldComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof RangeSliderFieldComponent)[]`），用于存储或配置条目组件列表（默认值：`[RangeSliderFieldComponent]`）。"
         }
       ]
     },
@@ -3255,7 +3337,7 @@
         {
           "name": "addButton",
           "type": "ButtonComponent",
-          "description": "Template/content query reference `addButton` (`@ViewChild`) targeting add button.",
+          "description": "Template/content query reference `addButton` (`ButtonComponent`) targeting add button.",
           "descriptionZh": "模板/内容视图查询引用 `addButton`（`@ViewChild`），指向添加按钮。"
         }
       ]
@@ -3306,8 +3388,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ FieldSelect]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ FieldSelect]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ FieldSelect]`）。"
+          "description": "Property `entryComponents` (`(typeof FieldSelect)[]`) storing entry components (default: `[ FieldSelect]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof FieldSelect)[]`），用于存储或配置条目组件列表（默认值：`[ FieldSelect]`）。"
         }
       ]
     },
@@ -3497,8 +3579,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options.",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
+          "description": "Property `defaultOptions` (`{ hideFieldUnderline: boolean; floatLabel: string; }`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{ hideFieldUnderline: boolean; floatLabel: string; }`），用于存储或配置默认配置选项。"
         }
       ]
     },
@@ -3516,8 +3598,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[SliderFieldComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[SliderFieldComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[SliderFieldComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof SliderFieldComponent)[]`) storing entry components (default: `[SliderFieldComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof SliderFieldComponent)[]`），用于存储或配置条目组件列表（默认值：`[SliderFieldComponent]`）。"
         }
       ]
     },
@@ -3568,8 +3650,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    hideFieldUnderline: true,\n    floatLabel: 'always',\n    hideLabel: true,\n    color: 'accent',\n    defaultValue: false\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options.",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项。"
+          "description": "Property `defaultOptions` (`{…}`) storing default options.",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{…}`），用于存储或配置默认配置选项。"
         }
       ]
     },
@@ -3587,8 +3669,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[SliderToggleField]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[SliderToggleField]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[SliderToggleField]`）。"
+          "description": "Property `entryComponents` (`(typeof SliderToggleField)[]`) storing entry components (default: `[SliderToggleField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof SliderToggleField)[]`），用于存储或配置条目组件列表（默认值：`[SliderToggleField]`）。"
         }
       ]
     },
@@ -3652,8 +3734,8 @@
           "name": "defaultOptions",
           "type": "any",
           "default": "{\n    cols: 1,\n    rows: 3,\n  }",
-          "description": "Property `defaultOptions` (`any`) storing default options (default: `{ cols: 1, rows: 3, }`).",
-          "descriptionZh": "属性 `defaultOptions`（类型：`any`），用于存储或配置默认配置选项（默认值：`{ cols: 1, rows: 3, }`）。"
+          "description": "Property `defaultOptions` (`{ cols: number; rows: number; }`) storing default options (default: `{ cols: 1, rows: 3, }`).",
+          "descriptionZh": "属性 `defaultOptions`（类型：`{ cols: number; rows: number; }`），用于存储或配置默认配置选项（默认值：`{ cols: 1, rows: 3, }`）。"
         }
       ]
     },
@@ -3724,14 +3806,14 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByOption` to handle track by option.",
-          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
+          "descriptionZh": "执行 `trackByOption`，用于跟踪按选项。"
         }
       ],
       "properties": [
         {
           "name": "autocompleteTrigger",
           "type": "MatAutocompleteTrigger",
-          "description": "Template/content query reference `autocompleteTrigger` (`@ViewChild`) targeting autocomplete trigger.",
+          "description": "Template/content query reference `autocompleteTrigger` (`MatAutocompleteTrigger`) targeting autocomplete trigger.",
           "descriptionZh": "模板/内容视图查询引用 `autocompleteTrigger`（`@ViewChild`），指向自动补全触发。"
         },
         {
@@ -3806,7 +3888,7 @@
         {
           "name": "input",
           "type": "ElementRef",
-          "description": "Template/content query reference `input` (`@ViewChild`) targeting input.",
+          "description": "Template/content query reference `input` (`ElementRef<any>`) targeting input.",
           "descriptionZh": "模板/内容视图查询引用 `input`（`@ViewChild`），指向输入属性。"
         },
         {
@@ -3856,8 +3938,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[TriggerField]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[TriggerField]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[TriggerField]`）。"
+          "description": "Property `entryComponents` (`(typeof TriggerField)[]`) storing entry components (default: `[TriggerField]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof TriggerField)[]`），用于存储或配置条目组件列表（默认值：`[TriggerField]`）。"
         }
       ]
     },
@@ -3937,33 +4019,33 @@
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "description": "Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.",
           "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": "Template/content query reference `formField` (`@ViewChild`) targeting form field.",
+          "description": "Template/content query reference `formField` (`MatFormField`) targeting form field.",
           "descriptionZh": "模板/内容视图查询引用 `formField`（`@ViewChild`），指向表单字段。"
         },
         {
           "name": "popoverTrigger",
           "type": "PopoverTrigger",
-          "description": "Template/content query reference `popoverTrigger` (`@ViewChild`) targeting popover trigger.",
+          "description": "Template/content query reference `popoverTrigger` (`PopoverTrigger`) targeting popover trigger.",
           "descriptionZh": "模板/内容视图查询引用 `popoverTrigger`（`@ViewChild`），指向气泡卡片触发。"
         },
         {
           "name": "popover",
           "type": "Popover",
-          "description": "Template/content query reference `popover` (`@ViewChild`) targeting popover.",
+          "description": "Template/content query reference `popover` (`Popover`) targeting popover.",
           "descriptionZh": "模板/内容视图查询引用 `popover`（`@ViewChild`），指向气泡卡片。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
-          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
+          "description": "Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "showUnder",
@@ -4105,21 +4187,21 @@
         {
           "name": "fieldComponent",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `fieldComponent` (`@ViewChild`) targeting field component.",
+          "description": "Template/content query reference `fieldComponent` (`ViewContainerRef`) targeting field component.",
           "descriptionZh": "模板/内容视图查询引用 `fieldComponent`（`@ViewChild`），指向字段组件。"
         },
         {
           "name": "formField",
           "type": "MatFormField",
-          "description": "Template/content query reference `formField` (`@ViewChild`) targeting form field.",
+          "description": "Template/content query reference `formField` (`MatFormField`) targeting form field.",
           "descriptionZh": "模板/内容视图查询引用 `formField`（`@ViewChild`），指向表单字段。"
         },
         {
           "name": "stateChanges",
           "type": "any",
           "default": "new Subject<void>()",
-          "description": "Property `stateChanges` (`Subject`) storing state changes (default: `new Subject<void>()`).",
-          "descriptionZh": "属性 `stateChanges`（类型：`Subject`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
+          "description": "Property `stateChanges` (`Subject<void>`) storing state changes (default: `new Subject<void>()`).",
+          "descriptionZh": "属性 `stateChanges`（类型：`Subject<void>`），用于存储或配置状态变更集合（默认值：`new Subject<void>()`）。"
         },
         {
           "name": "toolTip",
@@ -4148,10 +4230,16 @@
           "descriptionZh": "属性 `classFormField`（类型：`string`），用于存储或配置类名表单字段（默认值：`\"\"`）。"
         },
         {
+          "name": "floatLabel",
+          "type": "'auto' | 'always'",
+          "description": "Label float mode: on a phone the label always sits above the control.",
+          "descriptionZh": "标签浮动方式：手机类下标签固定在控件上方（标签上置），桌面用配置值。"
+        },
+        {
           "name": "paddingStyle",
           "type": "any",
-          "description": "Gets the current padding style (`paddingStyle: any`).",
-          "descriptionZh": "获取当前内边距样式（`paddingStyle: any`）。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "errorState",

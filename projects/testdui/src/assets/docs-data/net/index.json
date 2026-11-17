@@ -42,7 +42,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": []
@@ -70,7 +70,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": []
@@ -98,7 +98,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": []
@@ -146,8 +146,8 @@
           "name": "entryComponent",
           "type": "unknown",
           "default": "null",
-          "description": "Input property `entryComponent` (`any`) configuring entry component (default: `null`).",
-          "descriptionZh": "输入属性 `entryComponent`（类型：`any`），用于配置条目组件（默认值：`null`）。"
+          "description": "Input property `entryComponent` (`unknown`) configuring entry component (default: `null`).",
+          "descriptionZh": "输入属性 `entryComponent`（类型：`unknown`），用于配置条目组件（默认值：`null`）。"
         },
         {
           "name": "extraDuration",
@@ -224,9 +224,9 @@
         {
           "name": "entryComponents",
           "type": "any",
-          "default": "[MatSpinner]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[MatSpinner]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[MatSpinner]`）。"
+          "default": "[MatProgressSpinner]",
+          "description": "Property `entryComponents` (`(typeof MatProgressSpinner)[]`) storing entry components (default: `[MatProgressSpinner]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof MatProgressSpinner)[]`），用于存储或配置条目组件列表（默认值：`[MatProgressSpinner]`）。"
         }
       ]
     },
@@ -253,7 +253,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": []
@@ -281,7 +281,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": []
@@ -309,7 +309,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": [
@@ -385,7 +385,7 @@
           ],
           "returnType": "Observable<HttpEvent<unknown>>",
           "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "descriptionZh": "执行 `intercept`，用于拦截。"
         }
       ],
       "properties": []

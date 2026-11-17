@@ -23,8 +23,8 @@
         {
           "name": "lockForm",
           "type": "FormGroup",
-          "description": "Property `lockForm` (`FormGroup`) storing lock form.",
-          "descriptionZh": "属性 `lockForm`（类型：`FormGroup`），用于存储或配置锁定表单。"
+          "description": "Property `lockForm` (`FormGroup<any>`) storing lock form.",
+          "descriptionZh": "属性 `lockForm`（类型：`FormGroup<any>`），用于存储或配置锁定表单。"
         },
         {
           "name": "style",

@@ -110,15 +110,15 @@
           "name": "fromControl",
           "type": "any",
           "default": "new FormControl()",
-          "description": "Property `fromControl` (`FormControl`) storing from control (default: `new FormControl()`).",
-          "descriptionZh": "属性 `fromControl`（类型：`FormControl`），用于存储或配置从表单控件（默认值：`new FormControl()`）。"
+          "description": "Property `fromControl` (`FormControl<any>`) storing from control (default: `new FormControl()`).",
+          "descriptionZh": "属性 `fromControl`（类型：`FormControl<any>`），用于存储或配置从表单控件（默认值：`new FormControl()`）。"
         },
         {
           "name": "toControl",
           "type": "any",
           "default": "new FormControl()",
-          "description": "Property `toControl` (`FormControl`) storing to control (default: `new FormControl()`).",
-          "descriptionZh": "属性 `toControl`（类型：`FormControl`），用于存储或配置转换为表单控件（默认值：`new FormControl()`）。"
+          "description": "Property `toControl` (`FormControl<any>`) storing to control (default: `new FormControl()`).",
+          "descriptionZh": "属性 `toControl`（类型：`FormControl<any>`），用于存储或配置转换为表单控件（默认值：`new FormControl()`）。"
         },
         {
           "name": "fromPlaceholder",
@@ -160,8 +160,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[DateRangeFieldComponent, NumberRangeFieldComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof DateRangeFieldComponent | typeof NumberRangeFieldComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof DateRangeFieldComponent | typeof NumberRangeFieldComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
