@@ -252,8 +252,8 @@
         {
           "name": "validator",
           "type": "(rule: Rule, parent: RuleSet) => unknown | null",
-          "description": "Property `validator` (`(rule: Rule, parent: RuleSet) => any | null`) storing validator.",
-          "descriptionZh": "属性 `validator`（类型：`(rule: Rule, parent: RuleSet) => any | null`），用于存储或配置校验器。"
+          "description": "Property `validator` (`(rule: Rule, parent: RuleSet) => unknown | null`) storing validator.",
+          "descriptionZh": "属性 `validator`（类型：`(rule: Rule, parent: RuleSet) => unknown | null`），用于存储或配置校验器。"
         }
       ]
     },
@@ -389,8 +389,8 @@
         {
           "name": "onChange",
           "type": "(a) => void",
-          "description": "Property `onChange` (`(a:any) => void`) storing on change.",
-          "descriptionZh": "属性 `onChange`（类型：`(a:any) => void`），用于存储或配置当变更。"
+          "description": "Property `onChange` (`(a: any) => void`) storing on change.",
+          "descriptionZh": "属性 `onChange`（类型：`(a: any) => void`），用于存储或配置当变更。"
         },
         {
           "name": "getDisabledState",
@@ -670,8 +670,8 @@
           "name": "data",
           "type": "RuleSet",
           "default": "{ condition: 'and', rules: [] }",
-          "description": "Input property `data` (`RuleSet | any`) configuring data (default: `{ condition: 'and', rules: [] }`).",
-          "descriptionZh": "输入属性 `data`（类型：`RuleSet | any`），用于配置数据（默认值：`{ condition: 'and', rules: [] }`）。"
+          "description": "Input property `data` (`RuleSet`) configuring data (default: `{ condition: 'and', rules: [] }`).",
+          "descriptionZh": "输入属性 `data`（类型：`RuleSet`），用于配置数据（默认值：`{ condition: 'and', rules: [] }`）。"
         },
         {
           "name": "allowRuleset",
@@ -703,8 +703,8 @@
         {
           "name": "operatorMap",
           "type": "{ [key: string]: string[] }",
-          "description": "Input property `operatorMap` (`{ [key: string]: string[] }`) configuring operator map.",
-          "descriptionZh": "输入属性 `operatorMap`（类型：`{ [key: string]: string[] }`），用于配置操作符映射表。"
+          "description": "Input property `operatorMap` (`{ [key: string]: string[]; }`) configuring operator map.",
+          "descriptionZh": "输入属性 `operatorMap`（类型：`{ [key: string]: string[]; }`），用于配置操作符映射表。"
         },
         {
           "name": "parentValue",
@@ -1049,7 +1049,7 @@
           ],
           "returnType": "any",
           "description": "Executes `coerceValueForOperator` to handle coerce value for operator.",
-          "descriptionZh": "执行 `coerceValueForOperator`，用于coerce值用于操作符。"
+          "descriptionZh": "执行 `coerceValueForOperator`，用于强制转换值用于操作符。"
         },
         {
           "name": "changeInput",
@@ -1297,8 +1297,8 @@
           "name": "defaultOperatorMap",
           "type": "{ [key: string]: string[] }",
           "default": "{\n    string: ['=', '!=', 'contains', 'like'],\n    number: ['=', '!=', '>', '>=', '<', '<='],\n    time: ['=', '!=', '>', '>=', '<', '<='],\n    date: ['=', '!=', '>', '>=', '<', '<='],\n    category: ['=', '!=', 'in', 'not in'],\n    boolean: ['=']\n  }",
-          "description": "Property `defaultOperatorMap` (`{ [key: string]: string[] }`) storing default operator map.",
-          "descriptionZh": "属性 `defaultOperatorMap`（类型：`{ [key: string]: string[] }`），用于存储或配置默认操作符映射表。"
+          "description": "Property `defaultOperatorMap` (`{ [key: string]: string[]; }`) storing default operator map.",
+          "descriptionZh": "属性 `defaultOperatorMap`（类型：`{ [key: string]: string[]; }`），用于存储或配置默认操作符映射表。"
         },
         {
           "name": "onChangeCallback",
@@ -1315,61 +1315,61 @@
         {
           "name": "treeContainer",
           "type": "ElementRef",
-          "description": "Template/content query reference `treeContainer` (`@ViewChild`) targeting tree container.",
+          "description": "Template/content query reference `treeContainer` (`ElementRef<any>`) targeting tree container.",
           "descriptionZh": "模板/内容视图查询引用 `treeContainer`（`@ViewChild`），指向树形控件容器。"
         },
         {
           "name": "buttonGroupTemplate",
           "type": "QueryButtonGroupDirective",
-          "description": "Template/content query reference `buttonGroupTemplate` (`@ContentChild`) targeting button group template.",
+          "description": "Template/content query reference `buttonGroupTemplate` (`QueryButtonGroupDirective`) targeting button group template.",
           "descriptionZh": "模板/内容视图查询引用 `buttonGroupTemplate`（`@ContentChild`），指向按钮分组模板。"
         },
         {
           "name": "switchGroupTemplate",
           "type": "QuerySwitchGroupDirective",
-          "description": "Template/content query reference `switchGroupTemplate` (`@ContentChild`) targeting switch group template.",
+          "description": "Template/content query reference `switchGroupTemplate` (`QuerySwitchGroupDirective`) targeting switch group template.",
           "descriptionZh": "模板/内容视图查询引用 `switchGroupTemplate`（`@ContentChild`），指向切换开关分组模板。"
         },
         {
           "name": "fieldTemplate",
           "type": "QueryFieldDirective",
-          "description": "Template/content query reference `fieldTemplate` (`@ContentChild`) targeting field template.",
+          "description": "Template/content query reference `fieldTemplate` (`QueryFieldDirective`) targeting field template.",
           "descriptionZh": "模板/内容视图查询引用 `fieldTemplate`（`@ContentChild`），指向字段模板。"
         },
         {
           "name": "entityTemplate",
           "type": "QueryEntityDirective",
-          "description": "Template/content query reference `entityTemplate` (`@ContentChild`) targeting entity template.",
+          "description": "Template/content query reference `entityTemplate` (`QueryEntityDirective`) targeting entity template.",
           "descriptionZh": "模板/内容视图查询引用 `entityTemplate`（`@ContentChild`），指向实体模板。"
         },
         {
           "name": "operatorTemplate",
           "type": "QueryOperatorDirective",
-          "description": "Template/content query reference `operatorTemplate` (`@ContentChild`) targeting operator template.",
+          "description": "Template/content query reference `operatorTemplate` (`QueryOperatorDirective`) targeting operator template.",
           "descriptionZh": "模板/内容视图查询引用 `operatorTemplate`（`@ContentChild`），指向操作符模板。"
         },
         {
           "name": "removeButtonTemplate",
           "type": "QueryRemoveButtonDirective",
-          "description": "Template/content query reference `removeButtonTemplate` (`@ContentChild`) targeting remove button template.",
+          "description": "Template/content query reference `removeButtonTemplate` (`QueryRemoveButtonDirective`) targeting remove button template.",
           "descriptionZh": "模板/内容视图查询引用 `removeButtonTemplate`（`@ContentChild`），指向移除按钮模板。"
         },
         {
           "name": "emptyWarningTemplate",
           "type": "QueryEmptyWarningDirective",
-          "description": "Template/content query reference `emptyWarningTemplate` (`@ContentChild`) targeting empty warning template.",
+          "description": "Template/content query reference `emptyWarningTemplate` (`QueryEmptyWarningDirective`) targeting empty warning template.",
           "descriptionZh": "模板/内容视图查询引用 `emptyWarningTemplate`（`@ContentChild`），指向空警告模板。"
         },
         {
           "name": "inputTemplates",
           "type": "QueryList<QueryInputDirective>",
-          "description": "Template/content query reference `inputTemplates` (`@ContentChildren`) targeting input templates.",
+          "description": "Template/content query reference `inputTemplates` (`QueryList<QueryInputDirective>`) targeting input templates.",
           "descriptionZh": "模板/内容视图查询引用 `inputTemplates`（`@ContentChildren`），指向输入属性模板。"
         },
         {
           "name": "arrowIconTemplate",
           "type": "QueryArrowIconDirective",
-          "description": "Template/content query reference `arrowIconTemplate` (`@ContentChild`) targeting arrow icon template.",
+          "description": "Template/content query reference `arrowIconTemplate` (`QueryArrowIconDirective`) targeting arrow icon template.",
           "descriptionZh": "模板/内容视图查询引用 `arrowIconTemplate`（`@ContentChild`），指向箭头图标模板。"
         },
         {
@@ -1382,8 +1382,8 @@
           "name": "getDisabledState",
           "type": "any",
           "default": "(): boolean => {\n    return this.disabled;\n  }",
-          "description": "Property `getDisabledState` (`any`) storing get disabled state.",
-          "descriptionZh": "属性 `getDisabledState`（类型：`any`），用于存储或配置获取已禁用状态。"
+          "description": "Property `getDisabledState` (`() => boolean`) storing get disabled state.",
+          "descriptionZh": "属性 `getDisabledState`（类型：`() => boolean`），用于存储或配置获取已禁用状态。"
         }
       ]
     },
@@ -1677,8 +1677,8 @@
         {
           "name": "rules",
           "type": "Array<RuleSet | Rule>",
-          "description": "Property `rules` (`Array<RuleSet | Rule>`) storing rules.",
-          "descriptionZh": "属性 `rules`（类型：`Array<RuleSet | Rule>`），用于存储或配置规则列表。"
+          "description": "Property `rules` (`(RuleSet | Rule)[]`) storing rules.",
+          "descriptionZh": "属性 `rules`（类型：`(RuleSet | Rule)[]`），用于存储或配置规则列表。"
         },
         {
           "name": "collapsed",

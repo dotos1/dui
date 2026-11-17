@@ -68,7 +68,7 @@
         {
           "name": "tooltip",
           "type": "MatTooltip",
-          "description": "Template/content query reference `tooltip` (`@ViewChild`) targeting tooltip.",
+          "description": "Template/content query reference `tooltip` (`MatTooltip`) targeting tooltip.",
           "descriptionZh": "模板/内容视图查询引用 `tooltip`（`@ViewChild`），指向悬浮提示。"
         }
       ]
@@ -140,19 +140,19 @@
         {
           "name": "highlightComp",
           "type": "ElementRef",
-          "description": "Template/content query reference `highlightComp` (`@ViewChild`) targeting highlight comp.",
+          "description": "Template/content query reference `highlightComp` (`ElementRef<any>`) targeting highlight comp.",
           "descriptionZh": "模板/内容视图查询引用 `highlightComp`（`@ViewChild`），指向highlight组件。"
         },
         {
           "name": "copyComp",
           "type": "ElementRef",
-          "description": "Template/content query reference `copyComp` (`@ViewChild`) targeting copy comp.",
+          "description": "Template/content query reference `copyComp` (`ElementRef<any>`) targeting copy comp.",
           "descriptionZh": "模板/内容视图查询引用 `copyComp`（`@ViewChild`），指向复制组件。"
         },
         {
           "name": "tooltip",
           "type": "MatTooltip",
-          "description": "Template/content query reference `tooltip` (`@ViewChild`) targeting tooltip.",
+          "description": "Template/content query reference `tooltip` (`MatTooltip`) targeting tooltip.",
           "descriptionZh": "模板/内容视图查询引用 `tooltip`（`@ViewChild`），指向悬浮提示。"
         }
       ]

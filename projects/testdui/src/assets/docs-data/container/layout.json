@@ -10,10 +10,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "order",
@@ -144,30 +144,18 @@
           "descriptionZh": "执行 `expand`，用于展开。"
         },
         {
-          "name": "add",
-          "params": [
-            {
-              "name": "comp",
-              "type": "any"
-            }
-          ],
-          "returnType": "any",
-          "description": "Executes `add` to handle add.",
-          "descriptionZh": "执行 `add`，用于添加。"
-        },
-        {
           "name": "remove",
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "ComponentBase | string | number"
             },
             {
               "name": "ad",
               "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `remove` to handle remove.",
           "descriptionZh": "执行 `remove`，用于移除。"
         },
@@ -181,7 +169,7 @@
           ],
           "returnType": "boolean",
           "description": "Executes `havePanel` to handle have panel.",
-          "descriptionZh": "执行 `havePanel`，用于have面板。"
+          "descriptionZh": "执行 `havePanel`，用于具有面板。"
         }
       ],
       "properties": [
@@ -249,8 +237,8 @@
           "name": "dynamicComponents",
           "type": "any",
           "default": "[LayoutComponent,DuiPanelComponent]",
-          "description": "Property `dynamicComponents` (`any[]`) storing dynamic components (default: `[LayoutComponent,DuiPanelComponent]`).",
-          "descriptionZh": "属性 `dynamicComponents`（类型：`any[]`），用于存储或配置动态组件列表（默认值：`[LayoutComponent,DuiPanelComponent]`）。"
+          "description": "Property `dynamicComponents` (`(typeof LayoutComponent | typeof DuiPanelComponent)[]`) storing dynamic components (default: `[LayoutComponent,DuiPanelComponent]`).",
+          "descriptionZh": "属性 `dynamicComponents`（类型：`(typeof LayoutComponent | typeof DuiPanelComponent)[]`），用于存储或配置动态组件列表（默认值：`[LayoutComponent,DuiPanelComponent]`）。"
         }
       ]
     },
@@ -579,10 +567,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "gutterClickDeltaPx",
@@ -656,26 +644,26 @@
         {
           "name": "dragStart",
           "type": "any",
-          "description": "Output event emitter `dragStart` (`EventEmitter`) firing when drag start occurs.",
-          "descriptionZh": "输出事件 `dragStart`（类型：`EventEmitter`），当触发拖拽开始时向外发出事件。"
+          "description": "Output event emitter `dragStart` (`EventEmitter<IOutputData>`) firing when drag start occurs.",
+          "descriptionZh": "输出事件 `dragStart`（类型：`EventEmitter<IOutputData>`），当触发拖拽开始时向外发出事件。"
         },
         {
           "name": "dragEnd",
           "type": "any",
-          "description": "Output event emitter `dragEnd` (`EventEmitter`) firing when drag end occurs.",
-          "descriptionZh": "输出事件 `dragEnd`（类型：`EventEmitter`），当触发拖拽结束时向外发出事件。"
+          "description": "Output event emitter `dragEnd` (`EventEmitter<IOutputData>`) firing when drag end occurs.",
+          "descriptionZh": "输出事件 `dragEnd`（类型：`EventEmitter<IOutputData>`），当触发拖拽结束时向外发出事件。"
         },
         {
           "name": "gutterClick",
           "type": "any",
-          "description": "Output event emitter `gutterClick` (`EventEmitter`) firing when gutter click occurs.",
-          "descriptionZh": "输出事件 `gutterClick`（类型：`EventEmitter`），当触发分隔槽点击时向外发出事件。"
+          "description": "Output event emitter `gutterClick` (`EventEmitter<IOutputData>`) firing when gutter click occurs.",
+          "descriptionZh": "输出事件 `gutterClick`（类型：`EventEmitter<IOutputData>`），当触发分隔槽点击时向外发出事件。"
         },
         {
           "name": "gutterDblClick",
           "type": "any",
-          "description": "Output event emitter `gutterDblClick` (`EventEmitter`) firing when gutter dbl click occurs.",
-          "descriptionZh": "输出事件 `gutterDblClick`（类型：`EventEmitter`），当触发分隔槽Dbl点击时向外发出事件。"
+          "description": "Output event emitter `gutterDblClick` (`EventEmitter<IOutputData>`) firing when gutter dbl click occurs.",
+          "descriptionZh": "输出事件 `gutterDblClick`（类型：`EventEmitter<IOutputData>`），当触发分隔槽Dbl点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -883,30 +871,18 @@
           "descriptionZh": "执行 `getAriaAreaSizeText`，用于获取Aria区域尺寸文本。"
         },
         {
-          "name": "add",
-          "params": [
-            {
-              "name": "comp",
-              "type": "any"
-            }
-          ],
-          "returnType": "any",
-          "description": "Executes `add` to handle add.",
-          "descriptionZh": "执行 `add`，用于添加。"
-        },
-        {
           "name": "remove",
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "ComponentBase | string | number"
             },
             {
               "name": "ad",
               "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `remove` to handle remove.",
           "descriptionZh": "执行 `remove`，用于移除。"
         },
@@ -920,7 +896,7 @@
           ],
           "returnType": "boolean",
           "description": "Executes `havePanel` to handle have panel.",
-          "descriptionZh": "执行 `havePanel`，用于have面板。"
+          "descriptionZh": "执行 `havePanel`，用于具有面板。"
         }
       ],
       "properties": [
@@ -995,8 +971,8 @@
           "name": "displayedAreas",
           "type": "Array<IArea>",
           "default": "[]",
-          "description": "Property `displayedAreas` (`Array<IArea>`) storing displayed areas (default: `[]`).",
-          "descriptionZh": "属性 `displayedAreas`（类型：`Array<IArea>`），用于存储或配置已展示区域集合（默认值：`[]`）。"
+          "description": "Property `displayedAreas` (`IArea[]`) storing displayed areas (default: `[]`).",
+          "descriptionZh": "属性 `displayedAreas`（类型：`IArea[]`），用于存储或配置已展示区域集合（默认值：`[]`）。"
         }
       ]
     },

@@ -164,19 +164,19 @@
           "name": "viewContainerRef",
           "type": "ViewContainerRef | null",
           "description": "[Optional] Where the attached component should live in Angular's *logical* component tree.\nThis is different from where the component *renders*, which is determined by the PortalOutlet.\nThe origin is necessary when the host is outside of the Angular application context.",
-          "descriptionZh": "属性 `viewContainerRef`（类型：`ViewContainerRef | null`），用于存储或配置视图容器引用。"
+          "descriptionZh": "属性 `viewContainerRef`（类型：`ViewContainerRef`），用于存储或配置视图容器引用。"
         },
         {
           "name": "injector",
           "type": "Injector | null",
           "description": "[Optional] Injector used for the instantiation of the component.",
-          "descriptionZh": "属性 `injector`（类型：`Injector | null`），用于存储或配置注入器。"
+          "descriptionZh": "属性 `injector`（类型：`Injector`），用于存储或配置注入器。"
         },
         {
           "name": "componentFactoryResolver",
-          "type": "ComponentFactoryResolver | null",
-          "description": "Alternate `ComponentFactoryResolver` to use when resolving the associated component.\nDefaults to using the resolver from the outlet that the portal is attached to.",
-          "descriptionZh": "属性 `componentFactoryResolver`（类型：`ComponentFactoryResolver | null`），用于存储或配置组件工厂解析器。"
+          "type": "unknown",
+          "description": "Legacy compatibility placeholder for component factory resolver.",
+          "descriptionZh": "属性 `componentFactoryResolver`（类型：`unknown`），历史兼容占位字段。"
         }
       ]
     },
@@ -243,7 +243,14 @@
           "descriptionZh": "执行 `dispose`，用于释放。"
         }
       ],
-      "properties": []
+      "properties": [
+        {
+          "name": "outletElement",
+          "type": "Element",
+          "description": "Element into which the content is projected.",
+          "descriptionZh": "属性 `outletElement`（类型：`Element`），用于存储或配置宿主元素。"
+        }
+      ]
     },
     {
       "name": "groupBy",
@@ -398,7 +405,7 @@
         {
           "name": "fire",
           "type": "any",
-          "description": "Output event emitter `fire` (`EventEmitter`) firing when fire occurs.",
+          "description": "Output event emitter `fire` (`EventEmitter<any>`) firing when fire occurs.",
           "descriptionZh": "快捷键被触发时发出。"
         }
       ],
@@ -583,14 +590,14 @@
         {
           "name": "shortcuts",
           "type": "Record<\"label\", { key: string[]; label: string; description: string }[]>",
-          "description": "Property `shortcuts` (`Record<\"label\", { key: string[]; label: string; description: string }[...`) storing shortcuts.",
+          "description": "Property `shortcuts` (`Record<\"label\", { key: string[]; label: string; description: string; }[]>`) storing shortcuts.",
           "descriptionZh": "按标签分组后的已注册快捷键。"
         },
         {
           "name": "showing$",
           "type": "any",
           "default": "new BehaviorSubject(false)",
-          "description": "Property `showing$` (`BehaviorSubject`) storing showing (default: `new BehaviorSubject(false)`).",
+          "description": "Property `showing$` (`BehaviorSubject<boolean>`) storing showing (default: `new BehaviorSubject(false)`).",
           "descriptionZh": "帮助面板当前是否正在显示。"
         },
         {
@@ -803,14 +810,14 @@
           "name": "pressed$",
           "type": "any",
           "default": "this._pressed.asObservable()",
-          "description": "Property `pressed$` (`any`) storing pressed (default: `this._pressed.asObservable()`).",
+          "description": "Property `pressed$` (`Observable<ShortcutEventOutput>`) storing pressed (default: `this._pressed.asObservable()`).",
           "descriptionZh": "每当任意已注册快捷键被触发时发出事件（含触发的按键与原生事件）。"
         },
         {
           "name": "shortcuts$",
           "type": "any",
           "default": "this._shortcutsSub\n        .pipe(filter((shortcuts) =>{\n     \n            return shortcuts.length!=0;\n    } ))",
-          "description": "Property `shortcuts$` (`any`) storing shortcuts.",
+          "description": "Property `shortcuts$` (`Observable<ParsedShortcut[]>`) storing shortcuts.",
           "descriptionZh": "发出当前已注册的（非空）快捷键列表，随注册/注销更新。"
         },
         {
@@ -1062,7 +1069,7 @@
           "name": "key",
           "type": "string[] | string",
           "description": "The registered key that was triggered",
-          "descriptionZh": "属性 `key`（类型：`string[] | string`），用于存储或配置键。"
+          "descriptionZh": "属性 `key`（类型：`string | string[]`），用于存储或配置键。"
         }
       ]
     },
@@ -1140,7 +1147,7 @@
           "name": "context",
           "type": "C | undefined",
           "description": "Contextual data to be passed in to the embedded view.",
-          "descriptionZh": "属性 `context`（类型：`C | undefined`），用于存储或配置上下文。"
+          "descriptionZh": "属性 `context`（类型：`C`），用于存储或配置上下文。"
         },
         {
           "name": "origin",

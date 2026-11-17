@@ -363,6 +363,29 @@
         },
         {
           "name": "getSettings",
+          "params": [],
+          "returnType": "DuiSettings",
+          "description": "读配置：顶层键直接给出 DuiSettings 里的类型；点分路径（'seo.defaultPageTitle'）或数组路径\n返回调用方声明的类型 T（默认 unknown，由调用方收窄）。不传 key 返回整个配置。",
+          "descriptionZh": null
+        },
+        {
+          "name": "getSettings",
+          "params": [
+            {
+              "name": "key",
+              "type": "K"
+            },
+            {
+              "name": "defaultValue",
+              "type": "DuiSettings[K]"
+            }
+          ],
+          "returnType": "DuiSettings[K]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSettings",
           "params": [
             {
               "name": "key",
@@ -370,12 +393,28 @@
             },
             {
               "name": "defaultValue",
-              "type": "any"
+              "type": "T"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `getSettings` to handle get settings.",
-          "descriptionZh": "执行 `getSettings`，用于获取设置项。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "getSettings",
+          "params": [
+            {
+              "name": "key",
+              "type": "string | Array<string>"
+            },
+            {
+              "name": "defaultValue",
+              "type": "unknown"
+            }
+          ],
+          "returnType": "unknown",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "setSetting",
@@ -386,7 +425,7 @@
             },
             {
               "name": "value",
-              "type": "any"
+              "type": "unknown"
             }
           ],
           "returnType": "void",
@@ -397,34 +436,34 @@
       "properties": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiSettings",
           "default": "{}",
-          "description": "Property `config` (`any`) storing config (default: `{}`).",
-          "descriptionZh": "属性 `config`（类型：`any`），用于存储或配置配置（默认值：`{}`）。"
+          "description": "应用配置（settings.json 加载结果）：顶层键 → 值",
+          "descriptionZh": null
         },
         {
           "name": "onLoadSubject",
-          "type": "any",
-          "description": "Property `onLoadSubject` (`Subject<any>`) storing on load subject.",
-          "descriptionZh": "属性 `onLoadSubject`（类型：`Subject<any>`），用于存储或配置当加载主题流。"
+          "type": "Subject<DuiSettings>",
+          "description": "Property `onLoadSubject` (`Subject<DuiSettings>`) storing on load subject.",
+          "descriptionZh": "属性 `onLoadSubject`（类型：`Subject<DuiSettings>`），用于存储或配置当加载主题流。"
         },
         {
           "name": "onLoad",
-          "type": "any",
-          "description": "Property `onLoad` (`Observable<any>`) storing on load.",
-          "descriptionZh": "属性 `onLoad`（类型：`Observable<any>`），用于存储或配置当加载。"
+          "type": "Observable<DuiSettings>",
+          "description": "Property `onLoad` (`Observable<DuiSettings>`) storing on load.",
+          "descriptionZh": "属性 `onLoad`（类型：`Observable<DuiSettings>`），用于存储或配置当加载。"
         },
         {
           "name": "onErrorSubject",
-          "type": "any",
-          "description": "Property `onErrorSubject` (`Subject<any>`) storing on error subject.",
-          "descriptionZh": "属性 `onErrorSubject`（类型：`Subject<any>`），用于存储或配置当错误主题流。"
+          "type": "Subject<{ status?: number; [key: string]: unknown }>",
+          "description": "配置加载失败：多为 HttpErrorResponse（带 status）",
+          "descriptionZh": null
         },
         {
           "name": "onError",
-          "type": "any",
-          "description": "Property `onError` (`Observable<any>`) storing on error.",
-          "descriptionZh": "属性 `onError`（类型：`Observable<any>`），用于存储或配置当错误。"
+          "type": "Observable<{ status?: number; [key: string]: unknown }>",
+          "description": "Property `onError` (`Observable<{ [key: string]: unknown; status?: number; }>`) storing on error.",
+          "descriptionZh": "属性 `onError`（类型：`Observable<{ [key: string]: unknown; status?: number; }>`），用于存储或配置当错误。"
         }
       ]
     },
@@ -446,6 +485,360 @@
         }
       ],
       "properties": []
+    },
+    {
+      "name": "DuiFeatureSettings",
+      "kind": "interface",
+      "summary": "功能开关配置",
+      "summaryZh": null,
+      "sourceFile": "src/core/config/settings.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "stage",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "overrides",
+          "type": "Record<string, boolean>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiI18nSettings",
+      "kind": "interface",
+      "summary": "语种配置",
+      "summaryZh": null,
+      "sourceFile": "src/core/config/settings.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "defaultLanguage",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "availableLanguages",
+          "type": "Array<{ code: string; name: string; [key: string]: unknown }>",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiOAuth2Settings",
+      "kind": "interface",
+      "summary": "OAuth2 认证配置（settings.json 的 oauth2 节）",
+      "summaryZh": null,
+      "sourceFile": "src/core/config/settings.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "host",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clientId",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "secret",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "scope",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "redirectUri",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "redirectUriLogout",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "redirectSilentIframeUri",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "implicitFlow",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "refreshTokenTimeout",
+          "type": "number",
+          "description": "刷新令牌提前量（毫秒）",
+          "descriptionZh": null
+        },
+        {
+          "name": "silentLogin",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "publicUrls",
+          "type": "string[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiSeoSettings",
+      "kind": "interface",
+      "summary": "页面标题 / meta 配置",
+      "summaryZh": null,
+      "sourceFile": "src/core/config/settings.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "defaultPageTitle",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "defaultMetaDescription",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pageTitleSeparator",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "pageTitlePositioning",
+          "type": "number | string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiSettings",
+      "kind": "interface",
+      "summary": "settings.json 顶层",
+      "summaryZh": null,
+      "sourceFile": "src/core/config/settings.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "authType",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ticket",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hostOauth2",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "system",
+          "type": "DuiSystemSettings",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "oauth2",
+          "type": "DuiOAuth2Settings",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "seo",
+          "type": "DuiSeoSettings",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "i18n",
+          "type": "DuiI18nSettings",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "security",
+          "type": "{ lockScreenMinutes?: number | string; [key: string]: unknown }",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "features",
+          "type": "DuiFeatureSettings",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "master",
+          "type": "string",
+          "description": "主平台地址；'self' 表示本机",
+          "descriptionZh": null
+        },
+        {
+          "name": "twoFactorAuth",
+          "type": "{ providers?: Array<{ providerType?: string; [key: string]: unknown }>; [key: string]: unknown }",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiSystemSettings",
+      "kind": "interface",
+      "summary": "平台 / 即时通讯等系统级配置（settings.json 的 system 节）",
+      "summaryZh": null,
+      "sourceFile": "src/core/config/settings.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "applicationName",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "applicationUrl",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "system_id",
+          "type": "string",
+          "description": "平台标识",
+          "descriptionZh": null
+        },
+        {
+          "name": "domain",
+          "type": "string",
+          "description": "IM 域名",
+          "descriptionZh": null
+        },
+        {
+          "name": "ticket",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "IMurl",
+          "type": "string",
+          "description": "IM 服务主机",
+          "descriptionZh": null
+        },
+        {
+          "name": "IMport",
+          "type": "string | number",
+          "description": "IM 端口（各处配置里有字符串也有数字）",
+          "descriptionZh": null
+        },
+        {
+          "name": "IMHttpPort",
+          "type": "string | number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "IMWsUrl",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "IMWsPort",
+          "type": "string | number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "logo",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "logLevel",
+          "type": "string | number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cryptType",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "DOTOS_GEO_TILE_URL",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "openRegister",
+          "type": "boolean | string",
+          "description": "后端下发时有布尔也有字符串",
+          "descriptionZh": null
+        },
+        {
+          "name": "jsDebug",
+          "type": "boolean | string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
     },
     {
       "name": "FeatureDirective",

@@ -11,7 +11,7 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
           "description": "Bulk-applies arbitrary properties onto this component (via `Dui.apply`) whenever it changes.",
           "descriptionZh": "每当变化时，通过 `Dui.apply` 将任意属性批量应用到本组件上。"
@@ -87,7 +87,7 @@
         {
           "name": "iframe",
           "type": "ElementRef",
-          "description": "Template/content query reference `iframe` (`@ViewChild`) targeting iframe.",
+          "description": "Template/content query reference `iframe` (`ElementRef<any>`) targeting iframe.",
           "descriptionZh": "底层原生 `<iframe>` 元素的引用。"
         },
         {
@@ -151,7 +151,7 @@
         {
           "name": "$styling",
           "type": "any",
-          "description": "Property `$styling` (`Observable<any>`) storing styling.",
+          "description": "Property `$styling` (`any`) storing styling.",
           "descriptionZh": "内部使用，根据内容高度变化推导出的样式流，用于自动调整高度。"
         },
         {
@@ -181,7 +181,7 @@
         {
           "name": "elementRef",
           "type": "ElementRef",
-          "description": "Template/content query reference `elementRef` (`@ViewChild`) targeting element ref.",
+          "description": "Template/content query reference `elementRef` (`ElementRef<any>`) targeting element ref.",
           "descriptionZh": "底层原生 `<iframe>` 元素的引用（内部使用，与 `iframe` 指向同一元素）。"
         }
       ]
@@ -200,8 +200,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[IframeComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[IframeComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[IframeComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof IframeComponent)[]`) storing entry components (default: `[IframeComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof IframeComponent)[]`），用于存储或配置条目组件列表（默认值：`[IframeComponent]`）。"
         }
       ]
     },

@@ -1,6 +1,6 @@
 ## 概述
 
-`common`（`@dotos1/dui/common/*`）是数量最多的一类二级入口模块（共 37 个子模块），收录了大量高内聚、可独立按需引入的通用 UI 构建块与交互指令：消息通知（`toastr`）、对话框（`dialogs`）、折叠面板（`collapsible`）、面包屑（`breadcrumbs`）、加载遮罩（`loading`）、搜索框（`search-box`）、拖拽（`dnd` / `dragselect`）、颜色选择器（`colorpicker` / `matcolorpicker`）、剪贴板（`clipboard`）、气泡弹层（`popover`）、键盘快捷键（`keyboard`）等。
+`common`（`@dotos1/dui/common/*`）是数量最多的一类二级入口模块（共 36 个子模块），收录了大量高内聚、可独立按需引入的通用 UI 构建块与交互指令：消息通知（`toastr`）、对话框（`dialogs`）、折叠面板（`collapsible`）、面包屑（`breadcrumbs`）、加载遮罩（`loading`）、搜索框（`search-box`）、拖拽（`dnd` / `dragselect`）、颜色选择器（`colorpicker` / `matcolorpicker`）、剪贴板（`clipboard`）、气泡弹层（`popover`）、键盘快捷键（`keyboard`）等。
 
 ## 核心模块与职责
 

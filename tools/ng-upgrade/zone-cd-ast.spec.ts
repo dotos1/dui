@@ -57,7 +57,9 @@ describe('W1 @Component explicit changeDetection AST guard', () => {
       visit(sf);
     }
 
-    expect(componentCount).toBeGreaterThanOrEqual(290); // 与 master 守卫一致（实有 297 个组件），防止扫描范围被意外缩小
+    // WP1.5-A 正式将 6 个重型扩展子包下沉至 duix 并移除 1 个死包（共移出 19 个库组件 + 4 个 testdui 示例组件），
+    // 同时新增 1 个内部轻量 DocsMarkdownComponent，净减少 22 个组件（实有 272 个组件），故守卫下限由 290 精确调整至 270。
+    expect(componentCount).toBeGreaterThanOrEqual(270);
     expect(missingChangeDetection).toEqual([]);
   });
 });

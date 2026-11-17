@@ -56,8 +56,8 @@
         {
           "name": "color",
           "type": "'primary' | 'accent' | 'warn'",
-          "description": "Property `color` (`'primary' | 'accent' | 'warn'`) storing color.",
-          "descriptionZh": "属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。"
+          "description": "Property `color` (`\"primary\" | \"accent\" | \"warn\"`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`\"primary\" | \"accent\" | \"warn\"`），用于存储或配置颜色。"
         }
       ]
     },
@@ -91,15 +91,15 @@
       "properties": [
         {
           "name": "observable",
-          "type": "any",
-          "description": "Property `observable` (`Observable<any>`) storing observable.",
-          "descriptionZh": "属性 `observable`（类型：`Observable<any>`），用于存储或配置可观察流。"
+          "type": "Observable<number>",
+          "description": "Property `observable` (`Observable<number>`) storing observable.",
+          "descriptionZh": "属性 `observable`（类型：`Observable<number>`），用于存储或配置可观察流。"
         },
         {
           "name": "componentRef",
-          "type": "any",
-          "description": "Property `componentRef` (`ComponentRef<any>`) storing component ref.",
-          "descriptionZh": "属性 `componentRef`（类型：`ComponentRef<any>`），用于存储或配置组件引用。"
+          "type": "ComponentRef<LoadingComponent>",
+          "description": "Property `componentRef` (`ComponentRef<LoadingComponent>`) storing component ref.",
+          "descriptionZh": "属性 `componentRef`（类型：`ComponentRef<LoadingComponent>`），用于存储或配置组件引用。"
         },
         {
           "name": "overlayRef",
@@ -115,9 +115,9 @@
         },
         {
           "name": "subject",
-          "type": "any",
-          "description": "Property `subject` (`Subject<any>`) storing subject.",
-          "descriptionZh": "属性 `subject`（类型：`Subject<any>`），用于存储或配置主题流。"
+          "type": "Subject<number>",
+          "description": "Property `subject` (`Subject<number>`) storing subject.",
+          "descriptionZh": "属性 `subject`（类型：`Subject<number>`），用于存储或配置主题流。"
         },
         {
           "name": "times",
@@ -159,10 +159,6 @@
             {
               "name": "parent",
               "type": "LoadingFactory"
-            },
-            {
-              "name": "componentFactoryResolver",
-              "type": "ComponentFactoryResolver"
             },
             {
               "name": "overlay",
@@ -305,7 +301,7 @@
           "name": "content",
           "type": "any",
           "description": "Content injected into loading component.",
-          "descriptionZh": "属性 `content`（类型：`TemplatePortal<any>`），用于存储或配置内容。"
+          "descriptionZh": "属性 `content`（类型：`any`），用于存储或配置内容。"
         },
         {
           "name": "mode",
@@ -357,7 +353,7 @@
           "type": "'primary' | 'accent' | 'warn'",
           "default": "'primary'",
           "description": "color: primary' | 'accent' | 'warn'\nSets theme color of [DuiLoadingComponent] rendered.",
-          "descriptionZh": "属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色（默认值：`'primary'`）。"
+          "descriptionZh": "属性 `color`（类型：`\"primary\" | \"accent\" | \"warn\"`），用于存储或配置颜色（默认值：`'primary'`）。"
         }
       ]
     },
@@ -392,8 +388,8 @@
         {
           "name": "color",
           "type": "'primary' | 'accent' | 'warn'",
-          "description": "Property `color` (`'primary' | 'accent' | 'warn'`) storing color.",
-          "descriptionZh": "属性 `color`（类型：`'primary' | 'accent' | 'warn'`），用于存储或配置颜色。"
+          "description": "Property `color` (`\"primary\" | \"accent\" | \"warn\"`) storing color.",
+          "descriptionZh": "属性 `color`（类型：`\"primary\" | \"accent\" | \"warn\"`），用于存储或配置颜色。"
         }
       ]
     },
@@ -608,8 +604,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "EXT_LOADING_ENTRY_COMPONENTS",
-          "description": "Property `entryComponents` (`any`) storing entry components (default: `EXT_LOADING_ENTRY_COMPONENTS`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any`），用于存储或配置条目组件列表（默认值：`EXT_LOADING_ENTRY_COMPONENTS`）。"
+          "description": "Property `entryComponents` (`(typeof LoadingComponent)[]`) storing entry components (default: `EXT_LOADING_ENTRY_COMPONENTS`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof LoadingComponent)[]`），用于存储或配置条目组件列表（默认值：`EXT_LOADING_ENTRY_COMPONENTS`）。"
         }
       ]
     },

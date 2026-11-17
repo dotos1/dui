@@ -13,10 +13,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { MarkdownModule } from '@dotos1/dui/ux/markdown';
 import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 import { DocsRoutingModule } from './docs-routing.module';
+import { DocsMarkdownComponent } from './shared/docs-markdown.component';
 
 import { DocsShellComponent } from './shell/docs-shell.component';
 import { NavTreeComponent } from './shell/nav-tree/nav-tree.component';
@@ -41,6 +41,7 @@ import { ModuleExamplePageComponent } from './pages/module-example-page/module-e
     ModuleOverviewPageComponent,
     ApiReferencePageComponent,
     ModuleExamplePageComponent,
+    DocsMarkdownComponent,
   ],
   imports: [
     CommonModule,
@@ -52,7 +53,6 @@ import { ModuleExamplePageComponent } from './pages/module-example-page/module-e
     MatSidenavModule,
     MatTabsModule,
     MatTooltipModule,
-    MarkdownModule,
     HighlightModule,
   ],
 })

@@ -94,8 +94,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ClipboardComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ClipboardComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ClipboardComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof ClipboardComponent)[]`) storing entry components (default: `[ClipboardComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ClipboardComponent)[]`），用于存储或配置条目组件列表（默认值：`[ClipboardComponent]`）。"
         }
       ]
     },
