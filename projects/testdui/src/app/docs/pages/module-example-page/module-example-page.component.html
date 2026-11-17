@@ -71,6 +71,14 @@
         <div class="studio__canvas-switcher">
           <button
             type="button"
+            class="studio__canvas-btn studio__live-toggle"
+            data-testid="live-toggle"
+            [class.studio__live-toggle--on]="liveMode"
+            (click)="toggleLiveMode()">
+            ⚡ 在线代码实时沙箱
+          </button>
+          <button
+            type="button"
             class="studio__canvas-btn"
             [class.studio__canvas-btn--active]="canvasTheme === 'blueprint'"
             (click)="setCanvasTheme('blueprint')">
@@ -99,7 +107,17 @@
         [class.studio__canvas--light]="canvasTheme === 'light'"
         [class.studio__canvas--dark]="canvasTheme === 'dark'"
         [class.studio__canvas--blueprint]="canvasTheme === 'blueprint'"
-        [ngSwitch]="preset.mode">
+        [ngSwitch]="liveMode ? '__live__' : preset.mode">
+
+        <!-- MODE 0: LIVE CODE SANDBOX（运行时编译下方在线编辑的模板） -->
+        <div *ngSwitchCase="'__live__'" class="demo-live" data-testid="live-canvas">
+          <app-live-template-stage
+            [templateCode]="liveTemplate"
+            [stateJson]="liveState"
+            (compileStatus)="onLiveStatus($event)"
+            (stageEvent)="onLiveStageEvent($event)">
+          </app-live-template-stage>
+        </div>
 
         <!-- MODE 1: COLOR PICKER & PALETTE STUDIO -->
         <div *ngSwitchCase="'color'" class="demo-color">
@@ -582,23 +600,79 @@
     </div>
   </div>
 
-  <!-- 3. Bottom Panel: Dynamic Real-Time Code Generator -->
+  <!-- 3. Bottom Panel: Live Code Editors (HTML / JSON / TypeScript) -->
   <section class="studio__code-card">
     <div class="studio__code-header">
       <div>
         <h3 class="studio__code-title">
           <mat-icon>code</mat-icon>
-          <span>实时生成的 TypeScript / HTML 集成代码 (随上方参数动态同步)</span>
+          <span>在线代码编辑器（编辑即原位热编译，Ctrl/Cmd + Enter 立即运行）</span>
         </h3>
         <p class="studio__code-sub">
-          当前目标符号：<code>{{ selectedExport?.name || moduleId }}</code> · 导入路径：<code>{{ api?.importPath }}</code>
+          模板中可直接使用 <code>state</code>（来自状态 JSON）与 <code>log(label, payload?)</code>（回流到右侧事件控制台） · 当前目标符号：<code>{{ selectedExport?.name || moduleId }}</code> · 导入路径：<code>{{ api?.importPath }}</code>
         </p>
       </div>
+      <div class="studio__code-actions">
+        <button type="button" class="studio__code-btn" data-testid="live-reset" (click)="resetLiveCode()">
+          <mat-icon>restart_alt</mat-icon>
+          <span>重置默认代码</span>
+        </button>
+        <button type="button" class="studio__code-btn studio__code-btn--primary" data-testid="live-stackblitz" (click)="openInStackblitz()">
+          <mat-icon>open_in_new</mat-icon>
+          <span>在 StackBlitz 中打开</span>
+        </button>
+      </div>
     </div>
-    <dui-highlight
-      [content]="dynamicUsageCode"
-      [codeLang]="'typescript'"
-      [copyCodeToClipboard]="true">
-    </dui-highlight>
+
+    <mat-tab-group class="studio__code-tabs" animationDuration="0ms" [(selectedIndex)]="liveCodeTab">
+      <mat-tab label="在线编辑 HTML 模板">
+        <app-live-code-editor
+          data-testid="live-editor-html"
+          label="template.html"
+          language="html"
+          [code]="liveTemplate"
+          [compileMs]="liveCompileMs"
+          (codeChange)="onLiveTemplateChange($event)"
+          (run)="runLiveNow()">
+        </app-live-code-editor>
+      </mat-tab>
+      <mat-tab label="在线编辑状态数据 JSON">
+        <app-live-code-editor
+          data-testid="live-editor-json"
+          label="state.json"
+          language="json"
+          [code]="liveState"
+          [compileMs]="liveCompileMs"
+          (codeChange)="onLiveStateChange($event)"
+          (run)="runLiveNow()">
+        </app-live-code-editor>
+      </mat-tab>
+      <mat-tab label="完整 TypeScript 集成示例（只读）">
+        <dui-highlight
+          [content]="liveTypescriptCode"
+          [codeLang]="'typescript'"
+          [copyCodeToClipboard]="true">
+        </dui-highlight>
+        <h4 class="studio__code-subtitle">当前检视符号用法速查（随右侧参数动态同步）</h4>
+        <dui-highlight
+          [content]="dynamicUsageCode"
+          [codeLang]="'typescript'"
+          [copyCodeToClipboard]="true">
+        </dui-highlight>
+      </mat-tab>
+    </mat-tab-group>
+
+    <div class="studio__diag" data-testid="live-diagnostic" *ngIf="liveStatus && !liveStatus.ok" role="alert">
+      <mat-icon>error_outline</mat-icon>
+      <div>
+        <strong>{{ liveStatus.phase === 'state' ? '状态 JSON 错误' : liveStatus.phase === 'compile' ? '模板编译错误' : '渲染错误' }}</strong>
+        <span> · 已保留上一帧视图</span>
+        <pre class="studio__diag-msg">{{ liveStatus.message }}</pre>
+      </div>
+    </div>
+    <div class="studio__diag studio__diag--ok" *ngIf="liveStatus?.ok && liveMode">
+      <mat-icon>bolt</mat-icon>
+      <span>{{ liveStatus?.recompiled ? '模板已原位热编译' : '状态已热替换（未重编译）' }} · {{ liveStatus?.durationMs }} ms</span>
+    </div>
   </section>
 </div>
