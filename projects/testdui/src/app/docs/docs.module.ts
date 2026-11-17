@@ -26,6 +26,8 @@ import { ModuleShellComponent } from './pages/module-shell/module-shell.componen
 import { ModuleOverviewPageComponent } from './pages/module-overview-page/module-overview-page.component';
 import { ApiReferencePageComponent } from './pages/api-reference-page/api-reference-page.component';
 import { ModuleExamplePageComponent } from './pages/module-example-page/module-example-page.component';
+import { LiveCodeEditorComponent } from './components/live-code-editor/live-code-editor.component';
+import { LiveTemplateStageComponent } from './components/live-template-stage/live-template-stage.component';
 
 /**
  * Angular module `DocsModule` declaring and exporting docs module components, directives, pipes, and providers.
@@ -54,6 +56,8 @@ import { ModuleExamplePageComponent } from './pages/module-example-page/module-e
     MatTabsModule,
     MatTooltipModule,
     HighlightModule,
+    LiveCodeEditorComponent,
+    LiveTemplateStageComponent,
   ],
 })
 export class DocsModule {}

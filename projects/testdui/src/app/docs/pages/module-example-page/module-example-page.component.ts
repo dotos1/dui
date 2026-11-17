@@ -3,7 +3,8 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-page.component.ts`，提供 `@dotos1/dui` 模块的可交互示例演练工作台组件实现。
  */
 
-import { Component, OnDestroy, OnInit, Optional, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnDestroy, OnInit, Optional, ChangeDetectionStrategy, ViewChild, inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Subject } from 'rxjs';
 import { map, switchMap, takeUntil } from 'rxjs/operators';
@@ -12,11 +13,20 @@ import { TranslationService } from '@dotos1/dui/translator';
 import { DocsDataService } from '../../services/docs-data.service';
 import { ApiExport, ModuleApiFile } from '../../models/api-record.model';
 import { preferZh } from '../../util/i18n-text';
+import { LiveTemplateStageComponent } from '../../components/live-template-stage/live-template-stage.component';
+import {
+  JsonObject,
+  LiveCompileStatus,
+  LiveStageEvent,
+  parseJsonObject,
+} from '../../components/live-template-stage/live-sandbox.types';
+import { buildAppComponentSource, openInStackblitz } from '../../components/live-template-stage/live-stackblitz';
 import {
   ModuleScenarioPreset,
   resolveModuleScenarioPreset,
   ScenarioActionPreset,
 } from './module-example-presets';
+import { buildLiveSandboxDefaults, LiveSandboxDefaults } from './module-live-presets';
 
 /**
  * Interface `EventLogEntry` representing an entry in the live interactive event console.
@@ -366,6 +376,66 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
   private readonly destroy$ = new Subject<void>();
 
   /**
+   * Property `liveMode` (`boolean`) toggling the live code sandbox on the canvas.
+   * @zh 属性 `liveMode`（类型：`boolean`），是否在画布区启用「在线代码实时沙箱」。
+   */
+  liveMode = false;
+
+  /**
+   * Property `liveTemplate` (`string`) holding editable sandbox template.
+   * @zh 属性 `liveTemplate`（类型：`string`），可在线编辑的沙箱 HTML 模板。
+   */
+  liveTemplate = '';
+
+  /**
+   * Property `liveState` (`string`) holding editable sandbox state JSON.
+   * @zh 属性 `liveState`（类型：`string`），可在线编辑的沙箱状态数据 JSON。
+   */
+  liveState = '{}';
+
+  /**
+   * Property `liveCodeTab` (`number`) storing active bottom code tab index.
+   * @zh 属性 `liveCodeTab`（类型：`number`），底部代码区当前 Tab 索引。
+   */
+  liveCodeTab = 0;
+
+  /**
+   * Property `liveStatus` (`LiveCompileStatus | null`) storing last sandbox status.
+   * @zh 属性 `liveStatus`（类型：`LiveCompileStatus | null`），最近一次沙箱编译 / 状态更新结果。
+   */
+  liveStatus: LiveCompileStatus | null = null;
+
+  /**
+   * Property `liveCompileMs` (`number | null`) storing last successful update duration.
+   * @zh 属性 `liveCompileMs`（类型：`number | null`），最近一次成功更新的耗时（毫秒）。
+   */
+  liveCompileMs: number | null = null;
+
+  /**
+   * Live sandbox stage reference.
+   * @zh 实时沙箱舞台组件引用。
+   */
+  @ViewChild(LiveTemplateStageComponent) liveStage?: LiveTemplateStageComponent;
+
+  /**
+   * Default live code for current preset.
+   * @zh 当前预设的默认在线代码。
+   */
+  private liveDefaults: LiveSandboxDefaults = buildLiveSandboxDefaults(this.preset);
+
+  /**
+   * Memo cache for generated TypeScript integration code.
+   * @zh 完整 TypeScript 集成示例的缓存。
+   */
+  private liveTsCache: { template: string; state: string; code: string } | null = null;
+
+  /**
+   * Document reference used for StackBlitz form submission.
+   * @zh 用于提交 StackBlitz 表单的 Document 引用。
+   */
+  private readonly document = inject(DOCUMENT);
+
+  /**
    * Creates an instance of `ModuleExamplePageComponent`.
    * @zh 创建 `ModuleExamplePageComponent` 实例并注入路由、文档数据与国际化服务。
    * @param route - Injected `ActivatedRoute` / 注入的当前激活路由（`ActivatedRoute`）
@@ -421,6 +491,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
 
         this.eventLogs = [];
         this.logSeq = 1;
+        this.resetLiveCode(false);
         this.appendLog(
           'lifecycle',
           `已挂载 ${importPath} 可交互演练台`,
@@ -496,6 +567,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
     if (this.preset.mode === 'color' && /^#[0-9a-fA-F]{3,8}$/.test(value.trim())) {
       this.selectedColor = value.trim();
     }
+    this.syncLiveStateFromControls();
     this.appendLog('input', `更新参数 [${this.preset.primaryLabel}]`, `value="${value}"`);
   }
 
@@ -507,6 +579,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
   onNumericInput(event: Event): void {
     const raw = Number((event.target as HTMLInputElement)?.value ?? this.numericValue);
     this.numericValue = Number.isFinite(raw) ? raw : this.preset.numericDefault;
+    this.syncLiveStateFromControls();
     this.appendLog('input', `调整数值 [${this.preset.numericLabel}]`, `value=${this.numericValue}`);
   }
 
@@ -524,6 +597,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
     if (this.preset.mode === 'animation') {
       this.triggerAnimationPulse();
     }
+    this.syncLiveStateFromControls();
     this.appendLog('input', `切换选项 [${this.preset.optionLabel}]`, `selected="${option}"`);
   }
 
@@ -533,6 +607,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
    */
   toggleBoolean(): void {
     this.booleanToggle = !this.booleanToggle;
+    this.syncLiveStateFromControls();
     this.appendLog('input', `切换开关 [${this.preset.toggleLabel}]`, `enabled=${this.booleanToggle}`);
   }
 
@@ -594,6 +669,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
       this.kvEntries = [];
     }
 
+    this.syncLiveStateFromControls();
     this.appendLog('action', `触发动作: ${action.label}`, action.payload);
   }
 
@@ -605,6 +681,7 @@ export class ModuleExamplePageComponent implements OnInit, OnDestroy {
   pickSwatch(hex: string): void {
     this.selectedColor = hex;
     this.primaryText = hex;
+    this.syncLiveStateFromControls();
     this.appendLog('output', `ColorChange 事件触发`, `{ hex: "${hex}", alpha: ${(this.numericValue / 100).toFixed(2)} }`);
   }
 
@@ -948,6 +1025,174 @@ const workbenchConfig = {
   enabled: ${this.booleanToggle},
 };
 ${this.api?.suggestedUsageSnippet ? '\n' + this.api.suggestedUsageSnippet : ''}`;
+  }
+
+  /**
+   * Toggles the live code sandbox on the canvas.
+   * @zh 切换画布区「⚡ 在线代码实时沙箱」。
+   */
+  toggleLiveMode(): void {
+    this.liveMode = !this.liveMode;
+    this.appendLog('lifecycle', this.liveMode ? '已开启在线代码实时沙箱' : '已关闭在线代码实时沙箱', `mode=${this.preset.mode}`);
+  }
+
+  /**
+   * Handles HTML template edits from the live editor.
+   * @zh 处理在线编辑器中的 HTML 模板修改（自动开启实时沙箱）。
+   * @param code - New template / 新模板
+   */
+  onLiveTemplateChange(code: string): void {
+    this.liveTemplate = code;
+    this.liveMode = true;
+  }
+
+  /**
+   * Handles state JSON edits; valid JSON flows back into the parameter deck.
+   * @zh 处理状态 JSON 修改；JSON 合法时反向同步到右侧参数控件，实现控件 ↔ 代码 ↔ 画布联动。
+   * @param code - New JSON text / 新 JSON 文本
+   */
+  onLiveStateChange(code: string): void {
+    this.liveState = code;
+    this.liveMode = true;
+    let state: JsonObject;
+    try {
+      state = parseJsonObject(code);
+    } catch {
+      return; // 诊断由沙箱舞台统一上报
+    }
+    this.syncControlsFromState(state);
+  }
+
+  /**
+   * Runs the sandbox immediately (Ctrl/Cmd+Enter or ▶ button).
+   * @zh 立即运行沙箱（Ctrl/Cmd+Enter 或 ▶ 按钮）。
+   */
+  runLiveNow(): void {
+    this.liveMode = true;
+    if (this.liveStage) {
+      this.liveStage.runNow(true);
+    }
+  }
+
+  /**
+   * Restores default live code for the current preset.
+   * @zh 恢复当前模块的默认在线代码。
+   * @param log - Whether to log the reset / 是否写入事件日志
+   */
+  resetLiveCode(log = true): void {
+    this.liveDefaults = buildLiveSandboxDefaults(this.preset);
+    this.liveTemplate = this.liveDefaults.liveTemplate;
+    this.liveState = this.liveDefaults.liveState;
+    this.liveStatus = null;
+    if (log) {
+      // 用户主动重置：参数控件一并回到预设默认值，保证三方一致
+      this.primaryText = this.preset.primaryDefault;
+      this.numericValue = this.preset.numericDefault;
+      this.selectedOption = this.preset.options[0] || 'default';
+      this.booleanToggle = true;
+      if (this.preset.mode === 'color' && this.primaryText.startsWith('#')) {
+        this.selectedColor = this.primaryText;
+      }
+      this.appendLog('lifecycle', '已重置为默认代码', `mode=${this.preset.mode}`);
+    }
+  }
+
+  /**
+   * Receives compile status from the sandbox stage.
+   * @zh 接收沙箱舞台的编译状态，更新诊断条与耗时。
+   * @param status - Compile status / 编译状态
+   */
+  onLiveStatus(status: LiveCompileStatus): void {
+    this.liveStatus = status;
+    if (status.ok) {
+      this.liveCompileMs = status.durationMs;
+      if (status.recompiled) {
+        this.appendLog('lifecycle', '模板已原位热编译', `${status.durationMs} ms`);
+      }
+    }
+  }
+
+  /**
+   * Receives `log()` events from the sandbox template.
+   * @zh 接收沙箱模板中 `log()` 回流的事件，写入右侧事件控制台。
+   * @param event - Stage event / 舞台事件
+   */
+  onLiveStageEvent(event: LiveStageEvent): void {
+    this.appendLog('output', `[沙箱] ${event.label}`, event.payload);
+  }
+
+  /**
+   * Opens the current sandbox as a minimal Angular project on StackBlitz.
+   * @zh 将当前沙箱代码作为最小 Angular 22 + `@dotos/dui` 工程在 StackBlitz 中打开。
+   */
+  openInStackblitz(): void {
+    const importPath = this.api?.importPath || `@dotos1/dui/${this.categoryId}/${this.moduleId}`;
+    openInStackblitz(
+      {
+        title: `@dotos/dui 在线示例 · ${this.moduleId}`,
+        description: `${this.preset.title}（由 testdui 在线代码实时沙箱导出，源模块 ${importPath.replace('@dotos1/dui', '@dotos/dui')}）`,
+        template: this.liveTemplate,
+        stateJson: this.liveState,
+      },
+      this.document
+    );
+    this.appendLog('action', '在 StackBlitz 中打开', 'POST https://stackblitz.com/run');
+  }
+
+  /**
+   * Full TypeScript integration example (read-only tab).
+   * @zh 完整 TypeScript 集成示例（只读 Tab），与当前模板 / 状态保持一致。
+   */
+  get liveTypescriptCode(): string {
+    const cache = this.liveTsCache;
+    if (cache && cache.template === this.liveTemplate && cache.state === this.liveState) {
+      return cache.code;
+    }
+    const code = buildAppComponentSource(this.liveTemplate, this.liveState, '@dotos1/dui');
+    this.liveTsCache = { template: this.liveTemplate, state: this.liveState, code };
+    return code;
+  }
+
+  /**
+   * Writes parameter deck values back into the live state JSON.
+   * @zh 将右侧参数控件的值写回状态 JSON（JSON 当前不合法时不覆盖用户输入）。
+   */
+  private syncLiveStateFromControls(): void {
+    let state: JsonObject;
+    try {
+      state = parseJsonObject(this.liveState);
+    } catch {
+      return;
+    }
+    const next: JsonObject = {
+      ...state,
+      title: this.primaryText,
+      value: this.numericValue,
+      option: this.selectedOption,
+      enabled: this.booleanToggle,
+    };
+    if (this.preset.mode === 'color') {
+      next['color'] = this.selectedColor;
+    }
+    this.liveState = JSON.stringify(next, null, 2);
+  }
+
+  /**
+   * Applies well-typed state fields onto the parameter deck.
+   * @zh 将状态 JSON 中类型正确的字段同步到右侧参数控件。
+   * @param state - Parsed state / 已解析状态
+   */
+  private syncControlsFromState(state: JsonObject): void {
+    const title = state['title'];
+    const value = state['value'];
+    const option = state['option'];
+    const enabled = state['enabled'];
+    const color = state['color'];
+    if (typeof title === 'string') this.primaryText = title;
+    if (typeof value === 'number' && Number.isFinite(value)) this.numericValue = value;
+    if (typeof option === 'string') this.selectedOption = option;
+    if (typeof enabled === 'boolean') this.booleanToggle = enabled;
+    if (this.preset.mode === 'color' && typeof color === 'string') this.selectedColor = color;
   }
 
   /**
