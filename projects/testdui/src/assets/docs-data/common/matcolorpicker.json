@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/matcolorpicker",
+  "importPath": "@dotos1/dui/common/matcolorpicker",
   "exports": [
     {
       "name": "ColorPickerComponent",
@@ -71,7 +71,12 @@
         },
         {
           "name": "updateSelectedColor",
-          "params": [],
+          "params": [
+            {
+              "name": "emitModelChange",
+              "type": "boolean"
+            }
+          ],
           "returnType": "void",
           "description": "Update selected color",
           "descriptionZh": "执行 `updateSelectedColor`，用于更新已选中颜色。"
@@ -164,5 +169,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ColorPickerComponent, ColorPickerModule } from '@dotos/dui/common/matcolorpicker';\n\n<color-picker [color]=\"...\" (colorChanged)=\"...\"></color-picker>"
+  "suggestedUsageSnippet": "import { ColorPickerComponent, ColorPickerModule } from '@dotos1/dui/common/matcolorpicker';\n\n<color-picker [color]=\"...\" (colorChanged)=\"...\"></color-picker>"
 }

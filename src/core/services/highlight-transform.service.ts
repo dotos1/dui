@@ -5,7 +5,7 @@
 
 
 import { Injectable } from '@angular/core';
-import { sanitizeDomTree } from '@dotos/dui/base';
+import { sanitizeDomTree } from '@dotos1/dui/base';
 
 /**
  * Interface `HighlightTransformResult` defining the contract and properties for highlight transform result.

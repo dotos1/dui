@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/data/datatable/row/row-wrapper.component.ts`，提供行包装器组件相关的定义与实现。
  */
 
-import { DuiStyle } from '@dotos/dui/base';
+import { DuiStyle } from '@dotos1/dui/base';
 import {
   Component, Input, Output, EventEmitter, HostListener, DoCheck,
   ChangeDetectionStrategy, KeyValueDiffer, ChangeDetectorRef, KeyValueDiffers

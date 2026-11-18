@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/toolbar",
+  "importPath": "@dotos1/dui/ui/toolbar",
   "exports": [
     {
       "name": "DuiToolbarComponent",
@@ -11,10 +11,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig | Array<DuiConfig | object | string>",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig | (string | object | DuiConfig)[]`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig | (string | object | DuiConfig)[]`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "height",
@@ -138,7 +138,7 @@
           "params": [
             {
               "name": "field",
-              "type": "any"
+              "type": "ContainerItem"
             }
           ],
           "returnType": "MenuItem",
@@ -171,17 +171,17 @@
           ],
           "returnType": "any",
           "description": "Executes `constructButton` to handle construct button.",
-          "descriptionZh": "执行 `constructButton`，用于construct按钮。"
+          "descriptionZh": "执行 `constructButton`，用于构造按钮。"
         },
         {
           "name": "onAdd",
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "ComponentBase"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onAdd` to handle on add.",
           "descriptionZh": "执行 `onAdd`，用于当添加。"
         },
@@ -200,14 +200,14 @@
         {
           "name": "onDisable",
           "params": [],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onDisable` to handle on disable.",
           "descriptionZh": "执行 `onDisable`，用于当禁用。"
         },
         {
           "name": "onEnable",
           "params": [],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onEnable` to handle on enable.",
           "descriptionZh": "执行 `onEnable`，用于当启用。"
         },
@@ -278,7 +278,8 @@
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.",
+          "default": "undefined",
+          "description": "Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.",
           "descriptionZh": "模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。"
         }
       ]
@@ -297,8 +298,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n      DuiToolbarComponent,\n    Separator,\n    Spacer,\n    Fill,\n    TextItem]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof Spacer | typeof DuiToolbarComponent | typeof Separator | typeof TextItem)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof Spacer | typeof DuiToolbarComponent | typeof Separator | typeof TextItem)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -413,10 +414,10 @@
         },
         {
           "name": "style",
-          "type": "any",
+          "type": "DuiStyle",
           "default": "{}",
-          "description": "Property `style` (`any`) storing style (default: `{}`).",
-          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{}`）。"
+          "description": "Property `style` (`DuiStyle`) storing style (default: `{}`).",
+          "descriptionZh": "属性 `style`（类型：`DuiStyle`），用于存储或配置样式（默认值：`{}`）。"
         }
       ]
     },
@@ -509,5 +510,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { DuiToolbarComponent, DuiToolbarModule } from '@dotos/dui/ui/toolbar';\n\n<dui-toolbar [config]=\"...\" [height]=\"...\"></dui-toolbar>"
+  "suggestedUsageSnippet": "import { DuiToolbarComponent, DuiToolbarModule } from '@dotos1/dui/ui/toolbar';\n\n<dui-toolbar [config]=\"...\" [height]=\"...\"></dui-toolbar>"
 }

@@ -10,7 +10,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { CdkAccordionModule } from '@angular/cdk/accordion';
 import { A11yModule } from '@angular/cdk/a11y';
 import { Accordion } from './accordion';
-import { FormBuilder } from '@dotos/dui/core/form';
+import { FormBuilder } from '@dotos1/dui/core/form';
 
 
 import {
@@ -23,8 +23,8 @@ import {
   ExpansionPanelHeader,
   ExpansionPanelTitle,
 } from './expansion-panel-header';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 
 /**

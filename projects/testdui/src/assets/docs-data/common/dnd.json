@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/dnd",
+  "importPath": "@dotos1/dui/common/dnd",
   "exports": [
     {
       "name": "calculateDragImageOffset",
@@ -1003,5 +1003,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DndModule } from '@dotos/dui/common/dnd';"
+  "suggestedUsageSnippet": "import { DndModule } from '@dotos1/dui/common/dnd';"
 }

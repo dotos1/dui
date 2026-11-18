@@ -2,10 +2,10 @@ name: Package CI/CD
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master, feat/ng22-m3 ]
     tags: [ 'v*' ]
   pull_request:
-    branches: [ master ]
+    branches: [ master, feat/ng22-m3 ]
   workflow_dispatch:
     inputs:
       publish:
@@ -13,6 +13,11 @@ on:
         required: false
         type: boolean
         default: false
+      version:
+        description: '指定发布版本（如 8.0.0-next.3）；留空则沿用自动补丁号。含预发布后缀时以 next 标签发布，不动 latest'
+        required: false
+        type: string
+        default: ''
 
 permissions:
   contents: read
@@ -81,11 +86,28 @@ jobs:
         run: npm run gate:style-ref
 
       - name: Build Package
-        run: npm run package
+        run: |
+          if [ -n "${VERSION}" ]; then
+            # 指定版本：不走 prebuild 的自动补丁号（预发布号 patch 会变成正式版 8.0.0）
+            (cd src && npm --no-git-tag-version --allow-same-version version "${VERSION}")
+            npm run build-dui && npm run npm_pack
+          else
+            npm run package
+          fi
+        env:
+          VERSION: ${{ github.event.inputs.version }}
+
+      - name: 产物依赖与布局清零门（G-PKG-DEPS，零幽灵依赖、零死依赖、禁 ngx-flexible-layout 回流）
+        run: npm run gate:pkg-deps
 
       - name: Publish to GitHub Packages
         if: startsWith(github.ref, 'refs/tags/v') || github.event.inputs.publish == 'true'
-        run: npm run publish
+        run: |
+          # 预发布版本一律打 next 标签，不动 latest
+          V=$(node -p "require('./dist/dui/package.json').version")
+          case "$V" in *-*) TAG=next ;; *) TAG=latest ;; esac
+          echo "发布 @dotos1/dui@$V，标签 $TAG"
+          cd dist/dui && rm -f *.tgz && npm publish --ignore-scripts --tag "$TAG"
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_CONFIG_REGISTRY: 'https://npm.pkg.github.com'

@@ -1,9 +1,0 @@
-<span class="Editor__ImageWrapper" [ngClass]="{'Editor__Resizer--Active': selected}" [style.width]="outerWidth">
-  <span class="Editor__ResizeHandle" *ngIf="selected">
-    <span class="Editor__ResizeHandle--TL"  (mousedown)="startResizing($event, 'left')"></span>
-    <span class="Editor__ResizeHandle--TR" (mousedown)="startResizing($event, 'right')"></span>
-    <span class="Editor__ResizeHandle--BL" (mousedown)="startResizing($event, 'left')"></span>
-    <span class="Editor__ResizeHandle--BR" (mousedown)="startResizing($event, 'right')"></span>
-  </span>
-  <img [src]="src" [alt]="alt" [title]="title" #imgEl />
-</span>

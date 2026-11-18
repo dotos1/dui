@@ -5,20 +5,19 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { ClickOutsideModule } from '@dotos/dui/common/clickout'
-import { TranslateModule, TranslationService } from '@dotos/dui/translator';
+import { ClickOutsideModule } from '@dotos1/dui/common/clickout'
+import { TranslateModule, TranslationService } from '@dotos1/dui/translator';
 import { LockscreenDialog } from './lockscreen.dialog';
 
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { encrypt } from '@dotos/dui/core/crypt';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
+import { encrypt } from '@dotos1/dui/core/crypt';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
-import { DialogsModule } from '@dotos/dui/common/dialogs';
+import { DialogsModule } from '@dotos1/dui/common/dialogs';
 
 /**
  * Angular module `LockscreenSaverModule` declaring and exporting lockscreen saver module components, directives, pipes, and providers.
@@ -32,7 +31,6 @@ import { DialogsModule } from '@dotos/dui/common/dialogs';
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule,
     ClickOutsideModule,
     TranslateModule,
     MatButtonModule,

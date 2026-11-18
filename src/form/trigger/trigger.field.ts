@@ -27,12 +27,12 @@ import {
   DialogService,
   IDraggableRefs,
   ResizableDraggableDialog,
-} from '@dotos/dui/common/dialogs';
+} from '@dotos1/dui/common/dialogs';
 import { MatIconRegistry } from '@angular/material/icon';
 import { MatInput } from '@angular/material/input';
 import { DomSanitizer } from '@angular/platform-browser';
-import { Dui } from '@dotos/dui/core';
-import { TranslateService } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateService } from '@dotos1/dui/translator';
 import { isObjectLike } from 'lodash-es';
 import { isObject } from 'lodash-es';
 import { AbstractTrigger } from './abstract.trigger';

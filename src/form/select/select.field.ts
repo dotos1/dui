@@ -9,8 +9,8 @@ import { FormControl } from '@angular/forms';
 import { Subject, timer } from 'rxjs';
 import { debounce, filter, tap, takeUntil, takeWhile } from 'rxjs/operators';
 
-import { PhoneBackGuard, guardPhoneBack, isPhoneTerminal, phoneSelectableOptions } from '@dotos/dui/base';
-import { TranslateService } from '@dotos/dui/translator';
+import { PhoneBackGuard, guardPhoneBack, isPhoneTerminal, phoneSelectableOptions } from '@dotos1/dui/base';
+import { TranslateService } from '@dotos1/dui/translator';
 import { SelectOptionsService } from './options.service';
 import { MatField } from '../base/mat.field';
 import { getOptionLabel, getOptionValue } from '../base/select-option-props';
@@ -549,7 +549,7 @@ export class FieldSelect extends MatField implements OnInit,OnDestroy {
   /**
    * Executes `change` to handle change.
    * @zh 执行 `change`，用于变更。
-   * @param $event - event parameter (`MatSelectChange`) / 事件参数（`MatSelectChange`）
+   * @param $event - event parameter (`MatSelectChange<any>`) / 事件参数（`MatSelectChange<any>`）
    */
   change($event: MatSelectChange) {
     this.isLoading = false;

@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/home/pages/home-page/home-page.component.ts`，提供home页面组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Interface `FeatureItem` defining the contract and properties for feature item.
@@ -68,6 +68,7 @@ interface EcosystemItem {
   templateUrl: './home-page.component.html',
   styleUrls: ['./home-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class HomePageComponent {
   /**
@@ -121,9 +122,9 @@ export class HomePageComponent {
    * Property `quickStartSnippet` (`string`) storing quick start snippet.
    * @zh 属性 `quickStartSnippet`（类型：`string`），用于存储或配置quick开始Snippet。
    */
-  readonly quickStartSnippet = `npm install @dotos/dui
+  readonly quickStartSnippet = `npm install @dotos1/dui
 
-import { ButtonModule } from '@dotos/dui/ui/button';
+import { ButtonModule } from '@dotos1/dui/ui/button';
 
 @NgModule({
   imports: [ButtonModule],

@@ -13,9 +13,8 @@ import {NgModule} from '@angular/core';
 import {MatRippleModule} from '@angular/material/core';
 import {MatTabsModule} from '@angular/material/tabs';
 import {TabPanel} from './tabpanel.component';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `DuiTabsModule` declaring and exporting dui tabs module components, directives, pipes, and providers.
@@ -28,7 +27,6 @@ import { TranslateModule } from '@dotos/dui/translator';
     TranslateModule,
     MatRippleModule,
     ObserversModule,
-    FlexLayoutModule,
     ScrollingModule,
     MatTabsModule
   ],

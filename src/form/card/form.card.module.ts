@@ -6,16 +6,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormModule } from '@dotos/dui/form';
+import { FormModule } from '@dotos1/dui/form';
 import { MatInputModule  } from '@angular/material/input';
 import { MatCardModule  } from '@angular/material/card';
 import {  MatFormFieldModule, } from '@angular/material/form-field';
 import { MatDividerModule  } from '@angular/material/divider';
 import { MatPaginatorModule  } from '@angular/material/paginator';
 import { FormCard } from './form.card';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `FormCardModule` declaring and exporting form card module components, directives, pipes, and providers.
@@ -33,7 +32,6 @@ import { TranslateModule } from '@dotos/dui/translator';
     MatCardModule,
     TranslateModule,
     MatPaginatorModule,
-    FlexLayoutModule
   ],
   exports: [FormCard],
 })

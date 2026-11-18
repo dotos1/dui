@@ -24,8 +24,8 @@ export interface FieldConfigCache extends FieldConfig {
    */
   model?;
   /**
-   * Property `formControl` (`AbstractControl<any, any>`) storing form control.
-   * @zh 属性 `formControl`（类型：`AbstractControl<any, any>`），用于存储或配置表单表单控件。
+   * Property `formControl` (`AbstractControl<any, any, any>`) storing form control.
+   * @zh 属性 `formControl`（类型：`AbstractControl<any, any, any>`），用于存储或配置表单表单控件。
    */
   formControl?: AbstractControl;
   /**

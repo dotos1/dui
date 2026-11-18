@@ -4,14 +4,14 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule, OnDestroy, OnInit } from '@angular/core';
+import { Component, NgModule, OnDestroy, OnInit, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `ThemeExampleComponent` (selector: 'app-theme-example') providing live theme switching interaction.
@@ -45,6 +45,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ThemeExampleComponent implements OnInit, OnDestroy {
   /**
@@ -63,7 +64,7 @@ export class ThemeExampleComponent implements OnInit, OnDestroy {
    * Property `exampleSource` (`string`) storing example source code snippet.
    * @zh 属性 `exampleSource`（类型：`string`），用于存储或配置示例代码片段。
    */
-  readonly exampleSource = `import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
+  readonly exampleSource = `import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
 
 constructor(
   private dotosConfig: DotosConfigService,

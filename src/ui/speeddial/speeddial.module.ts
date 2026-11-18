@@ -12,10 +12,10 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
 
-import { IconModule } from '@dotos/dui/common/icon';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
-import { MenuModule } from '@dotos/dui/ui/menu';
+import { IconModule } from '@dotos1/dui/common/icon';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { MenuModule } from '@dotos1/dui/ui/menu';
 
 import { FabButtonComponent } from './fab.button';
 import { ExtSpeedDialComponent } from './speeddial.component';

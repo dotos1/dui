@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/dynamic",
+  "importPath": "@dotos1/dui/core/dynamic",
   "exports": [
     {
       "name": "DynamicComponent",
@@ -35,8 +35,8 @@
           "name": "viewRef",
           "type": "any",
           "default": "inject(ViewContainerRef)",
-          "description": "Property `viewRef` (`any`) storing view ref (default: `inject(ViewContainerRef)`).",
-          "descriptionZh": "属性 `viewRef`（类型：`any`），用于存储或配置视图引用（默认值：`inject(ViewContainerRef)`）。"
+          "description": "Property `viewRef` (`ViewContainerRef`) storing view ref (default: `inject(ViewContainerRef)`).",
+          "descriptionZh": "属性 `viewRef`（类型：`ViewContainerRef`），用于存储或配置视图引用（默认值：`inject(ViewContainerRef)`）。"
         }
       ]
     },
@@ -81,5 +81,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DynamicComponent, DynamicModule } from '@dotos/dui/core/dynamic';\n\n<dui-dynamic [tmpl]=\"...\" [data]=\"...\"></dui-dynamic>"
+  "suggestedUsageSnippet": "import { DynamicComponent, DynamicModule } from '@dotos1/dui/core/dynamic';\n\n<dui-dynamic [tmpl]=\"...\" [data]=\"...\"></dui-dynamic>"
 }

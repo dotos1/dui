@@ -4,8 +4,8 @@
  */
 
 import { Component, EventEmitter, forwardRef, Input, Output, ViewEncapsulation,ChangeDetectionStrategy } from '@angular/core';
-import { duiAnimations } from '@dotos/dui/common/animations';
-import { MatColors } from '@dotos/dui/core/color';
+import { duiAnimations } from '@dotos1/dui/common/animations';
+import { MatColors } from '@dotos1/dui/core/color';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 /**
@@ -164,7 +164,7 @@ export class ColorPickerComponent implements ControlValueAccessor {
       return;
     }
     this.color = color;
-    this.updateSelectedColor();
+    this.updateSelectedColor(false);
   }
 
   /**
@@ -209,10 +209,10 @@ export class ColorPickerComponent implements ControlValueAccessor {
 
   /**
    * Update selected color
-
    * @zh 执行 `updateSelectedColor`，用于更新已选中颜色。
+   * @param emitModelChange - Whether to propagate model change callbacks (`boolean`, default: `true`) / 是否向表单控件回调发射变更（默认值：`true`）
    */
-  updateSelectedColor(): void {
+  updateSelectedColor(emitModelChange: boolean = true): void {
     if (this.selectedColor && this.selectedColor.palette === this.selectedPalette && this.selectedColor.hue === this.selectedHue) {
       return;
     }
@@ -226,14 +226,16 @@ export class ColorPickerComponent implements ControlValueAccessor {
       fg: !this.selectedPalette ? '' : MatColors.getColor(this.selectedPalette).contrast[this.selectedHue]
     };
 
-    // Emit the color changed event
-    this.colorChanged.emit(this.selectedColor);
+    if (emitModelChange) {
+      // Emit the color changed event
+      this.colorChanged.emit(this.selectedColor);
 
-    // Mark the model as touched
-    this._modelTouched(this.selectedColor.class);
+      // Mark the model as touched
+      this._modelTouched(this.selectedColor.class);
 
-    // Update the model
-    this._modelChange(this.selectedColor.class);
+      // Update the model
+      this._modelChange(this.selectedColor.class);
+    }
   }
 
   /**

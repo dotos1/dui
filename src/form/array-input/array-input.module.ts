@@ -15,8 +15,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatSelectModule } from '@angular/material/select';
 
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule, TranslationService } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule, TranslationService } from '@dotos1/dui/translator';
 
 import { FormModule } from '../components/form.module';
 import { ArrayInputComponent } from './array-input.component';

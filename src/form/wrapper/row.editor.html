@@ -1,12 +1,12 @@
-<div fxLayout='column' fxFlex style='overflow:hidden'>
+<div style="display: flex; flex-direction: column; flex: 1 1 0%; box-sizing: border-box; overflow: hidden;">
   <mat-divider ></mat-divider>
-  <div *ngIf='field.label' fxLayout='row' style='overflow:hidden;height:40px;'>
+  <div *ngIf='field.label' style="display: flex; flex-direction: row; box-sizing: border-box; overflow: hidden; height: 40px;">
     <span class="section-label" style='margin-top:12px;margin-bottom:18px'> {{field.label|translate}}</span>
     <span style='flex: 1 1 auto;'></span>
   </div>
-  <div fxLayout='column' style="padding-top:10px;">
-    <div *ngFor="let item of field.fieldGroup; let i = index;" fxLayout='row' >
-      <div fxLayout='column' fxFlex>
+  <div style="display: flex; flex-direction: column; box-sizing: border-box; padding-top: 10px;">
+    <div *ngFor="let item of field.fieldGroup; let i = index;" style="display: flex; flex-direction: row; box-sizing: border-box;">
+      <div style="display: flex; flex-direction: column; flex: 1 1 0%; box-sizing: border-box;">
         <dui-field [field]="item"></dui-field>
       </div>
       <button mat-icon-button class="delete-button" (click)="remove(i)">

@@ -14,7 +14,7 @@ import { MatButtonModule } from '@angular/material/button';
 
 import { SearchInputComponent } from './search-input/search-input.component';
 import { SearchBoxComponent } from './search-box.component';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular module `SearchBoxModule` declaring and exporting search box module components, directives, pipes, and providers.

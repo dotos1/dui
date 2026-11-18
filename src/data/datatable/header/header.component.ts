@@ -11,7 +11,7 @@ import { SelectionType } from '../types/selection.type';
 import { columnsByPin, columnGroupWidths, columnsByPinArr } from '../utils/column';
 import { translateXY } from '../utils/translate';
 import { DataTableColumnDirective } from '../columns/column.directive';
-import { TranslatePipe } from '@dotos/dui/translator';
+import { TranslatePipe } from '@dotos1/dui/translator';
 
 /**
  * Angular component `DataTableHeaderComponent` (selector: 'datatable-header') providing data table header component presentation and interaction in `src/data/datatable/header`.

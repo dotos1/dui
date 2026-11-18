@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { FormModule } from '../components/form.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 
 import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
@@ -18,9 +17,9 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatIconModule } from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 
-import { PopoverModule } from '@dotos/dui/common/popover';
-import { ButtonModule } from '@dotos/dui/ui/button';
-import { ConfigOption, AbstractFormModule } from '@dotos/dui/core/form';
+import { PopoverModule } from '@dotos1/dui/common/popover';
+import { ButtonModule } from '@dotos1/dui/ui/button';
+import { ConfigOption, AbstractFormModule } from '@dotos1/dui/core/form';
 
 import { WrapperEditorField } from './editor-field';
 import { ExtFieldWrapper } from './field-wrapper';
@@ -30,8 +29,8 @@ import { FormSection } from './form.section';
 import { RepeatTypeComponent } from './repeat-section.type';
 import { RowEditorComponent } from './row.editor';
 import { Fieldset } from './fieldset';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 import { MatButtonModule } from '@angular/material/button';
 
 /**
@@ -79,7 +78,6 @@ export const MATERIAL_FORMLY_CONFIG: ConfigOption = {
     MatButtonModule,
     MatCheckboxModule,
     MatDividerModule,
-    FlexLayoutModule,
     MatIconModule,
     MatExpansionModule,
     AbstractFormModule,

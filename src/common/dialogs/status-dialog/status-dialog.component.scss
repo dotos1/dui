@@ -16,7 +16,6 @@
   }
 
   [mat-icon-button].dui-status-dialog__icon-button {
-    --mdc-icon-button-state-layer-size: 40px;
     --mat-icon-button-state-layer-size: 40px;
 
     padding: 8px;
@@ -31,7 +30,7 @@
 
   .mat-mdc-dialog-container .mdc-dialog__title {
     padding: 18px 16px;
-    line-height: var(--mat-dialog-supporting-text-line-height, var(--mdc-dialog-supporting-text-line-height));
+    line-height: var(--mat-dialog-supporting-text-line-height);
 
     &::before {
       display: none;
@@ -62,7 +61,7 @@
   .dui-dialog-message {
     font-feature-settings: 'clig' off, 'liga' off;
     color: var(--cv-theme-on-surface-variant);
-    line-height: var(--mat-dialog-supporting-text-line-height, var(--mdc-dialog-supporting-text-line-height));
+    line-height: var(--mat-dialog-supporting-text-line-height);
   }
 }
 

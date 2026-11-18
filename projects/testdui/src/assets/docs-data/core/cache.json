@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/cache",
+  "importPath": "@dotos1/dui/core/cache",
   "exports": [
     {
       "name": "BaseObject",
@@ -310,10 +310,187 @@
       "properties": []
     },
     {
+      "name": "CollectionEventEmitter",
+      "kind": "class",
+      "summary": "浏览器与 Node 通用的轻量事件发射器基类，替代 Node `events.EventEmitter`。",
+      "summaryZh": "类 `CollectionEventEmitter`，为有序集合提供零外部依赖的事件监听与派发能力。",
+      "sourceFile": "src/core/cache/mixed.collection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "on",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            },
+            {
+              "name": "listener",
+              "type": "CollectionEventListener"
+            }
+          ],
+          "returnType": "this",
+          "description": "Registers an event listener for the specified event name.",
+          "descriptionZh": "注册指定事件名的监听函数。"
+        },
+        {
+          "name": "addListener",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            },
+            {
+              "name": "listener",
+              "type": "CollectionEventListener"
+            }
+          ],
+          "returnType": "this",
+          "description": "Alias for `on` registering an event listener.",
+          "descriptionZh": "`on` 的别名方法，用于注册事件监听函数。"
+        },
+        {
+          "name": "once",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            },
+            {
+              "name": "listener",
+              "type": "CollectionEventListener"
+            }
+          ],
+          "returnType": "this",
+          "description": "Registers a one-time event listener for the specified event name.",
+          "descriptionZh": "注册只触发一次的事件监听函数。"
+        },
+        {
+          "name": "removeListener",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            },
+            {
+              "name": "listener",
+              "type": "CollectionEventListener"
+            }
+          ],
+          "returnType": "this",
+          "description": "Removes a registered listener for the specified event name.",
+          "descriptionZh": "移除指定事件名下的目标监听函数。"
+        },
+        {
+          "name": "off",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            },
+            {
+              "name": "listener",
+              "type": "CollectionEventListener"
+            }
+          ],
+          "returnType": "this",
+          "description": "Alias for `removeListener` detaching an event listener.",
+          "descriptionZh": "`removeListener` 的别名方法，用于取消监听函数。"
+        },
+        {
+          "name": "removeAllListeners",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            }
+          ],
+          "returnType": "this",
+          "description": "Removes all listeners, or those of the specified event name.",
+          "descriptionZh": "移除全部事件监听函数，或指定事件名下的全部监听函数。"
+        },
+        {
+          "name": "emit",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            },
+            {
+              "name": "args",
+              "type": "unknown[]"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "Synchronously invokes each listener registered for the event name.",
+          "descriptionZh": "同步触发指定事件名下注册的全部监听函数。"
+        },
+        {
+          "name": "listeners",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            }
+          ],
+          "returnType": "CollectionEventListener[]",
+          "description": "Returns a copy of the array of listeners for the event name.",
+          "descriptionZh": "返回指定事件名下监听函数数组的浅拷贝。"
+        },
+        {
+          "name": "listenerCount",
+          "params": [
+            {
+              "name": "eventName",
+              "type": "string | symbol"
+            }
+          ],
+          "returnType": "number",
+          "description": "Returns the number of listeners listening to the event name.",
+          "descriptionZh": "返回指定事件名下注册的监听函数数量。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "CollectionEventListener",
+      "kind": "type",
+      "summary": "集合事件回调函数类型",
+      "summaryZh": null,
+      "sourceFile": "src/core/cache/mixed.collection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CollectionKey",
+      "kind": "type",
+      "summary": "集合元素的键",
+      "summaryZh": null,
+      "sourceFile": "src/core/cache/mixed.collection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "CollectionKeyFn",
+      "kind": "type",
+      "summary": "取键函数：默认取元素的 `id`",
+      "summaryZh": null,
+      "sourceFile": "src/core/cache/mixed.collection.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
       "name": "MixedCollection",
       "kind": "class",
-      "summary": "Class `MixedCollection` encapsulating mixed collection data structures and logic in `src/core/cache`.",
-      "summaryZh": "类 `MixedCollection`，封装 `src/core/cache` 中的Mixed集合数据结构与处理逻辑。",
+      "summary": "有序集合：保留插入顺序，同时维护「键 → 元素」映射。",
+      "summaryZh": "类 `MixedCollection`，元素类型为 `T`。",
       "sourceFile": "src/core/cache/mixed.collection.ts",
       "inputs": [],
       "outputs": [],
@@ -322,105 +499,177 @@
           "name": "add",
           "params": [
             {
+              "name": "o",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": "添加元素：只传元素时用 getKey 取键",
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
               "name": "key",
-              "type": "any"
+              "type": "CollectionKey"
             },
             {
               "name": "o",
-              "type": "Object"
+              "type": "T"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `add` to handle add.",
-          "descriptionZh": "执行 `add`，用于添加。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "keyOrItem",
+              "type": "CollectionKey | T"
+            },
+            {
+              "name": "item",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getKey",
           "params": [
             {
               "name": "o",
-              "type": "any"
+              "type": "T"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `getKey` to handle get key.",
-          "descriptionZh": "执行 `getKey`，用于获取键。"
+          "returnType": "CollectionKey",
+          "description": "取元素的键，默认是 `id`；构造时可传 keyFn 覆盖",
+          "descriptionZh": null
+        },
+        {
+          "name": "replace",
+          "params": [
+            {
+              "name": "o",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": "替换同键元素；键不存在时等同 add",
+          "descriptionZh": null
         },
         {
           "name": "replace",
           "params": [
             {
               "name": "key",
-              "type": "string"
+              "type": "CollectionKey"
             },
             {
               "name": "o",
-              "type": "any"
+              "type": "T"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `replace` to handle replace.",
-          "descriptionZh": "执行 `replace`，用于替换。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "replace",
+          "params": [
+            {
+              "name": "keyOrItem",
+              "type": "CollectionKey | T"
+            },
+            {
+              "name": "item",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "addAll",
           "params": [
             {
               "name": "objs",
-              "type": "any"
+              "type": "T[] | { [key: string]: T }"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `addAll` to handle add all.",
-          "descriptionZh": "执行 `addAll`，用于添加全部。"
+          "returnType": "void",
+          "description": "批量添加：数组按 getKey 取键；对象按属性名作键",
+          "descriptionZh": null
         },
         {
           "name": "each",
           "params": [
             {
               "name": "fn",
-              "type": "Function"
+              "type": "(item: T, index: number, length: number) => unknown"
             },
             {
               "name": "scope",
-              "type": "any"
+              "type": "object"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `each` to handle each.",
-          "descriptionZh": "执行 `each`，用于每个。"
+          "returnType": "void",
+          "description": "逐个调用 fn(item, index, length)；fn 返回 false 时停止",
+          "descriptionZh": null
         },
         {
           "name": "eachKey",
           "params": [
             {
               "name": "fn",
-              "type": "Function"
+              "type": "(key: CollectionKey, item: T, index: number, length: number) => unknown"
             },
             {
               "name": "scope",
-              "type": "Object"
+              "type": "object"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `eachKey` to handle each key.",
-          "descriptionZh": "执行 `eachKey`，用于每个键。"
+          "returnType": "void",
+          "description": "逐个调用 fn(key, item, index, length)",
+          "descriptionZh": null
         },
         {
           "name": "find",
           "params": [
             {
               "name": "fn",
-              "type": "Function"
+              "type": "(item: T, key: CollectionKey) => unknown"
             },
             {
               "name": "scope",
-              "type": "Object"
+              "type": "object"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `find` to handle find.",
-          "descriptionZh": "执行 `find`，用于查找。"
+          "returnType": "T | null",
+          "description": "返回第一个让 fn(item, key) 为真的元素，没有则 null",
+          "descriptionZh": null
+        },
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "o",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": "在指定位置插入；只传 (index, item) 时用 getKey 取键",
+          "descriptionZh": null
         },
         {
           "name": "insert",
@@ -431,28 +680,48 @@
             },
             {
               "name": "key",
-              "type": "string"
+              "type": "CollectionKey"
             },
             {
               "name": "o",
-              "type": "Object"
+              "type": "T"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `insert` to handle insert.",
-          "descriptionZh": "执行 `insert`，用于插入。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "keyOrItem",
+              "type": "CollectionKey | T"
+            },
+            {
+              "name": "item",
+              "type": "T"
+            }
+          ],
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "remove",
           "params": [
             {
               "name": "o",
-              "type": "Object"
+              "type": "T"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `remove` to handle remove.",
-          "descriptionZh": "执行 `remove`，用于移除。"
+          "returnType": "T | false",
+          "description": "移除元素；不在集合里时返回 false",
+          "descriptionZh": null
         },
         {
           "name": "removeAt",
@@ -462,71 +731,71 @@
               "type": "number"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `removeAt` to handle remove at.",
-          "descriptionZh": "执行 `removeAt`，用于移除位于。"
+          "returnType": "T | false",
+          "description": "按下标移除；下标越界时返回 false",
+          "descriptionZh": null
         },
         {
           "name": "pop",
           "params": [],
-          "returnType": "any",
-          "description": "Executes `pop` to handle pop.",
-          "descriptionZh": "执行 `pop`，用于弹出。"
+          "returnType": "T | false",
+          "description": "移除并返回最后一个元素",
+          "descriptionZh": null
         },
         {
           "name": "removeKey",
           "params": [
             {
               "name": "key",
-              "type": "string"
+              "type": "CollectionKey"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `removeKey` to handle remove key.",
-          "descriptionZh": "执行 `removeKey`，用于移除键。"
+          "returnType": "T | false",
+          "description": "按键移除",
+          "descriptionZh": null
         },
         {
           "name": "getCount",
           "params": [],
           "returnType": "number",
-          "description": "Executes `getCount` to handle get count.",
-          "descriptionZh": "执行 `getCount`，用于获取计数。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "indexOf",
           "params": [
             {
               "name": "o",
-              "type": "Object"
+              "type": "T"
             }
           ],
           "returnType": "number",
-          "description": "Executes `indexOf` to handle index of.",
-          "descriptionZh": "执行 `indexOf`，用于索引的。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "indexOfKey",
           "params": [
             {
               "name": "key",
-              "type": "string"
+              "type": "CollectionKey"
             }
           ],
           "returnType": "number",
-          "description": "Executes `indexOfKey` to handle index of key.",
-          "descriptionZh": "执行 `indexOfKey`，用于索引的键。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "get",
           "params": [
             {
               "name": "key",
-              "type": "number | string"
+              "type": "CollectionKey"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `get` to handle get.",
-          "descriptionZh": "执行 `get`，用于获取。"
+          "returnType": "T | null",
+          "description": "先按键找，找不到且 key 是数字时按下标取；函数元素在不允许时返回 null",
+          "descriptionZh": null
         },
         {
           "name": "itemAt",
@@ -536,126 +805,126 @@
               "type": "number"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `itemAt` to handle item at.",
-          "descriptionZh": "执行 `itemAt`，用于条目位于。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "key",
           "params": [
             {
               "name": "key",
-              "type": "number | string"
+              "type": "CollectionKey"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `key` to handle key.",
-          "descriptionZh": "执行 `key`，用于键。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "contains",
           "params": [
             {
               "name": "o",
-              "type": "Object"
+              "type": "T"
             }
           ],
           "returnType": "boolean",
-          "description": "Executes `contains` to handle contains.",
-          "descriptionZh": "执行 `contains`，用于contains。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "containsKey",
           "params": [
             {
               "name": "key",
-              "type": "string"
+              "type": "CollectionKey"
             }
           ],
           "returnType": "boolean",
-          "description": "Executes `containsKey` to handle contains key.",
-          "descriptionZh": "执行 `containsKey`，用于contains键。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "clear",
           "params": [],
-          "returnType": "any",
-          "description": "Executes `clear` to handle clear.",
-          "descriptionZh": "执行 `clear`，用于清空。"
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "first",
           "params": [],
-          "returnType": "Object",
-          "description": "Executes `first` to handle first.",
-          "descriptionZh": "执行 `first`，用于首个。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "last",
           "params": [],
-          "returnType": "Object",
-          "description": "Executes `last` to handle last.",
-          "descriptionZh": "执行 `last`，用于末尾。"
+          "returnType": "T",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "sort",
           "params": [
             {
               "name": "dir",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "fn",
-              "type": "Function"
+              "type": "(a: T, b: T) => number"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `sort` to handle sort.",
-          "descriptionZh": "执行 `sort`，用于排序。"
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "reorder",
           "params": [
             {
               "name": "mapping",
-              "type": "Object"
+              "type": "{ [oldIndex: number]: number }"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `reorder` to handle reorder.",
-          "descriptionZh": "执行 `reorder`，用于重排。"
+          "returnType": "void",
+          "description": "按 {旧位置: 新位置} 重排",
+          "descriptionZh": null
         },
         {
           "name": "keySort",
           "params": [
             {
               "name": "dir",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "fn",
-              "type": "Function"
+              "type": "(a: CollectionKey, b: CollectionKey) => number"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `keySort` to handle key sort.",
-          "descriptionZh": "执行 `keySort`，用于键排序。"
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "getRange",
           "params": [
             {
               "name": "start",
-              "type": "any"
+              "type": "number"
             },
             {
               "name": "end",
-              "type": "any"
+              "type": "number"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `getRange` to handle get range.",
-          "descriptionZh": "执行 `getRange`，用于获取范围。"
+          "returnType": "T[]",
+          "description": "取 [start, end] 区间的元素（end 默认最后一个；start > end 时倒序）",
+          "descriptionZh": null
         },
         {
           "name": "filter",
@@ -666,7 +935,7 @@
             },
             {
               "name": "value",
-              "type": "any"
+              "type": "string | RegExp"
             },
             {
               "name": "anyMatch",
@@ -677,25 +946,25 @@
               "type": "boolean"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `filter` to handle filter.",
-          "descriptionZh": "执行 `filter`，用于过滤。"
+          "returnType": "MixedCollection<T>",
+          "description": "按属性值过滤，返回新集合",
+          "descriptionZh": null
         },
         {
           "name": "filterBy",
           "params": [
             {
               "name": "fn",
-              "type": "Function"
+              "type": "(item: T, key: CollectionKey) => unknown"
             },
             {
               "name": "scope",
-              "type": "any"
+              "type": "object"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `filterBy` to handle filter by.",
-          "descriptionZh": "执行 `filterBy`，用于过滤按。"
+          "returnType": "MixedCollection<T>",
+          "description": "按 fn(item, key) 过滤，返回新集合",
+          "descriptionZh": null
         },
         {
           "name": "findIndex",
@@ -706,7 +975,7 @@
             },
             {
               "name": "value",
-              "type": "any"
+              "type": "string | RegExp"
             },
             {
               "name": "start",
@@ -722,19 +991,19 @@
             }
           ],
           "returnType": "number",
-          "description": "Executes `findIndex` to handle find index.",
-          "descriptionZh": "执行 `findIndex`，用于查找索引。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "findIndexBy",
           "params": [
             {
               "name": "fn",
-              "type": "Function"
+              "type": "(item: T, key: CollectionKey) => unknown"
             },
             {
               "name": "scope",
-              "type": "Object"
+              "type": "object"
             },
             {
               "name": "start",
@@ -742,15 +1011,15 @@
             }
           ],
           "returnType": "number",
-          "description": "Executes `findIndexBy` to handle find index by.",
-          "descriptionZh": "执行 `findIndexBy`，用于查找索引按。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "createValueMatcher",
           "params": [
             {
               "name": "value",
-              "type": "any"
+              "type": "string | RegExp"
             },
             {
               "name": "anyMatch",
@@ -765,63 +1034,63 @@
               "type": "boolean"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `createValueMatcher` to handle create value matcher.",
-          "descriptionZh": "执行 `createValueMatcher`，用于创建值匹配器。"
+          "returnType": "RegExp",
+          "description": "字符串转成匹配用的正则；已经是正则则原样返回",
+          "descriptionZh": null
         },
         {
           "name": "clone",
           "params": [],
-          "returnType": "any",
-          "description": "Executes `clone` to handle clone.",
-          "descriptionZh": "执行 `clone`，用于克隆。"
+          "returnType": "MixedCollection<T>",
+          "description": "浅拷贝成新集合",
+          "descriptionZh": null
         }
       ],
       "properties": [
         {
           "name": "items",
-          "type": "any",
+          "type": "T[]",
           "default": "[]",
-          "description": "Property `items` (`any`) storing items (default: `[]`).",
-          "descriptionZh": "属性 `items`（类型：`any`），用于存储或配置条目列表（默认值：`[]`）。"
+          "description": "元素（按顺序）",
+          "descriptionZh": null
         },
         {
           "name": "map",
-          "type": "any",
+          "type": "{ [key: string]: T }",
           "default": "{}",
-          "description": "Property `map` (`any`) storing map (default: `{}`).",
-          "descriptionZh": "属性 `map`（类型：`any`），用于存储或配置映射表（默认值：`{}`）。"
+          "description": "键 → 元素",
+          "descriptionZh": null
         },
         {
           "name": "keys",
-          "type": "any",
+          "type": "CollectionKey[]",
           "default": "[]",
-          "description": "Property `keys` (`any`) storing keys (default: `[]`).",
-          "descriptionZh": "属性 `keys`（类型：`any`），用于存储或配置键列表（默认值：`[]`）。"
+          "description": "与 items 一一对应的键",
+          "descriptionZh": null
         },
         {
           "name": "length",
           "type": "any",
           "default": "0",
-          "description": "Property `length` (`any`) storing length (default: `0`).",
-          "descriptionZh": "属性 `length`（类型：`any`），用于存储或配置长度（默认值：`0`）。"
+          "description": "元素个数",
+          "descriptionZh": null
         },
         {
           "name": "itemsSubject",
           "type": "any",
-          "default": "new BehaviorSubject([])",
-          "description": "Property `itemsSubject` (`BehaviorSubject<Array<any>>`) storing items subject (default: `new BehaviorSubject([])`).",
-          "descriptionZh": "属性 `itemsSubject`（类型：`BehaviorSubject<Array<any>>`），用于存储或配置条目列表主题流（默认值：`new BehaviorSubject([])`）。"
+          "default": "new BehaviorSubject<T[]>([])",
+          "description": "元素变化时推送当前 items",
+          "descriptionZh": null
         },
         {
           "name": "allowFunctions",
           "type": "any",
           "default": "false",
-          "description": "Property `allowFunctions` (`boolean`) storing allow functions (default: `false`).",
-          "descriptionZh": "属性 `allowFunctions`（类型：`boolean`），用于存储或配置允许函数（默认值：`false`）。"
+          "description": "是否允许函数作为元素",
+          "descriptionZh": null
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/cache';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/cache';"
 }

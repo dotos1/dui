@@ -7,15 +7,15 @@ import { LogoutResult } from './logout-result';
 import { Injectable } from '@angular/core';
 import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable, ReplaySubject, Subject, throwError } from 'rxjs';
-import { ConfigService } from '@dotos/dui/core/config';
-import { CookieService, LogService } from '@dotos/dui/core/services';
+import { ConfigService } from '@dotos1/dui/core/config';
+import { CookieService, LogService } from '@dotos1/dui/core/services';
 import { CommonAuth } from './CommonAuth';
 import { Oauth2Auth } from './oauth2Auth';
 import { RedirectionModel } from './model/redirection.model';
 import { JwtHelperService } from './jwt-helper.service';
 
 import { AuthLoader } from './auth.loader';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 /**
  * Constant/variable `REMEMBER_ME_COOKIE_KEY` defining remember me cookie key in `src/core/auth`.

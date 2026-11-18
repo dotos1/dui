@@ -1,9 +1,9 @@
 {
   "version": 2,
   "metric": "checker：写出的 any 类型节点 + 隐式 any 声明 + 推断 any 返回值；空对象 = 推断为 {} 的声明；绕过断言 = as unknown as / as any as / as never",
-  "any": 4676,
+  "any": 3898,
   "emptyObj": 0,
-  "cast": 57,
+  "cast": 46,
   "files": {
     "src/base/base.ts": {
       "any": 0,
@@ -26,7 +26,7 @@
       "cast": 1
     },
     "src/common/carousel/carousel.component.ts": {
-      "any": 5,
+      "any": 2,
       "emptyObj": 0,
       "cast": 0
     },
@@ -356,7 +356,7 @@
       "cast": 0
     },
     "src/common/keyboard/keyboard-shortcuts.service.ts": {
-      "any": 41,
+      "any": 37,
       "emptyObj": 0,
       "cast": 0
     },
@@ -475,56 +475,6 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/common/svg/components/svg-container.component.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-circle.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-ellipse.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-image.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-line.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-path.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-polygon.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-polyline.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-rect.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/common/svg/directives/svg-text.directive.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
     "src/common/toastr/overlay/overlay-container.ts": {
       "any": 2,
       "emptyObj": 0,
@@ -601,7 +551,7 @@
       "cast": 0
     },
     "src/container/container.main.ts": {
-      "any": 2,
+      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
@@ -1026,7 +976,7 @@
       "cast": 0
     },
     "src/core/dui.ts": {
-      "any": 51,
+      "any": 40,
       "emptyObj": 0,
       "cast": 0
     },
@@ -1790,458 +1740,13 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/theme/core/focus.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
     "src/theme/mat-color.ts": {
       "any": 2,
       "emptyObj": 0,
       "cast": 0
     },
-    "src/theme/mdc/_palette.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/_sass-utils.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/_typography-getters.ts": {
-      "any": 25,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/custom-properties.ts": {
-      "any": 30,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/elevation-theme.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/inspection.ts": {
-      "any": 23,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/keys.ts": {
-      "any": 15,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/theme-utils.ts": {
-      "any": 25,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/theming.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/mdc/token-utils.ts": {
-      "any": 11,
-      "emptyObj": 0,
-      "cast": 0
-    },
     "src/theme/theme.service.ts": {
-      "any": 7,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-button-theme.ts": {
-      "any": 8,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-datepicker-theme.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-fab-theme.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-icon-button-theme.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-icon-theme.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-list-theme.ts": {
       "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-select-theme.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-tabs-theme.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/theme/mat-toolbar-theme.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_autocomplete.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_badge.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_bottom-sheet.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_card.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_checkbox.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_chip.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_datepicker.ts": {
-      "any": 14,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_dialog.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_divider.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_expansion.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_fab-small.ts": {
-      "any": 9,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_fab.ts": {
-      "any": 9,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_filled-button.ts": {
-      "any": 8,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_form-field.ts": {
-      "any": 7,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_full-pseudo-checkbox.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_grid-list.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_icon-button.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_icon.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_legacy-button-toggle.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_list.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_menu.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_minimal-pseudo-checkbox.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_optgroup.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_option.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_outlined-button.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_paginator.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_protected-button.ts": {
-      "any": 8,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_radio.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_ripple.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_select.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_sidenav.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_slider.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_snack-bar.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_sort.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_standard-button-toggle.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_stepper.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_switch.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_tab-header-with-background.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_tab-header.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_table.ts": {
-      "any": 9,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_text-button.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_toolbar.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mat/_tree.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_checkbox.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_chip.ts": {
-      "any": 7,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_circular-progress.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_dialog.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_elevated-card.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_extended-fab.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_fab-small.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_fab.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_filled-button.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_filled-text-field.ts": {
-      "any": 9,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_form-field.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_icon-button.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_linear-progress.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_list.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_outlined-button.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_outlined-card.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_outlined-text-field.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_plain-tooltip.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_protected-button.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_radio.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_slider.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_snack-bar.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_switch.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_tab-indicator.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_tab.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/theme/tokens/mdc/_text-button.ts": {
-      "any": 7,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2325,16 +1830,6 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/tree/components/tree-node-children.component.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/tree/components/tree-node-collection.component.ts": {
-      "any": 18,
-      "emptyObj": 0,
-      "cast": 0
-    },
     "src/tree/components/tree-node-content.component.ts": {
       "any": 2,
       "emptyObj": 0,
@@ -2346,27 +1841,22 @@
       "cast": 0
     },
     "src/tree/components/tree-node-expander.component.ts": {
-      "any": 2,
+      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
     "src/tree/components/tree-node-wrapper.component.ts": {
-      "any": 9,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/tree/components/tree-node.component.ts": {
       "any": 2,
       "emptyObj": 0,
       "cast": 0
     },
     "src/tree/components/tree-viewport.component.ts": {
-      "any": 4,
+      "any": 2,
       "emptyObj": 0,
-      "cast": 1
+      "cast": 0
     },
     "src/tree/components/tree.component.ts": {
-      "any": 51,
+      "any": 50,
       "emptyObj": 0,
       "cast": 2
     },
@@ -2390,11 +1880,6 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/tree/mobx-angular/mobx-proxy.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
     "src/tree/mobx-angular/tree-mobx-autorun.directive.ts": {
       "any": 6,
       "emptyObj": 0,
@@ -2406,7 +1891,7 @@
       "cast": 0
     },
     "src/tree/models/tree-node.model.ts": {
-      "any": 53,
+      "any": 37,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2421,7 +1906,7 @@
       "cast": 0
     },
     "src/tree/models/tree.model.ts": {
-      "any": 95,
+      "any": 87,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2441,7 +1926,7 @@
       "cast": 0
     },
     "src/ui/color-button/color-button.ts": {
-      "any": 3,
+      "any": 2,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2486,7 +1971,7 @@
       "cast": 0
     },
     "src/ui/speeddial/speed-dial.ts": {
-      "any": 7,
+      "any": 5,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2521,7 +2006,7 @@
       "cast": 0
     },
     "src/util/jpeg/encoder.ts": {
-      "any": 70,
+      "any": 69,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2605,86 +2090,6 @@
       "emptyObj": 0,
       "cast": 0
     },
-    "src/ux/editor/Editor.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/commands/FormatClear.ts": {
-      "any": 0,
-      "emptyObj": 0,
-      "cast": 1
-    },
-    "src/ux/editor/commands/TextColor.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/components/image-view/image-view.component.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/editor.component.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/icons/index.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/modules/menu/floating-menu/floating-menu.component.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/modules/menu/link/link.component.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/modules/menu/menu.component.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/parsers.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/plugins/editable.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/plugins/image-resize.ts": {
-      "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/plugins/placeholder.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/schema/marks.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/utils/toStyleString.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/editor/validators.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
     "src/ux/iconpicker/icon-picker.component.ts": {
       "any": 40,
       "emptyObj": 0,
@@ -2697,11 +2102,6 @@
     },
     "src/ux/iconpicker/text.directive.ts": {
       "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/jsonEditor/json.editor.ts": {
-      "any": 3,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2722,71 +2122,6 @@
     },
     "src/ux/link-preview/services/link-preview-cache.service.ts": {
       "any": 3,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/markdown-editor/completion.ts": {
-      "any": 5,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/markdown-editor/errors.ts": {
-      "any": 21,
-      "emptyObj": 0,
-      "cast": 2
-    },
-    "src/ux/markdown-editor/extHostTypes.ts": {
-      "any": 7,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/markdown-editor/listEditing.ts": {
-      "any": 12,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/markdown-editor/tableFormatter.ts": {
-      "any": 6,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/markdown-editor/toc.ts": {
-      "any": 2,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/markdown-editor/util.ts": {
-      "any": 4,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/markdown-editor/wordHelper.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 1
-    },
-    "src/ux/markdown/markdown.component.ts": {
-      "any": 1,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/monaco-editor/base-editor.ts": {
-      "any": 11,
-      "emptyObj": 0,
-      "cast": 5
-    },
-    "src/ux/monaco-editor/diff-editor.component.ts": {
-      "any": 8,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/monaco-editor/editor.component.ts": {
-      "any": 31,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/monaco-editor/types.ts": {
-      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
@@ -2812,16 +2147,6 @@
     },
     "src/ux/query-builder/query-builder.interfaces.ts": {
       "any": 8,
-      "emptyObj": 0,
-      "cast": 0
-    },
-    "src/ux/terminal/terminal.component.ts": {
-      "any": 10,
-      "emptyObj": 0,
-      "cast": 1
-    },
-    "src/ux/terminal/terminal.ts": {
-      "any": 3,
       "emptyObj": 0,
       "cast": 0
     },

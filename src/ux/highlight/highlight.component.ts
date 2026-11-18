@@ -14,7 +14,7 @@ import {
   SecurityContext,
   ViewChild,
   ChangeDetectorRef,
-  AfterViewChecked,
+  AfterViewChecked, ChangeDetectionStrategy,
 } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { MatTooltip } from '@angular/material/tooltip';
@@ -30,6 +30,7 @@ import hljs from 'highlight.js';
   styleUrls: ['./highlight.component.scss'],
   templateUrl: './highlight.component.html',
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
   
 })
 export class HighlightComponent implements AfterViewInit {

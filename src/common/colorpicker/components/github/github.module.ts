@@ -5,8 +5,8 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { SwatchModule } from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+import { SwatchModule } from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import { GithubSwatchComponent } from './github-swatch.component';
 import { GithubComponent } from './github.component';
 

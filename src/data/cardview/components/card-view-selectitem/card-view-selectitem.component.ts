@@ -4,14 +4,14 @@
  */
 
 
-import { Component, Input, OnChanges, OnDestroy } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { MatSelectChange } from '@angular/material/select';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { CardViewSelectItemModel } from '../../models';
 import { CardViewUpdateService } from '../../services';
 import { CardViewSelectItemOption } from '../../interfaces';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Angular component `CardViewSelectItemComponent` (selector: 'dui-card-view-selectitem') providing card view select item component presentation and interaction in `src/data/cardview/components/card-view-selectitem`.
@@ -21,7 +21,8 @@ import { ThemeService } from '@dotos/dui/theme';
   selector: 'dui-card-view-selectitem',
   templateUrl: './card-view-selectitem.component.html',
   styleUrls: ['./card-view-selectitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
 
@@ -121,7 +122,7 @@ export class CardViewSelectItemComponent implements OnChanges,OnDestroy {
   /**
    * Executes `onChange` to handle on change.
    * @zh 执行 `onChange`，用于当变更。
-   * @param event - event parameter (`MatSelectChange`) / 事件参数（`MatSelectChange`）
+   * @param event - event parameter (`MatSelectChange<any>`) / 事件参数（`MatSelectChange<any>`）
    */
   onChange(event: MatSelectChange): void {
     const selectedOption = event.value !== undefined ? event.value : null;

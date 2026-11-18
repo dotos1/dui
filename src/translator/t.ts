@@ -4,7 +4,7 @@
  */
 
 // 次级入口点之间必须走包路径：相对路径会让 ng-packagr 报 rootDir 越界
-import { ServiceLocator } from '@dotos/dui/core/services';
+import { ServiceLocator } from '@dotos1/dui/core/services';
 import { TranslationService } from './translation.service';
 
 /**
@@ -15,7 +15,7 @@ import { TranslationService } from './translation.service';
  * 纯函数模块（推断、算法、格式化），以及那些不是 Angular 组件的老面板。
  * 平台里这类文案有几千条，逐个去改构造函数既改不动、也改不对 —— 数据文件里压根没有构造函数。
  *
- * <p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos/duix/datastore` 早就这么拿
+ * <p>走的是平台既有的 {@link ServiceLocator} 惯例（`@dotos1/duix/datastore` 早就这么拿
  * HttpClient 与 ToastrService），不新起一套机制。
  *
  * <p><b>取不到服务时返回 key 本身</b>，与 `translate` 管道的行为一致：宁可显示

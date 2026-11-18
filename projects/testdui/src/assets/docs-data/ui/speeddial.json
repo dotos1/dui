@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ui/speeddial",
+  "importPath": "@dotos1/dui/ui/speeddial",
   "exports": [
     {
       "name": "AnimationMode",
@@ -33,10 +33,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "icon",
@@ -116,8 +116,8 @@
         {
           "name": "events",
           "type": "any",
-          "description": "Output event emitter `events` (`Subject<any>`) firing when events occurs.",
-          "descriptionZh": "输出事件 `events`（类型：`Subject<any>`），当触发事件集合时向外发出事件。"
+          "description": "Output event emitter `events` (`Subject<unknown>`) firing when events occurs.",
+          "descriptionZh": "输出事件 `events`（类型：`Subject<unknown>`），当触发事件集合时向外发出事件。"
         }
       ],
       "methods": [
@@ -138,15 +138,15 @@
         {
           "name": "state",
           "type": "any",
-          "description": "Property `state` (`BehaviorSubject<any>`) storing state.",
-          "descriptionZh": "属性 `state`（类型：`BehaviorSubject<any>`），用于存储或配置状态。"
+          "description": "Property `state` (`any`) storing state.",
+          "descriptionZh": "属性 `state`（类型：`any`），用于存储或配置状态。"
         },
         {
           "name": "style",
           "type": "any",
           "default": "{ color: 'rgba(255,255,255,0.84)' }",
-          "description": "Property `style` (`any`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).",
-          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。"
+          "description": "Property `style` (`{ color: string; }`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).",
+          "descriptionZh": "属性 `style`（类型：`{ color: string; }`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。"
         },
         {
           "name": "open",
@@ -200,10 +200,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "type",
@@ -243,8 +243,8 @@
         {
           "name": "click",
           "type": "any",
-          "description": "Output event emitter `click` (`EventEmitter`) firing when click occurs.",
-          "descriptionZh": "输出事件 `click`（类型：`EventEmitter`），当触发点击时向外发出事件。"
+          "description": "Output event emitter `click` (`EventEmitter<any>`) firing when click occurs.",
+          "descriptionZh": "输出事件 `click`（类型：`EventEmitter<any>`），当触发点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -308,7 +308,7 @@
         {
           "name": "matTooltip",
           "type": "MatTooltip",
-          "description": "Template/content query reference `matTooltip` (`@ViewChild`) targeting mat tooltip.",
+          "description": "Template/content query reference `matTooltip` (`MatTooltip`) targeting mat tooltip.",
           "descriptionZh": "模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。"
         },
         {
@@ -321,15 +321,15 @@
           "name": "style",
           "type": "any",
           "default": "{ color: 'rgba(255,255,255,0.84)' }",
-          "description": "Property `style` (`any`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).",
-          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。"
+          "description": "Property `style` (`{ color: string; }`) storing style (default: `{ color: 'rgba(255,255,255,0.84)' }`).",
+          "descriptionZh": "属性 `style`（类型：`{ color: string; }`），用于存储或配置样式（默认值：`{ color: 'rgba(255,255,255,0.84)' }`）。"
         },
         {
           "name": "items",
           "type": "any",
           "default": "[]",
-          "description": "Property `items` (`Array<any>`) storing items (default: `[]`).",
-          "descriptionZh": "属性 `items`（类型：`Array<any>`），用于存储或配置条目列表（默认值：`[]`）。"
+          "description": "Property `items` (`any[]`) storing items (default: `[]`).",
+          "descriptionZh": "属性 `items`（类型：`any[]`），用于存储或配置条目列表（默认值：`[]`）。"
         }
       ]
     },
@@ -473,8 +473,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    SpeedDialActionsComponent,\n    SpeedDialComponent,\n    SpeedDialTriggerComponent,\n    ExtSpeedDialComponent,\n    FabButtonComponent\n  ]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof SpeedDialActionsComponent | typeof SpeedDialComponent | typeof SpeedDialTriggerComponent | typeof ExtSpeedDialComponent | typeof FabButtonComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof SpeedDialActionsComponent | typeof SpeedDialComponent | typeof SpeedDialTriggerComponent | typeof ExtSpeedDialComponent | typeof FabButtonComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -514,11 +514,11 @@
         {
           "name": "sp",
           "type": "any",
-          "description": "Host-bound getter `sp` (`class.eco-spin`) computing sp.",
+          "description": "Host-bound getter `sp` (`boolean`) computing sp.",
           "descriptionZh": "宿主绑定读取器 `sp`（绑定至 `class.eco-spin`），计算并返回sp。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ExtSpeedDialComponent, SpeedDialModule } from '@dotos/dui/ui/speeddial';\n\n<speeddial [config]=\"...\" [icon]=\"...\" [title]=\"...\" (events)=\"...\"></speeddial>"
+  "suggestedUsageSnippet": "import { ExtSpeedDialComponent, SpeedDialModule } from '@dotos1/dui/ui/speeddial';\n\n<speeddial [config]=\"...\" [icon]=\"...\" [title]=\"...\" (events)=\"...\"></speeddial>"
 }

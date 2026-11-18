@@ -4,7 +4,7 @@
  */
 
 
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import { crypt } from './crypt';
 
 /**

@@ -3,11 +3,11 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-overview-page/module-overview-page.component.ts`，提供模块overview页面组件相关的定义与实现。
  */
 
-import { Component, Optional } from '@angular/core';
+import { Component, Optional, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 
 import { DocsDataService } from '../../services/docs-data.service';
 import { ApiExport, ModuleApiFile } from '../../models/api-record.model';
@@ -22,6 +22,7 @@ import { preferZh } from '../../util/i18n-text';
   templateUrl: './module-overview-page.component.html',
   styleUrls: ['./module-overview-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ModuleOverviewPageComponent {
   /**

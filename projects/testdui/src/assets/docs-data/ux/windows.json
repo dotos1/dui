@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/windows",
+  "importPath": "@dotos1/dui/ux/windows",
   "exports": [
     {
       "name": "AppendToBodyConfig",
@@ -323,8 +323,8 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByAxisProperties",
-          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).",
-          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。"
+          "description": "Property `type` (`ɵDragStrategyEnum.ByAxisProperties`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).",
+          "descriptionZh": "属性 `type`（类型：`ɵDragStrategyEnum.ByAxisProperties`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。"
         },
         {
           "name": "xAxisLeftStyleProperty",
@@ -356,8 +356,8 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByTranslate3d",
-          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).",
-          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。"
+          "description": "Property `type` (`ɵDragStrategyEnum.ByTranslate3d`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).",
+          "descriptionZh": "属性 `type`（类型：`ɵDragStrategyEnum.ByTranslate3d`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。"
         },
         {
           "name": "isLockAxisX",
@@ -446,7 +446,7 @@
           "name": "titleBarCustomContent",
           "type": "Type<unknown>",
           "description": "The component for the title bar with content which will be rendered instead of default content",
-          "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。"
+          "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<unknown>`），用于存储或配置标题条自定义内容。"
         },
         {
           "name": "width",
@@ -584,7 +584,7 @@
           "name": "styleClass",
           "type": "string | string[] | object",
           "description": "Classlist for the dynamic window",
-          "descriptionZh": "属性 `styleClass`（类型：`string | string[] | object`），用于存储或配置样式类名。"
+          "descriptionZh": "属性 `styleClass`（类型：`string | object | string[]`），用于存储或配置样式类名。"
         },
         {
           "name": "titleBarStyle",
@@ -596,7 +596,7 @@
           "name": "titleBarStyleClass",
           "type": "string | string[] | object",
           "description": "Classlist for the title bar of the dynamic window",
-          "descriptionZh": "属性 `titleBarStyleClass`（类型：`string | string[] | object`），用于存储或配置标题条样式类名。"
+          "descriptionZh": "属性 `titleBarStyleClass`（类型：`string | object | string[]`），用于存储或配置标题条样式类名。"
         },
         {
           "name": "scrollViewStyle",
@@ -608,7 +608,7 @@
           "name": "scrollViewStyleClass",
           "type": "string | string[] | object",
           "description": "Classlist for scroll view component of the window",
-          "descriptionZh": "属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于存储或配置滚动视图样式类名。"
+          "descriptionZh": "属性 `scrollViewStyleClass`（类型：`string | object | string[]`），用于存储或配置滚动视图样式类名。"
         },
         {
           "name": "draggerConfig",
@@ -625,8 +625,8 @@
         {
           "name": "items",
           "type": "any",
-          "description": "Property `items` (`any[]`) storing items.",
-          "descriptionZh": "属性 `items`（类型：`any[]`），用于存储或配置条目列表。"
+          "description": "Property `items` (`any`) storing items.",
+          "descriptionZh": "属性 `items`（类型：`any`），用于存储或配置条目列表。"
         },
         {
           "name": "listeners",
@@ -715,8 +715,8 @@
         {
           "name": "moduleRef",
           "type": "any",
-          "description": "Property `moduleRef` (`NgModuleRef<any>`) storing module ref.",
-          "descriptionZh": "属性 `moduleRef`（类型：`NgModuleRef<any>`），用于存储或配置模块引用。"
+          "description": "Property `moduleRef` (`any`) storing module ref.",
+          "descriptionZh": "属性 `moduleRef`（类型：`any`），用于存储或配置模块引用。"
         }
       ]
     },
@@ -817,14 +817,14 @@
           "params": [],
           "returnType": "void",
           "description": "Maximizes the dynamic window at full-screen mode",
-          "descriptionZh": "执行 `goFullscreen`，用于go全屏。"
+          "descriptionZh": "执行 `goFullscreen`，用于跳转到全屏。"
         },
         {
           "name": "goWindowed",
           "params": [],
           "returnType": "void",
           "description": "Minimizes the dynamic window at windowed mode",
-          "descriptionZh": "执行 `goWindowed`，用于go已窗口。"
+          "descriptionZh": "执行 `goWindowed`，用于跳转到已窗口。"
         },
         {
           "name": "toggleFullscreen",
@@ -869,13 +869,13 @@
           "name": "config$",
           "type": "Observable<DynamicWindowConfig>",
           "description": "Configuration object for the dynamic window",
-          "descriptionZh": "属性 `config$`（类型：`Observable<DynamicWindowConfig>`），用于存储或配置配置。"
+          "descriptionZh": "属性 `config$`（类型：`Observable<DynamicWindowConfig<unknown, unknown>>`），用于存储或配置配置。"
         },
         {
           "name": "afterClosed$",
           "type": "any",
           "description": "Emits value when the dynamic window closed",
-          "descriptionZh": "属性 `afterClosed$`（类型：`Observable<any>`），用于存储或配置之后是否关闭。"
+          "descriptionZh": "属性 `afterClosed$`（类型：`any`），用于存储或配置之后是否关闭。"
         },
         {
           "name": "id",
@@ -905,7 +905,7 @@
           "name": "config",
           "type": "DynamicWindowConfig",
           "description": "Configuration object for the dynamic window",
-          "descriptionZh": "属性 `config`（类型：`DynamicWindowConfig`），用于存储或配置配置。"
+          "descriptionZh": "属性 `config`（类型：`DynamicWindowConfig<unknown, unknown>`），用于存储或配置配置。"
         },
         {
           "name": "windowElement",
@@ -997,8 +997,8 @@
           "name": "windowSet",
           "type": "Map<string,ɵDynamicWindowRefModel>",
           "default": "new  Map<string,ɵDynamicWindowRefModel>()",
-          "description": "Property `windowSet` (`Map<string,ɵDynamicWindowRefModel>`) storing window set.",
-          "descriptionZh": "属性 `windowSet`（类型：`Map<string,ɵDynamicWindowRefModel>`），用于存储或配置窗口集合。"
+          "description": "Property `windowSet` (`Map<string, ɵDynamicWindowRefModel>`) storing window set.",
+          "descriptionZh": "属性 `windowSet`（类型：`Map<string, ɵDynamicWindowRefModel>`），用于存储或配置窗口集合。"
         },
         {
           "name": "references$",
@@ -1328,8 +1328,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.BottomLeft",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.BottomLeft`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.BottomLeft`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.BottomLeft`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.BottomLeft`）。"
         }
       ]
     },
@@ -1360,8 +1360,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Bottom",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Bottom`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Bottom`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.Bottom`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.Bottom`）。"
         }
       ]
     },
@@ -1392,8 +1392,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.BottomRight",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.BottomRight`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.BottomRight`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.BottomRight`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.BottomRight`）。"
         }
       ]
     },
@@ -1658,8 +1658,8 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByAxisProperties",
-          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).",
-          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。"
+          "description": "Property `type` (`ɵDragStrategyEnum.ByAxisProperties`) storing type (default: `ɵDragStrategyEnum.ByAxisProperties`).",
+          "descriptionZh": "属性 `type`（类型：`ɵDragStrategyEnum.ByAxisProperties`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByAxisProperties`）。"
         }
       ]
     },
@@ -1702,8 +1702,8 @@
           "name": "type",
           "type": "any",
           "default": "ɵDragStrategyEnum.ByTranslate3d",
-          "description": "Property `type` (`any`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).",
-          "descriptionZh": "属性 `type`（类型：`any`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。"
+          "description": "Property `type` (`ɵDragStrategyEnum.ByTranslate3d`) storing type (default: `ɵDragStrategyEnum.ByTranslate3d`).",
+          "descriptionZh": "属性 `type`（类型：`ɵDragStrategyEnum.ByTranslate3d`），用于存储或配置类型（默认值：`ɵDragStrategyEnum.ByTranslate3d`）。"
         }
       ]
     },
@@ -2023,7 +2023,7 @@
         {
           "name": "viewRef",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `viewRef` (`@ViewChild`) targeting view ref.",
+          "description": "Template/content query reference `viewRef` (`ViewContainerRef`) targeting view ref.",
           "descriptionZh": "模板/内容视图查询引用 `viewRef`（`@ViewChild`），指向视图引用。"
         },
         {
@@ -2065,8 +2065,8 @@
         {
           "name": "titleBarCustomContent",
           "type": "Type<unknown>",
-          "description": "Property `titleBarCustomContent` (`Type<any>`) storing title bar custom content.",
-          "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<any>`），用于存储或配置标题条自定义内容。"
+          "description": "Property `titleBarCustomContent` (`Type<unknown>`) storing title bar custom content.",
+          "descriptionZh": "属性 `titleBarCustomContent`（类型：`Type<unknown>`），用于存储或配置标题条自定义内容。"
         },
         {
           "name": "width",
@@ -2197,8 +2197,8 @@
         {
           "name": "styleClass",
           "type": "string | string[] | object",
-          "description": "Property `styleClass` (`string | string[] | object`) storing style class.",
-          "descriptionZh": "属性 `styleClass`（类型：`string | string[] | object`），用于存储或配置样式类名。"
+          "description": "Property `styleClass` (`string | object | string[]`) storing style class.",
+          "descriptionZh": "属性 `styleClass`（类型：`string | object | string[]`），用于存储或配置样式类名。"
         },
         {
           "name": "titleBarStyle",
@@ -2209,8 +2209,8 @@
         {
           "name": "titleBarStyleClass",
           "type": "string | string[] | object",
-          "description": "Property `titleBarStyleClass` (`string | string[] | object`) storing title bar style class.",
-          "descriptionZh": "属性 `titleBarStyleClass`（类型：`string | string[] | object`），用于存储或配置标题条样式类名。"
+          "description": "Property `titleBarStyleClass` (`string | object | string[]`) storing title bar style class.",
+          "descriptionZh": "属性 `titleBarStyleClass`（类型：`string | object | string[]`），用于存储或配置标题条样式类名。"
         },
         {
           "name": "scrollViewStyle",
@@ -2221,8 +2221,8 @@
         {
           "name": "scrollViewStyleClass",
           "type": "string | string[] | object",
-          "description": "Property `scrollViewStyleClass` (`string | string[] | object`) storing scroll view style class.",
-          "descriptionZh": "属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于存储或配置滚动视图样式类名。"
+          "description": "Property `scrollViewStyleClass` (`string | object | string[]`) storing scroll view style class.",
+          "descriptionZh": "属性 `scrollViewStyleClass`（类型：`string | object | string[]`），用于存储或配置滚动视图样式类名。"
         },
         {
           "name": "draggerConfig",
@@ -2457,7 +2457,7 @@
             },
             {
               "name": "flags",
-              "type": "InjectFlags | InjectOptions"
+              "type": "InjectOptions"
             }
           ],
           "returnType": "T",
@@ -2496,8 +2496,8 @@
         {
           "name": "component",
           "type": "Type<unknown>",
-          "description": "Property `component` (`Type<any>`) storing component.",
-          "descriptionZh": "属性 `component`（类型：`Type<any>`），用于存储或配置组件。"
+          "description": "Property `component` (`Type<unknown>`) storing component.",
+          "descriptionZh": "属性 `component`（类型：`Type<unknown>`），用于存储或配置组件。"
         },
         {
           "name": "windowRef",
@@ -2631,14 +2631,14 @@
           "params": [],
           "returnType": "void",
           "description": "Executes `goFullscreen` to handle go fullscreen.",
-          "descriptionZh": "执行 `goFullscreen`，用于go全屏。"
+          "descriptionZh": "执行 `goFullscreen`，用于跳转到全屏。"
         },
         {
           "name": "goWindowed",
           "params": [],
           "returnType": "void",
           "description": "Executes `goWindowed` to handle go windowed.",
-          "descriptionZh": "执行 `goWindowed`，用于go已窗口。"
+          "descriptionZh": "执行 `goWindowed`，用于跳转到已窗口。"
         },
         {
           "name": "toggleFullscreen",
@@ -3250,8 +3250,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Left",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Left`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Left`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.Left`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.Left`）。"
         }
       ]
     },
@@ -3333,7 +3333,7 @@
           "name": "styleClass",
           "type": "string | string[] | object",
           "description": "Target internal element classList",
-          "descriptionZh": "输入属性 `styleClass`（类型：`string | string[] | object`），用于配置样式类名。"
+          "descriptionZh": "输入属性 `styleClass`（类型：`string | object | string[]`），用于配置样式类名。"
         },
         {
           "name": "id",
@@ -3820,8 +3820,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Right",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Right`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Right`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.Right`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.Right`）。"
         }
       ]
     },
@@ -3852,8 +3852,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.TopLeft",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.TopLeft`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.TopLeft`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.TopLeft`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.TopLeft`）。"
         }
       ]
     },
@@ -3884,8 +3884,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.Top",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.Top`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.Top`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.Top`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.Top`）。"
         }
       ]
     },
@@ -3916,8 +3916,8 @@
           "name": "id",
           "type": "any",
           "default": "ResizerEnum.TopRight",
-          "description": "Property `id` (`any`) storing id (default: `ResizerEnum.TopRight`).",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`ResizerEnum.TopRight`）。"
+          "description": "Property `id` (`ResizerEnum`) storing id (default: `ResizerEnum.TopRight`).",
+          "descriptionZh": "属性 `id`（类型：`ResizerEnum`），用于存储或配置唯一标识（默认值：`ResizerEnum.TopRight`）。"
         }
       ]
     },
@@ -4332,7 +4332,7 @@
           "name": "iconStyleClass",
           "type": "string | string[] | object",
           "description": "Classlist for the icon",
-          "descriptionZh": "输入属性 `iconStyleClass`（类型：`string | string[] | object`），用于配置图标样式类名。"
+          "descriptionZh": "输入属性 `iconStyleClass`（类型：`string | object | string[]`），用于配置图标样式类名。"
         }
       ],
       "outputs": [],
@@ -4477,7 +4477,7 @@
           "name": "scrollViewStyleClass",
           "type": "string | string[] | object",
           "description": "Classlist for scroll view component of the window",
-          "descriptionZh": "输入属性 `scrollViewStyleClass`（类型：`string | string[] | object`），用于配置滚动视图样式类名。"
+          "descriptionZh": "输入属性 `scrollViewStyleClass`（类型：`string | object | string[]`），用于配置滚动视图样式类名。"
         }
       ],
       "outputs": [],
@@ -4496,5 +4496,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { ɵDynamicWindowComponent, DragAndDropModule } from '@dotos/dui/ux/windows';\n\n<dui-dynamic-window></dui-dynamic-window>"
+  "suggestedUsageSnippet": "import { ɵDynamicWindowComponent, DragAndDropModule } from '@dotos1/dui/ux/windows';\n\n<dui-dynamic-window></dui-dynamic-window>"
 }

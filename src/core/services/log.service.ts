@@ -6,8 +6,8 @@
 
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { ConfigService } from '@dotos/dui/core/config';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
+import { ConfigService } from '@dotos1/dui/core/config';
 
 
 /**

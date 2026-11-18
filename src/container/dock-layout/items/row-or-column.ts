@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/items/row-or-column.ts`，提供行or列相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator'
+import { TranslateService } from '@dotos1/dui/translator'
 import { ComponentItemConfig, ItemConfig, RowOrColumnItemConfig, StackItemConfig } from '../config/config'
 import { ResolvedRowOrColumnItemConfig, ResolvedStackItemConfig } from '../config/resolved-config'
 import { Splitter } from '../controls/splitter'
@@ -36,9 +36,9 @@ export class RowOrColumn extends ContentItem {
      */
     private readonly _childElementContainer: HTMLElement;
     /**
-     * Property `_configType` (`"column" | "row"`) storing config type.
+     * Property `_configType` (`"row" | "column"`) storing config type.
      * @internal
-     * @zh 属性 `_configType`（类型：`"column" | "row"`），用于存储或配置配置类型。
+     * @zh 属性 `_configType`（类型：`"row" | "column"`），用于存储或配置配置类型。
      */
     private readonly _configType: 'row' | 'column';
     /**

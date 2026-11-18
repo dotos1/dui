@@ -12,8 +12,8 @@ import {
   ColorWrap,
   isValidHex,
   zDepth,
-} from '@dotos/dui/common/colorpicker/common';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
+} from '@dotos1/dui/common/colorpicker/common';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
 
 /**
  * Compact color picker: a dense grid of square swatches plus hex/rgb fields, in a small

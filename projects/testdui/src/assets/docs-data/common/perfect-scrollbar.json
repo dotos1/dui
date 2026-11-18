@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/perfect-scrollbar",
+  "importPath": "@dotos1/dui/common/perfect-scrollbar",
   "exports": [
     {
       "name": "ForceNativeScrollDirective",
@@ -107,61 +107,61 @@
         {
           "name": "psScrollY",
           "type": "any",
-          "description": "Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.",
+          "description": "Output event emitter `psScrollY` (`EventEmitter<any>`) firing when ps scroll y occurs.",
           "descriptionZh": "垂直滚动时发出。"
         },
         {
           "name": "psScrollX",
           "type": "any",
-          "description": "Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.",
+          "description": "Output event emitter `psScrollX` (`EventEmitter<any>`) firing when ps scroll x occurs.",
           "descriptionZh": "水平滚动时发出。"
         },
         {
           "name": "psScrollUp",
           "type": "any",
-          "description": "Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.",
+          "description": "Output event emitter `psScrollUp` (`EventEmitter<any>`) firing when ps scroll up occurs.",
           "descriptionZh": "向上滚动时发出。"
         },
         {
           "name": "psScrollDown",
           "type": "any",
-          "description": "Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.",
+          "description": "Output event emitter `psScrollDown` (`EventEmitter<any>`) firing when ps scroll down occurs.",
           "descriptionZh": "向下滚动时发出。"
         },
         {
           "name": "psScrollLeft",
           "type": "any",
-          "description": "Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.",
+          "description": "Output event emitter `psScrollLeft` (`EventEmitter<any>`) firing when ps scroll left occurs.",
           "descriptionZh": "向左滚动时发出。"
         },
         {
           "name": "psScrollRight",
           "type": "any",
-          "description": "Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.",
+          "description": "Output event emitter `psScrollRight` (`EventEmitter<any>`) firing when ps scroll right occurs.",
           "descriptionZh": "向右滚动时发出。"
         },
         {
           "name": "psYReachEnd",
           "type": "any",
-          "description": "Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.",
+          "description": "Output event emitter `psYReachEnd` (`EventEmitter<any>`) firing when ps y reach end occurs.",
           "descriptionZh": "垂直方向滚动到底部时发出。"
         },
         {
           "name": "psYReachStart",
           "type": "any",
-          "description": "Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.",
+          "description": "Output event emitter `psYReachStart` (`EventEmitter<any>`) firing when ps y reach start occurs.",
           "descriptionZh": "垂直方向滚动到顶部时发出。"
         },
         {
           "name": "psXReachEnd",
           "type": "any",
-          "description": "Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.",
+          "description": "Output event emitter `psXReachEnd` (`EventEmitter<any>`) firing when ps x reach end occurs.",
           "descriptionZh": "水平方向滚动到右侧末端时发出。"
         },
         {
           "name": "psXReachStart",
           "type": "any",
-          "description": "Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.",
+          "description": "Output event emitter `psXReachStart` (`EventEmitter<any>`) firing when ps x reach start occurs.",
           "descriptionZh": "水平方向滚动到左侧起始位置时发出。"
         }
       ],
@@ -171,7 +171,7 @@
           "name": "states",
           "type": "{ left?; right?; top?; bottom? }",
           "default": "{}",
-          "description": "Property `states` (`any`) storing states (default: `{}`).",
+          "description": "Property `states` (`{ left?: any; right?: any; top?: any; bottom?: any; }`) storing states (default: `{}`).",
           "descriptionZh": "记录当前是否处于左/右/上/下边缘状态，驱动指示条显示。"
         },
         {
@@ -411,61 +411,61 @@
         {
           "name": "psScrollY",
           "type": "any",
-          "description": "Output event emitter `psScrollY` (`EventEmitter`) firing when ps scroll y occurs.",
+          "description": "Output event emitter `psScrollY` (`EventEmitter<any>`) firing when ps scroll y occurs.",
           "descriptionZh": "垂直滚动时发出。"
         },
         {
           "name": "psScrollX",
           "type": "any",
-          "description": "Output event emitter `psScrollX` (`EventEmitter`) firing when ps scroll x occurs.",
+          "description": "Output event emitter `psScrollX` (`EventEmitter<any>`) firing when ps scroll x occurs.",
           "descriptionZh": "水平滚动时发出。"
         },
         {
           "name": "psScrollUp",
           "type": "any",
-          "description": "Output event emitter `psScrollUp` (`EventEmitter`) firing when ps scroll up occurs.",
+          "description": "Output event emitter `psScrollUp` (`EventEmitter<any>`) firing when ps scroll up occurs.",
           "descriptionZh": "向上滚动时发出。"
         },
         {
           "name": "psScrollDown",
           "type": "any",
-          "description": "Output event emitter `psScrollDown` (`EventEmitter`) firing when ps scroll down occurs.",
+          "description": "Output event emitter `psScrollDown` (`EventEmitter<any>`) firing when ps scroll down occurs.",
           "descriptionZh": "向下滚动时发出。"
         },
         {
           "name": "psScrollLeft",
           "type": "any",
-          "description": "Output event emitter `psScrollLeft` (`EventEmitter`) firing when ps scroll left occurs.",
+          "description": "Output event emitter `psScrollLeft` (`EventEmitter<any>`) firing when ps scroll left occurs.",
           "descriptionZh": "向左滚动时发出。"
         },
         {
           "name": "psScrollRight",
           "type": "any",
-          "description": "Output event emitter `psScrollRight` (`EventEmitter`) firing when ps scroll right occurs.",
+          "description": "Output event emitter `psScrollRight` (`EventEmitter<any>`) firing when ps scroll right occurs.",
           "descriptionZh": "向右滚动时发出。"
         },
         {
           "name": "psYReachEnd",
           "type": "any",
-          "description": "Output event emitter `psYReachEnd` (`EventEmitter`) firing when ps y reach end occurs.",
+          "description": "Output event emitter `psYReachEnd` (`EventEmitter<any>`) firing when ps y reach end occurs.",
           "descriptionZh": "垂直方向滚动到底部时发出。"
         },
         {
           "name": "psYReachStart",
           "type": "any",
-          "description": "Output event emitter `psYReachStart` (`EventEmitter`) firing when ps y reach start occurs.",
+          "description": "Output event emitter `psYReachStart` (`EventEmitter<any>`) firing when ps y reach start occurs.",
           "descriptionZh": "垂直方向滚动到顶部时发出。"
         },
         {
           "name": "psXReachEnd",
           "type": "any",
-          "description": "Output event emitter `psXReachEnd` (`EventEmitter`) firing when ps x reach end occurs.",
+          "description": "Output event emitter `psXReachEnd` (`EventEmitter<any>`) firing when ps x reach end occurs.",
           "descriptionZh": "水平方向滚动到右侧末端时发出。"
         },
         {
           "name": "psXReachStart",
           "type": "any",
-          "description": "Output event emitter `psXReachStart` (`EventEmitter`) firing when ps x reach start occurs.",
+          "description": "Output event emitter `psXReachStart` (`EventEmitter<any>`) firing when ps x reach start occurs.",
           "descriptionZh": "水平方向滚动到左侧起始位置时发出。"
         }
       ],
@@ -683,17 +683,17 @@
         {
           "name": "x",
           "type": "number | 'start' | 'end'",
-          "description": "Property `x` (`number | 'start' | 'end'`) storing x.",
-          "descriptionZh": "属性 `x`（类型：`number | 'start' | 'end'`），用于存储或配置X坐标。"
+          "description": "Property `x` (`number | \"end\" | \"start\"`) storing x.",
+          "descriptionZh": "属性 `x`（类型：`number | \"end\" | \"start\"`），用于存储或配置X坐标。"
         },
         {
           "name": "y",
           "type": "number | 'start' | 'end'",
-          "description": "Property `y` (`number | 'start' | 'end'`) storing y.",
-          "descriptionZh": "属性 `y`（类型：`number | 'start' | 'end'`），用于存储或配置Y坐标。"
+          "description": "Property `y` (`number | \"end\" | \"start\"`) storing y.",
+          "descriptionZh": "属性 `y`（类型：`number | \"end\" | \"start\"`），用于存储或配置Y坐标。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { PerfectScrollbarComponent, PerfectScrollbarModule } from '@dotos/dui/common/perfect-scrollbar';\n\n<perfect-scrollbar [disabled]=\"...\" [usePSClass]=\"...\" [autoPropagation]=\"...\" (psScrollY)=\"...\" (psScrollX)=\"...\"></perfect-scrollbar>"
+  "suggestedUsageSnippet": "import { PerfectScrollbarComponent, PerfectScrollbarModule } from '@dotos1/dui/common/perfect-scrollbar';\n\n<perfect-scrollbar [disabled]=\"...\" [usePSClass]=\"...\" [autoPropagation]=\"...\" (psScrollY)=\"...\" (psScrollX)=\"...\"></perfect-scrollbar>"
 }

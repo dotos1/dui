@@ -12,8 +12,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { FormModule } from '../components/form.module';
 import { CheckboxField } from './checkbox.component';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `CheckBoxFieldModule` declaring and exporting check box field module components, directives, pipes, and providers.

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/tree",
+  "importPath": "@dotos1/dui/tree",
   "exports": [
     {
       "name": "IActionHandler",
@@ -25,14 +25,14 @@
         {
           "name": "mouse",
           "type": "{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IActionHandler, expanderClick?: IActionHandler, checkboxClick?: IActionHandler, dragStart?: IActionHandler, drag?: IActionHandler, dragEnd?: IActionHandler, dragOver?: IActionHandler, dragLeave?: IActionHandler, dragEnter?: IActionHandler, drop?: IActionHandler, mouseOver?: IActionHandler, mouseOut?: IActionHandler }",
-          "description": "Property `mouse` (`{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IAc...`) storing mouse.",
-          "descriptionZh": "属性 `mouse`（类型：`{ click?: IActionHandler, dblClick?: IActionHandler, contextMenu?: IAc...`），用于存储或配置鼠标。"
+          "description": "Property `mouse` (`{…}`) storing mouse.",
+          "descriptionZh": "属性 `mouse`（类型：`{…}`），用于存储或配置鼠标。"
         },
         {
           "name": "keys",
           "type": "{ [key: number]: IActionHandler }",
-          "description": "Property `keys` (`{ [key: number]: IActionHandler }`) storing keys.",
-          "descriptionZh": "属性 `keys`（类型：`{ [key: number]: IActionHandler }`），用于存储或配置键列表。"
+          "description": "Property `keys` (`{ [key: number]: IActionHandler; }`) storing keys.",
+          "descriptionZh": "属性 `keys`（类型：`{ [key: number]: IActionHandler; }`），用于存储或配置键列表。"
         }
       ]
     },
@@ -264,13 +264,13 @@
           "name": "expanderAlign",
           "type": "'left' | 'right'",
           "description": "define the expand align to left or right",
-          "descriptionZh": "属性 `expanderAlign`（类型：`'left' | 'right'`），用于存储或配置展开器对齐。"
+          "descriptionZh": "属性 `expanderAlign`（类型：`\"left\" | \"right\"`），用于存储或配置展开器对齐。"
         },
         {
           "name": "dropZones",
           "type": "Array<string>",
-          "description": "Property `dropZones` (`Array<string>`) storing drop zones.",
-          "descriptionZh": "属性 `dropZones`（类型：`Array<string>`），用于存储或配置放置区域(NgZone)。"
+          "description": "Property `dropZones` (`string[]`) storing drop zones.",
+          "descriptionZh": "属性 `dropZones`（类型：`string[]`），用于存储或配置放置区域(NgZone)。"
         },
         {
           "name": "storeName",
@@ -362,8 +362,8 @@
         {
           "name": "template",
           "type": "TemplateRef<unknown>",
-          "description": "Input property `template` (`TemplateRef<any>`) configuring template.",
-          "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板。"
+          "description": "Input property `template` (`TemplateRef<unknown>`) configuring template.",
+          "descriptionZh": "输入属性 `template`（类型：`TemplateRef<unknown>`），用于配置模板。"
         },
         {
           "name": "node",
@@ -756,6 +756,87 @@
           "descriptionZh": "执行 `loadPath`，用于加载路径。"
         },
         {
+          "name": "phoneNodes",
+          "params": [],
+          "returnType": "TreeNode[]",
+          "description": "Nodes at the current level on a phone, or matching loaded nodes while searching.",
+          "descriptionZh": "手机当前层的节点；有搜索词时是已加载节点里匹配的。"
+        },
+        {
+          "name": "phonePath",
+          "params": [],
+          "returnType": "string",
+          "description": "Path hint on a phone.",
+          "descriptionZh": "手机路径提示。"
+        },
+        {
+          "name": "phoneSelectable",
+          "params": [
+            {
+              "name": "n",
+              "type": "TreeNode"
+            }
+          ],
+          "returnType": "boolean",
+          "description": "A node with children can also be a value (e.g. a department): shows a pick button.",
+          "descriptionZh": "有下级的节点也可以取值（如部门）时显示「确定」。"
+        },
+        {
+          "name": "phoneTap",
+          "params": [
+            {
+              "name": "n",
+              "type": "TreeNode"
+            },
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": "Tap a row: drill in when it has children, otherwise behave like a click on the node.",
+          "descriptionZh": "点行：有下级就下钻（按需加载子节点），否则等同点击节点（取值走原来的动作映射）。"
+        },
+        {
+          "name": "phonePick",
+          "params": [
+            {
+              "name": "n",
+              "type": "TreeNode"
+            },
+            {
+              "name": "event",
+              "type": "Event"
+            }
+          ],
+          "returnType": "void",
+          "description": "Take a node as the value (same action mapping as the desktop tree).",
+          "descriptionZh": "取节点为值（走与桌面树相同的动作映射）。"
+        },
+        {
+          "name": "phoneCheck",
+          "params": [
+            {
+              "name": "n",
+              "type": "TreeNode"
+            },
+            {
+              "name": "event",
+              "type": "{ checked: boolean }"
+            }
+          ],
+          "returnType": "void",
+          "description": "Multi-select on a phone (same checkbox action as the desktop tree).",
+          "descriptionZh": "手机多选（走与桌面树相同的勾选动作）。"
+        },
+        {
+          "name": "phoneBack",
+          "params": [],
+          "returnType": "void",
+          "description": "Back one level, or close the dialog at the top level.",
+          "descriptionZh": "回上一层；已在顶层时关闭弹窗。"
+        },
+        {
           "name": "getTree",
           "params": [
             {
@@ -783,32 +864,53 @@
         {
           "name": "loadingTemplate",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `loadingTemplate` (`@ContentChild`) targeting loading template.",
+          "description": "Template/content query reference `loadingTemplate` (`TemplateRef<unknown>`) targeting loading template.",
           "descriptionZh": "模板/内容视图查询引用 `loadingTemplate`（`@ContentChild`），指向加载中模板。"
         },
         {
           "name": "treeNodeTemplate",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `treeNodeTemplate` (`@ContentChild`) targeting tree node template.",
+          "description": "Template/content query reference `treeNodeTemplate` (`TemplateRef<unknown>`) targeting tree node template.",
           "descriptionZh": "模板/内容视图查询引用 `treeNodeTemplate`（`@ContentChild`），指向树形控件节点模板。"
         },
         {
           "name": "treeNodeWrapperTemplate",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `treeNodeWrapperTemplate` (`@ContentChild`) targeting tree node wrapper template.",
+          "description": "Template/content query reference `treeNodeWrapperTemplate` (`TemplateRef<unknown>`) targeting tree node wrapper template.",
           "descriptionZh": "模板/内容视图查询引用 `treeNodeWrapperTemplate`（`@ContentChild`），指向树形控件节点包装器模板。"
         },
         {
           "name": "treeNodeFullTemplate",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `treeNodeFullTemplate` (`@ContentChild`) targeting tree node full template.",
+          "description": "Template/content query reference `treeNodeFullTemplate` (`TemplateRef<unknown>`) targeting tree node full template.",
           "descriptionZh": "模板/内容视图查询引用 `treeNodeFullTemplate`（`@ContentChild`），指向树形控件节点完整模板。"
         },
         {
           "name": "viewportComponent",
           "type": "TreeViewportComponent",
-          "description": "Template/content query reference `viewportComponent` (`@ViewChild`) targeting viewport component.",
+          "description": "Template/content query reference `viewportComponent` (`TreeViewportComponent`) targeting viewport component.",
           "descriptionZh": "模板/内容视图查询引用 `viewportComponent`（`@ViewChild`），指向视口组件。"
+        },
+        {
+          "name": "phone",
+          "type": "any",
+          "default": "isPhoneTerminal()",
+          "description": "Whether the terminal is a phone: the tree renders as a drill-down list instead of a tree control.",
+          "descriptionZh": "是否手机类：不渲染树控件，逐级下钻（施工图 M2-14）。桌面为 false，模板与原来一致。"
+        },
+        {
+          "name": "phoneStack",
+          "type": "TreeNode[]",
+          "default": "[]",
+          "description": "Drill-down path on a phone.",
+          "descriptionZh": "手机下钻路径。"
+        },
+        {
+          "name": "phoneTerm",
+          "type": "any",
+          "default": "''",
+          "description": "Search term on a phone.",
+          "descriptionZh": "手机搜索词。"
         },
         {
           "name": "selectedNodes",
@@ -1175,10 +1277,10 @@
           "params": [
             {
               "name": "node",
-              "type": "any"
+              "type": "TreeNode"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `isNodeFocused` to handle is node focused.",
           "descriptionZh": "执行 `isNodeFocused`，用于是否为节点已聚焦。"
         },
@@ -1318,8 +1420,8 @@
           "name": "setData",
           "params": [
             {
-              "name": "{ nodes, options = null, events = null }",
-              "type": "{ nodes?, options?, events? }"
+              "name": "{\n    nodes,\n    options = null,\n    events = null,\n  }",
+              "type": "{ nodes?: unknown; options?: ITreeOptions | TreeOptions | null; events?: Record<string, unknown> | null; }"
             }
           ],
           "returnType": "any",
@@ -1367,7 +1469,7 @@
           ],
           "returnType": "any",
           "description": "Executes `doForAll` to handle do for all.",
-          "descriptionZh": "执行 `doForAll`，用于do用于全部。"
+          "descriptionZh": "执行 `doForAll`，用于执行用于全部。"
         },
         {
           "name": "focusNextNode",
@@ -1659,15 +1761,15 @@
         {
           "name": "nodes",
           "type": "any",
-          "description": "Property `nodes` (`any[]`) storing nodes.",
-          "descriptionZh": "属性 `nodes`（类型：`any[]`），用于存储或配置节点列表。"
+          "description": "Property `nodes` (`any`) storing nodes.",
+          "descriptionZh": "属性 `nodes`（类型：`any`），用于存储或配置节点列表。"
         },
         {
           "name": "eventNames",
           "type": "any",
           "default": "Object.keys(TREE_EVENTS)",
-          "description": "Property `eventNames` (`any`) storing event names (default: `Object.keys(TREE_EVENTS)`).",
-          "descriptionZh": "属性 `eventNames`（类型：`any`），用于存储或配置事件名称列表（默认值：`Object.keys(TREE_EVENTS)`）。"
+          "description": "Property `eventNames` (`string[]`) storing event names (default: `Object.keys(TREE_EVENTS)`).",
+          "descriptionZh": "属性 `eventNames`（类型：`string[]`），用于存储或配置事件名称列表（默认值：`Object.keys(TREE_EVENTS)`）。"
         },
         {
           "name": "virtualScroll",
@@ -1678,6 +1780,7 @@
         {
           "name": "roots",
           "type": "TreeNode[]",
+          "default": "undefined",
           "description": "Property `roots` (`TreeNode[]`) storing roots.",
           "descriptionZh": "属性 `roots`（类型：`TreeNode[]`），用于存储或配置根节点。"
         },
@@ -1719,6 +1822,7 @@
         {
           "name": "virtualRoot",
           "type": "TreeNode",
+          "default": "undefined",
           "description": "Property `virtualRoot` (`TreeNode`) storing virtual root.",
           "descriptionZh": "属性 `virtualRoot`（类型：`TreeNode`），用于存储或配置虚拟滚动根节点。"
         },
@@ -1740,44 +1844,44 @@
           "name": "nodeRegistry",
           "type": "any",
           "default": "new Map<string, TreeNode>()",
-          "description": "Property `nodeRegistry` (`Map`) storing node registry (default: `new Map<string, TreeNode>()`).",
-          "descriptionZh": "属性 `nodeRegistry`（类型：`Map`），用于存储或配置节点Registry（默认值：`new Map<string, TreeNode>()`）。"
+          "description": "Property `nodeRegistry` (`Map<string, TreeNode>`) storing node registry (default: `new Map<string, TreeNode>()`).",
+          "descriptionZh": "属性 `nodeRegistry`（类型：`Map<string, TreeNode>`），用于存储或配置节点Registry（默认值：`new Map<string, TreeNode>()`）。"
         },
         {
           "name": "isFocused",
-          "type": "any",
-          "description": "Gets the current is focused (`isFocused: any`).",
-          "descriptionZh": "获取当前是否为已聚焦（`isFocused: any`）。"
+          "type": "boolean",
+          "description": "Gets the current is focused (`isFocused: boolean`).",
+          "descriptionZh": "获取当前是否为已聚焦（`isFocused: boolean`）。"
         },
         {
           "name": "focusedNode",
-          "type": "any",
-          "description": "Gets the current focused node (`focusedNode: any`).",
-          "descriptionZh": "获取当前已聚焦节点（`focusedNode: any`）。"
+          "type": "TreeNode",
+          "description": "Gets the current focused node (`focusedNode: TreeNode`).",
+          "descriptionZh": "获取当前已聚焦节点（`focusedNode: TreeNode`）。"
         },
         {
           "name": "expandedNodes",
-          "type": "any",
-          "description": "Gets the current expanded nodes (`expandedNodes: any`).",
-          "descriptionZh": "获取当前已展开节点列表（`expandedNodes: any`）。"
+          "type": "TreeNode[]",
+          "description": "Gets the current expanded nodes (`expandedNodes: TreeNode[]`).",
+          "descriptionZh": "获取当前已展开节点列表（`expandedNodes: TreeNode[]`）。"
         },
         {
           "name": "activeNodes",
-          "type": "any",
-          "description": "Gets the current active nodes (`activeNodes: any`).",
-          "descriptionZh": "获取当前激活节点列表（`activeNodes: any`）。"
+          "type": "TreeNode[]",
+          "description": "Gets the current active nodes (`activeNodes: TreeNode[]`).",
+          "descriptionZh": "获取当前激活节点列表（`activeNodes: TreeNode[]`）。"
         },
         {
           "name": "hiddenNodes",
-          "type": "any",
-          "description": "Gets the current hidden nodes (`hiddenNodes: any`).",
-          "descriptionZh": "获取当前隐藏节点列表（`hiddenNodes: any`）。"
+          "type": "TreeNode[]",
+          "description": "Gets the current hidden nodes (`hiddenNodes: TreeNode[]`).",
+          "descriptionZh": "获取当前隐藏节点列表（`hiddenNodes: TreeNode[]`）。"
         },
         {
           "name": "selectedLeafNodes",
-          "type": "any",
-          "description": "Gets the current selected leaf nodes (`selectedLeafNodes: any`).",
-          "descriptionZh": "获取当前已选中叶子节点节点列表（`selectedLeafNodes: any`）。"
+          "type": "TreeNode[]",
+          "description": "Gets the current selected leaf nodes (`selectedLeafNodes: TreeNode[]`).",
+          "descriptionZh": "获取当前已选中叶子节点节点列表（`selectedLeafNodes: TreeNode[]`）。"
         }
       ]
     },
@@ -2112,7 +2216,7 @@
           ],
           "returnType": "any",
           "description": "Executes `doForAll` to handle do for all.",
-          "descriptionZh": "执行 `doForAll`，用于do用于全部。"
+          "descriptionZh": "执行 `doForAll`，用于执行用于全部。"
         },
         {
           "name": "doForAncestors",
@@ -2124,7 +2228,7 @@
           ],
           "returnType": "any",
           "description": "Executes `doForAncestors` to handle do for ancestors.",
-          "descriptionZh": "执行 `doForAncestors`，用于do用于祖先节点。"
+          "descriptionZh": "执行 `doForAncestors`，用于执行用于祖先节点。"
         },
         {
           "name": "expandAncestors",
@@ -2152,7 +2256,7 @@
           "params": [],
           "returnType": "any",
           "description": "Executes `ensureVisible` to handle ensure visible.",
-          "descriptionZh": "执行 `ensureVisible`，用于ensure可见。"
+          "descriptionZh": "执行 `ensureVisible`，用于确保可见。"
         },
         {
           "name": "toggleExpanded",
@@ -2354,27 +2458,27 @@
       "properties": [
         {
           "name": "isHidden",
-          "type": "any",
-          "description": "Gets the current is hidden (`isHidden: any`).",
-          "descriptionZh": "获取当前是否为隐藏（`isHidden: any`）。"
+          "type": "boolean",
+          "description": "Gets the current is hidden (`isHidden: boolean`).",
+          "descriptionZh": "获取当前是否为隐藏（`isHidden: boolean`）。"
         },
         {
           "name": "isExpanded",
-          "type": "any",
-          "description": "Gets the current is expanded (`isExpanded: any`).",
-          "descriptionZh": "获取当前是否为已展开（`isExpanded: any`）。"
+          "type": "boolean",
+          "description": "Gets the current is expanded (`isExpanded: boolean`).",
+          "descriptionZh": "获取当前是否为已展开（`isExpanded: boolean`）。"
         },
         {
           "name": "isActive",
-          "type": "any",
-          "description": "Gets the current is active (`isActive: any`).",
-          "descriptionZh": "获取当前是否为激活（`isActive: any`）。"
+          "type": "boolean",
+          "description": "Gets the current is active (`isActive: boolean`).",
+          "descriptionZh": "获取当前是否为激活（`isActive: boolean`）。"
         },
         {
           "name": "isFocused",
-          "type": "any",
-          "description": "Gets the current is focused (`isFocused: any`).",
-          "descriptionZh": "获取当前是否为已聚焦（`isFocused: any`）。"
+          "type": "boolean",
+          "description": "Gets the current is focused (`isFocused: boolean`).",
+          "descriptionZh": "获取当前是否为已聚焦（`isFocused: boolean`）。"
         },
         {
           "name": "isSelected",
@@ -2384,25 +2488,27 @@
         },
         {
           "name": "isAllSelected",
-          "type": "any",
-          "description": "Gets the current is all selected (`isAllSelected: any`).",
-          "descriptionZh": "获取当前是否为全部已选中（`isAllSelected: any`）。"
+          "type": "boolean",
+          "description": "Gets the current is all selected (`isAllSelected: boolean`).",
+          "descriptionZh": "获取当前是否为全部已选中（`isAllSelected: boolean`）。"
         },
         {
           "name": "isPartiallySelected",
-          "type": "any",
-          "description": "Gets the current is partially selected (`isPartiallySelected: any`).",
-          "descriptionZh": "获取当前是否为Partially已选中（`isPartiallySelected: any`）。"
+          "type": "boolean",
+          "description": "Gets the current is partially selected (`isPartiallySelected: boolean`).",
+          "descriptionZh": "获取当前是否为Partially已选中（`isPartiallySelected: boolean`）。"
         },
         {
           "name": "children",
           "type": "TreeNode[]",
+          "default": "undefined",
           "description": "Property `children` (`TreeNode[]`) storing children.",
           "descriptionZh": "属性 `children`（类型：`TreeNode[]`），用于存储或配置子级列表。"
         },
         {
           "name": "index",
           "type": "number",
+          "default": "undefined",
           "description": "Property `index` (`number`) storing index.",
           "descriptionZh": "属性 `index`（类型：`number`），用于存储或配置索引。"
         },
@@ -2416,6 +2522,7 @@
         {
           "name": "height",
           "type": "number",
+          "default": "undefined",
           "description": "Property `height` (`number`) storing height.",
           "descriptionZh": "属性 `height`（类型：`number`），用于存储或配置高度。"
         },
@@ -2433,15 +2540,15 @@
         },
         {
           "name": "elementRef",
-          "type": "any",
-          "description": "Gets the current element ref (`elementRef: any`).",
-          "descriptionZh": "获取当前元素引用（`elementRef: any`）。"
+          "type": "never",
+          "description": "Gets the current element ref (`elementRef: never`).",
+          "descriptionZh": "获取当前元素引用（`elementRef: never`）。"
         },
         {
           "name": "originalNode",
-          "type": "any",
-          "description": "Gets the current original node (`originalNode: any`).",
-          "descriptionZh": "获取当前原始节点（`originalNode: any`）。"
+          "type": "unknown",
+          "description": "Gets the current original node (`originalNode: unknown`).",
+          "descriptionZh": "获取当前原始节点（`originalNode: unknown`）。"
         },
         {
           "name": "hasChildren",
@@ -2481,15 +2588,15 @@
         },
         {
           "name": "displayField",
-          "type": "any",
-          "description": "Gets the current display field (`displayField: any`).",
-          "descriptionZh": "获取当前display字段（`displayField: any`）。"
+          "type": "string",
+          "description": "Gets the current display field (`displayField: string`).",
+          "descriptionZh": "获取当前display字段（`displayField: string`）。"
         },
         {
           "name": "id",
-          "type": "any",
-          "description": "Gets the current id (`id: any`).",
-          "descriptionZh": "获取当前唯一标识（`id: any`）。"
+          "type": "IDType",
+          "description": "Gets the current id (`id: IDType`).",
+          "descriptionZh": "获取当前唯一标识（`id: IDType`）。"
         },
         {
           "name": "id",
@@ -2499,15 +2606,15 @@
         },
         {
           "name": "expandedIcon",
-          "type": "any",
-          "description": "Gets the current expanded icon (`expandedIcon: any`).",
-          "descriptionZh": "获取当前已展开图标（`expandedIcon: any`）。"
+          "type": "string",
+          "description": "Gets the current expanded icon (`expandedIcon: string`).",
+          "descriptionZh": "获取当前已展开图标（`expandedIcon: string`）。"
         },
         {
           "name": "icon",
-          "type": "any",
-          "description": "Gets the current icon (`icon: any`).",
-          "descriptionZh": "获取当前图标（`icon: any`）。"
+          "type": "string",
+          "description": "Gets the current icon (`icon: string`).",
+          "descriptionZh": "获取当前图标（`icon: string`）。"
         },
         {
           "name": "icon",
@@ -2517,9 +2624,9 @@
         },
         {
           "name": "toolTip",
-          "type": "any",
-          "description": "Gets the current tool tip (`toolTip: any`).",
-          "descriptionZh": "获取当前tool提示（`toolTip: any`）。"
+          "type": "string",
+          "description": "Gets the current tool tip (`toolTip: string`).",
+          "descriptionZh": "获取当前tool提示（`toolTip: string`）。"
         },
         {
           "name": "toolTip",
@@ -2529,9 +2636,9 @@
         },
         {
           "name": "checkable",
-          "type": "any",
-          "description": "Gets the current checkable (`checkable: any`).",
-          "descriptionZh": "获取当前checkable（`checkable: any`）。"
+          "type": "boolean",
+          "description": "Gets the current checkable (`checkable: boolean`).",
+          "descriptionZh": "获取当前checkable（`checkable: boolean`）。"
         },
         {
           "name": "checkable",
@@ -2541,9 +2648,9 @@
         },
         {
           "name": "editable",
-          "type": "any",
-          "description": "Gets the current editable (`editable: any`).",
-          "descriptionZh": "获取当前是否可编辑（`editable: any`）。"
+          "type": "boolean",
+          "description": "Gets the current editable (`editable: boolean`).",
+          "descriptionZh": "获取当前是否可编辑（`editable: boolean`）。"
         },
         {
           "name": "editable",
@@ -2553,23 +2660,23 @@
         },
         {
           "name": "visibleChildren",
-          "type": "any",
-          "description": "Gets the current visible children (`visibleChildren: any`).",
-          "descriptionZh": "获取当前可见子级列表（`visibleChildren: any`）。"
+          "type": "TreeNode[]",
+          "description": "Gets the current visible children (`visibleChildren: TreeNode[]`).",
+          "descriptionZh": "获取当前可见子级列表（`visibleChildren: TreeNode[]`）。"
         },
         {
           "name": "allowDrop",
           "type": "any",
-          "default": "(element, $event?) => {\n    return this.options.allowDrop(element, { parent: this, index: 0 }, $event);\n  }",
-          "description": "Property `allowDrop` (`any`) storing allow drop.",
-          "descriptionZh": "属性 `allowDrop`（类型：`any`），用于存储或配置允许放置。"
+          "default": "(element: unknown, $event?: unknown): boolean => {\n    return this.options.allowDrop(element, { parent: this, index: 0 }, $event);\n  }",
+          "description": "Property `allowDrop` (`(element: unknown, $event?: unknown) => boolean`) storing allow drop.",
+          "descriptionZh": "属性 `allowDrop`（类型：`(element: unknown, $event?: unknown) => boolean`），用于存储或配置允许放置。"
         },
         {
           "name": "allowDragoverStyling",
           "type": "any",
           "default": "() => {\n    return this.options.allowDragoverStyling;\n  }",
-          "description": "Property `allowDragoverStyling` (`any`) storing allow dragover styling.",
-          "descriptionZh": "属性 `allowDragoverStyling`（类型：`any`），用于存储或配置允许Dragover样式。"
+          "description": "Property `allowDragoverStyling` (`() => boolean`) storing allow dragover styling.",
+          "descriptionZh": "属性 `allowDragoverStyling`（类型：`() => boolean`），用于存储或配置允许Dragover样式。"
         }
       ]
     },
@@ -2584,8 +2691,8 @@
         {
           "name": "node",
           "type": "any",
-          "description": "Getter for input property `node` (`any`) returning node.",
-          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
+          "description": "Getter for input property `node` (`TreeNode`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。"
         },
         {
           "name": "label",
@@ -2624,19 +2731,19 @@
       "selector": "tree-node-children",
       "summary": "Angular component `TreeNodeChildrenComponent` (selector: 'tree-node-children') providing tree node children component presentation and interaction in `src/tree/components`.",
       "summaryZh": "Angular 组件 `TreeNodeChildrenComponent`（selector: 'tree-node-children'），提供树形控件节点子级列表组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
-      "sourceFile": "src/tree/components/tree-node-children.component.ts",
+      "sourceFile": "src/tree/components/tree-node-recursive.components.ts",
       "inputs": [
         {
           "name": "node",
-          "type": "any",
-          "description": "Getter for input property `node` (`any`) returning node.",
-          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
+          "type": "TreeNode",
+          "description": "Getter for input property `node` (`TreeNode`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。"
         },
         {
           "name": "templates",
-          "type": "any",
-          "description": "Input property `templates` (`any`) configuring templates.",
-          "descriptionZh": "输入属性 `templates`（类型：`any`），用于配置模板。"
+          "type": "TreeNodeTemplates",
+          "description": "Input property `templates` (`TreeNodeTemplates`) configuring templates.",
+          "descriptionZh": "输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。"
         }
       ],
       "outputs": [],
@@ -2646,12 +2753,12 @@
           "params": [
             {
               "name": "node",
-              "type": "any"
+              "type": "TreeNode"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `setNode` to handle set node.",
-          "descriptionZh": "执行 `setNode`，用于集合节点。"
+          "descriptionZh": "执行 `setNode`，执行设置节点操作。"
         }
       ],
       "properties": [
@@ -2669,25 +2776,25 @@
       "selector": "tree-node-collection",
       "summary": "Angular component `TreeNodeCollectionComponent` (selector: 'tree-node-collection') providing tree node collection component presentation and interaction in `src/tree/components`.",
       "summaryZh": "Angular 组件 `TreeNodeCollectionComponent`（selector: 'tree-node-collection'），提供树形控件节点集合组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
-      "sourceFile": "src/tree/components/tree-node-collection.component.ts",
+      "sourceFile": "src/tree/components/tree-node-recursive.components.ts",
       "inputs": [
         {
           "name": "nodes",
-          "type": "any",
-          "description": "Getter for input property `nodes` (`any`) returning nodes.",
-          "descriptionZh": "输入属性 `nodes`（类型：`any`）的读取器，返回当前节点列表。"
+          "type": "TreeNode[]",
+          "description": "Getter for input property `nodes` (`TreeNode[]`) returning nodes.",
+          "descriptionZh": "输入属性 `nodes`（类型：`TreeNode[]`）的读取器，返回当前节点列表。"
         },
         {
           "name": "treeModel",
           "type": "TreeModel",
           "description": "Input property `treeModel` (`TreeModel`) configuring tree model.",
-          "descriptionZh": "输入属性 `treeModel`（类型：`TreeModel`），用于配置树形控件模型。"
+          "descriptionZh": "输入属性 `treeModel`（类型：`TreeModel`），配置树形控件模型。"
         },
         {
           "name": "templates",
-          "type": "any",
-          "description": "Input property `templates` (`any`) configuring templates.",
-          "descriptionZh": "输入属性 `templates`（类型：`any`），用于配置模板。"
+          "type": "TreeNodeTemplates",
+          "description": "Input property `templates` (`TreeNodeTemplates`) configuring templates.",
+          "descriptionZh": "输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。"
         }
       ],
       "outputs": [],
@@ -2697,28 +2804,28 @@
           "params": [
             {
               "name": "nodes",
-              "type": "any"
+              "type": "TreeNode[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `setNodes` to handle set nodes.",
-          "descriptionZh": "执行 `setNodes`，用于集合节点列表。"
+          "descriptionZh": "执行 `setNodes`，执行设置节点列表操作。"
         },
         {
           "name": "trackNode",
           "params": [
             {
               "name": "index",
-              "type": "any"
+              "type": "number"
             },
             {
               "name": "node",
-              "type": "any"
+              "type": "TreeNode"
             }
           ],
-          "returnType": "any",
+          "returnType": "string | number",
           "description": "Executes `trackNode` to handle track node.",
-          "descriptionZh": "执行 `trackNode`，用于track节点。"
+          "descriptionZh": "执行 `trackNode`，按节点标识跟踪列表项。"
         }
       ],
       "properties": [
@@ -2731,8 +2838,9 @@
         {
           "name": "viewportNodes",
           "type": "TreeNode[]",
+          "default": "undefined",
           "description": "Property `viewportNodes` (`TreeNode[]`) storing viewport nodes.",
-          "descriptionZh": "属性 `viewportNodes`（类型：`TreeNode[]`），用于存储或配置视口节点列表。"
+          "descriptionZh": "属性 `viewportNodes`（类型：`TreeNode[]`），存储或配置视口节点列表。"
         },
         {
           "name": "marginTop",
@@ -2748,25 +2856,25 @@
       "selector": "TreeNode, tree-node",
       "summary": "Angular component `TreeNodeComponent` (selector: 'TreeNode, tree-node') providing tree node component presentation and interaction in `src/tree/components`.",
       "summaryZh": "Angular 组件 `TreeNodeComponent`（selector: 'TreeNode, tree-node'），提供树形控件节点组件的视图渲染与交互逻辑（位于 `src/tree/components`）。",
-      "sourceFile": "src/tree/components/tree-node.component.ts",
+      "sourceFile": "src/tree/components/tree-node-recursive.components.ts",
       "inputs": [
         {
           "name": "node",
-          "type": "any",
-          "description": "Getter for input property `node` (`any`) returning node.",
-          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
+          "type": "TreeNodeApi",
+          "description": "Getter for input property `node` (`unknown`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`unknown`）的读取器，返回当前节点。"
         },
         {
           "name": "index",
           "type": "number",
           "description": "Input property `index` (`number`) configuring index.",
-          "descriptionZh": "输入属性 `index`（类型：`number`），用于配置索引。"
+          "descriptionZh": "输入属性 `index`（类型：`number`），配置索引。"
         },
         {
           "name": "templates",
-          "type": "any",
-          "description": "Input property `templates` (`any`) configuring templates.",
-          "descriptionZh": "输入属性 `templates`（类型：`any`），用于配置模板。"
+          "type": "TreeNodeTemplates",
+          "description": "Input property `templates` (`TreeNodeTemplates`) configuring templates.",
+          "descriptionZh": "输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。"
         }
       ],
       "outputs": [],
@@ -2776,12 +2884,12 @@
           "params": [
             {
               "name": "node",
-              "type": "any"
+              "type": "TreeNodeApi"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `setNode` to handle set node.",
-          "descriptionZh": "执行 `setNode`，用于集合节点。"
+          "descriptionZh": "执行 `setNode`，执行设置节点操作。"
         }
       ],
       "properties": [
@@ -2816,8 +2924,8 @@
         {
           "name": "template",
           "type": "TemplateRef<unknown>",
-          "description": "Input property `template` (`TemplateRef<any>`) configuring template.",
-          "descriptionZh": "输入属性 `template`（类型：`TemplateRef<any>`），用于配置模板。"
+          "description": "Input property `template` (`TemplateRef<unknown>`) configuring template.",
+          "descriptionZh": "输入属性 `template`（类型：`TemplateRef<unknown>`），用于配置模板。"
         }
       ],
       "outputs": [],
@@ -2896,8 +3004,8 @@
         {
           "name": "node",
           "type": "any",
-          "description": "Getter for input property `node` (`any`) returning node.",
-          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
+          "description": "Getter for input property `node` (`TreeNode`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。"
         }
       ],
       "outputs": [],
@@ -2935,8 +3043,8 @@
         {
           "name": "node",
           "type": "any",
-          "description": "Getter for input property `node` (`any`) returning node.",
-          "descriptionZh": "输入属性 `node`（类型：`any`）的读取器，返回当前节点。"
+          "description": "Getter for input property `node` (`TreeNode`) returning node.",
+          "descriptionZh": "输入属性 `node`（类型：`TreeNode`）的读取器，返回当前节点。"
         },
         {
           "name": "index",
@@ -2998,8 +3106,8 @@
           "name": "setViewport",
           "type": "any",
           "default": "this.throttle(() => {\n    this.virtualScroll.setViewport(this.elementRef.nativeElement);\n  }, 17)",
-          "description": "Property `setViewport` (`any`) storing set viewport.",
-          "descriptionZh": "属性 `setViewport`（类型：`any`），用于存储或配置集合视口。"
+          "description": "Property `setViewport` (`() => void`) storing set viewport.",
+          "descriptionZh": "属性 `setViewport`（类型：`() => void`），用于存储或配置集合视口。"
         }
       ]
     },
@@ -3135,18 +3243,18 @@
         },
         {
           "name": "y",
-          "type": "any",
-          "description": "Gets the current y (`y: any`).",
-          "descriptionZh": "获取当前Y坐标（`y: any`）。"
+          "type": "number",
+          "description": "Gets the current y (`y: number`).",
+          "descriptionZh": "获取当前Y坐标（`y: number`）。"
         },
         {
           "name": "totalHeight",
-          "type": "any",
-          "description": "Gets the current total height (`totalHeight: any`).",
-          "descriptionZh": "获取当前总计高度（`totalHeight: any`）。"
+          "type": "number",
+          "description": "Gets the current total height (`totalHeight: number`).",
+          "descriptionZh": "获取当前总计高度（`totalHeight: number`）。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { LoadingComponent, TreeModule } from '@dotos/dui/tree';\n\n<tree-loading-component [template]=\"...\" [node]=\"...\"></tree-loading-component>"
+  "suggestedUsageSnippet": "import { LoadingComponent, TreeModule } from '@dotos1/dui/tree';\n\n<tree-loading-component [template]=\"...\" [node]=\"...\"></tree-loading-component>"
 }

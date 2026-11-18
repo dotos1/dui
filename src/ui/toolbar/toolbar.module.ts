@@ -8,10 +8,10 @@ import { CommonModule } from '@angular/common';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 // 工具栏里不带 xtype 的按钮缺省按 'dui-button' 创建（constructButton），
 // 所以按钮工厂必须随工具栏模块一起注册，否则会抛 "dui-button not exits in factory"
-import { ButtonModule } from '@dotos/dui/ui/button';
+import { ButtonModule } from '@dotos1/dui/ui/button';
 import { DuiToolbarComponent, Spacer, Fill, TextItem, Separator } from './toolbar.component';
 
 /**

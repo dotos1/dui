@@ -4,16 +4,27 @@
  */
 
 import { Injectable, OnDestroy } from '@angular/core';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 
 import { Subscription } from 'rxjs';
 import { TREE_EVENTS } from '../constants/events';
-import { IDType, IDTypeDictionary, ITreeModel } from '../defs/api';
+import { IDType, IDTypeDictionary, ITreeModel, ITreeOptions } from '../defs/api';
 import { TreeNode } from './tree-node.model';
 import { TreeOptions } from './tree-options.model';
 import { TreeVirtualScroll } from './tree-virtual-scroll.model';
 import { first, last, compact, find, isString, isFunction } from 'lodash-es';
-import { action, autorun, computed, observable, set, remove, get } from 'mobx';
+import { action, autorun, computed, makeObservable, observable, set, remove, get } from 'mobx';
+
+interface TreeEventEmitterLike {
+  emit(event: unknown): void;
+  subscribe(fn: (event: unknown) => void): Subscription;
+  unsubscribe?(fn: (event: unknown) => void): void;
+}
+
+type TreeEventMap = {
+  event?: TreeEventEmitterLike;
+  [key: string]: TreeEventEmitterLike;
+};
 /**
  * Injectable Angular service `TreeModel` managing tree model state and operations in `src/tree/models`.
  * @zh 可注入的 Angular 服务 `TreeModel`，管理 `src/tree/models` 中的树形控件模型状态与业务操作。
@@ -51,7 +62,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
    * Property `roots` (`TreeNode[]`) storing roots.
    * @zh 属性 `roots`（类型：`TreeNode[]`），用于存储或配置根节点。
    */
-  @observable roots: TreeNode[];
+  @observable roots: TreeNode[] = undefined;
   /**
    * Property `expandedNodeIds` (`IDTypeDictionary`) storing expanded node ids (default: `{}`).
    * @zh 属性 `expandedNodeIds`（类型：`IDTypeDictionary`），用于存储或配置已展开节点标识列表（默认值：`{}`）。
@@ -81,7 +92,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
    * Property `virtualRoot` (`TreeNode`) storing virtual root.
    * @zh 属性 `virtualRoot`（类型：`TreeNode`），用于存储或配置虚拟滚动根节点。
    */
-  @observable virtualRoot: TreeNode;
+  @observable virtualRoot: TreeNode = undefined;
 
   /**
    * Property `firstUpdate` (`boolean`) storing first update (default: `true`).
@@ -89,10 +100,10 @@ export class TreeModel implements ITreeModel, OnDestroy {
    */
   public firstUpdate = true;
   /**
-   * Property `events` (`{ event?: any; }`) storing events (default: `{}`).
-   * @zh 属性 `events`（类型：`{ event?: any; }`），用于存储或配置事件集合（默认值：`{}`）。
+   * Property `events` (`TreeEventMap`) storing events (default: `{}`).
+   * @zh 属性 `events`（类型：`TreeEventMap`），用于存储或配置事件集合（默认值：`{}`）。
    */
-  private events: { event? } = {};
+  private events: TreeEventMap = {};
   /**
    * Property `subscriptions` (`Subscription[]`) storing subscriptions (default: `[]`).
    * @zh 属性 `subscriptions`（类型：`Subscription[]`），用于存储或配置订阅集合（默认值：`[]`）。
@@ -122,7 +133,9 @@ export class TreeModel implements ITreeModel, OnDestroy {
    * @zh 创建 `TreeModel` 实例，并初始化其依赖项与内部状态。
    * @param translator - Injected or initial translator (`TranslateService`) / 注入或传入的翻译器（`TranslateService`）
    */
-  constructor(public translator: TranslateService) {}
+  constructor(public translator: TranslateService) {
+    makeObservable(this);
+  }
 
   // events
   /**
@@ -221,19 +234,19 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   /**
-   * Gets the current is focused (`isFocused: any`).
-   * @zh 获取当前是否为已聚焦（`isFocused: any`）。
+   * Gets the current is focused (`isFocused: boolean`).
+   * @zh 获取当前是否为已聚焦（`isFocused: boolean`）。
    */
-  get isFocused() {
+  get isFocused(): boolean {
     return TreeModel.focusedTree === this;
   }
 
   /**
    * Executes `isNodeFocused` to handle is node focused.
    * @zh 执行 `isNodeFocused`，用于是否为节点已聚焦。
-   * @param node - node parameter (`any`) / 节点参数（`any`）
+   * @param node - node parameter (`TreeNode`) / 节点参数（`TreeNode`）
    */
-  isNodeFocused(node) {
+  isNodeFocused(node: TreeNode): boolean {
     return this.focusedNode === node;
   }
 
@@ -247,18 +260,18 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   /**
-   * Gets the current focused node (`focusedNode: any`).
-   * @zh 获取当前已聚焦节点（`focusedNode: any`）。
+   * Gets the current focused node (`focusedNode: TreeNode`).
+   * @zh 获取当前已聚焦节点（`focusedNode: TreeNode`）。
    */
-  @computed get focusedNode() {
+  @computed get focusedNode(): TreeNode {
     return this.focusedNodeId ? this.getNodeById(this.focusedNodeId) : null;
   }
 
   /**
-   * Gets the current expanded nodes (`expandedNodes: any`).
-   * @zh 获取当前已展开节点列表（`expandedNodes: any`）。
+   * Gets the current expanded nodes (`expandedNodes: TreeNode[]`).
+   * @zh 获取当前已展开节点列表（`expandedNodes: TreeNode[]`）。
    */
-  @computed get expandedNodes() {
+  @computed get expandedNodes(): TreeNode[] {
       const nodes = Object.keys(this.expandedNodeIds || {})
       .filter((id) => get(this.expandedNodeIds, id))
       .map((id) => this.getNodeById(id));
@@ -267,10 +280,10 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   /**
-   * Gets the current active nodes (`activeNodes: any`).
-   * @zh 获取当前激活节点列表（`activeNodes: any`）。
+   * Gets the current active nodes (`activeNodes: TreeNode[]`).
+   * @zh 获取当前激活节点列表（`activeNodes: TreeNode[]`）。
    */
-  @computed get activeNodes() {
+  @computed get activeNodes(): TreeNode[] {
    const nodes = Object.keys(this.activeNodeIds || {})
       .filter((id) => get(this.activeNodeIds, id))
       .map((id) => this.getNodeById(id));
@@ -279,10 +292,10 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
 
   /**
-   * Gets the current hidden nodes (`hiddenNodes: any`).
-   * @zh 获取当前隐藏节点列表（`hiddenNodes: any`）。
+   * Gets the current hidden nodes (`hiddenNodes: TreeNode[]`).
+   * @zh 获取当前隐藏节点列表（`hiddenNodes: TreeNode[]`）。
    */
-  @computed get hiddenNodes() {
+  @computed get hiddenNodes(): TreeNode[] {
  const nodes = Object.keys(this.hiddenNodeIds || {})
       .filter((id) => get(this.hiddenNodeIds, id))
       .map((id) => this.getNodeById(id));
@@ -291,10 +304,10 @@ export class TreeModel implements ITreeModel, OnDestroy {
   }
   
   /**
-   * Gets the current selected leaf nodes (`selectedLeafNodes: any`).
-   * @zh 获取当前已选中叶子节点节点列表（`selectedLeafNodes: any`）。
+   * Gets the current selected leaf nodes (`selectedLeafNodes: TreeNode[]`).
+   * @zh 获取当前已选中叶子节点节点列表（`selectedLeafNodes: TreeNode[]`）。
    */
-  @computed get selectedLeafNodes() {
+  @computed get selectedLeafNodes(): TreeNode[] {
    const nodes = Object.keys(this.selectedLeafNodeIds || {})
       .filter((id) => get(this.selectedLeafNodeIds, id))
       .map((id) => this.getNodeById(id));
@@ -456,10 +469,18 @@ export class TreeModel implements ITreeModel, OnDestroy {
   /**
    * Executes `setData` to handle set data.
    * @zh 执行 `setData`，用于集合数据。
-   * @param { nodes, options = null, event... - { nodes, options = null, event parameter (`{ nodes?: any, options?: any, events?: any }`) / {nodes,配置选项=null,事件参数（`{ nodes?: any, options?: any, events?: any }`）
+   * @param data - data parameter (`{ nodes?: unknown; options?: ITreeOptions | TreeOptions | null; events?: Record<string, unknown> | null }`) / 数据参数（`{ nodes?: unknown; options?: ITreeOptions | TreeOptions | null; events?: Record<string, unknown> | null }`）
    */
-  @action setData({ nodes, options = null, events = null }: { nodes?, options?, events? }) {
- if (options) {
+  @action setData({
+    nodes,
+    options = null,
+    events = null,
+  }: {
+    nodes?: unknown;
+    options?: ITreeOptions | TreeOptions | null;
+    events?: Record<string, unknown> | null;
+  }) {
+    if (options) {
       if (options instanceof TreeOptions) {
         this.options = options;
       } else {
@@ -467,7 +488,7 @@ export class TreeModel implements ITreeModel, OnDestroy {
       }
     }
     if (events) {
-      this.events = events;
+      this.events = events as TreeEventMap;
     }
     if (nodes) {
       this.nodes = nodes;

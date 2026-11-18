@@ -16,7 +16,7 @@ import {
   Renderer2,
   SimpleChanges,
   ViewEncapsulation,
-  forwardRef
+  forwardRef, ChangeDetectionStrategy
 } from '@angular/core';
 import {DUI_GRIDSTER} from './gridster-token';
 import {GridsterComponentInterface} from './gridster.interface';
@@ -41,7 +41,8 @@ import {GridsterUtils} from './gridsterUtils.service';
   encapsulation: ViewEncapsulation.None,
   host: {hostID: 'dui-gridster' + Math.random().toString(36).substring(2, 15)},
   providers: [{provide: DUI_GRIDSTER, useExisting: forwardRef(() => GridsterComponent)}],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class GridsterComponent implements OnInit, OnChanges, OnDestroy, GridsterComponentInterface {
 
@@ -221,7 +222,7 @@ export class GridsterComponent implements OnInit, OnChanges, OnDestroy, Gridster
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['options']) {

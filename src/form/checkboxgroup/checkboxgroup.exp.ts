@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatCheckbox } from '@angular/material/checkbox';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import {indexOf}  from 'lodash-es';
 import { MatField } from '../base/mat.field';
 

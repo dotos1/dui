@@ -18,7 +18,7 @@ import {
   ViewChildren,
   QueryList,
   DoCheck,
-  OnInit
+  OnInit, ChangeDetectionStrategy
 } from '@angular/core';
 import { Directionality } from '@angular/cdk/bidi';
 import { MatMenuTrigger } from '@angular/material/menu';
@@ -26,7 +26,7 @@ import { Router } from '@angular/router';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { MenuBase,MenuDirective } from '@dotos/dui/ui/menu';
+import { MenuBase,MenuDirective } from '@dotos1/dui/ui/menu';
 
 import { ContextMenuOverlayRef } from './context-menu-overlay';
 import { CONTEXT_MENU_DIRECTION } from './direction.token';
@@ -45,6 +45,7 @@ import { CONTEXT_MENU_DIRECTION } from './direction.token';
   },
   encapsulation: ViewEncapsulation.None,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 
 })
 export class ContextMenuComponent extends MenuBase implements OnInit,OnDestroy,DoCheck, AfterViewInit {

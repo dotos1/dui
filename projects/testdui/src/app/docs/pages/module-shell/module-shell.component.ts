@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-shell/module-shell.component.ts`，提供模块shell组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { combineLatest } from 'rxjs';
@@ -21,6 +21,7 @@ import { DocsManifestModule } from '../../models/docs-manifest.model';
   templateUrl: './module-shell.component.html',
   styleUrls: ['./module-shell.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ModuleShellComponent {
   /**

@@ -46,7 +46,7 @@ export function unregisterControl(field: FieldConfig, emitEvent = false) {
  * Executes `findControl` to handle find control.
  * @zh 执行 `findControl`，用于查找表单控件。
  * @param field - field parameter (`FieldConfig`) / 字段参数（`FieldConfig`）
- * @returns Result of type `AbstractControl<any, any>` / 类型为 `AbstractControl<any, any>` 的返回值
+ * @returns Result of type `AbstractControl<any, any, any>` / 类型为 `AbstractControl<any, any, any>` 的返回值
  */
 export function findControl(field: FieldConfig): AbstractControl {
   if (field.formControl) {
@@ -115,7 +115,7 @@ export function registerControl(field: FieldConfigCache, control?, emitEvent = f
 /**
  * Executes `updateValidity` to handle update validity.
  * @zh 执行 `updateValidity`，用于更新Validity。
- * @param c - c parameter (`AbstractControl<any, any>`) / c参数（`AbstractControl<any, any>`）
+ * @param c - c parameter (`AbstractControl<any, any, any>`) / c参数（`AbstractControl<any, any, any>`）
  */
 export function updateValidity(c: AbstractControl) {
   const status = c.status;
@@ -153,7 +153,7 @@ function updateControl(form: FormGroup | FormArray, opts: { emitEvent: boolean }
 /**
  * Executes `clearControl` to handle clear control.
  * @zh 执行 `clearControl`，用于清空表单控件。
- * @param form - form parameter (`AbstractControl<any, any>`) / 表单参数（`AbstractControl<any, any>`）
+ * @param form - form parameter (`AbstractControl<any, any, any>`) / 表单参数（`AbstractControl<any, any, any>`）
  */
 export function clearControl(form: AbstractControl) {
   form['_fields'] && delete form['_fields'];

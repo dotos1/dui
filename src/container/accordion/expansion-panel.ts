@@ -4,11 +4,11 @@
  */
 
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { coerceBooleanProperty } from '@angular/cdk/coercion';
 import { UniqueSelectionDispatcher } from '@angular/cdk/collections';
-import { ICanDisable, mixinDisabled } from '@dotos/dui/core/behaviors';
+import { ICanDisable, mixinDisabled } from '@dotos1/dui/core/behaviors';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -27,7 +27,7 @@ import {
   Injector
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { FormBuilder } from '@dotos/dui/core/form';
+import { FormBuilder } from '@dotos1/dui/core/form';
 
 import { Accordion } from './accordion';
 import { Container } from '../container.main';
@@ -72,7 +72,6 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
    * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
-  //@ts-ignore
   @ViewChild('panel', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
 
   /**
@@ -124,7 +123,7 @@ export class ExpansionPanelBase extends Container implements OnChanges,OnDestroy
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {
@@ -354,7 +353,7 @@ export class ExpansionPanel extends _ExpansionPanelMixinBase
 
   /**
    * Stream that emits for changes in `@Input` properties.
-   * @zh 属性 `_inputChanges`（类型：`Subject<SimpleChanges>`），用于存储或配置输入属性变更集合（默认值：`new Subject<SimpleChanges>()`）。
+   * @zh 属性 `_inputChanges`（类型：`Subject<{ [propName: string]: SimpleChange<any>; }>`），用于存储或配置输入属性变更集合（默认值：`new Subject<SimpleChanges>()`）。
    */
   _inputChanges = new Subject<SimpleChanges>();
 
@@ -408,7 +407,7 @@ export class ExpansionPanel extends _ExpansionPanelMixinBase
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     this._inputChanges.next(changes);

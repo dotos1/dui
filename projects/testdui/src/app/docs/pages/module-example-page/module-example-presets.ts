@@ -1,6 +1,6 @@
 /**
- * @fileoverview Module `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts` providing interactive scenario presets for all `@dotos/dui` modules.
- * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts`，提供 `@dotos/dui` 全量模块的可交互场景预设配置。
+ * @fileoverview Module `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts` providing interactive scenario presets for all `@dotos1/dui` modules.
+ * @zh 模块文件 `projects/testdui/src/app/docs/pages/module-example-page/module-example-presets.ts`，提供 `@dotos1/dui` 全量模块的可交互场景预设配置。
  */
 
 /**
@@ -144,7 +144,7 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     title: '预置动画触发器演练场 (duiAnimations)',
     subtitle: '实时切换旋转、弹跳、淡入淡出、折叠与震动动画触发器，并调节动画时长与缓动曲线。',
     primaryLabel: '动画预览卡片文案',
-    primaryDefault: '@dotos/dui/common/animations 动态过渡预览',
+    primaryDefault: '@dotos1/dui/common/animations 动态过渡预览',
     numericLabel: '动画时长 (ms)',
     numericDefault: 450,
     numericMin: 100,
@@ -219,7 +219,7 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     title: '剪贴板复制组件与指令 (copy-button / [dui-clipboard] / ClipboardService)',
     subtitle: '输入任意文本或代码片段，一键调用 ClipboardService 复制到系统剪贴板并展示反馈提示。',
     primaryLabel: '待复制文本内容',
-    primaryDefault: "import { ClipboardModule } from '@dotos/dui/common/clipboard';",
+    primaryDefault: "import { ClipboardModule } from '@dotos1/dui/common/clipboard';",
     numericLabel: '成功提示保留时长 (ms)',
     numericDefault: 1800,
     numericMin: 500,
@@ -667,24 +667,6 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     actions: [
       { id: 'innerClick', label: '点击内层按钮 (测试拦截)', payload: 'event.stopPropagation() executed' },
       { id: 'outerClick', label: '直接点击外层父容器', payload: 'parentContainerClick triggered' },
-    ],
-  },
-  'common/svg': {
-    mode: 'icon-svg',
-    title: '声明式 SVG 图形容器与图元指令 (svg-container / svg-circle / svg-line)',
-    subtitle: '通过 Angular 指令声明式绘制圆形、椭圆、折线、多边形与路径图元，支持实时调节几何半径与描边。',
-    primaryLabel: '图元标签文本',
-    primaryDefault: 'SVG 矢量图元画布',
-    numericLabel: '主图元半径 / 尺寸 (px)',
-    numericDefault: 42,
-    numericMin: 12,
-    numericMax: 80,
-    optionLabel: '激活的 SVG 图元指令',
-    options: ['svg-circle (圆形)', 'svg-rect (矩形)', 'svg-ellipse (椭圆)', 'svg-polygon (多边形)', 'svg-line (线段)'],
-    toggleLabel: '显示坐标网格辅助线',
-    actions: [
-      { id: 'addCircle', label: '绘制 svg-circle 图元', payload: '<svg-circle [r]="42" [cx]="100" [cy]="70" fill="#1976d2">' },
-      { id: 'addPolygon', label: '绘制 svg-polygon 图元', payload: '<svg-polygon [points]="[[60,20],[140,20],[100,110]]">' },
     ],
   },
   'common/trigger': {
@@ -1363,24 +1345,6 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
       { id: 'formatCode', label: '格式化代码缓冲区', payload: 'codeEditor.formatDocument()' },
     ],
   },
-  'ux/jsonEditor': {
-    mode: 'ux-widget',
-    title: '可视化 JSON 树形与源码编辑器 (json-editor)',
-    subtitle: '实时编辑、格式化、校验 JSON 结构并提取节点键值路径。',
-    primaryLabel: '根节点字段值 (platform)',
-    primaryDefault: 'DotOS Enterprise Cloud',
-    numericLabel: '缩进空格数 (Indentation)',
-    numericDefault: 2,
-    numericMin: 2,
-    numericMax: 8,
-    optionLabel: 'JSON 编辑器视图模式',
-    options: ['tree (树形节点视图)', 'code (源码高亮视图)', 'view (只读检视视图)'],
-    toggleLabel: '展开全部层级节点 (expandAll)',
-    actions: [
-      { id: 'prettify', label: '格式化 JSON', payload: 'JSON.stringify(data, null, 2)' },
-      { id: 'addNode', label: '新增子节点字段', payload: 'jsonEditor.set({ ...data, updatedAt: new Date().toISOString() })' },
-    ],
-  },
   'ux/line-style': {
     mode: 'icon-svg',
     title: '工程绘图线型与线宽选择器 (line-style-field / line-size-field)',
@@ -1404,7 +1368,7 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     title: '超链接富媒体摘要卡片预览 (link-preview / LinkPreviewCacheService)',
     subtitle: '解析超链接的 OpenGraph 元数据 (标题、站点描述、缩略图标识) 并渲染富媒体预览卡片。',
     primaryLabel: '预览卡片标题 (og:title)',
-    primaryDefault: '@dotos/dui 企业级 Angular 组件库技术架构白皮书',
+    primaryDefault: '@dotos1/dui 企业级 Angular 组件库技术架构白皮书',
     numericLabel: '摘要最大显示字数',
     numericDefault: 90,
     numericMin: 30,
@@ -1414,24 +1378,6 @@ export const MODULE_SCENARIO_PRESETS: Record<string, ModuleScenarioPreset> = {
     toggleLabel: '启用 LinkPreviewCacheService 缓存复用',
     actions: [
       { id: 'fetchOg', label: '解析链接 OpenGraph 元数据', payload: 'linkPreviewCache.get("https://docs.dotos.cn/dui")' },
-    ],
-  },
-  'ux/markdown-editor': {
-    mode: 'ux-widget',
-    title: 'Monaco Markdown 增强扩展 (MonacoMarkdownExtension)',
-    subtitle: '为编辑器注入 Markdown 快捷键（加粗、标题、代码块、列表自动续行）与实时双栏渲染预览。',
-    primaryLabel: 'Markdown 标题行',
-    primaryDefault: '### 井筒完整性分析报告摘要',
-    numericLabel: '预览区字号 (px)',
-    numericDefault: 14,
-    numericMin: 12,
-    numericMax: 20,
-    optionLabel: '快捷插入语法块',
-    options: ['插入表格模板', '插入 TypeScript 代码块', '插入任务清单 (- [x])', '插入引用告警块 (> [!NOTE])'],
-    toggleLabel: '开启同步滚动双栏预览',
-    actions: [
-      { id: 'insertBold', label: '执行加粗快捷键 (Ctrl+B)', payload: 'MonacoMarkdownExtension.toggleBold(editor)' },
-      { id: 'insertCode', label: '插入代码块模板', payload: 'MonacoMarkdownExtension.insertCodeBlock(editor, "typescript")' },
     ],
   },
   'ux/multi-window': {

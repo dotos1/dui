@@ -3,11 +3,11 @@
  * @zh 模块文件 `src/ui/toolbar/toolbar.component.ts`，提供工具栏组件相关的定义与实现。
  */
 
-import { DuiConfig, DuiStyle } from '@dotos/dui/base';
+import { DuiConfig, DuiStyle } from '@dotos1/dui/base';
 import { Platform } from '@angular/cdk/platform';
 import { AfterContentInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, HostListener, Injector, Input, OnChanges, Renderer2, SimpleChanges, ViewChild, ViewContainerRef } from '@angular/core';
-import { Container, ContainerItem } from '@dotos/dui/container';
-import { ComponentBase, Dui } from '@dotos/dui/core';
+import { Container, ContainerItem } from '@dotos1/dui/container';
+import { ComponentBase, Dui } from '@dotos1/dui/core';
 import { isArray, isObjectLike, isString } from 'lodash-es';
 
 /**
@@ -67,7 +67,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * Property `style` (`any`) storing style.
    * @zh 属性 `style`（类型：`any`），用于存储或配置样式。
    */
-  public override style;
+  declare public style;
 
   /**
    * Property `vertical` (`boolean`) storing vertical (default: `false`).
@@ -79,7 +79,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
    * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
-  @ViewChild('toolbar', { read: ViewContainerRef, static: true }) public override viewContainer: ViewContainerRef;
+  @ViewChild('toolbar', { read: ViewContainerRef, static: true }) public override viewContainer: ViewContainerRef = undefined;
 
   /**
    * Host event listener `onRightClick` handling `contextmenu` events for on right click.
@@ -120,7 +120,7 @@ export class DuiToolbarComponent extends Container implements OnChanges, AfterCo
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

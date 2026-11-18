@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/date/picker",
+  "importPath": "@dotos1/dui/form/date/picker",
   "exports": [
     {
       "name": "CLOCK_INNER_RADIUS",
@@ -288,7 +288,7 @@
           "name": "startAt",
           "type": "D | null",
           "description": "The date to open the calendar to initially.",
-          "descriptionZh": "输入属性 `startAt`（类型：`D | null`）的读取器，返回当前开始位于。"
+          "descriptionZh": "输入属性 `startAt`（类型：`D`）的读取器，返回当前开始位于。"
         },
         {
           "name": "openOnFocus",
@@ -299,8 +299,8 @@
         {
           "name": "type",
           "type": "any",
-          "description": "Getter for input property `type` (`any`) returning type.",
-          "descriptionZh": "输入属性 `type`（类型：`any`）的读取器，返回当前类型。"
+          "description": "Getter for input property `type` (`MatDatetimepickerType`) returning type.",
+          "descriptionZh": "输入属性 `type`（类型：`MatDatetimepickerType`）的读取器，返回当前类型。"
         },
         {
           "name": "touchUi",
@@ -320,7 +320,7 @@
           "name": "selectedChanged",
           "type": "any",
           "description": "Emits new selected date when selected date changes.",
-          "descriptionZh": "输出事件 `selectedChanged`（类型：`EventEmitter`），当触发已选中已变更时向外发出事件。"
+          "descriptionZh": "输出事件 `selectedChanged`（类型：`EventEmitter<D>`），当触发已选中已变更时向外发出事件。"
         },
         {
           "name": "openedStream",
@@ -370,7 +370,7 @@
           "type": "any",
           "default": "`mat-datetimepicker-${datetimepickerUid++}`",
           "description": "The id for the datepicker calendar.",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识。"
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
         },
         {
           "name": "startAt",
@@ -512,33 +512,33 @@
           "name": "startAt",
           "type": "D | null",
           "description": "A date representing the period (month or year) to start the calendar in.",
-          "descriptionZh": "输入属性 `startAt`（类型：`D | null`）的读取器，返回当前开始位于。"
+          "descriptionZh": "输入属性 `startAt`（类型：`D`）的读取器，返回当前开始位于。"
         },
         {
           "name": "selected",
           "type": "D | null",
           "description": "The currently selected date.",
-          "descriptionZh": "输入属性 `selected`（类型：`D | null`）的读取器，返回当前已选中。"
+          "descriptionZh": "输入属性 `selected`（类型：`D`）的读取器，返回当前已选中。"
         },
         {
           "name": "minDate",
           "type": "D | null",
           "description": "The minimum selectable date.",
-          "descriptionZh": "输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。"
+          "descriptionZh": "输入属性 `minDate`（类型：`D`）的读取器，返回当前最小值日期。"
         },
         {
           "name": "maxDate",
           "type": "D | null",
           "description": "The maximum selectable date.",
-          "descriptionZh": "输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。"
+          "descriptionZh": "输入属性 `maxDate`（类型：`D`）的读取器，返回当前最大值日期。"
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
-          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
+          "description": "Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
@@ -664,7 +664,7 @@
           "name": "selectedValueChange",
           "type": "any",
           "description": "Emits when a new value is selected.",
-          "descriptionZh": "输出事件 `selectedValueChange`（类型：`EventEmitter`），当触发已选中值变更时向外发出事件。"
+          "descriptionZh": "输出事件 `selectedValueChange`（类型：`EventEmitter<number>`），当触发已选中值变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -719,19 +719,19 @@
           "name": "selected",
           "type": "D | null",
           "description": "The currently selected date.",
-          "descriptionZh": "输入属性 `selected`（类型：`D | null`）的读取器，返回当前已选中。"
+          "descriptionZh": "输入属性 `selected`（类型：`D`）的读取器，返回当前已选中。"
         },
         {
           "name": "minDate",
           "type": "D | null",
           "description": "The minimum selectable date.",
-          "descriptionZh": "输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。"
+          "descriptionZh": "输入属性 `minDate`（类型：`D`）的读取器，返回当前最小值日期。"
         },
         {
           "name": "maxDate",
           "type": "D | null",
           "description": "The maximum selectable date.",
-          "descriptionZh": "输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。"
+          "descriptionZh": "输入属性 `maxDate`（类型：`D`）的读取器，返回当前最大值日期。"
         },
         {
           "name": "startView",
@@ -744,20 +744,20 @@
         {
           "name": "_userSelection",
           "type": "any",
-          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
-          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
+          "description": "Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when the currently selected date changes.",
-          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。"
         },
         {
           "name": "activeDateChange",
           "type": "any",
-          "description": "Output event emitter `activeDateChange` (`EventEmitter`) firing when active date change occurs.",
-          "descriptionZh": "输出事件 `activeDateChange`（类型：`EventEmitter`），当触发激活日期变更时向外发出事件。"
+          "description": "Output event emitter `activeDateChange` (`EventEmitter<D>`) firing when active date change occurs.",
+          "descriptionZh": "输出事件 `activeDateChange`（类型：`EventEmitter<D>`），当触发激活日期变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -874,25 +874,25 @@
           "name": "value",
           "type": "D | null",
           "description": "The value of the input.",
-          "descriptionZh": "输入属性 `value`（类型：`D | null`）的读取器，返回当前值。"
+          "descriptionZh": "输入属性 `value`（类型：`D`）的读取器，返回当前值。"
         },
         {
           "name": "min",
           "type": "D | null",
           "description": "The minimum valid date.",
-          "descriptionZh": "输入属性 `min`（类型：`D | null`）的读取器，返回当前最小值。"
+          "descriptionZh": "输入属性 `min`（类型：`D`）的读取器，返回当前最小值。"
         },
         {
           "name": "max",
           "type": "D | null",
           "description": "The maximum valid date.",
-          "descriptionZh": "输入属性 `max`（类型：`D | null`）的读取器，返回当前最大值。"
+          "descriptionZh": "输入属性 `max`（类型：`D`）的读取器，返回当前最大值。"
         },
         {
           "name": "disabled",
           "type": "any",
           "description": "Whether the datepicker-input is disabled.",
-          "descriptionZh": "输入属性 `disabled`（类型：`any`）的读取器，返回当前已禁用。"
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`）的读取器，返回当前已禁用。"
         }
       ],
       "outputs": [
@@ -900,13 +900,13 @@
           "name": "dateChange",
           "type": "any",
           "description": "Emits when a `change` event is fired on this `<input>`.",
-          "descriptionZh": "输出事件 `dateChange`（类型：`EventEmitter`），当触发日期变更时向外发出事件。"
+          "descriptionZh": "输出事件 `dateChange`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期变更时向外发出事件。"
         },
         {
           "name": "dateInput",
           "type": "any",
           "description": "Emits when an `input` event is fired on this `<input>`.",
-          "descriptionZh": "输出事件 `dateInput`（类型：`EventEmitter`），当触发日期输入属性时向外发出事件。"
+          "descriptionZh": "输出事件 `dateInput`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期输入属性时向外发出事件。"
         }
       ],
       "methods": [
@@ -983,7 +983,7 @@
           "name": "value",
           "type": "D | null",
           "description": "The new value for the target datepicker input.",
-          "descriptionZh": "属性 `value`（类型：`D | null`），用于存储或配置值。"
+          "descriptionZh": "属性 `value`（类型：`D`），用于存储或配置值。"
         }
       ]
     },
@@ -992,7 +992,7 @@
       "kind": "type",
       "summary": "Type alias `MatDatetimepickerMode` representing mat datetimepicker mode (`\"auto\" | \"portrait\" | \"landscape\"`).",
       "summaryZh": "类型别名 `MatDatetimepickerMode`，表示Material日期时间选择器模式（`\"auto\" | \"portrait\" | \"landscape\"`）。",
-      "sourceFile": "src/form/date/picker/datetimepicker.ts",
+      "sourceFile": "src/form/date/picker/datetimepicker-type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
@@ -1047,14 +1047,14 @@
         {
           "name": "_userSelection",
           "type": "any",
-          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
-          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
+          "description": "Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when a new date is selected.",
-          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -1110,27 +1110,27 @@
           "name": "minDate",
           "type": "D | null",
           "description": "The minimum selectable date.",
-          "descriptionZh": "输入属性 `minDate`（类型：`D | null`）的读取器，返回当前最小值日期。"
+          "descriptionZh": "输入属性 `minDate`（类型：`D`）的读取器，返回当前最小值日期。"
         },
         {
           "name": "maxDate",
           "type": "D | null",
           "description": "The maximum selectable date.",
-          "descriptionZh": "输入属性 `maxDate`（类型：`D | null`）的读取器，返回当前最大值日期。"
+          "descriptionZh": "输入属性 `maxDate`（类型：`D`）的读取器，返回当前最大值日期。"
         }
       ],
       "outputs": [
         {
           "name": "_userSelection",
           "type": "any",
-          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
-          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
+          "description": "Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when a new month is selected.",
-          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -1199,7 +1199,7 @@
       "kind": "type",
       "summary": "Type alias `MatDatetimepickerType` representing mat datetimepicker type (`\"date\" | \"time\" | \"month\" | \"year\" | \"datetime\"`).",
       "summaryZh": "类型别名 `MatDatetimepickerType`，表示Material日期时间选择器类型（`\"date\" | \"time\" | \"month\" | \"year\" | \"datetime\"`）。",
-      "sourceFile": "src/form/date/picker/datetimepicker.ts",
+      "sourceFile": "src/form/date/picker/datetimepicker-type.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
@@ -1243,14 +1243,14 @@
         {
           "name": "_userSelection",
           "type": "any",
-          "description": "Output event emitter `_userSelection` (`EventEmitter`) firing when user selection occurs.",
-          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter`），当触发用户Selection时向外发出事件。"
+          "description": "Output event emitter `_userSelection` (`EventEmitter<void>`) firing when user selection occurs.",
+          "descriptionZh": "输出事件 `_userSelection`（类型：`EventEmitter<void>`），当触发用户Selection时向外发出事件。"
         },
         {
           "name": "selectedChange",
           "type": "any",
           "description": "Emits when a new month is selected.",
-          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter`），当触发已选中变更时向外发出事件。"
+          "descriptionZh": "输出事件 `selectedChange`（类型：`EventEmitter<D>`），当触发已选中变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -1303,5 +1303,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { MatDatetimepicker, MatDatetimepickerModule } from '@dotos/dui/form/date/picker';\n\n<mat-datetimepicker [multiYearSelector]=\"...\" [twelvehour]=\"...\" [startView]=\"...\" (selectedChanged)=\"...\" (openedStream)=\"...\"></mat-datetimepicker>"
+  "suggestedUsageSnippet": "import { MatDatetimepicker, MatDatetimepickerModule } from '@dotos1/dui/form/date/picker';\n\n<mat-datetimepicker [multiYearSelector]=\"...\" [twelvehour]=\"...\" [startView]=\"...\" (selectedChanged)=\"...\" (openedStream)=\"...\"></mat-datetimepicker>"
 }

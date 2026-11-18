@@ -1,6 +1,6 @@
 ## 概述
 
-`tree`（`@dotos/dui/tree`）提供企业级高性能树形视图组件（`TreeModule` / `TreeComponent` / `TreeModel` / `TreeNode`），底层基于 **MobX** 实现细粒度响应式状态管理，原生支持大数据量虚拟滚动、节点拖拽排序、复选框级联勾选、异步懒加载子节点与关键字过滤。
+`tree`（`@dotos1/dui/tree`）提供企业级高性能树形视图组件（`TreeModule` / `TreeComponent` / `TreeModel` / `TreeNode`），底层基于 **MobX** 实现细粒度响应式状态管理，原生支持大数据量虚拟滚动、节点拖拽排序、复选框级联勾选、异步懒加载子节点与关键字过滤。
 
 ## 核心模块与职责
 
@@ -18,7 +18,7 @@
 ## 典型用法与最佳实践
 
 ```typescript
-import { ITreeOptions } from '@dotos/dui/tree';
+import { ITreeOptions } from '@dotos1/dui/tree';
 
 nodes = [
   {

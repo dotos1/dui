@@ -2,9 +2,9 @@
   "schema": 1,
   "note": "由 dotos-ops ts/gates/ts-suppress-gate.mjs 生成。只能变小：清理后用 --update 调低，不要手工调高。",
   "totals": {
-    "ts-comment": 53,
-    "type-escape": 243,
-    "any-annotation": 1387
+    "ts-comment": 35,
+    "type-escape": 231,
+    "any-annotation": 1298
   },
   "files": {
     "projects/testdui/src/app/app.component.ts": {
@@ -20,9 +20,6 @@
       "type-escape": 2
     },
     "projects/testdui/src/app/docs/examples/dock-layout/dock-layout-example.module.ts": {
-      "type-escape": 1
-    },
-    "projects/testdui/src/app/docs/examples/editor/editor-example.module.ts": {
       "type-escape": 1
     },
     "projects/testdui/src/app/docs/examples/layout/layout-example.module.ts": {
@@ -58,9 +55,6 @@
     "src/base/sanitize-dom.ts": {
       "type-escape": 2
     },
-    "src/common/animations/toggle/toggle.directive.ts": {
-      "any-annotation": 2
-    },
     "src/common/breadcrumbs/breadcrumb/breadcrumb.component.ts": {
       "any-annotation": 2
     },
@@ -71,7 +65,7 @@
       "type-escape": 1
     },
     "src/common/clickout/click-outside.directive.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/common/collapsible/collapse.directive.ts": {
       "any-annotation": 2
@@ -207,6 +201,9 @@
     "src/common/dynamic/dynamic.component.spec.ts": {
       "any-annotation": 2
     },
+    "src/common/dynamic/dynamic.component.ts": {
+      "any-annotation": 2
+    },
     "src/common/fileupload/file-drop.directive.ts": {
       "type-escape": 2,
       "any-annotation": 4
@@ -228,13 +225,13 @@
       "any-annotation": 2
     },
     "src/common/iframe/components/iframe.component.ts": {
-      "any-annotation": 2
-    },
-    "src/common/inline-svg/inline-svg.component.ts": {
       "any-annotation": 4
     },
+    "src/common/inline-svg/inline-svg.component.ts": {
+      "any-annotation": 6
+    },
     "src/common/inline-svg/inline-svg.directive.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/common/inline-svg/inline-svg.service.ts": {
       "type-escape": 1
@@ -246,17 +243,20 @@
       "any-annotation": 1
     },
     "src/common/keyboard/keyboard-shortcuts-help.component.ts": {
+      "any-annotation": 4
+    },
+    "src/common/keyboard/keyboard-shortcuts.component.ts": {
       "any-annotation": 2
     },
     "src/common/keyboard/keyboard-shortcuts.directive.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/common/keyboard/keyboard-shortcuts.service.spec.ts": {
       "type-escape": 1
     },
     "src/common/keyboard/keyboard-shortcuts.service.ts": {
       "type-escape": 2,
-      "any-annotation": 10
+      "any-annotation": 2
     },
     "src/common/keyboard/portal.ts": {
       "any-annotation": 2
@@ -294,7 +294,7 @@
       "type-escape": 2
     },
     "src/common/perfect-scrollbar/perfect-scrollbar.directive.ts": {
-      "any-annotation": 12
+      "any-annotation": 14
     },
     "src/common/popover/popover-interfaces.ts": {
       "any-annotation": 2
@@ -323,34 +323,7 @@
       "type-escape": 1
     },
     "src/common/search-box/search-box.component.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-circle.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-ellipse.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-image.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-line.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-path.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-polygon.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-polyline.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-rect.directive.ts": {
-      "any-annotation": 2
-    },
-    "src/common/svg/directives/svg-text.directive.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/common/toastr/toastr/toast.directive.ts": {
       "any-annotation": 2
@@ -360,17 +333,17 @@
     },
     "src/container/accordion/accordion.ts": {
       "ts-comment": 1,
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/container/accordion/expansion-panel-header.ts": {
       "any-annotation": 2
     },
     "src/container/accordion/expansion-panel.ts": {
-      "ts-comment": 1
+      "any-annotation": 5
     },
     "src/container/card/card.component.ts": {
       "type-escape": 3,
-      "any-annotation": 6
+      "any-annotation": 8
     },
     "src/container/container.main.ts": {
       "type-escape": 6,
@@ -412,7 +385,7 @@
       "type-escape": 1
     },
     "src/container/gridster/gridster.component.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/container/gridster/gridsterDraggable.service.ts": {
       "any-annotation": 6
@@ -431,7 +404,7 @@
     },
     "src/container/layout/component/abstract.panel.ts": {
       "type-escape": 1,
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/container/layout/component/layout.component.ts": {
       "ts-comment": 2,
@@ -456,7 +429,7 @@
       "any-annotation": 6
     },
     "src/container/panel/panel.component.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/container/panel/split.component.ts": {
       "any-annotation": 2
@@ -466,7 +439,7 @@
     },
     "src/container/tabpanel/tabpanel.component.ts": {
       "type-escape": 2,
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/core/WindowRef.ts": {
       "any-annotation": 2
@@ -531,7 +504,7 @@
     },
     "src/core/component.base.ts": {
       "type-escape": 3,
-      "any-annotation": 3
+      "any-annotation": 5
     },
     "src/core/config/config.loader.ts": {
       "any-annotation": 2
@@ -561,16 +534,16 @@
     },
     "src/core/form/extensions/field-form/utils.ts": {
       "type-escape": 1,
-      "any-annotation": 16
+      "any-annotation": 22
     },
     "src/core/form/extensions/field-validation/field-validation.ts": {
       "type-escape": 2
     },
     "src/core/form/models/field-config.cache.ts": {
-      "any-annotation": 8
+      "any-annotation": 10
     },
     "src/core/form/models/field.config.ts": {
-      "any-annotation": 9
+      "any-annotation": 10
     },
     "src/core/form/services/form.builder.ts": {
       "any-annotation": 4
@@ -612,7 +585,8 @@
       "any-annotation": 2
     },
     "src/data/cardview/components/card-view-item-dispatcher/card-view-item-dispatcher.component.ts": {
-      "ts-comment": 1
+      "ts-comment": 1,
+      "any-annotation": 2
     },
     "src/data/cardview/components/card-view-keyvaluepairsitem/card-view-keyvaluepairsitem.component.ts": {
       "ts-comment": 1
@@ -621,7 +595,8 @@
       "ts-comment": 1
     },
     "src/data/cardview/components/card-view-selectitem/card-view-selectitem.component.ts": {
-      "ts-comment": 1
+      "ts-comment": 1,
+      "any-annotation": 2
     },
     "src/data/cardview/components/card-view-textitem/card-view-textitem.component.ts": {
       "ts-comment": 1
@@ -660,17 +635,17 @@
     },
     "src/data/datatable/datatable.card.ts": {
       "type-escape": 1,
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/data/datatable/datatable.component.ts": {
       "type-escape": 1,
-      "any-annotation": 23
+      "any-annotation": 22
     },
     "src/data/datatable/declarations.d.ts": {
       "any-annotation": 1
     },
     "src/data/datatable/directives/draggable.directive.ts": {
-      "any-annotation": 8
+      "any-annotation": 10
     },
     "src/data/datatable/directives/long-press.directive.ts": {
       "type-escape": 1,
@@ -738,6 +713,9 @@
       "type-escape": 6,
       "any-annotation": 24
     },
+    "src/form/card/form.card.ts": {
+      "any-annotation": 2
+    },
     "src/form/checkboxgroup/checkboxgroup.exp.ts": {
       "any-annotation": 3
     },
@@ -748,15 +726,15 @@
       "any-annotation": 9
     },
     "src/form/components/field.component.ts": {
-      "any-annotation": 2
+      "any-annotation": 6
     },
     "src/form/components/form.attributes.ts": {
       "type-escape": 1,
-      "any-annotation": 4
+      "any-annotation": 6
     },
     "src/form/components/form.component.ts": {
       "type-escape": 4,
-      "any-annotation": 22
+      "any-annotation": 24
     },
     "src/form/date/adapter/datetime-adapter.ts": {
       "any-annotation": 2
@@ -773,7 +751,7 @@
     "src/form/date/datefield.component.ts": {
       "ts-comment": 1,
       "type-escape": 2,
-      "any-annotation": 10
+      "any-annotation": 14
     },
     "src/form/date/moment/moment-datetime-adapter.ts": {
       "any-annotation": 3
@@ -785,7 +763,10 @@
       "any-annotation": 4
     },
     "src/form/date/picker/datetimepicker-input.ts": {
-      "any-annotation": 10
+      "any-annotation": 12
+    },
+    "src/form/date/picker/datetimepicker-toggle.ts": {
+      "any-annotation": 2
     },
     "src/form/daterangepicker/daterangepicker.component.ts": {
       "type-escape": 11,
@@ -796,7 +777,7 @@
     },
     "src/form/daterangepicker/daterangepicker.directive.ts": {
       "type-escape": 10,
-      "any-annotation": 10
+      "any-annotation": 12
     },
     "src/form/daterangepicker/locale.service.ts": {
       "any-annotation": 2
@@ -829,7 +810,7 @@
       "any-annotation": 10
     },
     "src/form/select/select.field.ts": {
-      "any-annotation": 6
+      "any-annotation": 8
     },
     "src/form/slide-toggle/slide-toggle.component.ts": {
       "type-escape": 1
@@ -903,16 +884,6 @@
       "type-escape": 1,
       "any-annotation": 3
     },
-    "src/tree/components/tree-node-expander.component.ts": {
-      "any-annotation": 2
-    },
-    "src/tree/components/tree-node-wrapper.component.ts": {
-      "any-annotation": 2
-    },
-    "src/tree/components/tree-viewport.component.ts": {
-      "type-escape": 1,
-      "any-annotation": 2
-    },
     "src/tree/components/tree.component.ts": {
       "type-escape": 3,
       "any-annotation": 4
@@ -928,32 +899,23 @@
       "type-escape": 2,
       "any-annotation": 6
     },
-    "src/tree/models/tree-node.model.ts": {
-      "any-annotation": 36
-    },
     "src/tree/models/tree-options.model.ts": {
       "type-escape": 2,
       "any-annotation": 4
-    },
-    "src/tree/models/tree-virtual-scroll.model.ts": {
-      "any-annotation": 4
-    },
-    "src/tree/models/tree.model.ts": {
-      "any-annotation": 20
     },
     "src/ui/button/button.base.ts": {
       "type-escape": 2,
       "any-annotation": 6
     },
     "src/ui/button/button.component.ts": {
-      "any-annotation": 4
+      "any-annotation": 6
     },
     "src/ui/button/toggle-button.component.ts": {
       "type-escape": 1,
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/ui/color-button/color-button.ts": {
-      "any-annotation": 4
+      "any-annotation": 6
     },
     "src/ui/context-menu/context-menu.component.ts": {
       "type-escape": 1,
@@ -969,17 +931,17 @@
       "any-annotation": 10
     },
     "src/ui/speeddial/fab.button.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/ui/speeddial/speed-dial.ts": {
       "any-annotation": 2
     },
     "src/ui/speeddial/speeddial.component.ts": {
-      "any-annotation": 2
+      "any-annotation": 4
     },
     "src/ui/toolbar/toolbar.component.ts": {
       "type-escape": 1,
-      "any-annotation": 6
+      "any-annotation": 8
     },
     "src/util/func.util.ts": {
       "any-annotation": 8
@@ -1013,56 +975,17 @@
       "type-escape": 1
     },
     "src/ux/avatar/avatar.component.ts": {
-      "any-annotation": 3
+      "any-annotation": 5
     },
     "src/ux/code-editor/code-editor.component.ts": {
       "type-escape": 2,
       "any-annotation": 9
     },
     "src/ux/command-palette/content/command-palette-content.component.ts": {
-      "any-annotation": 4
+      "any-annotation": 6
     },
     "src/ux/command-palette/header/command-palette-header.component.ts": {
       "any-annotation": 2
-    },
-    "src/ux/editor/Editor.ts": {
-      "any-annotation": 12
-    },
-    "src/ux/editor/commands/ListItem.ts": {
-      "any-annotation": 4
-    },
-    "src/ux/editor/components/image-view/image-view.component.ts": {
-      "any-annotation": 3
-    },
-    "src/ux/editor/editor.component.ts": {
-      "any-annotation": 3
-    },
-    "src/ux/editor/modules/menu/color-picker/color-picker.component.ts": {
-      "any-annotation": 2
-    },
-    "src/ux/editor/modules/menu/dropdown/dropdown.component.ts": {
-      "any-annotation": 2
-    },
-    "src/ux/editor/modules/menu/image/image.component.ts": {
-      "any-annotation": 2
-    },
-    "src/ux/editor/modules/menu/link/link.component.ts": {
-      "any-annotation": 4
-    },
-    "src/ux/editor/modules/menu/menu.service.ts": {
-      "any-annotation": 2
-    },
-    "src/ux/editor/plugins/editable.ts": {
-      "ts-comment": 1
-    },
-    "src/ux/editor/schema/marks.ts": {
-      "ts-comment": 5
-    },
-    "src/ux/editor/schema/nodes.ts": {
-      "ts-comment": 8
-    },
-    "src/ux/editor/validators.ts": {
-      "any-annotation": 14
     },
     "src/ux/highlight/highlight.component.ts": {
       "any-annotation": 4
@@ -1076,65 +999,25 @@
     "src/ux/iconpicker/text.directive.ts": {
       "any-annotation": 2
     },
-    "src/ux/jsonEditor/json.editor.ts": {
-      "any-annotation": 2
-    },
     "src/ux/line-style/linesize.spec.ts": {
       "any-annotation": 4
     },
     "src/ux/line-style/linesize.ts": {
       "type-escape": 1,
-      "any-annotation": 6
+      "any-annotation": 8
     },
     "src/ux/line-style/linestyle.ts": {
       "type-escape": 1,
       "any-annotation": 4
     },
-    "src/ux/markdown-editor/errors.ts": {
-      "any-annotation": 8
-    },
-    "src/ux/markdown-editor/extHostTypes.ts": {
-      "type-escape": 2,
-      "any-annotation": 4
-    },
-    "src/ux/markdown-editor/formatting.ts": {
-      "type-escape": 1
-    },
-    "src/ux/markdown-editor/util.ts": {
-      "type-escape": 1
-    },
-    "src/ux/markdown-editor/vscode-monaco.ts": {
-      "ts-comment": 3,
-      "type-escape": 1
-    },
-    "src/ux/markdown-editor/wordHelper.ts": {
-      "type-escape": 2
-    },
-    "src/ux/markdown/markdown.component.ts": {
-      "any-annotation": 2
-    },
-    "src/ux/monaco-editor/base-editor.ts": {
-      "any-annotation": 3
-    },
-    "src/ux/monaco-editor/diff-editor.component.ts": {
-      "any-annotation": 2
-    },
-    "src/ux/monaco-editor/editor.component.ts": {
-      "type-escape": 2,
-      "any-annotation": 11
-    },
     "src/ux/multi-window/providers/window.provider.ts": {
       "any-annotation": 2
     },
     "src/ux/query-builder/query-builder.component.ts": {
-      "any-annotation": 5
+      "any-annotation": 9
     },
     "src/ux/query-builder/query-builder.interfaces.ts": {
       "any-annotation": 6
-    },
-    "src/ux/terminal/terminal.component.ts": {
-      "type-escape": 1,
-      "any-annotation": 14
     },
     "src/ux/windows/drag-and-drop/directives/draggable.directive.ts": {
       "any-annotation": 6

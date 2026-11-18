@@ -4,7 +4,8 @@
  */
 
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
-import { action, observable } from '@dotos/dui/core/mobx';
+import { makeObservable } from 'mobx';
+import { action, observable } from '@dotos1/dui/core/mobx';
 import { TreeNode } from '../models/tree-node.model';
 
 /**
@@ -51,11 +52,19 @@ export class TreeNodeCheckboxComponent {
    * Property `_node` (`TreeNode`) storing node.
    * @zh 属性 `_node`（类型：`TreeNode`），用于存储或配置节点。
    */
-  @observable _node: TreeNode;
+  @observable _node: TreeNode = undefined;
 
   /**
    * Input property `label` (`string`) configuring label.
    * @zh 输入属性 `label`（类型：`string`），用于配置标签。
    */
   @Input() label: string;
+
+  /**
+   * Creates an instance of `TreeNodeCheckboxComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeNodeCheckboxComponent` 实例，并初始化其依赖项与内部状态。
+   */
+  constructor() {
+    makeObservable(this);
+  }
 }

@@ -3,20 +3,20 @@
  * @zh 模块文件 `src/core/auth/lock/lockscreen.dialog.ts`，提供lockscreen对话框相关的定义与实现。
  */
 
-import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
-import { duiAnimations } from '@dotos/dui/common/animations';
+import { ChangeDetectorRef, Component, Inject, OnDestroy, OnInit, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { duiAnimations } from '@dotos1/dui/common/animations';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 import { Router } from '@angular/router';
-import { encrypt } from '@dotos/dui/core/crypt';
-import { CookieStorage } from '@dotos/dui/core/cookie';
+import { encrypt } from '@dotos1/dui/core/crypt';
+import { CookieStorage } from '@dotos1/dui/core/cookie';
 import { Subject } from 'rxjs';
-import { AuthService } from '@dotos/dui/core/auth';
-import { ThemeService } from '@dotos/dui/theme';
+import { AuthService } from '@dotos1/dui/core/auth';
+import { ThemeService } from '@dotos1/dui/theme';
 import {  take, takeUntil } from 'rxjs/operators';
-import { DotosConfigService } from '@dotos/dui/theme';
+import { DotosConfigService } from '@dotos1/dui/theme';
 import { LockTheme } from './lockscreen.theme';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
@@ -41,6 +41,7 @@ export const USER_STATUS_CODES = {
   encapsulation: ViewEncapsulation.None,
   animations: duiAnimations,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class LockscreenDialog implements OnInit,OnDestroy {
   /**

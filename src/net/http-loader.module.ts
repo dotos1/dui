@@ -9,7 +9,7 @@ import { ModuleWithProviders, NgModule } from '@angular/core';
 import { HttpLoaderComponent } from './components/http-loader.component';
 import { PendingRequestsInterceptorProvider } from './services/pending-requests-interceptor.service';
 import { MatProgressSpinner, MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular module `HttpLoaderModule` declaring and exporting http loader module components, directives, pipes, and providers.

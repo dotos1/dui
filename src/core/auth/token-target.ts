@@ -4,7 +4,7 @@
  */
 
 import { Injector } from '@angular/core';
-import { ConfigService } from '@dotos/dui/core/config';
+import { ConfigService } from '@dotos1/dui/core/config';
 
 /*
  * 「这个请求能不能带上 access_token」的判断,AuthBearerInterceptor 与 AuthInterceptor 共用。

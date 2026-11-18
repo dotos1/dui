@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/dragselect",
+  "importPath": "@dotos1/dui/common/dragselect",
   "exports": [
     {
       "name": "Action",
@@ -348,37 +348,37 @@
         {
           "name": "selectedItemsChange",
           "type": "any",
-          "description": "Output event emitter `selectedItemsChange` (`EventEmitter`) firing when selected items change occurs.",
+          "description": "Output event emitter `selectedItemsChange` (`EventEmitter<any>`) firing when selected items change occurs.",
           "descriptionZh": "当前选中项集合发生变化时发出（用于配合 `selectedItems` 双向绑定）。"
         },
         {
           "name": "select",
           "type": "any",
-          "description": "Output event emitter `select` (`EventEmitter`) firing when select occurs.",
+          "description": "Output event emitter `select` (`EventEmitter<any>`) firing when select occurs.",
           "descriptionZh": "当前选中项集合发生变化时发出。"
         },
         {
           "name": "itemSelected",
           "type": "any",
-          "description": "Output event emitter `itemSelected` (`EventEmitter`) firing when item selected occurs.",
+          "description": "Output event emitter `itemSelected` (`EventEmitter<any>`) firing when item selected occurs.",
           "descriptionZh": "单个条目被选中时发出该条目的值。"
         },
         {
           "name": "itemDeselected",
           "type": "any",
-          "description": "Output event emitter `itemDeselected` (`EventEmitter`) firing when item deselected occurs.",
+          "description": "Output event emitter `itemDeselected` (`EventEmitter<any>`) firing when item deselected occurs.",
           "descriptionZh": "单个条目被取消选中时发出该条目的值。"
         },
         {
           "name": "selectionStarted",
           "type": "any",
-          "description": "Output event emitter `selectionStarted` (`EventEmitter`) firing when selection started occurs.",
+          "description": "Output event emitter `selectionStarted` (`EventEmitter<void>`) firing when selection started occurs.",
           "descriptionZh": "一次框选/选择操作开始时发出。"
         },
         {
           "name": "selectionEnded",
           "type": "any",
-          "description": "Output event emitter `selectionEnded` (`EventEmitter`) firing when selection ended occurs.",
+          "description": "Output event emitter `selectionEnded` (`EventEmitter<unknown[]>`) firing when selection ended occurs.",
           "descriptionZh": "一次框选/选择操作结束时发出最终选中的条目集合。"
         }
       ],
@@ -737,5 +737,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { SelectContainerComponent, DragToSelectModule } from '@dotos/dui/common/dragselect';\n\n<dts-select-container [selectedItems]=\"...\" [selectOnDrag]=\"...\" [disabled]=\"...\" (selectedItemsChange)=\"...\" (select)=\"...\"></dts-select-container>"
+  "suggestedUsageSnippet": "import { SelectContainerComponent, DragToSelectModule } from '@dotos1/dui/common/dragselect';\n\n<dts-select-container [selectedItems]=\"...\" [selectOnDrag]=\"...\" [disabled]=\"...\" (selectedItemsChange)=\"...\" (select)=\"...\"></dts-select-container>"
 }

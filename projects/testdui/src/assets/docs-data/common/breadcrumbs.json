@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/breadcrumbs",
+  "importPath": "@dotos1/dui/common/breadcrumbs",
   "exports": [
     {
       "name": "BreadcrumbComponent",
@@ -71,7 +71,7 @@
         {
           "name": "displayBinding",
           "type": "string | undefined",
-          "description": "Host-bound getter `displayBinding` (`style.display`) computing display binding.",
+          "description": "Host-bound getter `displayBinding` (`string`) computing display binding.",
           "descriptionZh": "内部使用，绑定宿主的 `display` 样式，隐藏时设置为 `'none'`。"
         }
       ]
@@ -140,5 +140,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { BreadcrumbComponent, BreadcrumbsModule } from '@dotos/dui/common/breadcrumbs';\n\n<dui-breadcrumb, a[dui-breadcrumb]></dui-breadcrumb, a[dui-breadcrumb]>"
+  "suggestedUsageSnippet": "import { BreadcrumbComponent, BreadcrumbsModule } from '@dotos1/dui/common/breadcrumbs';\n\n<dui-breadcrumb, a[dui-breadcrumb]></dui-breadcrumb, a[dui-breadcrumb]>"
 }

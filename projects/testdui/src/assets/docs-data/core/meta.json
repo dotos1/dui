@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/meta",
+  "importPath": "@dotos1/dui/core/meta",
   "exports": [
     {
       "name": "metaFactory",
@@ -222,7 +222,7 @@
           "name": "defaults",
           "type": "{ /** * default meta title, used when a route does not have its own title attribute */ title?: string; /** * default meta description, used when a route does not have its own description attribute */ description?: string; /** * default meta keywords, used when a route does not have its own keywords attribute */ keywords?: string; /** * represents a key/value pair of default meta tag and its value */ [key: string]: string | undefined; }",
           "description": "represents a dictionary of default meta tags and their values",
-          "descriptionZh": "属性 `defaults`（类型：`{ title?: string; description?: string; keywords?: string; [key: strin...`），用于存储或配置默认值集合。"
+          "descriptionZh": "属性 `defaults`（类型：`{…}`），用于存储或配置默认值集合。"
         }
       ]
     },
@@ -271,5 +271,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { MetaModule } from '@dotos/dui/core/meta';"
+  "suggestedUsageSnippet": "import { MetaModule } from '@dotos1/dui/core/meta';"
 }

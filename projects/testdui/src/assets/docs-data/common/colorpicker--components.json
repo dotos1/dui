@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/colorpicker/components",
+  "importPath": "@dotos1/dui/common/colorpicker/components",
   "exports": [
     {
       "name": "AlphaPickerComponent",
@@ -27,7 +27,7 @@
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": "Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).",
+          "description": "Input property `direction` (`\"horizontal\" | \"vertical\"`) configuring direction (default: `'horizontal'`).",
           "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
@@ -51,7 +51,7 @@
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '18px',\n    height: '18px',\n    borderRadius: '50%',\n    transform: 'translate(-9px, -2px)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
-          "description": "Property `pointer` (`{ [key: string]: string }`) storing pointer.",
+          "description": "Property `pointer` (`{ [key: string]: string; }`) storing pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         }
       ]
@@ -99,14 +99,14 @@
           "name": "circle",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '12px',\n    height: '12px',\n    borderRadius: '6px',\n    boxShadow: 'rgb(255, 255, 255) 0px 0px 0px 1px inset',\n    transform: 'translate(-6px, -8px)',\n  }",
-          "description": "Property `circle` (`{ [key: string]: string }`) storing circle.",
+          "description": "Property `circle` (`{ [key: string]: string; }`) storing circle.",
           "descriptionZh": "饱和度面板指示圆点的内联样式。"
         },
         {
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '12px',\n    height: '12px',\n    borderRadius: '6px',\n    transform: 'translate(-6px, -2px)',\n    backgroundColor: 'rgb(248, 248, 248)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
-          "description": "Property `pointer` (`{ [key: string]: string }`) storing pointer.",
+          "description": "Property `pointer` (`{ [key: string]: string; }`) storing pointer.",
           "descriptionZh": "色相/透明度滑块手柄的内联样式。"
         },
         {
@@ -154,7 +154,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.",
           "descriptionZh": "字段值变化时发出。"
         }
       ],
@@ -203,14 +203,14 @@
           "name": "input",
           "type": "{ [key: string]: string }",
           "default": "{\n    fontSize: '11px',\n    color: '#333',\n    width: '100%',\n    borderRadius: '2px',\n    border: 'none',\n    boxShadow: 'inset 0 0 0 1px #dadada',\n    height: '21px',\n    'text-align': 'center',\n  }",
-          "description": "Property `input` (`{ [key: string]: string }`) storing input.",
+          "description": "Property `input` (`{ [key: string]: string; }`) storing input.",
           "descriptionZh": "输入框的内联样式。"
         },
         {
           "name": "label",
           "type": "{ [key: string]: string }",
           "default": "{\n    'text-transform': 'uppercase',\n    fontSize: '11px',\n    'line-height': '11px',\n    color: '#969696',\n    'text-align': 'center',\n    display: 'block',\n    marginTop: '12px',\n  }",
-          "description": "Property `label` (`{ [key: string]: string }`) storing label.",
+          "description": "Property `label` (`{ [key: string]: string; }`) storing label.",
           "descriptionZh": "标签的内联样式。"
         }
       ]
@@ -333,13 +333,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.",
           "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.",
           "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
@@ -362,14 +362,14 @@
           "name": "focusStyle",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": "Property `focusStyle` (`{ [key: string]: string }`) storing focus style (default: `{}`).",
+          "description": "Property `focusStyle` (`{ [key: string]: string; }`) storing focus style (default: `{}`).",
           "descriptionZh": "聚焦时叠加的内联样式。"
         },
         {
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
           "default": "{\n    borderRadius: '50%',\n    background: 'transparent',\n    transition: '100ms box-shadow ease 0s',\n  }",
-          "description": "Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.",
+          "description": "Property `swatchStyle` (`{ [key: string]: string; }`) storing swatch style.",
           "descriptionZh": "色块的基础内联样式。"
         }
       ]
@@ -388,8 +388,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[AlphaPickerComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[AlphaPickerComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[AlphaPickerComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof AlphaPickerComponent)[]`) storing entry components (default: `[AlphaPickerComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof AlphaPickerComponent)[]`），用于存储或配置条目组件列表（默认值：`[AlphaPickerComponent]`）。"
         }
       ]
     },
@@ -407,8 +407,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ChromeComponent,\n    ChromeFieldsComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof ChromeComponent | typeof ChromeFieldsComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ChromeComponent | typeof ChromeFieldsComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -426,8 +426,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ CircleComponent, CircleSwatchComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof CircleComponent | typeof CircleSwatchComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof CircleComponent | typeof CircleSwatchComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -445,8 +445,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n      CompactComponent,\n    CompactColorComponent,\n    CompactFieldsComponent,]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof CompactComponent | typeof CompactColorComponent | typeof CompactFieldsComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof CompactComponent | typeof CompactColorComponent | typeof CompactFieldsComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -464,8 +464,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[  GithubComponent, GithubSwatchComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof GithubComponent | typeof GithubSwatchComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof GithubComponent | typeof GithubSwatchComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -483,8 +483,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[HuePickerComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[HuePickerComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[HuePickerComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof HuePickerComponent)[]`) storing entry components (default: `[HuePickerComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof HuePickerComponent)[]`），用于存储或配置条目组件列表（默认值：`[HuePickerComponent]`）。"
         }
       ]
     },
@@ -502,8 +502,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ShadeSliderComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ShadeSliderComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ShadeSliderComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof ShadeSliderComponent)[]`) storing entry components (default: `[ShadeSliderComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ShadeSliderComponent)[]`），用于存储或配置条目组件列表（默认值：`[ShadeSliderComponent]`）。"
         }
       ]
     },
@@ -521,8 +521,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     SketchComponent,\n    SketchFieldsComponent,\n    SketchPresetColorsComponent,]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof SketchComponent | typeof SketchFieldsComponent | typeof SketchPresetColorsComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof SketchComponent | typeof SketchFieldsComponent | typeof SketchPresetColorsComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -538,7 +538,7 @@
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '14px',\n    height: '14px',\n    borderRadius: '6px',\n    transform: 'translate(-7px, -2px)',\n    backgroundColor: 'rgb(248, 248, 248)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
-          "description": "Input property `pointer` (`{ [key: string]: string }`) configuring pointer.",
+          "description": "Input property `pointer` (`{ [key: string]: string; }`) configuring pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         },
         {
@@ -580,8 +580,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n     ColorSliderComponent,\n    SliderSwatchComponent,\n    SliderSwatchesComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof ColorSliderComponent | typeof SliderSwatchComponent | typeof SliderSwatchesComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ColorSliderComponent | typeof SliderSwatchComponent | typeof SliderSwatchesComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -610,13 +610,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.",
           "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.",
           "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
@@ -639,21 +639,21 @@
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '15px',\n    height: '15px',\n    float: 'left',\n    marginRight: '5px',\n    marginBottom: '5px',\n    position: 'relative',\n    cursor: 'pointer',\n  }",
-          "description": "Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.",
+          "description": "Property `swatchStyle` (`{ [key: string]: string; }`) storing swatch style.",
           "descriptionZh": "色块的基础内联样式。"
         },
         {
           "name": "swatchFocus",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": "Property `swatchFocus` (`{ [key: string]: string }`) storing swatch focus (default: `{}`).",
+          "description": "Property `swatchFocus` (`{ [key: string]: string; }`) storing swatch focus (default: `{}`).",
           "descriptionZh": "聚焦时叠加的内联样式。"
         },
         {
           "name": "getContrastingColor",
           "type": "any",
           "default": "getContrastingColor",
-          "description": "Property `getContrastingColor` (`any`) storing get contrasting color (default: `getContrastingColor`).",
+          "description": "Property `getContrastingColor` (`(data: any) => \"#fff\" | \"rgba(0,0,0,0.4)\" | \"#000\"`) storing get contrasting color (default: `getContrastingColor`).",
           "descriptionZh": "根据背景色计算出对比色（用于激活状态指示点），来自 `getContrastingColor` 工具函数。"
         }
       ]
@@ -671,7 +671,7 @@
           "type": "any",
           "default": "[\n    '#4D4D4D',\n    '#999999',\n    '#FFFFFF',\n    '#F44E3B',\n    '#FE9200',\n    '#FCDC00',\n    '#DBDF00',\n    '#A4DD00',\n    '#68CCCA',\n    '#73D8FF',\n    '#AEA1FF',\n    '#FDA1FF',\n    '#333333',\n    '#808080',\n    '#cccccc',\n    '#D33115',\n    '#E27300',\n    '#FCC400',\n    '#B0BC00',\n    '#68BC00',\n    '#16A5A5',\n    '#009CE0',\n    '#7B64FF',\n    '#FA28FF',\n    '#000000',\n    '#666666',\n    '#B3B3B3',\n    '#9F0500',\n    '#C45100',\n    '#FB9E00',\n    '#808900',\n    '#194D33',\n    '#0C797D',\n    '#0062B1',\n    '#653294',\n    '#AB149E',\n  ]",
           "description": "Color squares to display",
-          "descriptionZh": "输入属性 `colors`（类型：`any[]`），用于配置颜色列表。"
+          "descriptionZh": "输入属性 `colors`（类型：`string[]`），用于配置颜色列表。"
         },
         {
           "name": "zDepth",
@@ -749,7 +749,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.",
           "descriptionZh": "字段值变化时发出。"
         }
       ],
@@ -772,21 +772,21 @@
           "name": "HEXWrap",
           "type": "{ [key: string]: string }",
           "default": "{\n    marginTop: '-3px',\n    marginBottom: '-3px',\n    // flex: '6 1 0%',\n    position: 'relative',\n  }",
-          "description": "Property `HEXWrap` (`{ [key: string]: string }`) storing hex wrap.",
+          "description": "Property `HEXWrap` (`{ [key: string]: string; }`) storing hex wrap.",
           "descriptionZh": "十六进制字段包裹层的内联样式。"
         },
         {
           "name": "HEXinput",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '80%',\n    padding: '0px',\n    paddingLeft: '20%',\n    border: 'none',\n    outline: 'none',\n    background: 'none',\n    fontSize: '12px',\n    color: '#333',\n    height: '16px',\n  }",
-          "description": "Property `HEXinput` (`{ [key: string]: string }`) storing he xinput.",
+          "description": "Property `HEXinput` (`{ [key: string]: string; }`) storing he xinput.",
           "descriptionZh": "十六进制字段输入框的内联样式。"
         },
         {
           "name": "HEXlabel",
           "type": "{ [key: string]: string }",
           "default": "{\n    display: 'none',\n  }",
-          "description": "Property `HEXlabel` (`{ [key: string]: string }`) storing he xlabel (default: `{ display: 'none', }`).",
+          "description": "Property `HEXlabel` (`{ [key: string]: string; }`) storing he xlabel (default: `{ display: 'none', }`).",
           "descriptionZh": "十六进制字段标签的内联样式（默认隐藏）。"
         },
         {
@@ -832,13 +832,13 @@
           "type": "any",
           "default": "[\n    '#B80000',\n    '#DB3E00',\n    '#FCCB00',\n    '#008B02',\n    '#006B76',\n    '#1273DE',\n    '#004DCF',\n    '#5300EB',\n    '#EB9694',\n    '#FAD0C3',\n    '#FEF3BD',\n    '#C1E1C5',\n    '#BEDADC',\n    '#C4DEF6',\n    '#BED3F3',\n    '#D4C4FB',\n  ]",
           "description": "Color squares to display",
-          "descriptionZh": "输入属性 `colors`（类型：`any[]`），用于配置颜色列表。"
+          "descriptionZh": "输入属性 `colors`（类型：`string[]`），用于配置颜色列表。"
         },
         {
           "name": "triangle",
           "type": "'hide' | 'top-left' | 'top-right' | 'bottom-right'",
           "default": "'top-left'",
-          "description": "Input property `triangle` (`'hide' | 'top-left' | 'top-right' | 'bottom-right'`) configuring triangle (default: `'top-left'`).",
+          "description": "Input property `triangle` (`\"hide\" | \"top-left\" | \"top-right\" | \"bottom-right\"`) configuring triangle (default: `'top-left'`).",
           "descriptionZh": "指示三角形的方向，或 `'hide'` 隐藏它。"
         }
       ],
@@ -890,13 +890,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.",
           "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.",
           "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
@@ -918,7 +918,7 @@
         {
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
-          "description": "Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.",
+          "description": "Property `swatchStyle` (`{ [key: string]: string; }`) storing swatch style.",
           "descriptionZh": "色块的内联样式。"
         }
       ]
@@ -948,13 +948,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.",
           "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.",
           "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
@@ -977,21 +977,21 @@
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '15px',\n    height: '15px',\n    float: 'left',\n    marginRight: '5px',\n    marginBottom: '5px',\n    position: 'relative',\n    cursor: 'pointer',\n  }",
-          "description": "Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.",
+          "description": "Property `swatchStyle` (`{ [key: string]: string; }`) storing swatch style.",
           "descriptionZh": "色块的基础内联样式。"
         },
         {
           "name": "swatchFocus",
           "type": "{ [key: string]: string }",
           "default": "{}",
-          "description": "Property `swatchFocus` (`{ [key: string]: string }`) storing swatch focus (default: `{}`).",
+          "description": "Property `swatchFocus` (`{ [key: string]: string; }`) storing swatch focus (default: `{}`).",
           "descriptionZh": "聚焦时叠加的内联样式。"
         },
         {
           "name": "getContrastingColor",
           "type": "any",
           "default": "getContrastingColor",
-          "description": "Property `getContrastingColor` (`any`) storing get contrasting color (default: `getContrastingColor`).",
+          "description": "Property `getContrastingColor` (`(data: any) => \"#fff\" | \"rgba(0,0,0,0.4)\" | \"#000\"`) storing get contrasting color (default: `getContrastingColor`).",
           "descriptionZh": "根据背景色计算对比色的工具函数。"
         }
       ]
@@ -1010,8 +1010,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    GoogColorPickerComponent,\n      GoogColorComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof GoogColorPickerComponent | typeof GoogColorComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof GoogColorPickerComponent | typeof GoogColorComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -1027,7 +1027,7 @@
           "name": "colors",
           "type": "any",
           "default": "[\n      ['#000000',\"黑色\"],\n      ['#434343',\"深灰色 4\"],\n      ['#666666',\"深灰色 3\"],\n      ['#999999',\"深灰色 2\"],\n      ['#b7b7b7',\"深灰色 1\"],\n      ['#cccccc',\"灰色\"],\n      ['#d9d9d9',\"浅灰色 1\"],\n      ['#efefef',\"浅灰色 2\"],\n      ['#f3f3f3',\"浅灰色 3\"],\n      ['#FFFFFF',\"白色\"],\n\n      ['#980000',\"浆果红\"],\n      ['#FF0000',\"红色\"],\n      ['#FF9900',\"橙色\"],\n      ['#FFFF00',\"黄色\"],\n      ['#00FF00',\"绿色\"],\n      ['#00FFFF',\"青色\"],\n      ['#4A86E8',\"矢车菊蓝\"],\n      ['#0000FF',\"蓝色\"],\n      ['#9900FF',\"紫色\"],\n      ['#FF00FF',\"洋红色\"],\n\n      ['#E6B8AF',\"浅浆果红色 3\"],\n      ['#F4CCCC',\"浅红色 3\"],\n      ['#FCE5CD',\"浅橙色 3\"],\n      ['#FFF2CC',\"浅黄色 3\"],\n      ['#D9EAD3',\"浅绿色 3\"],\n      ['#D0E0E3',\"浅青色 3\"],\n      ['#C9DAF8',\"浅矢车菊蓝色 3\"],\n      ['#CFE2F3',\"浅蓝色 3\"],\n      ['#D9D2F9',\"浅紫色 3\"],\n      ['#EAD1DC',\"浅洋红色 3\"],\n\n      ['#DD7E68',\"浅浆果红色 2\"],\n      ['#EA9999',\"浅红色 2\"],\n      ['#F9CB9C',\"浅橙色 2\"],\n      ['#FFE599',\"浅黄色 2\"],\n      ['#B6D7A8',\"浅绿色 2\"],\n      ['#A2C4C9',\"浅青色 2\"],\n      ['#A4C2F4',\"浅矢车菊蓝色 2\"],\n      ['#9FC5E8',\"浅蓝色 2\"],\n      ['#B4A7D6',\"浅紫色 2\"],\n      ['#D5A6BD',\"浅洋红色 2\"],\n\n      ['#CC4125',\"浅浆果红色 1\"],\n      ['#E06666',\"浅红色 1\"],\n      ['#F6B26B',\"浅橙色 1\"],\n      ['#FFD966',\"浅黄色 1\"],\n      ['#93C47D',\"浅绿色 1\"],\n      ['#76A5AF',\"浅青色 1\"],\n      ['#6D9EEB',\"浅矢车菊蓝色 1\"],\n      ['#6FA8DC',\"浅蓝色 1\"],\n      ['#8E7CC3',\"浅紫色 1\"],\n      ['#C27BA0',\"浅洋红色 1\"],\n\n      ['#A61C00',\"深浆果红色 1\"],\n      ['#CC0000',\"深红色 1\"],\n      ['#E69138',\"深橙色 1\"],\n      ['#F1C232',\"深黄色 1\"],\n      ['#6AA84F',\"深绿色 1\"],\n      ['#45818E',\"深青色 1\"],\n      ['#3C78D8',\"深矢车菊蓝色 1\"],\n      ['#3D85C6',\"深蓝色 1\"],\n      ['#674EA7',\"深紫色 1\"],\n      ['#A64D79',\"深洋红色 1\"],\n\n      ['#85200C',\"深浆果红色 2\"],\n      ['#990000',\"深红色 2\"],\n      ['#B45F06',\"深橙色 2\"],\n      ['#BF9000',\"深黄色 2\"],\n      ['#38761D',\"深绿色 2\"],\n      ['#134F5C',\"深青色 2\"],\n      ['#1155CC',\"深矢车菊蓝色 2\"],\n      ['#0B5394',\"深蓝色 2\"],\n      ['#351C75',\"深紫色 2\"],\n      ['#741B47',\"深洋红色 2\"],\n\n      ['#5B0F00',\"深浆果红色 3\"],\n      ['#660000',\"深红色 3\"],\n      ['#783F04',\"深橙色 3\"],\n      ['#7F6000',\"深黄色 3\"],\n      ['#274E13',\"深绿色 3\"],\n      ['#0C343D',\"深青色 3\"],\n      ['#1C4587',\"深矢车菊蓝色 3\"],\n      ['#073763',\"深蓝色 3\"],\n      ['#20124D',\"深紫色 3\"],\n      ['#4C1130',\"深洋红色 3\"]\n  ]",
-          "description": "Input property `colors` (`any[]`) configuring colors.",
+          "description": "Input property `colors` (`string[][]`) configuring colors.",
           "descriptionZh": "固定调色板颜色列表，每项为 `[十六进制值, 中文名称]`。"
         },
         {
@@ -1096,7 +1096,7 @@
           "name": "customcolors",
           "type": "any",
           "default": "[\n    '#cf1717'\n  ]",
-          "description": "Property `customcolors` (`any[]`) storing customcolors (default: `[ '#cf1717' ]`).",
+          "description": "Property `customcolors` (`string[]`) storing customcolors (default: `[ '#cf1717' ]`).",
           "descriptionZh": "用户添加的自定义颜色列表。"
         },
         {
@@ -1141,7 +1141,7 @@
           "name": "direction",
           "type": "'horizontal' | 'vertical'",
           "default": "'horizontal'",
-          "description": "Input property `direction` (`'horizontal' | 'vertical'`) configuring direction (default: `'horizontal'`).",
+          "description": "Input property `direction` (`\"horizontal\" | \"vertical\"`) configuring direction (default: `'horizontal'`).",
           "descriptionZh": "滑动条方向：水平或垂直。"
         }
       ],
@@ -1165,7 +1165,7 @@
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '18px',\n    height: '18px',\n    borderRadius: '50%',\n    transform: 'translate(-9px, -2px)',\n    backgroundColor: 'rgb(248, 248, 248)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
-          "description": "Property `pointer` (`{ [key: string]: string }`) storing pointer.",
+          "description": "Property `pointer` (`{ [key: string]: string; }`) storing pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         }
       ]
@@ -1213,7 +1213,7 @@
           "name": "pointer",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '18px',\n    height: '18px',\n    borderRadius: '50%',\n    transform: 'translate(-9px, -2px)',\n    boxShadow: '0 1px 4px 0 rgba(0, 0, 0, 0.37)',\n  }",
-          "description": "Property `pointer` (`{ [key: string]: string }`) storing pointer.",
+          "description": "Property `pointer` (`{ [key: string]: string; }`) storing pointer.",
           "descriptionZh": "滑块手柄的内联样式。"
         }
       ]
@@ -1238,7 +1238,7 @@
           "type": "any",
           "default": "[\n    '#D0021B',\n    '#F5A623',\n    '#F8E71C',\n    '#8B572A',\n    '#7ED321',\n    '#417505',\n    '#BD10E0',\n    '#9013FE',\n    '#4A90E2',\n    '#50E3C2',\n    '#B8E986',\n    '#000000',\n    '#4A4A4A',\n    '#9B9B9B',\n    '#FFFFFF',\n  ]",
           "description": "Hex strings for default colors at bottom of picker",
-          "descriptionZh": "输入属性 `presetColors`（类型：`any[]`），用于配置preset颜色列表。"
+          "descriptionZh": "输入属性 `presetColors`（类型：`string[]`），用于配置preset颜色列表。"
         },
         {
           "name": "width",
@@ -1389,7 +1389,7 @@
         {
           "name": "onChange",
           "type": "any",
-          "description": "Output event emitter `onChange` (`EventEmitter`) firing when on change occurs.",
+          "description": "Output event emitter `onChange` (`EventEmitter<any>`) firing when on change occurs.",
           "descriptionZh": "字段值变化时发出。"
         }
       ],
@@ -1424,14 +1424,14 @@
           "name": "input",
           "type": "{ [key: string]: string }",
           "default": "{\n    width: '100%',\n    padding: '4px 10% 3px',\n    border: 'none',\n    boxSizing: 'border-box',\n    boxShadow: 'inset 0 0 0 1px #ccc',\n    fontSize: '11px',\n  }",
-          "description": "Property `input` (`{ [key: string]: string }`) storing input.",
+          "description": "Property `input` (`{ [key: string]: string; }`) storing input.",
           "descriptionZh": "输入框的内联样式。"
         },
         {
           "name": "label",
           "type": "{ [key: string]: string }",
           "default": "{\n    display: 'block',\n    textAlign: 'center',\n    fontSize: '11px',\n    paddingTop: '3px',\n    paddingBottom: '4px',\n    textTransform: 'capitalize',\n  }",
-          "description": "Property `label` (`{ [key: string]: string }`) storing label.",
+          "description": "Property `label` (`{ [key: string]: string; }`) storing label.",
           "descriptionZh": "标签的内联样式。"
         }
       ]
@@ -1456,13 +1456,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.",
           "descriptionZh": "色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.",
           "descriptionZh": "鼠标悬停在色块上时发出。"
         }
       ],
@@ -1509,7 +1509,7 @@
           "name": "swatchStyle",
           "type": "any",
           "default": "{\n    borderRadius: '3px',\n    boxShadow: 'inset 0 0 0 1px rgba(0,0,0,.15)',\n  }",
-          "description": "Property `swatchStyle` (`any`) storing swatch style.",
+          "description": "Property `swatchStyle` (`{ borderRadius: string; boxShadow: string; }`) storing swatch style.",
           "descriptionZh": "每个色块的内联样式。"
         }
       ]
@@ -1559,7 +1559,7 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.",
           "descriptionZh": "色块被点击时发出。"
         }
       ],
@@ -1605,13 +1605,13 @@
         {
           "name": "onClick",
           "type": "any",
-          "description": "Output event emitter `onClick` (`EventEmitter`) firing when on click occurs.",
+          "description": "Output event emitter `onClick` (`EventEmitter<any>`) firing when on click occurs.",
           "descriptionZh": "某个色块被点击时发出。"
         },
         {
           "name": "onSwatchHover",
           "type": "any",
-          "description": "Output event emitter `onSwatchHover` (`EventEmitter`) firing when on swatch hover occurs.",
+          "description": "Output event emitter `onSwatchHover` (`EventEmitter<any>`) firing when on swatch hover occurs.",
           "descriptionZh": "鼠标悬停在某个色块上时发出。"
         }
       ],
@@ -1649,11 +1649,11 @@
         {
           "name": "swatchStyle",
           "type": "{ [key: string]: string }",
-          "description": "Property `swatchStyle` (`{ [key: string]: string }`) storing swatch style.",
+          "description": "Property `swatchStyle` (`{ [key: string]: string; }`) storing swatch style.",
           "descriptionZh": "色块的内联样式。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { AlphaPickerComponent, ColorAlphaModule } from '@dotos/dui/common/colorpicker/components';\n\n<color-alpha-picker [width]=\"...\" [height]=\"...\" [direction]=\"...\"></color-alpha-picker>"
+  "suggestedUsageSnippet": "import { AlphaPickerComponent, ColorAlphaModule } from '@dotos1/dui/common/colorpicker/components';\n\n<color-alpha-picker [width]=\"...\" [height]=\"...\" [direction]=\"...\"></color-alpha-picker>"
 }

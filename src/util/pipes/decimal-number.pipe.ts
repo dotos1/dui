@@ -7,8 +7,8 @@
 
 import { DecimalPipe } from '@angular/common';
 import { Pipe, PipeTransform, OnDestroy } from '@angular/core';
-import { ConfigService } from '@dotos/dui/core/config';
-import { DecimalNumberModel } from '@dotos/dui/util';
+import { ConfigService } from '@dotos1/dui/core/config';
+import { DecimalNumberModel } from '@dotos1/dui/util';
 import { Subject } from 'rxjs';
 
 /**

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/toastr",
+  "importPath": "@dotos1/dui/common/toastr",
   "exports": [
     {
       "name": "ActiveToast",
@@ -63,7 +63,7 @@
           "name": "onAction",
           "type": "any",
           "description": "available for your use in custom toast",
-          "descriptionZh": "属性 `onAction`（类型：`Observable<any>`），用于存储或配置当动作。"
+          "descriptionZh": "属性 `onAction`（类型：`any`），用于存储或配置当动作。"
         }
       ]
     },
@@ -420,7 +420,7 @@
           "name": "toastComponent",
           "type": "any",
           "description": "Angular toast component to be shown\ndefault: Toast",
-          "descriptionZh": "属性 `toastComponent`（类型：`ComponentType<any>`），用于存储或配置toast组件。"
+          "descriptionZh": "属性 `toastComponent`（类型：`any`），用于存储或配置toast组件。"
         },
         {
           "name": "onActivateTick",
@@ -787,7 +787,7 @@
         {
           "name": "message",
           "type": "string | null",
-          "description": "Property `message` (`string | null`) storing message.",
+          "description": "Property `message` (`string`) storing message.",
           "descriptionZh": "提示消息的正文文本。"
         },
         {
@@ -818,7 +818,7 @@
           "name": "width",
           "type": "any",
           "default": "signal(-1)",
-          "description": "Property `width` (`any`) storing width (default: `signal(-1)`).",
+          "description": "Property `width` (`WritableSignal<number>`) storing width (default: `signal(-1)`).",
           "descriptionZh": "进度条当前宽度百分比。"
         },
         {
@@ -831,7 +831,7 @@
         {
           "name": "state",
           "type": "WritableSignal<{ value: 'inactive' | 'active' | 'removed'; params: { easeTime: number | string; easing: string }; }>",
-          "description": "Property `state` (`WritableSignal<{ value: 'inactive' | 'active' | 'removed'; params: { e...`) storing state.",
+          "description": "Property `state` (`WritableSignal<{…}>`) storing state.",
           "descriptionZh": "内部使用，驱动进入/激活/移除动画的状态信号。"
         },
         {
@@ -937,7 +937,7 @@
         {
           "name": "message",
           "type": "string | null",
-          "description": "Property `message` (`string | null`) storing message.",
+          "description": "Property `message` (`string`) storing message.",
           "descriptionZh": "提示消息的正文文本。"
         },
         {
@@ -949,7 +949,7 @@
         {
           "name": "options",
           "type": "IndividualConfig",
-          "description": "Property `options` (`IndividualConfig`) storing options.",
+          "description": "Property `options` (`IndividualConfig<unknown>`) storing options.",
           "descriptionZh": "该提示的解析后配置项。"
         },
         {
@@ -969,7 +969,7 @@
           "type": "any",
           "default": "signal(-1)",
           "description": "width of progress bar",
-          "descriptionZh": "属性 `width`（类型：`any`），用于存储或配置宽度（默认值：`signal(-1)`）。"
+          "descriptionZh": "属性 `width`（类型：`WritableSignal<number>`），用于存储或配置宽度（默认值：`signal(-1)`）。"
         },
         {
           "name": "toastClasses",
@@ -989,7 +989,7 @@
           "type": "any",
           "default": "signal('inactive')",
           "description": "controls animation",
-          "descriptionZh": "属性 `state`（类型：`any`），用于存储或配置状态（默认值：`signal('inactive')`）。"
+          "descriptionZh": "属性 `state`（类型：`WritableSignal<string>`），用于存储或配置状态（默认值：`signal('inactive')`）。"
         }
       ]
     },
@@ -1435,7 +1435,7 @@
           "name": "toasts",
           "type": "any",
           "default": "[]",
-          "description": "Property `toasts` (`ActiveToast<any>[]`) storing toasts (default: `[]`).",
+          "description": "Property `toasts` (`any[]`) storing toasts (default: `[]`).",
           "descriptionZh": "当前已加入队列/展示中的全部提示。"
         },
         {
@@ -1447,7 +1447,7 @@
         {
           "name": "previousToastMessage",
           "type": "string | undefined",
-          "description": "Property `previousToastMessage` (`string | undefined`) storing previous toast message.",
+          "description": "Property `previousToastMessage` (`string`) storing previous toast message.",
           "descriptionZh": "上一条展示的提示消息文本（用于去重判断）。"
         }
       ]
@@ -1477,5 +1477,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { Toast, ToastNoAnimationModule } from '@dotos/dui/common/toastr';\n\n<[toast-component]></[toast-component]>"
+  "suggestedUsageSnippet": "import { Toast, ToastNoAnimationModule } from '@dotos1/dui/common/toastr';\n\n<[toast-component]></[toast-component]>"
 }

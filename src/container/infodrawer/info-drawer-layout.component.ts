@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Directive, ViewEncapsulation } from '@angular/core';
+import { Component, Directive, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Angular component `InfoDrawerLayoutComponent` (selector: 'dui-info-drawer-layout') providing info drawer layout component presentation and interaction in `src/container/infodrawer`.
@@ -18,7 +18,8 @@ import { Component, Directive, ViewEncapsulation } from '@angular/core';
   host: { 'class': 'dui-info-drawer-layout',
     hostID: 'dui-info-drawer-layout' + Math.random().toString(36).substring(2, 15)
    },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 
 })
 export class InfoDrawerLayoutComponent { }

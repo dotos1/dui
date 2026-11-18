@@ -4,11 +4,11 @@
  */
 
 
-import { Component, forwardRef, HostBinding, Input } from '@angular/core';
+import { Component, forwardRef, HostBinding, Input, ChangeDetectionStrategy } from '@angular/core';
 
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { _ToggleBase, ToggleHeaderAppearance } from './toggle-header.component';
-import { coerceBoolean } from '@dotos/dui/core/decorators';
+import { coerceBoolean } from '@dotos1/dui/core/decorators';
 
 
 /**
@@ -26,7 +26,8 @@ import { coerceBoolean } from '@dotos/dui/core/decorators';
       multi: true
     }
   ],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class ToggleSelectComponent extends _ToggleBase implements ControlValueAccessor {
 

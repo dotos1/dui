@@ -24,13 +24,13 @@ import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatInput } from '@angular/material/input';
 import { AbstractTrigger } from '../trigger/abstract.trigger';
 
-import { FieldConfig } from '@dotos/dui/core/form';
+import { FieldConfig } from '@dotos1/dui/core/form';
 import { ColorPickerContent } from './color-picker.content';
 
 import { DOCUMENT } from '@angular/common';
-import { DialogService} from '@dotos/dui/common/dialogs';
-import { ChromeComponent, CompactComponent, GithubComponent, SketchComponent } from '@dotos/dui/common/colorpicker/components';
-import { TranslateService } from '@dotos/dui/translator';
+import { DialogService} from '@dotos1/dui/common/dialogs';
+import { ChromeComponent, CompactComponent, GithubComponent, SketchComponent } from '@dotos1/dui/common/colorpicker/components';
+import { TranslateService } from '@dotos1/dui/translator';
 import { isObject } from 'lodash-es';
 
 

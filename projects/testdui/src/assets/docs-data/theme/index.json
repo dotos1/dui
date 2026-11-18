@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/theme",
+  "importPath": "@dotos1/dui/theme",
   "exports": [
     {
       "name": "_getAmbientMap",
@@ -425,8 +425,8 @@
     {
       "name": "createMaterialCoreStyles",
       "kind": "function",
-      "summary": "Executes `createMaterialCoreStyles` to handle create material core styles.",
-      "summaryZh": "执行 `createMaterialCoreStyles`，用于创建Material核心样式集合。",
+      "summary": "Executes `createMaterialCoreStyles` to create Material core `<style>` stylesheet rules.",
+      "summaryZh": "执行 `createMaterialCoreStyles`，创建 Material 核心 `<style>` 样式表。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
@@ -436,20 +436,20 @@
           "params": [
             {
               "name": "typographyConfig",
-              "type": "TypographyConfig"
+              "type": "TypographyConfig | null"
             },
             {
               "name": "override",
               "type": "Object"
             },
             {
-              "name": "dynamic",
+              "name": "_dynamic",
               "type": "boolean"
             }
           ],
-          "returnType": "StyleSheet<string>",
-          "description": "Executes `createMaterialCoreStyles` to handle create material core styles.",
-          "descriptionZh": "执行 `createMaterialCoreStyles`，用于创建Material核心样式集合。"
+          "returnType": "DuiStyleSheet",
+          "description": "Executes `createMaterialCoreStyles` to create Material core `<style>` stylesheet rules.",
+          "descriptionZh": "执行 `createMaterialCoreStyles`，创建 Material 核心 `<style>` 样式表。"
         }
       ],
       "properties": []
@@ -457,8 +457,8 @@
     {
       "name": "createMaterialThemeStyles",
       "kind": "function",
-      "summary": "Executes `createMaterialThemeStyles` to handle create material theme styles.",
-      "summaryZh": "执行 `createMaterialThemeStyles`，用于创建Material主题样式集合。",
+      "summary": "Executes `createMaterialThemeStyles` to create Material + DUI M2 `<style>` stylesheet rules.",
+      "summaryZh": "执行 `createMaterialThemeStyles`，创建 Material 与 DUI M2 完整 `<style>` 主题样式表。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
@@ -475,13 +475,13 @@
               "type": "Object"
             },
             {
-              "name": "dynamic",
+              "name": "_dynamic",
               "type": "boolean"
             }
           ],
-          "returnType": "StyleSheet<string>",
-          "description": "Executes `createMaterialThemeStyles` to handle create material theme styles.",
-          "descriptionZh": "执行 `createMaterialThemeStyles`，用于创建Material主题样式集合。"
+          "returnType": "DuiStyleSheet",
+          "description": "Executes `createMaterialThemeStyles` to create Material + DUI M2 `<style>` stylesheet rules.",
+          "descriptionZh": "执行 `createMaterialThemeStyles`，创建 Material 与 DUI M2 完整 `<style>` 主题样式表。"
         }
       ],
       "properties": []
@@ -544,9 +544,9 @@
     {
       "name": "density",
       "kind": "function",
-      "summary": "Executes `density` to handle density.",
-      "summaryZh": "执行 `density`，用于密度。",
-      "sourceFile": "src/theme/theme/mat-icon-button-theme.ts",
+      "summary": "Executes `density` to generate M2 icon-button density tokens and button-base sizing rules (7.4.52 public API parity).",
+      "summaryZh": "执行 `density`，生成图标按钮 M2 密度令牌与尺寸规则（保持 `7.4.52` `@dotos1/dui/theme` 公开导出签名兼容）。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -558,9 +558,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `density` to handle density.",
-          "descriptionZh": "执行 `density`，用于密度。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `density` to generate M2 icon-button density tokens and button-base sizing rules (7.4.52 public API parity).",
+          "descriptionZh": "执行 `density`，生成图标按钮 M2 密度令牌与尺寸规则（保持 `7.4.52` `@dotos1/dui/theme` 公开导出签名兼容）。"
         }
       ],
       "properties": []
@@ -664,8 +664,8 @@
         {
           "name": "theme",
           "type": "{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; warn: string; formType:'fill'|'outline'; }",
-          "description": "Property `theme` (`{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; wa...`) storing theme.",
-          "descriptionZh": "属性 `theme`（类型：`{ type: 'light'|'dark'|'darkblue'; primary: string; accent: string; wa...`），用于存储或配置主题。"
+          "description": "Property `theme` (`{…}`) storing theme.",
+          "descriptionZh": "属性 `theme`（类型：`{…}`），用于存储或配置主题。"
         },
         {
           "name": "wallpaper",
@@ -676,8 +676,8 @@
         {
           "name": "layout",
           "type": "{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; folded: boolean; variant: string; sidepanel: { hidden: boolean; position: 'left' | 'right' } }",
-          "description": "Property `layout` (`{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; fold...`) storing layout.",
-          "descriptionZh": "属性 `layout`（类型：`{ pagemodel: string; style: string; width: 'fullwidth' | 'boxed'; fold...`），用于存储或配置布局。"
+          "description": "Property `layout` (`{…}`) storing layout.",
+          "descriptionZh": "属性 `layout`（类型：`{…}`），用于存储或配置布局。"
         },
         {
           "name": "routerAnimation",
@@ -1238,6 +1238,52 @@
       "properties": []
     },
     {
+      "name": "DuiStyleSheet",
+      "kind": "interface",
+      "summary": "Interface `DuiStyleSheet` representing an attachable/detachable `<style>` tag stylesheet handle.",
+      "summaryZh": "接口 `DuiStyleSheet`，表示挂载至 `<head>` 内 `<style>` 标签的可装卸样式表句柄。",
+      "sourceFile": "src/theme/theme.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "attach",
+          "params": [],
+          "returnType": "DuiStyleSheet",
+          "description": "Executes `attach` to mount the `<style>` element into `document.head`.",
+          "descriptionZh": "执行 `attach`，将 `<style>` 标签挂载至 `document.head`。"
+        },
+        {
+          "name": "detach",
+          "params": [],
+          "returnType": "void",
+          "description": "Executes `detach` to remove the `<style>` element from the document.",
+          "descriptionZh": "执行 `detach`，从当前文档移除该 `<style>` 标签。"
+        },
+        {
+          "name": "toString",
+          "params": [],
+          "returnType": "string",
+          "description": "Executes `toString` to return the serialized CSS text.",
+          "descriptionZh": "执行 `toString`，返回序列化后的 CSS 文本。"
+        }
+      ],
+      "properties": [
+        {
+          "name": "cssText",
+          "type": "string",
+          "description": "Property `cssText` (`string`) storing serialized CSS rules.",
+          "descriptionZh": "属性 `cssText`（类型：`string`），存储序列化后的 CSS 规则文本。"
+        },
+        {
+          "name": "element",
+          "type": "HTMLStyleElement | null",
+          "description": "Property `element` (`HTMLStyleElement`) storing mounted `<style>` DOM element when attached.",
+          "descriptionZh": "属性 `element`（类型：`HTMLStyleElement`），存储当前挂载在 `<head>` 中的 `<style>` 元素。"
+        }
+      ]
+    },
+    {
       "name": "duiTreeTheme",
       "kind": "function",
       "summary": "Executes `duiTreeTheme` to handle dui tree theme.",
@@ -1504,9 +1550,9 @@
     {
       "name": "matAutocompleteTheme",
       "kind": "function",
-      "summary": "Executes `matAutocompleteTheme` to handle mat autocomplete theme.",
-      "summaryZh": "执行 `matAutocompleteTheme`，用于Material自动补全主题。",
-      "sourceFile": "src/theme/theme/mat-autocomplete-theme.ts",
+      "summary": "Executes `matAutocompleteTheme` to generate M2 autocomplete tokens.",
+      "summaryZh": "执行 `matAutocompleteTheme`，生成自动补全组件 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1518,9 +1564,33 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matAutocompleteTheme` to handle mat autocomplete theme.",
-          "descriptionZh": "执行 `matAutocompleteTheme`，用于Material自动补全主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matAutocompleteTheme` to generate M2 autocomplete tokens.",
+          "descriptionZh": "执行 `matAutocompleteTheme`，生成自动补全组件 M2 令牌。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "matBadgeTheme",
+      "kind": "function",
+      "summary": "Executes `matBadgeTheme` to generate M2 badge tokens.",
+      "summaryZh": "执行 `matBadgeTheme`，生成徽章组件 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "matBadgeTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matBadgeTheme` to generate M2 badge tokens.",
+          "descriptionZh": "执行 `matBadgeTheme`，生成徽章组件 M2 令牌。"
         }
       ],
       "properties": []
@@ -1563,9 +1633,9 @@
     {
       "name": "matButtonTheme",
       "kind": "function",
-      "summary": "Executes `matButtonTheme` to handle mat button theme.",
-      "summaryZh": "执行 `matButtonTheme`，用于Material按钮主题。",
-      "sourceFile": "src/theme/theme/mat-button-theme.ts",
+      "summary": "Executes `matButtonTheme` to generate M2 button tokens and min-height rules.",
+      "summaryZh": "执行 `matButtonTheme`，生成按钮组件 M2 令牌与高度规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1577,9 +1647,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matButtonTheme` to handle mat button theme.",
-          "descriptionZh": "执行 `matButtonTheme`，用于Material按钮主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matButtonTheme` to generate M2 button tokens and min-height rules.",
+          "descriptionZh": "执行 `matButtonTheme`，生成按钮组件 M2 令牌与高度规则。"
         }
       ],
       "properties": []
@@ -1587,9 +1657,9 @@
     {
       "name": "matButtonToggleTheme",
       "kind": "function",
-      "summary": "Executes `matButtonToggleTheme` to handle mat button toggle theme.",
-      "summaryZh": "执行 `matButtonToggleTheme`，用于Material按钮开关主题。",
-      "sourceFile": "src/theme/theme/mat-button-toggle-theme.ts",
+      "summary": "Executes `matButtonToggleTheme` to generate M2 button-toggle tokens.",
+      "summaryZh": "执行 `matButtonToggleTheme`，生成按钮切换组 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1601,9 +1671,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matButtonToggleTheme` to handle mat button toggle theme.",
-          "descriptionZh": "执行 `matButtonToggleTheme`，用于Material按钮开关主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matButtonToggleTheme` to generate M2 button-toggle tokens.",
+          "descriptionZh": "执行 `matButtonToggleTheme`，生成按钮切换组 M2 令牌。"
         }
       ],
       "properties": []
@@ -1611,9 +1681,9 @@
     {
       "name": "matCardTheme",
       "kind": "function",
-      "summary": "Executes `matCardTheme` to handle mat card theme.",
-      "summaryZh": "执行 `matCardTheme`，用于Material卡片主题。",
-      "sourceFile": "src/theme/theme/mat-card-theme.ts",
+      "summary": "Executes `matCardTheme` to generate M2 card tokens and S-5 header layout rules.",
+      "summaryZh": "执行 `matCardTheme`，生成卡片 M2 令牌与 S-5 头部内边距规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1625,9 +1695,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matCardTheme` to handle mat card theme.",
-          "descriptionZh": "执行 `matCardTheme`，用于Material卡片主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matCardTheme` to generate M2 card tokens and S-5 header layout rules.",
+          "descriptionZh": "执行 `matCardTheme`，生成卡片 M2 令牌与 S-5 头部内边距规则。"
         }
       ],
       "properties": []
@@ -1635,9 +1705,9 @@
     {
       "name": "matCheckboxTheme",
       "kind": "function",
-      "summary": "Executes `matCheckboxTheme` to handle mat checkbox theme.",
-      "summaryZh": "执行 `matCheckboxTheme`，用于Material复选框主题。",
-      "sourceFile": "src/theme/theme/mat-checkbox-theme.ts",
+      "summary": "Executes `matCheckboxTheme` to generate M2 checkbox tokens.",
+      "summaryZh": "执行 `matCheckboxTheme`，生成复选框 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1649,9 +1719,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matCheckboxTheme` to handle mat checkbox theme.",
-          "descriptionZh": "执行 `matCheckboxTheme`，用于Material复选框主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matCheckboxTheme` to generate M2 checkbox tokens.",
+          "descriptionZh": "执行 `matCheckboxTheme`，生成复选框 M2 令牌。"
         }
       ],
       "properties": []
@@ -1659,9 +1729,9 @@
     {
       "name": "matChipsTheme",
       "kind": "function",
-      "summary": "Executes `matChipsTheme` to handle mat chips theme.",
-      "summaryZh": "执行 `matChipsTheme`，用于Material纸片标签主题。",
-      "sourceFile": "src/theme/theme/mat-chips-theme.ts",
+      "summary": "Executes `matChipsTheme` to generate M2 chip tokens.",
+      "summaryZh": "执行 `matChipsTheme`，生成纸片组件 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1673,9 +1743,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matChipsTheme` to handle mat chips theme.",
-          "descriptionZh": "执行 `matChipsTheme`，用于Material纸片标签主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matChipsTheme` to generate M2 chip tokens.",
+          "descriptionZh": "执行 `matChipsTheme`，生成纸片组件 M2 令牌。"
         }
       ],
       "properties": []
@@ -1713,6 +1783,30 @@
       "properties": []
     },
     {
+      "name": "matControlPlaceholderColor",
+      "kind": "function",
+      "summary": "Executes `matControlPlaceholderColor` to compute placeholder text color for form controls.",
+      "summaryZh": "执行 `matControlPlaceholderColor`，计算表单控件占位符文本颜色。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "matControlPlaceholderColor",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "string",
+          "description": "Executes `matControlPlaceholderColor` to compute placeholder text color for form controls.",
+          "descriptionZh": "执行 `matControlPlaceholderColor`，计算表单控件占位符文本颜色。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "matCore",
       "kind": "function",
       "summary": "Executes `matCore` to handle mat core.",
@@ -1739,9 +1833,9 @@
     {
       "name": "matCoreTheme",
       "kind": "function",
-      "summary": "Executes `matCoreTheme` to handle mat core theme.",
-      "summaryZh": "执行 `matCoreTheme`，用于Material核心主题。",
-      "sourceFile": "src/theme/theme/mat-core-theme.ts",
+      "summary": "Executes `matCoreTheme` to generate M2 core tokens, `.mat-app-background`, and `px`-based M2 typography classes.",
+      "summaryZh": "执行 `matCoreTheme`，生成 M2 核心令牌、`.mat-app-background` 与基于 `px` 的 M2 字阶类规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1753,9 +1847,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matCoreTheme` to handle mat core theme.",
-          "descriptionZh": "执行 `matCoreTheme`，用于Material核心主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matCoreTheme` to generate M2 core tokens, `.mat-app-background`, and `px`-based M2 typography classes.",
+          "descriptionZh": "执行 `matCoreTheme`，生成 M2 核心令牌、`.mat-app-background` 与基于 `px` 的 M2 字阶类规则。"
         }
       ],
       "properties": []
@@ -1854,9 +1948,9 @@
     {
       "name": "matDatepickerTheme",
       "kind": "function",
-      "summary": "Executes `matDatepickerTheme` to handle mat datepicker theme.",
-      "summaryZh": "执行 `matDatepickerTheme`，用于Material日期选择器主题。",
-      "sourceFile": "src/theme/theme/mat-datepicker-theme.ts",
+      "summary": "Executes `matDatepickerTheme` to generate M2 datepicker tokens.",
+      "summaryZh": "执行 `matDatepickerTheme`，生成日期选择器 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1868,9 +1962,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matDatepickerTheme` to handle mat datepicker theme.",
-          "descriptionZh": "执行 `matDatepickerTheme`，用于Material日期选择器主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matDatepickerTheme` to generate M2 datepicker tokens.",
+          "descriptionZh": "执行 `matDatepickerTheme`，生成日期选择器 M2 令牌。"
         }
       ],
       "properties": []
@@ -1878,9 +1972,9 @@
     {
       "name": "matDialogTheme",
       "kind": "function",
-      "summary": "Executes `matDialogTheme` to handle mat dialog theme.",
-      "summaryZh": "执行 `matDialogTheme`，用于Material对话框主题。",
-      "sourceFile": "src/theme/theme/mat-dialog-theme.ts",
+      "summary": "Executes `matDialogTheme` to generate M2 dialog tokens and container elevation shadow.",
+      "summaryZh": "执行 `matDialogTheme`，生成对话框 M2 令牌与容器阴影规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1892,9 +1986,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matDialogTheme` to handle mat dialog theme.",
-          "descriptionZh": "执行 `matDialogTheme`，用于Material对话框主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matDialogTheme` to generate M2 dialog tokens and container elevation shadow.",
+          "descriptionZh": "执行 `matDialogTheme`，生成对话框 M2 令牌与容器阴影规则。"
         }
       ],
       "properties": []
@@ -1902,9 +1996,9 @@
     {
       "name": "matDividerTheme",
       "kind": "function",
-      "summary": "Executes `matDividerTheme` to handle mat divider theme.",
-      "summaryZh": "执行 `matDividerTheme`，用于MaterialDivider主题。",
-      "sourceFile": "src/theme/theme/mat-divider-theme.ts",
+      "summary": "Executes `matDividerTheme` to generate M2 divider tokens.",
+      "summaryZh": "执行 `matDividerTheme`，生成分割线 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -1916,9 +2010,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matDividerTheme` to handle mat divider theme.",
-          "descriptionZh": "执行 `matDividerTheme`，用于MaterialDivider主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matDividerTheme` to generate M2 divider tokens.",
+          "descriptionZh": "执行 `matDividerTheme`，生成分割线 M2 令牌。"
         }
       ],
       "properties": []
@@ -2082,9 +2176,9 @@
     {
       "name": "matExpansionPanelTheme",
       "kind": "function",
-      "summary": "Executes `matExpansionPanelTheme` to handle mat expansion panel theme.",
-      "summaryZh": "执行 `matExpansionPanelTheme`，用于Material展开面板面板主题。",
-      "sourceFile": "src/theme/theme/mat-expansion-panel-theme.ts",
+      "summary": "Executes `matExpansionPanelTheme` to generate M2 expansion-panel tokens and 7.4.52 header outline-width parity.",
+      "summaryZh": "执行 `matExpansionPanelTheme`，生成折叠面板 M2 令牌与面板头 `outline-width: 3px` 对齐规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2096,9 +2190,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matExpansionPanelTheme` to handle mat expansion panel theme.",
-          "descriptionZh": "执行 `matExpansionPanelTheme`，用于Material展开面板面板主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matExpansionPanelTheme` to generate M2 expansion-panel tokens and 7.4.52 header outline-width parity.",
+          "descriptionZh": "执行 `matExpansionPanelTheme`，生成折叠面板 M2 令牌与面板头 `outline-width: 3px` 对齐规则。"
         }
       ],
       "properties": []
@@ -2106,9 +2200,9 @@
     {
       "name": "matFabTheme",
       "kind": "function",
-      "summary": "Executes `matFabTheme` to handle mat fab theme.",
-      "summaryZh": "执行 `matFabTheme`，用于MaterialFab主题。",
-      "sourceFile": "src/theme/theme/mat-fab-theme.ts",
+      "summary": "Executes `matFabTheme` to generate M2 FAB button tokens, sizing, and disabled elevation rules.",
+      "summaryZh": "执行 `matFabTheme`，生成悬浮操作按钮 M2 令牌、尺寸与禁用态阴影覆盖规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2120,9 +2214,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matFabTheme` to handle mat fab theme.",
-          "descriptionZh": "执行 `matFabTheme`，用于MaterialFab主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matFabTheme` to generate M2 FAB button tokens, sizing, and disabled elevation rules.",
+          "descriptionZh": "执行 `matFabTheme`，生成悬浮操作按钮 M2 令牌、尺寸与禁用态阴影覆盖规则。"
         }
       ],
       "properties": []
@@ -2255,9 +2349,9 @@
     {
       "name": "matFormFieldTheme",
       "kind": "function",
-      "summary": "Executes `matFormFieldTheme` to handle mat form field theme.",
-      "summaryZh": "执行 `matFormFieldTheme`，用于Material表单字段主题。",
-      "sourceFile": "src/theme/theme/mat-form-field-theme.ts",
+      "summary": "Executes `matFormFieldTheme` to generate M2 form-field tokens and S-5 label/input offset rules.",
+      "summaryZh": "执行 `matFormFieldTheme`，生成表单域 M2 令牌与标签/输入偏移规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2269,9 +2363,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matFormFieldTheme` to handle mat form field theme.",
-          "descriptionZh": "执行 `matFormFieldTheme`，用于Material表单字段主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matFormFieldTheme` to generate M2 form-field tokens and S-5 label/input offset rules.",
+          "descriptionZh": "执行 `matFormFieldTheme`，生成表单域 M2 令牌与标签/输入偏移规则。"
         }
       ],
       "properties": []
@@ -2312,9 +2406,9 @@
     {
       "name": "matGridListTheme",
       "kind": "function",
-      "summary": "Executes `matGridListTheme` to handle mat grid list theme.",
-      "summaryZh": "执行 `matGridListTheme`，用于Material网格表格列表主题。",
-      "sourceFile": "src/theme/theme/mat-grid-list-theme.ts",
+      "summary": "Executes `matGridListTheme` to generate M2 grid-list tokens.",
+      "summaryZh": "执行 `matGridListTheme`，生成网格列表 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2326,9 +2420,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matGridListTheme` to handle mat grid list theme.",
-          "descriptionZh": "执行 `matGridListTheme`，用于Material网格表格列表主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matGridListTheme` to generate M2 grid-list tokens.",
+          "descriptionZh": "执行 `matGridListTheme`，生成网格列表 M2 令牌。"
         }
       ],
       "properties": []
@@ -2336,9 +2430,9 @@
     {
       "name": "matIconButtonTheme",
       "kind": "function",
-      "summary": "Executes `matIconButtonTheme` to handle mat icon button theme.",
-      "summaryZh": "执行 `matIconButtonTheme`，用于Material图标按钮主题。",
-      "sourceFile": "src/theme/theme/mat-icon-button-theme.ts",
+      "summary": "Executes `matIconButtonTheme` to generate M2 icon-button tokens, density sizing, and disabled icon color rules.",
+      "summaryZh": "执行 `matIconButtonTheme`，生成图标按钮 M2 令牌、密度尺寸与禁用态图标颜色覆盖规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2350,9 +2444,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matIconButtonTheme` to handle mat icon button theme.",
-          "descriptionZh": "执行 `matIconButtonTheme`，用于Material图标按钮主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matIconButtonTheme` to generate M2 icon-button tokens, density sizing, and disabled icon color rules.",
+          "descriptionZh": "执行 `matIconButtonTheme`，生成图标按钮 M2 令牌、密度尺寸与禁用态图标颜色覆盖规则。"
         }
       ],
       "properties": []
@@ -2360,9 +2454,9 @@
     {
       "name": "matIconTheme",
       "kind": "function",
-      "summary": "Executes `matIconTheme` to handle mat icon theme.",
-      "summaryZh": "执行 `matIconTheme`，用于Material图标主题。",
-      "sourceFile": "src/theme/theme/mat-icon-theme.ts",
+      "summary": "Executes `matIconTheme` to generate M2 icon tokens and SVG stroke S-5 rules.",
+      "summaryZh": "执行 `matIconTheme`，生成图标 M2 令牌与 SVG 描边同步规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2374,9 +2468,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matIconTheme` to handle mat icon theme.",
-          "descriptionZh": "执行 `matIconTheme`，用于Material图标主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matIconTheme` to generate M2 icon tokens and SVG stroke S-5 rules.",
+          "descriptionZh": "执行 `matIconTheme`，生成图标 M2 令牌与 SVG 描边同步规则。"
         }
       ],
       "properties": []
@@ -2384,9 +2478,9 @@
     {
       "name": "matInputTheme",
       "kind": "function",
-      "summary": "Executes `matInputTheme` to handle mat input theme.",
-      "summaryZh": "执行 `matInputTheme`，用于Material输入属性主题。",
-      "sourceFile": "src/theme/theme/mat-input-theme.ts",
+      "summary": "Executes `matInputTheme` to generate M2 input element color, caret, and placeholder rules.",
+      "summaryZh": "执行 `matInputTheme`，生成输入框文本颜色、光标颜色与占位符规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2398,9 +2492,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matInputTheme` to handle mat input theme.",
-          "descriptionZh": "执行 `matInputTheme`，用于Material输入属性主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matInputTheme` to generate M2 input element color, caret, and placeholder rules.",
+          "descriptionZh": "执行 `matInputTheme`，生成输入框文本颜色、光标颜色与占位符规则。"
         }
       ],
       "properties": []
@@ -2511,9 +2605,9 @@
     {
       "name": "matListTheme",
       "kind": "function",
-      "summary": "Executes `matListTheme` to handle mat list theme.",
-      "summaryZh": "执行 `matListTheme`，用于Material列表主题。",
-      "sourceFile": "src/theme/theme/mat-list-theme.ts",
+      "summary": "Executes `matListTheme` to generate M2 list tokens and S-5 disabled-item opacity rules.",
+      "summaryZh": "执行 `matListTheme`，生成列表组件 M2 令牌与禁用项不透明度规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2525,9 +2619,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matListTheme` to handle mat list theme.",
-          "descriptionZh": "执行 `matListTheme`，用于Material列表主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matListTheme` to generate M2 list tokens and S-5 disabled-item opacity rules.",
+          "descriptionZh": "执行 `matListTheme`，生成列表组件 M2 令牌与禁用项不透明度规则。"
         }
       ],
       "properties": []
@@ -2535,9 +2629,9 @@
     {
       "name": "matMenuTheme",
       "kind": "function",
-      "summary": "Executes `matMenuTheme` to handle mat menu theme.",
-      "summaryZh": "执行 `matMenuTheme`，用于Material菜单主题。",
-      "sourceFile": "src/theme/theme/mat-menu-theme.ts",
+      "summary": "Executes `matMenuTheme` to generate M2 menu tokens and S-5 item min-height/icon rules while preserving built-in M2 menu enter/exit animations.",
+      "summaryZh": "执行 `matMenuTheme`，生成菜单组件 M2 令牌与菜单项高度及图标颜色规则，完整保留 Material 22 内置菜单开合动画。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2549,9 +2643,57 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matMenuTheme` to handle mat menu theme.",
-          "descriptionZh": "执行 `matMenuTheme`，用于Material菜单主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matMenuTheme` to generate M2 menu tokens and S-5 item min-height/icon rules while preserving built-in M2 menu enter/exit animations.",
+          "descriptionZh": "执行 `matMenuTheme`，生成菜单组件 M2 令牌与菜单项高度及图标颜色规则，完整保留 Material 22 内置菜单开合动画。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "matOptgroupTheme",
+      "kind": "function",
+      "summary": "Executes `matOptgroupTheme` to generate M2 option-group tokens.",
+      "summaryZh": "执行 `matOptgroupTheme`，生成 M2 选项分组令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "matOptgroupTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matOptgroupTheme` to generate M2 option-group tokens.",
+          "descriptionZh": "执行 `matOptgroupTheme`，生成 M2 选项分组令牌。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "matOptionTheme",
+      "kind": "function",
+      "summary": "Executes `matOptionTheme` to generate M2 option tokens and `min-height` density rules.",
+      "summaryZh": "执行 `matOptionTheme`，生成 M2 下拉选项令牌与三档密度高度规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "matOptionTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matOptionTheme` to generate M2 option tokens and `min-height` density rules.",
+          "descriptionZh": "执行 `matOptionTheme`，生成 M2 下拉选项令牌与三档密度高度规则。"
         }
       ],
       "properties": []
@@ -2602,9 +2744,9 @@
     {
       "name": "matPaginatorTheme",
       "kind": "function",
-      "summary": "Executes `matPaginatorTheme` to handle mat paginator theme.",
-      "summaryZh": "执行 `matPaginatorTheme`，用于Material分页器主题。",
-      "sourceFile": "src/theme/theme/mat-paginator-theme.ts",
+      "summary": "Executes `matPaginatorTheme` to generate M2 paginator tokens.",
+      "summaryZh": "执行 `matPaginatorTheme`，生成分页器 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2616,9 +2758,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matPaginatorTheme` to handle mat paginator theme.",
-          "descriptionZh": "执行 `matPaginatorTheme`，用于Material分页器主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matPaginatorTheme` to generate M2 paginator tokens.",
+          "descriptionZh": "执行 `matPaginatorTheme`，生成分页器 M2 令牌。"
         }
       ],
       "properties": []
@@ -2666,9 +2808,9 @@
     {
       "name": "matProgressBarTheme",
       "kind": "function",
-      "summary": "Executes `matProgressBarTheme` to handle mat progress bar theme.",
-      "summaryZh": "执行 `matProgressBarTheme`，用于Material进度条条主题。",
-      "sourceFile": "src/theme/theme/mat-progress-bar-theme.ts",
+      "summary": "Executes `matProgressBarTheme` to generate M2 progress-bar tokens.",
+      "summaryZh": "执行 `matProgressBarTheme`，生成进度条 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2680,9 +2822,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matProgressBarTheme` to handle mat progress bar theme.",
-          "descriptionZh": "执行 `matProgressBarTheme`，用于Material进度条条主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matProgressBarTheme` to generate M2 progress-bar tokens.",
+          "descriptionZh": "执行 `matProgressBarTheme`，生成进度条 M2 令牌。"
         }
       ],
       "properties": []
@@ -2690,9 +2832,9 @@
     {
       "name": "matProgressSpinnerTheme",
       "kind": "function",
-      "summary": "Executes `matProgressSpinnerTheme` to handle mat progress spinner theme.",
-      "summaryZh": "执行 `matProgressSpinnerTheme`，用于Material进度条加载指示器主题。",
-      "sourceFile": "src/theme/theme/mat-progress-spinner-theme.ts",
+      "summary": "Executes `matProgressSpinnerTheme` to generate M2 progress-spinner tokens.",
+      "summaryZh": "执行 `matProgressSpinnerTheme`，生成环形进度指示器 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2704,9 +2846,33 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matProgressSpinnerTheme` to handle mat progress spinner theme.",
-          "descriptionZh": "执行 `matProgressSpinnerTheme`，用于Material进度条加载指示器主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matProgressSpinnerTheme` to generate M2 progress-spinner tokens.",
+          "descriptionZh": "执行 `matProgressSpinnerTheme`，生成环形进度指示器 M2 令牌。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "matPseudoCheckboxTheme",
+      "kind": "function",
+      "summary": "Executes `matPseudoCheckboxTheme` to generate M2 pseudo-checkbox colors and density sizes.",
+      "summaryZh": "执行 `matPseudoCheckboxTheme`，生成 M2 伪复选框颜色与三档密度尺寸规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "matPseudoCheckboxTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matPseudoCheckboxTheme` to generate M2 pseudo-checkbox colors and density sizes.",
+          "descriptionZh": "执行 `matPseudoCheckboxTheme`，生成 M2 伪复选框颜色与三档密度尺寸规则。"
         }
       ],
       "properties": []
@@ -2714,9 +2880,9 @@
     {
       "name": "matRadioTheme",
       "kind": "function",
-      "summary": "Executes `matRadioTheme` to handle mat radio theme.",
-      "summaryZh": "执行 `matRadioTheme`，用于Material单选框主题。",
-      "sourceFile": "src/theme/theme/mat-radio-theme.ts",
+      "summary": "Executes `matRadioTheme` to generate M2 radio-button tokens.",
+      "summaryZh": "执行 `matRadioTheme`，生成单选按钮 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2728,9 +2894,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matRadioTheme` to handle mat radio theme.",
-          "descriptionZh": "执行 `matRadioTheme`，用于Material单选框主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matRadioTheme` to generate M2 radio-button tokens.",
+          "descriptionZh": "执行 `matRadioTheme`，生成单选按钮 M2 令牌。"
         }
       ],
       "properties": []
@@ -2777,11 +2943,35 @@
       "properties": []
     },
     {
+      "name": "matRippleTheme",
+      "kind": "function",
+      "summary": "Executes `matRippleTheme` to generate `.mat-ripple-element` color rules.",
+      "summaryZh": "执行 `matRippleTheme`，生成水波纹元素颜色规则。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "matRippleTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matRippleTheme` to generate `.mat-ripple-element` color rules.",
+          "descriptionZh": "执行 `matRippleTheme`，生成水波纹元素颜色规则。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "matSelectTheme",
       "kind": "function",
-      "summary": "Executes `matSelectTheme` to handle mat select theme.",
-      "summaryZh": "执行 `matSelectTheme`，用于Material下拉选择主题。",
-      "sourceFile": "src/theme/theme/mat-select-theme.ts",
+      "summary": "Executes `matSelectTheme` to generate M2 select tokens.",
+      "summaryZh": "执行 `matSelectTheme`，生成下拉选择组件 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2793,9 +2983,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matSelectTheme` to handle mat select theme.",
-          "descriptionZh": "执行 `matSelectTheme`，用于Material下拉选择主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matSelectTheme` to generate M2 select tokens.",
+          "descriptionZh": "执行 `matSelectTheme`，生成下拉选择组件 M2 令牌。"
         }
       ],
       "properties": []
@@ -2803,9 +2993,9 @@
     {
       "name": "matSidenavTheme",
       "kind": "function",
-      "summary": "Executes `matSidenavTheme` to handle mat sidenav theme.",
-      "summaryZh": "执行 `matSidenavTheme`，用于Material侧边导航主题。",
-      "sourceFile": "src/theme/theme/mat-sidenav-theme.ts",
+      "summary": "Executes `matSidenavTheme` to generate M2 sidenav/drawer tokens.",
+      "summaryZh": "执行 `matSidenavTheme`，生成侧边抽屉容器 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2817,9 +3007,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matSidenavTheme` to handle mat sidenav theme.",
-          "descriptionZh": "执行 `matSidenavTheme`，用于Material侧边导航主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matSidenavTheme` to generate M2 sidenav/drawer tokens.",
+          "descriptionZh": "执行 `matSidenavTheme`，生成侧边抽屉容器 M2 令牌。"
         }
       ],
       "properties": []
@@ -2827,9 +3017,9 @@
     {
       "name": "matSliderTheme",
       "kind": "function",
-      "summary": "Executes `matSliderTheme` to handle mat slider theme.",
-      "summaryZh": "执行 `matSliderTheme`，用于Material滑块主题。",
-      "sourceFile": "src/theme/theme/mat-slider-theme.ts",
+      "summary": "Executes `matSliderTheme` to generate M2 slider tokens.",
+      "summaryZh": "执行 `matSliderTheme`，生成滑动条 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2841,9 +3031,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matSliderTheme` to handle mat slider theme.",
-          "descriptionZh": "执行 `matSliderTheme`，用于Material滑块主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matSliderTheme` to generate M2 slider tokens.",
+          "descriptionZh": "执行 `matSliderTheme`，生成滑动条 M2 令牌。"
         }
       ],
       "properties": []
@@ -2851,9 +3041,9 @@
     {
       "name": "matSlideToggleTheme",
       "kind": "function",
-      "summary": "Executes `matSlideToggleTheme` to handle mat slide toggle theme.",
-      "summaryZh": "执行 `matSlideToggleTheme`，用于MaterialSlide开关主题。",
-      "sourceFile": "src/theme/theme/mat-slide-toggle-theme.ts",
+      "summary": "Executes `matSlideToggleTheme` to generate M2 slide-toggle tokens.",
+      "summaryZh": "执行 `matSlideToggleTheme`，生成滑块开关 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2865,9 +3055,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matSlideToggleTheme` to handle mat slide toggle theme.",
-          "descriptionZh": "执行 `matSlideToggleTheme`，用于MaterialSlide开关主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matSlideToggleTheme` to generate M2 slide-toggle tokens.",
+          "descriptionZh": "执行 `matSlideToggleTheme`，生成滑块开关 M2 令牌。"
         }
       ],
       "properties": []
@@ -2886,9 +3076,9 @@
     {
       "name": "matSnackBarTheme",
       "kind": "function",
-      "summary": "Executes `matSnackBarTheme` to handle mat snack bar theme.",
-      "summaryZh": "执行 `matSnackBarTheme`，用于MaterialSnack条主题。",
-      "sourceFile": "src/theme/theme/mat-snack-bar-theme.ts",
+      "summary": "Executes `matSnackBarTheme` to generate M2 snack-bar tokens.",
+      "summaryZh": "执行 `matSnackBarTheme`，生成消息条 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2900,9 +3090,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matSnackBarTheme` to handle mat snack bar theme.",
-          "descriptionZh": "执行 `matSnackBarTheme`，用于MaterialSnack条主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matSnackBarTheme` to generate M2 snack-bar tokens.",
+          "descriptionZh": "执行 `matSnackBarTheme`，生成消息条 M2 令牌。"
         }
       ],
       "properties": []
@@ -2910,9 +3100,9 @@
     {
       "name": "matSortTheme",
       "kind": "function",
-      "summary": "Executes `matSortTheme` to handle mat sort theme.",
-      "summaryZh": "执行 `matSortTheme`，用于Material排序主题。",
-      "sourceFile": "src/theme/theme/mat-sort-theme.ts",
+      "summary": "Executes `matSortTheme` to generate M2 sort-header tokens.",
+      "summaryZh": "执行 `matSortTheme`，生成排序表头 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2924,9 +3114,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matSortTheme` to handle mat sort theme.",
-          "descriptionZh": "执行 `matSortTheme`，用于Material排序主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matSortTheme` to generate M2 sort-header tokens.",
+          "descriptionZh": "执行 `matSortTheme`，生成排序表头 M2 令牌。"
         }
       ],
       "properties": []
@@ -2958,9 +3148,9 @@
     {
       "name": "matStepperTheme",
       "kind": "function",
-      "summary": "Executes `matStepperTheme` to handle mat stepper theme.",
-      "summaryZh": "执行 `matStepperTheme`，用于Material步骤条主题。",
-      "sourceFile": "src/theme/theme/mat-stepper-theme.ts",
+      "summary": "Executes `matStepperTheme` to generate M2 stepper tokens.",
+      "summaryZh": "执行 `matStepperTheme`，生成步进器 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2972,9 +3162,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matStepperTheme` to handle mat stepper theme.",
-          "descriptionZh": "执行 `matStepperTheme`，用于Material步骤条主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matStepperTheme` to generate M2 stepper tokens.",
+          "descriptionZh": "执行 `matStepperTheme`，生成步进器 M2 令牌。"
         }
       ],
       "properties": []
@@ -2982,9 +3172,9 @@
     {
       "name": "matTableTheme",
       "kind": "function",
-      "summary": "Executes `matTableTheme` to handle mat table theme.",
-      "summaryZh": "执行 `matTableTheme`，用于Material表格主题。",
-      "sourceFile": "src/theme/theme/mat-table-theme.ts",
+      "summary": "Executes `matTableTheme` to generate M2 table tokens.",
+      "summaryZh": "执行 `matTableTheme`，生成表格组件 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -2996,9 +3186,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matTableTheme` to handle mat table theme.",
-          "descriptionZh": "执行 `matTableTheme`，用于Material表格主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matTableTheme` to generate M2 table tokens.",
+          "descriptionZh": "执行 `matTableTheme`，生成表格组件 M2 令牌。"
         }
       ],
       "properties": []
@@ -3006,9 +3196,9 @@
     {
       "name": "matTabsTheme",
       "kind": "function",
-      "summary": "Executes `matTabsTheme` to handle mat tabs theme.",
-      "summaryZh": "执行 `matTabsTheme`，用于Material选项卡组主题。",
-      "sourceFile": "src/theme/theme/mat-tabs-theme.ts",
+      "summary": "Executes `matTabsTheme` to generate M2 tabs tokens.",
+      "summaryZh": "执行 `matTabsTheme`，生成标签页 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -3020,9 +3210,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matTabsTheme` to handle mat tabs theme.",
-          "descriptionZh": "执行 `matTabsTheme`，用于Material选项卡组主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matTabsTheme` to generate M2 tabs tokens.",
+          "descriptionZh": "执行 `matTabsTheme`，生成标签页 M2 令牌。"
         }
       ],
       "properties": []
@@ -3116,9 +3306,9 @@
     {
       "name": "matToolbarTheme",
       "kind": "function",
-      "summary": "Executes `matToolbarTheme` to handle mat toolbar theme.",
-      "summaryZh": "执行 `matToolbarTheme`，用于Material工具栏主题。",
-      "sourceFile": "src/theme/theme/mat-toolbar-theme.ts",
+      "summary": "Executes `matToolbarTheme` to generate M2 toolbar tokens.",
+      "summaryZh": "执行 `matToolbarTheme`，生成工具栏 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -3130,9 +3320,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matToolbarTheme` to handle mat toolbar theme.",
-          "descriptionZh": "执行 `matToolbarTheme`，用于Material工具栏主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matToolbarTheme` to generate M2 toolbar tokens.",
+          "descriptionZh": "执行 `matToolbarTheme`，生成工具栏 M2 令牌。"
         }
       ],
       "properties": []
@@ -3140,9 +3330,9 @@
     {
       "name": "matTooltipTheme",
       "kind": "function",
-      "summary": "Executes `matTooltipTheme` to handle mat tooltip theme.",
-      "summaryZh": "执行 `matTooltipTheme`，用于Material悬浮提示主题。",
-      "sourceFile": "src/theme/theme/mat-tooltip-theme.ts",
+      "summary": "Executes `matTooltipTheme` to generate M2 tooltip tokens.",
+      "summaryZh": "执行 `matTooltipTheme`，生成文字提示 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -3154,9 +3344,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matTooltipTheme` to handle mat tooltip theme.",
-          "descriptionZh": "执行 `matTooltipTheme`，用于Material悬浮提示主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matTooltipTheme` to generate M2 tooltip tokens.",
+          "descriptionZh": "执行 `matTooltipTheme`，生成文字提示 M2 令牌。"
         }
       ],
       "properties": []
@@ -3164,9 +3354,9 @@
     {
       "name": "matTreeTheme",
       "kind": "function",
-      "summary": "Executes `matTreeTheme` to handle mat tree theme.",
-      "summaryZh": "执行 `matTreeTheme`，用于Material树形控件主题。",
-      "sourceFile": "src/theme/theme/mat-tree-theme.ts",
+      "summary": "Executes `matTreeTheme` to generate M2 tree tokens.",
+      "summaryZh": "执行 `matTreeTheme`，生成树形控件 M2 令牌。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -3178,9 +3368,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `matTreeTheme` to handle mat tree theme.",
-          "descriptionZh": "执行 `matTreeTheme`，用于Material树形控件主题。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `matTreeTheme` to generate M2 tree tokens.",
+          "descriptionZh": "执行 `matTreeTheme`，生成树形控件 M2 令牌。"
         }
       ],
       "properties": []
@@ -3280,6 +3470,30 @@
       "properties": []
     },
     {
+      "name": "mergeThemeStyleMaps",
+      "kind": "function",
+      "summary": "Deep-merges multiple JSS/CSS style maps so shared selectors (`html`, `.mat-mdc-card`, etc.) preserve all declarations.",
+      "summaryZh": "深度合并多个主题样式规则映射，确保共用选择器（如 `html`）的声明互不覆盖丢失。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "mergeThemeStyleMaps",
+          "params": [
+            {
+              "name": "maps",
+              "type": "ReadonlyArray<unknown>"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Deep-merges multiple JSS/CSS style maps so shared selectors (`html`, `.mat-mdc-card`, etc.) preserve all declarations.",
+          "descriptionZh": "深度合并多个主题样式规则映射，确保共用选择器（如 `html`）的声明互不覆盖丢失。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "mix",
       "kind": "function",
       "summary": "Executes `mix` to handle mix.",
@@ -3369,6 +3583,62 @@
       "properties": []
     },
     {
+      "name": "resolveM2BlocksForTheme",
+      "kind": "function",
+      "summary": "Resolves the complete Material 22 M2 token stylesheet map (base + color + density + typography) for a runtime `Theme`.",
+      "summaryZh": "为指定运行时 `Theme` 解析完整的 Material 22 M2 令牌样式映射（基础 + 色彩 + 密度 + 排版）。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resolveM2BlocksForTheme",
+          "params": [
+            {
+              "name": "theme",
+              "type": "Theme"
+            },
+            {
+              "name": "tokenPrefixFilter",
+              "type": "readonly string[]"
+            }
+          ],
+          "returnType": "Record<string, unknown>",
+          "description": "Resolves the complete Material 22 M2 token stylesheet map (base + color + density + typography) for a runtime `Theme`.",
+          "descriptionZh": "为指定运行时 `Theme` 解析完整的 Material 22 M2 令牌样式映射（基础 + 色彩 + 密度 + 排版）。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "resolveM2TemplateValue",
+      "kind": "function",
+      "summary": "Resolves sentinel placeholders (`{{primary.default}}`, `{{accent.default@0.25}}`, etc.) in a CSS value.",
+      "summaryZh": "将模板字符串中的哨兵占位符替换为运行时 `Theme` 调色板对应的真实颜色值。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "resolveM2TemplateValue",
+          "params": [
+            {
+              "name": "templateValue",
+              "type": "string"
+            },
+            {
+              "name": "theme",
+              "type": "Theme"
+            }
+          ],
+          "returnType": "string",
+          "description": "Resolves sentinel placeholders (`{{primary.default}}`, `{{accent.default@0.25}}`, etc.) in a CSS value.",
+          "descriptionZh": "将模板字符串中的哨兵占位符替换为运行时 `Theme` 调色板对应的真实颜色值。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "rgba",
       "kind": "function",
       "summary": "Executes `rgba` to handle rgba.",
@@ -3421,6 +3691,34 @@
       "properties": []
     },
     {
+      "name": "serializeThemeRulesToCss",
+      "kind": "function",
+      "summary": "Serializes a JSS-compatible style object tree (including `@global`, `@media`, `@keyframes`, and `&` nesting) into standard CSS text.",
+      "summaryZh": "将兼容 `7.4.52` JSS 结构的样式对象树（含 `@global`、`@media`、`@keyframes` 与多层 `&` 嵌套）序列化为标准 CSS 文本。",
+      "sourceFile": "src/theme/theme.service.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "serializeThemeRulesToCss",
+          "params": [
+            {
+              "name": "rules",
+              "type": "Record<string, unknown>"
+            },
+            {
+              "name": "parentSelector",
+              "type": "string"
+            }
+          ],
+          "returnType": "string",
+          "description": "Serializes a JSS-compatible style object tree (including `@global`, `@media`, `@keyframes`, and `&` nesting) into standard CSS text.",
+          "descriptionZh": "将兼容 `7.4.52` JSS 结构的样式对象树（含 `@global`、`@media`、`@keyframes` 与多层 `&` 嵌套）序列化为标准 CSS 文本。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "structuralStyling",
       "kind": "function",
       "summary": "Executes `structuralStyling` to handle structural styling.",
@@ -3434,10 +3732,10 @@
           "params": [
             {
               "name": "prefix",
-              "type": "any"
+              "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "Record<string, unknown>",
           "description": "Executes `structuralStyling` to handle structural styling.",
           "descriptionZh": "执行 `structuralStyling`，用于structural样式。"
         }
@@ -3659,8 +3957,8 @@
         {
           "name": "type",
           "type": "'light'|'dark'|'darkblue'",
-          "description": "Property `type` (`'light'|'dark'|'darkblue'`) storing type.",
-          "descriptionZh": "属性 `type`（类型：`'light'|'dark'|'darkblue'`），用于存储或配置类型。"
+          "description": "Property `type` (`\"dark\" | \"light\" | \"darkblue\"`) storing type.",
+          "descriptionZh": "属性 `type`（类型：`\"dark\" | \"light\" | \"darkblue\"`），用于存储或配置类型。"
         },
         {
           "name": "foreground",
@@ -3691,8 +3989,8 @@
     {
       "name": "THEME_SERVICE_PROVIDER",
       "kind": "constant",
-      "summary": "Constant/variable `THEME_SERVICE_PROVIDER` defining theme service provider in `src/theme`.",
-      "summaryZh": "常量/变量 `THEME_SERVICE_PROVIDER`，定义 `src/theme` 中的主题服务提供者。",
+      "summary": "Constant `THEME_SERVICE_PROVIDER` providing singleton `ThemeService` via `ThemeService.getInstance()`.",
+      "summaryZh": "常量 `THEME_SERVICE_PROVIDER`，通过 `ThemeService.getInstance()` 提供单例 `ThemeService`。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
@@ -3702,8 +4000,8 @@
     {
       "name": "ThemeService",
       "kind": "service",
-      "summary": "Injectable Angular service `ThemeService` managing theme service state and operations in `src/theme`.",
-      "summaryZh": "可注入的 Angular 服务 `ThemeService`，管理 `src/theme` 中的主题服务状态与业务操作。",
+      "summary": "Injectable Angular service `ThemeService` managing M2 dynamic theme state and `<style>` tag injection in `src/theme`.",
+      "summaryZh": "可注入的 Angular 服务 `ThemeService`，管理 M2 动态主题状态、三档密度与 `<style>` 标签层叠注入。",
       "sourceFile": "src/theme/theme.service.ts",
       "inputs": [],
       "outputs": [],
@@ -3712,34 +4010,34 @@
           "name": "getInstance",
           "params": [],
           "returnType": "ThemeService",
-          "description": "Executes `getInstance` to handle get instance.",
-          "descriptionZh": "执行 `getInstance`，用于获取实例。"
+          "description": "Executes `getInstance` to obtain or lazily construct the `ThemeService` singleton.",
+          "descriptionZh": "执行 `getInstance`，获取或延迟创建 `ThemeService` 单例。"
         },
         {
           "name": "refreshTheme",
           "params": [],
-          "returnType": "any",
-          "description": "Executes `refreshTheme` to handle refresh theme.",
-          "descriptionZh": "执行 `refreshTheme`，用于刷新主题。"
+          "returnType": "void",
+          "description": "Executes `refreshTheme` to load `dotosConfig` from `LocalStorageService` (or fallback to `DEFAULT_CONFIG`) and apply it.",
+          "descriptionZh": "执行 `refreshTheme`，从本地存储读取 `dotosConfig`（不可用时回退至默认配置）并应用主题。"
         },
         {
           "name": "getFormType",
           "params": [],
-          "returnType": "any",
-          "description": "Executes `getFormType` to handle get form type.",
-          "descriptionZh": "执行 `getFormType`，用于获取表单类型。"
+          "returnType": "MatFormFieldAppearance",
+          "description": "Executes `getFormType` to return the synchronous `MatFormFieldAppearance` value.",
+          "descriptionZh": "执行 `getFormType`，获取当前表单字段外观模式。"
         },
         {
           "name": "setTheme",
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DotosConfig"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `setTheme` to handle set theme.",
-          "descriptionZh": "执行 `setTheme`，用于集合主题。"
+          "returnType": "void",
+          "description": "Executes `setTheme` to store `config` and apply its palette, mode, density, and `formType`.",
+          "descriptionZh": "执行 `setTheme`，保存配置并应用其主辅警色、底色模式、紧凑度与表单样式。"
         },
         {
           "name": "loadTheme",
@@ -3750,28 +4048,28 @@
             }
           ],
           "returnType": "void",
-          "description": "Executes `loadTheme` to handle load theme.",
-          "descriptionZh": "执行 `loadTheme`，用于加载主题。"
+          "description": "Executes `loadTheme` to inject or update a component's dynamic `<style>` stylesheet after `core` and `material-theme`.",
+          "descriptionZh": "执行 `loadTheme`，在 `core` 与 `material-theme` 之后挂载或原位更新组件级 `<style>` 主题样式表。"
         },
         {
           "name": "createThemeStyles",
           "params": [
             {
               "name": "theme",
-              "type": "any"
+              "type": "Theme"
             },
             {
               "name": "themeFn",
               "type": "(theme: Theme) => unknown"
             },
             {
-              "name": "dynamicThemeStyles",
-              "type": "any"
+              "name": "_dynamicThemeStyles",
+              "type": "boolean"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `createThemeStyles` to handle create theme styles.",
-          "descriptionZh": "执行 `createThemeStyles`，用于创建主题样式集合。"
+          "returnType": "DuiStyleSheet",
+          "description": "Executes `createThemeStyles` to construct a `<style>`-backed `DuiStyleSheet` for a component `themeFn`.",
+          "descriptionZh": "执行 `createThemeStyles`，为组件主题函数构造基于 `<style>` 标签的 `DuiStyleSheet`。"
         },
         {
           "name": "getThemeStyle",
@@ -3785,9 +4083,9 @@
               "type": "Theme"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `getThemeStyle` to handle get theme style.",
-          "descriptionZh": "执行 `getThemeStyle`，用于获取主题样式。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `getThemeStyle` to evaluate `themeFn(theme)` into a plain style rule map.",
+          "descriptionZh": "执行 `getThemeStyle`，调用 `themeFn(theme)` 并返回样式规则对象。"
         },
         {
           "name": "changeThemeWithConfig",
@@ -3797,24 +4095,24 @@
               "type": "DotosConfig"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `changeThemeWithConfig` to handle change theme with config.",
-          "descriptionZh": "执行 `changeThemeWithConfig`，用于变更主题带有配置。"
+          "returnType": "void",
+          "description": "Executes `changeThemeWithConfig` to apply a `DotosConfig` update to the active theme.",
+          "descriptionZh": "执行 `changeThemeWithConfig`，根据传入的 `DotosConfig` 切换当前主题。"
         },
         {
           "name": "changeTheme",
           "params": [
             {
               "name": "primaryStr",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "accentStr",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "warnStr",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "type",
@@ -3830,8 +4128,8 @@
             }
           ],
           "returnType": "void",
-          "description": "Executes `changeTheme` to handle change theme.",
-          "descriptionZh": "执行 `changeTheme`，用于变更主题。"
+          "description": "Executes `changeTheme` to switch palettes, mode (`light`/`dark`/`darkblue`), density/typography (`loose`/`normal`/`compact`), and `formType`,\nupdating `<style>` tags in `<head>` in strict `7.4.52` cascade order (`core` -> `material-theme` -> `loadTheme`).",
+          "descriptionZh": "执行 `changeTheme`，即时切换调色板、底色模式、紧凑度字阶与表单外观，并按 `7.4.52` 严格层叠顺序更新 `<head>` 中的 `<style>` 标签。"
         },
         {
           "name": "getThemeByType",
@@ -3841,16 +4139,16 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `getThemeByType` to handle get theme by type.",
-          "descriptionZh": "执行 `getThemeByType`，用于获取主题按类型。"
+          "returnType": "Theme",
+          "description": "Executes `getThemeByType` to obtain the current `Theme` (`'default'`) or construct a `Theme` for a specific mode\nwithout mutating DOM `<style>` tags (matching `7.4.52` side-effect-free behavior).",
+          "descriptionZh": "执行 `getThemeByType`，获取当前主题（`'default'`）或按指定底色类型构造内存主题对象（不触发 DOM `<style>` 注入副作用）。"
         },
         {
           "name": "getTheme",
           "params": [],
-          "returnType": "any",
-          "description": "Executes `getTheme` to handle get theme.",
-          "descriptionZh": "执行 `getTheme`，用于获取主题。"
+          "returnType": "Theme",
+          "description": "Executes `getTheme` to return the active in-memory `Theme` without mutating DOM `<style>` tags (matching `7.4.52`).",
+          "descriptionZh": "执行 `getTheme`，返回当前内存中的 `Theme` 对象（不触发 `refreshTheme()` DOM `<style>` 注入副作用，对齐 `7.4.52`）。"
         }
       ],
       "properties": [
@@ -3858,23 +4156,23 @@
           "name": "formType",
           "type": "BehaviorSubject<MatFormFieldAppearance>",
           "default": "new BehaviorSubject<MatFormFieldAppearance>('fill')",
-          "description": "Property `formType` (`BehaviorSubject<MatFormFieldAppearance>`) storing form type.",
-          "descriptionZh": "属性 `formType`（类型：`BehaviorSubject<MatFormFieldAppearance>`），用于存储或配置表单类型。"
+          "description": "Property `formType` (`BehaviorSubject<MatFormFieldAppearance>`) storing active form field appearance.",
+          "descriptionZh": "属性 `formType`（类型：`BehaviorSubject<MatFormFieldAppearance>`），存储当前表单外观模式。"
         },
         {
           "name": "dotosConfig",
           "type": "DotosConfig",
-          "description": "Property `dotosConfig` (`any`) storing dotos config.",
-          "descriptionZh": "属性 `dotosConfig`（类型：`any`），用于存储或配置DotOS配置。"
+          "description": "Property `dotosConfig` (`DotosConfig`) storing current DotOS layout and theme configuration.",
+          "descriptionZh": "属性 `dotosConfig`（类型：`DotosConfig`），存储当前 DotOS 布局与主题配置。"
         }
       ]
     },
     {
       "name": "typography",
       "kind": "function",
-      "summary": "Executes `typography` to handle typography.",
-      "summaryZh": "执行 `typography`，用于排版。",
-      "sourceFile": "src/theme/theme/mat-progress-bar-theme.ts",
+      "summary": "Executes `typography` to generate M2 progress-bar typography rules (7.4.52 public API parity).",
+      "summaryZh": "执行 `typography`，生成进度条排版规则（保持 `7.4.52` `@dotos1/dui/theme` 公开导出签名兼容）。",
+      "sourceFile": "src/theme/theme/mat-themes.ts",
       "inputs": [],
       "outputs": [],
       "methods": [
@@ -3886,9 +4184,9 @@
               "type": "TypographyConfig"
             }
           ],
-          "returnType": "Object",
-          "description": "Executes `typography` to handle typography.",
-          "descriptionZh": "执行 `typography`，用于排版。"
+          "returnType": "Record<string, unknown>",
+          "description": "Executes `typography` to generate M2 progress-bar typography rules (7.4.52 public API parity).",
+          "descriptionZh": "执行 `typography`，生成进度条排版规则（保持 `7.4.52` `@dotos1/dui/theme` 公开导出签名兼容）。"
         }
       ],
       "properties": []
@@ -4071,5 +4369,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DotosConfigModule } from '@dotos/dui/theme';"
+  "suggestedUsageSnippet": "import { DotosConfigModule } from '@dotos1/dui/theme';"
 }

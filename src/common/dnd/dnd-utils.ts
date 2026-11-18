@@ -186,7 +186,7 @@ export function getDropData( event:DragEvent, dragIsExternal:boolean ):DragDropD
  * Executes `filterEffects` to handle filter effects.
  * @zh 执行 `filterEffects`，用于过滤副作用。
  * @param effects - effects parameter (`DropEffect[]`) / 副作用参数（`DropEffect[]`）
- * @param allowed - allowed parameter (`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`) / 允许的参数（`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`）
+ * @param allowed - allowed parameter (`"link" | "none" | "copy" | "move" | "copyMove" | "copyLink" | "linkMove" | "all" | "uninitialized"`) / 允许的参数（`"link" | "none" | "copy" | "move" | "copyMove" | "copyLink" | "linkMove" | "all" | "uninitialized"`）
  * @returns Result of type `DropEffect[]` / 类型为 `DropEffect[]` 的返回值
  */
 export function filterEffects( effects:DropEffect[], allowed:EffectAllowed | DropEffect ):DropEffect[] {

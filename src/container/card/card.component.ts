@@ -5,9 +5,9 @@
 
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Injector, Input, OnChanges, SimpleChanges, ViewChild, ViewContainerRef, ViewEncapsulation } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
-import { ComponentBase, Dui, DuiConfig, DuiStyle } from '@dotos/dui/core';
+import { ComponentBase, Dui, DuiConfig, DuiStyle } from '@dotos1/dui/core';
 import { PageEvent } from '@angular/material/paginator';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import {concat,isUndefined,isString}  from 'lodash-es';
 import { Container } from '../container.main';
 
@@ -248,6 +248,42 @@ export class DuiCardComponent extends Container implements OnChanges{
   public fxLayout: string = 'row';
 
   /**
+   * Computes merged content container styles combining `fxLayout` direction/wrap with `style`.
+   * @zh 计算合并了 `fxLayout` 弹性方向/换行配置与 `style` 的卡片内容容器样式。
+   * @returns Result of type `DuiStyle` / 类型为 `DuiStyle` 的返回值
+   */
+  public getContentLayoutStyle(): DuiStyle {
+    const raw = (this.fxLayout || 'row').toLowerCase().trim();
+    const parts = raw.split(/\s+/);
+    const validDirs = ['row', 'column', 'row-reverse', 'column-reverse'];
+    const direction = validDirs.includes(parts[0]) ? parts[0] : 'row';
+    const isInline = parts.includes('inline');
+    const wrapToken = parts.find((p, idx) => idx > 0 && p !== 'inline');
+    let flexWrap: string | undefined;
+    if (wrapToken) {
+      if (wrapToken === 'reverse' || wrapToken === 'wrap-reverse' || wrapToken === 'reverse-wrap') {
+        flexWrap = 'wrap-reverse';
+      } else if (wrapToken === 'no' || wrapToken === 'none' || wrapToken === 'nowrap') {
+        flexWrap = 'nowrap';
+      } else {
+        flexWrap = 'wrap';
+      }
+    }
+    const baseStyle: DuiStyle = {
+      display: isInline ? 'inline-flex' : 'flex',
+      'box-sizing': 'border-box',
+      'flex-direction': direction,
+    };
+    if (flexWrap) {
+      baseStyle['flex-wrap'] = flexWrap;
+    }
+    return {
+      ...baseStyle,
+      ...(this.style || {}),
+    };
+  }
+
+  /**
    * Property `style` (`DuiStyle`) storing style.
    * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式。
    */
@@ -269,7 +305,7 @@ export class DuiCardComponent extends Container implements OnChanges{
    * Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.
    * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
    */
-  @ViewChild('panel', { read: ViewContainerRef, static: false }) public override viewContainer: ViewContainerRef;
+  @ViewChild('panel', { read: ViewContainerRef, static: false }) public override viewContainer: ViewContainerRef = undefined;
 
   /**
    * Template/content query reference `actionbar` (`ViewContainerRef`) targeting actionbar.
@@ -369,7 +405,7 @@ export class DuiCardComponent extends Container implements OnChanges{
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

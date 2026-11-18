@@ -13,8 +13,8 @@ import {
   TemplateRef,
   ViewEncapsulation,
 } from '@angular/core';
-import { reaction } from 'mobx';
-import { action, computed, observable } from '@dotos/dui/core/mobx';
+import { makeObservable, reaction } from 'mobx';
+import { action, computed, observable } from '@dotos1/dui/core/mobx';
 import { TreeNode as TreeNodeApi } from '../defs/api';
 import { TreeNode } from '../models/tree-node.model';
 import { TreeModel } from '../models/tree.model';
@@ -92,7 +92,7 @@ export class TreeNodeComponent {
    * Property `_node` (`unknown`) storing node.
    * @zh 属性 `_node`（类型：`unknown`），存储或配置节点。
    */
-  @observable _node: TreeNodeApi;
+  @observable _node: TreeNodeApi = undefined;
   /**
    * Input property `index` (`number`) configuring index.
    * @zh 输入属性 `index`（类型：`number`），配置索引。
@@ -103,6 +103,14 @@ export class TreeNodeComponent {
    * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。
    */
   @Input() templates: TreeNodeTemplates;
+
+  /**
+   * Creates an instance of `TreeNodeComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeNodeComponent` 实例，并初始化其依赖项与内部状态。
+   */
+  constructor() {
+    makeObservable(this);
+  }
 }
 
 /**
@@ -153,13 +161,21 @@ export class TreeNodeChildrenComponent {
    * Property `_node` (`TreeNode`) storing node.
    * @zh 属性 `_node`（类型：`TreeNode`），存储或配置节点。
    */
-  @observable _node: TreeNode;
+  @observable _node: TreeNode = undefined;
 
   /**
    * Input property `templates` (`TreeNodeTemplates`) configuring templates.
    * @zh 输入属性 `templates`（类型：`TreeNodeTemplates`），配置模板。
    */
   @Input() templates: TreeNodeTemplates;
+
+  /**
+   * Creates an instance of `TreeNodeChildrenComponent` and initializes its dependencies and internal state.
+   * @zh 创建 `TreeNodeChildrenComponent` 实例，并初始化其依赖项与内部状态。
+   */
+  constructor() {
+    makeObservable(this);
+  }
 }
 
 /**
@@ -209,7 +225,7 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
    * Property `_nodes` (`TreeNode[]`) storing nodes.
    * @zh 属性 `_nodes`（类型：`TreeNode[]`），存储或配置节点列表。
    */
-  @observable _nodes: TreeNode[];
+  @observable _nodes: TreeNode[] = undefined;
   /**
    * Property `virtualScroll` (`TreeVirtualScroll`) storing virtual scroll.
    * @zh 属性 `virtualScroll`（类型：`TreeVirtualScroll`），存储或配置虚拟滚动。
@@ -219,7 +235,7 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
    * Property `viewportNodes` (`TreeNode[]`) storing viewport nodes.
    * @zh 属性 `viewportNodes`（类型：`TreeNode[]`），存储或配置视口节点列表。
    */
-  @observable viewportNodes: TreeNode[];
+  @observable viewportNodes: TreeNode[] = undefined;
 
   /**
    * Gets the current margin top (`marginTop: string`).
@@ -254,7 +270,9 @@ export class TreeNodeCollectionComponent implements OnInit, OnDestroy {
    * @zh 创建 `TreeNodeCollectionComponent` 实例，并初始化其依赖项与内部状态。
    * @param cdr - Injected or initial cdr (`ChangeDetectorRef`) / 注入或传入的变更检测引用（`ChangeDetectorRef`）
    */
-  constructor(private cdr: ChangeDetectorRef) {}
+  constructor(private cdr: ChangeDetectorRef) {
+    makeObservable(this);
+  }
 
   /**
    * Angular lifecycle hook invoked once after component or directive inputs are initialized.

@@ -6,7 +6,7 @@
 import { Injectable } from "@angular/core";
 import { DockLayoutHostComponent } from "./dock-layout-host.component";
 import { DockLayout } from "./dock-layout";
-import { TranslateService } from "@dotos/dui/translator";
+import { TranslateService } from "@dotos1/dui/translator";
 import { LayoutManager } from "./layout-manager";
 
 /**

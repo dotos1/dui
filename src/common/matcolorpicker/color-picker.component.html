@@ -6,8 +6,8 @@
 
 <mat-menu #colorMenu="matMenu" class="color-picker-menu mat-elevation-z8">
 
-  <header [ngClass]="selectedColor?.class || 'accent'" class="mat-elevation-z4" fxLayout="row"
-    fxLayoutAlign="space-between center">
+  <header [ngClass]="selectedColor?.class || 'accent'" class="mat-elevation-z4"
+    style="display: flex; flex-direction: row; box-sizing: border-box; justify-content: space-between; align-items: center; align-content: center;">
 
     <button mat-icon-button class="secondary-text" [style.visibility]="view === 'hues' ? 'visible' : 'hidden'"
       (click)="goToPalettesView($event)" aria-label="Palette">
@@ -31,17 +31,17 @@
   <div [ngSwitch]="view" class="views">
 
     <div class="view" *ngSwitchCase="'palettes'">
-      <div   fxLayout="row wrap" fxLayoutAlign="start start" class="colors">
-        <div class="color" fxLayout="row" fxLayoutAlign="center center" *ngFor="let color of (colors | keys)"
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; justify-content: flex-start; align-items: flex-start; align-content: flex-start;" class="colors">
+        <div class="color" style="display: flex; flex-direction: row; box-sizing: border-box; justify-content: center; align-items: center; align-content: center;" *ngFor="let color of (colors | keys)"
           [ngClass]="color.key" [class.selected]="selectedPalette === color.key"
           (click)="selectPalette($event,color.key)">
         </div>
       </div>
     </div>
     <div class="view" *ngSwitchCase="'hues'">
-      <div fxLayout="row wrap" fxLayoutAlign="start start" class="colors" >
-        <div class="color" fxLayout="row" fxLayoutAlign="center center" *ngFor="let hue of hues"
-          [fxHide]="selectedPalette === 'dui-white' && hue !== '500' || selectedPalette === 'dui-black' && hue !== '500'"
+      <div style="display: flex; flex-direction: row; flex-wrap: wrap; box-sizing: border-box; justify-content: flex-start; align-items: flex-start; align-content: flex-start;" class="colors" >
+        <div class="color" style="flex-direction: row; box-sizing: border-box; justify-content: center; align-items: center; align-content: center;" *ngFor="let hue of hues"
+          [style.display]="(selectedPalette === 'dui-white' && hue !== '500' || selectedPalette === 'dui-black' && hue !== '500') ? 'none' : 'flex'"
           [ngClass]="selectedPalette + '-' + hue" [class.selected]="selectedHue === hue"
           (click)="selectHue($event, hue)">
         </div>

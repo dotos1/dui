@@ -4,7 +4,7 @@
  */
 
 
-import { DynamicComponentModel } from '@dotos/dui/core/services';
+import { DynamicComponentModel } from '@dotos1/dui/core/services';
 import { CardViewTextItemModel } from './card-view-textitem.model';
 import { CardViewItem,CardViewTextItemProperties } from '../interfaces';
 import { CardViewItemFloatValidator } from '../validators';

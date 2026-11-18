@@ -5,7 +5,7 @@
 
 
 import {  ChangeDetectionStrategy,  Component,  Input,  OnChanges,} from '@angular/core';
-import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
+import { ColorWrap, toState } from '@dotos1/dui/common/colorpicker/common';
 
 /**
  * Angular component `HuePickerComponent` (selector: 'color-hue-picker') providing hue picker component presentation and interaction in `src/common/colorpicker/components/hue`.

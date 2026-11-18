@@ -105,7 +105,7 @@ export function setDropEffect( event:DragEvent, dropEffect:DropEffect ) {
  * Executes `getDropEffect` to handle get drop effect.
  * @zh 执行 `getDropEffect`，用于获取放置副作用。
  * @param event - event parameter (`DragEvent`) / 事件参数（`DragEvent`）
- * @param effectAllowed - effect allowed parameter (`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`) / 副作用允许的参数（`"link" | "none" | "copy" | "all" | "move" | "copyMove" | "copyLink" | "linkMove" | "uninitialized"`）
+ * @param effectAllowed - effect allowed parameter (`"link" | "none" | "copy" | "move" | "copyMove" | "copyLink" | "linkMove" | "all" | "uninitialized"`) / 副作用允许的参数（`"link" | "none" | "copy" | "move" | "copyMove" | "copyLink" | "linkMove" | "all" | "uninitialized"`）
  * @returns Result of type `DropEffect` / 类型为 `DropEffect` 的返回值
  */
 export function getDropEffect( event:DragEvent, effectAllowed?:EffectAllowed | DropEffect ):DropEffect {

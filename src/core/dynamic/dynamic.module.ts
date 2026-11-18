@@ -7,8 +7,7 @@
 import { NgModule } from "@angular/core";
 import { CommonModule } from "@angular/common";
 import { DynamicComponent } from "./dynamic.component";
-import { FlexLayoutModule } from "ngx-flexible-layout";
-import { TranslateModule } from "@dotos/dui/translator";
+import { TranslateModule } from "@dotos1/dui/translator";
 import { SafeurlPipe } from "./safeurl.pipe";
 
 /**
@@ -16,7 +15,7 @@ import { SafeurlPipe } from "./safeurl.pipe";
  * @zh Angular 模块 `DynamicModule`，声明并导出动态模块相关的组件、指令、管道与服务提供者。
  */
 @NgModule({
-  imports: [  CommonModule,FlexLayoutModule,TranslateModule],
+  imports: [  CommonModule,TranslateModule],
   declarations: [DynamicComponent, SafeurlPipe],
   exports: [
     DynamicComponent,

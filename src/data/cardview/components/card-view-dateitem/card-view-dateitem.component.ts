@@ -4,17 +4,17 @@
  */
 
 
-import { Component, Input, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { DateAdapter } from '@angular/material/core';
 import moment from 'moment';
 import { Moment } from 'moment';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
-import { MatDatetimepicker } from '@dotos/dui/form/date/picker';
-import { ConfigService } from '@dotos/dui/core/config';
-import { ClipboardService } from '@dotos/dui/common/clipboard';
-import { TranslationService } from '@dotos/dui/translator';
+import { MatDatetimepicker } from '@dotos1/dui/form/date/picker';
+import { ConfigService } from '@dotos1/dui/core/config';
+import { ClipboardService } from '@dotos1/dui/common/clipboard';
+import { TranslationService } from '@dotos1/dui/translator';
 
 import { CardViewDateItemModel } from '../../models';
 import { CardViewUpdateService } from '../../services';
@@ -33,7 +33,8 @@ import { CardViewUpdateService } from '../../services';
   selector: 'dui-card-view-dateitem',
   templateUrl: './card-view-dateitem.component.html',
   styleUrls: ['./card-view-dateitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewDateItemComponent implements OnInit, OnDestroy {
 

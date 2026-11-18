@@ -1,412 +1,849 @@
 /**
- * @fileoverview Module `src/theme/theme.service.ts` providing theme service definitions and implementation.
- * @zh 模块文件 `src/theme/theme.service.ts`，提供主题服务相关的定义与实现。
+ * @fileoverview Module `src/theme/theme.service.ts` providing M2 dynamic theme service & `<style>` tag JSS serializer.
+ * Restores 100% of `7.4.52` public signatures, M2 palette resolution, `light`/`dark`/`darkblue` modes,
+ * `loose`/`normal`/`compact` densities & typography, and `<style>` DOM cascade order (`core` -> `material-theme` -> `loadTheme`).
+ * @zh 模块文件 `src/theme/theme.service.ts`，提供 M2 动态主题服务与 `<style>` 标签 JSS 序列化器，100% 恢复 `7.4.52` 签名、配色、密度及 DOM 层叠顺序。
  */
 
-import { Provider } from '@angular/core';
-import { create, StyleSheet, Styles } from 'jss';
-import jssPluginGlobal from 'jss-plugin-global';
-import jssPluginNested  from 'jss-plugin-nested';
-import { MatColors } from '@dotos/dui/core/color';
-import { Injectable } from '@angular/core';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { ServiceLocator } from '@dotos/dui/core/services';
-
-import { matCore } from './mat-core';
-import { materialTheme } from './mat-theme';
-import { Theme,Palette,TypographyConfig } from './interfaces';
-import { DotosConfig } from './types';
-import { matPalette } from './mat-palette';
-import { matLightTheme } from './mat-light-theme';
-import { matDarkTheme } from './mat-dark-theme';
-import { TypographyMap } from './typography-theme';
-import { matDarkBlueTheme } from './mat-darkblue-theme';
+import { Injectable, Provider } from '@angular/core';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
+import { MatColors } from '@dotos1/dui/core/color';
+import { ServiceLocator } from '@dotos1/dui/core/services';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import { BehaviorSubject } from 'rxjs';
-/**
- * Constant/variable `jss` defining jss in `src/theme`.
- * @zh 常量/变量 `jss`，定义 `src/theme` 中的jss。
- */
-const jss = create({ plugins: [jssPluginGlobal(), jssPluginNested()] });
+
+import { Palette, Theme, TypographyConfig } from './interfaces';
+import { matCore } from './mat-core';
+import { matDarkTheme } from './mat-dark-theme';
+import { matDarkBlueTheme } from './mat-darkblue-theme';
+import { matLightTheme } from './mat-light-theme';
+import { matPalette } from './mat-palette';
+import { materialTheme } from './mat-theme';
+import { mergeThemeStyleMaps } from './theme/mat-themes';
+import { DotosConfig } from './types';
+import { TypographyMap } from './typography-theme';
 
 /**
- * Executes `createMaterialCoreStyles` to handle create material core styles.
- * @zh 执行 `createMaterialCoreStyles`，用于创建Material核心样式集合。
- * @param typographyConfig - typography config parameter (`TypographyConfig`) / 排版配置参数（`TypographyConfig`）
- * @param override - override parameter (`Object`) / override参数（`Object`）
- * @param dynamic - dynamic parameter (`boolean`) / 动态参数（`boolean`）
- * @returns Result of type `StyleSheet<string>` / 类型为 `StyleSheet<string>` 的返回值
+ * Interface `DuiStyleSheet` representing an attachable/detachable `<style>` tag stylesheet handle.
+ * @zh 接口 `DuiStyleSheet`，表示挂载至 `<head>` 内 `<style>` 标签的可装卸样式表句柄。
  */
-export function createMaterialCoreStyles(typographyConfig: TypographyConfig = null, override: Object = {}, dynamic: boolean = false): StyleSheet<string> {
-  const styles = {
-    '@global': {
-      ...(matCore(typographyConfig) as Record<string, unknown>),
-      ...override
-    }
-  };
-  return jss.createStyleSheet(styles as Styles, { link: dynamic });
+export interface DuiStyleSheet {
+  /**
+   * Property `cssText` (`string`) storing serialized CSS rules.
+   * @zh 属性 `cssText`（类型：`string`），存储序列化后的 CSS 规则文本。
+   */
+  readonly cssText: string;
+  /**
+   * Property `element` (`HTMLStyleElement`) storing mounted `<style>` DOM element when attached.
+   * @zh 属性 `element`（类型：`HTMLStyleElement`），存储当前挂载在 `<head>` 中的 `<style>` 元素。
+   */
+  readonly element: HTMLStyleElement | null;
+  /**
+   * Executes `attach` to mount the `<style>` element into `document.head`.
+   * @zh 执行 `attach`，将 `<style>` 标签挂载至 `document.head`。
+   * @returns Result of type `DuiStyleSheet` / 类型为 `DuiStyleSheet` 的返回值
+   */
+  attach(): DuiStyleSheet;
+  /**
+   * Executes `detach` to remove the `<style>` element from the document.
+   * @zh 执行 `detach`，从当前文档移除该 `<style>` 标签。
+   */
+  detach(): void;
+  /**
+   * Executes `toString` to return the serialized CSS text.
+   * @zh 执行 `toString`，返回序列化后的 CSS 文本。
+   * @returns Result of type `string` / 类型为 `string` 的返回值
+   */
+  toString(): string;
 }
-/**
- * Executes `createMaterialThemeStyles` to handle create material theme styles.
- * @zh 执行 `createMaterialThemeStyles`，用于创建Material主题样式集合。
- * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
- * @param override - override parameter (`Object`) / override参数（`Object`）
- * @param dynamic - dynamic parameter (`boolean`) / 动态参数（`boolean`）
- * @returns Result of type `StyleSheet<string>` / 类型为 `StyleSheet<string>` 的返回值
- */
-export function createMaterialThemeStyles(theme: Theme, override: Object = {}, dynamic: boolean = false): StyleSheet<string> {
 
-  const styles = {
-    '@global': {
-      ...(materialTheme(theme) as Record<string, unknown>),
-      ...override
-    }
-  };
-  return jss.createStyleSheet(styles as Styles, { link: dynamic });
+/**
+ * Constant `UNITLESS_CSS_PROPERTIES` listing CSS properties whose numeric values must remain unitless.
+ * @zh 常量 `UNITLESS_CSS_PROPERTIES`，列出数值不应追加 `px` 单位的 CSS 属性集合。
+ */
+const UNITLESS_CSS_PROPERTIES: ReadonlySet<string> = new Set<string>([
+  'animation-iteration-count',
+  'aspect-ratio',
+  'border-image-outset',
+  'border-image-slice',
+  'border-image-width',
+  'box-flex',
+  'box-flex-group',
+  'box-ordinal-group',
+  'column-count',
+  'columns',
+  'fill-opacity',
+  'flex',
+  'flex-grow',
+  'flex-positive',
+  'flex-shrink',
+  'flex-negative',
+  'flex-order',
+  'flood-opacity',
+  'font-weight',
+  'grid-area',
+  'grid-column',
+  'grid-column-end',
+  'grid-column-span',
+  'grid-column-start',
+  'grid-row',
+  'grid-row-end',
+  'grid-row-span',
+  'grid-row-start',
+  'line-clamp',
+  'line-height',
+  'opacity',
+  'order',
+  'orphans',
+  'scale',
+  'stop-opacity',
+  'stroke-dasharray',
+  'stroke-dashoffset',
+  'stroke-miterlimit',
+  'stroke-opacity',
+  'stroke-width',
+  'tab-size',
+  'widows',
+  'z-index',
+  'zoom',
+]);
+
+/**
+ * Converts a camelCase or whitespace-padded CSS property name into standard kebab-case.
+ * @zh 将驼峰或带空白前缀的 CSS 属性名规范化为标准短横线命名（保留 `--` 自定义属性）。
+ * @param rawProp - raw property name (`string`) / 原始属性名（`string`）
+ * @returns Normalized CSS property name (`string`) / 规范化后的 CSS 属性名（`string`）
+ */
+function toCssPropertyName(rawProp: string): string {
+  const trimmed = rawProp.trim();
+  if (trimmed.startsWith('--')) {
+    return trimmed;
+  }
+  return trimmed.replace(/[A-Z]/g, (ch: string) => `-${ch.toLowerCase()}`);
 }
 
 /**
- * Injectable Angular service `ThemeService` managing theme service state and operations in `src/theme`.
- * @zh 可注入的 Angular 服务 `ThemeService`，管理 `src/theme` 中的主题服务状态与业务操作。
+ * Formats a primitive CSS value, appending `px` to non-zero numbers for dimensional properties.
+ * @zh 格式化基础 CSS 属性值，对非无单位属性的数值自动补充 `px`。
+ * @param propName - kebab-case CSS property name (`string`) / 规范化后的 CSS 属性名（`string`）
+ * @param rawValue - raw value (`unknown`) / 原始属性值（`unknown`）
+ * @returns Formatted CSS declaration value (`string | null`) / 格式化后的 CSS 属性值（`string | null`）
+ */
+function formatCssValue(propName: string, rawValue: unknown): string | null {
+  if (rawValue === null || rawValue === undefined || rawValue === false) {
+    return null;
+  }
+  if (rawValue === '') {
+    return propName === 'content' ? '""' : null;
+  }
+  if (typeof rawValue === 'number') {
+    if (!Number.isFinite(rawValue)) {
+      return null;
+    }
+    if (rawValue === 0 || propName.startsWith('--') || UNITLESS_CSS_PROPERTIES.has(propName)) {
+      return String(rawValue);
+    }
+    return `${rawValue}px`;
+  }
+  if (typeof rawValue === 'string') {
+    return rawValue;
+  }
+  if (Array.isArray(rawValue)) {
+    const joined = rawValue
+      .map((item: unknown) => formatCssValue(propName, item))
+      .filter((v): v is string => v !== null);
+    return joined.length > 0 ? joined.join(', ') : null;
+  }
+  return null;
+}
+
+/**
+ * Splits a comma-separated CSS selector list while respecting parentheses, brackets, and quotes.
+ * @zh 在不破坏括号、属性选择器与引号内部逗号的前提下拆分选择器列表。
+ * @param selector - selector string (`string`) / 选择器字符串（`string`）
+ * @returns Array of trimmed selector segments (`string[]`) / 去空白后的选择器片段数组（`string[]`）
+ */
+function splitSelectorList(selector: string): string[] {
+  const parts: string[] = [];
+  let depth = 0;
+  let quote: string | null = null;
+  let start = 0;
+
+  for (let i = 0; i < selector.length; i++) {
+    const ch = selector[i];
+    if (quote) {
+      if (ch === quote && selector[i - 1] !== '\\') {
+        quote = null;
+      }
+      continue;
+    }
+    if (ch === '"' || ch === "'") {
+      quote = ch;
+    } else if (ch === '(' || ch === '[') {
+      depth++;
+    } else if (ch === ')' || ch === ']') {
+      depth = Math.max(0, depth - 1);
+    } else if (ch === ',' && depth === 0) {
+      const part = selector.slice(start, i).trim();
+      if (part) {
+        parts.push(part);
+      }
+      start = i + 1;
+    }
+  }
+  const tail = selector.slice(start).trim();
+  if (tail) {
+    parts.push(tail);
+  }
+  return parts;
+}
+
+/**
+ * Resolves a child selector against a parent selector, supporting `&` nesting (suffix, prefix, and multi-selector).
+ * When `parentSelector` is empty (top-level `@global` keys), preserves `childSelector` verbatim — matching `7.4.52`
+ * `jss` + `jss-plugin-global` + `jss-plugin-nested` character-for-character so neither bare universal `::after`
+ * rules are emitted nor dormant legacy top-level `&` rules are unintentionally activated.
+ * @zh 将子选择器与父选择器合并，完整支持 `&` 嵌套；无父级选择器（顶层 `@global`）时原样保留子选择器，与 `7.4.52` JSS 输出逐字一致。
+ * @param parentSelector - parent selector (`string`) / 父级选择器（`string`）
+ * @param childSelector - child selector (`string`) / 子级选择器（`string`）
+ * @returns Combined CSS selector (`string`) / 合并后的完整 CSS 选择器（`string`）
+ */
+function combineNestedSelector(parentSelector: string, childSelector: string): string {
+  const trimmedChild = childSelector.trim();
+  if (!parentSelector) {
+    return trimmedChild;
+  }
+  const parents = splitSelectorList(parentSelector);
+  const children = splitSelectorList(trimmedChild);
+  const combined: string[] = [];
+
+  for (const parent of parents) {
+    for (const child of children) {
+      if (child.includes('&')) {
+        combined.push(child.replace(/&/g, parent));
+      } else {
+        combined.push(`${parent} ${child}`);
+      }
+    }
+  }
+  return combined.join(', ');
+}
+
+/**
+ * Checks whether an unknown value is a plain style object rather than an array or primitive.
+ * @zh 判断给定值是否为普通样式键值对象。
+ * @param value - candidate value (`unknown`) / 待检测值（`unknown`）
+ * @returns Type guard boolean (`value is Record<string, unknown>`) / 是否为普通对象
+ */
+function isPlainStyleObject(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value);
+}
+
+/**
+ * Serializes a JSS-compatible style object tree (including `@global`, `@media`, `@keyframes`, and `&` nesting) into standard CSS text.
+ * @zh 将兼容 `7.4.52` JSS 结构的样式对象树（含 `@global`、`@media`、`@keyframes` 与多层 `&` 嵌套）序列化为标准 CSS 文本。
+ * @param rules - style object (`Record<string, unknown>`) / 样式规则对象（`Record<string, unknown>`）
+ * @param parentSelector - optional parent selector (`string`) / 可选父级选择器（`string`）
+ * @returns Serialized CSS string (`string`) / 序列化后的标准 CSS 字符串（`string`）
+ */
+export function serializeThemeRulesToCss(
+  rules: Record<string, unknown>,
+  parentSelector: string = ''
+): string {
+  const declarations: string[] = [];
+  const childBlocks: string[] = [];
+
+  for (const [rawKey, rawVal] of Object.entries(rules)) {
+    if (rawVal === null || rawVal === undefined || rawVal === false) {
+      continue;
+    }
+    const key = rawKey.trim();
+    if (!key) {
+      continue;
+    }
+
+    if (key === '@global' && isPlainStyleObject(rawVal)) {
+      const globalCss = serializeThemeRulesToCss(rawVal, parentSelector);
+      if (globalCss) {
+        childBlocks.push(globalCss);
+      }
+      continue;
+    }
+
+    if (key.startsWith('@keyframes') && isPlainStyleObject(rawVal)) {
+      const frames: string[] = [];
+      for (const [stepKey, stepVal] of Object.entries(rawVal)) {
+        if (isPlainStyleObject(stepVal)) {
+          const stepCss = serializeThemeRulesToCss(stepVal, stepKey.trim());
+          if (stepCss) {
+            frames.push(stepCss);
+          }
+        }
+      }
+      if (frames.length > 0) {
+        childBlocks.push(`${key} {\n${frames.join('\n')}\n}`);
+      }
+      continue;
+    }
+
+    if (
+      (key.startsWith('@media') || key.startsWith('@supports') || key.startsWith('@container')) &&
+      isPlainStyleObject(rawVal)
+    ) {
+      const innerCss = serializeThemeRulesToCss(rawVal, parentSelector);
+      if (innerCss) {
+        childBlocks.push(`${key} {\n${innerCss}\n}`);
+      }
+      continue;
+    }
+
+    if (key === 'fallbacks') {
+      if (Array.isArray(rawVal)) {
+        for (const fb of rawVal) {
+          if (isPlainStyleObject(fb)) {
+            for (const [fbProp, fbVal] of Object.entries(fb)) {
+              const propName = toCssPropertyName(fbProp);
+              const formatted = formatCssValue(propName, fbVal);
+              if (formatted !== null) {
+                declarations.push(`  ${propName}: ${formatted};`);
+              }
+            }
+          }
+        }
+      } else if (isPlainStyleObject(rawVal)) {
+        for (const [fbProp, fbVal] of Object.entries(rawVal)) {
+          const propName = toCssPropertyName(fbProp);
+          const formatted = formatCssValue(propName, fbVal);
+          if (formatted !== null) {
+            declarations.push(`  ${propName}: ${formatted};`);
+          }
+        }
+      }
+      continue;
+    }
+
+    if (isPlainStyleObject(rawVal)) {
+      const nextSelector = combineNestedSelector(parentSelector, key);
+      const nestedCss = serializeThemeRulesToCss(rawVal, nextSelector);
+      if (nestedCss) {
+        childBlocks.push(nestedCss);
+      }
+      continue;
+    }
+
+    const propName = toCssPropertyName(key);
+    const formatted = formatCssValue(propName, rawVal);
+    if (formatted !== null) {
+      declarations.push(`  ${propName}: ${formatted};`);
+    }
+  }
+
+  const output: string[] = [];
+  if (parentSelector && declarations.length > 0) {
+    output.push(`${parentSelector} {\n${declarations.join('\n')}\n}`);
+  }
+  if (childBlocks.length > 0) {
+    output.push(childBlocks.join('\n'));
+  }
+  return output.join('\n');
+}
+
+let sheetSequence = 0;
+
+/**
+ * Creates a `<style>`-tag backed `DuiStyleSheet` (never uses `document.adoptedStyleSheets`) so DOM cascade order matches `7.4.52`.
+ * @zh 创建基于真实 `<style>` 标签的 `DuiStyleSheet`（不使用 `adoptedStyleSheets`），确保与 `7.4.52` 一致的 DOM 层叠顺序。
+ * @param rules - JSS-compatible style object (`Record<string, unknown>`) / JSS 兼容样式规则对象
+ * @param role - semantic role attribute (`string`) / 样式表角色标记（`core` | `material-theme` | `component`）
+ * @param replaceTarget - optional existing `<style>` element to replace in-place / 可选的原位替换目标 `<style>` 节点
+ * @param insertBeforeNode - optional reference node in `document.head` / 可选的插入锚点节点
+ * @returns `DuiStyleSheet` instance / `DuiStyleSheet` 实例
+ */
+function createStyleTagSheet(
+  rules: Record<string, unknown>,
+  role: string = 'custom',
+  replaceTarget: HTMLStyleElement | null = null,
+  insertBeforeNode: Node | null = null
+): DuiStyleSheet {
+  const cssText = serializeThemeRulesToCss(rules);
+  const sheetId = `dui-sheet-${++sheetSequence}`;
+  let styleEl: HTMLStyleElement | null = null;
+
+  const handle: DuiStyleSheet = {
+    cssText,
+    get element(): HTMLStyleElement | null {
+      return styleEl;
+    },
+    attach(): DuiStyleSheet {
+      if (typeof document === 'undefined' || !document.head) {
+        return handle;
+      }
+      if (!styleEl) {
+        styleEl = document.createElement('style');
+        styleEl.setAttribute('data-jss', '');
+        styleEl.setAttribute('data-dui-sheet', sheetId);
+        styleEl.setAttribute('data-dui-role', role);
+        styleEl.textContent = cssText;
+      }
+      if (!styleEl.isConnected) {
+        if (replaceTarget && replaceTarget.parentNode === document.head) {
+          document.head.replaceChild(styleEl, replaceTarget);
+          replaceTarget = null;
+        } else if (insertBeforeNode && insertBeforeNode.parentNode === document.head) {
+          document.head.insertBefore(styleEl, insertBeforeNode);
+        } else {
+          document.head.appendChild(styleEl);
+        }
+      }
+      return handle;
+    },
+    detach(): void {
+      if (styleEl && styleEl.parentNode) {
+        styleEl.parentNode.removeChild(styleEl);
+      }
+    },
+    toString(): string {
+      return cssText;
+    },
+  };
+
+  return handle;
+}
+
+/**
+ * Executes `createMaterialCoreStyles` to create Material core `<style>` stylesheet rules.
+ * @zh 执行 `createMaterialCoreStyles`，创建 Material 核心 `<style>` 样式表。
+ * @param typographyConfig - typography config parameter (`TypographyConfig`) / 排版配置参数
+ * @param override - override style rules (`Object`) / 覆盖样式规则
+ * @param _dynamic - dynamic flag kept for `7.4.52` signature parity (`boolean`) / 保持 `7.4.52` 签名兼容的动态参数
+ * @returns `DuiStyleSheet` handle / `DuiStyleSheet` 样式表句柄
+ */
+export function createMaterialCoreStyles(
+  typographyConfig: TypographyConfig | null = null,
+  override: Object = {},
+  _dynamic: boolean = false
+): DuiStyleSheet {
+  const styles: Record<string, unknown> = {
+    '@global': mergeThemeStyleMaps(matCore(typographyConfig), override),
+  };
+  return createStyleTagSheet(styles, 'core');
+}
+
+/**
+ * Executes `createMaterialThemeStyles` to create Material + DUI M2 `<style>` stylesheet rules.
+ * @zh 执行 `createMaterialThemeStyles`，创建 Material 与 DUI M2 完整 `<style>` 主题样式表。
+ * @param theme - runtime theme (`Theme`) / 运行时主题对象（`Theme`）
+ * @param override - override style rules (`Object`) / 覆盖样式规则
+ * @param _dynamic - dynamic flag kept for `7.4.52` signature parity (`boolean`) / 保持 `7.4.52` 签名兼容的动态参数
+ * @returns `DuiStyleSheet` handle / `DuiStyleSheet` 样式表句柄
+ */
+export function createMaterialThemeStyles(
+  theme: Theme,
+  override: Object = {},
+  _dynamic: boolean = false
+): DuiStyleSheet {
+  const styles: Record<string, unknown> = {
+    '@global': mergeThemeStyleMaps(materialTheme(theme), override),
+  };
+  return createStyleTagSheet(styles, 'material-theme');
+}
+
+/**
+ * Injectable Angular service `ThemeService` managing M2 dynamic theme state and `<style>` tag injection in `src/theme`.
+ * @zh 可注入的 Angular 服务 `ThemeService`，管理 M2 动态主题状态、三档密度与 `<style>` 标签层叠注入。
  */
 @Injectable()
 export class ThemeService {
+  private _primaryStr: string = '';
+  private _accentStr: string = '';
+  private _typography: string = 'compact';
+  private _warnStr: string = '';
+  private _type: string = 'light';
+  private _density: number = -1;
 
   /**
-   * Property `_primaryStr` (`string`) storing primary str.
-   * @zh 属性 `_primaryStr`（类型：`string`），用于存储或配置主色字符串。
+   * Property `formType` (`BehaviorSubject<MatFormFieldAppearance>`) storing active form field appearance.
+   * @zh 属性 `formType`（类型：`BehaviorSubject<MatFormFieldAppearance>`），存储当前表单外观模式。
    */
-  private _primaryStr: string;
-  /**
-   * Property `_accentStr` (`string`) storing accent str.
-   * @zh 属性 `_accentStr`（类型：`string`），用于存储或配置强调色字符串。
-   */
-  private _accentStr: string;
-  /**
-   * Property `_typography` (`string`) storing typography.
-   * @zh 属性 `_typography`（类型：`string`），用于存储或配置排版。
-   */
-  private _typography: string;
-  /**
-   * Property `_warnStr` (`string`) storing warn str.
-   * @zh 属性 `_warnStr`（类型：`string`），用于存储或配置警告色字符串。
-   */
-  private _warnStr: string;
-  /**
-   * Property `_type` (`string`) storing type.
-   * @zh 属性 `_type`（类型：`string`），用于存储或配置类型。
-   */
-  private _type: string;
-  /**
-   * Property `_density` (`number`) storing density (default: `-1`).
-   * @zh 属性 `_density`（类型：`number`），用于存储或配置密度（默认值：`-1`）。
-   */
-  private _density: number=-1;
+  public formType: BehaviorSubject<MatFormFieldAppearance> =
+    new BehaviorSubject<MatFormFieldAppearance>('fill');
+
+  private theme!: Theme;
 
   /**
-   * Property `formType` (`BehaviorSubject<MatFormFieldAppearance>`) storing form type.
-   * @zh 属性 `formType`（类型：`BehaviorSubject<MatFormFieldAppearance>`），用于存储或配置表单类型。
+   * Property `dotosConfig` (`DotosConfig`) storing current DotOS layout and theme configuration.
+   * @zh 属性 `dotosConfig`（类型：`DotosConfig`），存储当前 DotOS 布局与主题配置。
    */
-  public formType: BehaviorSubject<MatFormFieldAppearance> = new BehaviorSubject<MatFormFieldAppearance>('fill');
+  public dotosConfig!: DotosConfig;
+
+  private _coreStyleSheet?: DuiStyleSheet;
+  private _materialThemeStyleSheet?: DuiStyleSheet;
 
   /**
-   * Property `theme` (`Theme`) storing theme.
-   * @zh 属性 `theme`（类型：`Theme`），用于存储或配置主题。
+   * Per-`themeFn` `<style>` handles so distinct components coexist in registration order and repeated calls replace in-place.
+   * @zh 每个 `themeFn` 独立维护一张 `<style>` 样式表，不同组件共存且保持注册层叠顺序，同一组件重复调用原位更新。
    */
-  private theme: Theme;
-  /**
-   * Property `dotosConfig` (`DotosConfig`) storing dotos config.
-   * @zh 属性 `dotosConfig`（类型：`DotosConfig`），用于存储或配置DotOS配置。
-   */
-  dotosConfig: DotosConfig;
+  private _loadedThemeStyleSheets: Map<(theme: Theme) => unknown, DuiStyleSheet> = new Map();
 
-  /**
-   * Property `_coreStyleSheet` (`StyleSheet<string>`) storing core style sheet.
-   * @zh 属性 `_coreStyleSheet`（类型：`StyleSheet<string>`），用于存储或配置核心样式Sheet。
-   */
-  private _coreStyleSheet?: StyleSheet<string>;
-  /**
-   * Property `_materialThemeStyleSheet` (`StyleSheet<string>`) storing material theme style sheet.
-   * @zh 属性 `_materialThemeStyleSheet`（类型：`StyleSheet<string>`），用于存储或配置material主题样式Sheet。
-   */
-  private _materialThemeStyleSheet?: StyleSheet<string>;
-  // 每个 themeFn 对应一张样式表：同一个组件重复 loadTheme 时才替换，
-  // 不同组件的样式表必须共存，否则后加载的会把先加载的卸载掉。
-  /**
-   * Property `_loadedThemeStyleSheets` (`Map<(theme: Theme) => unknown, StyleSheet<string>>`) storing loaded theme style sheets (default: `new Map()`).
-   * @zh 属性 `_loadedThemeStyleSheets`（类型：`Map<(theme: Theme) => unknown, StyleSheet<string>>`），用于存储或配置已加载主题样式Sheets（默认值：`new Map()`）。
-   */
-  private _loadedThemeStyleSheets: Map<(theme: Theme) => unknown, StyleSheet<string>> = new Map();
-
-  /**
-   * 未提供 dotosConfig（或其内容不可用）时使用的兜底主题配置。
-   * @zh 未提供 dotosConfig（或其内容不可用）时使用的兜底主题配置。
-   */
-  private static readonly DEFAULT_CONFIG = {
+  private static readonly DEFAULT_CONFIG: DotosConfig = {
     isDesktop: false,
     layout: {
       folded: false,
-      pagemodel: "compact",
+      pagemodel: 'compact',
       sidepanel: {
         hidden: false,
-        position: "right"
+        position: 'right',
       },
-      style: "horizontal-layout",
-      variant: "vertical",
-      width: "fullwidth",
+      style: 'horizontal-layout',
+      variant: 'vertical',
+      width: 'fullwidth',
     },
-    routerAnimation: "none",
+    routerAnimation: 'none',
     theme: {
       formType: 'fill',
-      accent: "orange-800",
-      type: "light",
-      primary: "teal-600",
-      warn: "red-800"
-    }
+      accent: 'orange-800',
+      type: 'light',
+      primary: 'teal-600',
+      warn: 'red-800',
+    },
   };
 
   /**
-   * Property `instance` (`ThemeService`) storing instance (default: `null`).
-   * @zh 属性 `instance`（类型：`ThemeService`），用于存储或配置实例（默认值：`null`）。
+   * Property `instance` (`ThemeService`) storing singleton service reference.
+   * @zh 属性 `instance`（类型：`ThemeService`），存储单例服务实例。
    */
-  protected static instance: ThemeService = null;
+  protected static instance: ThemeService | null = null;
+
   /**
-   * Executes `getInstance` to handle get instance.
-   * @zh 执行 `getInstance`，用于获取实例。
-   * @returns Result of type `ThemeService` / 类型为 `ThemeService` 的返回值
+   * Executes `getInstance` to obtain or lazily construct the `ThemeService` singleton.
+   * @zh 执行 `getInstance`，获取或延迟创建 `ThemeService` 单例。
+   * @returns `ThemeService` instance / `ThemeService` 实例
    */
   public static getInstance(): ThemeService {
     if (ThemeService.instance === null) {
-      let localStore: LocalStorageService = ServiceLocator.injector.get(LocalStorageService);
-      ThemeService.instance = new ThemeService( localStore);
+      const localStore: LocalStorageService = ServiceLocator.injector.get(LocalStorageService);
+      ThemeService.instance = new ThemeService(localStore);
     }
     return ThemeService.instance;
   }
 
   /**
-   * Creates an instance of `ThemeService` and initializes its dependencies and internal state.
-   * @zh 创建 `ThemeService` 实例，并初始化其依赖项与内部状态。
-   * @param localStore - Injected or initial local store (`LocalStorageService`) / 注入或传入的本地状态仓库（`LocalStorageService`）
+   * Creates an instance of `ThemeService` and registers it as the active singleton without mounting DOM `<style>` tags.
+   * @zh 创建 `ThemeService` 实例并注册为当前单例（不在构造函数中向 DOM 注入 `<style>` 标签，与 `7.4.52` 保持一致）。
+   * @param localStore - Injected local storage service (`LocalStorageService`) / 本地存储服务（`LocalStorageService`）
    */
-  public constructor(    
-    public localStore: LocalStorageService) {
+  public constructor(public localStore: LocalStorageService) {
+    this.dotosConfig = ThemeService.DEFAULT_CONFIG;
+    this.theme = this.buildTheme(this._type);
     ThemeService.instance = this;
   }
- 
+
   /**
-   * Executes `refreshTheme` to handle refresh theme.
-   * @zh 执行 `refreshTheme`，用于刷新主题。
+   * Executes `refreshTheme` to load `dotosConfig` from `LocalStorageService` (or fallback to `DEFAULT_CONFIG`) and apply it.
+   * @zh 执行 `refreshTheme`，从本地存储读取 `dotosConfig`（不可用时回退至默认配置）并应用主题。
    */
-  refreshTheme(){
-    // dotosConfig 来自 localStorage，是用户可篡改的输入：形状不完整时回落到默认配置，
-    // 否则后续 config.theme.primary 之类的访问会抛 TypeError。
-    const config = this.localStore.get("dotosConfig") as DotosConfig;
-    this.setTheme(this.isUsableConfig(config) ? config : (ThemeService.DEFAULT_CONFIG as DotosConfig));
+  public refreshTheme(): void {
+    const rawConfig = this.localStore ? (this.localStore.get('dotosConfig') as DotosConfig | null) : null;
+    this.setTheme(this.isUsableConfig(rawConfig) ? rawConfig : ThemeService.DEFAULT_CONFIG);
+  }
+
+  private isUsableConfig(config: DotosConfig | null | undefined): config is DotosConfig {
+    return Boolean(
+      config &&
+        config.theme &&
+        config.layout &&
+        config.theme.primary &&
+        config.theme.accent &&
+        config.theme.warn
+    );
   }
 
   /**
-   * Executes `isUsableConfig` to handle is usable config.
-   * @zh 执行 `isUsableConfig`，用于是否为Usable配置。
-   * @param config - config parameter (`DotosConfig`) / 配置参数（`DotosConfig`）
-   * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+   * Executes `getFormType` to return the synchronous `MatFormFieldAppearance` value.
+   * @zh 执行 `getFormType`，获取当前表单字段外观模式。
+   * @returns Current `MatFormFieldAppearance` / 当前表单外观模式
    */
-  private isUsableConfig(config: DotosConfig): boolean {
-    return !!(config && config.theme && config.layout
-      && config.theme.primary && config.theme.accent && config.theme.warn);
-  }
-
-  /**
-   * Executes `getFormType` to handle get form type.
-   * @zh 执行 `getFormType`，用于获取表单类型。
-   */
-  getFormType(){
+  public getFormType(): MatFormFieldAppearance {
     return this.formType.getValue();
   }
 
   /**
-   * Executes `setTheme` to handle set theme.
-   * @zh 执行 `setTheme`，用于集合主题。
-   * @param config - config parameter (`any`) / 配置参数（`any`）
+   * Executes `setTheme` to store `config` and apply its palette, mode, density, and `formType`.
+   * @zh 执行 `setTheme`，保存配置并应用其主辅警色、底色模式、紧凑度与表单样式。
+   * @param config - DotOS configuration (`DotosConfig`) / DotOS 配置对象（`DotosConfig`）
    */
-  setTheme(config) {
-    this.dotosConfig = config;
-    const primary = this.dotosConfig.theme.primary;
-    const accent = this.dotosConfig.theme.accent;
-    const warn = this.dotosConfig.theme.warn;
-    const page = this.dotosConfig.layout.pagemodel;
-    const type = this.dotosConfig.theme.type;
-    const formType = this.dotosConfig.theme.formType;
-
-    this.changeTheme(primary, accent, warn, type, page,formType);
+  public setTheme(config: DotosConfig): void {
+    const usable = this.isUsableConfig(config) ? config : ThemeService.DEFAULT_CONFIG;
+    this.dotosConfig = usable;
+    const themeCfg = usable.theme ?? ThemeService.DEFAULT_CONFIG.theme!;
+    this.changeTheme(
+      themeCfg.primary,
+      themeCfg.accent,
+      themeCfg.warn,
+      themeCfg.type,
+      usable.layout.pagemodel,
+      themeCfg.formType
+    );
   }
 
   /**
-   * 把 `teal-600` 这类色名拆成基础色 + 色阶，构造成 Palette。
-
-   * @zh 把 `teal-600` 这类色名拆成基础色 + 色阶，构造成 Palette。
+   * Parses color strings like `teal-600`, `blue-500`, `deep-purple-A200` into full M2 `Palette` maps.
+   * @zh 将 `teal-600`、`blue-500` 等色阶字符串拆解为基础色板与色阶并构造 M2 `Palette`。
+   * @param colorStr - Color string (`string`) / 色阶字符串（`string`）
+   * @param fallbackColor - Fallback color name (`string`) / 兜底色板名
+   * @param fallbackHue - Fallback hue (`string`) / 兜底色阶
+   * @returns Constructed M2 `Palette` / 构造完成的 M2 `Palette`
    */
-  private toPalette(colorStr: string): Palette {
-    const separator = colorStr.lastIndexOf('-');
-    const base = MatColors.getColor(colorStr.substring(0, separator));
-    const hue = colorStr.substring(separator + 1, colorStr.length);
-    return matPalette(base, hue, 100, 900);
+  private toPalette(colorStr: string, fallbackColor: string = 'teal', fallbackHue: string = '600'): Palette {
+    if (typeof colorStr === 'string' && colorStr.includes('-')) {
+      const separator = colorStr.lastIndexOf('-');
+      const colorName = colorStr.substring(0, separator);
+      const hue = colorStr.substring(separator + 1);
+      const base = MatColors.getColor(colorName) as Palette | false;
+      if (base && typeof base === 'object' && base[hue]) {
+        return matPalette(base, hue, 100, 900);
+      }
+    }
+    const fallbackBase = MatColors.getColor(fallbackColor) as Palette;
+    return matPalette(fallbackBase, fallbackHue, 100, 900);
   }
 
-  /**
-   * 依据当前 primary/accent/warn/typography 配置构造指定类型的主题。
+  private resolveTypographyKey(typography: string): 'loose' | 'normal' | 'compact' {
+    if (typography === 'loose' || typography === 'normal' || typography === 'compact') {
+      return typography;
+    }
+    return 'compact';
+  }
 
-   * @zh 依据当前 primary/accent/warn/typography 配置构造指定类型的主题。
-   */
   private buildTheme(type: string): Theme {
-    const primary = this.toPalette(this._primaryStr);
-    const accent = this.toPalette(this._accentStr);
-    const warn = this.toPalette(this._warnStr);
-    const typographyConfig: TypographyConfig = TypographyMap[this._typography];
+    const primary = this.toPalette(this._primaryStr, 'teal', '600');
+    const accent = this.toPalette(this._accentStr, 'orange', '800');
+    const warn = this.toPalette(this._warnStr, 'red', '800');
+    const typoKey = this.resolveTypographyKey(this._typography);
+    const typographyConfig: TypographyConfig = TypographyMap[typoKey];
 
-    if (type == 'dark') {
+    if (type === 'dark') {
       return matDarkTheme(primary, accent, warn, this._density, typographyConfig);
-    } else if (type == 'light') {
+    }
+    if (type === 'light') {
       return matLightTheme(primary, accent, warn, this._density, typographyConfig);
     }
     return matDarkBlueTheme(primary, accent, warn, this._density, typographyConfig);
   }
 
+  private syncDocumentThemeAttributes(type: string, typography: string): void {
+    if (typeof document === 'undefined') {
+      return;
+    }
+    const normalizedType = type === 'dark' || type === 'darkblue' ? type : 'light';
+    const normalizedTypo = this.resolveTypographyKey(typography);
+    if (document.documentElement) {
+      document.documentElement.setAttribute('data-theme', normalizedType);
+      document.documentElement.setAttribute('data-density', normalizedTypo);
+    }
+    if (document.body) {
+      document.body.classList.remove('dui-density-loose', 'dui-density-normal', 'dui-density-compact');
+      document.body.classList.add(`dui-density-${normalizedTypo}`);
+    }
+  }
+
+  private firstLoadedComponentNode(): HTMLStyleElement | null {
+    for (const sheet of this._loadedThemeStyleSheets.values()) {
+      if (sheet.element && sheet.element.isConnected) {
+        return sheet.element;
+      }
+    }
+    return null;
+  }
+
   /**
-   * Executes `loadTheme` to handle load theme.
-   * @zh 执行 `loadTheme`，用于加载主题。
-   * @param themeFn - theme fn parameter (`(theme: Theme) => unknown`) / 主题函数参数（`(theme: Theme) => unknown`）
+   * Executes `loadTheme` to inject or update a component's dynamic `<style>` stylesheet after `core` and `material-theme`.
+   * @zh 执行 `loadTheme`，在 `core` 与 `material-theme` 之后挂载或原位更新组件级 `<style>` 主题样式表。
+   * @param themeFn - Component theme factory (`(theme: Theme) => unknown`) / 组件主题生成函数
    */
-  loadTheme(themeFn: (theme: Theme) => unknown): void {
-    // loadTheme 可能先于任何 setTheme/changeTheme 被调用（例如应用启动阶段就打开了对话框
-    // 或窗口组件），此时色板字段尚未初始化，需要先回落到默认配置而不是抛 TypeError。
+  public loadTheme(themeFn: (theme: Theme) => unknown): void {
     if (!this._primaryStr) {
       this.refreshTheme();
     }
 
     this.theme = this.buildTheme(this._type);
-    const dynamicThemeStyles: boolean = true;
-    this.removeStyleSheet(this._loadedThemeStyleSheets.get(themeFn));
-    const styleSheet = this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles);
+    const previousSheet = this._loadedThemeStyleSheets.get(themeFn);
+    const previousEl = previousSheet?.element ?? null;
+    const styleSheet = createStyleTagSheet(
+      { '@global': this.getThemeStyle(themeFn, this.theme) },
+      'component',
+      previousEl
+    );
+    if (previousSheet && (!previousEl || !previousEl.isConnected)) {
+      this.removeStyleSheet(previousSheet);
+    }
     this._loadedThemeStyleSheets.set(themeFn, styleSheet);
     styleSheet.attach();
   }
 
-  /**
-   * Executes `removeStyleSheet` to handle remove style sheet.
-   * @zh 执行 `removeStyleSheet`，用于移除样式Sheet。
-   * @param styleSheet - style sheet parameter (`StyleSheet<string>`) / 样式Sheet参数（`StyleSheet<string>`）
-   */
-  private removeStyleSheet(styleSheet?: StyleSheet<string>) {
+  private removeStyleSheet(styleSheet?: DuiStyleSheet): void {
     if (styleSheet) {
-      jss.removeStyleSheet(styleSheet);
+      styleSheet.detach();
     }
   }
-  /**
-   * Executes `createThemeStyles` to handle create theme styles.
-   * @zh 执行 `createThemeStyles`，用于创建主题样式集合。
-   * @param theme - theme parameter (`any`) / 主题参数（`any`）
-   * @param themeFn - theme fn parameter (`(theme: Theme) => unknown`) / 主题函数参数（`(theme: Theme) => unknown`）
-   * @param dynamicThemeStyles - dynamic theme styles parameter (`any`) / 动态主题样式集合参数（`any`）
-   */
-  createThemeStyles(theme, themeFn: (theme: Theme) => unknown, dynamicThemeStyles) {
-    const styles = {
-      '@global': {
-        ...(this.getThemeStyle(themeFn, theme) as Record<string, unknown>)
-      }
-    };
-
-    return jss.createStyleSheet(styles as Styles, { link: dynamicThemeStyles });
-  }
 
   /**
-   * Executes `getThemeStyle` to handle get theme style.
-   * @zh 执行 `getThemeStyle`，用于获取主题样式。
-   * @param themeFn - theme fn parameter (`(theme: Theme) => unknown`) / 主题函数参数（`(theme: Theme) => unknown`）
-   * @param theme - theme parameter (`Theme`) / 主题参数（`Theme`）
-   * @returns Result of type `Object` / 类型为 `Object` 的返回值
+   * Executes `createThemeStyles` to construct a `<style>`-backed `DuiStyleSheet` for a component `themeFn`.
+   * @zh 执行 `createThemeStyles`，为组件主题函数构造基于 `<style>` 标签的 `DuiStyleSheet`。
+   * @param theme - Runtime theme (`Theme`) / 运行时主题对象（`Theme`）
+   * @param themeFn - Component theme factory (`(theme: Theme) => unknown`) / 组件主题生成函数
+   * @param _dynamicThemeStyles - Dynamic flag kept for `7.4.52` parity (`boolean`) / 动态样式参数
+   * @returns `DuiStyleSheet` handle / `DuiStyleSheet` 样式表句柄
    */
-  getThemeStyle(themeFn: (theme: Theme) => unknown, theme: Theme): Object {
-    return {
-      ...(themeFn(theme) as Record<string, unknown>)
+  public createThemeStyles(
+    theme: Theme,
+    themeFn: (theme: Theme) => unknown,
+    _dynamicThemeStyles: boolean = true
+  ): DuiStyleSheet {
+    const styles: Record<string, unknown> = {
+      '@global': this.getThemeStyle(themeFn, theme),
     };
+    return createStyleTagSheet(styles, 'component');
   }
+
   /**
-   * Executes `changeThemeWithConfig` to handle change theme with config.
-   * @zh 执行 `changeThemeWithConfig`，用于变更主题带有配置。
-   * @param config - config parameter (`DotosConfig`) / 配置参数（`DotosConfig`）
+   * Executes `getThemeStyle` to evaluate `themeFn(theme)` into a plain style rule map.
+   * @zh 执行 `getThemeStyle`，调用 `themeFn(theme)` 并返回样式规则对象。
+   * @param themeFn - Component theme factory (`(theme: Theme) => unknown`) / 组件主题生成函数
+   * @param theme - Runtime theme (`Theme`) / 运行时主题对象（`Theme`）
+   * @returns Plain style object (`Record<string, unknown>`) / 样式规则对象
    */
-  changeThemeWithConfig(config: DotosConfig){
-    let type = config.theme.type;
-    let primary = config.theme.primary;
-    let accent = config.theme.accent;
-    let warn = config.theme.warn;
-    let page = config.layout.pagemodel;
-    let formType = config.theme.formType;
-    this.changeTheme(primary, accent, warn, type, page,formType);
+  public getThemeStyle(themeFn: (theme: Theme) => unknown, theme: Theme): Record<string, unknown> {
+    const result = themeFn(theme);
+    if (isPlainStyleObject(result)) {
+      return { ...result };
+    }
+    return {};
   }
+
   /**
-   * Executes `changeTheme` to handle change theme.
-   * @zh 执行 `changeTheme`，用于变更主题。
-   * @param primaryStr - primary str parameter (`any`) / 主色字符串参数（`any`）
-   * @param accentStr - accent str parameter (`any`) / 强调色字符串参数（`any`）
-   * @param warnStr - warn str parameter (`any`) / 警告色字符串参数（`any`）
-   * @param type - type parameter (`string`) / 类型参数（`string`）
-   * @param typography - typography parameter (`string`) / 排版参数（`string`）
-   * @param formType - form type parameter (`MatFormFieldAppearance`) / 表单类型参数（`MatFormFieldAppearance`）
+   * Executes `changeThemeWithConfig` to apply a `DotosConfig` update to the active theme.
+   * @zh 执行 `changeThemeWithConfig`，根据传入的 `DotosConfig` 切换当前主题。
+   * @param config - DotOS configuration (`DotosConfig`) / DotOS 配置对象（`DotosConfig`）
    */
-  changeTheme(primaryStr, accentStr, warnStr, type: string, typography: string,formType:MatFormFieldAppearance): void {
+  public changeThemeWithConfig(config: DotosConfig): void {
+    const usable = this.isUsableConfig(config) ? config : ThemeService.DEFAULT_CONFIG;
+    this.dotosConfig = usable;
+    const themeCfg = usable.theme ?? ThemeService.DEFAULT_CONFIG.theme!;
+    this.changeTheme(
+      themeCfg.primary,
+      themeCfg.accent,
+      themeCfg.warn,
+      themeCfg.type,
+      usable.layout.pagemodel,
+      themeCfg.formType
+    );
+  }
+
+  /**
+   * Executes `changeTheme` to switch palettes, mode (`light`/`dark`/`darkblue`), density/typography (`loose`/`normal`/`compact`), and `formType`,
+   * updating `<style>` tags in `<head>` in strict `7.4.52` cascade order (`core` -> `material-theme` -> `loadTheme`).
+   * @zh 执行 `changeTheme`，即时切换调色板、底色模式、紧凑度字阶与表单外观，并按 `7.4.52` 严格层叠顺序更新 `<head>` 中的 `<style>` 标签。
+   * @param primaryStr - Primary palette string (`string`, e.g. `'teal-600'`, `'blue-500'`) / 主色字符串
+   * @param accentStr - Accent palette string (`string`, e.g. `'orange-800'`) / 强调色字符串
+   * @param warnStr - Warn palette string (`string`, e.g. `'red-800'`) / 警告色字符串
+   * @param type - Theme mode (`string`: `'light' | 'dark' | 'darkblue'`) / 底色模式
+   * @param typography - Typography & density scale (`string`: `'loose' | 'normal' | 'compact'`) / 字阶与紧凑度档位
+   * @param formType - Form field appearance (`MatFormFieldAppearance`) / 表单外观类型
+   */
+  public changeTheme(
+    primaryStr: string,
+    accentStr: string,
+    warnStr: string,
+    type: string,
+    typography: string,
+    formType: MatFormFieldAppearance = 'fill'
+  ): void {
+    const resolvedTypo = this.resolveTypographyKey(typography);
     this._primaryStr = primaryStr;
     this._accentStr = accentStr;
     this._warnStr = warnStr;
     this._type = type;
-    this._typography = typography;
-    this._density=typography=='loose'?0 : typography === 'normal' ?-1:-2;
-    this.formType.next( formType);
+    this._typography = resolvedTypo;
+    this._density = resolvedTypo === 'loose' ? 0 : resolvedTypo === 'normal' ? -1 : -2;
+    this.formType.next(formType ?? 'fill');
+    this.syncDocumentThemeAttributes(type, resolvedTypo);
 
-    const typographyConfig: TypographyConfig = TypographyMap[typography];
-    const coreOverrides: Object = {};
-    const dynamicCoreStyles = true;
-    this.removeStyleSheet(this._coreStyleSheet);
-    this._coreStyleSheet = createMaterialCoreStyles(typographyConfig, coreOverrides, dynamicCoreStyles);
+    const typographyConfig: TypographyConfig = TypographyMap[resolvedTypo];
+    const firstComponentEl = this.firstLoadedComponentNode();
+    const prevMaterialEl = this._materialThemeStyleSheet?.element ?? null;
+    const prevCoreEl = this._coreStyleSheet?.element ?? null;
+
+    // 1. Mount/replace `core` <style> first (before `material-theme` or any component <style>)
+    const nextCoreSheet = createStyleTagSheet(
+      { '@global': mergeThemeStyleMaps(matCore(typographyConfig)) },
+      'core',
+      prevCoreEl,
+      prevMaterialEl ?? firstComponentEl
+    );
+    if (this._coreStyleSheet && (!prevCoreEl || !prevCoreEl.isConnected)) {
+      this.removeStyleSheet(this._coreStyleSheet);
+    }
+    this._coreStyleSheet = nextCoreSheet;
     this._coreStyleSheet.attach();
 
+    // 2. Mount/replace `material-theme` <style> second (after `core`, before any `loadTheme` component <style>)
     this.theme = this.buildTheme(type);
-    const themeOverrides: Object = {};
-    const dynamicThemeStyles: boolean = true;
-
-    this.removeStyleSheet(this._materialThemeStyleSheet);
-    this._materialThemeStyleSheet = createMaterialThemeStyles(this.theme, themeOverrides, dynamicThemeStyles);
+    const nextMaterialSheet = createStyleTagSheet(
+      { '@global': mergeThemeStyleMaps(materialTheme(this.theme)) },
+      'material-theme',
+      prevMaterialEl,
+      firstComponentEl
+    );
+    if (this._materialThemeStyleSheet && (!prevMaterialEl || !prevMaterialEl.isConnected)) {
+      this.removeStyleSheet(this._materialThemeStyleSheet);
+    }
+    this._materialThemeStyleSheet = nextMaterialSheet;
     this._materialThemeStyleSheet.attach();
 
+    // 3. Re-evaluate and replace every registered `loadTheme` component <style> in registration order
     Array.from(this._loadedThemeStyleSheets.entries()).forEach(([themeFn, oldSheet]) => {
-      this.removeStyleSheet(oldSheet);
-      const newSheet = this.createThemeStyles(this.theme, themeFn, dynamicThemeStyles);
-      this._loadedThemeStyleSheets.set(themeFn, newSheet);
-      newSheet.attach();
+      const oldEl = oldSheet.element;
+      const updatedSheet = createStyleTagSheet(
+        { '@global': this.getThemeStyle(themeFn, this.theme) },
+        'component',
+        oldEl
+      );
+      if (!oldEl || !oldEl.isConnected) {
+        this.removeStyleSheet(oldSheet);
+      }
+      this._loadedThemeStyleSheets.set(themeFn, updatedSheet);
+      updatedSheet.attach();
     });
   }
+
   /**
-   * Executes `getThemeByType` to handle get theme by type.
-   * @zh 执行 `getThemeByType`，用于获取主题按类型。
-   * @param type - type parameter (`string`) / 类型参数（`string`）
+   * Executes `getThemeByType` to obtain the current `Theme` (`'default'`) or construct a `Theme` for a specific mode
+   * without mutating DOM `<style>` tags (matching `7.4.52` side-effect-free behavior).
+   * @zh 执行 `getThemeByType`，获取当前主题（`'default'`）或按指定底色类型构造内存主题对象（不触发 DOM `<style>` 注入副作用）。
+   * @param type - Theme type (`string`) / 主题类型（`string`）
+   * @returns Resolved `Theme` object / 解析后的 `Theme` 对象
    */
-  getThemeByType(type:string){
-    if(type=='default'){
-      return this.getTheme()
+  public getThemeByType(type: string): Theme {
+    if (type === 'default') {
+      return this.getTheme();
     }
     return this.buildTheme(type);
   }
+
   /**
-   * Executes `getTheme` to handle get theme.
-   * @zh 执行 `getTheme`，用于获取主题。
+   * Executes `getTheme` to return the active in-memory `Theme` without mutating DOM `<style>` tags (matching `7.4.52`).
+   * @zh 执行 `getTheme`，返回当前内存中的 `Theme` 对象（不触发 `refreshTheme()` DOM `<style>` 注入副作用，对齐 `7.4.52`）。
+   * @returns Active `Theme` object / 当前生效的 `Theme` 对象
    */
-  public getTheme(){
+  public getTheme(): Theme {
     return this.theme;
   }
 }
+
 /**
- * Constant/variable `THEME_SERVICE_PROVIDER` defining theme service provider in `src/theme`.
- * @zh 常量/变量 `THEME_SERVICE_PROVIDER`，定义 `src/theme` 中的主题服务提供者。
+ * Constant `THEME_SERVICE_PROVIDER` providing singleton `ThemeService` via `ThemeService.getInstance()`.
+ * @zh 常量 `THEME_SERVICE_PROVIDER`，通过 `ThemeService.getInstance()` 提供单例 `ThemeService`。
  */
 export const THEME_SERVICE_PROVIDER: Provider = {
   provide: ThemeService,

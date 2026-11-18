@@ -12,9 +12,9 @@ import {
   OnDestroy,
   OnChanges,
   SimpleChanges,
-  ComponentRef
+  ComponentRef, ChangeDetectionStrategy
 } from '@angular/core';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Dynamically instantiates a component registered in the `Dui` component factory registry
@@ -27,7 +27,8 @@ import { Dui } from '@dotos/dui/core';
   host: {
     hostID: "dui-dynamic-component" + Math.random().toString(36).substring(2, 15)
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   /**
@@ -82,7 +83,7 @@ export class DynamicExtensionComponent implements OnChanges, OnDestroy {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

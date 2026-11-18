@@ -7,8 +7,8 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { CircleComponent } from './circle.component';
 import { CircleSwatchComponent } from './circle-swatch.component';
-import { SwatchModule } from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+import { SwatchModule } from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 
 
 /**

@@ -6,13 +6,12 @@
 import { CommonModule } from '@angular/common';
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { Inject, ModuleWithProviders, NgModule, Optional } from '@angular/core';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 import { ConfigOption, CoreExtension, FORM_CONFIG, FieldExpressionExtension, FieldFormExtension, 
-  FieldValidationExtension, FormBuilder, FormConfig, FormTemplateType } from '@dotos/dui/core/form';
-import { TranslateModule, TranslateStore, TranslationService } from '@dotos/dui/translator';
-import { simpleInterceptorProviders } from '@dotos/dui/net';
+  FieldValidationExtension, FormBuilder, FormConfig, FormTemplateType } from '@dotos1/dui/core/form';
+import { TranslateModule, TranslateStore, TranslationService } from '@dotos1/dui/translator';
+import { simpleInterceptorProviders } from '@dotos1/dui/net';
 import { Load } from '../action/load.service';
 import { Submit } from '../action/submit.service';
 import { FieldComponent } from './field.component';
@@ -49,7 +48,6 @@ export function defaultFormConfig(formConfig: FormConfig): ConfigOption {
 @NgModule({
   imports: [
     CommonModule,
-    FlexLayoutModule,
     TranslateModule,
     ReactiveFormsModule
   ],

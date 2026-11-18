@@ -1,9 +1,10 @@
 {
   "extends": "../../../tsconfig.json",
   "compilerOptions": {
-    "module": "commonjs",
-    "target": "ES2020",
-    "moduleResolution": "node",
+    "module": "CommonJS",
+    "target": "ES2022",
+    "moduleResolution": "bundler",
+    "useDefineForClassFields": false,
     "outDir": "./.dist-tools",
     "rootDir": ".",
     "declaration": false,

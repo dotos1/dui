@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/toggle-select",
+  "importPath": "@dotos1/dui/form/toggle-select",
   "exports": [
     {
       "name": "_ToggleBase",
@@ -22,7 +22,7 @@
         {
           "name": "toggleOptions",
           "type": "QueryList<ToggleOption>",
-          "description": "Template/content query reference `toggleOptions` (`@ContentChildren`) targeting toggle options.",
+          "description": "Template/content query reference `toggleOptions` (`QueryList<ToggleOption>`) targeting toggle options.",
           "descriptionZh": "模板/内容视图查询引用 `toggleOptions`（`@ContentChildren`），指向开关配置选项。"
         }
       ]
@@ -136,8 +136,8 @@
         {
           "name": "valueChange",
           "type": "any",
-          "description": "Output event emitter `valueChange` (`EventEmitter`) firing when value change occurs.",
-          "descriptionZh": "输出事件 `valueChange`（类型：`EventEmitter`），当触发值变更时向外发出事件。"
+          "description": "Output event emitter `valueChange` (`EventEmitter<any>`) firing when value change occurs.",
+          "descriptionZh": "输出事件 `valueChange`（类型：`EventEmitter<any>`），当触发值变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -155,7 +155,7 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByHeaderOption` to handle track by header option.",
-          "descriptionZh": "执行 `trackByHeaderOption`，用于track按表头选项。"
+          "descriptionZh": "执行 `trackByHeaderOption`，用于跟踪按表头选项。"
         },
         {
           "name": "handlePaginatorClick",
@@ -194,19 +194,19 @@
         {
           "name": "toggleGroup",
           "type": "ElementRef<HTMLElement>",
-          "description": "Template/content query reference `toggleGroup` (`@ViewChild`) targeting toggle group.",
+          "description": "Template/content query reference `toggleGroup` (`ElementRef<HTMLElement>`) targeting toggle group.",
           "descriptionZh": "模板/内容视图查询引用 `toggleGroup`（`@ViewChild`），指向开关分组。"
         },
         {
           "name": "buttonToggleGroup",
           "type": "MatButtonToggleGroup",
-          "description": "Template/content query reference `buttonToggleGroup` (`@ViewChild`) targeting button toggle group.",
+          "description": "Template/content query reference `buttonToggleGroup` (`MatButtonToggleGroup`) targeting button toggle group.",
           "descriptionZh": "模板/内容视图查询引用 `buttonToggleGroup`（`@ViewChild`），指向按钮开关分组。"
         },
         {
           "name": "toggleGroupContainer",
           "type": "ElementRef<HTMLElement>",
-          "description": "Template/content query reference `toggleGroupContainer` (`@ViewChild`) targeting toggle group container.",
+          "description": "Template/content query reference `toggleGroupContainer` (`ElementRef<HTMLElement>`) targeting toggle group container.",
           "descriptionZh": "模板/内容视图查询引用 `toggleGroupContainer`（`@ViewChild`），指向开关分组容器。"
         },
         {
@@ -245,8 +245,8 @@
           "name": "useSelect$",
           "type": "any",
           "default": "this.useSelectSubject.asObservable().pipe(distinctUntilChanged())",
-          "description": "Property `useSelect$` (`any`) storing use select.",
-          "descriptionZh": "属性 `useSelect$`（类型：`any`），用于存储或配置使用下拉选择。"
+          "description": "Property `useSelect$` (`Observable<boolean>`) storing use select.",
+          "descriptionZh": "属性 `useSelect$`（类型：`Observable<boolean>`），用于存储或配置使用下拉选择。"
         }
       ]
     },
@@ -375,7 +375,7 @@
         {
           "name": "maxWidth",
           "type": "any",
-          "description": "Host-bound getter `maxWidth` (`style.maxWidth`) computing max width.",
+          "description": "Host-bound getter `maxWidth` (`string`) computing max width.",
           "descriptionZh": "宿主绑定读取器 `maxWidth`（绑定至 `style.maxWidth`），计算并返回最大值宽度。"
         },
         {
@@ -400,11 +400,11 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ToggleSelectComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ToggleSelectComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ToggleSelectComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof ToggleSelectComponent)[]`) storing entry components (default: `[ToggleSelectComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ToggleSelectComponent)[]`），用于存储或配置条目组件列表（默认值：`[ToggleSelectComponent]`）。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ToggleHeaderComponent, ToggleSelectModule } from '@dotos/dui/form/toggle-select';\n\n<toggle-header [value]=\"...\" [name]=\"...\" [disablePagination]=\"...\" (valueChange)=\"...\"></toggle-header>"
+  "suggestedUsageSnippet": "import { ToggleHeaderComponent, ToggleSelectModule } from '@dotos1/dui/form/toggle-select';\n\n<toggle-header [value]=\"...\" [name]=\"...\" [disablePagination]=\"...\" (valueChange)=\"...\"></toggle-header>"
 }

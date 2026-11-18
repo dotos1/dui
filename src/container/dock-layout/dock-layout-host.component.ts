@@ -13,14 +13,14 @@ import {
   OnDestroy,
   OnInit,
   Output,
-  ViewEncapsulation,
+  ViewEncapsulation, ChangeDetectionStrategy,
 } from "@angular/core";
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 import { DockLayoutComponentService } from "./dock-layout-component.service";
 import { ComponentContainer } from "./container/component-container";
 import { ResolvedComponentItemConfig } from "./config/resolved-config";
 import { DockLayout } from "./dock-layout";
-import { TranslateService } from "@dotos/dui/translator";
+import { TranslateService } from "@dotos1/dui/translator";
 
 
 /**
@@ -38,7 +38,8 @@ export const dock_LAYOUT_TAG_NAME = "dock-layout-host";
   template: "",
   styleUrls: ['./dock-layout-base.scss','./dock-layout-theme.scss'],
   encapsulation: ViewEncapsulation.None,
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class DockLayoutHostComponent implements OnInit,OnDestroy {
   /**

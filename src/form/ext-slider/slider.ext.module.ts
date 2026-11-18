@@ -10,9 +10,8 @@ import { MatFormFieldModule  } from '@angular/material/form-field';
 import {  MatTooltipModule , } from '@angular/material/tooltip';
 import {  MatSliderModule  } from '@angular/material/slider';
 import { SliderFieldComponent } from './slider.component';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { FormModule } from '../components/form.module';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Angular module `SliderFieldModule` declaring and exporting slider field module components, directives, pipes, and providers.
@@ -24,7 +23,6 @@ import { Dui } from '@dotos/dui/core';
     ReactiveFormsModule,
     MatFormFieldModule,
     MatSliderModule,
-    FlexLayoutModule,
     FormModule.forChild(),
     MatTooltipModule
   ],

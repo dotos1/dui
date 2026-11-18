@@ -5,7 +5,7 @@
  * `duix/grid/tools/legacy-util/gate.mjs` 同一条路子。自己写期望的话,
  * 「新旧不一致」和「我以为该是这样」会混成一件事。
  */
-import { Internationalization } from '@dotos/dui/translator';
+import { Internationalization } from '@dotos1/dui/translator';
 
 /**
  * Constant/variable `矩阵` defining 矩阵 in `tools/intl`.

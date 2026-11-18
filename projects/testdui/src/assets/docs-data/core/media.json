@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/media",
+  "importPath": "@dotos1/dui/core/media",
   "exports": [
     {
       "name": "Media",
@@ -100,18 +100,18 @@
           "name": "media$",
           "type": "any",
           "default": "new BehaviorSubject<Media>(undefined)",
-          "description": "Property `media$` (`BehaviorSubject`) storing media (default: `new BehaviorSubject<Media>(undefined)`).",
-          "descriptionZh": "属性 `media$`（类型：`BehaviorSubject`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。"
+          "description": "Property `media$` (`BehaviorSubject<Media>`) storing media (default: `new BehaviorSubject<Media>(undefined)`).",
+          "descriptionZh": "属性 `media$`（类型：`BehaviorSubject<Media>`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。"
         },
         {
           "name": "orientation$",
           "type": "any",
           "default": "new BehaviorSubject<MediaOrientation>(undefined)",
-          "description": "Property `orientation$` (`BehaviorSubject`) storing orientation.",
-          "descriptionZh": "属性 `orientation$`（类型：`BehaviorSubject`），用于存储或配置方向。"
+          "description": "Property `orientation$` (`BehaviorSubject<MediaOrientation>`) storing orientation.",
+          "descriptionZh": "属性 `orientation$`（类型：`BehaviorSubject<MediaOrientation>`），用于存储或配置方向。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/media';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/media';"
 }

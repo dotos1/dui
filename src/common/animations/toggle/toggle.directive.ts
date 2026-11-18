@@ -100,12 +100,12 @@ export class ToggleDirective {
    * Creates an instance of `ToggleDirective` and initializes its dependencies and internal state.
    * @zh 创建 `ToggleDirective` 实例，并初始化其依赖项与内部状态。
    * @param _renderer - Injected or initial renderer (`Renderer2`) / 注入或传入的渲染器（`Renderer2`）
-   * @param _element - Injected or initial element (`ElementRef<any>`) / 注入或传入的元素（`ElementRef<any>`）
+   * @param _element - Injected or initial element (`ElementRef<HTMLElement>`) / 注入或传入的元素（`ElementRef<HTMLElement>`）
    * @param _changeDetectorRef - Injected or initial change detector ref (`ChangeDetectorRef`) / 注入或传入的变更检测器引用（`ChangeDetectorRef`）
    * @param _animationBuilder - Injected or initial animation builder (`AnimationBuilder`) / 注入或传入的动画构建器（`AnimationBuilder`）
    */
   constructor(private _renderer: Renderer2,
-              private _element: ElementRef,
+              private _element: ElementRef<HTMLElement>,
               private _changeDetectorRef: ChangeDetectorRef,
               private _animationBuilder: AnimationBuilder) {
     this._defaultDisplay = this._element.nativeElement.style.display;

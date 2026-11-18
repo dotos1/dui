@@ -5,16 +5,15 @@
 
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatTooltipModule } from '@angular/material/tooltip';
-import { DuiPipesModule } from '@dotos/dui/util/pipes';
+import { DuiPipesModule } from '@dotos1/dui/util/pipes';
 
 import { ColorPickerComponent } from './color-picker.component';
-import { PerfectScrollbarModule } from '@dotos/dui/common/perfect-scrollbar';
-import { TranslateModule } from '@dotos/dui/translator';
+import { PerfectScrollbarModule } from '@dotos1/dui/common/perfect-scrollbar';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 /**
  * Angular module `ColorPickerModule` declaring and exporting color picker module components, directives, pipes, and providers.
@@ -26,7 +25,6 @@ import { TranslateModule } from '@dotos/dui/translator';
   ],
   imports: [
     CommonModule,
-    FlexLayoutModule,
     MatButtonModule,
     MatIconModule,
     MatMenuModule,

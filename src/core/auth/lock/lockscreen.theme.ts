@@ -4,8 +4,8 @@
  */
 
 
-import { Theme } from '@dotos/dui/theme';
-import { matColor } from '@dotos/dui/theme';
+import { Theme } from '@dotos1/dui/theme';
+import { matColor } from '@dotos1/dui/theme';
 
 /**
  * Executes `LockTheme` to handle lock theme.

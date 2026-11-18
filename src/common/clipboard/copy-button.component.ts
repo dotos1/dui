@@ -4,13 +4,13 @@
  */
 
 
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output } from '@angular/core';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 
 import { TooltipPosition } from '@angular/material/tooltip';
 import { ThemePalette } from '@angular/material/core';
 import { ClipboardService } from './clipboard.service';
-import { TranslateService } from '@dotos/dui/translator';
-import { coerceBoolean } from '@dotos/dui/core/decorators';
+import { TranslateService } from '@dotos1/dui/translator';
+import { coerceBoolean } from '@dotos1/dui/core/decorators';
 
 /**
  * A ready-made icon button that copies a given string to the clipboard when clicked,
@@ -21,7 +21,8 @@ import { coerceBoolean } from '@dotos/dui/core/decorators';
   selector: 'copy-button',
   styleUrls: ['copy-button.component.scss'],
   templateUrl: './copy-button.component.html',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CopyButtonComponent {
 

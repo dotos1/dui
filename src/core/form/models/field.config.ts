@@ -208,7 +208,7 @@ export interface FieldConfig {
    * This is the [FormControl](https://angular.io/api/forms/FormControl) for the field.
    * It provides you more control like running validators, calculating status, and resetting state.
 
-   * @zh 属性 `formControl`（类型：`AbstractControl<any, any>`），用于存储或配置表单表单控件。
+   * @zh 属性 `formControl`（类型：`AbstractControl<any, any, any>`），用于存储或配置表单表单控件。
    */
   readonly formControl?: AbstractControl;
 

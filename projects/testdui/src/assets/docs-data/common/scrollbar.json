@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/scrollbar",
+  "importPath": "@dotos1/dui/common/scrollbar",
   "exports": [
     {
       "name": "_NgScrollbar",
@@ -602,5 +602,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { NgScrollbar, NgScrollbarModule } from '@dotos/dui/common/scrollbar';\n\n<ng-scrollbar:not([externalViewport])></ng-scrollbar:not([externalViewport])>"
+  "suggestedUsageSnippet": "import { NgScrollbar, NgScrollbarModule } from '@dotos1/dui/common/scrollbar';\n\n<ng-scrollbar:not([externalViewport])></ng-scrollbar:not([externalViewport])>"
 }

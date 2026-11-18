@@ -22,9 +22,9 @@ import {
     inject
 } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
-import { isPhoneTerminal } from '@dotos/dui/base';
-import { LocalStorageService } from '@dotos/dui/core/storage';
-import { TranslateService } from '@dotos/dui/translator';
+import { isPhoneTerminal } from '@dotos1/dui/base';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
+import { TranslateService } from '@dotos1/dui/translator';
 import { includes, pick}  from 'lodash-es';
 import { BehaviorSubject } from 'rxjs';
 
@@ -82,7 +82,8 @@ export interface ITreeConfig {
   host: {
     hostID: 'tree-root' + Math.random().toString(36).substring(2, 15),  
   },
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class TreeComponent implements OnChanges {
 

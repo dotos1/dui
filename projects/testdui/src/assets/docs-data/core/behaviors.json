@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/behaviors",
+  "importPath": "@dotos1/dui/core/behaviors",
   "exports": [
     {
       "name": "ICanDisable",
@@ -82,8 +82,8 @@
         {
           "name": "valueChanges",
           "type": "any",
-          "description": "Property `valueChanges` (`Observable<any>`) storing value changes.",
-          "descriptionZh": "属性 `valueChanges`（类型：`Observable<any>`），用于存储或配置值变更集合。"
+          "description": "Property `valueChanges` (`any`) storing value changes.",
+          "descriptionZh": "属性 `valueChanges`（类型：`any`），用于存储或配置值变更集合。"
         },
         {
           "name": "onChange",
@@ -121,7 +121,7 @@
       "name": "mixinControlValueAccessor",
       "kind": "function",
       "summary": "Mixin to augment a component with ngModel support.",
-      "summaryZh": "执行 `mixinControlValueAccessor`，用于mixin表单控件值访问器。",
+      "summaryZh": "执行 `mixinControlValueAccessor`，用于混入表单控件值访问器。",
       "sourceFile": "src/core/behaviors/control-value-accesor.mixin.ts",
       "inputs": [],
       "outputs": [],
@@ -140,7 +140,7 @@
           ],
           "returnType": "Constructor<IControlValueAccessor> & T",
           "description": "Mixin to augment a component with ngModel support.",
-          "descriptionZh": "执行 `mixinControlValueAccessor`，用于mixin表单控件值访问器。"
+          "descriptionZh": "执行 `mixinControlValueAccessor`，用于混入表单控件值访问器。"
         }
       ],
       "properties": []
@@ -149,7 +149,7 @@
       "name": "mixinDisabled",
       "kind": "function",
       "summary": "Mixin to augment a component or directive with a `disabled` property.",
-      "summaryZh": "执行 `mixinDisabled`，用于mixin已禁用。",
+      "summaryZh": "执行 `mixinDisabled`，用于混入已禁用。",
       "sourceFile": "src/core/behaviors/disabled.mixin.ts",
       "inputs": [],
       "outputs": [],
@@ -164,7 +164,7 @@
           ],
           "returnType": "Constructor<ICanDisable> & T",
           "description": "Mixin to augment a component or directive with a `disabled` property.",
-          "descriptionZh": "执行 `mixinDisabled`，用于mixin已禁用。"
+          "descriptionZh": "执行 `mixinDisabled`，用于混入已禁用。"
         }
       ],
       "properties": []
@@ -173,7 +173,7 @@
       "name": "mixinDisableRipple",
       "kind": "function",
       "summary": "Mixin to augment a component or directive with a `disabled` property.",
-      "summaryZh": "执行 `mixinDisableRipple`，用于mixin禁用Ripple。",
+      "summaryZh": "执行 `mixinDisableRipple`，用于混入禁用Ripple。",
       "sourceFile": "src/core/behaviors/disable-ripple.mixin.ts",
       "inputs": [],
       "outputs": [],
@@ -188,11 +188,11 @@
           ],
           "returnType": "Constructor<ICanDisableRipple> & T",
           "description": "Mixin to augment a component or directive with a `disabled` property.",
-          "descriptionZh": "执行 `mixinDisableRipple`，用于mixin禁用Ripple。"
+          "descriptionZh": "执行 `mixinDisableRipple`，用于混入禁用Ripple。"
         }
       ],
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/behaviors';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/behaviors';"
 }

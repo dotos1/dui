@@ -6,7 +6,7 @@
 
 import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CookieStorage } from '@dotos/dui/core/cookie';
+import { CookieStorage } from '@dotos1/dui/core/cookie';
 import { TranslateService } from './translate.service';
 import { TranslateLoaderService } from './translate-loader.service';
 /**

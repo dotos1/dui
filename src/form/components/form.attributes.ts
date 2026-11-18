@@ -13,8 +13,8 @@ import {
   DoCheck,
   Inject,
   OnDestroy,} from '@angular/core';
-import { FieldConfig } from '@dotos/dui/core/form';
-import { defineHiddenProp, FORM_VALIDATORS , observe, IObserver} from '@dotos/dui/core/form';
+import { FieldConfig } from '@dotos1/dui/core/form';
+import { defineHiddenProp, FORM_VALIDATORS , observe, IObserver} from '@dotos1/dui/core/form';
 import { DOCUMENT } from '@angular/common';
 
 /**
@@ -116,7 +116,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['field']) {
@@ -221,7 +221,8 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    * @param $event - event parameter (`any`) / 事件参数（`any`）
    */
   onFocus($event) {
-    this.focusObserver && this.focusObserver.setValue(true);
+    // 第二个参数：通知 MatField 等其它监听者，让 mat-form-field 刷新聚焦态（Material 22 只认 stateChanges）。
+    this.focusObserver && this.focusObserver.setValue(true, true);
     if (this.field.focus) {
       this.field.focus(this.field, $event);
     }
@@ -233,7 +234,7 @@ export class FormAttributes implements OnChanges, DoCheck, OnDestroy {
    * @param $event - event parameter (`any`) / 事件参数（`any`）
    */
   onBlur($event) {
-    this.focusObserver && this.focusObserver.setValue(false);
+    this.focusObserver && this.focusObserver.setValue(false, true);
     if (this.field.blur) {
       this.field.blur(this.field, $event);
     }

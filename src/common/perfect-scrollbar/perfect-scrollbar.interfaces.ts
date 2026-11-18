@@ -199,68 +199,68 @@ export class PerfectScrollbarConfig implements PerfectScrollbarConfigInterface {
      * Property `handlers` (`string[]`) storing handlers.
      * @zh 属性 `handlers`（类型：`string[]`），用于存储或配置处理器。
      */
-    public handlers?: string[];
+    declare public handlers?: string[];
 
     /**
      * Property `wheelSpeed` (`number`) storing wheel speed.
      * @zh 属性 `wheelSpeed`（类型：`number`），用于存储或配置滚轮速度。
      */
-    public wheelSpeed?: number;
+    declare public wheelSpeed?: number;
     /**
      * Property `swipeEasing` (`boolean`) storing swipe easing.
      * @zh 属性 `swipeEasing`（类型：`boolean`），用于存储或配置swipeEasing。
      */
-    public swipeEasing?: boolean;
+    declare public swipeEasing?: boolean;
 
     /**
      * Property `suppressScrollX` (`boolean`) storing suppress scroll x.
      * @zh 属性 `suppressScrollX`（类型：`boolean`），用于存储或配置suppress滚动X坐标。
      */
-    public suppressScrollX?: boolean;
+    declare public suppressScrollX?: boolean;
     /**
      * Property `suppressScrollY` (`boolean`) storing suppress scroll y.
      * @zh 属性 `suppressScrollY`（类型：`boolean`），用于存储或配置suppress滚动Y坐标。
      */
-    public suppressScrollY?: boolean;
+    declare public suppressScrollY?: boolean;
 
     /**
      * Property `wheelPropagation` (`boolean`) storing wheel propagation.
      * @zh 属性 `wheelPropagation`（类型：`boolean`），用于存储或配置滚轮事件冒泡。
      */
-    public wheelPropagation?: boolean;
+    declare public wheelPropagation?: boolean;
     /**
      * Property `useBothWheelAxes` (`boolean`) storing use both wheel axes.
      * @zh 属性 `useBothWheelAxes`（类型：`boolean`），用于存储或配置使用Both滚轮坐标轴集合。
      */
-    public useBothWheelAxes?: boolean;
+    declare public useBothWheelAxes?: boolean;
 
     /**
      * Property `scrollingThreshold` (`number`) storing scrolling threshold.
      * @zh 属性 `scrollingThreshold`（类型：`number`），用于存储或配置滚动中Threshold。
      */
-    public scrollingThreshold?: number;
+    declare public scrollingThreshold?: number;
 
     /**
      * Property `minScrollbarLength` (`number`) storing min scrollbar length.
      * @zh 属性 `minScrollbarLength`（类型：`number`），用于存储或配置最小值滚动条长度。
      */
-    public minScrollbarLength?: number;
+    declare public minScrollbarLength?: number;
     /**
      * Property `maxScrollbarLength` (`number`) storing max scrollbar length.
      * @zh 属性 `maxScrollbarLength`（类型：`number`），用于存储或配置最大值滚动条长度。
      */
-    public maxScrollbarLength?: number;
+    declare public maxScrollbarLength?: number;
 
     /**
      * Property `scrollXMarginOffset` (`number`) storing scroll x margin offset.
      * @zh 属性 `scrollXMarginOffset`（类型：`number`），用于存储或配置滚动X坐标外边距偏移量。
      */
-    public scrollXMarginOffset?: number;
+    declare public scrollXMarginOffset?: number;
     /**
      * Property `scrollYMarginOffset` (`number`) storing scroll y margin offset.
      * @zh 属性 `scrollYMarginOffset`（类型：`number`），用于存储或配置滚动Y坐标外边距偏移量。
      */
-    public scrollYMarginOffset?: number;
+    declare public scrollYMarginOffset?: number;
 
     /**
      * Creates an instance of `PerfectScrollbarConfig` and initializes its dependencies and internal state.

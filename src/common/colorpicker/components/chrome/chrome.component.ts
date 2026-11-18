@@ -5,8 +5,8 @@
 
 
 import {  ChangeDetectionStrategy,  Component,  Input,} from '@angular/core';
-import { ColorWrap } from '@dotos/dui/common/colorpicker/common';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
+import { ColorWrap } from '@dotos1/dui/common/colorpicker/common';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
 
 /**
  * "Chrome"-style color picker: saturation panel + hue/alpha sliders + hex/rgb/hsl fields,

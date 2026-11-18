@@ -1,61 +1,30 @@
 /**
  * @fileoverview Module `src/tree/mobx-angular/mobx-proxy.ts` providing mobx proxy definitions and implementation.
- * @zh 模块文件 `src/tree/mobx-angular/mobx-proxy.ts`，提供mobxproxy相关的定义与实现。
+ * @zh 模块文件 `src/tree/mobx-angular/mobx-proxy.ts`，提供 MobX 6 装饰器与操作符代理导出。
  */
 
-import { action as mobxAction } from 'mobx';
-import { computed as mobxComputed } from 'mobx';
-import { observable as mobxObservable } from 'mobx';
-
-// Re-export mobx operators to be able to use inside components with AOT:
-/**
- * Executes `actionInternal` to handle action internal.
- * @zh 执行 `actionInternal`，用于动作内部。
- * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
- */
-export function actionInternal(...args) {
-  return (mobxAction as unknown)(...args);
-}
-/**
- * Constant/variable `action` defining action in `src/tree/mobx-angular`.
- * @zh 常量/变量 `action`，定义 `src/tree/mobx-angular` 中的动作。
- */
-export const action: typeof mobxAction = Object.assign(
-  actionInternal,
-  mobxAction
-) as unknown;
+import { action as mobxAction, computed as mobxComputed, observable as mobxObservable } from 'mobx';
 
 /**
- * Executes `computedInternal` to handle computed internal.
- * @zh 执行 `computedInternal`，用于计算属性内部。
- * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
+ * Constant `actionInternal` re-exporting MobX `action` operator.
+ * @zh 常量 `actionInternal`，导出 MobX `action` 操作符。
  */
-function computedInternal(...args) {
-  return (mobxComputed as unknown)(...args);
-}
-/**
- * Constant/variable `computed` defining computed in `src/tree/mobx-angular`.
- * @zh 常量/变量 `computed`，定义 `src/tree/mobx-angular` 中的计算属性。
- */
-export const computed: typeof mobxComputed = Object.assign(
-  computedInternal,
-  mobxComputed
-) as unknown;
+export const actionInternal: typeof mobxAction = mobxAction;
 
 /**
- * Executes `observableInternal` to handle observable internal.
- * @zh 执行 `observableInternal`，用于可观察流内部。
- * @param args - args parameter (`any[]`) / 参数列表参数（`any[]`）
+ * Constant `action` re-exporting MobX `action` operator.
+ * @zh 常量 `action`，导出 MobX `action` 操作符。
  */
-function observableInternal(...args) {
-  return (mobxObservable as unknown)(...args);
-}
+export const action: typeof mobxAction = mobxAction;
 
 /**
- * Constant/variable `observable` defining observable in `src/tree/mobx-angular`.
- * @zh 常量/变量 `observable`，定义 `src/tree/mobx-angular` 中的可观察流。
+ * Constant `computed` re-exporting MobX `computed` operator.
+ * @zh 常量 `computed`，导出 MobX `computed` 操作符。
  */
-export const observable: typeof mobxObservable = Object.assign(
-  observableInternal,
-  mobxObservable
-) as unknown;
+export const computed: typeof mobxComputed = mobxComputed;
+
+/**
+ * Constant `observable` re-exporting MobX `observable` operator.
+ * @zh 常量 `observable`，导出 MobX `observable` 操作符。
+ */
+export const observable: typeof mobxObservable = mobxObservable;

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/animation",
+  "importPath": "@dotos1/dui/core/animation",
   "exports": [
     {
       "name": "AnimationCurves",
@@ -75,5 +75,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/animation';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/animation';"
 }

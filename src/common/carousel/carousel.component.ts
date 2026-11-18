@@ -21,7 +21,7 @@ import {
   PLATFORM_ID,
   QueryList,
   Renderer2,
-  ViewChild
+  ViewChild, ChangeDetectionStrategy
 } from '@angular/core';
 import { ThemePalette } from '@angular/material/core';
 import { interval, BehaviorSubject, Observable, Subject } from 'rxjs';
@@ -61,7 +61,8 @@ enum Direction {
   selector: 'mat-carousel',
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class MatCarouselComponent
   implements AfterContentInit, AfterViewInit, MatCarousel, OnDestroy {

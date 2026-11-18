@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/dynamic",
+  "importPath": "@dotos1/dui/common/dynamic",
   "exports": [
     {
       "name": "DynamicExtensionComponent",
@@ -41,7 +41,7 @@
         {
           "name": "content",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `content` (`@ViewChild`) targeting content.",
+          "description": "Template/content query reference `content` (`ViewContainerRef`) targeting content.",
           "descriptionZh": "承载动态创建组件的视图容器。"
         },
         {
@@ -64,5 +64,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DynamicExtensionComponent, ExtensionsModule } from '@dotos/dui/common/dynamic';\n\n<dui-dynamic-component [id]=\"...\" [xtype]=\"...\" [config]=\"...\"></dui-dynamic-component>"
+  "suggestedUsageSnippet": "import { DynamicExtensionComponent, ExtensionsModule } from '@dotos1/dui/common/dynamic';\n\n<dui-dynamic-component [id]=\"...\" [xtype]=\"...\" [config]=\"...\"></dui-dynamic-component>"
 }

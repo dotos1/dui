@@ -4,11 +4,11 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { ComponentFactoryResolver, Component, NgModule, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, NgModule, AfterViewInit, ViewChild, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { Dui } from '@dotos/dui/core';
-import { DockLayoutModule, DockLayoutHostComponent } from '@dotos/dui/container/dock-layout';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { Dui } from '@dotos1/dui/core';
+import { DockLayoutModule, DockLayoutHostComponent } from '@dotos1/dui/container/dock-layout';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `DockWidgetComponent` (selector: 'app-dock-widget') providing dock widget component presentation and interaction in `projects/testdui/src/app/docs/examples/dock-layout`.
@@ -18,6 +18,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
   selector: 'app-dock-widget',
   template: `<div style="padding:12px;">停靠面板内容：{{ label }}</div>`,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DockWidgetComponent {
   /**
@@ -41,6 +42,7 @@ export class DockWidgetComponent {
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class DockLayoutExampleComponent implements AfterViewInit {
   /**
@@ -109,9 +111,8 @@ export class DockLayoutExampleModule {
   /**
    * Creates an instance of `DockLayoutExampleModule` and initializes its dependencies and internal state.
    * @zh 创建 `DockLayoutExampleModule` 实例，并初始化其依赖项与内部状态。
-   * @param componentFactoryResolver - Injected or initial component factory resolver (`ComponentFactoryResolver`) / 注入或传入的组件工厂解析器（`ComponentFactoryResolver`）
    */
-  constructor(componentFactoryResolver: ComponentFactoryResolver) {
-    Dui.registerComponentFactory(componentFactoryResolver, this.entryComponents);
+  constructor() {
+    Dui.registerComponentFactory(this.entryComponents);
   }
 }
