@@ -1,413 +1,230 @@
-# @dotos/dui — DotOS UI for Angular 22
+# @dotos/dui
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](./LICENSE)
-[![Angular](https://img.shields.io/badge/Angular-%5E22.0.0-dd0031.svg)](https://angular.dev)
-[![Secondary Entry Points](https://img.shields.io/badge/Entry%20Points-95%20Modular-success.svg)](#secondary-entry-points-reference--%E5%85%A8%E9%83%A8%E4%BA%8C%E7%BA%A7%E5%AD%90%E5%85%A5%E5%8F%A3%E9%80%9F%E6%9F%A5%E8%A1%A8)
+**为 Angular 22 打造、在生产系统里长出来的企业级 UI 基础库。**
+95 个按需引入的入口、220 个组件、运行时三态换肤、12 种语言 —— 开箱即可搭建高密度的企业后台。
 
-<p align="center">
-  <a href="https://dui.dotos.com"><b>🌐 Website / 官网</b></a> ·
-  <a href="https://dui.dotos.com/demo"><b>▶ Live demo / 在线体验</b></a> ·
-  <a href="https://dui.dotos.com/products/dui"><b>📘 Docs / 文档</b></a> ·
-  <a href="https://dui.dotos.com/contact"><b>✉ Contact / 联系我们</b></a>
-</p>
-
-<p align="center">
-  <a href="https://dui.dotos.com"><img src="https://raw.githubusercontent.com/dotos1/dui/master/docs/images/dui-dotos-com.png" alt="DotOS UI — https://dui.dotos.com" width="860"></a>
-</p>
-
-> 168 live, config-only component examples (no HTML / SCSS) run in your browser at **[dui.dotos.com/demo](https://dui.dotos.com/demo)**.
-> 在 **[dui.dotos.com/demo](https://dui.dotos.com/demo)** 可以在线试用 168 个组件示例，全部只写配置、不写 HTML/SCSS。
-
-**DotOS UI (`@dotos/dui`)** is an enterprise-grade **Angular 22** native component library and millisecond-level dynamic **Light / Dark / Industrial DarkBlue** theming foundation, open-sourced under the **MIT License**.
-
-**DotOS UI（`@dotos/dui`）** 是面向复杂数据工作台与企业级 Web 应用的 **Angular 22 原生组件库**与**毫秒级亮色 / 暗色 / 工业深蓝（Light / Dark / DarkBlue）动态主题底座**，基于 **MIT 协议**开源发布。
+`Angular 22` · `MIT 开源` · `95 个独立入口` · `12 种语言` · `中英双语 API 文档` · `内置 llms.txt`
 
 ---
 
-## Key Highlights / 核心特性
+## 纯 Angular，原生 Material
 
-- **Angular 22 Native & Ivy Partial Compilation / 原生适配 Angular 22**
-  Built with Angular Package Format (FESM2022) and explicit `changeDetection` / `NgModule` boundaries—drop directly into Angular 22 Standalone `imports: [...]` or classic `@NgModule` architectures.
-  采用标准 Angular Package Format（FESM2022）构建，无缝兼容 Angular 22 Standalone 组件直接导入与传统 `@NgModule` 工程体系。
+dui 只做一件事：**做 Angular 生态里最地道的企业组件库。**
 
-- **Millisecond Dynamic Theming (`light` / `dark` / `darkblue`) / 毫秒级动态三态换肤**
-  Switch between Light, Dark, and Industrial DarkBlue modes plus Material color palettes at runtime via `ThemeService` & `DotosConfigService`—zero page reload and zero stylesheet recompilation.
-  内置完整 Material M2 + 自研组件运行时样式合成引擎，通过 `ThemeService` 与 `DotosConfigService` 在线毫秒级切换**浅色（`light`）**、**深色（`dark`）**、**工业深蓝（`darkblue`）**三态模式与任意主辅色板，无需刷新页面或重新编译 CSS。
-
-- **Zero Heavy-Editor Bloat / 零重型编辑器膨胀**
-  Cleanly decoupled from heavy rich-text/code/terminal engines (no `monaco-editor`, no `prosemirror-*`, no `xterm`, no `showdown` in the core bundle). Root `@dotos/dui` exports an empty barrel `{}` while **95 independent secondary entry points** guarantee strict bundler tree-shaking.
-  核心库彻底剥离 Monaco、ProseMirror、xterm、Showdown 等重型编辑器依赖，仅保留 7 个轻量基础工具包；根入口刻意保持空导出，全部能力拆分为 **95 个独立二级子入口**，消费端按需引入、极致 Tree-shaking。
-
-- **AI-Ready `llms.txt` Built In / 内置 AI 零幻觉索引**
-  Ships `@dotos/dui/llms.txt` inside the npm tarball with full entry-point paths, component selectors, and `@Input()/@Output()` signatures for Cursor, Claude Code, and Antigravity agents.
-  随 npm 包内置分发结构化 `llms.txt`，完整收录全部子入口路径、组件选择器与输入输出签名，助力 AI 编程代理零幻觉调用。
+- **长在 Angular Material 与 CDK 之上**，不是另起一套设计体系。按钮、表单、浮层、对话框沿用 Material 的组件与交互，主题服务按 Material 调色板实时生成全套样式 —— 放进你现有的 Material 应用里，看起来就是一家人。
+- **只为 Angular 写**，没有"一套核心适配多个框架"的包装层。依赖注入、变更检测、模板语法、`NgModule` / standalone，全部是 Angular 原生写法，你的团队怎么写 Angular，就怎么用 dui。
+- **紧跟 Angular 大版本**：8.x 已经运行在 Angular 22 上，并有门禁专门保证不使用新版本已删除的 API，升级 Angular 不必等组件库。
 
 ---
 
-## Installation / 安装指南
+## 为什么选择 dui
+
+| | |
+|---|---|
+| **不是 Demo，是现役装备** | dui 是 DotOS 平台主应用、SmartField 智能油田、Geo-BIM 空间平台等 15 个产品与模块的共同底座，内部 3,000 多个源文件直接依赖它。你拿到的就是我们每天在生产里跑的那一份代码。 |
+| **原生 Angular 22** | 标准 Angular Package Format（FESM2022）、Ivy 部分编译产物，可直接放进 standalone 组件的 `imports`，也可用于传统 `NgModule` 工程。 |
+| **够全，少拼凑** | 95 个二级入口覆盖表单、表格、树、布局、浮层、窗口、颜色与图标、权限与存储等，220 个组件、117 个指令、26 个管道。一个依赖替代十几个零散的第三方包。 |
+| **轻，按需引入** | 主入口刻意不导出任何内容，一切从 `@dotos/dui/<模块>` 引入，`sideEffects: false`，打包器只保留用到的部分。Monaco、ProseMirror、xterm 等重型编辑器已全部移出核心包，运行时依赖只有 7 个轻量工具包。 |
+| **运行时换肤** | 任意 Material 色板组合主色 / 强调色 / 警告色，亮色、暗色、工业深蓝三种底色，宽松 / 标准 / 紧凑三档密度，切换即生效、无需刷新，并自动记住用户选择。 |
+| **面向全球交付** | 12 种语言包（简中、繁中、英、日、韩、德、法、西、葡、俄、印尼、阿拉伯），由门禁保证各语种键完全对齐、不允许"照抄英文"。 |
+| **AI 编程友好** | npm 包内自带 `llms.txt`，收录入口路径、组件选择器与输入输出签名，方便 Cursor、Claude Code 等编程助手调用。 |
+| **中文团队友好** | 全部公开 API 带中英双语 JSDoc（`@zh` 标签，14,000 多条，95 个入口全覆盖），IDE 悬停即见中英文说明。 |
+
+---
+
+## 能力一览
+
+| 类别 | 入口（`@dotos/dui/...`） | 主要内容 |
+|---|---|---|
+| **表单** | `form`、`form/date`、`form/range`、`form/toggle-select`、`form/card` | JSON 配置驱动表单 `dui-form`；文本、数字、下拉（带搜索）、复选、单选、开关、滑块、日期 / 日期时间 / 日期区间、数值区间、颜色 / 图标选择、可重复分组等字段组件 |
+| **数据展示** | `data/datatable`、`data/cardview`、`data/paging`、`tree` | `dui-datatable`：虚拟滚动、分组、行详情、树形、汇总行；`tree-root`：拖拽、复选、懒加载、虚拟视口；卡片视图；分页条 |
+| **布局** | `container`、`container/layout`、`container/dock-layout` | 面板、标签页、手风琴、可拖拽网格布局、分割面板、信息抽屉、应用外壳 `dui-layout`、IDE 式停靠布局 |
+| **导航与命令** | `ui/button`、`ui/menu`、`ui/context-menu`、`ui/toolbar`、`ui/topbar`、`ui/speeddial`、`ux/command-palette` | 按钮、菜单栏、右键菜单、工具栏、顶栏、悬浮操作按钮、面包屑、模糊搜索命令面板 |
+| **反馈与浮层** | `common/dialogs`、`common/toastr`、`common/loading`、`common/popover`、`net` | 提示 / 确认 / 输入 / 状态对话框（手机端自动全屏）、消息通知、加载遮罩、HTTP 加载指示 |
+| **窗口** | `ux/windows`、`ux/multi-window` | 页内可拖拽 / 缩放的多窗口、跨浏览器窗口协同 |
+| **增强组件** | `ux/query-builder`、`ux/highlight`、`ux/avatar`、`ux/iconpicker`、`ux/link-preview` | 可视化查询条件构建器、代码高亮、头像、图标选择器、链接预览 |
+| **颜色 / 图标** | `common/colorpicker/*`、`common/matcolorpicker`、`common/icon`、`common/icon-sprite`、`common/inline-svg` | 多种风格的颜色选择器、图标与雪碧图、内联 SVG |
+| **交互指令** | `common/dnd`、`common/dragselect`、`common/resize-element`、`common/keyboard`、`common/clipboard`、`common/print` | 拖放、框选、拖拽缩放、快捷键与帮助面板、复制、打印 |
+| **主题与国际化** | `theme`、`theming/*`、`translator` | 运行时主题服务、组件级主题、SCSS 色板；翻译服务、管道、指令与 12 种语言包 |
+| **核心服务** | `core/auth`、`core/config`、`core/storage`、`core/cache`、`core/mobx` 等 | JWT 认证与守卫、锁屏、特性开关 `[duiFeature]`、本地存储、缓存、MobX 集成 |
+| **工具** | `util`、`util/pipes`、`base` | 常用管道、DOM / 观察者 / 移动端识别等底层工具 |
+
+> 富文本、Markdown、Monaco 代码编辑器、终端、JSON 编辑器在 8.0 起归入 [@dotos/duix](../duix/README.md)，保持 dui 核心轻量。
+
+---
+
+## 快速开始
+
+### 1. 安装
+
+> 当前通过 GitHub Packages 分发，需要读包令牌（向我们索取）。
+
+```ini
+# .npmrc
+@dotos1:registry=https://npm.pkg.github.com/
+//npm.pkg.github.com/:_authToken=<你的令牌>
+```
+
+```jsonc
+// package.json
+"dependencies": {
+  "@dotos/dui": "npm:@dotos1/dui@8.0.0-next.6"
+}
+```
+
+对等依赖（宿主工程提供）：
 
 ```bash
-npm install @dotos/dui
+npm i @angular/animations@^22 @angular/cdk@^22 @angular/common@^22 @angular/core@^22 \
+      @angular/forms@^22 @angular/material@^22 @angular/platform-browser@^22 @angular/router@^22 \
+      rxjs@^7.8 lodash-es@^4.17.21 mobx@^6 moment@^2.29
 ```
 
-Ensure standard Angular 22 & utility peer dependencies are installed in your host application / 请确保宿主工程已安装所需的 Angular 22 对等依赖：
+可选：`@angular/material-moment-adapter`（Moment 日期适配器）、`highlight.js`（代码高亮）。
 
-```bash
-npm install @angular/animations@^22.0.0 @angular/cdk@^22.0.0 @angular/common@^22.0.0 \
-  @angular/core@^22.0.0 @angular/forms@^22.0.0 @angular/material@^22.0.0 \
-  @angular/platform-browser@^22.0.0 @angular/router@^22.0.0 \
-  rxjs@^7.8.0 lodash-es@^4.17.21 mobx@^6.0.0 moment@^2.29.1
-```
+### 2. 初始化根模块
 
-> **Optional Peer Dependencies / 可选对等依赖**：
-> - `@angular/material-moment-adapter@^22.0.0` — Only needed when using Moment-backed date pickers (`@dotos/dui/form/date/moment`). / 仅在使用 Moment 日期适配器时需要。
-> - `highlight.js@^11.11.1` — Only needed when using `@dotos/dui/ux/highlight`. / 仅在使用代码高亮模块时需要。
+与我们自己的 Angular 22 主应用相同的初始化方式：
 
-Import the platform SCSS base in your global `src/styles.scss` / 在全局 `src/styles.scss` 中引入平台基础样式：
+```ts
+import { Injector, NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { ServiceLocator } from '@dotos/dui/core/services';
+import { LocalStorageService } from '@dotos/dui/core/storage';
+import { HttpLoaderModule } from '@dotos/dui/net';
+import { ToastrModule } from '@dotos/dui/common/toastr';
+import { DotosConfigModule, DotosConfigService, ThemeService, dotosConfig } from '@dotos/dui/theme';
+import { TranslateModule, TranslateService, TranslationService } from '@dotos/dui/translator';
 
-```scss
-@use '@dotos/dui/theming/platform';
-```
-
----
-
-## 5-Minute Quickstart / 5 分钟快速上手
-
-### 1. Dynamic Runtime Theme Switching / 动态换肤（`@dotos/dui/theme`）
-
-```typescript
-import { Component } from '@angular/core';
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
-
-@Component({
-  selector: 'app-theme-bar',
-  template: `
-    <button (click)="applyTheme('light')">Light / 浅色</button>
-    <button (click)="applyTheme('dark')">Dark / 深色</button>
-    <button (click)="applyTheme('darkblue')">DarkBlue / 工业深蓝</button>
-  `,
+@NgModule({
+  declarations: [AppComponent],
+  imports: [
+    BrowserModule, BrowserAnimationsModule,
+    DotosConfigModule.forRoot(dotosConfig),
+    HttpLoaderModule.forRoot(),
+    ToastrModule.forRoot(),
+    TranslateModule.forRoot(),
+  ],
+  providers: [
+    { provide: ThemeService, useFactory: () => ThemeService.getInstance() },
+    { provide: 'LOCAL_STORAGE_SERVICE_CONFIG', useValue: { prefix: 'dotos', storageType: 'localStorage' } },
+    LocalStorageService, TranslationService, TranslateService, DotosConfigService,
+    { provide: 'apiBase', useValue: '/api' },
+    provideHttpClient(withInterceptorsFromDi()),
+  ],
+  bootstrap: [AppComponent],
 })
-export class ThemeBarComponent {
-  constructor(
-    private readonly dotosConfig: DotosConfigService,
-    public readonly themeService: ThemeService // Inject once at root to activate runtime CSS injection
-  ) {}
-
-  applyTheme(type: 'light' | 'dark' | 'darkblue'): void {
-    this.dotosConfig.config = {
-      theme: {
-        type,
-        primary: 'blue-500',
-        accent: 'orange-500',
-        warn: 'red-500',
-      },
-    };
+export class AppModule {
+  constructor(injector: Injector, translation: TranslationService) {
+    ServiceLocator.injector = injector;               // 主题服务依赖它
+    translation.addTranslationFolder('public', 'i18n');
   }
 }
 ```
 
-### 2. JSON-Driven Dynamic Form / 配置驱动动态表单（`@dotos/dui/form`）
+### 3. 引入样式与语言包
 
-```typescript
+```scss
+/* src/styles.scss */
+@use '@dotos/dui/theming/platform';
+```
+
+把包内 `i18n/` 目录拷到应用的 `assets/i18n/`。
+
+### 4. 使用组件
+
+```ts
 import { Component } from '@angular/core';
 import { FormModule } from '@dotos/dui/form';
+import { ButtonModule } from '@dotos/dui/ui/button';
 
 @Component({
   selector: 'app-quick-form',
-  imports: [FormModule],
-  template: `<dui-form [config]="formConfig"></dui-form>`,
+  imports: [FormModule, ButtonModule],
+  template: `
+    <dui-form [config]="formConfig"></dui-form>
+    <dui-button type="mat-raised-button" color="primary" text="保存" (click)="save()"></dui-button>
+  `,
 })
 export class QuickFormComponent {
   formConfig = {
     items: [
-      {
-        xtype: 'text-field',
-        name: 'clusterName',
-        label: 'Cluster Name / 集群名称',
-        required: true,
-        wrappers: ['form-field'],
-      },
-      {
-        xtype: 'select-field',
-        name: 'region',
-        label: 'Region / 可用区',
-        wrappers: ['form-field'],
-        options: [
-          { label: 'cn-north-1', value: 'cn-north-1' },
-          { label: 'ap-east-1', value: 'ap-east-1' },
-        ],
-      },
+      { xtype: 'text-field',   name: 'name',   label: '名称', required: true, wrappers: ['form-field'] },
+      { xtype: 'select-field', name: 'region', label: '区域', wrappers: ['form-field'],
+        options: [{ label: '华北', value: 'north' }, { label: '华东', value: 'east' }] },
     ],
+  };
+  save() {}
+}
+```
+
+### 5. 运行时换肤
+
+```ts
+constructor(private dotosConfig: DotosConfigService) {}
+
+applyTheme(type: 'light' | 'dark' | 'darkblue') {
+  this.dotosConfig.config = {
+    theme: { type, primary: 'blue-500', accent: 'orange-500', warn: 'red-500' },
   };
 }
 ```
 
-### 3. Alert & Confirm Dialogs / 模态确认与提示弹窗（`@dotos/dui/common/dialogs`）
+---
 
-```typescript
-import { Component } from '@angular/core';
-import { DialogsModule, DialogService } from '@dotos/dui/common/dialogs';
+## 质量保障
 
-@Component({
-  selector: 'app-release-Trigger',
-  imports: [DialogsModule],
-  template: `<button (click)="confirmRelease()">Publish / 发布</button>`,
-})
-export class ReleaseTriggerComponent {
-  constructor(private readonly dialogService: DialogService) {}
+每次提交都由 CI 逐项把关：
 
-  confirmRelease(): void {
-    this.dialogService
-      .openConfirm({
-        title: 'Confirm / 操作确认',
-        message: 'Are you sure you want to roll out this configuration? / 确认立即下发该配置吗？',
-      })
-      .afterClosed()
-      .subscribe((confirmed: boolean) => {
-        if (confirmed) {
-          this.dialogService.openAlert({
-            title: 'Done / 已完成',
-            message: 'Configuration applied successfully. / 配置下发成功。',
-          });
-        }
-      });
-  }
-}
-```
+| 门禁 | 保证什么 |
+|---|---|
+| `gate:tsc` | 全部入口通过类型检查 |
+| `gate:any` | 类型逃逸（`any`、绕过断言）只减不增 |
+| `gate:i18n` | 12 种语言键集合完全一致，非英语不得照抄英文 |
+| `gate:jsdoc` | 文档中的类型与真实类型一致，中文说明用语规范 |
+| `gate:esm` | 全库纯 ESM，可被摇树优化 |
+| `gate:ng22-compat` | 不使用 Angular 22 已删除的 API，强制部分编译 |
+| `gate:style-ref` | Material 样式变量新旧双写，平滑升级 |
 
-### 4. Tree View & Enterprise Data Table / 树形视图与数据表格（`@dotos/dui/tree` & `@dotos/dui/data/datatable`）
+包内附带 `THIRD-PARTY-NOTICES.md`，列明全部依赖的许可证。
 
-```typescript
-import { Component } from '@angular/core';
-import { TreeModule } from '@dotos/dui/tree';
-import { DatatableModule } from '@dotos/dui/data/datatable';
+---
 
-@Component({
-  selector: 'app-asset-workbench',
-  imports: [TreeModule, DatatableModule],
-  template: `
-    <div style="display:grid; grid-template-columns: 260px 1fr; gap: 16px; height: 360px;">
-      <tree-root [nodes]="treeNodes"></tree-root>
-      <dui-datatable [rows]="rows" [columns]="columns"></dui-datatable>
-    </div>
-  `,
-})
-export class AssetWorkbenchComponent {
-  treeNodes = [
-    {
-      id: 1,
-      name: 'Production Cluster / 生产集群',
-      children: [
-        { id: 2, name: 'Gateway Nodes / 网关节点' },
-        { id: 3, name: 'Worker Nodes / 计算节点' },
-      ],
-    },
-  ];
+## 文档与示例
 
-  columns = [
-    { prop: 'node', name: 'Node / 节点' },
-    { prop: 'role', name: 'Role / 角色' },
-    { prop: 'latency', name: 'Latency (ms) / 延迟' },
-  ];
+仓库自带文档站 **testdui**：组件导航树、模块概览、由源码自动生成的 API 参考，以及各模块的交互示例与主题设置面板。
 
-  rows = [
-    { node: 'gw-01', role: 'Ingress', latency: 4.2 },
-    { node: 'wk-01', role: 'Compute', latency: 1.8 },
-  ];
-}
+```bash
+yarn install
+npm start          # http://localhost:4400
 ```
 
 ---
 
-## Secondary Entry-Points Reference / 全部二级子入口速查表
+## 兼容性
 
-> Always import from specific secondary entry points (`@dotos/dui/<category>/<module>`) rather than the bare root package.
-> 请始终从具体的二级子入口（`@dotos/dui/<分类>/<模块>`）按需导入，以获得最佳构建体积。
-
-### `base` — Foundational Event Bus & Base Models / 底层事件发射器与基础抽象模型 (1)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/base` | `addClass`, `AngularEventEmitter`, `attributes`, `Base` (+43) | - |
-
-### `common` — 36 Modular UI Building Blocks & Directives / 36 个高内聚通用 UI 组件、弹层与交互指令 (36)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/common/animations` | `AnimationsModule`, `ToggleDirective` | `[duiToggle]` |
-| `@dotos/dui/common/backdrop` | `BackdropModule`, `BackdropComponent` | `dui-backdrop` |
-| `@dotos/dui/common/breadcrumbs` | `BreadcrumbsModule`, `BreadcrumbComponent`, `BreadcrumbsComponent` | `dui-breadcrumb, a[dui-breadcrumb]`, `dui-breadcrumbs` |
-| `@dotos/dui/common/carousel` | `MatCarouselModule`, `MatCarouselComponent`, `MatCarouselSlideComponent` | `mat-carousel`, `mat-carousel-slide` |
-| `@dotos/dui/common/clickout` | `ClickOutsideModule`, `ClickOutsideDirective` | `[clickOutside]` |
-| `@dotos/dui/common/clipboard` | `ClipboardModule`, `ClipboardComponent`, `CopyButtonComponent`, `ClipboardService` (+1) | `dui-copy-content-tooltip`, `[dui-clipboard]`, `copy-button` |
-| `@dotos/dui/common/collapsible` | `CollapsibleModule`, `CollapsibleComponent`, `CollapseDirective` | `[duiCollapse]`, `dui-collapsible` |
-| `@dotos/dui/common/colorpicker/common` | `AlphaModule`, `CheckboardModule`, `ColorWrapModule`, `CoordinatesModule` (+16) | `color-alpha`, `color-checkboard`, `color-wrap` |
-| `@dotos/dui/common/colorpicker/components` | `ColorAlphaModule`, `ColorChromeModule`, `ColorCircleModule`, `ColorCompactModule` (+27) | `color-alpha-picker`, `color-chrome`, `color-chrome-fields` |
-| `@dotos/dui/common/dialogs` | `DialogsModule`, `AlertDialogComponent`, `ConfirmDialogComponent`, `duiDialogComponent` (+8) | `dui-alert-dialog`, `dui-confirm-dialog`, `[duiDialogActions]` |
-| `@dotos/dui/common/directives` | `DuiDirectivesModule`, `DuiIfOnDomDirective` | `[duiIfOnDom]` |
-| `@dotos/dui/common/dnd` | `DndModule`, `DndDraggableDirective`, `DndDragImageRefDirective`, `DndDropzoneDirective` (+2) | `[dndDraggable]`, `[dndDragImageRef]`, `[dndDropzone]` |
-| `@dotos/dui/common/dragselect` | `DragToSelectModule`, `SelectContainerComponent`, `ShortcutService`, `SelectItemDirective` | `dts-select-container`, `[dtsSelectItem]` |
-| `@dotos/dui/common/dynamic` | `ExtensionsModule`, `DynamicExtensionComponent` | `dui-dynamic-component` |
-| `@dotos/dui/common/fileupload` | `FileUploadModule`, `FileDropDirective`, `FileSelectDirective` | `[duiFileDrop]`, `[duiFileSelect]` |
-| `@dotos/dui/common/icon` | `IconModule`, `IconComponent`, `FontLoaderService`, `IconPickerService` | `dui-icon` |
-| `@dotos/dui/common/icon-sprite` | `IconSpriteModule`, `IconSpriteComponent`, `IconSpriteService`, `IconSpriteDirective` | `svg-icon-sprite`, `[svgIconSpriteAttr]` |
-| `@dotos/dui/common/iframe` | `IFrameModule`, `IframeComponent`, `SafePipe` | `dui-iframe` |
-| `@dotos/dui/common/inline-svg` | `InlineSVGModule`, `InlineSVGComponent`, `InlineSVGService`, `SVGCacheService` (+1) | `inline-svg`, `[inlineSVG]` |
-| `@dotos/dui/common/keyboard` | `KeyboardShortcutsModule`, `KeyboardShortcutComponent`, `KeyboardShortcutsComponent`, `KeyboardShortcutsHelpComponent` (+6) | `keyboard-shortcut`, `keyboard-shortcuts`, `[KeyboardShortcuts]` |
-| `@dotos/dui/common/loading` | `LoadingModule`, `LoadingComponent`, `LoadingFactory`, `LoadingService` (+1) | `dui-loading`, `[duiLoading]` |
-| `@dotos/dui/common/matcolorpicker` | `ColorPickerModule`, `ColorPickerComponent` | `color-picker` |
-| `@dotos/dui/common/media` | `MediaModule`, `MediaService`, `MediaToggleDirective` | `[extMediaToggle]` |
-| `@dotos/dui/common/message` | `MessageModule`, `MessageComponent`, `MessageContainerDirective` | `dui-message`, `[duiMessageContainer]` |
-| `@dotos/dui/common/notifications` | `NotificationsModule`, `NotificationCountComponent` | `dui-notification-count` |
-| `@dotos/dui/common/password` | `TogglePasswordModule`, `TogglePasswordComponent` | `toggle-password` |
-| `@dotos/dui/common/perfect-scrollbar` | `PerfectScrollbarModule`, `PerfectScrollbarComponent`, `ForceNativeScrollDirective`, `PerfectScrollbarDirective` | `[forceNativeScrolling]`, `perfect-scrollbar`, `[perfectScrollbar]` |
-| `@dotos/dui/common/popover` | `PopoverModule`, `Popover`, `PopoverTarget`, `PopoverTrigger` | `popover`, `popover-target, [popoverTarget]`, `[popoverTriggerFor]` |
-| `@dotos/dui/common/print` | `PrintModule`, `PrintService`, `PrintDirective` | `button[duiPrint]` |
-| `@dotos/dui/common/resize-element` | `ResizableModule`, `ResizableDirective`, `ResizeHandleDirective` | `[duiResizable]`, `[duiResizeHandle]` |
-| `@dotos/dui/common/screenfull` | `ScreenfullService` | - |
-| `@dotos/dui/common/scrollbar` | `NgScrollbarModule`, `NgScrollbar`, `NgScrollbarExt`, `AsyncDetection` (+2) | `ng-scrollbar[externalViewport][asyncDetection]`, `ng-scrollbar:not([externalViewport])`, `ng-scrollbar[externalViewport]` |
-| `@dotos/dui/common/search-box` | `SearchBoxModule`, `SearchBoxComponent`, `SearchInputComponent` | `search-box`, `search-input` |
-| `@dotos/dui/common/stop-propagation` | `StopPropagationModule`, `StopDropPropagationDirective`, `StopPropagationDirective` | `[duiStopDropPropagation]`, `[duiStopPropagation]` |
-| `@dotos/dui/common/toastr` | `ToastNoAnimationModule`, `ToastrComponentlessModule`, `ToastrModule`, `Toast` (+6) | `[toast-component]`, `[toastContainer]`, `[toast-component]` |
-| `@dotos/dui/common/trigger` | `TriggerPopup` | - |
-
-### `container` — Docking Workbench & Split Layouts / 桌面级停靠布局容器与分栏面板 (3)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/container/dock-layout` | `DockLayoutModule`, `DockLayoutHostComponent`, `DockLayoutComponentService`, `DockLayoutManagerService` | - |
-| `@dotos/dui/container` | `CardModule`, `DuiTabsModule`, `ExpansionModule`, `GridsterModule` (+31) | `accordion`, `card`, `[duiLayoutClose]` |
-| `@dotos/dui/container/layout` | `DuiLayoutModule`, `DuiPanelComponent`, `LayoutComponent`, `AbstractPanel` (+1) | `dui-panel`, `dui-layout`, `dui-split-area, [dui-split-area]` |
-
-### `core` — Enterprise Core Infrastructure (Auth, Cache, Config, Crypto, Dynamic, Storage) / 企业级核心基础设施 (20)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/core/angular2parse` | `Angular2ParseModule`, `Parse` | - |
-| `@dotos/dui/core/animation` | `AnimationCurves`, `AnimationDurations` | - |
-| `@dotos/dui/core/auth` | `AuthModule`, `AuthBearerInterceptor`, `AuthenticatedGuard`, `AuthGuard` (+6) | - |
-| `@dotos/dui/core/auth/lock` | `LockscreenSaverModule`, `LockscreenDialog` | `lock-dialog` |
-| `@dotos/dui/core/behaviors` | `ICanDisable`, `ICanDisableRipple`, `IControlValueAccessor`, `IHasChangeDetectorRef` (+3) | - |
-| `@dotos/dui/core/cache` | `BaseObject`, `Collection`, `CollectionEventEmitter`, `CollectionEventListener` (+3) | - |
-| `@dotos/dui/core/color` | `bound01`, `boundAlpha`, `bounds`, `clamp01` (+49) | - |
-| `@dotos/dui/core/config` | `ConfigModule`, `ConfigService`, `FeatureService`, `FeatureDirective` (+1) | `[duiFeature]` |
-| `@dotos/dui/core/cookie` | `Cookie`, `CookieSerializer`, `CookieStorage` | - |
-| `@dotos/dui/core/crypt` | `encrypt` | - |
-| `@dotos/dui/core/decorators` | `coerceArray`, `coerceBoolean`, `coerceCssPixelValue`, `coerceNumber` (+2) | - |
-| `@dotos/dui/core/dynamic` | `DynamicModule`, `DynamicComponent`, `SafeurlPipe` | `dui-dynamic` |
-| `@dotos/dui/core/form` | `AbstractFormModule`, `FormTemplateType`, `ValidationMessage`, `FormBuilder` (+3) | `form-template`, `validation-message` |
-| `@dotos/dui/core` | `RtlModule`, `StyleModule`, `FocusOriginMonitor`, `MediaService` (+5) | `[cdkMonitorElementFocus], [cdkMonitorSubtreeFocus]`, `[dir]` |
-| `@dotos/dui/core/media` | `MediaService` | - |
-| `@dotos/dui/core/meta` | `MetaModule`, `MetaGuard`, `MetaService` | - |
-| `@dotos/dui/core/mobx` | `MobxAngularModule`, `MobxAutorunDirective`, `MobxReactionDirective` | `[mobxAutorun]`, `[mobxReaction]` |
-| `@dotos/dui/core/position` | `PositionStore` | - |
-| `@dotos/dui/core/services` | `CommonServicesModule`, `CookieService`, `HighlightTransformService`, `LogService` (+2) | - |
-| `@dotos/dui/core/storage` | `LocalStorageModule`, `LocalStorageService` | - |
-
-### `data` — Enterprise Data Table, Card View & Paging / 高性能数据表、卡片视图与分页 (3)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/data/cardview` | `CardViewModule`, `CardViewArrayItemComponent`, `CardViewBoolItemComponent`, `CardViewComponent` (+9) | `dui-card-view-arrayitem`, `dui-card-view-boolitem`, `dui-card-view` |
-| `@dotos/dui/data/datatable` | `DatatableModule`, `DataTableBodyCellComponent`, `DataTableBodyComponent`, `DataTableBodyRowComponent` (+28) | `datatable-body-cell`, `datatable-body`, `datatable-body-row` |
-| `@dotos/dui/data/paging` | `DuiPagingModule`, `DuiPagingBarComponent` | `dui-paging-bar` |
-
-### `form` — JSON Schema Dynamic Forms & Date/Range Fields / 配置驱动动态表单与日期/区间控件 (8)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/form/card` | `FormCardModule`, `FormCard` | `form-card` |
-| `@dotos/dui/form/date` | `DateFieldModule`, `DateFieldComponent` | `date-field` |
-| `@dotos/dui/form/date/adapter` | `MatNativeDatetimeModule`, `NativeDatetimeModule`, `NativeDatetimeAdapter` | - |
-| `@dotos/dui/form/date/moment` | `MatMomentDatetimeModule`, `MomentDatetimeModule`, `MomentDatetimeAdapter` | - |
-| `@dotos/dui/form/date/picker` | `MatDatetimepickerModule`, `MatDatetimepicker`, `MatDatetimepickerCalendar`, `MatDatetimepickerCalendarBody` (+7) | `mat-datetimepicker`, `mat-datetimepicker-calendar`, `[mat-datetimepicker-calendar-body]` |
-| `@dotos/dui/form` | `ArrayInputModule`, `CheckBoxFieldModule`, `CheckboxGroupModule`, `ColorFieldModule` (+50) | `array-input-field`, `[duiAutoTrim]`, `checkbox-field` |
-| `@dotos/dui/form/range` | `RangeFieldModule`, `DateRangeFieldComponent`, `NumberRangeFieldComponent`, `RangeField` | `date-range-field`, `number-range-field` |
-| `@dotos/dui/form/toggle-select` | `ToggleSelectModule`, `ToggleHeaderComponent`, `ToggleSelectComponent`, `ToggleOption` | `toggle-header`, `toggle-option`, `toggle-select` |
-
-### `i18n` — 12 Built-in Locale Bundles / 内置 12 语种国际化词典资源 (1)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/i18n` | (assets only: JSON locale bundles, no TypeScript exports) | - |
-
-### `net` — HTTP Client Interceptors & Upload/Download / 网络请求封装与传输辅助 (1)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/net` | `HttpLoaderModule`, `HttpLoaderComponent`, `CacheInterceptor`, `ErrorInterceptor` (+7) | `http-loader` |
-
-### `theme` — Runtime Dynamic Theming Engine / 运行时毫秒级动态换肤引擎 (1)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/theme` | `DotosConfigModule`, `DotosConfigService`, `ThemeService` | - |
-
-### `theming` — Platform SCSS Design Tokens & Mixins / 平台级 SCSS 主题令牌与样式混入 (1)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/theming` | (Sass only: `@use '@dotos/dui/theming/platform'`, no TypeScript exports) | - |
-
-### `translator` — Runtime Internationalization Service & Pipe / 运行时多语言国际化服务与管道 (1)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/translator` | `TranslateModule`, `FakeMissingTranslationHandler`, `TranslateDefaultParser`, `TranslateFakeCompiler` (+8) | `[translate],[ngx-translate]` |
-
-### `tree` — Virtualized Tree View & Drag-Drop / 虚拟滚动树形控件与节点拖拽 (1)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/tree` | `TreeModule`, `LoadingComponent`, `TreeComponent`, `TreeNodeCheckboxComponent` (+15) | `tree-loading-component`, `[treeAnimateOpen]`, `Tree, tree-root` |
-
-### `ui` — Core Interactive Controls & Menus / 核心交互控件、工具栏与菜单 (7)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/ui/button` | `ButtonModule`, `ToggleButtonModule`, `ButtonComponent`, `ToggleButtonComponent` | `dui-button`, `toggle-button` |
-| `@dotos/dui/ui/color-button` | `ColorPickerButtonModule`, `ColorPickerButton` | `colorpicker-button` |
-| `@dotos/dui/ui/context-menu` | `ContextMenuModule`, `ContextMenuComponent`, `ContextMenuItemComponent`, `ContextMenuService` (+1) | `dui-context-menu`, `dui-context-menu-item`, `[duiContextMenuOutsideEvent]` |
-| `@dotos/dui/ui/menu` | `MenuModule`, `MenuBarComponent`, `MenuItemComponent`, `MenuBase` (+1) | `dui-menu-bar`, `[menu-host]`, `dui-menu-item` |
-| `@dotos/dui/ui/speeddial` | `SpeedDialModule`, `ExtSpeedDialComponent`, `FabButtonComponent`, `SpeedDialActionsComponent` (+2) | `speeddial`, `fabbutton`, `speed-dial-actions` |
-| `@dotos/dui/ui/toolbar` | `DuiToolbarModule`, `DuiToolbarComponent`, `Fill`, `Separator` (+2) | `dui-toolbar`, `tbfill`, `divider` |
-| `@dotos/dui/ui/topbar` | `TopbarModule`, `ToolbarDividerComponent`, `TopbarComponent`, `TopbarTitleComponent` | `dui-topbar-divider`, `dui-topbar`, `dui-topbar-title` |
-
-### `util` — Pipes, Formatting & Binary Utilities / 常用管道、格式化与工具函数 (3)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/util` | `ExtUtilModule`, `ActivityInterceptor`, `ActivityService` | - |
-| `@dotos/dui/util/jpeg` | `decode`, `encode` | - |
-| `@dotos/dui/util/pipes` | `DuiPipesModule`, `BytesPipe`, `CamelCaseToDashPipe`, `ClonePipe` (+16) | - |
-
-### `ux` — Workbench UX Widgets (Command Palette, Query Builder, Windows, Highlight) / 高阶工作台交互套件 (10)
-
-| Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
-| :--- | :--- | :--- |
-| `@dotos/dui/ux/avatar` | `AvatarModule`, `AvatarComponent`, `AvatarService` | `dui-avatar` |
-| `@dotos/dui/ux/command-palette` | `CommandPaletteModule`, `CommandPaletteComponent`, `CommandPaletteContentComponent`, `CommandPaletteHeaderComponent` (+4) | `command-palette`, `command-palette-content`, `command-palette-header` |
-| `@dotos/dui/ux/highlight` | `HighlightModule`, `CopyCodeButtonComponent`, `HighlightComponent` | `copy-code-button`, `dui-highlight` |
-| `@dotos/dui/ux/iconpicker` | `IconPickerModule`, `IconPickerField` | `icon-picker-field` |
-| `@dotos/dui/ux` | `CodeEditorModule`, `ExtUxModule`, `IconPickerModule`, `ExtCodeEditorComponent` (+1) | `td-code-editor`, `icon-picker-field` |
-| `@dotos/dui/ux/line-style` | `LineStyleModule`, `LineSizeSelector`, `LineStyleSelector` | `line-size-field`, `line-style-field` |
-| `@dotos/dui/ux/link-preview` | `LinkPreviewModule`, `LinkPreviewComponent`, `LinkPreviewCacheService` | `link-preview` |
-| `@dotos/dui/ux/multi-window` | `MultiWindowModule`, `MultiWindowRef`, `MultiWindowService`, `WStorageService` | - |
-| `@dotos/dui/ux/query-builder` | `QueryBuilderModule`, `QueryBuilderComponent`, `QueryArrowIconDirective`, `QueryButtonGroupDirective` (+7) | `[queryArrowIcon]`, `query-builder`, `[queryButtonGroup]` |
-| `@dotos/dui/ux/windows` | `DragAndDropModule`, `ResizerModule`, `ScrollViewModule`, `UtilsModule` (+14) | `[osAppendToBody]`, `[osDraggable]`, `[osFixedToParent]` |
+| 项 | 说明 |
+|---|---|
+| Angular | **22.x**（8.x，当前 8.0.0-next.6）；Angular 18 项目可使用 7.x 维护线 |
+| 组件形态 | 以 NgModule 封装，可直接在 standalone 组件的 `imports` 中使用 |
+| 运行环境 | 现代浏览器；手机端已适配触摸目标与全屏对话框 |
+| 服务端渲染 | 暂不支持 |
+| 从右到左（RTL） | 部分支持 |
 
 ---
 
-## AI Coding Assistant Integration (`llms.txt`) / AI 辅助编程集成
+## 许可
 
-This package includes `node_modules/@dotos/dui/llms.txt` with machine-readable entry-point paths, component selectors, `@Input()/@Output()` types, and idiomatic Angular 22 snippets. Point Cursor, Claude Code, or Antigravity to `node_modules/@dotos/dui/llms.txt` for zero-hallucination code generation.
+dui 以 **MIT 许可** 开源，可免费用于商业项目。
 
-本包内置分发 `node_modules/@dotos/dui/llms.txt`，可在 Cursor、Claude Code、Antigravity 等 AI 编码工具中直接引用，获取零幻觉的精确组件选择器与属性签名。
+需要复杂数据网格、甘特图、透视分析、日程、看板、文件预览、富文本与代码编辑器？请看
+**[@dotos/duix](../duix/README.md)** —— 与 dui 同一套主题和语言体系的企业级扩展组件库。
 
 ---
 
-## Open Source License & Notices / 开源许可证与第三方声明
+## 关于我们
 
-- **License / 许可证**: Released under the [MIT License](./LICENSE). / 基于 [MIT 许可证](./LICENSE) 开源。
-- **Third-Party Notices / 第三方开源声明**: See [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md) for runtime dependency attributions. / 运行时依赖协议声明详见 [THIRD-PARTY-NOTICES.md](./THIRD-PARTY-NOTICES.md)。
-- **Repository / 代码仓库**: <https://github.com/dotos1/dui>
+北京商典信息科技有限公司 · [www.dotos.com](https://www.dotos.com)
+商务与技术支持：`<待填写联系邮箱>`
