@@ -3,7 +3,7 @@
  * @zh 模块文件 `projects/testdui/src/app/tutorial/pages/tutorial-page/tutorial-page.component.ts`，提供tutorial页面组件相关的定义与实现。
  */
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Angular component `TutorialPageComponent` (selector: 'app-tutorial-page') providing tutorial page component presentation and interaction in `projects/testdui/src/app/tutorial/pages/tutorial-page`.
@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
   templateUrl: './tutorial-page.component.html',
   styleUrls: ['./tutorial-page.component.scss'],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class TutorialPageComponent {
   /**
@@ -21,10 +22,10 @@ export class TutorialPageComponent {
    * @zh 属性 `installSnippet`（类型：`string`），用于存储或配置installSnippet。
    */
   readonly installSnippet = `# npm
-npm install @dotos/dui
+npm install @dotos1/dui
 
 # yarn
-yarn add @dotos/dui`;
+yarn add @dotos1/dui`;
 
   /**
    * Property `peerDepsSnippet` (`string`) storing peer deps snippet.
@@ -38,8 +39,8 @@ yarn add @dotos/dui`;
    */
   readonly appModuleSnippet = `import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { TranslateModule } from '@dotos/dui/translator';
-import { DotosConfigModule, dotosConfig } from '@dotos/dui/theme';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { DotosConfigModule, dotosConfig } from '@dotos1/dui/theme';
 
 @NgModule({
   imports: [
@@ -55,8 +56,8 @@ export class AppModule {}`;
    * Property `featureModuleSnippet` (`string`) storing feature module snippet.
    * @zh 属性 `featureModuleSnippet`（类型：`string`），用于存储或配置feature模块Snippet。
    */
-  readonly featureModuleSnippet = `import { ButtonModule } from '@dotos/dui/ui/button';
-import { DatatableModule } from '@dotos/dui/data/datatable';
+  readonly featureModuleSnippet = `import { ButtonModule } from '@dotos1/dui/ui/button';
+import { DatatableModule } from '@dotos1/dui/data/datatable';
 
 @NgModule({
   imports: [ButtonModule, DatatableModule],
@@ -104,8 +105,8 @@ this.themeService.changeTheme('#3f51b5', '#ff4081', '#f44336', 'light');`;
 }
 
 // 跨二级入口引入必须使用包名路径，严禁相对路径跨入口引用：
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';`;
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';`;
 
   /**
    * Property `lifecycleSnippet` (`string`) storing RxJS teardown and OnPush best-practice snippet.

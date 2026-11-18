@@ -4,7 +4,7 @@
  */
 
 import {Injectable} from "@angular/core";
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 /**
  * Injectable Angular service `GoogleColorService` managing google color service state and operations in `src/common/colorpicker/components/google`.
  * @zh 可注入的 Angular 服务 `GoogleColorService`，管理 `src/common/colorpicker/components/google` 中的Google颜色服务状态与业务操作。

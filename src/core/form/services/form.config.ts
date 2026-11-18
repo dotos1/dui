@@ -4,7 +4,7 @@
  */
 
 import { createComponent, EnvironmentInjector, Injectable, InjectionToken, ComponentRef } from '@angular/core';
-import { DuiBase } from '@dotos/dui/base';
+import { DuiBase } from '@dotos1/dui/base';
 import { FieldType } from '../template/field.type';
 import { reverseDeepMerge , defineHiddenProp} from './../utils';
 import {

@@ -105,7 +105,7 @@ export class ClickOutsideDirective implements OnInit, OnChanges, OnDestroy {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (!isPlatformBrowser(this.platformId)) { return; }

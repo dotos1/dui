@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/decorators",
+  "importPath": "@dotos1/dui/core/decorators",
   "exports": [
     {
       "name": "coerceArray",
@@ -81,5 +81,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/decorators';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/decorators';"
 }

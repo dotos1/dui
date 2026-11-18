@@ -36,7 +36,7 @@
   }
 }
 :host ::ng-deep .mat-mdc-dialog-container{
-    box-shadow: var(--mdc-dialog-container-elevation-shadow);
+    box-shadow: var(--mat-dialog-container-elevation-shadow);
 }
 @media screen and (max-width: 480px) {
   .dui-dialog-wrapper {

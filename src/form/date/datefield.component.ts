@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/form/date/datefield.component.ts`，提供datefield组件相关的定义与实现。
  */
 
-import { isPhoneTerminal } from '@dotos/dui/base';
+import { isPhoneTerminal } from '@dotos1/dui/base';
 import {
   Component, ViewChild, ChangeDetectionStrategy, ViewEncapsulation, Input, SimpleChanges,
   ChangeDetectorRef, AfterContentInit, OnChanges, OnDestroy,  EventEmitter,
@@ -21,14 +21,14 @@ import {
 } from "@angular/forms";
 import {  MAT_INPUT_VALUE_ACCESSOR } from "@angular/material/input";
 
-import { Dui } from '@dotos/dui/core';
-import { TranslateService } from '@dotos/dui/translator';
-import { DatetimeAdapter, MAT_DATETIME_FORMATS, MatDatetimeFormats } from "@dotos/dui/form/date/adapter";
-import { MomentDatetimeAdapter } from '@dotos/dui/form/date/moment';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateService } from '@dotos1/dui/translator';
+import { DatetimeAdapter, MAT_DATETIME_FORMATS, MatDatetimeFormats } from "@dotos1/dui/form/date/adapter";
+import { MomentDatetimeAdapter } from '@dotos1/dui/form/date/moment';
 
-import { MatDatetimepickerFilterType } from "@dotos/dui/form/date/picker";
-import { MatDatetimepicker,createMissingDateImplError } from "@dotos/dui/form/date/picker";
-import { MatField } from '@dotos/dui/form';
+import { MatDatetimepickerFilterType } from "@dotos1/dui/form/date/picker";
+import { MatDatetimepicker,createMissingDateImplError } from "@dotos1/dui/form/date/picker";
+import { MatField } from '@dotos1/dui/form';
 
 /**
  * Constant/variable `MAT_DATETIMEPICKER_VALUE_ACCESSOR` defining mat datetimepicker value accessor in `src/form/date`.
@@ -367,7 +367,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['datetimepicker'] || changes['datepicker']) {
@@ -591,7 +591,7 @@ export class DateFieldComponent<D> extends MatField implements AfterContentInit,
   /**
    * Executes `validate` to handle validate.
    * @zh 执行 `validate`，用于校验。
-   * @param c - c parameter (`AbstractControl<any, any>`) / c参数（`AbstractControl<any, any>`）
+   * @param c - c parameter (`AbstractControl<any, any, any>`) / c参数（`AbstractControl<any, any, any>`）
    * @returns Result of type `ValidationErrors` / 类型为 `ValidationErrors` 的返回值
    */
   validate(c: AbstractControl): ValidationErrors | null {

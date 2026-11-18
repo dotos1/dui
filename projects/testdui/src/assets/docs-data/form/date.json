@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/date",
+  "importPath": "@dotos1/dui/form/date",
   "exports": [
     {
       "name": "DateFieldComponent",
@@ -19,13 +19,13 @@
           "name": "min",
           "type": "D | null",
           "description": "The minimum valid date.",
-          "descriptionZh": "输入属性 `min`（类型：`D | null`）的读取器，返回当前最小值。"
+          "descriptionZh": "输入属性 `min`（类型：`D`）的读取器，返回当前最小值。"
         },
         {
           "name": "max",
           "type": "D | null",
-          "description": "Getter for input property `max` (`D | null`) returning max.",
-          "descriptionZh": "输入属性 `max`（类型：`D | null`）的读取器，返回当前最大值。"
+          "description": "Getter for input property `max` (`D`) returning max.",
+          "descriptionZh": "输入属性 `max`（类型：`D`）的读取器，返回当前最大值。"
         },
         {
           "name": "disabled",
@@ -39,13 +39,13 @@
           "name": "dateChange",
           "type": "any",
           "description": "Emits when a `change` event is fired on this `<input>`.",
-          "descriptionZh": "输出事件 `dateChange`（类型：`EventEmitter`），当触发日期变更时向外发出事件。"
+          "descriptionZh": "输出事件 `dateChange`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期变更时向外发出事件。"
         },
         {
           "name": "dateInput",
           "type": "any",
           "description": "Emits when an `input` event is fired on this `<input>`.",
-          "descriptionZh": "输出事件 `dateInput`（类型：`EventEmitter`），当触发日期输入属性时向外发出事件。"
+          "descriptionZh": "输出事件 `dateInput`（类型：`EventEmitter<MatDatetimepickerInputEvent<D>>`），当触发日期输入属性时向外发出事件。"
         }
       ],
       "methods": [
@@ -114,9 +114,16 @@
       ],
       "properties": [
         {
+          "name": "phone",
+          "type": "any",
+          "default": "isPhoneTerminal()",
+          "description": "Whether the terminal is a phone: picker opens as a touch dialog, input does not raise the keyboard.",
+          "descriptionZh": "是否手机类：日期选择走全屏触摸弹窗，输入框不弹键盘。"
+        },
+        {
           "name": "datetimepicker",
           "type": "MatDatetimepicker<D>",
-          "description": "Template/content query reference `datetimepicker` (`@ViewChild`) targeting datetimepicker.",
+          "description": "Template/content query reference `datetimepicker` (`MatDatetimepicker<D>`) targeting datetimepicker.",
           "descriptionZh": "模板/内容视图查询引用 `datetimepicker`（`@ViewChild`），指向日期时间选择器。"
         },
         {
@@ -172,11 +179,11 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[DateFieldComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[DateFieldComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DateFieldComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof DateFieldComponent)[]`) storing entry components (default: `[DateFieldComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof DateFieldComponent)[]`），用于存储或配置条目组件列表（默认值：`[DateFieldComponent]`）。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { DateFieldComponent, DateFieldModule } from '@dotos/dui/form/date';\n\n<date-field [matDatepickerFilter]=\"...\" [min]=\"...\" [max]=\"...\" (dateChange)=\"...\" (dateInput)=\"...\"></date-field>"
+  "suggestedUsageSnippet": "import { DateFieldComponent, DateFieldModule } from '@dotos1/dui/form/date';\n\n<date-field [matDatepickerFilter]=\"...\" [min]=\"...\" [max]=\"...\" (dateChange)=\"...\" (dateInput)=\"...\"></date-field>"
 }

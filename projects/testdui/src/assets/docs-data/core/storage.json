@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/storage",
+  "importPath": "@dotos1/dui/core/storage",
   "exports": [
     {
       "name": "ILocalStorageEvent",
@@ -56,8 +56,8 @@
         {
           "name": "storageType",
           "type": "'sessionStorage' | 'localStorage'",
-          "description": "Property `storageType` (`'sessionStorage' | 'localStorage'`) storing storage type.",
-          "descriptionZh": "属性 `storageType`（类型：`'sessionStorage' | 'localStorage'`），用于存储或配置存储类型。"
+          "description": "Property `storageType` (`\"sessionStorage\" | \"localStorage\"`) storing storage type.",
+          "descriptionZh": "属性 `storageType`（类型：`\"sessionStorage\" | \"localStorage\"`），用于存储或配置存储类型。"
         }
       ]
     },
@@ -267,5 +267,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { LocalStorageModule } from '@dotos/dui/core/storage';"
+  "suggestedUsageSnippet": "import { LocalStorageModule } from '@dotos1/dui/core/storage';"
 }

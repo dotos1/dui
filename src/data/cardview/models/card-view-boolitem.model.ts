@@ -4,7 +4,7 @@
  */
 
 
-import { DynamicComponentModel } from '@dotos/dui/core/services';
+import { DynamicComponentModel } from '@dotos1/dui/core/services';
 import { CardViewBaseItemModel } from './card-view-baseitem.model';
 import { CardViewItem,CardViewBoolItemProperties } from '../interfaces';
 
@@ -27,7 +27,7 @@ export class CardViewBoolItemModel extends CardViewBaseItemModel implements Card
    * Property `default` (`boolean`) storing default.
    * @zh 属性 `default`（类型：`boolean`），用于存储或配置默认。
    */
-  override default: boolean;
+  declare default: boolean;
 
   /**
    * Creates an instance of `CardViewBoolItemModel` and initializes its dependencies and internal state.

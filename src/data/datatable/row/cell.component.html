@@ -3,7 +3,7 @@
     *ngIf="column.checkboxable && (!displayCheck || isDisplayCheck(row, column, value))"
     class="datatable-checkbox"
   >
-  <mat-checkbox class="tree-node-checkbox" [checked]="isSelected" (change)="onCheckboxChange($event)" fxFlex>
+  <mat-checkbox class="tree-node-checkbox" [checked]="isSelected" (change)="onCheckboxChange($event)" style="flex: 1 1 0%; box-sizing: border-box;">
   </mat-checkbox>
   </label>
   <ng-container *ngIf="column.isTreeColumn">

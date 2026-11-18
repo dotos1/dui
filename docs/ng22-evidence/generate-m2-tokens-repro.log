@@ -1,0 +1,16 @@
+
+> dui@8.0.0-next.2 generate:m2-tokens
+> node tools/m2-parity/generate-m2-tokens.mjs
+
+{
+  "status": "OK",
+  "liveVarsCount": 1098,
+  "baseBlocksCount": 28,
+  "lightColorBlocks": 49,
+  "darkColorBlocks": 49,
+  "darkblueColorBlocks": 49,
+  "lightComponentColorDeclarations": 924,
+  "densityTokenCountPerScale": 46,
+  "tsOutPath": "src/theme/m2-token-templates.ts",
+  "scssOutPath": "src/theming/_m2-system.scss"
+}

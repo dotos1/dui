@@ -17,7 +17,7 @@ import { LOADING_PROVIDER } from './services/loading.service';
 import { LOADING_FACTORY_PROVIDER } from './services/loading.factory';
 import { LoadingDirective } from './directives/loading.directive';
 import { LoadingComponent } from './loading.component';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Constant/variable `TD_LOADING` defining td loading in `src/common/loading`.

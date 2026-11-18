@@ -31,8 +31,8 @@ import { MatInput } from '@angular/material/input';
 import { MatFormFieldAppearance } from '@angular/material/form-field';
 import { fromEvent, Subject } from 'rxjs';
 import { debounceTime, skip, takeUntil } from 'rxjs/operators';
-import { IControlValueAccessor, mixinControlValueAccessor } from '@dotos/dui/core/behaviors';
-import { ThemeService } from '@dotos/dui/theme';
+import { IControlValueAccessor, mixinControlValueAccessor } from '@dotos1/dui/core/behaviors';
+import { ThemeService } from '@dotos1/dui/theme';
 
 
 /**

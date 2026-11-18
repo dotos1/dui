@@ -3,11 +3,11 @@
  * @zh 模块文件 `src/ui/color-button/color-button.ts`，提供颜色按钮相关的定义与实现。
  */
 
-import { ChangeDetectorRef, Component, DoCheck, ElementRef, EventEmitter, HostBinding, Injector, Input, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectorRef, Component, DoCheck, ElementRef, EventEmitter, HostBinding, Injector, Input, OnInit, Output, QueryList, Renderer2, SimpleChanges, ViewChild, ViewChildren, ViewContainerRef, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatMenuTrigger } from '@angular/material/menu';
-import { ColorEvent } from '@dotos/dui/common/colorpicker/common';
-import { ButtonBase, DuiButtonConfig } from '@dotos/dui/ui/button';
+import { ColorEvent } from '@dotos1/dui/common/colorpicker/common';
+import { ButtonBase, DuiButtonConfig } from '@dotos1/dui/ui/button';
 import { MatTooltip } from '@angular/material/tooltip';
 
 
@@ -23,6 +23,7 @@ import { MatTooltip } from '@angular/material/tooltip';
     '[style.display]': 'flex'
   },
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
 
@@ -36,19 +37,19 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
    * Template/content query reference `matTooltip` (`MatTooltip`) targeting mat tooltip.
    * @zh 模板/内容视图查询引用 `matTooltip`（`@ViewChild`），指向Material悬浮提示。
    */
-  @ViewChild(MatTooltip)  override matTooltip: MatTooltip;
+  @ViewChild(MatTooltip) override matTooltip: MatTooltip = undefined;
 
   /**
-   * Input property `data` (`any`) configuring data.
-   * @zh 输入属性 `data`（类型：`any`），用于配置数据。
+   * Input property `data` (`unknown`) configuring data.
+   * @zh 输入属性 `data`（类型：`unknown`），用于配置数据。
    */
-  @Input() override data;
+  @Input() override data: unknown = undefined;
 
   /**
    * Input property `ownerCt` (`any`) configuring owner ct.
    * @zh 输入属性 `ownerCt`（类型：`any`），用于配置所属者Ct。
    */
-  @Input() override ownerCt;
+  @Input() override ownerCt = undefined;
 
   /**
    * Output event emitter `click` (`EventEmitter<any>`) firing when click occurs.
@@ -60,13 +61,13 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
    * Template/content query reference `_container` (`ViewContainerRef`) targeting container.
    * @zh 模板/内容视图查询引用 `_container`（`@ViewChild`），指向容器。
    */
-  @ViewChild('container', { read: ViewContainerRef }) public override _container: ViewContainerRef;
+  @ViewChild('container', { read: ViewContainerRef }) public override _container: ViewContainerRef = undefined;
 
   /**
    * Template/content query reference `triggers` (`QueryList<MatMenuTrigger>`) targeting triggers.
    * @zh 模板/内容视图查询引用 `triggers`（`@ViewChildren`），指向触发。
    */
-  @ViewChildren(MatMenuTrigger) override triggers: QueryList<MatMenuTrigger>;
+  @ViewChildren(MatMenuTrigger) override triggers: QueryList<MatMenuTrigger> = undefined;
 
   /**
    * Property `state` (`{ h: number; s: number; l: number; a: number; }`) storing state (default: `{ h: 150, s: 0.50, l: 0.20, a: 1, }`).
@@ -157,7 +158,7 @@ export class ColorPickerButton extends ButtonBase implements OnInit,DoCheck {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

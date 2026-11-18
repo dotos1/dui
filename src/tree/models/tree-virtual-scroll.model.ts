@@ -4,7 +4,7 @@
  */
 
 import { Injectable } from '@angular/core';
-import { observable, computed, action, autorun, reaction } from 'mobx';
+import { observable, computed, action, autorun, makeObservable, reaction } from 'mobx';
 import { TreeModel } from './tree.model';
 import { TREE_EVENTS } from '../constants/events';
 
@@ -58,18 +58,18 @@ export class TreeVirtualScroll {
   viewport = null;
 
   /**
-   * Gets the current y (`y: any`).
-   * @zh 获取当前Y坐标（`y: any`）。
+   * Gets the current y (`y: number`).
+   * @zh 获取当前Y坐标（`y: number`）。
    */
-  @computed get y() {
+  @computed get y(): number {
     return this.yBlocks * Y_EPSILON;
   }
 
   /**
-   * Gets the current total height (`totalHeight: any`).
-   * @zh 获取当前总计高度（`totalHeight: any`）。
+   * Gets the current total height (`totalHeight: number`).
+   * @zh 获取当前总计高度（`totalHeight: number`）。
    */
-  @computed get totalHeight() {
+  @computed get totalHeight(): number {
      return this.treeModel.virtualRoot ? this._totalHeight : 0;
   }
 
@@ -79,6 +79,7 @@ export class TreeVirtualScroll {
    * @param treeModel - Injected or initial tree model (`TreeModel`) / 注入或传入的树形控件模型（`TreeModel`）
    */
   constructor(private treeModel: TreeModel) {
+    makeObservable(this);
     treeModel.virtualScroll = this;
     this._dispose = [autorun(() => this.fixScroll())];
   }

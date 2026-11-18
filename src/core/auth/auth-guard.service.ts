@@ -7,12 +7,12 @@
 import { Injectable, OnDestroy } from '@angular/core';
 import { ActivatedRouteSnapshot, Router, UrlTree } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfigService } from '@dotos/dui/core/config';
+import { ConfigService } from '@dotos1/dui/core/config';
 
 import { AuthGuardBase } from './auth-guard-base';
 import { JwtHelperService } from './jwt-helper.service';
 import { AuthService } from './auth.service';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 /**
  * Injectable Angular service `AuthGuard` managing auth guard state and operations in `src/core/auth`.

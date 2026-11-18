@@ -1,0 +1,186 @@
+// 在线代码编辑器：行号栏 + 高亮层 + 透明 textarea 叠放，三层字体度量必须完全一致
+$lce-font: 12.5px;
+$lce-line: 20px;
+$lce-pad: 12px;
+
+:host {
+  display: block;
+}
+
+.lce {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #0b1220;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  color: #e2e8f0;
+}
+
+.lce__bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 10px;
+  background: #111a2e;
+  border-bottom: 1px solid rgba(148, 163, 184, 0.18);
+  font-size: 12px;
+}
+
+.lce__lang {
+  padding: 1px 8px;
+  border-radius: 999px;
+  background: rgba(56, 189, 248, 0.16);
+  color: #7dd3fc;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lce__label {
+  color: #94a3b8;
+}
+
+.lce__spacer {
+  flex: 1;
+}
+
+.lce__meta {
+  color: #94a3b8;
+  font-variant-numeric: tabular-nums;
+}
+
+.lce__meta--ms {
+  color: #4ade80;
+}
+
+.lce__btn {
+  border: 1px solid rgba(148, 163, 184, 0.3);
+  background: transparent;
+  color: #e2e8f0;
+  border-radius: 6px;
+  padding: 2px 10px;
+  font-size: 12px;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(148, 163, 184, 0.14);
+  }
+}
+
+.lce__btn--run {
+  border-color: rgba(74, 222, 128, 0.5);
+  color: #4ade80;
+}
+
+.lce__body {
+  position: relative;
+  display: flex;
+  height: 340px;
+}
+
+.lce__gutter {
+  flex: 0 0 auto;
+  min-width: 44px;
+  padding: $lce-pad 0;
+  overflow: hidden;
+  background: #0d1528;
+  color: #475569;
+  text-align: right;
+  font: #{$lce-font}/#{$lce-line} ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  user-select: none;
+}
+
+.lce__ln {
+  padding: 0 10px 0 8px;
+  height: $lce-line;
+}
+
+.lce__ln--active {
+  color: #e2e8f0;
+}
+
+.lce__surface {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+}
+
+.lce__highlight,
+.lce__input {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: $lce-pad;
+  border: 0;
+  box-sizing: border-box;
+  font: #{$lce-font}/#{$lce-line} ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace;
+  letter-spacing: 0;
+  tab-size: 2;
+  white-space: pre;
+  overflow: auto;
+}
+
+.lce__highlight {
+  pointer-events: none;
+  background: transparent;
+  color: #e2e8f0;
+  overflow: hidden;
+
+  code {
+    font: inherit;
+    background: transparent;
+    padding: 0;
+  }
+}
+
+.lce__input {
+  resize: none;
+  outline: none;
+  background: transparent;
+  color: transparent;
+  caret-color: #f8fafc;
+  -webkit-text-fill-color: transparent;
+
+  &::selection {
+    background: rgba(56, 189, 248, 0.3);
+  }
+}
+
+.lce--readonly .lce__input {
+  cursor: default;
+}
+
+// highlight.js 暗色配色（仅作用于本编辑器，不依赖全局主题）
+:host ::ng-deep .lce__highlight {
+  .hljs-tag,
+  .hljs-name {
+    color: #7dd3fc;
+  }
+  .hljs-attr,
+  .hljs-attribute {
+    color: #c4b5fd;
+  }
+  .hljs-string {
+    color: #86efac;
+  }
+  .hljs-number,
+  .hljs-literal {
+    color: #fdba74;
+  }
+  .hljs-keyword,
+  .hljs-built_in {
+    color: #f472b6;
+  }
+  .hljs-comment {
+    color: #64748b;
+    font-style: italic;
+  }
+  .hljs-title,
+  .hljs-title.class_ {
+    color: #fde68a;
+  }
+  .hljs-punctuation {
+    color: #94a3b8;
+  }
+}

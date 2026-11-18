@@ -6,7 +6,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormAction } from './action.service';
-import { LoadingService } from '@dotos/dui/common/loading';
+import { LoadingService } from '@dotos1/dui/common/loading';
 
 /**
  * Injectable Angular service `Load` managing load state and operations in `src/form/action`.
@@ -23,7 +23,7 @@ export class Load extends FormAction {
    * Property `failureType` (`any`) storing failure type.
    * @zh 属性 `failureType`（类型：`any`），用于存储或配置failure类型。
    */
-  override failureType;
+  declare failureType;
   /**
    * Property `type` (`string`) storing type (default: `'load'`).
    * @zh 属性 `type`（类型：`string`），用于存储或配置类型（默认值：`'load'`）。

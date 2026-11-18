@@ -6,7 +6,7 @@
 
 
 import { Pipe, PipeTransform } from '@angular/core';
-import { HighlightTransformService, HighlightTransformResult } from '@dotos/dui/core/services';
+import { HighlightTransformService, HighlightTransformResult } from '@dotos1/dui/core/services';
 
 /**
  * Angular pipe `HighlightPipe` (name: 'highlight') transforming values for highlight pipe display in templates.

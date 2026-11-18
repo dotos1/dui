@@ -6,7 +6,7 @@
 import { Platform } from '@angular/cdk/platform';
 import { Inject, Injectable, InjectionToken } from '@angular/core';
 import { Router, RoutesRecognized } from '@angular/router';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 import {merge,cloneDeep,isEqual}  from 'lodash-es';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';

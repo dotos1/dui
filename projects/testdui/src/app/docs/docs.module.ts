@@ -13,10 +13,10 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
-import { MarkdownModule } from '@dotos/dui/ux/markdown';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 import { DocsRoutingModule } from './docs-routing.module';
+import { DocsMarkdownComponent } from './shared/docs-markdown.component';
 
 import { DocsShellComponent } from './shell/docs-shell.component';
 import { NavTreeComponent } from './shell/nav-tree/nav-tree.component';
@@ -26,6 +26,8 @@ import { ModuleShellComponent } from './pages/module-shell/module-shell.componen
 import { ModuleOverviewPageComponent } from './pages/module-overview-page/module-overview-page.component';
 import { ApiReferencePageComponent } from './pages/api-reference-page/api-reference-page.component';
 import { ModuleExamplePageComponent } from './pages/module-example-page/module-example-page.component';
+import { LiveCodeEditorComponent } from './components/live-code-editor/live-code-editor.component';
+import { LiveTemplateStageComponent } from './components/live-template-stage/live-template-stage.component';
 
 /**
  * Angular module `DocsModule` declaring and exporting docs module components, directives, pipes, and providers.
@@ -41,6 +43,7 @@ import { ModuleExamplePageComponent } from './pages/module-example-page/module-e
     ModuleOverviewPageComponent,
     ApiReferencePageComponent,
     ModuleExamplePageComponent,
+    DocsMarkdownComponent,
   ],
   imports: [
     CommonModule,
@@ -52,8 +55,9 @@ import { ModuleExamplePageComponent } from './pages/module-example-page/module-e
     MatSidenavModule,
     MatTabsModule,
     MatTooltipModule,
-    MarkdownModule,
     HighlightModule,
+    LiveCodeEditorComponent,
+    LiveTemplateStageComponent,
   ],
 })
 export class DocsModule {}

@@ -10,7 +10,7 @@ import {
   OnChanges,
   SimpleChange,
   SimpleChanges,
-  ViewChild
+  ViewChild, ChangeDetectionStrategy
 } from '@angular/core';
 import { CardViewItem } from '../../interfaces';
 import { CardItemTypeService } from '../../services';
@@ -24,7 +24,8 @@ import { DEFAULT_SEPARATOR } from '../card-view-textitem/card-view-textitem.comp
 @Component({
   selector: 'dui-card-view-item-dispatcher',
   template: '<ng-template dui-card-view-content-proxy></ng-template>',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class CardViewItemDispatcherComponent implements OnChanges {
   /**
@@ -137,7 +138,7 @@ export class CardViewItemDispatcherComponent implements OnChanges {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (!this.loaded) {

@@ -4,12 +4,12 @@
  */
 
 import { HttpClient, HttpHeaders, HttpParams } from "@angular/common/http";
-import { ConfigService } from '@dotos/dui/core/config';
+import { ConfigService } from '@dotos1/dui/core/config';
 import minimatch from 'minimatch-browser';
 import { Subject } from 'rxjs';
 import { Authentication } from './model/authentication';
 import { JwtHelperService } from "./jwt-helper.service";
-import { LocalStorageService } from "@dotos/dui/core/storage";
+import { LocalStorageService } from "@dotos1/dui/core/storage";
 
 /**
  * Constant/variable `Buffer` defining buffer in `src/core/auth`.

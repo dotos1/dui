@@ -4,7 +4,7 @@
  */
 
 import { CommonModule } from '@angular/common';
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, ChangeDetectionStrategy } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {
@@ -12,8 +12,8 @@ import {
   CardViewItem,
   CardViewModule,
   CardViewTextItemModel,
-} from '@dotos/dui/data/cardview';
-import { HighlightModule } from '@dotos/dui/ux/highlight';
+} from '@dotos1/dui/data/cardview';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
 
 /**
  * Angular component `CardviewExampleComponent` (selector: 'app-cardview-example') providing cardview presentation and interaction.
@@ -37,6 +37,7 @@ import { HighlightModule } from '@dotos/dui/ux/highlight';
     <dui-highlight [content]="exampleSource" [codeLang]="'typescript'" [copyCodeToClipboard]="true"></dui-highlight>
   `,
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class CardviewExampleComponent {
   /**
@@ -59,7 +60,7 @@ export class CardviewExampleComponent {
     }),
     new CardViewTextItemModel({
       label: '所属模块',
-      value: '@dotos/dui/data/cardview',
+      value: '@dotos1/dui/data/cardview',
       key: 'modulePath',
       editable: false,
       icon: 'folder',
@@ -76,7 +77,7 @@ export class CardviewExampleComponent {
    * Property `exampleSource` (`string`) storing example source code snippet.
    * @zh 属性 `exampleSource`（类型：`string`），用于存储或配置示例代码片段。
    */
-  readonly exampleSource = `import { CardViewBoolItemModel, CardViewItem, CardViewTextItemModel } from '@dotos/dui/data/cardview';
+  readonly exampleSource = `import { CardViewBoolItemModel, CardViewItem, CardViewTextItemModel } from '@dotos1/dui/data/cardview';
 
 properties: CardViewItem[] = [
   new CardViewTextItemModel({ label: '应用名称', value: 'Dotos ERP', key: 'appName', editable: true }),

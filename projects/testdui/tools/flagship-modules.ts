@@ -4,9 +4,9 @@
  */
 
 /**
- * 全量 102 个 `@dotos/dui` 二级入口模块清单，均在文档站里提供可交互的 Examples 页面。
+ * 全量 95 个 `@dotos1/dui` 二级入口模块清单（加 i18n / theming 资源入口），均在文档站里提供可交互的 Examples 页面。
  * category/moduleId 与 `generate-api-docs.ts` 对入口目录计算出的 category/moduleId 完全一致（空层级用 "index"）。
- * @zh 全量 102 个 `@dotos/dui` 二级入口模块清单，均在文档站里提供真正可交互的 Examples 页面。
+ * @zh 全量 95 个 `@dotos1/dui` 二级入口模块清单（加 i18n / theming 资源入口），均在文档站里提供真正可交互的 Examples 页面。
  */
 export const FLAGSHIP_MODULES: Array<{ category: string; moduleId: string }> = [
   { category: 'base', moduleId: 'index' },
@@ -44,7 +44,6 @@ export const FLAGSHIP_MODULES: Array<{ category: string; moduleId: string }> = [
   { category: 'common', moduleId: 'scrollbar' },
   { category: 'common', moduleId: 'search-box' },
   { category: 'common', moduleId: 'stop-propagation' },
-  { category: 'common', moduleId: 'svg' },
   { category: 'common', moduleId: 'toastr' },
   { category: 'common', moduleId: 'trigger' },
   { category: 'container', moduleId: 'dock-layout' },
@@ -97,19 +96,13 @@ export const FLAGSHIP_MODULES: Array<{ category: string; moduleId: string }> = [
   { category: 'util', moduleId: 'pipes' },
   { category: 'ux', moduleId: 'avatar' },
   { category: 'ux', moduleId: 'command-palette' },
-  { category: 'ux', moduleId: 'editor' },
   { category: 'ux', moduleId: 'highlight' },
   { category: 'ux', moduleId: 'iconpicker' },
   { category: 'ux', moduleId: 'index' },
-  { category: 'ux', moduleId: 'jsonEditor' },
   { category: 'ux', moduleId: 'line-style' },
   { category: 'ux', moduleId: 'link-preview' },
-  { category: 'ux', moduleId: 'markdown' },
-  { category: 'ux', moduleId: 'markdown-editor' },
-  { category: 'ux', moduleId: 'monaco-editor' },
   { category: 'ux', moduleId: 'multi-window' },
   { category: 'ux', moduleId: 'query-builder' },
-  { category: 'ux', moduleId: 'terminal' },
   { category: 'ux', moduleId: 'windows' },
   { category: 'i18n', moduleId: 'index' },
   { category: 'theming', moduleId: 'index' },

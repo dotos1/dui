@@ -7,7 +7,7 @@ import { Directive, OnDestroy, OnInit } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { Subject, merge, takeUntil } from 'rxjs';
 
-import { MatField } from '@dotos/dui/form';
+import { MatField } from '@dotos1/dui/form';
 
 /**
  * 区间条件（between）的值。两端都是可选的：只填一端时由调用方决定退化成

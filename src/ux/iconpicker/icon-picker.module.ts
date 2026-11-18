@@ -9,7 +9,6 @@ import { A11yModule } from '@angular/cdk/a11y';
 import { PortalModule } from '@angular/cdk/portal';
 import { OverlayModule } from '@angular/cdk/overlay';
 
-import { FlexLayoutModule } from 'ngx-flexible-layout';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
@@ -18,16 +17,16 @@ import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 
-import { FormModule } from '@dotos/dui/form';
-import { Dui, StyleModule } from '@dotos/dui/core';
+import { FormModule } from '@dotos1/dui/form';
+import { Dui, StyleModule } from '@dotos1/dui/core';
 
 import { IconPickerField } from './icon-picker.field';
 
 import { IconPickerComponent } from './icon-picker.component';
 import { SearchIconPipe } from './search-icon.pipe';
 import { TextDirective } from './text.directive';
-import { TranslateModule, TranslationService } from '@dotos/dui/translator';
-import { IconModule } from '@dotos/dui/common/icon';
+import { TranslateModule, TranslationService } from '@dotos1/dui/translator';
+import { IconModule } from '@dotos1/dui/common/icon';
 import { MatButtonModule } from '@angular/material/button';
 
 
@@ -53,7 +52,6 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatTabsModule,
     MatSelectModule,
-    FlexLayoutModule,
     FormModule.forChild()
   ],
   exports: [

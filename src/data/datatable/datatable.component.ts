@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/data/datatable/datatable.component.ts`，提供数据表格组件相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
   Component, Input, Output, ElementRef, EventEmitter, ViewChild,
   HostListener, ContentChildren, OnInit, QueryList, AfterViewInit,
@@ -27,8 +27,8 @@ import { DatatableFooterDirective } from './footer/footer.directive';
 import { DataTableHeaderComponent } from './header/header.component';
 import type { DatatableCardComponent } from './datatable.card';
 import { BehaviorSubject, Subscription } from 'rxjs';
-import { TranslateService } from '@dotos/dui/translator';
-import { Dui } from '@dotos/dui/core';
+import { TranslateService } from '@dotos1/dui/translator';
+import { Dui } from '@dotos1/dui/core';
 import { throttleable } from './utils/throttle';
 
 /**
@@ -371,18 +371,12 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
    * totalMessage     [default] = 'total'
    * selectedMessage  [default] = 'selected'
 
-   * @zh 输入属性 `messages`（类型：`{ emptyMessage: any; totalMessage: any; selectedMessage: any; }`），用于配置消息列表。
+   * @zh 输入属性 `messages`（类型：`{ emptyMessage?: string; totalMessage?: string; selectedMessage?: string; }`），用于配置消息列表。
    */
-  @Input() messages = {
-    // Message to show when array is presented
-    // but contains no values
-    emptyMessage: this.translateService.instant('DATATABLE.EMPTYMESSAGE'),
-
-    // Footer total message
-    totalMessage: this.translateService.instant('DATATABLE.TOTAL'),
-
-    // Footer selected message
-    selectedMessage: this.translateService.instant('DATATABLE.SELECTED'),
+  @Input() messages: {
+    emptyMessage?: string;
+    totalMessage?: string;
+    selectedMessage?: string;
   };
   /**
    * This will be used when displaying or selecting rows.
@@ -900,6 +894,11 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
     // get ref to elm for measuring
     this.element = elementRef.nativeElement;
     this.rowDiffer = differs.find({}).create();
+    this.messages = {
+      emptyMessage: this.translateService.instant('DATATABLE.EMPTYMESSAGE'),
+      totalMessage: this.translateService.instant('DATATABLE.TOTAL'),
+      selectedMessage: this.translateService.instant('DATATABLE.SELECTED'),
+    };
 
     // apply global settings from Module.forRoot
     // if (this.configuration && this.configuration.messages) {
@@ -955,7 +954,7 @@ export class DatatableComponent implements OnInit, DoCheck,AfterContentInit,OnDe
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

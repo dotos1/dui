@@ -7,10 +7,10 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { Dui } from '@dotos/dui/core';
-import { TranslateModule } from '@dotos/dui/translator';
-import { CommonServicesModule } from '@dotos/dui/core/services';
-import { ToastrModule } from '@dotos/dui/common/toastr';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateModule } from '@dotos1/dui/translator';
+import { CommonServicesModule } from '@dotos1/dui/core/services';
+import { ToastrModule } from '@dotos1/dui/common/toastr';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ToggleHeaderComponent, ToggleOption } from './toggle-header.component';

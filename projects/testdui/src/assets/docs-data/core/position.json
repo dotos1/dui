@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/position",
+  "importPath": "@dotos1/dui/core/position",
   "exports": [
     {
       "name": "defaultBound",
@@ -472,5 +472,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/core/position';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/core/position';"
 }

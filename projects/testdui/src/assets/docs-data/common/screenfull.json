@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/screenfull",
+  "importPath": "@dotos1/dui/common/screenfull",
   "exports": [
     {
       "name": "ScreenfullService",
@@ -52,5 +52,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/common/screenfull';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/common/screenfull';"
 }

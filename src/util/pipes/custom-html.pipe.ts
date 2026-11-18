@@ -5,7 +5,7 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { sanitizeHtmlString } from '@dotos/dui/base';
+import { sanitizeHtmlString } from '@dotos1/dui/base';
 
 /**
  * Angular pipe `SanitizeHtmlPipe` (name: 'sanitizeHtml') transforming values for sanitize html pipe display in templates.

@@ -6,7 +6,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { FormAction } from './action.service';
-import { LoadingService } from '@dotos/dui/common/loading';
+import { LoadingService } from '@dotos1/dui/common/loading';
 
 /**
  * Injectable Angular service `Submit` managing submit state and operations in `src/form/action`.
@@ -19,7 +19,7 @@ export class Submit extends FormAction {
    * Property `failureType` (`any`) storing failure type.
    * @zh 属性 `failureType`（类型：`any`），用于存储或配置failure类型。
    */
-  override failureType;
+  declare failureType;
 
   /**
    * Property `type` (`string`) storing type (default: `'submit'`).

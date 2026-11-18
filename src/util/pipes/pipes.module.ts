@@ -23,7 +23,7 @@ import { HighlightPipe } from './text-highlight.pipe';
 import { ClonePipe } from './clone.pipe';
 import { SecureImagePipe } from './secure-image.pipe';
 import { SanitizeHtmlPipe } from './custom-html.pipe';
-import { TranslationService } from '@dotos/dui/translator';
+import { TranslationService } from '@dotos1/dui/translator';
 import { SecurePipe } from './secure-pipe';
 /**
  * Angular module `DuiPipesModule` declaring and exporting dui pipes module components, directives, pipes, and providers.

@@ -31,7 +31,7 @@ import { delay, filter, map, startWith, switchMap, take, takeUntil, tap } from '
 import { MatSelectSearchClearDirective } from './mat-select-search-clear.directive';
 import { configurableDefaultOptions, MAT_SELECTSEARCH_DEFAULT_OPTIONS, MatSelectSearchOptions } from './default-options';
 import { MatSelectNoEntriesFoundDirective } from './mat-select-no-entries-found.directive';
-import { ThemeService } from '@dotos/dui/theme';
+import { ThemeService } from '@dotos1/dui/theme';
 
 /**
  * Angular component `MatSelectSearchComponent` (selector: 'mat-select-search') providing mat select search component presentation and interaction in `src/form/select/search`.

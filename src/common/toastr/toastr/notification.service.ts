@@ -6,7 +6,7 @@
 
 import { Injectable, Injector } from '@angular/core';
 import { MatSnackBar, MatSnackBarRef, MatSnackBarConfig } from '@angular/material/snack-bar';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { Subject } from 'rxjs';
 import { NotificationModel } from '../notification.model';
 

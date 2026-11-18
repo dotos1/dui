@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/clipboard",
+  "importPath": "@dotos1/dui/common/clipboard",
   "exports": [
     {
       "name": "ClipboardComponent",
@@ -94,8 +94,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[ClipboardComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ClipboardComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ClipboardComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof ClipboardComponent)[]`) storing entry components (default: `[ClipboardComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ClipboardComponent)[]`），用于存储或配置条目组件列表（默认值：`[ClipboardComponent]`）。"
         }
       ]
     },
@@ -300,5 +300,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { ClipboardComponent, ClipboardModule } from '@dotos/dui/common/clipboard';\n\n<dui-copy-content-tooltip></dui-copy-content-tooltip>"
+  "suggestedUsageSnippet": "import { ClipboardComponent, ClipboardModule } from '@dotos1/dui/common/clipboard';\n\n<dui-copy-content-tooltip></dui-copy-content-tooltip>"
 }

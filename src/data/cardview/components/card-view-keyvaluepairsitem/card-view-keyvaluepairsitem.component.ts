@@ -4,7 +4,7 @@
  */
 
 
-import { Component, Input, OnChanges, OnDestroy } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, ChangeDetectionStrategy } from '@angular/core';
 import { MatTableDataSource } from '@angular/material/table';
 import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
@@ -21,7 +21,8 @@ import { CardViewKeyValuePairsItemType } from '../../interfaces';
   selector: 'dui-card-view-keyvaluepairsitem',
   templateUrl: './card-view-keyvaluepairsitem.component.html',
   styleUrls: ['./card-view-keyvaluepairsitem.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 
 export class CardViewKeyValuePairsItemComponent  implements OnChanges,OnDestroy {

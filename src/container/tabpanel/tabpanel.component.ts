@@ -5,7 +5,7 @@
 
 /* eslint-disable @typescript-eslint/no-unused-vars */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -22,7 +22,7 @@ import {
 } from '@angular/core';
 import { MatTabChangeEvent, MatTabHeaderPosition } from '@angular/material/tabs';
 import { AbstractPanel } from '../panel/abstract.panel';
-import { ComponentBase } from '@dotos/dui/core';
+import { ComponentBase } from '@dotos1/dui/core';
 import { ContainerItem } from '../container.main';
 
 const isRenderedItem = (c: ContainerItem): c is ComponentBase => !!(c as ComponentBase).reference;
@@ -119,7 +119,7 @@ export class TabPanel extends AbstractPanel implements OnChanges, OnDestroy {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

@@ -1,6 +1,6 @@
 ## 概述
 
-`net`（`@dotos/dui/net`）提供 HTTP 网络请求相关的全局基础设施，核心包含全局 HTTP 请求加载进度指示器（`HttpLoaderModule` / `HttpLoaderComponent`）、挂起请求计数拦截器（`PendingRequestsInterceptor`）以及手动控制加载动画显隐的服务（`SpinnerVisibilityService`）。
+`net`（`@dotos1/dui/net`）提供 HTTP 网络请求相关的全局基础设施，核心包含全局 HTTP 请求加载进度指示器（`HttpLoaderModule` / `HttpLoaderComponent`）、挂起请求计数拦截器（`PendingRequestsInterceptor`）以及手动控制加载动画显隐的服务（`SpinnerVisibilityService`）。
 
 ## 核心模块与职责
 
@@ -22,7 +22,7 @@
 
 ```typescript
 import { HttpClientModule } from '@angular/common/http';
-import { HttpLoaderModule } from '@dotos/dui/net';
+import { HttpLoaderModule } from '@dotos1/dui/net';
 
 @NgModule({
   imports: [HttpClientModule, HttpLoaderModule.forRoot()],

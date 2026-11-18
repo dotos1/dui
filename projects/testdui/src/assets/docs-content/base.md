@@ -1,6 +1,6 @@
 ## 概述
 
-`base`（`@dotos/dui/base`）是整个 `@dotos/dui` 组件库最底层的运行时基础设施，不包含任何具体的业务 UI 控件，而是提供上层所有模块都会间接依赖的核心基类、事件总线、DOM 测量与观察者模式实现。
+`base`（`@dotos1/dui/base`）是整个 `@dotos1/dui` 组件库最底层的运行时基础设施，不包含任何具体的业务 UI 控件，而是提供上层所有模块都会间接依赖的核心基类、事件总线、DOM 测量与观察者模式实现。
 
 ## 核心模块与职责
 
@@ -13,15 +13,15 @@
 
 ## 架构与设计模式
 
-- **零上层依赖**：`@dotos/dui/base` 不依赖任何其它 `@dotos/dui/*` 二级入口，处于依赖拓扑的最底层，确保不会产生循环依赖（Circular Dependency）。
+- **零上层依赖**：`@dotos1/dui/base` 不依赖任何其它 `@dotos1/dui/*` 二级入口，处于依赖拓扑的最底层，确保不会产生循环依赖（Circular Dependency）。
 - **配置驱动模型基石**：`DuiBase` 为 `container`、`form`、`ui` 等模块中的 JSON `config` 驱动型组件提供了统一的初始化与属性挂载约定。
 
 ## 典型用法与最佳实践
 
-绝大多数业务场景下，应用代码无需直接从 `@dotos/dui/base` 导入符号；仅当你需要自定义扩展 DUI 底层基类或事件机制时按需引入：
+绝大多数业务场景下，应用代码无需直接从 `@dotos1/dui/base` 导入符号；仅当你需要自定义扩展 DUI 底层基类或事件机制时按需引入：
 
 ```typescript
-import { DuiBase, AngularEventEmitter } from '@dotos/dui/base';
+import { DuiBase, AngularEventEmitter } from '@dotos1/dui/base';
 
 export class CustomWidgetModel extends DuiBase {
   readonly stateChange = new AngularEventEmitter<string>();

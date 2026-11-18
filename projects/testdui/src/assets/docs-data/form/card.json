@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/form/card",
+  "importPath": "@dotos1/dui/form/card",
   "exports": [
     {
       "name": "FormCard",
@@ -11,10 +11,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         }
       ],
       "outputs": [],
@@ -62,7 +62,7 @@
         {
           "name": "formComponent",
           "type": "FormComponent",
-          "description": "Template/content query reference `formComponent` (`@ViewChild`) targeting form component.",
+          "description": "Template/content query reference `formComponent` (`FormComponent`) targeting form component.",
           "descriptionZh": "模板/内容视图查询引用 `formComponent`（`@ViewChild`），指向表单组件。"
         },
         {
@@ -95,11 +95,11 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[FormCard]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[FormCard]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[FormCard]`）。"
+          "description": "Property `entryComponents` (`(typeof FormCard)[]`) storing entry components (default: `[FormCard]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof FormCard)[]`），用于存储或配置条目组件列表（默认值：`[FormCard]`）。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { FormCard, FormCardModule } from '@dotos/dui/form/card';\n\n<form-card [config]=\"...\"></form-card>"
+  "suggestedUsageSnippet": "import { FormCard, FormCardModule } from '@dotos1/dui/form/card';\n\n<form-card [config]=\"...\"></form-card>"
 }

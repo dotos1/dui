@@ -21,12 +21,12 @@ import {
   ChangeDetectorRef,
 } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { isPhoneTerminal } from '@dotos/dui/base';
-import { FormConfig } from '@dotos/dui/core/form';
-import { FieldConfig,FieldConfigCache } from '@dotos/dui/core/form';
-import { defineHiddenProp, observe, observeDeep, getFieldValue, assignFieldValue } from '@dotos/dui/core/form';
-import { FieldWrapper } from '@dotos/dui/core/form';
-import { FieldType } from '@dotos/dui/core/form';
+import { isPhoneTerminal } from '@dotos1/dui/base';
+import { FormConfig } from '@dotos1/dui/core/form';
+import { FieldConfig,FieldConfigCache } from '@dotos1/dui/core/form';
+import { defineHiddenProp, observe, observeDeep, getFieldValue, assignFieldValue } from '@dotos1/dui/core/form';
+import { FieldWrapper } from '@dotos1/dui/core/form';
+import { FieldType } from '@dotos1/dui/core/form';
 import { isObservable } from 'rxjs';
 import { debounceTime, distinctUntilChanged, startWith } from 'rxjs/operators';
 
@@ -62,6 +62,12 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
    * @zh 输入属性 `field`（类型：`FieldConfig`），用于配置字段。
    */
   @Input() field: FieldConfig;
+
+  /**
+   * Input property `className` (`string`) configuring fallback host CSS class name (default: `""`).
+   * @zh 输入属性 `className`（类型：`string`），用于配置宿主默认 CSS 类名（默认值：`""`）。
+   */
+  @Input() className: string = '';
 
   /**
    * Template/content query reference `containerRef` (`ViewContainerRef`) targeting container ref.
@@ -146,7 +152,7 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   ngOnChanges(changes: SimpleChanges) {
     this.triggerHook('onChanges', changes);
@@ -212,7 +218,7 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
    * Executes `triggerHook` to handle trigger hook.
    * @zh 执行 `triggerHook`，用于触发Hook。
    * @param name - name parameter (`string`) / 名称参数（`string`）
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   private triggerHook(name: string, changes?: SimpleChanges) {
     if (name === 'onInit' || (name === 'onChanges' && changes['field'] && !changes['field'].firstChange)) {

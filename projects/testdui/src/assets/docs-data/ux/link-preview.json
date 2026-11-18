@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/ux/link-preview",
+  "importPath": "@dotos1/dui/ux/link-preview",
   "exports": [
     {
       "name": "LinkPreviewCacheService",
@@ -73,7 +73,7 @@
           "name": "getApiEndpoint$",
           "type": "(requestUrl: string) => Observable<unknown>",
           "description": "Method that does the API request, provide as class member arrow function from parent",
-          "descriptionZh": "输入属性 `getApiEndpoint$`（类型：`(requestUrl: string) => Observable<any>`），用于配置获取API接口Endpoint。"
+          "descriptionZh": "输入属性 `getApiEndpoint$`（类型：`(requestUrl: string) => Observable<unknown>`），用于配置获取API接口Endpoint。"
         },
         {
           "name": "apiRoute",
@@ -135,7 +135,7 @@
           "type": "any",
           "default": "1000 * 60 * 60 * 24 * 7",
           "description": "number: max age the data cache of a link preview should be used",
-          "descriptionZh": "输入属性 `maxCacheAgeMs`（类型：`any`），用于配置最大值缓存Age毫秒（默认值：`1000 * 60 * 60 * 24 * 7`）。"
+          "descriptionZh": "输入属性 `maxCacheAgeMs`（类型：`number`），用于配置最大值缓存Age毫秒（默认值：`1000 * 60 * 60 * 24 * 7`）。"
         },
         {
           "name": "showLoadingIndicator",
@@ -156,7 +156,7 @@
           "type": "HtmlLinkTarget",
           "default": "'_blank'",
           "description": "HtmlLinkTarget: where the HTML link should be opened on click.\nOnly has an effect if [useHtmlLinkDefaultClickEvent]=\"true\"",
-          "descriptionZh": "输入属性 `htmlLinkTarget`（类型：`HtmlLinkTarget`），用于配置HTML内容链接目标（默认值：`'_blank'`）。"
+          "descriptionZh": "输入属性 `htmlLinkTarget`（类型：`string`），用于配置HTML内容链接目标（默认值：`'_blank'`）。"
         }
       ],
       "outputs": [
@@ -164,7 +164,7 @@
           "name": "previewClicked",
           "type": "any",
           "description": "Event emitter: on click to handle the click event, emits the clicked URL",
-          "descriptionZh": "输出事件 `previewClicked`（类型：`EventEmitter`），当触发预览点击时向外发出事件。"
+          "descriptionZh": "输出事件 `previewClicked`（类型：`EventEmitter<string>`），当触发预览点击时向外发出事件。"
         }
       ],
       "methods": [
@@ -268,7 +268,7 @@
           "type": "any",
           "default": "new BehaviorSubject(false)",
           "description": "Observable to retrieve if has pending jobs",
-          "descriptionZh": "属性 `hasPendingJobs$`（类型：`BehaviorSubject`），用于存储或配置是否包含等待中Jobs（默认值：`new BehaviorSubject(false)`）。"
+          "descriptionZh": "属性 `hasPendingJobs$`（类型：`BehaviorSubject<boolean>`），用于存储或配置是否包含等待中Jobs（默认值：`new BehaviorSubject(false)`）。"
         }
       ]
     },
@@ -446,5 +446,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { LinkPreviewComponent, LinkPreviewModule } from '@dotos/dui/ux/link-preview';\n\n<link-preview [links]=\"...\" [parseForLinksStr]=\"...\" [getApiEndpoint$]=\"...\" (previewClicked)=\"...\"></link-preview>"
+  "suggestedUsageSnippet": "import { LinkPreviewComponent, LinkPreviewModule } from '@dotos1/dui/ux/link-preview';\n\n<link-preview [links]=\"...\" [parseForLinksStr]=\"...\" [getApiEndpoint$]=\"...\" (previewClicked)=\"...\"></link-preview>"
 }

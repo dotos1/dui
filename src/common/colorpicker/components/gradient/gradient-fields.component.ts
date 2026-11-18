@@ -5,8 +5,8 @@
 
 import {  ChangeDetectionStrategy,  Component,  EventEmitter,  Input,  Output,
 } from '@angular/core';
-import { isValidHex, HSLA, RGBA } from '@dotos/dui/common/colorpicker/common';
-import { TinyColor } from '@dotos/dui/core/color';
+import { isValidHex, HSLA, RGBA } from '@dotos1/dui/common/colorpicker/common';
+import { TinyColor } from '@dotos1/dui/core/color';
 
 /**
  * Angular component `GradientFieldsComponent` (selector: 'color-gradient-fields') providing gradient fields component presentation and interaction in `src/common/colorpicker/components/gradient`.

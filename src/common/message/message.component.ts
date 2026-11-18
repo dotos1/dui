@@ -15,7 +15,7 @@ import {
   ViewChild,
   HostBinding,
   HostListener,
-  ChangeDetectorRef,
+  ChangeDetectorRef, ChangeDetectionStrategy,
 } from '@angular/core';
 
 import { duiCollapseAnimation } from './collapse.animation';
@@ -49,6 +49,7 @@ export class MessageContainerDirective {
   styleUrls: ['./message.component.scss'],
   animations: [duiCollapseAnimation],
   standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default,
 })
 export class MessageComponent implements AfterViewInit {
   /**

@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/backdrop",
+  "importPath": "@dotos1/dui/common/backdrop",
   "exports": [
     {
       "name": "BackdropComponent",
@@ -47,5 +47,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { BackdropComponent, BackdropModule } from '@dotos/dui/common/backdrop';\n\n<dui-backdrop [shown]=\"...\"></dui-backdrop>"
+  "suggestedUsageSnippet": "import { BackdropComponent, BackdropModule } from '@dotos1/dui/common/backdrop';\n\n<dui-backdrop [shown]=\"...\"></dui-backdrop>"
 }

@@ -1,36 +1,77 @@
 {
-  "name": "@dotos/dui",
-  "version": "7.4.52",
-  "license": "UNLICENSED",
-  "description": "DUI components based on Angular",
+  "name": "@dotos1/dui",
+  "version": "8.0.0-next.3",
+  "license": "MIT",
+  "description": "DotOS UI — Enterprise-grade Angular 22 component & dynamic theming foundation",
   "keywords": [
     "angular",
+    "angular22",
     "dui",
-    "frontend"
+    "dotos",
+    "material",
+    "theming",
+    "ui-components"
   ],
   "homepage": "https://www.dotos.com",
   "repository": {
     "type": "git",
-    "url": "https://github.com/bizdict/dui"
+    "url": "https://github.com/dotos1/dui"
   },
   "bugs": {
-    "url": "https://github.com/bizdict/dui/issues"
+    "url": "https://github.com/dotos1/dui/issues"
   },
   "scripts": {
     "prebuild": "npm --no-git-tag-version version patch"
   },
   "dependencies": {
+    "buffer": "^6.0.3",
+    "colornames": "^1.1.1",
+    "element-resize-detector": "^1.2.4",
+    "fuse.js": "^6.6.2",
+    "minimatch-browser": "^1.0.0",
+    "perfect-scrollbar": "^1.5.5",
     "tslib": "^2.3.1"
   },
   "peerDependencies": {
-    "@angular/animations": "18.2.13",
-    "@angular/common": "18.2.13",
-    "@angular/core": "18.2.13",
-    "@angular/forms": "18.2.13"
+    "@angular/animations": "^22.0.0",
+    "@angular/cdk": "^22.0.0",
+    "@angular/common": "^22.0.0",
+    "@angular/core": "^22.0.0",
+    "@angular/forms": "^22.0.0",
+    "@angular/material": "^22.0.0",
+    "@angular/material-moment-adapter": "^22.0.0",
+    "@angular/platform-browser": "^22.0.0",
+    "@angular/router": "^22.0.0",
+    "highlight.js": "^11.11.1",
+    "lodash-es": "^4.17.21",
+    "mobx": "^6.0.0",
+    "moment": "^2.29.1",
+    "rxjs": "^7.8.0"
+  },
+  "peerDependenciesMeta": {
+    "@angular/material-moment-adapter": {
+      "optional": true
+    },
+    "highlight.js": {
+      "optional": true
+    }
   },
   "exports": {
     "./theming/styles/elevation": {
       "sass": "./theming/styles/_elevation.scss"
+    },
+    "./theming/all-theme": {
+      "sass": "./theming/_all-theme.scss"
+    },
+    "./theming/theming": {
+      "sass": "./theming/_theming.scss"
+    },
+    "./theming/platform": {
+      "sass": "./theming/platform.scss"
+    },
+    "./theming/*": {
+      "sass": "./theming/*",
+      "default": "./theming/*"
     }
   },
   "author": "北京商典信息科技有限公司 (Beijing Shangdian Information Technology Co., Ltd.)"

@@ -6,8 +6,8 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import {  EditableInputModule,  RaisedModule,  SwatchModule,} from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+import {  EditableInputModule,  RaisedModule,  SwatchModule,} from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import { CompactColorComponent } from './compact-color.component';
 import { CompactFieldsComponent } from './compact-fields.component';
 import { CompactComponent } from './compact.component';

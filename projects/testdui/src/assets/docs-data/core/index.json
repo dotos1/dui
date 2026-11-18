@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core",
+  "importPath": "@dotos1/dui/core",
   "exports": [
     {
       "name": "applyCssTransform",
@@ -41,8 +41,8 @@
         {
           "name": "cdkFocusChange",
           "type": "any",
-          "description": "Output event emitter `cdkFocusChange` (`EventEmitter`) firing when cdk focus change occurs.",
-          "descriptionZh": "输出事件 `cdkFocusChange`（类型：`EventEmitter`），当触发CDK工具聚焦变更时向外发出事件。"
+          "description": "Output event emitter `cdkFocusChange` (`EventEmitter<FocusOrigin>`) firing when cdk focus change occurs.",
+          "descriptionZh": "输出事件 `cdkFocusChange`（类型：`EventEmitter<FocusOrigin>`），当触发CDK工具聚焦变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -51,8 +51,8 @@
     {
       "name": "ComponentBase",
       "kind": "directive",
-      "summary": "Angular directive `ComponentBase` attaching component base behavior to host DOM elements.",
-      "summaryZh": "Angular 指令 `ComponentBase`，为宿主 DOM 元素附加组件基础行为。",
+      "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/core/component.base.ts",
       "inputs": [
         {
@@ -65,8 +65,8 @@
           "name": "disabled",
           "type": "any",
           "default": "false",
-          "description": "Input property `disabled` (`any`) configuring disabled (default: `false`).",
-          "descriptionZh": "输入属性 `disabled`（类型：`any`），用于配置已禁用（默认值：`false`）。"
+          "description": "Input property `disabled` (`boolean`) configuring disabled (default: `false`).",
+          "descriptionZh": "输入属性 `disabled`（类型：`boolean`），用于配置已禁用（默认值：`false`）。"
         }
       ],
       "outputs": [],
@@ -90,10 +90,10 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `initFieldExpression` to handle init field expression.",
           "descriptionZh": "执行 `initFieldExpression`，用于初始化字段表达式。"
         },
@@ -157,10 +157,10 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `init` to handle init.",
           "descriptionZh": "执行 `init`，用于初始化。"
         },
@@ -176,10 +176,10 @@
           "params": [
             {
               "name": "p",
-              "type": "any"
+              "type": "DuiPluginConfig | DuiPlugin"
             }
           ],
-          "returnType": "any",
+          "returnType": "DuiPlugin",
           "description": "Executes `initPlugin` to handle init plugin.",
           "descriptionZh": "执行 `initPlugin`，用于初始化Plugin。"
         },
@@ -213,21 +213,21 @@
           ],
           "returnType": "void",
           "description": "Executes `off` to handle off.",
-          "descriptionZh": "执行 `off`，用于off。"
+          "descriptionZh": "执行 `off`，用于取消监听。"
         },
         {
           "name": "onAdded",
           "params": [
             {
               "name": "container",
-              "type": "any"
+              "type": "ComponentBase"
             },
             {
               "name": "pos",
-              "type": "any"
+              "type": "number"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onAdded` to handle on added.",
           "descriptionZh": "执行 `onAdded`，用于当已添加。"
         },
@@ -250,21 +250,21 @@
           "params": [
             {
               "name": "comp",
-              "type": "any"
+              "type": "string | Function | { xtype?: string }"
             },
             {
               "name": "shallow",
               "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `isXType` to handle is x type.",
           "descriptionZh": "执行 `isXType`，用于是否为X坐标类型。"
         },
         {
           "name": "getXTypes",
           "params": [],
-          "returnType": "any",
+          "returnType": "string",
           "description": "Executes `getXTypes` to handle get x types.",
           "descriptionZh": "执行 `getXTypes`，用于获取X坐标类型列表。"
         },
@@ -276,7 +276,7 @@
               "type": "Function"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase | null",
           "description": "Executes `findParentBy` to handle find parent by.",
           "descriptionZh": "执行 `findParentBy`，用于查找父级按。"
         },
@@ -292,21 +292,21 @@
               "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase | null",
           "description": "Executes `findParentByType` to handle find parent by type.",
           "descriptionZh": "执行 `findParentByType`，用于查找父级按类型。"
         },
         {
           "name": "nextSibling",
           "params": [],
-          "returnType": "any",
+          "returnType": "ComponentBase | null",
           "description": "Executes `nextSibling` to handle next sibling.",
           "descriptionZh": "执行 `nextSibling`，用于下一个兄弟节点。"
         },
         {
           "name": "previousSibling",
           "params": [],
-          "returnType": "any",
+          "returnType": "ComponentBase | null",
           "description": "Executes `previousSibling` to handle previous sibling.",
           "descriptionZh": "执行 `previousSibling`，用于上一个兄弟节点。"
         },
@@ -335,9 +335,9 @@
         },
         {
           "name": "id",
-          "type": "any",
-          "description": "Property `id` (`any`) storing id.",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识。"
+          "type": "string",
+          "description": "Property `id` (`string`) storing id.",
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识。"
         },
         {
           "name": "xtype",
@@ -354,9 +354,9 @@
         },
         {
           "name": "plugins",
-          "type": "any",
-          "description": "Property `plugins` (`any`) storing plugins.",
-          "descriptionZh": "属性 `plugins`（类型：`any`），用于存储或配置plugins。"
+          "type": "DuiPluginConfig | DuiPluginConfig[] | DuiPlugin | DuiPlugin[]",
+          "description": "Property `plugins` (`DuiPluginConfig | DuiPluginConfig[] | DuiPlugin | DuiPlugin[]`) storing plugins.",
+          "descriptionZh": "属性 `plugins`（类型：`DuiPluginConfig | DuiPluginConfig[] | DuiPlugin | DuiPlugin[]`），用于存储或配置plugins。"
         },
         {
           "name": "inited",
@@ -374,31 +374,31 @@
         },
         {
           "name": "style",
-          "type": "any",
-          "description": "Property `style` (`any`) storing style.",
-          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
+          "type": "DuiStyle",
+          "description": "Property `style` (`DuiStyle`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`DuiStyle`），用于存储或配置样式。"
         },
         {
           "name": "hideExpression",
-          "type": "any",
-          "description": "Property `hideExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing hide expression.",
-          "descriptionZh": "属性 `hideExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置隐藏表达式。"
+          "type": "DuiExpression",
+          "description": "Property `hideExpression` (`DuiExpression`) storing hide expression.",
+          "descriptionZh": "属性 `hideExpression`（类型：`DuiExpression`），用于存储或配置隐藏表达式。"
         },
         {
           "name": "disableExpression",
-          "type": "any",
-          "description": "Property `disableExpression` (`boolean | string | ((model: any, formState: any) => boolean)`) storing disable expression.",
-          "descriptionZh": "属性 `disableExpression`（类型：`boolean | string | ((model: any, formState: any) => boolean)`），用于存储或配置禁用表达式。"
+          "type": "DuiExpression",
+          "description": "Property `disableExpression` (`DuiExpression`) storing disable expression.",
+          "descriptionZh": "属性 `disableExpression`（类型：`DuiExpression`），用于存储或配置禁用表达式。"
         },
         {
           "name": "expressionProperties",
-          "type": "any",
-          "description": "Property `expressionProperties` (`{ [property: string]: string | ((model: any, formState: any) => boolea...`) storing expression properties.",
-          "descriptionZh": "属性 `expressionProperties`（类型：`{ [property: string]: string | ((model: any, formState: any) => boolea...`），用于存储或配置表达式属性列表。"
+          "type": "{ [propertyPath: string]: DuiCompiledExpression }",
+          "description": "初始化（initFieldExpression）后的表达式属性：每项都已编译",
+          "descriptionZh": null
         },
         {
           "name": "hidden",
-          "type": "any",
+          "type": "boolean",
           "description": "Gets the current hidden (`hidden: any`).",
           "descriptionZh": "获取当前隐藏（`hidden: any`）。"
         },
@@ -516,7 +516,7 @@
           "name": "dirChange",
           "type": "any",
           "description": "Event emitted when the direction changes.",
-          "descriptionZh": "输出事件 `dirChange`（类型：`EventEmitter`），当触发目录变更时向外发出事件。"
+          "descriptionZh": "输出事件 `dirChange`（类型：`EventEmitter<void>`），当触发目录变更时向外发出事件。"
         }
       ],
       "methods": [],
@@ -571,9 +571,9 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `getParam` to handle get param.",
-          "descriptionZh": "执行 `getParam`，用于获取参数。"
+          "returnType": "Record<string, string>",
+          "description": "解析 url 查询串：键 → 值（都是字符串，未解码）",
+          "descriptionZh": null
         },
         {
           "name": "getComponent",
@@ -603,7 +603,7 @@
               "type": "any"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase | undefined",
           "description": "Executes `create` to handle create.",
           "descriptionZh": "执行 `create`，用于创建。"
         },
@@ -619,7 +619,7 @@
               "type": "any"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `createField` to handle create field.",
           "descriptionZh": "执行 `createField`，用于创建字段。"
         },
@@ -700,14 +700,14 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "{ ptype?: string }"
             },
             {
               "name": "defaultType",
               "type": "string"
             }
           ],
-          "returnType": "ComponentBase",
+          "returnType": "DuiPlugin",
           "description": "Executes `createPlugin` to handle create plugin.",
           "descriptionZh": "执行 `createPlugin`，用于创建Plugin。"
         },
@@ -837,8 +837,8 @@
           "name": "navigator",
           "type": "any",
           "default": "navigator",
-          "description": "Property `navigator` (`any`) storing navigator (default: `navigator`).",
-          "descriptionZh": "属性 `navigator`（类型：`any`），用于存储或配置navigator（默认值：`navigator`）。"
+          "description": "Property `navigator` (`Navigator`) storing navigator (default: `navigator`).",
+          "descriptionZh": "属性 `navigator`（类型：`Navigator`），用于存储或配置navigator（默认值：`navigator`）。"
         },
         {
           "name": "idSeed",
@@ -851,15 +851,15 @@
           "name": "DOC",
           "type": "any",
           "default": "document",
-          "description": "Property `DOC` (`any`) storing doc (default: `document`).",
-          "descriptionZh": "属性 `DOC`（类型：`any`），用于存储或配置文档（默认值：`document`）。"
+          "description": "Property `DOC` (`Document`) storing doc (default: `document`).",
+          "descriptionZh": "属性 `DOC`（类型：`Document`），用于存储或配置文档（默认值：`document`）。"
         },
         {
           "name": "UID_PROPERTY_",
           "type": "any",
           "default": "'dui_' + ((Math.random() * 1e9) >>> 0)",
-          "description": "Property `UID_PROPERTY_` (`any`) storing uid property (default: `'dui_' + ((Math.random() * 1e9) >>> 0)`).",
-          "descriptionZh": "属性 `UID_PROPERTY_`（类型：`any`），用于存储或配置UID属性（默认值：`'dui_' + ((Math.random() * 1e9) >>> 0)`）。"
+          "description": "Property `UID_PROPERTY_` (`string`) storing uid property (default: `'dui_' + ((Math.random() * 1e9) >>> 0)`).",
+          "descriptionZh": "属性 `UID_PROPERTY_`（类型：`string`），用于存储或配置UID属性（默认值：`'dui_' + ((Math.random() * 1e9) >>> 0)`）。"
         },
         {
           "name": "uidCounter_",
@@ -872,17 +872,336 @@
           "name": "getHashCode",
           "type": "any",
           "default": "Dui.getUid",
-          "description": "Property `getHashCode` (`any`) storing get hash code (default: `Dui.getUid`).",
-          "descriptionZh": "属性 `getHashCode`（类型：`any`），用于存储或配置获取Hash编码（默认值：`Dui.getUid`）。"
+          "description": "Property `getHashCode` (`(obj: any) => any`) storing get hash code (default: `Dui.getUid`).",
+          "descriptionZh": "属性 `getHashCode`（类型：`(obj: any) => any`），用于存储或配置获取Hash编码（默认值：`Dui.getUid`）。"
         },
         {
           "name": "removeHashCode",
           "type": "any",
           "default": "Dui.removeUid",
-          "description": "Property `removeHashCode` (`any`) storing remove hash code (default: `Dui.removeUid`).",
-          "descriptionZh": "属性 `removeHashCode`（类型：`any`），用于存储或配置移除Hash编码（默认值：`Dui.removeUid`）。"
+          "description": "Property `removeHashCode` (`(obj: any) => void`) storing remove hash code (default: `Dui.removeUid`).",
+          "descriptionZh": "属性 `removeHashCode`（类型：`(obj: any) => void`），用于存储或配置移除Hash编码（默认值：`Dui.removeUid`）。"
         }
       ]
+    },
+    {
+      "name": "DuiCompiledExpression",
+      "kind": "interface",
+      "summary": "`expressionProperties` 里编译后的单项",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "expression",
+          "type": "Function",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "expressionValueSetter",
+          "type": "(...args: unknown[]) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "expressionValue",
+          "type": "unknown",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiConfig",
+      "kind": "interface",
+      "summary": "dui 组件配置对象。所有组件配置接口都从这里扩展。",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "xtype",
+          "type": "string",
+          "description": "组件类型（工厂里登记的选择器），`Dui.create` 按它查组件工厂",
+          "descriptionZh": null
+        },
+        {
+          "name": "ptype",
+          "type": "string",
+          "description": "插件类型",
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "itemId",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ref",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconCls",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cls",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hidden",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "number | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "flex",
+          "type": "number | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "layout",
+          "type": "string | DuiConfig",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "DuiStyle",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "Array<DuiConfig | object | string>",
+          "description": "子项配置（或已创建的组件实例）",
+          "descriptionZh": null
+        },
+        {
+          "name": "children",
+          "type": "Array<DuiConfig | string>",
+          "description": "子菜单 / 下拉项",
+          "descriptionZh": null
+        },
+        {
+          "name": "listeners",
+          "type": "DuiListeners",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "plugins",
+          "type": "DuiPluginConfig | DuiPluginConfig[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideExpression",
+          "type": "DuiExpression",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableExpression",
+          "type": "DuiExpression",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "expressionProperties",
+          "type": "DuiExpressionProperties",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "handler",
+          "type": "Function",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "render",
+          "type": "boolean",
+          "description": "已渲染的组件实例标志：容器 add 时直接使用，不再创建",
+          "descriptionZh": null
+        },
+        {
+          "name": "isField",
+          "type": "boolean",
+          "description": "表单字段标志",
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiExpression",
+      "kind": "type",
+      "summary": "表达式：布尔常量、运行期编译的字符串表达式，或函数",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiExpressionProperties",
+      "kind": "interface",
+      "summary": "`expressionProperties` 配置：属性路径 → 表达式（初始化后被编译成 DuiCompiledExpression）",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiListener",
+      "kind": "type",
+      "summary": "事件监听项：函数，或 `{ fn, scope }`",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiListeners",
+      "kind": "interface",
+      "summary": "`listeners` 配置：事件名 → 监听项",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiPlugin",
+      "kind": "interface",
+      "summary": "已实例化的插件：初始化时拿到宿主组件",
+      "summaryZh": null,
+      "sourceFile": "src/core/component.base.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "init",
+          "params": [
+            {
+              "name": "host",
+              "type": "ComponentBase"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "ptype",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiPluginConfig",
+      "kind": "type",
+      "summary": "插件配置：插件类型名，或带 `ptype` 的配置对象，或已实例化的插件",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiStyle",
+      "kind": "interface",
+      "summary": "内联样式：CSS 属性名 → 值（与 `[ngStyle]` 的入参一致）",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
     },
     {
       "name": "FOCUS_ORIGIN_MONITOR_PROVIDER",
@@ -1148,15 +1467,15 @@
           "name": "media$",
           "type": "any",
           "default": "new BehaviorSubject<Media>(undefined)",
-          "description": "Property `media$` (`BehaviorSubject`) storing media (default: `new BehaviorSubject<Media>(undefined)`).",
-          "descriptionZh": "属性 `media$`（类型：`BehaviorSubject`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。"
+          "description": "Property `media$` (`BehaviorSubject<Media>`) storing media (default: `new BehaviorSubject<Media>(undefined)`).",
+          "descriptionZh": "属性 `media$`（类型：`BehaviorSubject<Media>`），用于存储或配置媒体（默认值：`new BehaviorSubject<Media>(undefined)`）。"
         },
         {
           "name": "orientation$",
           "type": "any",
           "default": "new BehaviorSubject<MediaOrientation>(undefined)",
-          "description": "Property `orientation$` (`BehaviorSubject`) storing orientation.",
-          "descriptionZh": "属性 `orientation$`（类型：`BehaviorSubject`），用于存储或配置方向。"
+          "description": "Property `orientation$` (`BehaviorSubject<MediaOrientation>`) storing orientation.",
+          "descriptionZh": "属性 `orientation$`（类型：`BehaviorSubject<MediaOrientation>`），用于存储或配置方向。"
         }
       ]
     },
@@ -1207,25 +1526,25 @@
           "name": "width",
           "type": "number | string",
           "description": "The width of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": "属性 `width`（类型：`number | string`），用于存储或配置宽度。"
+          "descriptionZh": "属性 `width`（类型：`string | number`），用于存储或配置宽度。"
         },
         {
           "name": "height",
           "type": "number | string",
           "description": "The height of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": "属性 `height`（类型：`number | string`），用于存储或配置高度。"
+          "descriptionZh": "属性 `height`（类型：`string | number`），用于存储或配置高度。"
         },
         {
           "name": "minWidth",
           "type": "number | string",
           "description": "The min-width of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": "属性 `minWidth`（类型：`number | string`），用于存储或配置最小值宽度。"
+          "descriptionZh": "属性 `minWidth`（类型：`string | number`），用于存储或配置最小值宽度。"
         },
         {
           "name": "minHeight",
           "type": "number | string",
           "description": "The min-height of the overlay panel. If a number is provided, pixel units are assumed.",
-          "descriptionZh": "属性 `minHeight`（类型：`number | string`），用于存储或配置最小值高度。"
+          "descriptionZh": "属性 `minHeight`（类型：`string | number`），用于存储或配置最小值高度。"
         },
         {
           "name": "direction",
@@ -1373,20 +1692,20 @@
       "properties": [
         {
           "name": "navigator",
-          "type": "any",
+          "type": "Record<string, unknown>",
           "default": "{}",
-          "description": "Property `navigator` (`any`) storing navigator (default: `{}`).",
-          "descriptionZh": "属性 `navigator`（类型：`any`），用于存储或配置navigator（默认值：`{}`）。"
+          "description": "Property `navigator` (`Record<string, unknown>`) storing navigator (default: `{}`).",
+          "descriptionZh": "属性 `navigator`（类型：`Record<string, unknown>`），用于存储或配置navigator（默认值：`{}`）。"
         },
         {
           "name": "location",
-          "type": "any",
+          "type": "Record<string, unknown>",
           "default": "{}",
-          "description": "Property `location` (`any`) storing location (default: `{}`).",
-          "descriptionZh": "属性 `location`（类型：`any`），用于存储或配置location（默认值：`{}`）。"
+          "description": "Property `location` (`Record<string, unknown>`) storing location (default: `{}`).",
+          "descriptionZh": "属性 `location`（类型：`Record<string, unknown>`），用于存储或配置location（默认值：`{}`）。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { RtlModule } from '@dotos/dui/core';"
+  "suggestedUsageSnippet": "import { RtlModule } from '@dotos1/dui/core';"
 }

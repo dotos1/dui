@@ -5,8 +5,8 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { ShadeModule } from '@dotos/dui/common/colorpicker/common';
-import { Dui } from '@dotos/dui/core';
+import { ShadeModule } from '@dotos1/dui/common/colorpicker/common';
+import { Dui } from '@dotos1/dui/core';
 import { ShadeSliderComponent } from './shade-picker.component';
 
 

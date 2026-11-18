@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/data/datatable/datatable.card.ts`，提供数据表格卡片相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
   Component, Input, ViewChild, ChangeDetectionStrategy,
   SimpleChanges, ChangeDetectorRef, Injector, OnChanges,
@@ -12,12 +12,12 @@ import {
 
 import { HttpClient } from '@angular/common/http';
 import { Subject, takeUntil } from 'rxjs';
-import { Dui } from '@dotos/dui/core';
-import { DuiCardComponent } from '@dotos/dui/container';
+import { Dui } from '@dotos1/dui/core';
+import { DuiCardComponent } from '@dotos1/dui/container';
 import { DatatableComponent } from './datatable.component';
 import { ITable, IDataSource } from './types/table.type';
 import { TableColumn } from './types/table-column.type';
-import { TranslatePipe, TranslateService } from '@dotos/dui/translator';
+import { TranslatePipe, TranslateService } from '@dotos1/dui/translator';
 import { SelectionType } from './types';
 
 /**
@@ -181,7 +181,7 @@ export class DatatableCardComponent extends DuiCardComponent implements OnChange
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

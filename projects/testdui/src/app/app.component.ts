@@ -4,10 +4,10 @@
  */
 
 import { DOCUMENT } from '@angular/common';
-import { Component, Inject } from '@angular/core';
-import { DotosConfigService, ThemeService } from '@dotos/dui/theme';
-import { TranslationService } from '@dotos/dui/translator';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { Component, Inject, ChangeDetectionStrategy } from '@angular/core';
+import { DotosConfigService, ThemeService } from '@dotos1/dui/theme';
+import { TranslationService } from '@dotos1/dui/translator';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 
 /**
  * Constant/variable `DOTOS_CONFIG_STORAGE_KEY` defining dotos config storage key in `projects/testdui/src/app`.
@@ -40,7 +40,8 @@ interface LangOption {
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss',
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class AppComponent {
   /**

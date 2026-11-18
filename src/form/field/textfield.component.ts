@@ -5,9 +5,9 @@
 
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatAutocompleteTrigger } from '@angular/material/autocomplete';
-import { isObject, phoneSelectableOptions } from '@dotos/dui/base';
-import { Dui } from '@dotos/dui/core';
-import { TranslateService } from '@dotos/dui/translator';
+import { isObject, phoneSelectableOptions } from '@dotos1/dui/base';
+import { Dui } from '@dotos1/dui/core';
+import { TranslateService } from '@dotos1/dui/translator';
 import { isEmpty, isObjectLike } from 'lodash-es';
 import { Observable, Subject, of } from 'rxjs';
 import { debounceTime, delay, filter, map, takeUntil, takeWhile, tap } from 'rxjs/operators';

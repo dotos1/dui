@@ -1,9 +1,0 @@
-<ng-container *ngFor="let toolbarItem of toolbar; let lastToolbarItem = last; trackBy: trackByIndex">
-  <ng-container *ngFor="let item of toolbarItem; let lastItem = last; trackBy: trackByIndex">
-    <div class="BubbleMenu__Icon" [ngClass]="{'BubbleMenu__Icon--Active': this.activeItems.includes(item),
-  'Editor--Disabled': !this.execulableItems.includes(item)}" (mousedown)="onClick($event, item)"
-      *ngIf="toggleCommands.includes(item)" [title]="getTitle(item)" [innerHTML]="getIcon(item)">
-    </div>
-    <div class="BubbleMenu__Seperator" *ngIf="lastItem && !lastToolbarItem"></div>
-  </ng-container>
-</ng-container>

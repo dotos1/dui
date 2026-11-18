@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/button/toggle-button.component.ts`，提供开关按钮组件相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -18,7 +18,7 @@ import {
 import { MatButtonToggleAppearance } from '@angular/material/button-toggle';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
-import { ComponentBase, Dui } from '@dotos/dui/core';
+import { ComponentBase, Dui } from '@dotos1/dui/core';
 import {isFunction,isObjectLike}  from 'lodash-es';
 
 /**
@@ -167,7 +167,7 @@ export class ToggleButtonComponent extends ComponentBase implements OnInit,DoChe
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

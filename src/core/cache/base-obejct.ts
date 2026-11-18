@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/core/cache/base-obejct.ts`，提供基础obejct相关的定义与实现。
  */
 
-import { Observer } from '@dotos/dui/base';
+import { Observer } from '@dotos1/dui/base';
 
 /**
  * Class `BaseObject` encapsulating base object data structures and logic in `src/core/cache`.

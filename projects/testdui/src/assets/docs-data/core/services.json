@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/services",
+  "importPath": "@dotos1/dui/core/services",
   "exports": [
     {
       "name": "CommonServicesModule",
@@ -266,7 +266,7 @@
           ],
           "returnType": "HighlightTransformResult",
           "description": "Searches for `search` string(s) within `text` and highlights all occurrences.",
-          "descriptionZh": "执行 `highlight`，用于highlight。"
+          "descriptionZh": "执行 `highlight`，用于高亮。"
         }
       ],
       "properties": []
@@ -464,8 +464,8 @@
         {
           "name": "onMessage",
           "type": "any",
-          "description": "Property `onMessage` (`Subject<any>`) storing on message.",
-          "descriptionZh": "属性 `onMessage`（类型：`Subject<any>`），用于存储或配置当消息。"
+          "description": "Property `onMessage` (`any`) storing on message.",
+          "descriptionZh": "属性 `onMessage`（类型：`any`），用于存储或配置当消息。"
         }
       ]
     },
@@ -570,13 +570,13 @@
       "properties": [
         {
           "name": "data",
-          "type": "any",
+          "type": "Record<string, unknown>",
           "default": "{}",
-          "description": "Property `data` (`any`) storing data (default: `{}`).",
-          "descriptionZh": "属性 `data`（类型：`any`），用于存储或配置数据（默认值：`{}`）。"
+          "description": "Property `data` (`Record<string, unknown>`) storing data (default: `{}`).",
+          "descriptionZh": "属性 `data`（类型：`Record<string, unknown>`），用于存储或配置数据（默认值：`{}`）。"
         }
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { CommonServicesModule } from '@dotos/dui/core/services';"
+  "suggestedUsageSnippet": "import { CommonServicesModule } from '@dotos1/dui/core/services';"
 }

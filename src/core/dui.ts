@@ -6,8 +6,8 @@
 import { ChangeDetectorRef, ComponentRef, createComponent, EnvironmentInjector, Injector, Type } from '@angular/core';
 import { AbstractControlOptions, FormArray, FormControl, FormGroup } from '@angular/forms';
 
-import { DuiBase } from '@dotos/dui/base';
-import { FieldConfigCache, FieldType, ValueChangeEvent, assignModelValue2, clone, defineHiddenProp, findControl, getFieldValue, registerControl } from '@dotos/dui/core/form';
+import { DuiBase } from '@dotos1/dui/base';
+import { FieldConfigCache, FieldType, ValueChangeEvent, assignModelValue2, clone, defineHiddenProp, findControl, getFieldValue, registerControl } from '@dotos1/dui/core/form';
 import { Subject } from 'rxjs';
 import { ComponentBase, DuiPlugin } from './component.base';
 

@@ -4,7 +4,7 @@
  */
 
 
-import { Component } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 /**
  * Angular component `TopbarTitleComponent` (selector: 'dui-topbar-title') providing topbar title component presentation and interaction in `src/ui/topbar`.
@@ -14,6 +14,7 @@ import { Component } from '@angular/core';
     selector: 'dui-topbar-title',
     template: '<ng-content></ng-content>',
     host: { 'class': 'dui-topbar-title' },
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export class TopbarTitleComponent { }

@@ -1,13 +1,21 @@
 {
-
   "dest": "../dist/dui",
   "lib": {
     "entryFile": "./index.ts"
   },
-  "assets":[
-    "./theming","./i18n"
+  "assets": [
+    "./theming",
+    "./i18n",
+    "./llms.txt",
+    "./THIRD-PARTY-NOTICES.md"
   ],
   "allowedNonPeerDependencies": [
-
+    "buffer",
+    "colornames",
+    "element-resize-detector",
+    "fuse.js",
+    "minimatch-browser",
+    "perfect-scrollbar",
+    "tslib"
   ]
 }

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ui/speeddial/fab.button.ts`，提供fab按钮相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -18,7 +18,7 @@ import {
     ViewChild
 } from '@angular/core';
 import { MatTooltip } from '@angular/material/tooltip';
-import { ComponentBase } from '@dotos/dui/core';
+import { ComponentBase } from '@dotos1/dui/core';
 import {isString}  from 'lodash-es';
 
 /**
@@ -127,7 +127,7 @@ export class FabButtonComponent extends ComponentBase implements OnChanges,DoChe
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

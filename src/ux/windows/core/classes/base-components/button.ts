@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/windows/core/classes/base-components/button.ts`，提供按钮相关的定义与实现。
  */
 
-import { Component, HostBinding, Injector, Input, Output } from '@angular/core';
+import { Component, HostBinding, Injector, Input, Output, ChangeDetectionStrategy } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ɵCommonCssClassEnum } from '../../enums';
 import { ɵOsBaseComponent } from './component';
@@ -14,7 +14,8 @@ import { ɵOsBaseComponent } from './component';
  */
 @Component({
     template: '',
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.Default
 })
 export abstract class ɵOsBaseButtonComponent extends ɵOsBaseComponent {
 

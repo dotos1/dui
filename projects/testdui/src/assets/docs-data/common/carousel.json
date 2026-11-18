@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/carousel",
+  "importPath": "@dotos1/dui/common/carousel",
   "exports": [
     {
       "name": "MatCarousel",
@@ -297,11 +297,59 @@
           "descriptionZh": "内部使用，在窗口尺寸变化时重新同步幻灯片位置。"
         },
         {
+          "name": "onPointerDown",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent"
+            },
+            {
+              "name": "slideElem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": "Handles pointer down on a slide to start native pointer pan tracking.",
+          "descriptionZh": "处理幻灯片上的指针按下事件以启动原生滑动追踪。"
+        },
+        {
+          "name": "onPointerMove",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent"
+            },
+            {
+              "name": "slideElem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": "Handles pointer move on a slide and delegates horizontal pan translation.",
+          "descriptionZh": "处理幻灯片上的指针移动事件并委托横向平移计算。"
+        },
+        {
+          "name": "onPointerUp",
+          "params": [
+            {
+              "name": "event",
+              "type": "PointerEvent"
+            },
+            {
+              "name": "slideElem",
+              "type": "HTMLElement"
+            }
+          ],
+          "returnType": "void",
+          "description": "Handles pointer up/cancel on a slide to finalize native pointer swipe.",
+          "descriptionZh": "处理幻灯片上的指针抬起或取消事件以完成切换判定。"
+        },
+        {
           "name": "onPan",
           "params": [
             {
               "name": "event",
-              "type": "any"
+              "type": "{ deltaX: number; velocityX: number; velocityY: number }"
             },
             {
               "name": "slideElem",
@@ -317,7 +365,7 @@
           "params": [
             {
               "name": "event",
-              "type": "any"
+              "type": "{ deltaX: number }"
             },
             {
               "name": "slideElem",
@@ -371,25 +419,6 @@
           "type": "ListKeyManager<MatCarouselSlideComponent>",
           "description": null,
           "descriptionZh": "内部使用，管理幻灯片焦点/激活状态的 CDK 键盘管理器。"
-        }
-      ]
-    },
-    {
-      "name": "MatCarouselHammerConfig",
-      "kind": "class",
-      "summary": "Class `MatCarouselHammerConfig` encapsulating mat carousel hammer config data structures and logic in `src/common/carousel`.",
-      "summaryZh": "类 `MatCarouselHammerConfig`，封装 `src/common/carousel` 中的MaterialCarouselHammer配置数据结构与处理逻辑。",
-      "sourceFile": "src/common/carousel/carousel.module.ts",
-      "inputs": [],
-      "outputs": [],
-      "methods": [],
-      "properties": [
-        {
-          "name": "overrides",
-          "type": "any",
-          "default": "{\n    pinch: { enable: false },\n    rotate: { enable: false }\n  }",
-          "description": "Property `overrides` (`any`) storing overrides.",
-          "descriptionZh": "属性 `overrides`（类型：`any`），用于存储或配置overrides。"
         }
       ]
     },
@@ -490,7 +519,7 @@
         {
           "name": "templateRef",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `templateRef` (`@ViewChild`) targeting template ref.",
+          "description": "Template/content query reference `templateRef` (`TemplateRef<unknown>`) targeting template ref.",
           "descriptionZh": "该幻灯片投影内容的模板引用。"
         }
       ]
@@ -531,5 +560,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { MatCarouselComponent, MatCarouselModule } from '@dotos/dui/common/carousel';\n\n<mat-carousel [timings]=\"...\" [svgIconOverrides]=\"...\" [autoplay]=\"...\" (change)=\"...\"></mat-carousel>"
+  "suggestedUsageSnippet": "import { MatCarouselComponent, MatCarouselModule } from '@dotos1/dui/common/carousel';\n\n<mat-carousel [timings]=\"...\" [svgIconOverrides]=\"...\" [autoplay]=\"...\" (change)=\"...\"></mat-carousel>"
 }

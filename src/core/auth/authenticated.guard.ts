@@ -8,10 +8,10 @@ import { Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 
-import { CookieStorage } from '@dotos/dui/core/cookie';
+import { CookieStorage } from '@dotos1/dui/core/cookie';
 
 import { AuthService } from './auth.service';
-import { LocalStorageService } from '@dotos/dui/core/storage';
+import { LocalStorageService } from '@dotos1/dui/core/storage';
 /**
  * Injectable Angular service `AuthenticatedGuard` managing authenticated guard state and operations in `src/core/auth`.
  * @zh 可注入的 Angular 服务 `AuthenticatedGuard`，管理 `src/core/auth` 中的Authenticated路由守卫状态与业务操作。

@@ -9,7 +9,7 @@ import {
   Input,
   OnInit,
   TemplateRef,
-  ViewChild
+  ViewChild, ChangeDetectionStrategy
 } from '@angular/core';
 import { DomSanitizer, SafeStyle } from '@angular/platform-browser';
 import { MatCarouselSlide } from './carousel-slide';
@@ -22,7 +22,8 @@ import { MatCarouselSlide } from './carousel-slide';
   selector: 'mat-carousel-slide',
   templateUrl: './carousel-slide.component.html',
   styleUrls: ['./carousel-slide.component.scss'],
-  standalone: false
+  standalone: false,
+  changeDetection: ChangeDetectionStrategy.Default
 })
 export class MatCarouselSlideComponent
   implements ListKeyManagerOption, MatCarouselSlide, OnInit {

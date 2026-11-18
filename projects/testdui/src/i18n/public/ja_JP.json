@@ -88,7 +88,7 @@
     "STEP4_H2": "実行時にテーマを切り替える",
     "STEP4_P2": "ThemeService を使用すると、再ビルドすることなく、実行時にプライマリカラー、アクセントカラー、警告色、ライト/ダークモードを動的に変更できます：",
     "STEP5_H1": "セカンダリエントリポイントのパッケージ規則",
-    "STEP5_P1": "DUI は ng-packagr のセカンダリエントリポイントを使います。各機能フォルダーには専用の ng-package.json、index.ts、public-api.ts があります。エントリポイントをまたぐインポートは、深い相対パスではなく必ず @dotos/dui/<category>/<module> を使ってください：",
+    "STEP5_P1": "DUI は ng-packagr のセカンダリエントリポイントを使います。各機能フォルダーには専用の ng-package.json、index.ts、public-api.ts があります。エントリポイントをまたぐインポートは、深い相対パスではなく必ず @dotos1/dui/<category>/<module> を使ってください：",
     "STEP5_H2": "RxJS 購読のライフサイクルと OnPush のパフォーマンス",
     "STEP5_P2": "長期間の Observable 購読は ngOnDestroy で takeUntil(this.destroy$) を使って必ず解除し、メモリリークを防いでください。更新頻度の高いコンポーネントには ChangeDetectionStrategy.OnPush を推奨します：",
     "STEP5_H3": "バイリンガル JSDoc（@zh）とドキュメントの自動生成",

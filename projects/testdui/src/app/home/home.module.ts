@@ -11,8 +11,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTabsModule } from '@angular/material/tabs';
 
-import { HighlightModule } from '@dotos/dui/ux/highlight';
-import { TranslateModule } from '@dotos/dui/translator';
+import { HighlightModule } from '@dotos1/dui/ux/highlight';
+import { TranslateModule } from '@dotos1/dui/translator';
 
 import { HomePageComponent } from './pages/home-page/home-page.component';
 

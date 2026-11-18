@@ -1,0 +1,35 @@
+<div class="lce" [class.lce--readonly]="readonly">
+  <div class="lce__bar">
+    <span class="lce__lang">{{ language }}</span>
+    <span class="lce__label" *ngIf="label">{{ label }}</span>
+    <span class="lce__spacer"></span>
+    <span class="lce__meta" data-testid="live-cursor">行 {{ cursorLine }}，列 {{ cursorColumn }}</span>
+    <span class="lce__meta lce__meta--ms" *ngIf="compileMs !== null" data-testid="live-compile-ms">编译 {{ compileMs }} ms</span>
+    <button type="button" class="lce__btn" (click)="copy()">{{ copied ? '已复制' : '复制' }}</button>
+    <button type="button" class="lce__btn lce__btn--run" *ngIf="!readonly" (click)="run.emit()" title="Ctrl/Cmd + Enter">▶ 运行</button>
+  </div>
+  <div class="lce__body">
+    <div class="lce__gutter" #gutter aria-hidden="true">
+      <div class="lce__ln" *ngFor="let n of lineNumbers" [class.lce__ln--active]="n === cursorLine">{{ n }}</div>
+    </div>
+    <div class="lce__surface">
+      <pre class="lce__highlight hljs" #highlight aria-hidden="true"><code [innerHTML]="highlighted"></code></pre>
+      <textarea
+        #input
+        class="lce__input"
+        spellcheck="false"
+        autocapitalize="off"
+        autocomplete="off"
+        wrap="off"
+        [attr.data-lang]="language"
+        [attr.aria-label]="label || language"
+        [readOnly]="readonly"
+        [value]="code"
+        (input)="onInput()"
+        (keydown)="onKeydown($event)"
+        (scroll)="onScroll()"
+        (click)="updateCursor()"
+        (keyup)="updateCursor()"></textarea>
+    </div>
+  </div>
+</div>

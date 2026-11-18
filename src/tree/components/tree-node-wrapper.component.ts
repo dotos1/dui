@@ -13,7 +13,8 @@ import {
   OnInit, 
   OnDestroy 
 } from '@angular/core';
-import { action, observable } from '@dotos/dui/core/mobx';
+import { action, observable } from '@dotos1/dui/core/mobx';
+import { makeObservable } from 'mobx';
 import { TreeNode } from '../models/tree-node.model';
 
 /**
@@ -61,7 +62,7 @@ export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
    * Property `_node` (`TreeNode`) storing node.
    * @zh 属性 `_node`（类型：`TreeNode`），用于存储或配置节点。
    */
-  @observable _node: TreeNode;
+  @observable _node: TreeNode = undefined;
 
   /**
    * Input property `index` (`number`) configuring index.
@@ -83,13 +84,15 @@ export class TreeNodeWrapperComponent implements OnInit, OnDestroy {
   /**
    * Creates an instance of `TreeNodeWrapperComponent` and initializes its dependencies and internal state.
    * @zh 创建 `TreeNodeWrapperComponent` 实例，并初始化其依赖项与内部状态。
-   * @param el - Injected or initial el (`ElementRef<any>`) / 注入或传入的DOM元素（`ElementRef<any>`）
+   * @param el - Injected or initial el (`ElementRef<HTMLElement>`) / 注入或传入的DOM元素（`ElementRef<HTMLElement>`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */
   constructor(
-    private el: ElementRef,
+    private el: ElementRef<HTMLElement>,
     private ngZone: NgZone
-  ) { }
+  ) {
+    makeObservable(this);
+  }
  /**
   * Angular lifecycle hook invoked once after component or directive inputs are initialized.
   * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。

@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/container/dock-layout/virtual-layout.ts`，提供虚拟滚动布局相关的定义与实现。
  */
 
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { LayoutConfig } from './config/config';
 import { ResolvedComponentItemConfig, ResolvedLayoutConfig, ResolvedPopoutLayoutConfig } from './config/resolved-config';
 import { ComponentContainer } from './container/component-container';

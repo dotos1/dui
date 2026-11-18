@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/fileupload",
+  "importPath": "@dotos1/dui/common/fileupload",
   "exports": [
     {
       "name": "_FileDropMixinBase",
@@ -93,9 +93,9 @@
         {
           "name": "getFilters",
           "params": [],
-          "returnType": "any",
-          "description": "Returns the filter functions applied when queuing dropped files (none by default).",
-          "descriptionZh": "返回加入放置的文件时应用的过滤函数（默认为空）。"
+          "returnType": "FilterFunction[] | string | undefined",
+          "description": "文件过滤器：返回 undefined 表示用 uploader.options.filters（原来返回 {}，效果相同）",
+          "descriptionZh": null
         },
         {
           "name": "onDrop",
@@ -150,13 +150,13 @@
         {
           "name": "multipleBinding",
           "type": "string",
-          "description": "Host-bound getter `multipleBinding` (`attr.multiple`) computing multiple binding.",
+          "description": "Host-bound getter `multipleBinding` (`string`) computing multiple binding.",
           "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
         },
         {
           "name": "disabledBinding",
           "type": "string",
-          "description": "Host-bound getter `disabledBinding` (`attr.disabled`) computing disabled binding.",
+          "description": "Host-bound getter `disabledBinding` (`string`) computing disabled binding.",
           "descriptionZh": "内部使用，绑定宿主的原生 `disabled` 属性。"
         }
       ]
@@ -333,8 +333,8 @@
           "name": "headers",
           "type": "any",
           "default": "[]",
-          "description": "Property `headers` (`any`) storing headers (default: `[]`).",
-          "descriptionZh": "属性 `headers`（类型：`any`），用于存储或配置请求头（默认值：`[]`）。"
+          "description": "Property `headers` (`any[]`) storing headers (default: `[]`).",
+          "descriptionZh": "属性 `headers`（类型：`any[]`），用于存储或配置请求头（默认值：`[]`）。"
         },
         {
           "name": "withCredentials",
@@ -347,8 +347,8 @@
           "name": "formData",
           "type": "any",
           "default": "[]",
-          "description": "Property `formData` (`any`) storing form data (default: `[]`).",
-          "descriptionZh": "属性 `formData`（类型：`any`），用于存储或配置表单数据（默认值：`[]`）。"
+          "description": "Property `formData` (`any[]`) storing form data (default: `[]`).",
+          "descriptionZh": "属性 `formData`（类型：`any[]`），用于存储或配置表单数据（默认值：`[]`）。"
         },
         {
           "name": "isReady",
@@ -475,7 +475,7 @@
         {
           "name": "onFileSelected",
           "type": "File[] | FileList | File",
-          "description": "Output event emitter `onFileSelected` (`EventEmitter<File[] | FileList | File>`) firing when on file selected occurs.",
+          "description": "Output event emitter `onFileSelected` (`EventEmitter<File | File[] | FileList>`) firing when on file selected occurs.",
           "descriptionZh": "文件选择完成后发出。"
         },
         {
@@ -508,9 +508,9 @@
         {
           "name": "getFilters",
           "params": [],
-          "returnType": "any",
-          "description": "Returns the filter functions applied when queuing selected files (none by default).",
-          "descriptionZh": "返回加入选中的文件时应用的过滤函数（默认为空）。"
+          "returnType": "FilterFunction[] | string | undefined",
+          "description": "文件过滤器：返回 undefined 表示用 uploader.options.filters（原来返回 {}，效果相同）",
+          "descriptionZh": null
         },
         {
           "name": "isEmptyAfterSelection",
@@ -524,7 +524,7 @@
         {
           "name": "multipleBinding",
           "type": "string",
-          "description": "Host-bound getter `multipleBinding` (`attr.multiple`) computing multiple binding.",
+          "description": "Host-bound getter `multipleBinding` (`string`) computing multiple binding.",
           "descriptionZh": "内部使用，绑定宿主的原生 `multiple` 属性。"
         },
         {
@@ -937,8 +937,8 @@
         {
           "name": "uploaderResponse",
           "type": "any",
-          "description": "Property `uploaderResponse` (`EventEmitter<any>`) storing uploader response.",
-          "descriptionZh": "属性 `uploaderResponse`（类型：`EventEmitter<any>`），用于存储或配置上传器响应。"
+          "description": "Property `uploaderResponse` (`any`) storing uploader response.",
+          "descriptionZh": "属性 `uploaderResponse`（类型：`any`），用于存储或配置上传器响应。"
         },
         {
           "name": "options",
@@ -1058,8 +1058,8 @@
         {
           "name": "additionalParameter",
           "type": "{ [key: string]: unknown }",
-          "description": "Property `additionalParameter` (`{ [key: string]: any }`) storing additional parameter.",
-          "descriptionZh": "属性 `additionalParameter`（类型：`{ [key: string]: any }`），用于存储或配置additional参数。"
+          "description": "Property `additionalParameter` (`{ [key: string]: unknown; }`) storing additional parameter.",
+          "descriptionZh": "属性 `additionalParameter`（类型：`{ [key: string]: unknown; }`），用于存储或配置additional参数。"
         },
         {
           "name": "parametersBeforeFiles",
@@ -1276,5 +1276,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { FileUploadModule } from '@dotos/dui/common/fileupload';"
+  "suggestedUsageSnippet": "import { FileUploadModule } from '@dotos1/dui/common/fileupload';"
 }

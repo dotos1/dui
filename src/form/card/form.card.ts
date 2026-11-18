@@ -3,14 +3,14 @@
  * @zh 模块文件 `src/form/card/form.card.ts`，提供表单卡片相关的定义与实现。
  */
 
-import { DuiConfig } from '@dotos/dui/base';
+import { DuiConfig } from '@dotos1/dui/base';
 import {
   Component, Input, ViewChild, ChangeDetectionStrategy,
   SimpleChanges, ChangeDetectorRef, Injector, OnInit, OnChanges
 } from '@angular/core';
-import { DuiCardComponent } from '@dotos/dui/container';
-import { FormComponent } from '@dotos/dui/form';
-import { TranslateService } from '@dotos/dui/translator';
+import { DuiCardComponent } from '@dotos1/dui/container';
+import { FormComponent } from '@dotos1/dui/form';
+import { TranslateService } from '@dotos1/dui/translator';
 
 /**
  * Angular component `FormCard` (selector: 'form-card') providing form card presentation and interaction in `src/form/card`.
@@ -82,7 +82,7 @@ export class FormCard extends DuiCardComponent implements OnInit,OnChanges {
   /**
    * Angular lifecycle hook invoked when data-bound input properties change.
    * @zh Angular 生命周期钩子：当数据绑定的输入属性发生变更时调用。
-   * @param changes - changes parameter (`SimpleChanges`) / 变更集合参数（`SimpleChanges`）
+   * @param changes - changes parameter (`{ [propName: string]: SimpleChange<any>; }`) / 变更集合参数（`{ [propName: string]: SimpleChange<any>; }`）
    */
   override ngOnChanges(changes: SimpleChanges) {
     if (changes['config']) {

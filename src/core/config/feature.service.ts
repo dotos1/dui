@@ -99,7 +99,7 @@ export class FeatureService {
    * @param config - Injected or initial config (`ConfigService`) / 注入或传入的配置（`ConfigService`）
    */
   constructor(private readonly config: ConfigService) {
-    this.config.onLoad.subscribe(() => this.changedSubject.next());
+    this.config?.onLoad?.subscribe(() => this.changedSubject.next());
   }
 
   /**

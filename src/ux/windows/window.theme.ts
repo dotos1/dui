@@ -4,9 +4,9 @@
  */
 
 
-import { rgba, Theme } from '@dotos/dui/theme';
-import { matColor } from '@dotos/dui/theme';
-import { matThemeElevation } from '@dotos/dui/theme';
+import { rgba, Theme } from '@dotos1/dui/theme';
+import { matColor } from '@dotos1/dui/theme';
+import { matThemeElevation } from '@dotos1/dui/theme';
 
 /**
  * Executes `duiWindowTheme` to handle dui window theme.

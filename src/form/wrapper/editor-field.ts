@@ -8,11 +8,11 @@ import {
   AfterViewInit, AfterContentChecked, TemplateRef, ChangeDetectorRef, ElementRef
 } from '@angular/core';
 import { MatFormField, MatFormFieldControl } from '@angular/material/form-field';
-import { FieldWrapper, defineHiddenProp, FieldConfig, FormConfig , observe } from '@dotos/dui/core/form';
+import { FieldWrapper, defineHiddenProp, FieldConfig, FormConfig , observe } from '@dotos1/dui/core/form';
 import { Subject, Subscription } from 'rxjs';
 import { Platform } from '@angular/cdk/platform';
 import { FocusMonitor } from '@angular/cdk/a11y';
-import { PopoverTrigger, Popover } from '@dotos/dui/common/popover';
+import { PopoverTrigger, Popover } from '@dotos1/dui/common/popover';
 
 
 /**

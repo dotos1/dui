@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/container",
+  "importPath": "@dotos1/dui/container",
   "exports": [
     {
       "name": "_DuiLayoutToggleMixinBase",
@@ -32,10 +32,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "overflowX",
@@ -253,33 +253,21 @@
           ],
           "returnType": "void",
           "description": "Executes `doLayout` to handle do layout.",
-          "descriptionZh": "执行 `doLayout`，用于do布局。"
-        },
-        {
-          "name": "add",
-          "params": [
-            {
-              "name": "comp",
-              "type": "any"
-            }
-          ],
-          "returnType": "any",
-          "description": "Executes `add` to handle add.",
-          "descriptionZh": "执行 `add`，用于添加。"
+          "descriptionZh": "执行 `doLayout`，用于执行布局。"
         },
         {
           "name": "remove",
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "ComponentBase | string | number"
             },
             {
               "name": "ad",
               "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `remove` to handle remove.",
           "descriptionZh": "执行 `remove`，用于移除。"
         },
@@ -293,7 +281,7 @@
           ],
           "returnType": "boolean",
           "description": "Executes `havePanel` to handle have panel.",
-          "descriptionZh": "执行 `havePanel`，用于have面板。"
+          "descriptionZh": "执行 `havePanel`，用于具有面板。"
         }
       ],
       "properties": [
@@ -346,49 +334,50 @@
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.",
+          "default": "undefined",
+          "description": "Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.",
           "descriptionZh": "模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。"
         },
         {
           "name": "cssFlexdirection",
           "type": "any",
-          "description": "Host-bound getter `cssFlexdirection` (`style.flex-direction`) computing css flexdirection.",
+          "description": "Host-bound getter `cssFlexdirection` (`\"row\" | \"column\"`) computing css flexdirection.",
           "descriptionZh": "宿主绑定读取器 `cssFlexdirection`（绑定至 `style.flex-direction`），计算并返回CSS样式Flexdirection。"
         },
         {
           "name": "cssMinwidth",
           "type": "any",
-          "description": "Host-bound getter `cssMinwidth` (`style.min-width`) computing css minwidth.",
+          "description": "Host-bound getter `cssMinwidth` (`string`) computing css minwidth.",
           "descriptionZh": "宿主绑定读取器 `cssMinwidth`（绑定至 `style.min-width`），计算并返回CSS样式Minwidth。"
         },
         {
           "name": "cssMinheight",
           "type": "any",
-          "description": "Host-bound getter `cssMinheight` (`style.min-height`) computing css minheight.",
+          "description": "Host-bound getter `cssMinheight` (`string`) computing css minheight.",
           "descriptionZh": "宿主绑定读取器 `cssMinheight`（绑定至 `style.min-height`），计算并返回CSS样式Minheight。"
         },
         {
           "name": "cssWidth",
           "type": "any",
-          "description": "Host-bound getter `cssWidth` (`style.width`) computing css width.",
+          "description": "Host-bound getter `cssWidth` (`string`) computing css width.",
           "descriptionZh": "宿主绑定读取器 `cssWidth`（绑定至 `style.width`），计算并返回CSS样式宽度。"
         },
         {
           "name": "cssHeight",
           "type": "any",
-          "description": "Host-bound getter `cssHeight` (`style.height`) computing css height.",
+          "description": "Host-bound getter `cssHeight` (`string`) computing css height.",
           "descriptionZh": "宿主绑定读取器 `cssHeight`（绑定至 `style.height`），计算并返回CSS样式高度。"
         },
         {
           "name": "cssOverflowX",
           "type": "any",
-          "description": "Host-bound getter `cssOverflowX` (`style.overflow-x`) computing css overflow x.",
+          "description": "Host-bound getter `cssOverflowX` (`string`) computing css overflow x.",
           "descriptionZh": "宿主绑定读取器 `cssOverflowX`（绑定至 `style.overflow-x`），计算并返回CSS样式OverflowX坐标。"
         },
         {
           "name": "cssOverflowY",
           "type": "any",
-          "description": "Host-bound getter `cssOverflowY` (`style.overflow-y`) computing css overflow y.",
+          "description": "Host-bound getter `cssOverflowY` (`string`) computing css overflow y.",
           "descriptionZh": "宿主绑定读取器 `cssOverflowY`（绑定至 `style.overflow-y`），计算并返回CSS样式OverflowY坐标。"
         },
         {
@@ -512,10 +501,10 @@
         },
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "fxLayout",
@@ -545,7 +534,7 @@
           "type": "any",
           "default": "`cdk-accordion-${nextId++}`",
           "description": "A readonly id value to use for unique selection coordination.",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`'cdk-accordion-${nextId++}'`）。"
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识（默认值：`'cdk-accordion-${nextId++}'`）。"
         },
         {
           "name": "multi",
@@ -569,7 +558,7 @@
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.",
+          "description": "Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.",
           "descriptionZh": "模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。"
         },
         {
@@ -605,8 +594,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[DuiCardComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[DuiCardComponent]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[DuiCardComponent]`）。"
+          "description": "Property `entryComponents` (`(typeof DuiCardComponent)[]`) storing entry components (default: `[DuiCardComponent]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof DuiCardComponent)[]`），用于存储或配置条目组件列表（默认值：`[DuiCardComponent]`）。"
         }
       ]
     },
@@ -692,17 +681,17 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `init` to handle init.",
           "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
           "name": "initItems",
           "params": [],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `initItems` to handle init items.",
           "descriptionZh": "执行 `initItems`，用于初始化条目列表。"
         },
@@ -711,10 +700,10 @@
           "params": [
             {
               "name": "comp",
-              "type": "any"
+              "type": "ComponentBase"
             }
           ],
-          "returnType": "any",
+          "returnType": "string",
           "description": "Executes `getComponentId` to handle get component id.",
           "descriptionZh": "执行 `getComponentId`，用于获取组件唯一标识。"
         },
@@ -723,22 +712,78 @@
           "params": [
             {
               "name": "comp",
-              "type": "any"
+              "type": "ContainerItem"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `add` to handle add.",
           "descriptionZh": "执行 `add`，用于添加。"
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comps",
+              "type": "ContainerItem[]"
+            }
+          ],
+          "returnType": "ComponentBase[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "first",
+              "type": "ContainerItem"
+            },
+            {
+              "name": "more",
+              "type": "ContainerItem[]"
+            }
+          ],
+          "returnType": "ComponentBase[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comp",
+              "type": "ContainerItem | ContainerItem[]"
+            }
+          ],
+          "returnType": "ComponentBase | ComponentBase[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "add",
+          "params": [
+            {
+              "name": "comp",
+              "type": "ContainerItem | ContainerItem[]"
+            },
+            {
+              "name": "more",
+              "type": "ContainerItem[]"
+            }
+          ],
+          "returnType": "ComponentBase | ComponentBase[]",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onAdd",
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "ComponentBase"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onAdd` to handle on add.",
           "descriptionZh": "执行 `onAdd`，用于当添加。"
         },
@@ -747,14 +792,14 @@
           "params": [
             {
               "name": "container",
-              "type": "any"
+              "type": "ComponentBase"
             },
             {
               "name": "pos",
-              "type": "any"
+              "type": "number"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onAdded` to handle on added.",
           "descriptionZh": "执行 `onAdded`，用于当已添加。"
         },
@@ -767,22 +812,62 @@
             },
             {
               "name": "comp",
-              "type": "any"
+              "type": "ContainerItem"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "把插件(Component)插入到容器指定的位置（按索引）。执行插入之前触发beforeadd事件，插入完毕触发add事件\n 组件插入到容器collection集合的索引\n 欲加入的组件",
           "descriptionZh": "把插件(Component)插入到容器指定的位置（按索引）。执行插入之前触发beforeadd事件，插入完毕触发add事件"
+        },
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "first",
+              "type": "ContainerItem"
+            },
+            {
+              "name": "more",
+              "type": "ContainerItem[]"
+            }
+          ],
+          "returnType": "ComponentBase[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "insert",
+          "params": [
+            {
+              "name": "index",
+              "type": "number"
+            },
+            {
+              "name": "comp",
+              "type": "ContainerItem"
+            },
+            {
+              "name": "more",
+              "type": "ContainerItem[]"
+            }
+          ],
+          "returnType": "ComponentBase | ComponentBase[]",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "applyDefaults",
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "C"
             }
           ],
-          "returnType": "any",
+          "returnType": "C",
           "description": "Executes `applyDefaults` to handle apply defaults.",
           "descriptionZh": "执行 `applyDefaults`，用于应用默认值集合。"
         },
@@ -791,10 +876,10 @@
           "params": [
             {
               "name": "item",
-              "type": "any"
+              "type": "ComponentBase"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `onBeforeAdd` to handle on before add.",
           "descriptionZh": "执行 `onBeforeAdd`，用于当之前添加。"
         },
@@ -803,7 +888,7 @@
           "params": [
             {
               "name": "comp",
-              "type": "any"
+              "type": "ComponentBase | string | number"
             },
             {
               "name": "autoDestroy",
@@ -819,10 +904,10 @@
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "ComponentBase"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `onRemove` to handle on remove.",
           "descriptionZh": "执行 `onRemove`，用于当移除。"
         },
@@ -831,16 +916,16 @@
           "params": [
             {
               "name": "c",
-              "type": "any"
+              "type": "ComponentBase"
             },
             {
               "name": "autoDestroy",
-              "type": "any"
+              "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `doRemove` to handle do remove.",
-          "descriptionZh": "执行 `doRemove`，用于do移除。"
+          "descriptionZh": "执行 `doRemove`，用于执行移除。"
         },
         {
           "name": "removeAll",
@@ -850,7 +935,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Executes `removeAll` to handle remove all.",
           "descriptionZh": "执行 `removeAll`，用于移除全部。"
         },
@@ -859,10 +944,10 @@
           "params": [
             {
               "name": "comp",
-              "type": "any"
+              "type": "ComponentBase | string | number"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase | undefined",
           "description": "Executes `getComponent` to handle get component.",
           "descriptionZh": "执行 `getComponent`，用于获取组件。"
         },
@@ -871,10 +956,10 @@
           "params": [
             {
               "name": "comp",
-              "type": "any"
+              "type": "ContainerItem"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `lookupComponent` to handle lookup component.",
           "descriptionZh": "执行 `lookupComponent`，用于查找表组件。"
         },
@@ -883,24 +968,24 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig | ComponentBase"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `createComponent` to handle create component.",
           "descriptionZh": "执行 `createComponent`，用于创建组件。"
         },
         {
           "name": "getLayout",
           "params": [],
-          "returnType": "any",
+          "returnType": "string | DuiConfig",
           "description": "Executes `getLayout` to handle get layout.",
           "descriptionZh": "执行 `getLayout`，用于获取布局。"
         },
         {
           "name": "beforeDestroy",
           "params": [],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `beforeDestroy` to handle before destroy.",
           "descriptionZh": "执行 `beforeDestroy`，用于之前销毁。"
         },
@@ -917,7 +1002,7 @@
             },
             {
               "name": "args",
-              "type": "any"
+              "type": "unknown[]"
             }
           ],
           "returnType": "Container",
@@ -932,7 +1017,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase | null",
           "description": "Executes `findById` to handle find by id.",
           "descriptionZh": "执行 `findById`，用于查找按唯一标识。"
         },
@@ -948,7 +1033,7 @@
               "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Executes `findByType` to handle find by type.",
           "descriptionZh": "执行 `findByType`，用于查找按类型。"
         },
@@ -964,7 +1049,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Executes `find` to handle find.",
           "descriptionZh": "执行 `find`，用于查找。"
         },
@@ -977,10 +1062,10 @@
             },
             {
               "name": "scope",
-              "type": "any"
+              "type": "object"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Executes `findBy` to handle find by.",
           "descriptionZh": "执行 `findBy`，用于查找按。"
         },
@@ -1000,13 +1085,13 @@
       "properties": [
         {
           "name": "layout",
-          "type": "any",
-          "description": "Property `layout` (`any`) storing layout.",
-          "descriptionZh": "属性 `layout`（类型：`any`），用于存储或配置布局。"
+          "type": "string | DuiConfig",
+          "description": "Property `layout` (`string | DuiConfig`) storing layout.",
+          "descriptionZh": "属性 `layout`（类型：`string | DuiConfig`），用于存储或配置布局。"
         },
         {
           "name": "items",
-          "type": "any",
+          "type": "MixedCollection<ComponentBase>",
           "description": "一个单独项，或子组件组成的数组，加入到此容器中。每一项的对象类型是基于dui.\nComponent可传入一个组件的配置对象即是lazy-rendering的做法，\n这样做的好处是组件不会立即渲染，减低直接构建组件对象带来的开销。\n要发挥\"lazy instantiation延时初始化\"的特性，应对组件所属的登记类型的dui.Componentxtype属性进行配置。",
           "descriptionZh": "一个单独项，或子组件组成的数组，加入到此容器中。每一项的对象类型是基于dui."
         },
@@ -1019,9 +1104,9 @@
         },
         {
           "name": "defaults",
-          "type": "any",
-          "description": "Property `defaults` (`any`) storing defaults.",
-          "descriptionZh": "属性 `defaults`（类型：`any`），用于存储或配置默认值集合。"
+          "type": "DuiConfig | ((this: Container, item: ContainerItem) => DuiConfig)",
+          "description": "子项缺省配置：对象，或按子项返回配置的函数",
+          "descriptionZh": null
         },
         {
           "name": "viewContainer",
@@ -1032,10 +1117,33 @@
         {
           "name": "form",
           "type": "FormGroup",
-          "description": "Property `form` (`FormGroup`) storing form.",
-          "descriptionZh": "属性 `form`（类型：`FormGroup`），用于存储或配置表单。"
+          "description": "Property `form` (`FormGroup<any>`) storing form.",
+          "descriptionZh": "属性 `form`（类型：`FormGroup<any>`），用于存储或配置表单。"
+        },
+        {
+          "name": "resolver",
+          "type": "unknown",
+          "description": "Legacy compatibility placeholder for component factory resolver.",
+          "descriptionZh": "属性 `resolver`（类型：`unknown`），历史兼容占位字段。"
+        },
+        {
+          "name": "injector",
+          "type": "Injector",
+          "description": "Property `injector` (`Injector`) storing injector.",
+          "descriptionZh": "属性 `injector`（类型：`Injector`），用于存储或配置注入器。"
         }
       ]
+    },
+    {
+      "name": "ContainerItem",
+      "kind": "type",
+      "summary": "容器子项：配置对象，或已创建的组件实例",
+      "summaryZh": null,
+      "sourceFile": "src/container/container.main.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
     },
     {
       "name": "declarations",
@@ -1152,10 +1260,32 @@
         {
           "name": "dropOverItemsCallback",
           "type": "(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void",
-          "description": "Property `dropOverItemsCallback` (`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentI...`) storing drop over items callback.",
-          "descriptionZh": "属性 `dropOverItemsCallback`（类型：`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentI...`），用于存储或配置放置越过条目列表回调函数。"
+          "description": "Property `dropOverItemsCallback` (`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void`) storing drop over items callback.",
+          "descriptionZh": "属性 `dropOverItemsCallback`（类型：`(source: GridsterItem, target: GridsterItem, grid?: GridsterComponentInterface) => void`），用于存储或配置放置越过条目列表回调函数。"
         }
       ]
+    },
+    {
+      "name": "DUI_EXPANSION_PANEL",
+      "kind": "constant",
+      "summary": "Injection token used to provide the parent `ExpansionPanel` to `ExpansionPanelHeader`.",
+      "summaryZh": "注入令牌 `DUI_EXPANSION_PANEL`，向 `ExpansionPanelHeader` 提供父级 `ExpansionPanel` 实例。",
+      "sourceFile": "src/container/accordion/expansion-panel-tokens.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiCardButton",
+      "kind": "type",
+      "summary": "卡片按钮：配置对象（带 xtype），或 '-' / ' ' / '->' / 文本 这类简写",
+      "summaryZh": null,
+      "sourceFile": "src/container/card/card.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
     },
     {
       "name": "DuiCardComponent",
@@ -1167,23 +1297,30 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiCardConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiCardConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiCardConfig`），用于配置配置（默认值：`{}`）。"
         }
       ],
       "outputs": [],
       "methods": [
         {
+          "name": "getContentLayoutStyle",
+          "params": [],
+          "returnType": "DuiStyle",
+          "description": "Computes merged content container styles combining `fxLayout` direction/wrap with `style`.",
+          "descriptionZh": "计算合并了 `fxLayout` 弹性方向/换行配置与 `style` 的卡片内容容器样式。"
+        },
+        {
           "name": "init",
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiCardConfig"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `init` to handle init.",
           "descriptionZh": "执行 `init`，用于初始化。"
         },
@@ -1197,7 +1334,7 @@
         {
           "name": "getPagebar",
           "params": [],
-          "returnType": "any",
+          "returnType": "MatPaginator",
           "description": "Executes `getPagebar` to handle get pagebar.",
           "descriptionZh": "执行 `getPagebar`，用于获取Pagebar。"
         },
@@ -1229,11 +1366,11 @@
           "name": "lookupButton",
           "params": [
             {
-              "name": "c",
-              "type": "any"
+              "name": "button",
+              "type": "DuiCardButton"
             }
           ],
-          "returnType": "any",
+          "returnType": "ComponentBase",
           "description": "Executes `lookupButton` to handle lookup button.",
           "descriptionZh": "执行 `lookupButton`，用于查找表按钮。"
         },
@@ -1242,11 +1379,11 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig"
             },
             {
               "name": "options",
-              "type": "any"
+              "type": "DuiConfig"
             }
           ],
           "returnType": "void",
@@ -1258,11 +1395,11 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig"
             },
             {
               "name": "options",
-              "type": "any"
+              "type": "DuiConfig"
             }
           ],
           "returnType": "void",
@@ -1274,11 +1411,11 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig"
             },
             {
               "name": "options",
-              "type": "any"
+              "type": "DuiConfig"
             }
           ],
           "returnType": "void",
@@ -1290,11 +1427,11 @@
           "params": [
             {
               "name": "config",
-              "type": "any"
+              "type": "DuiConfig"
             },
             {
               "name": "options",
-              "type": "any"
+              "type": "DuiConfig"
             }
           ],
           "returnType": "void",
@@ -1304,28 +1441,28 @@
         {
           "name": "getButtons",
           "params": [],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Returns the {@link Dui.ui.Toolbar toolbar} from the footer (<code>{@link  #fbar}</code>) section of the panel.\n The toolbar",
           "descriptionZh": "执行 `getButtons`，用于获取按钮。"
         },
         {
           "name": "getLtButtons",
           "params": [],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Executes `getLtButtons` to handle get lt buttons.",
           "descriptionZh": "执行 `getLtButtons`，用于获取Lt按钮。"
         },
         {
           "name": "getRtButtons",
           "params": [],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Executes `getRtButtons` to handle get rt buttons.",
           "descriptionZh": "执行 `getRtButtons`，用于获取Rt按钮。"
         },
         {
           "name": "getFabButtons",
           "params": [],
-          "returnType": "any",
+          "returnType": "ComponentBase[]",
           "description": "Executes `getFabButtons` to handle get fab buttons.",
           "descriptionZh": "执行 `getFabButtons`，用于获取Fab按钮。"
         },
@@ -1341,7 +1478,7 @@
           "params": [
             {
               "name": "buttons",
-              "type": "any"
+              "type": "ComponentBase[]"
             }
           ],
           "returnType": "Array<ComponentBase>",
@@ -1353,7 +1490,7 @@
         {
           "name": "pagebar",
           "type": "MatPaginator",
-          "description": "Template/content query reference `pagebar` (`@ViewChild`) targeting pagebar.",
+          "description": "Template/content query reference `pagebar` (`MatPaginator`) targeting pagebar.",
           "descriptionZh": "模板/内容视图查询引用 `pagebar`（`@ViewChild`），指向pagebar。"
         },
         {
@@ -1426,10 +1563,10 @@
         },
         {
           "name": "buttons",
-          "type": "any",
+          "type": "DuiCardButton[]",
           "default": "[]",
-          "description": "Property `buttons` (`Array<any>`) storing buttons (default: `[]`).",
-          "descriptionZh": "属性 `buttons`（类型：`Array<any>`），用于存储或配置按钮（默认值：`[]`）。"
+          "description": "Property `buttons` (`DuiCardButton[]`) storing buttons (default: `[]`).",
+          "descriptionZh": "属性 `buttons`（类型：`DuiCardButton[]`），用于存储或配置按钮（默认值：`[]`）。"
         },
         {
           "name": "buttonAlign",
@@ -1447,27 +1584,27 @@
         },
         {
           "name": "ltbar",
-          "type": "any",
-          "description": "Property `ltbar` (`Array<any>`) storing ltbar.",
-          "descriptionZh": "属性 `ltbar`（类型：`Array<any>`），用于存储或配置ltbar。"
+          "type": "DuiCardButton[]",
+          "description": "Property `ltbar` (`DuiCardButton[]`) storing ltbar.",
+          "descriptionZh": "属性 `ltbar`（类型：`DuiCardButton[]`），用于存储或配置ltbar。"
         },
         {
           "name": "rtbar",
-          "type": "any",
-          "description": "Property `rtbar` (`any[]`) storing rtbar.",
-          "descriptionZh": "属性 `rtbar`（类型：`any[]`），用于存储或配置rtbar。"
+          "type": "DuiCardButton[]",
+          "description": "Property `rtbar` (`DuiCardButton[]`) storing rtbar.",
+          "descriptionZh": "属性 `rtbar`（类型：`DuiCardButton[]`），用于存储或配置rtbar。"
         },
         {
           "name": "bbar",
-          "type": "any",
-          "description": "Property `bbar` (`any`) storing bbar.",
-          "descriptionZh": "属性 `bbar`（类型：`any`），用于存储或配置bbar。"
+          "type": "DuiConfig | DuiCardButton[]",
+          "description": "Property `bbar` (`DuiConfig | DuiCardButton[]`) storing bbar.",
+          "descriptionZh": "属性 `bbar`（类型：`DuiConfig | DuiCardButton[]`），用于存储或配置bbar。"
         },
         {
           "name": "fbar",
-          "type": "any",
-          "description": "Property `fbar` (`any`) storing fbar.",
-          "descriptionZh": "属性 `fbar`（类型：`any`），用于存储或配置fbar。"
+          "type": "DuiCardButton | DuiCardButton[]",
+          "description": "Property `fbar` (`DuiCardButton | DuiCardButton[]`) storing fbar.",
+          "descriptionZh": "属性 `fbar`（类型：`DuiCardButton | DuiCardButton[]`），用于存储或配置fbar。"
         },
         {
           "name": "autoHeight",
@@ -1478,9 +1615,9 @@
         },
         {
           "name": "bottomToolbar",
-          "type": "any",
-          "description": "Property `bottomToolbar` (`any`) storing bottom toolbar.",
-          "descriptionZh": "属性 `bottomToolbar`（类型：`any`），用于存储或配置底部位置工具栏。"
+          "type": "ComponentBase",
+          "description": "Property `bottomToolbar` (`ComponentBase`) storing bottom toolbar.",
+          "descriptionZh": "属性 `bottomToolbar`（类型：`ComponentBase`），用于存储或配置底部位置工具栏。"
         },
         {
           "name": "fxLayout",
@@ -1491,59 +1628,60 @@
         },
         {
           "name": "style",
-          "type": "any",
+          "type": "DuiStyle",
           "default": "{ overflow: 'auto', width: '100%', height: '100%' }",
-          "description": "Property `style` (`any`) storing style.",
-          "descriptionZh": "属性 `style`（类型：`any`），用于存储或配置样式。"
+          "description": "Property `style` (`DuiStyle`) storing style.",
+          "descriptionZh": "属性 `style`（类型：`DuiStyle`），用于存储或配置样式。"
         },
         {
           "name": "contenStyle",
-          "type": "any",
-          "default": "{\"padding\":\"8px\"}",
-          "description": "Property `contenStyle` (`any`) storing conten style (default: `{\"padding\":\"8px\"}`).",
-          "descriptionZh": "属性 `contenStyle`（类型：`any`），用于存储或配置conten样式（默认值：`{\"padding\":\"8px\"}`）。"
+          "type": "DuiStyle",
+          "default": "{ padding: '8px' }",
+          "description": "Property `contenStyle` (`DuiStyle`) storing conten style (default: `{\"padding\":\"8px\"}`).",
+          "descriptionZh": "属性 `contenStyle`（类型：`DuiStyle`），用于存储或配置conten样式（默认值：`{\"padding\":\"8px\"}`）。"
         },
         {
           "name": "cardStyle",
-          "type": "any",
+          "type": "DuiStyle",
           "default": "{}",
-          "description": "Property `cardStyle` (`any`) storing card style (default: `{}`).",
-          "descriptionZh": "属性 `cardStyle`（类型：`any`），用于存储或配置卡片样式（默认值：`{}`）。"
+          "description": "Property `cardStyle` (`DuiStyle`) storing card style (default: `{}`).",
+          "descriptionZh": "属性 `cardStyle`（类型：`DuiStyle`），用于存储或配置卡片样式（默认值：`{}`）。"
         },
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.",
+          "default": "undefined",
+          "description": "Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.",
           "descriptionZh": "模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。"
         },
         {
           "name": "actionbar",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `actionbar` (`@ViewChild`) targeting actionbar.",
+          "description": "Template/content query reference `actionbar` (`ViewContainerRef`) targeting actionbar.",
           "descriptionZh": "模板/内容视图查询引用 `actionbar`（`@ViewChild`），指向actionbar。"
         },
         {
           "name": "lefttopbar",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `lefttopbar` (`@ViewChild`) targeting lefttopbar.",
+          "description": "Template/content query reference `lefttopbar` (`ViewContainerRef`) targeting lefttopbar.",
           "descriptionZh": "模板/内容视图查询引用 `lefttopbar`（`@ViewChild`），指向lefttopbar。"
         },
         {
           "name": "righttopbar",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `righttopbar` (`@ViewChild`) targeting righttopbar.",
+          "description": "Template/content query reference `righttopbar` (`ViewContainerRef`) targeting righttopbar.",
           "descriptionZh": "模板/内容视图查询引用 `righttopbar`（`@ViewChild`），指向righttopbar。"
         },
         {
           "name": "rightopfab",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `rightopfab` (`@ViewChild`) targeting rightopfab.",
+          "description": "Template/content query reference `rightopfab` (`ViewContainerRef`) targeting rightopfab.",
           "descriptionZh": "模板/内容视图查询引用 `rightopfab`（`@ViewChild`），指向rightopfab。"
         },
         {
           "name": "righbottomfab",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `righbottomfab` (`@ViewChild`) targeting righbottomfab.",
+          "description": "Template/content query reference `righbottomfab` (`ViewContainerRef`) targeting righbottomfab.",
           "descriptionZh": "模板/内容视图查询引用 `righbottomfab`（`@ViewChild`），指向righbottomfab。"
         },
         {
@@ -1554,9 +1692,9 @@
         },
         {
           "name": "searchFacet",
-          "type": "any",
-          "description": "Property `searchFacet` (`any`) storing search facet.",
-          "descriptionZh": "属性 `searchFacet`（类型：`any`），用于存储或配置搜索分面。"
+          "type": "DuiCardSearchFacet",
+          "description": "Property `searchFacet` (`DuiCardSearchFacet`) storing search facet.",
+          "descriptionZh": "属性 `searchFacet`（类型：`DuiCardSearchFacet`），用于存储或配置搜索分面。"
         },
         {
           "name": "state",
@@ -1572,9 +1710,184 @@
         },
         {
           "name": "pageBar",
-          "type": "any",
-          "description": "Property `pageBar` (`any`) storing page bar.",
-          "descriptionZh": "属性 `pageBar`（类型：`any`），用于存储或配置页面条。"
+          "type": "DuiCardPageBar",
+          "description": "Property `pageBar` (`DuiCardPageBar`) storing page bar.",
+          "descriptionZh": "属性 `pageBar`（类型：`DuiCardPageBar`），用于存储或配置页面条。"
+        }
+      ]
+    },
+    {
+      "name": "DuiCardConfig",
+      "kind": "interface",
+      "summary": "卡片配置",
+      "summaryZh": null,
+      "sourceFile": "src/container/card/card.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "subtitle",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "buttons",
+          "type": "DuiCardButton[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "buttonAlign",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ltbar",
+          "type": "DuiCardButton[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "rtbar",
+          "type": "DuiCardButton[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fbar",
+          "type": "DuiCardButton | DuiCardButton[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "bbar",
+          "type": "DuiConfig | DuiCardButton[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fabLocation",
+          "type": "'top' | 'bottom' | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "searchFacet",
+          "type": "DuiCardSearchFacet",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cardStyle",
+          "type": "DuiStyle",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "contenStyle",
+          "type": "DuiStyle",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "autoHeight",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "fxLayout",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "clickTarget",
+          "type": "string",
+          "description": "单击 / 双击卡片项时打开的目标（应用自定义）",
+          "descriptionZh": null
+        },
+        {
+          "name": "doubleClickTarget",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiCardPageBar",
+      "kind": "interface",
+      "summary": "卡片底部分页条（由使用方挂到 card.pageBar 上）",
+      "summaryZh": null,
+      "sourceFile": "src/container/card/card.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "doLoad",
+          "params": [
+            {
+              "name": "event",
+              "type": "PageEvent"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        }
+      ],
+      "properties": [
+        {
+          "name": "page",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "total",
+          "type": "number",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiCardSearchFacet",
+      "kind": "interface",
+      "summary": "卡片搜索面板配置",
+      "summaryZh": null,
+      "sourceFile": "src/container/card/card.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "filters",
+          "type": "DuiConfig[]",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiCardState",
+      "kind": "interface",
+      "summary": "卡片运行期状态（使用方自定义字段走索引签名）",
+      "summaryZh": null,
+      "sourceFile": "src/container/card/card.component.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "selected",
+          "type": "boolean",
+          "description": "卡片内是否有选中项",
+          "descriptionZh": null
         }
       ]
     },
@@ -1674,8 +1987,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[TabPanel]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[TabPanel]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[TabPanel]`）。"
+          "description": "Property `entryComponents` (`(typeof TabPanel)[]`) storing entry components (default: `[TabPanel]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof TabPanel)[]`），用于存储或配置条目组件列表（默认值：`[TabPanel]`）。"
         }
       ]
     },
@@ -1683,8 +1996,8 @@
       "name": "EXPANSION_PANEL_ANIMATION_TIMING",
       "kind": "constant",
       "summary": "Time and timing curve for expansion panel animations.",
-      "summaryZh": "常量/变量 `EXPANSION_PANEL_ANIMATION_TIMING`，定义 `src/container/accordion` 中的展开面板面板动画时间。",
-      "sourceFile": "src/container/accordion/expansion-panel.ts",
+      "summaryZh": "常量/变量 `EXPANSION_PANEL_ANIMATION_TIMING`，定义 `src/container/accordion` 中的展开面板动画时间。",
+      "sourceFile": "src/container/accordion/expansion-panel-tokens.ts",
       "inputs": [],
       "outputs": [],
       "methods": [],
@@ -1704,8 +2017,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[\n    Accordion,\n    ExpansionPanel,]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components (default: `[ Accordion, ExpansionPanel,]`).",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表（默认值：`[ Accordion, ExpansionPanel,]`）。"
+          "description": "Property `entryComponents` (`(typeof ExpansionPanel | typeof Accordion)[]`) storing entry components (default: `[ Accordion, ExpansionPanel,]`).",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof ExpansionPanel | typeof Accordion)[]`），用于存储或配置条目组件列表（默认值：`[ Accordion, ExpansionPanel,]`）。"
         }
       ]
     },
@@ -1756,10 +2069,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "label",
@@ -1777,7 +2090,7 @@
           "name": "expanded",
           "type": "any",
           "description": "Whether the AccordionItem is expanded.",
-          "descriptionZh": "输入属性 `expanded`（类型：`any`）的读取器，返回当前已展开。"
+          "descriptionZh": "输入属性 `expanded`（类型：`boolean`）的读取器，返回当前已展开。"
         }
       ],
       "outputs": [
@@ -1785,19 +2098,19 @@
           "name": "closed",
           "type": "any",
           "description": "Event emitted every time the AccordionItem is closed.",
-          "descriptionZh": "输出事件 `closed`（类型：`EventEmitter`），当触发是否关闭时向外发出事件。"
+          "descriptionZh": "输出事件 `closed`（类型：`EventEmitter<void>`），当触发是否关闭时向外发出事件。"
         },
         {
           "name": "opened",
           "type": "any",
           "description": "Event emitted every time the AccordionItem is opened.",
-          "descriptionZh": "输出事件 `opened`（类型：`EventEmitter`），当触发是否展开时向外发出事件。"
+          "descriptionZh": "输出事件 `opened`（类型：`EventEmitter<void>`），当触发是否展开时向外发出事件。"
         },
         {
           "name": "destroyed",
           "type": "any",
           "description": "Event emitted when the AccordionItem is destroyed.",
-          "descriptionZh": "输出事件 `destroyed`（类型：`EventEmitter`），当触发已销毁时向外发出事件。"
+          "descriptionZh": "输出事件 `destroyed`（类型：`EventEmitter<void>`），当触发已销毁时向外发出事件。"
         }
       ],
       "methods": [
@@ -1846,14 +2159,14 @@
         {
           "name": "viewContainer",
           "type": "ViewContainerRef",
-          "description": "Template/content query reference `viewContainer` (`@ViewChild`) targeting view container.",
+          "description": "Template/content query reference `viewContainer` (`ViewContainerRef`) targeting view container.",
           "descriptionZh": "模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。"
         },
         {
           "name": "buttons",
           "type": "any",
-          "description": "Property `buttons` (`Array<any>`) storing buttons.",
-          "descriptionZh": "属性 `buttons`（类型：`Array<any>`），用于存储或配置按钮。"
+          "description": "Property `buttons` (`any`) storing buttons.",
+          "descriptionZh": "属性 `buttons`（类型：`any`），用于存储或配置按钮。"
         },
         {
           "name": "flex",
@@ -1867,7 +2180,7 @@
           "type": "any",
           "default": "`cdk-accordion-child-${nextId++}`",
           "description": "The unique AccordionItem id.",
-          "descriptionZh": "属性 `id`（类型：`any`），用于存储或配置唯一标识（默认值：`'cdk-accordion-child-${nextId++}'`）。"
+          "descriptionZh": "属性 `id`（类型：`string`），用于存储或配置唯一标识（默认值：`'cdk-accordion-child-${nextId++}'`）。"
         },
         {
           "name": "expanded",
@@ -2278,8 +2591,8 @@
         {
           "name": "movingItem",
           "type": "GridsterItem | null",
-          "description": "Property `movingItem` (`GridsterItem | null`) storing moving item.",
-          "descriptionZh": "属性 `movingItem`（类型：`GridsterItem | null`），用于存储或配置移动条目。"
+          "description": "Property `movingItem` (`GridsterItem`) storing moving item.",
+          "descriptionZh": "属性 `movingItem`（类型：`GridsterItem`），用于存储或配置移动条目。"
         },
         {
           "name": "previewStyle",
@@ -2320,8 +2633,8 @@
         {
           "name": "grid",
           "type": "Array<GridsterItemComponentInterface>",
-          "description": "Property `grid` (`Array<GridsterItemComponentInterface>`) storing grid.",
-          "descriptionZh": "属性 `grid`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置网格表格。"
+          "description": "Property `grid` (`GridsterItemComponentInterface[]`) storing grid.",
+          "descriptionZh": "属性 `grid`（类型：`GridsterItemComponentInterface[]`），用于存储或配置网格表格。"
         },
         {
           "name": "columns",
@@ -2366,8 +2679,8 @@
         {
           "name": "windowResize",
           "type": "(() => void) | null",
-          "description": "Property `windowResize` (`(() => void) | null`) storing window resize.",
-          "descriptionZh": "属性 `windowResize`（类型：`(() => void) | null`），用于存储或配置窗口调整尺寸。"
+          "description": "Property `windowResize` (`() => void`) storing window resize.",
+          "descriptionZh": "属性 `windowResize`（类型：`() => void`），用于存储或配置窗口调整尺寸。"
         },
         {
           "name": "dragInProgress",
@@ -2414,8 +2727,8 @@
         {
           "name": "grid",
           "type": "Array<GridsterItemComponentInterface>",
-          "description": "Property `grid` (`Array<GridsterItemComponentInterface>`) storing grid.",
-          "descriptionZh": "属性 `grid`（类型：`Array<GridsterItemComponentInterface>`），用于存储或配置网格表格。"
+          "description": "Property `grid` (`GridsterItemComponentInterface[]`) storing grid.",
+          "descriptionZh": "属性 `grid`（类型：`GridsterItemComponentInterface[]`），用于存储或配置网格表格。"
         },
         {
           "name": "checkCollision",
@@ -2438,8 +2751,8 @@
         {
           "name": "pixelsToPositionX",
           "type": "(x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number",
-          "description": "Property `pixelsToPositionX` (`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`) storing pixels to position x.",
-          "descriptionZh": "属性 `pixelsToPositionX`（类型：`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`），用于存储或配置像素转换为位置X坐标。"
+          "description": "Property `pixelsToPositionX` (`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`) storing pixels to position x.",
+          "descriptionZh": "属性 `pixelsToPositionX`（类型：`(x: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`），用于存储或配置像素转换为位置X坐标。"
         },
         {
           "name": "positionYToPixels",
@@ -2450,8 +2763,8 @@
         {
           "name": "pixelsToPositionY",
           "type": "(y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number",
-          "description": "Property `pixelsToPositionY` (`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`) storing pixels to position y.",
-          "descriptionZh": "属性 `pixelsToPositionY`（类型：`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean)...`），用于存储或配置像素转换为位置Y坐标。"
+          "description": "Property `pixelsToPositionY` (`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`) storing pixels to position y.",
+          "descriptionZh": "属性 `pixelsToPositionY`（类型：`(y: number, roundingMethod: (x: number) => number, noLimit?: boolean) => number`），用于存储或配置像素转换为位置Y坐标。"
         },
         {
           "name": "findItemWithItem",
@@ -2522,8 +2835,8 @@
         {
           "name": "movingItem",
           "type": "GridsterItem | null",
-          "description": "Property `movingItem` (`GridsterItem | null`) storing moving item.",
-          "descriptionZh": "属性 `movingItem`（类型：`GridsterItem | null`），用于存储或配置移动条目。"
+          "description": "Property `movingItem` (`GridsterItem`) storing moving item.",
+          "descriptionZh": "属性 `movingItem`（类型：`GridsterItem`），用于存储或配置移动条目。"
         },
         {
           "name": "addItem",
@@ -2588,14 +2901,14 @@
         {
           "name": "windowResize",
           "type": "(() => void) | null",
-          "description": "Property `windowResize` (`(() => void) | null`) storing window resize.",
-          "descriptionZh": "属性 `windowResize`（类型：`(() => void) | null`），用于存储或配置窗口调整尺寸。"
+          "description": "Property `windowResize` (`() => void`) storing window resize.",
+          "descriptionZh": "属性 `windowResize`（类型：`() => void`），用于存储或配置窗口调整尺寸。"
         },
         {
           "name": "setGridDimensions",
           "type": "(() => void)",
-          "description": "Property `setGridDimensions` (`(() => void)`) storing set grid dimensions.",
-          "descriptionZh": "属性 `setGridDimensions`（类型：`(() => void)`），用于存储或配置集合网格表格维度列表。"
+          "description": "Property `setGridDimensions` (`() => void`) storing set grid dimensions.",
+          "descriptionZh": "属性 `setGridDimensions`（类型：`() => void`），用于存储或配置集合网格表格维度列表。"
         },
         {
           "name": "dragInProgress",
@@ -2624,14 +2937,14 @@
         {
           "name": "gridRows",
           "type": "Array<number>",
-          "description": "Property `gridRows` (`Array<number>`) storing grid rows.",
-          "descriptionZh": "属性 `gridRows`（类型：`Array<number>`），用于存储或配置网格表格行列表。"
+          "description": "Property `gridRows` (`number[]`) storing grid rows.",
+          "descriptionZh": "属性 `gridRows`（类型：`number[]`），用于存储或配置网格表格行列表。"
         },
         {
           "name": "gridColumns",
           "type": "Array<number>",
-          "description": "Property `gridColumns` (`Array<number>`) storing grid columns.",
-          "descriptionZh": "属性 `gridColumns`（类型：`Array<number>`），用于存储或配置网格表格列集合。"
+          "description": "Property `gridColumns` (`number[]`) storing grid columns.",
+          "descriptionZh": "属性 `gridColumns`（类型：`number[]`），用于存储或配置网格表格列集合。"
         }
       ]
     },
@@ -2804,26 +3117,26 @@
         {
           "name": "outerMarginTop",
           "type": "number | null",
-          "description": "Property `outerMarginTop` (`number | null`) storing outer margin top.",
-          "descriptionZh": "属性 `outerMarginTop`（类型：`number | null`），用于存储或配置外部外边距顶部位置。"
+          "description": "Property `outerMarginTop` (`number`) storing outer margin top.",
+          "descriptionZh": "属性 `outerMarginTop`（类型：`number`），用于存储或配置外部外边距顶部位置。"
         },
         {
           "name": "outerMarginRight",
           "type": "number | null",
-          "description": "Property `outerMarginRight` (`number | null`) storing outer margin right.",
-          "descriptionZh": "属性 `outerMarginRight`（类型：`number | null`），用于存储或配置外部外边距右侧位置。"
+          "description": "Property `outerMarginRight` (`number`) storing outer margin right.",
+          "descriptionZh": "属性 `outerMarginRight`（类型：`number`），用于存储或配置外部外边距右侧位置。"
         },
         {
           "name": "outerMarginBottom",
           "type": "number | null",
-          "description": "Property `outerMarginBottom` (`number | null`) storing outer margin bottom.",
-          "descriptionZh": "属性 `outerMarginBottom`（类型：`number | null`），用于存储或配置外部外边距底部位置。"
+          "description": "Property `outerMarginBottom` (`number`) storing outer margin bottom.",
+          "descriptionZh": "属性 `outerMarginBottom`（类型：`number`），用于存储或配置外部外边距底部位置。"
         },
         {
           "name": "outerMarginLeft",
           "type": "number | null",
-          "description": "Property `outerMarginLeft` (`number | null`) storing outer margin left.",
-          "descriptionZh": "属性 `outerMarginLeft`（类型：`number | null`），用于存储或配置外部外边距左侧位置。"
+          "description": "Property `outerMarginLeft` (`number`) storing outer margin left.",
+          "descriptionZh": "属性 `outerMarginLeft`（类型：`number`），用于存储或配置外部外边距左侧位置。"
         },
         {
           "name": "useTransformPositioning",
@@ -2834,8 +3147,8 @@
         {
           "name": "scrollSensitivity",
           "type": "number | null",
-          "description": "Property `scrollSensitivity` (`number | null`) storing scroll sensitivity.",
-          "descriptionZh": "属性 `scrollSensitivity`（类型：`number | null`），用于存储或配置滚动Sensitivity。"
+          "description": "Property `scrollSensitivity` (`number`) storing scroll sensitivity.",
+          "descriptionZh": "属性 `scrollSensitivity`（类型：`number`），用于存储或配置滚动Sensitivity。"
         },
         {
           "name": "scrollSpeed",
@@ -2864,26 +3177,26 @@
         {
           "name": "itemChangeCallback",
           "type": "(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void",
-          "description": "Property `itemChangeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item change callback.",
-          "descriptionZh": "属性 `itemChangeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目变更回调函数。"
+          "description": "Property `itemChangeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item change callback.",
+          "descriptionZh": "属性 `itemChangeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目变更回调函数。"
         },
         {
           "name": "itemResizeCallback",
           "type": "(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void",
-          "description": "Property `itemResizeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item resize callback.",
-          "descriptionZh": "属性 `itemResizeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目调整尺寸回调函数。"
+          "description": "Property `itemResizeCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item resize callback.",
+          "descriptionZh": "属性 `itemResizeCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目调整尺寸回调函数。"
         },
         {
           "name": "itemInitCallback",
           "type": "(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void",
-          "description": "Property `itemInitCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item init callback.",
-          "descriptionZh": "属性 `itemInitCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目初始化回调函数。"
+          "description": "Property `itemInitCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item init callback.",
+          "descriptionZh": "属性 `itemInitCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目初始化回调函数。"
         },
         {
           "name": "itemRemovedCallback",
           "type": "(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void",
-          "description": "Property `itemRemovedCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing item removed callback.",
-          "descriptionZh": "属性 `itemRemovedCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置条目已移除回调函数。"
+          "description": "Property `itemRemovedCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing item removed callback.",
+          "descriptionZh": "属性 `itemRemovedCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置条目已移除回调函数。"
         },
         {
           "name": "itemValidateCallback",
@@ -3068,8 +3381,8 @@
         {
           "name": "api",
           "type": "{ resize?: () => void, optionsChanged?: () => void, getNextPossiblePosition?: (newItem: GridsterItem) => boolean, getFirstPossiblePosition?: (item: GridsterItem) => GridsterItem, getLastPossiblePosition?: (item: GridsterItem) => GridsterItem, }",
-          "description": "Property `api` (`{ resize?: () => void, optionsChanged?: () => void, getNextPossiblePos...`) storing api.",
-          "descriptionZh": "属性 `api`（类型：`{ resize?: () => void, optionsChanged?: () => void, getNextPossiblePos...`），用于存储或配置API接口。"
+          "description": "Property `api` (`{…}`) storing api.",
+          "descriptionZh": "属性 `api`（类型：`{…}`），用于存储或配置API接口。"
         }
       ]
     },
@@ -3127,8 +3440,8 @@
         {
           "name": "initCallback",
           "type": "(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void",
-          "description": "Property `initCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`) storing init callback.",
-          "descriptionZh": "属性 `initCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) =>...`），用于存储或配置初始化回调函数。"
+          "description": "Property `initCallback` (`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`) storing init callback.",
+          "descriptionZh": "属性 `initCallback`（类型：`(item: GridsterItem, itemComponent: GridsterItemComponentInterface) => void`），用于存储或配置初始化回调函数。"
         },
         {
           "name": "dragEnabled",
@@ -3356,7 +3669,7 @@
         {
           "name": "zIndex",
           "type": "number",
-          "description": "Host-bound getter `zIndex` (`style.z-index`) computing z index.",
+          "description": "Host-bound getter `zIndex` (`number`) computing z index.",
           "descriptionZh": "宿主绑定读取器 `zIndex`（绑定至 `style.z-index`），计算并返回Z坐标索引。"
         }
       ]
@@ -3507,8 +3820,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[GridsterComponent, GridsterItemComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof GridsterComponent | typeof GridsterItemComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof GridsterComponent | typeof GridsterItemComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -3863,7 +4176,7 @@
           "type": "string | null",
           "default": "null",
           "description": "The title of the info drawer (string or translation key).",
-          "descriptionZh": "输入属性 `title`（类型：`string | null`），用于配置标题（默认值：`null`）。"
+          "descriptionZh": "输入属性 `title`（类型：`string`），用于配置标题（默认值：`null`）。"
         },
         {
           "name": "selectedIndex",
@@ -3919,7 +4232,7 @@
         {
           "name": "contentBlocks",
           "type": "QueryList<InfoDrawerTabComponent>",
-          "description": "Template/content query reference `contentBlocks` (`@ContentChildren`) targeting content blocks.",
+          "description": "Template/content query reference `contentBlocks` (`QueryList<InfoDrawerTabComponent>`) targeting content blocks.",
           "descriptionZh": "模板/内容视图查询引用 `contentBlocks`（`@ContentChildren`），指向内容块列表。"
         }
       ]
@@ -3988,7 +4301,7 @@
         {
           "name": "content",
           "type": "TemplateRef<unknown>",
-          "description": "Template/content query reference `content` (`@ViewChild`) targeting content.",
+          "description": "Template/content query reference `content` (`TemplateRef<unknown>`) targeting content.",
           "descriptionZh": "模板/内容视图查询引用 `content`（`@ViewChild`），指向内容。"
         }
       ]
@@ -4088,10 +4401,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         },
         {
           "name": "layout",
@@ -4129,32 +4442,32 @@
         {
           "name": "dragStart",
           "type": "any",
-          "description": "Output event emitter `dragStart` (`EventEmitter`) firing when drag start occurs.",
-          "descriptionZh": "输出事件 `dragStart`（类型：`EventEmitter`），当触发拖拽开始时向外发出事件。"
+          "description": "Output event emitter `dragStart` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when drag start occurs.",
+          "descriptionZh": "输出事件 `dragStart`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发拖拽开始时向外发出事件。"
         },
         {
           "name": "dragProgress",
           "type": "any",
-          "description": "Output event emitter `dragProgress` (`EventEmitter`) firing when drag progress occurs.",
-          "descriptionZh": "输出事件 `dragProgress`（类型：`EventEmitter`），当触发拖拽进度条时向外发出事件。"
+          "description": "Output event emitter `dragProgress` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when drag progress occurs.",
+          "descriptionZh": "输出事件 `dragProgress`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发拖拽进度条时向外发出事件。"
         },
         {
           "name": "dragEnd",
           "type": "any",
-          "description": "Output event emitter `dragEnd` (`EventEmitter`) firing when drag end occurs.",
-          "descriptionZh": "输出事件 `dragEnd`（类型：`EventEmitter`），当触发拖拽结束时向外发出事件。"
+          "description": "Output event emitter `dragEnd` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when drag end occurs.",
+          "descriptionZh": "输出事件 `dragEnd`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发拖拽结束时向外发出事件。"
         },
         {
           "name": "gutterClick",
           "type": "any",
-          "description": "Output event emitter `gutterClick` (`EventEmitter`) firing when gutter click occurs.",
-          "descriptionZh": "输出事件 `gutterClick`（类型：`EventEmitter`），当触发分隔槽点击时向外发出事件。"
+          "description": "Output event emitter `gutterClick` (`EventEmitter<{ gutterNum: number; sizes: number[]; }>`) firing when gutter click occurs.",
+          "descriptionZh": "输出事件 `gutterClick`（类型：`EventEmitter<{ gutterNum: number; sizes: number[]; }>`），当触发分隔槽点击时向外发出事件。"
         },
         {
           "name": "transitionEnd",
           "type": "void",
-          "description": "Output event emitter `transitionEnd` (`any`) firing when transition end occurs.",
-          "descriptionZh": "输出事件 `transitionEnd`（类型：`any`），当触发过渡动画结束时向外发出事件。"
+          "description": "Output event emitter `transitionEnd` (`Observable<number[]>`) firing when transition end occurs.",
+          "descriptionZh": "输出事件 `transitionEnd`（类型：`Observable<number[]>`），当触发过渡动画结束时向外发出事件。"
         }
       ],
       "methods": [
@@ -4252,7 +4565,7 @@
           ],
           "returnType": "void",
           "description": "Executes `doLayout` to handle do layout.",
-          "descriptionZh": "执行 `doLayout`，用于do布局。"
+          "descriptionZh": "执行 `doLayout`，用于执行布局。"
         },
         {
           "name": "startDragging",
@@ -4381,8 +4694,8 @@
           "name": "dynamicComponents",
           "type": "any",
           "default": "[SplitComponent,PanelComponent]",
-          "description": "Property `dynamicComponents` (`any[]`) storing dynamic components (default: `[SplitComponent,PanelComponent]`).",
-          "descriptionZh": "属性 `dynamicComponents`（类型：`any[]`），用于存储或配置动态组件列表（默认值：`[SplitComponent,PanelComponent]`）。"
+          "description": "Property `dynamicComponents` (`(typeof PanelComponent | typeof SplitComponent)[]`) storing dynamic components (default: `[SplitComponent,PanelComponent]`).",
+          "descriptionZh": "属性 `dynamicComponents`（类型：`(typeof PanelComponent | typeof SplitComponent)[]`），用于存储或配置动态组件列表（默认值：`[SplitComponent,PanelComponent]`）。"
         }
       ]
     },
@@ -4435,8 +4748,8 @@
         {
           "name": "handles",
           "type": "{ s: boolean, e: boolean, n: boolean, w: boolean, se: boolean, ne: boolean, sw: boolean, nw: boolean }",
-          "description": "Property `handles` (`{ s: boolean, e: boolean, n: boolean, w: boolean, se: boolean, ne: boo...`) storing handles.",
-          "descriptionZh": "属性 `handles`（类型：`{ s: boolean, e: boolean, n: boolean, w: boolean, se: boolean, ne: boo...`），用于存储或配置手柄列表。"
+          "description": "Property `handles` (`{…}`) storing handles.",
+          "descriptionZh": "属性 `handles`（类型：`{…}`），用于存储或配置手柄列表。"
         }
       ]
     },
@@ -4459,20 +4772,20 @@
         {
           "name": "resizeStart",
           "type": "any",
-          "description": "Output event emitter `resizeStart` (`EventEmitter`) firing when resize start occurs.",
-          "descriptionZh": "输出事件 `resizeStart`（类型：`EventEmitter`），当触发调整尺寸开始时向外发出事件。"
+          "description": "Output event emitter `resizeStart` (`EventEmitter<IPositionEvent>`) firing when resize start occurs.",
+          "descriptionZh": "输出事件 `resizeStart`（类型：`EventEmitter<IPositionEvent>`），当触发调整尺寸开始时向外发出事件。"
         },
         {
           "name": "resizing",
           "type": "any",
-          "description": "Output event emitter `resizing` (`EventEmitter`) firing when resizing occurs.",
-          "descriptionZh": "输出事件 `resizing`（类型：`EventEmitter`），当触发调整尺寸中时向外发出事件。"
+          "description": "Output event emitter `resizing` (`EventEmitter<IPositionEvent>`) firing when resizing occurs.",
+          "descriptionZh": "输出事件 `resizing`（类型：`EventEmitter<IPositionEvent>`），当触发调整尺寸中时向外发出事件。"
         },
         {
           "name": "resizeEnd",
           "type": "any",
-          "description": "Output event emitter `resizeEnd` (`EventEmitter`) firing when resize end occurs.",
-          "descriptionZh": "输出事件 `resizeEnd`（类型：`EventEmitter`），当触发调整尺寸结束时向外发出事件。"
+          "description": "Output event emitter `resizeEnd` (`EventEmitter<IPositionEvent>`) firing when resize end occurs.",
+          "descriptionZh": "输出事件 `resizeEnd`（类型：`EventEmitter<IPositionEvent>`），当触发调整尺寸结束时向外发出事件。"
         }
       ],
       "methods": [
@@ -4564,8 +4877,8 @@
           "name": "maxWidth",
           "type": "any",
           "default": "Infinity",
-          "description": "Property `maxWidth` (`any`) storing max width (default: `Infinity`).",
-          "descriptionZh": "属性 `maxWidth`（类型：`any`），用于存储或配置最大值宽度（默认值：`Infinity`）。"
+          "description": "Property `maxWidth` (`number`) storing max width (default: `Infinity`).",
+          "descriptionZh": "属性 `maxWidth`（类型：`number`），用于存储或配置最大值宽度（默认值：`Infinity`）。"
         },
         {
           "name": "minWidth",
@@ -4578,8 +4891,8 @@
           "name": "maxHeight",
           "type": "any",
           "default": "Infinity",
-          "description": "Property `maxHeight` (`any`) storing max height (default: `Infinity`).",
-          "descriptionZh": "属性 `maxHeight`（类型：`any`），用于存储或配置最大值高度（默认值：`Infinity`）。"
+          "description": "Property `maxHeight` (`number`) storing max height (default: `Infinity`).",
+          "descriptionZh": "属性 `maxHeight`（类型：`number`），用于存储或配置最大值高度（默认值：`Infinity`）。"
         },
         {
           "name": "minHeight",
@@ -4720,10 +5033,10 @@
       "inputs": [
         {
           "name": "config",
-          "type": "any",
+          "type": "DuiConfig",
           "default": "{}",
-          "description": "Input property `config` (`any`) configuring config (default: `{}`).",
-          "descriptionZh": "输入属性 `config`（类型：`any`），用于配置配置（默认值：`{}`）。"
+          "description": "Input property `config` (`DuiConfig`) configuring config (default: `{}`).",
+          "descriptionZh": "输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。"
         }
       ],
       "outputs": [],
@@ -4741,18 +5054,6 @@
           "descriptionZh": "执行 `init`，用于初始化。"
         },
         {
-          "name": "add",
-          "params": [
-            {
-              "name": "comp",
-              "type": "any"
-            }
-          ],
-          "returnType": "any",
-          "description": "Executes `add` to handle add.",
-          "descriptionZh": "执行 `add`，用于添加。"
-        },
-        {
           "name": "onAdd",
           "params": [
             {
@@ -4761,18 +5062,18 @@
             }
           ],
           "returnType": "any",
-          "description": "Executes `onAdd` to handle on add.",
-          "descriptionZh": "执行 `onAdd`，用于当添加。"
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "onBeforeAdd",
           "params": [
             {
               "name": "item",
-              "type": "any"
+              "type": "ComponentBase"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `onBeforeAdd` to handle on before add.",
           "descriptionZh": "执行 `onBeforeAdd`，用于当之前添加。"
         },
@@ -4836,7 +5137,7 @@
           "params": [
             {
               "name": "item",
-              "type": "any"
+              "type": "ComponentBase | string | number"
             }
           ],
           "returnType": "PanelComponent",
@@ -4991,5 +5292,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { Accordion, CardModule } from '@dotos/dui/container';\n\n<accordion [multi]=\"...\" [hideToggle]=\"...\" [displayMode]=\"...\"></accordion>"
+  "suggestedUsageSnippet": "import { Accordion, CardModule } from '@dotos1/dui/container';\n\n<accordion [multi]=\"...\" [hideToggle]=\"...\" [displayMode]=\"...\"></accordion>"
 }

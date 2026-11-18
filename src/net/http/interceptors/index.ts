@@ -11,7 +11,7 @@ import { ProfilerInterceptor } from './profiler.interceptor';
 import { CacheInterceptor } from './cache.interceptor';
 import { ErrorInterceptor } from './error.interceptor';
 import { HeaderInterceptor } from './header.interceptor';
-import { AuthBearerInterceptor } from '@dotos/dui/core/auth';
+import { AuthBearerInterceptor } from '@dotos1/dui/core/auth';
 
 export { NotifyInterceptor } from './notify.interptor';
 export { HttpsInterceptor } from './https.interceptor';

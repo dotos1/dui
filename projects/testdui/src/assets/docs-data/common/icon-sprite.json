@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/common/icon-sprite",
+  "importPath": "@dotos1/dui/common/icon-sprite",
   "exports": [
     {
       "name": "IconSpriteComponent",
@@ -165,5 +165,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { IconSpriteComponent, IconSpriteModule } from '@dotos/dui/common/icon-sprite';\n\n<svg-icon-sprite [src]=\"...\" [classes]=\"...\" [width]=\"...\"></svg-icon-sprite>"
+  "suggestedUsageSnippet": "import { IconSpriteComponent, IconSpriteModule } from '@dotos1/dui/common/icon-sprite';\n\n<svg-icon-sprite [src]=\"...\" [classes]=\"...\" [width]=\"...\"></svg-icon-sprite>"
 }

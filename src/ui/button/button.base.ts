@@ -16,7 +16,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { MatTooltip } from '@angular/material/tooltip';
 import {isString}  from 'lodash-es';
 
-import { ComponentBase, DuiConfig, DuiStyle } from '@dotos/dui/core';
+import { ComponentBase, DuiConfig, DuiStyle } from '@dotos1/dui/core';
 
 /** 按钮下拉 / 子菜单项（'-' 表示分隔线） */
 export interface DuiButtonMenuItem extends DuiConfig {
@@ -72,7 +72,7 @@ export class ButtonBase extends ComponentBase {
     * Property `ownerCt` (`any`) storing owner ct.
     * @zh 属性 `ownerCt`（类型：`any`），用于存储或配置所属者Ct。
     */
-   override ownerCt;
+   declare ownerCt;
 
    /**
     * Property `click` (`EventEmitter<any>`) storing click (default: `new EventEmitter<any>()`).
@@ -206,7 +206,7 @@ export class ButtonBase extends ComponentBase {
    * Property `style` (`DuiStyle`) storing style.
    * @zh 属性 `style`（类型：`DuiStyle`），用于存储或配置样式。
    */
-  public override style: DuiStyle;
+  declare public style: DuiStyle;
 
   /**
    * Property `checked` (`boolean`) storing checked (default: `false`).
@@ -330,7 +330,7 @@ export class ButtonBase extends ComponentBase {
    */
   openMenu(trigger: MatMenuTrigger, level: number) {
     this.triggers
-      .filter((x) => x['_element'].nativeElement.dataset.level >= level && x !== trigger)
+      .filter((x) => Number(x['_element'].nativeElement.dataset['level']) >= level && x !== trigger)
       .forEach(x => {
         x.closeMenu();
       });
@@ -369,7 +369,7 @@ export class ButtonBase extends ComponentBase {
    */
   closeSubMenu(level: number) {
     this.triggers
-      .filter((x) => x['_element'].nativeElement.dataset.level > level)
+      .filter((x) => Number(x['_element'].nativeElement.dataset['level']) > level)
       .forEach(x => {
         x.closeMenu();
       });

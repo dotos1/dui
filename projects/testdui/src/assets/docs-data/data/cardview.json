@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/data/cardview",
+  "importPath": "@dotos1/dui/data/cardview",
   "exports": [
     {
       "name": "CardItemTypeService",
@@ -102,7 +102,7 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByItem` to handle track by item.",
-          "descriptionZh": "执行 `trackByItem`，用于track按条目。"
+          "descriptionZh": "执行 `trackByItem`，用于跟踪按条目。"
         }
       ],
       "properties": []
@@ -446,7 +446,7 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByProperty` to handle track by property.",
-          "descriptionZh": "执行 `trackByProperty`，用于track按属性。"
+          "descriptionZh": "执行 `trackByProperty`，用于跟踪按属性。"
         }
       ],
       "properties": []
@@ -474,8 +474,8 @@
         {
           "name": "property",
           "type": "any",
-          "description": "Input property `property` (`CardViewDateItemModel|any`) configuring property.",
-          "descriptionZh": "输入属性 `property`（类型：`CardViewDateItemModel|any`），用于配置属性。"
+          "description": "Input property `property` (`any`) configuring property.",
+          "descriptionZh": "输入属性 `property`（类型：`any`），用于配置属性。"
         },
         {
           "name": "editable",
@@ -565,14 +565,14 @@
         {
           "name": "datepicker",
           "type": "any",
-          "description": "Template/content query reference `datepicker` (`@ViewChild`) targeting datepicker.",
+          "description": "Template/content query reference `datepicker` (`any`) targeting datepicker.",
           "descriptionZh": "模板/内容视图查询引用 `datepicker`（`@ViewChild`），指向日期选择器。"
         },
         {
           "name": "valueDate",
           "type": "Moment",
-          "description": "Property `valueDate` (`Moment`) storing value date.",
-          "descriptionZh": "属性 `valueDate`（类型：`Moment`），用于存储或配置值日期。"
+          "description": "Property `valueDate` (`moment.Moment`) storing value date.",
+          "descriptionZh": "属性 `valueDate`（类型：`moment.Moment`），用于存储或配置值日期。"
         },
         {
           "name": "dateFormat",
@@ -1124,7 +1124,7 @@
           ],
           "returnType": "number",
           "description": "Executes `trackByIndex` to handle track by index.",
-          "descriptionZh": "执行 `trackByIndex`，用于track按索引。"
+          "descriptionZh": "执行 `trackByIndex`，用于跟踪按索引。"
         }
       ],
       "properties": [
@@ -1137,8 +1137,8 @@
         {
           "name": "matTableValues",
           "type": "MatTableDataSource<CardViewKeyValuePairsItemType>",
-          "description": "Property `matTableValues` (`MatTableDataSource<CardViewKeyValuePairsItemType>`) storing mat table values.",
-          "descriptionZh": "属性 `matTableValues`（类型：`MatTableDataSource<CardViewKeyValuePairsItemType>`），用于存储或配置Material表格值列表。"
+          "description": "Property `matTableValues` (`MatTableDataSource<CardViewKeyValuePairsItemType, MatPaginator>`) storing mat table values.",
+          "descriptionZh": "属性 `matTableValues`（类型：`MatTableDataSource<CardViewKeyValuePairsItemType, MatPaginator>`），用于存储或配置Material表格值列表。"
         }
       ]
     },
@@ -1302,8 +1302,8 @@
           "name": "entryComponents",
           "type": "any",
           "default": "[    CardViewBoolItemComponent,\n    CardViewDateItemComponent,\n    CardViewMapItemComponent,\n    CardViewTextItemComponent,\n    CardViewSelectItemComponent,\n    CardViewKeyValuePairsItemComponent,\n    CardViewArrayItemComponent]",
-          "description": "Property `entryComponents` (`any[]`) storing entry components.",
-          "descriptionZh": "属性 `entryComponents`（类型：`any[]`），用于存储或配置条目组件列表。"
+          "description": "Property `entryComponents` (`(typeof CardViewBoolItemComponent | typeof CardViewDateItemComponent | typeof CardViewMapItemComponent | typeof CardViewTextItemComponent | typeof CardViewSelectItemComponent | typeof CardViewKeyValuePairsItemComponent | typeof CardViewArrayItemComponent)[]`) storing entry components.",
+          "descriptionZh": "属性 `entryComponents`（类型：`(typeof CardViewBoolItemComponent | typeof CardViewDateItemComponent | typeof CardViewMapItemComponent | typeof CardViewTextItemComponent | typeof CardViewSelectItemComponent | typeof CardViewKeyValuePairsItemComponent | typeof CardViewArrayItemComponent)[]`），用于存储或配置条目组件列表。"
         }
       ]
     },
@@ -1391,7 +1391,7 @@
           ],
           "returnType": "any",
           "description": "Executes `trackByOption` to handle track by option.",
-          "descriptionZh": "执行 `trackByOption`，用于track按选项。"
+          "descriptionZh": "执行 `trackByOption`，用于跟踪按选项。"
         }
       ],
       "properties": [
@@ -1753,8 +1753,8 @@
         {
           "name": "params",
           "type": "any",
-          "description": "Property `params` (`any[]`) storing params.",
-          "descriptionZh": "属性 `params`（类型：`any[]`），用于存储或配置参数集合。"
+          "description": "Property `params` (`any`) storing params.",
+          "descriptionZh": "属性 `params`（类型：`any`），用于存储或配置参数集合。"
         }
       ]
     },
@@ -1849,22 +1849,22 @@
           "name": "itemUpdated$",
           "type": "any",
           "default": "new Subject<UpdateNotification>()",
-          "description": "Property `itemUpdated$` (`Subject`) storing item updated (default: `new Subject<UpdateNotification>()`).",
-          "descriptionZh": "属性 `itemUpdated$`（类型：`Subject`），用于存储或配置条目已更新（默认值：`new Subject<UpdateNotification>()`）。"
+          "description": "Property `itemUpdated$` (`Subject<UpdateNotification>`) storing item updated (default: `new Subject<UpdateNotification>()`).",
+          "descriptionZh": "属性 `itemUpdated$`（类型：`Subject<UpdateNotification>`），用于存储或配置条目已更新（默认值：`new Subject<UpdateNotification>()`）。"
         },
         {
           "name": "itemClicked$",
           "type": "any",
           "default": "new Subject<ClickNotification>()",
-          "description": "Property `itemClicked$` (`Subject`) storing item clicked (default: `new Subject<ClickNotification>()`).",
-          "descriptionZh": "属性 `itemClicked$`（类型：`Subject`），用于存储或配置条目点击（默认值：`new Subject<ClickNotification>()`）。"
+          "description": "Property `itemClicked$` (`Subject<ClickNotification>`) storing item clicked (default: `new Subject<ClickNotification>()`).",
+          "descriptionZh": "属性 `itemClicked$`（类型：`Subject<ClickNotification>`），用于存储或配置条目点击（默认值：`new Subject<ClickNotification>()`）。"
         },
         {
           "name": "updateItem$",
           "type": "any",
           "default": "new Subject<CardViewBaseItemModel>()",
-          "description": "Property `updateItem$` (`Subject`) storing update item (default: `new Subject<CardViewBaseItemModel>()`).",
-          "descriptionZh": "属性 `updateItem$`（类型：`Subject`），用于存储或配置更新条目（默认值：`new Subject<CardViewBaseItemModel>()`）。"
+          "description": "Property `updateItem$` (`Subject<CardViewBaseItemModel>`) storing update item (default: `new Subject<CardViewBaseItemModel>()`).",
+          "descriptionZh": "属性 `updateItem$`（类型：`Subject<CardViewBaseItemModel>`），用于存储或配置更新条目（默认值：`new Subject<CardViewBaseItemModel>()`）。"
         }
       ]
     },
@@ -1950,5 +1950,5 @@
       ]
     }
   ],
-  "suggestedUsageSnippet": "import { CardViewArrayItemComponent, CardViewModule } from '@dotos/dui/data/cardview';\n\n<dui-card-view-arrayitem [property]=\"...\"></dui-card-view-arrayitem>"
+  "suggestedUsageSnippet": "import { CardViewArrayItemComponent, CardViewModule } from '@dotos1/dui/data/cardview';\n\n<dui-card-view-arrayitem [property]=\"...\"></dui-card-view-arrayitem>"
 }

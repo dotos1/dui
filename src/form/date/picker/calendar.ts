@@ -22,7 +22,7 @@ import {
 import {MatDatepickerIntl} from "@angular/material/datepicker";
 import {Subscription} from "rxjs";
 import {first} from "rxjs/operators";
-import {DatetimeAdapter,MAT_DATETIME_FORMATS, MatDatetimeFormats} from "@dotos/dui/form/date/adapter";
+import {DatetimeAdapter,MAT_DATETIME_FORMATS, MatDatetimeFormats} from "@dotos1/dui/form/date/adapter";
 import {MatClockView} from "./clock";
 import {MatDatetimepickerType} from "./datetimepicker-type";
 import {slideCalendar} from "./datetimepicker-animations";

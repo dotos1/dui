@@ -305,7 +305,7 @@ function 数值选项(fmt: string, currency?: string): Intl.NumberFormatOptions 
  * 与旧 `Internationalization` 同名同签名的门面。
  *
  * <p>只实现 `getDateFormat` / `getNumberFormat` —— 全仓库唯一的使用者是
- * `@dotos/duix/grid` 的 `core/format.ts`,它只调这两个。
+ * `@dotos1/duix/grid` 的 `core/format.ts`,它只调这两个。
  * 旧类还有 `getDateParser` / `getNumberParser` / `formatDate` / `parseDate` …,
  * <b>全部零使用者</b>,不重建(`PEEL-GUIDE.md` §门 4h 的反面:
  * 「没人用」不是不迁的理由,但也不是"照搬一份"的理由 —— 迁的是有人用的)。

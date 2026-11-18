@@ -5,9 +5,9 @@
 
 import { ESCAPE } from '@angular/cdk/keycodes';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
-import { duiAnimations } from '@dotos/dui/common/animations';
-import { TriggerPopup } from '@dotos/dui/common/trigger';
-import { MatColors } from '@dotos/dui/core/color';
+import { duiAnimations } from '@dotos1/dui/common/animations';
+import { TriggerPopup } from '@dotos1/dui/common/trigger';
+import { MatColors } from '@dotos1/dui/core/color';
 import {forIn}  from 'lodash-es';
 
 /**

@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { provideHttpClient } from '@angular/common/http';
 import { provideHttpClientTesting } from '@angular/common/http/testing';
-import { TranslateService } from '@dotos/dui/translator';
+import { TranslateService } from '@dotos1/dui/translator';
 import { IconModule } from './icon.module';
 import { FontLoaderService } from './font-loader.service';
 
@@ -20,6 +20,7 @@ import { FontLoaderService } from './font-loader.service';
     <dui-icon id="a" value="home" style="color: red; margin: 2px"></dui-icon>
     <dui-icon id="b" value="home" [iconStyle]="{ color: 'blue' }"></dui-icon>
   `,
+  standalone: false,
 })
 class HostComponent {}
 

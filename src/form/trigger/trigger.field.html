@@ -1,6 +1,6 @@
 <input matInput #input [id]="id" [tabindex]="tabindex" [attr.disabled]="disabled" [formControl]="formControl"
   [errorStateMatcher]="errorStateMatcher" [formAttributes]="field"  [value]="field.inputValue ?field.inputValue:''"  
-  [required]="required" autocomplete="off" (click)="_handleFocus()" fxFlex matTooltip={{toolTip|translate}}
+  [required]="required" autocomplete="off" (click)="_handleFocus()" style="flex: 1 1 0%; box-sizing: border-box;" matTooltip={{toolTip|translate}}
   matTooltipPosition='below' flex />
 
 <ng-template #matPrefix>

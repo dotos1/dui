@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/container/dock-layout",
+  "importPath": "@dotos1/dui/container/dock-layout",
   "exports": [
     {
       "name": "AbstractContentItem",
@@ -342,7 +342,7 @@
           "params": [],
           "returnType": "void",
           "description": "Executes `exitDragMode` to handle exit drag mode.",
-          "descriptionZh": "执行 `exitDragMode`，用于exit拖拽模式。"
+          "descriptionZh": "执行 `exitDragMode`，用于退出拖拽模式。"
         },
         {
           "name": "enterStackMaximised",
@@ -356,7 +356,7 @@
           "params": [],
           "returnType": "void",
           "description": "Executes `exitStackMaximised` to handle exit stack maximised.",
-          "descriptionZh": "执行 `exitStackMaximised`，用于exit栈最大化。"
+          "descriptionZh": "执行 `exitStackMaximised`，用于退出栈最大化。"
         },
         {
           "name": "drag",
@@ -397,26 +397,26 @@
         {
           "name": "stateRequestEvent",
           "type": "ComponentContainer.StateRequestEventHandler | undefined",
-          "description": "Property `stateRequestEvent` (`ComponentContainer.StateRequestEventHandler | undefined`) storing state request event.",
-          "descriptionZh": "属性 `stateRequestEvent`（类型：`ComponentContainer.StateRequestEventHandler | undefined`），用于存储或配置状态请求事件。"
+          "description": "Property `stateRequestEvent` (`ComponentContainer.StateRequestEventHandler`) storing state request event.",
+          "descriptionZh": "属性 `stateRequestEvent`（类型：`ComponentContainer.StateRequestEventHandler`），用于存储或配置状态请求事件。"
         },
         {
           "name": "virtualRectingRequiredEvent",
           "type": "ComponentContainer.VirtualRectingRequiredEvent | undefined",
-          "description": "Property `virtualRectingRequiredEvent` (`ComponentContainer.VirtualRectingRequiredEvent | undefined`) storing virtual recting required event.",
-          "descriptionZh": "属性 `virtualRectingRequiredEvent`（类型：`ComponentContainer.VirtualRectingRequiredEvent | undefined`），用于存储或配置虚拟滚动矩形必填事件。"
+          "description": "Property `virtualRectingRequiredEvent` (`ComponentContainer.VirtualRectingRequiredEvent`) storing virtual recting required event.",
+          "descriptionZh": "属性 `virtualRectingRequiredEvent`（类型：`ComponentContainer.VirtualRectingRequiredEvent`），用于存储或配置虚拟滚动矩形必填事件。"
         },
         {
           "name": "virtualVisibilityChangeRequiredEvent",
           "type": "ComponentContainer.VirtualVisibilityChangeRequiredEvent | undefined",
-          "description": "Property `virtualVisibilityChangeRequiredEvent` (`ComponentContainer.VirtualVisibilityChangeRequiredEvent | undefined`) storing virtual visibility change required event.",
-          "descriptionZh": "属性 `virtualVisibilityChangeRequiredEvent`（类型：`ComponentContainer.VirtualVisibilityChangeRequiredEvent | undefined`），用于存储或配置虚拟滚动Visibility变更必填事件。"
+          "description": "Property `virtualVisibilityChangeRequiredEvent` (`ComponentContainer.VirtualVisibilityChangeRequiredEvent`) storing virtual visibility change required event.",
+          "descriptionZh": "属性 `virtualVisibilityChangeRequiredEvent`（类型：`ComponentContainer.VirtualVisibilityChangeRequiredEvent`），用于存储或配置虚拟滚动Visibility变更必填事件。"
         },
         {
           "name": "virtualZIndexChangeRequiredEvent",
           "type": "ComponentContainer.VirtualZIndexChangeRequiredEvent | undefined",
-          "description": "Property `virtualZIndexChangeRequiredEvent` (`ComponentContainer.VirtualZIndexChangeRequiredEvent | undefined`) storing virtual z index change required event.",
-          "descriptionZh": "属性 `virtualZIndexChangeRequiredEvent`（类型：`ComponentContainer.VirtualZIndexChangeRequiredEvent | undefined`），用于存储或配置虚拟滚动Z坐标索引变更必填事件。"
+          "description": "Property `virtualZIndexChangeRequiredEvent` (`ComponentContainer.VirtualZIndexChangeRequiredEvent`) storing virtual z index change required event.",
+          "descriptionZh": "属性 `virtualZIndexChangeRequiredEvent`（类型：`ComponentContainer.VirtualZIndexChangeRequiredEvent`），用于存储或配置虚拟滚动Z坐标索引变更必填事件。"
         },
         {
           "name": "width",
@@ -573,7 +573,7 @@
           "params": [],
           "returnType": "void",
           "description": "Executes `exitDragMode` to handle exit drag mode.",
-          "descriptionZh": "执行 `exitDragMode`，用于exit拖拽模式。"
+          "descriptionZh": "执行 `exitDragMode`，用于退出拖拽模式。"
         },
         {
           "name": "enterStackMaximised",
@@ -587,7 +587,7 @@
           "params": [],
           "returnType": "void",
           "description": "Executes `exitStackMaximised` to handle exit stack maximised.",
-          "descriptionZh": "执行 `exitStackMaximised`，用于exit栈最大化。"
+          "descriptionZh": "执行 `exitStackMaximised`，用于退出栈最大化。"
         },
         {
           "name": "drag",
@@ -1025,7 +1025,7 @@
           ],
           "returnType": "void",
           "description": "Executes `highlightDropZone` to handle highlight drop zone.",
-          "descriptionZh": "执行 `highlightDropZone`，用于highlight放置区域(NgZone)。"
+          "descriptionZh": "执行 `highlightDropZone`，用于高亮放置区域(NgZone)。"
         },
         {
           "name": "onDrop",
@@ -1121,8 +1121,8 @@
         {
           "name": "minSize",
           "type": "number | undefined",
-          "description": "Property `minSize` (`number | undefined`) storing min size.",
-          "descriptionZh": "属性 `minSize`（类型：`number | undefined`），用于存储或配置最小值尺寸。"
+          "description": "Property `minSize` (`number`) storing min size.",
+          "descriptionZh": "属性 `minSize`（类型：`number`），用于存储或配置最小值尺寸。"
         },
         {
           "name": "minSizeUnit",
@@ -1501,14 +1501,14 @@
         {
           "name": "layoutChanged",
           "type": "any",
-          "description": "Output event emitter `layoutChanged` (`EventEmitter`) firing when layout changed occurs.",
-          "descriptionZh": "输出事件 `layoutChanged`（类型：`EventEmitter`），当触发布局已变更时向外发出事件。"
+          "description": "Output event emitter `layoutChanged` (`EventEmitter<void>`) firing when layout changed occurs.",
+          "descriptionZh": "输出事件 `layoutChanged`（类型：`EventEmitter<void>`），当触发布局已变更时向外发出事件。"
         },
         {
           "name": "activeStackChanged",
           "type": "any",
-          "description": "Output event emitter `activeStackChanged` (`EventEmitter`) firing when active stack changed occurs.",
-          "descriptionZh": "输出事件 `activeStackChanged`（类型：`EventEmitter`），当触发激活栈已变更时向外发出事件。"
+          "description": "Output event emitter `activeStackChanged` (`EventEmitter<any>`) firing when active stack changed occurs.",
+          "descriptionZh": "输出事件 `activeStackChanged`（类型：`EventEmitter<any>`），当触发激活栈已变更时向外发出事件。"
         }
       ],
       "methods": [
@@ -1759,7 +1759,7 @@
           ],
           "returnType": "void",
           "description": "Executes `highlightArea` to handle highlight area.",
-          "descriptionZh": "执行 `highlightArea`，用于highlight区域。"
+          "descriptionZh": "执行 `highlightArea`，用于高亮区域。"
         },
         {
           "name": "hide",
@@ -1775,7 +1775,7 @@
       "name": "ensureElementPositionAbsolute",
       "kind": "function",
       "summary": "Executes `ensureElementPositionAbsolute` to handle ensure element position absolute.",
-      "summaryZh": "执行 `ensureElementPositionAbsolute`，用于ensure元素位置Absolute。",
+      "summaryZh": "执行 `ensureElementPositionAbsolute`，用于确保元素位置Absolute。",
       "sourceFile": "src/container/dock-layout/utils/utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1790,7 +1790,7 @@
           ],
           "returnType": "void",
           "description": "Executes `ensureElementPositionAbsolute` to handle ensure element position absolute.",
-          "descriptionZh": "执行 `ensureElementPositionAbsolute`，用于ensure元素位置Absolute。"
+          "descriptionZh": "执行 `ensureElementPositionAbsolute`，用于确保元素位置Absolute。"
         }
       ],
       "properties": []
@@ -1906,7 +1906,7 @@
           ],
           "returnType": "void",
           "description": "Executes `off` to handle off.",
-          "descriptionZh": "执行 `off`，用于off。"
+          "descriptionZh": "执行 `off`，用于取消监听。"
         },
         {
           "name": "addEventListener",
@@ -1947,14 +1947,14 @@
           "type": "any",
           "default": "this.removeEventListener",
           "description": "Alias for off",
-          "descriptionZh": "属性 `unbind`（类型：`any`），用于存储或配置解绑（默认值：`this.removeEventListener`）。"
+          "descriptionZh": "属性 `unbind`（类型：`<K extends keyof EventEmitter.EventParamsMap>(eventName: K, callback: EventEmitter.Callback<K>) => void`），用于存储或配置解绑（默认值：`this.removeEventListener`）。"
         },
         {
           "name": "trigger",
           "type": "any",
           "default": "this.emit",
           "description": "Alias for emit",
-          "descriptionZh": "属性 `trigger`（类型：`any`），用于存储或配置触发（默认值：`this.emit`）。"
+          "descriptionZh": "属性 `trigger`（类型：`<K extends keyof EventEmitter.EventParamsMap>(eventName: K, ...args: EventEmitter.EventParamsMap[K]) => void`），用于存储或配置触发（默认值：`this.emit`）。"
         }
       ]
     },
@@ -2378,7 +2378,7 @@
           ],
           "returnType": "void",
           "description": "Executes `highlightDropZone` to handle highlight drop zone.",
-          "descriptionZh": "执行 `highlightDropZone`，用于highlight放置区域(NgZone)。"
+          "descriptionZh": "执行 `highlightDropZone`，用于高亮放置区域(NgZone)。"
         },
         {
           "name": "onDrop",
@@ -2814,7 +2814,7 @@
           ],
           "returnType": "ResolvedLayoutConfig",
           "description": "Executes `minifyConfig` to handle minify config.",
-          "descriptionZh": "执行 `minifyConfig`，用于minify配置。"
+          "descriptionZh": "执行 `minifyConfig`，用于压缩配置。"
         },
         {
           "name": "unminifyConfig",
@@ -2826,7 +2826,7 @@
           ],
           "returnType": "ResolvedLayoutConfig",
           "description": "Executes `unminifyConfig` to handle unminify config.",
-          "descriptionZh": "执行 `unminifyConfig`，用于unminify配置。"
+          "descriptionZh": "执行 `unminifyConfig`，用于展开压缩的配置。"
         },
         {
           "name": "bindComponent",
@@ -3627,14 +3627,14 @@
         {
           "name": "beforeVirtualRectingEvent",
           "type": "LayoutManager.BeforeVirtualRectingEvent | undefined",
-          "description": "Property `beforeVirtualRectingEvent` (`LayoutManager.BeforeVirtualRectingEvent | undefined`) storing before virtual recting event.",
-          "descriptionZh": "属性 `beforeVirtualRectingEvent`（类型：`LayoutManager.BeforeVirtualRectingEvent | undefined`），用于存储或配置之前虚拟滚动矩形事件。"
+          "description": "Property `beforeVirtualRectingEvent` (`LayoutManager.BeforeVirtualRectingEvent`) storing before virtual recting event.",
+          "descriptionZh": "属性 `beforeVirtualRectingEvent`（类型：`LayoutManager.BeforeVirtualRectingEvent`），用于存储或配置之前虚拟滚动矩形事件。"
         },
         {
           "name": "afterVirtualRectingEvent",
           "type": "LayoutManager.AfterVirtualRectingEvent | undefined",
-          "description": "Property `afterVirtualRectingEvent` (`LayoutManager.AfterVirtualRectingEvent | undefined`) storing after virtual recting event.",
-          "descriptionZh": "属性 `afterVirtualRectingEvent`（类型：`LayoutManager.AfterVirtualRectingEvent | undefined`），用于存储或配置之后虚拟滚动矩形事件。"
+          "description": "Property `afterVirtualRectingEvent` (`LayoutManager.AfterVirtualRectingEvent`) storing after virtual recting event.",
+          "descriptionZh": "属性 `afterVirtualRectingEvent`（类型：`LayoutManager.AfterVirtualRectingEvent`），用于存储或配置之后虚拟滚动矩形事件。"
         },
         {
           "name": "container",
@@ -4809,7 +4809,7 @@
           ],
           "returnType": "void",
           "description": "Executes `highlightDropZone` to handle highlight drop zone.",
-          "descriptionZh": "执行 `highlightDropZone`，用于highlight放置区域(NgZone)。"
+          "descriptionZh": "执行 `highlightDropZone`，用于高亮放置区域(NgZone)。"
         },
         {
           "name": "getArea",
@@ -4890,8 +4890,8 @@
           "name": "contentClickEventListener",
           "type": "any",
           "default": "(ev: MouseEvent)=> {\n        const eventName = EventEmitter.contentClickEventName;\n        const bubblingEvent = new EventEmitter.ClickBubblingEvent(eventName, this, ev);\n        this.emit(eventName, bubblingEvent);\n        let activeComp=this.getActiveComponentItem();\n        this.layoutManager.setFocusedComponentItem(activeComp);\n    }",
-          "description": "Property `contentClickEventListener` (`any`) storing content click event listener.",
-          "descriptionZh": "属性 `contentClickEventListener`（类型：`any`），用于存储或配置内容点击事件监听器。"
+          "description": "Property `contentClickEventListener` (`(ev: MouseEvent) => void`) storing content click event listener.",
+          "descriptionZh": "属性 `contentClickEventListener`（类型：`(ev: MouseEvent) => void`），用于存储或配置内容点击事件监听器。"
         }
       ]
     },
@@ -5113,7 +5113,7 @@
           ],
           "returnType": "boolean",
           "description": "Executes `tryUpdateTabSizes` to handle try update tab sizes.",
-          "descriptionZh": "执行 `tryUpdateTabSizes`，用于try更新选项卡尺寸列表。"
+          "descriptionZh": "执行 `tryUpdateTabSizes`，用于尝试更新选项卡尺寸列表。"
         },
         {
           "name": "showAdditionalTabsDropdown",
@@ -5217,8 +5217,8 @@
         {
           "name": "size",
           "type": "number | undefined",
-          "description": "Property `size` (`number | undefined`) storing size.",
-          "descriptionZh": "属性 `size`（类型：`number | undefined`），用于存储或配置尺寸。"
+          "description": "Property `size` (`number`) storing size.",
+          "descriptionZh": "属性 `size`（类型：`number`），用于存储或配置尺寸。"
         },
         {
           "name": "sizeUnit",
@@ -5343,26 +5343,26 @@
         {
           "name": "getComponentEvent",
           "type": "VirtualLayout.GetComponentEventHandler | undefined",
-          "description": "Property `getComponentEvent` (`VirtualLayout.GetComponentEventHandler | undefined`) storing get component event.",
-          "descriptionZh": "属性 `getComponentEvent`（类型：`VirtualLayout.GetComponentEventHandler | undefined`），用于存储或配置获取组件事件。"
+          "description": "Property `getComponentEvent` (`VirtualLayout.GetComponentEventHandler`) storing get component event.",
+          "descriptionZh": "属性 `getComponentEvent`（类型：`VirtualLayout.GetComponentEventHandler`），用于存储或配置获取组件事件。"
         },
         {
           "name": "releaseComponentEvent",
           "type": "VirtualLayout.ReleaseComponentEventHandler | undefined",
-          "description": "Property `releaseComponentEvent` (`VirtualLayout.ReleaseComponentEventHandler | undefined`) storing release component event.",
-          "descriptionZh": "属性 `releaseComponentEvent`（类型：`VirtualLayout.ReleaseComponentEventHandler | undefined`），用于存储或配置release组件事件。"
+          "description": "Property `releaseComponentEvent` (`VirtualLayout.ReleaseComponentEventHandler`) storing release component event.",
+          "descriptionZh": "属性 `releaseComponentEvent`（类型：`VirtualLayout.ReleaseComponentEventHandler`），用于存储或配置release组件事件。"
         },
         {
           "name": "bindComponentEvent",
           "type": "VirtualLayout.BindComponentEventHandler | undefined",
-          "description": "Property `bindComponentEvent` (`VirtualLayout.BindComponentEventHandler | undefined`) storing bind component event.",
-          "descriptionZh": "属性 `bindComponentEvent`（类型：`VirtualLayout.BindComponentEventHandler | undefined`），用于存储或配置绑定组件事件。"
+          "description": "Property `bindComponentEvent` (`VirtualLayout.BindComponentEventHandler`) storing bind component event.",
+          "descriptionZh": "属性 `bindComponentEvent`（类型：`VirtualLayout.BindComponentEventHandler`），用于存储或配置绑定组件事件。"
         },
         {
           "name": "unbindComponentEvent",
           "type": "VirtualLayout.UnbindComponentEventHandler | undefined",
-          "description": "Property `unbindComponentEvent` (`VirtualLayout.UnbindComponentEventHandler | undefined`) storing unbind component event.",
-          "descriptionZh": "属性 `unbindComponentEvent`（类型：`VirtualLayout.UnbindComponentEventHandler | undefined`），用于存储或配置解绑组件事件。"
+          "description": "Property `unbindComponentEvent` (`VirtualLayout.UnbindComponentEventHandler`) storing unbind component event.",
+          "descriptionZh": "属性 `unbindComponentEvent`（类型：`VirtualLayout.UnbindComponentEventHandler`），用于存储或配置解绑组件事件。"
         }
       ]
     },
@@ -5402,5 +5402,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { DockLayoutModule } from '@dotos/dui/container/dock-layout';"
+  "suggestedUsageSnippet": "import { DockLayoutModule } from '@dotos1/dui/container/dock-layout';"
 }

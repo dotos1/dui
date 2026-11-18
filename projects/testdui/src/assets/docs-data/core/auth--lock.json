@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/core/auth/lock",
+  "importPath": "@dotos1/dui/core/auth/lock",
   "exports": [
     {
       "name": "LockscreenDialog",
@@ -23,8 +23,8 @@
         {
           "name": "lockForm",
           "type": "FormGroup",
-          "description": "Property `lockForm` (`FormGroup`) storing lock form.",
-          "descriptionZh": "属性 `lockForm`（类型：`FormGroup`），用于存储或配置锁定表单。"
+          "description": "Property `lockForm` (`FormGroup<any>`) storing lock form.",
+          "descriptionZh": "属性 `lockForm`（类型：`FormGroup<any>`），用于存储或配置锁定表单。"
         },
         {
           "name": "style",
@@ -143,5 +143,5 @@
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { LockscreenDialog, LockscreenSaverModule } from '@dotos/dui/core/auth/lock';\n\n<lock-dialog></lock-dialog>"
+  "suggestedUsageSnippet": "import { LockscreenDialog, LockscreenSaverModule } from '@dotos1/dui/core/auth/lock';\n\n<lock-dialog></lock-dialog>"
 }

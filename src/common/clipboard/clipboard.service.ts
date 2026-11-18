@@ -6,8 +6,8 @@
 
 import { Injectable, Inject } from '@angular/core';
 import { DOCUMENT } from '@angular/common';
-import { LogService } from '@dotos/dui/core/services';
-import { ToastrService } from "@dotos/dui/common/toastr";
+import { LogService } from '@dotos1/dui/core/services';
+import { ToastrService } from "@dotos1/dui/common/toastr";
 
 /**
  * Copies text from an input/textarea element, or arbitrary content, to the system clipboard.

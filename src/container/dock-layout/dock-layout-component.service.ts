@@ -12,7 +12,7 @@ import {
 } from '@angular/core';
 import { DockLayoutContainerInjectionToken } from './injection-tokens';
 import { ComponentContainer } from './container/component-container';
-import { Dui } from '@dotos/dui/core';
+import { Dui } from '@dotos1/dui/core';
 
 /**
  * Injectable Angular service `DockLayoutComponentService` managing dock layout component service state and operations in `src/container/dock-layout`.

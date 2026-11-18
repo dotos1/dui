@@ -150,10 +150,10 @@ export class KeyboardShortcutsService implements OnDestroy {
 
 
     /**
-     * Property `mapEvent` (`(event: any) => ParsedShortcut`) storing map event.
-     * @zh 属性 `mapEvent`（类型：`(event: any) => ParsedShortcut`），用于存储或配置映射表事件。
+     * Property `mapEvent` (`(event: KeyboardEvent) => ParsedShortcut`) storing map event.
+     * @zh 属性 `mapEvent`（类型：`(event: KeyboardEvent) => ParsedShortcut`），用于存储或配置映射表事件。
      */
-    private mapEvent = (event) => {
+    private mapEvent = (event: KeyboardEvent): ParsedShortcut => {
         return this._shortcuts
             .filter((shortcut) => !shortcut.isSequence)
             .map((shortcut) =>
@@ -185,13 +185,13 @@ export class KeyboardShortcutsService implements OnDestroy {
     private keydown$: Observable<KeyboardEvent> = fromEvent(this.document, "keydown");
 
     /**
-     * Property `ignore$` (`Observable<{ preventDefault?: any; stopPropagation?: any; }>`) storing ignore.
-     * @zh 属性 `ignore$`（类型：`Observable<{ preventDefault?: any; stopPropagation?: any; }>`），用于存储或配置忽略。
+     * Property `ignore$` (`Observable<Event>`) storing ignore.
+     * @zh 属性 `ignore$`（类型：`Observable<Event>`），用于存储或配置忽略。
      */
     private ignore$ = this.pressed$.pipe(
         filter((e) => e.event.defaultPrevented),
         switchMap(() => this.clicks$.pipe(first())),
-        tap((e: { preventDefault?; stopPropagation? }) => {
+        tap((e: Event) => {
             e.preventDefault();
             e.stopPropagation();
         }),
@@ -508,10 +508,10 @@ export class KeyboardShortcutsService implements OnDestroy {
     }
 
     /**
-     * Property `getKeys` (`(keys: string[]) => ((event: any) => boolean)[]`) storing get keys.
-     * @zh 属性 `getKeys`（类型：`(keys: string[]) => ((event: any) => boolean)[]`），用于存储或配置获取键列表。
+     * Property `getKeys` (`(keys: string[]) => Array<(event: KeyboardEvent) => boolean>`) storing get keys.
+     * @zh 属性 `getKeys`（类型：`(keys: string[]) => Array<(event: KeyboardEvent) => boolean>`），用于存储或配置获取键列表。
      */
-    private getKeys = (keys: string[]) => {
+    private getKeys = (keys: string[]): Array<(event: KeyboardEvent) => boolean> => {
         return keys
             .map((key) => key.trim())
             .filter((key) => key !== "+")
@@ -519,7 +519,7 @@ export class KeyboardShortcutsService implements OnDestroy {
                 key = _SPECIAL_CASES[key] || key;
                 // eslint-disable-next-line no-prototype-builtins
                 if (modifiers.hasOwnProperty(key)) {
-                    return (event) => {
+                    return (event: KeyboardEvent) => {
                         return !!event[modifiers[key]];
                     };
                 }

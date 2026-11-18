@@ -4,9 +4,9 @@
  */
 
 import {
-  Component, ElementRef,   AfterViewInit, OnInit, OnDestroy, HostListener,
+  Component, ElementRef, AfterViewInit, OnInit, OnDestroy, HostListener,
   ChangeDetectionStrategy, NgZone,
-  ChangeDetectorRef
+  ChangeDetectorRef, ViewRef
 } from '@angular/core';
 import { TreeVirtualScroll } from '../models/tree-virtual-scroll.model';
 import { TREE_EVENTS } from '../constants/events';
@@ -40,21 +40,21 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
    */
   private resizeObserver: ResizeObserver; 
   /**
-   * Property `disposeAutorun` (`any`) storing dispose autorun.
-   * @zh 属性 `disposeAutorun`（类型：`any`），用于存储或配置释放Autorun。
+   * Property `disposeAutorun` (`() => void`) storing dispose autorun.
+   * @zh 属性 `disposeAutorun`（类型：`() => void`），用于存储或配置释放Autorun。
    */
-  private disposeAutorun; 
+  private disposeAutorun: () => void;
 
   /**
    * Creates an instance of `TreeViewportComponent` and initializes its dependencies and internal state.
    * @zh 创建 `TreeViewportComponent` 实例，并初始化其依赖项与内部状态。
-   * @param elementRef - Injected or initial element ref (`ElementRef<any>`) / 注入或传入的元素引用（`ElementRef<any>`）
+   * @param elementRef - Injected or initial element ref (`ElementRef<HTMLElement>`) / 注入或传入的元素引用（`ElementRef<HTMLElement>`）
    * @param virtualScroll - Injected or initial virtual scroll (`TreeVirtualScroll`) / 注入或传入的虚拟滚动滚动（`TreeVirtualScroll`）
    * @param cdr - Injected or initial cdr (`ChangeDetectorRef`) / 注入或传入的cdr（`ChangeDetectorRef`）
    * @param ngZone - Injected or initial ng zone (`NgZone`) / 注入或传入的Angular区域(NgZone)（`NgZone`）
    */
   constructor(
-    private elementRef: ElementRef,
+    private elementRef: ElementRef<HTMLElement>,
     public virtualScroll: TreeVirtualScroll,
     private cdr: ChangeDetectorRef ,
     private ngZone: NgZone) {
@@ -72,7 +72,7 @@ export class TreeViewportComponent implements AfterViewInit, OnInit, OnDestroy {
 
         requestAnimationFrame(() => {
           this.ngZone.run(() => {
-            if (this.cdr && !(this.cdr as unknown as { destroyed? }).destroyed) {
+            if (this.cdr && !(this.cdr as ViewRef).destroyed) {
               this.cdr.markForCheck();
               this.cdr.detectChanges();
             }

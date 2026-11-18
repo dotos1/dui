@@ -4,8 +4,9 @@
  */
 
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { isPhoneTerminal } from '@dotos/dui/base';
-import { FieldConfig, FieldType } from '@dotos/dui/core/form';
+import { isPhoneTerminal } from '@dotos1/dui/base';
+import { FieldConfig, FieldType } from '@dotos1/dui/core/form';
+import { buildRowWrapFlexStyle } from './flex-style.util';
 
 /**
  * Angular component `FormGroup` (selector: 'form-group') providing form group presentation and interaction in `src/form/components`.
@@ -36,10 +37,10 @@ export class FormGroup extends FieldType {
     return isPhoneTerminal() ? 100 : (item.flex ? item.flex : 100);
   }
 
-  public getStyle(field) {
-    return {
-      'display': field.hidden ? "none" : ""
-    };
+  public getStyle(field): Record<string, string> {
+    const style = buildRowWrapFlexStyle(this.flexOf(field));
+    style['display'] = field.hidden ? 'none' : '';
+    return style;
   }
   /**
    * Property `defaultOptions` (`{ defaultValue: {}; }`) storing default options (default: `{ defaultValue: {}, }`).

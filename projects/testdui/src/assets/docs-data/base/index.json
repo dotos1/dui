@@ -1,5 +1,5 @@
 {
-  "importPath": "@dotos/dui/base",
+  "importPath": "@dotos1/dui/base",
   "exports": [
     {
       "name": "addClass",
@@ -42,8 +42,8 @@
         {
           "name": "subscribe",
           "type": "(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown",
-          "description": "Property `subscribe` (`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`) storing subscribe.",
-          "descriptionZh": "属性 `subscribe`（类型：`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => un...`），用于存储或配置订阅。"
+          "description": "Property `subscribe` (`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown`) storing subscribe.",
+          "descriptionZh": "属性 `subscribe`（类型：`(generatorOrNext?: unknown, error?: unknown, complete?: unknown) => unknown`），用于存储或配置订阅。"
         }
       ]
     },
@@ -150,7 +150,7 @@
           ],
           "returnType": "void",
           "description": "Executes `off` to handle off.",
-          "descriptionZh": "执行 `off`，用于off。"
+          "descriptionZh": "执行 `off`，用于取消监听。"
         },
         {
           "name": "removeEventListener",
@@ -361,8 +361,8 @@
     {
       "name": "defaultCulture",
       "kind": "constant",
-      "summary": "Constant/variable `defaultCulture` defining default culture in `src/base`.\n默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。",
-      "summaryZh": "默认区域。旧实现放在这里,`@dotos/dui/translator` 现在有自己的一份。",
+      "summary": "Constant/variable `defaultCulture` defining default culture in `src/base`.\n默认区域。旧实现放在这里,`@dotos1/dui/translator` 现在有自己的一份。",
+      "summaryZh": "默认区域。旧实现放在这里,`@dotos1/dui/translator` 现在有自己的一份。",
       "sourceFile": "src/base/base.ts",
       "inputs": [],
       "outputs": [],
@@ -382,17 +382,45 @@
           "name": "registerComponentFactory",
           "params": [
             {
-              "name": "componentFactoryResolver",
-              "type": "ComponentFactoryResolver"
+              "name": "components",
+              "type": "Type<unknown>[]"
+            }
+          ],
+          "returnType": "void",
+          "description": "Executes `registerComponentFactory` to register dynamic component metadata.",
+          "descriptionZh": "执行 `registerComponentFactory`，用于注册动态组件元数据（兼容旧版双参数调用与新版单参数调用）。"
+        },
+        {
+          "name": "registerComponentFactory",
+          "params": [
+            {
+              "name": "legacyResolver",
+              "type": "unknown"
             },
             {
               "name": "components",
               "type": "Type<unknown>[]"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `registerComponentFactory` to handle register component factory.",
-          "descriptionZh": "执行 `registerComponentFactory`，用于注册组件工厂。"
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "registerComponentFactory",
+          "params": [
+            {
+              "name": "arg0",
+              "type": "Type<unknown>[] | unknown"
+            },
+            {
+              "name": "arg1",
+              "type": "Type<unknown>[]"
+            }
+          ],
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "hasComponentFactory",
@@ -414,9 +442,21 @@
               "type": "string"
             }
           ],
-          "returnType": "ComponentFactory<unknown>",
+          "returnType": "DuiComponentDescriptor<unknown> | undefined",
           "description": "Executes `getComponentFactory` to handle get component factory.",
-          "descriptionZh": "执行 `getComponentFactory`，用于获取组件工厂。"
+          "descriptionZh": "执行 `getComponentFactory`，用于获取已注册组件描述元数据。"
+        },
+        {
+          "name": "getComponentType",
+          "params": [
+            {
+              "name": "selector",
+              "type": "string"
+            }
+          ],
+          "returnType": "Type<unknown> | undefined",
+          "description": "Executes `getComponentType` to retrieve a registered component class by selector.",
+          "descriptionZh": "执行 `getComponentType`，根据选择器获取已注册的组件类型。"
         },
         {
           "name": "emptyFn",
@@ -430,11 +470,11 @@
           "params": [
             {
               "name": "item",
-              "type": "any"
+              "type": "T"
             },
             {
               "name": "array",
-              "type": "any"
+              "type": "T[]"
             }
           ],
           "returnType": "void",
@@ -446,7 +486,7 @@
           "params": [
             {
               "name": "text",
-              "type": "any"
+              "type": "string | number"
             }
           ],
           "returnType": "string",
@@ -458,18 +498,18 @@
           "params": [
             {
               "name": "o",
-              "type": "any"
+              "type": "T"
             },
             {
               "name": "c",
-              "type": "any"
+              "type": "C"
             },
             {
               "name": "defaults",
-              "type": "any"
+              "type": "object"
             }
           ],
-          "returnType": "any",
+          "returnType": "T & C",
           "description": "Executes `apply` to handle apply.",
           "descriptionZh": "执行 `apply`，用于应用。"
         },
@@ -478,14 +518,14 @@
           "params": [
             {
               "name": "o",
-              "type": "any"
+              "type": "T"
             },
             {
               "name": "c",
-              "type": "any"
+              "type": "C"
             }
           ],
-          "returnType": "any",
+          "returnType": "T & C",
           "description": "Executes `applyIf` to handle apply if.",
           "descriptionZh": "执行 `applyIf`，用于应用If。"
         },
@@ -494,14 +534,14 @@
           "params": [
             {
               "name": "origclass",
-              "type": "any"
+              "type": "Function"
             },
             {
               "name": "overrides",
-              "type": "any"
+              "type": "object"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `override` to handle override.",
           "descriptionZh": "执行 `override`，用于override。"
         },
@@ -513,7 +553,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "Type<unknown>",
           "description": "Executes `getFieldByType` to handle get field by type.",
           "descriptionZh": "执行 `getFieldByType`，用于获取字段按类型。"
         },
@@ -525,7 +565,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "Type<unknown>",
           "description": "Executes `getCmp` to handle get cmp.",
           "descriptionZh": "执行 `getCmp`，用于获取Cmp。"
         },
@@ -541,7 +581,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "string",
           "description": "Executes `getKey` to handle get key.",
           "descriptionZh": "执行 `getKey`，用于获取键。"
         },
@@ -549,15 +589,15 @@
           "name": "reverseDeepMerge",
           "params": [
             {
-              "name": "dest",
-              "type": "any"
+              "name": "target",
+              "type": "T"
             },
             {
               "name": "args",
-              "type": "any"
+              "type": "object[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "T",
           "description": "Executes `reverseDeepMerge` to handle reverse deep merge.",
           "descriptionZh": "执行 `reverseDeepMerge`，用于反向Deep合并。"
         },
@@ -566,20 +606,20 @@
           "params": [
             {
               "name": "field",
-              "type": "any"
+              "type": "object"
             },
             {
               "name": "prop",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "defaultValue",
-              "type": "any"
+              "type": "unknown"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `defineHiddenProp` to handle define hidden prop.",
-          "descriptionZh": "执行 `defineHiddenProp`，用于define隐藏属性。"
+          "descriptionZh": "执行 `defineHiddenProp`，用于定义隐藏属性。"
         },
         {
           "name": "objAndSameType",
@@ -605,7 +645,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `stringIsInteger` to handle string is integer.",
           "descriptionZh": "执行 `stringIsInteger`，用于字符串是否为Integer。"
         },
@@ -621,9 +661,9 @@
               "type": "string[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "Function | undefined",
           "description": "Executes `evalFunctionExpression` to handle eval function expression.",
-          "descriptionZh": "执行 `evalFunctionExpression`，用于eval函数表达式。"
+          "descriptionZh": "执行 `evalFunctionExpression`，用于求值函数表达式。"
         },
         {
           "name": "evalStringExpression",
@@ -637,9 +677,9 @@
               "type": "string[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "Function | undefined",
           "description": "Executes `evalStringExpression` to handle eval string expression.",
-          "descriptionZh": "执行 `evalStringExpression`，用于eval字符串表达式。"
+          "descriptionZh": "执行 `evalStringExpression`，用于求值字符串表达式。"
         },
         {
           "name": "evalExpressionValueSetter",
@@ -653,9 +693,9 @@
               "type": "string[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "(...args: unknown[]) => void",
           "description": "Executes `evalExpressionValueSetter` to handle eval expression value setter.",
-          "descriptionZh": "执行 `evalExpressionValueSetter`，用于eval表达式值Setter。"
+          "descriptionZh": "执行 `evalExpressionValueSetter`，用于求值表达式值Setter。"
         },
         {
           "name": "evalExpression",
@@ -673,27 +713,27 @@
               "type": "unknown[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "unknown",
           "description": "Executes `evalExpression` to handle eval expression.",
-          "descriptionZh": "执行 `evalExpression`，用于eval表达式。"
+          "descriptionZh": "执行 `evalExpression`，用于求值表达式。"
         },
         {
           "name": "copyTo",
           "params": [
             {
               "name": "dest",
-              "type": "any"
+              "type": "T"
             },
             {
               "name": "source",
-              "type": "any"
+              "type": "object"
             },
             {
               "name": "names",
-              "type": "any"
+              "type": "string | string[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "T",
           "description": "Executes `copyTo` to handle copy to.",
           "descriptionZh": "执行 `copyTo`，用于复制转换为。"
         },
@@ -702,14 +742,14 @@
           "params": [
             {
               "name": "v",
-              "type": "any"
+              "type": "unknown"
             },
             {
               "name": "allowBlank",
-              "type": "any"
+              "type": "boolean"
             }
           ],
-          "returnType": "any",
+          "returnType": "boolean",
           "description": "Executes `isEmpty` to handle is empty.",
           "descriptionZh": "执行 `isEmpty`，用于是否为空。"
         },
@@ -718,10 +758,10 @@
           "params": [
             {
               "name": "s",
-              "type": "any"
+              "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "string",
           "description": "Executes `escapeRe` to handle escape re.",
           "descriptionZh": "执行 `escapeRe`，用于escapeRe。"
         },
@@ -730,10 +770,10 @@
           "params": [
             {
               "name": "args",
-              "type": "any"
+              "type": "unknown[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `destroy` to handle destroy.",
           "descriptionZh": "执行 `destroy`，用于销毁。"
         },
@@ -742,46 +782,46 @@
           "params": [
             {
               "name": "o",
-              "type": "any"
+              "type": "object"
             },
             {
               "name": "name",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "fn",
-              "type": "any"
+              "type": "Function"
             },
             {
               "name": "scope",
-              "type": "any"
+              "type": "object"
             }
           ],
-          "returnType": "any",
-          "description": "Executes `intercept` to handle intercept.",
-          "descriptionZh": "执行 `intercept`，用于intercept。"
+          "returnType": "void",
+          "description": null,
+          "descriptionZh": null
         },
         {
           "name": "callback",
           "params": [
             {
               "name": "cb",
-              "type": "any"
+              "type": "unknown"
             },
             {
               "name": "scope",
-              "type": "any"
+              "type": "object"
             },
             {
               "name": "args",
-              "type": "any"
+              "type": "unknown[]"
             },
             {
               "name": "delay",
-              "type": "any"
+              "type": "number"
             }
           ],
-          "returnType": "any",
+          "returnType": "void",
           "description": "Executes `callback` to handle callback.",
           "descriptionZh": "执行 `callback`，用于回调函数。"
         },
@@ -790,10 +830,10 @@
           "params": [
             {
               "name": "var_args",
-              "type": "any"
+              "type": "unknown[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "string",
           "description": "Executes `format` to handle format.",
           "descriptionZh": "执行 `format`，用于格式化。"
         },
@@ -802,18 +842,18 @@
           "params": [
             {
               "name": "a",
-              "type": "any"
+              "type": "ArrayLike<T>"
             },
             {
               "name": "i",
-              "type": "any"
+              "type": "number"
             },
             {
               "name": "j",
-              "type": "any"
+              "type": "number"
             }
           ],
-          "returnType": "any",
+          "returnType": "T[]",
           "description": "Executes `toArray` to handle to array.",
           "descriptionZh": "执行 `toArray`，用于转换为数组。"
         },
@@ -822,14 +862,14 @@
           "params": [
             {
               "name": "mainArr",
-              "type": "any"
+              "type": "T[]"
             },
             {
               "name": "searchText",
-              "type": "any"
+              "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "T[]",
           "description": "Executes `filterArrayByString` to handle filter array by string.",
           "descriptionZh": "执行 `filterArrayByString`，用于过滤数组按字符串。"
         },
@@ -838,11 +878,11 @@
           "params": [
             {
               "name": "itemObj",
-              "type": "any"
+              "type": "unknown"
             },
             {
               "name": "searchText",
-              "type": "any"
+              "type": "string"
             }
           ],
           "returnType": "boolean",
@@ -854,11 +894,11 @@
           "params": [
             {
               "name": "arr",
-              "type": "any"
+              "type": "unknown[]"
             },
             {
               "name": "searchText",
-              "type": "any"
+              "type": "string"
             }
           ],
           "returnType": "boolean",
@@ -870,11 +910,11 @@
           "params": [
             {
               "name": "value",
-              "type": "any"
+              "type": "string"
             },
             {
               "name": "searchText",
-              "type": "any"
+              "type": "string"
             }
           ],
           "returnType": "boolean",
@@ -882,6 +922,330 @@
           "descriptionZh": "执行 `searchInString`，用于搜索在字符串。"
         }
       ],
+      "properties": []
+    },
+    {
+      "name": "DuiCompiledExpression",
+      "kind": "interface",
+      "summary": "`expressionProperties` 里编译后的单项",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "expression",
+          "type": "Function",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "expressionValueSetter",
+          "type": "(...args: unknown[]) => void",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "expressionValue",
+          "type": "unknown",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiComponentDescriptor",
+      "kind": "interface",
+      "summary": "Interface `DuiComponentDescriptor` defining metadata for a registered DUI dynamic component.",
+      "summaryZh": "接口 `DuiComponentDescriptor`，定义已注册的 DUI 动态组件元数据契约与属性规范。",
+      "sourceFile": "src/base/duibase.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "selector",
+          "type": "string",
+          "description": "Property `selector` (`string`) storing selector.",
+          "descriptionZh": "属性 `selector`（类型：`string`），用于存储或配置组件选择器。"
+        },
+        {
+          "name": "componentType",
+          "type": "Type<T>",
+          "description": "Property `componentType` (`Type<T>`) storing component type.",
+          "descriptionZh": "属性 `componentType`（类型：`Type<T>`），用于存储或配置组件类型。"
+        },
+        {
+          "name": "inputs",
+          "type": "ReadonlyArray<{ propName: string; templateName: string }>",
+          "description": "Property `inputs` (`readonly { propName: string; templateName: string; }[]`) storing inputs.",
+          "descriptionZh": "属性 `inputs`（类型：`readonly { propName: string; templateName: string; }[]`），用于存储或配置输入属性列表。"
+        },
+        {
+          "name": "outputs",
+          "type": "ReadonlyArray<{ propName: string; templateName: string }>",
+          "description": "Property `outputs` (`readonly { propName: string; templateName: string; }[]`) storing outputs.",
+          "descriptionZh": "属性 `outputs`（类型：`readonly { propName: string; templateName: string; }[]`），用于存储或配置输出事件列表。"
+        }
+      ]
+    },
+    {
+      "name": "DuiConfig",
+      "kind": "interface",
+      "summary": "dui 组件配置对象。所有组件配置接口都从这里扩展。",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": [
+        {
+          "name": "xtype",
+          "type": "string",
+          "description": "组件类型（工厂里登记的选择器），`Dui.create` 按它查组件工厂",
+          "descriptionZh": null
+        },
+        {
+          "name": "ptype",
+          "type": "string",
+          "description": "插件类型",
+          "descriptionZh": null
+        },
+        {
+          "name": "id",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "itemId",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "ref",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "text",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "icon",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "iconCls",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "tooltip",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "cls",
+          "type": "string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hidden",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disabled",
+          "type": "boolean",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "width",
+          "type": "number | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "height",
+          "type": "number | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "flex",
+          "type": "number | string",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "layout",
+          "type": "string | DuiConfig",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "style",
+          "type": "DuiStyle",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "items",
+          "type": "Array<DuiConfig | object | string>",
+          "description": "子项配置（或已创建的组件实例）",
+          "descriptionZh": null
+        },
+        {
+          "name": "children",
+          "type": "Array<DuiConfig | string>",
+          "description": "子菜单 / 下拉项",
+          "descriptionZh": null
+        },
+        {
+          "name": "listeners",
+          "type": "DuiListeners",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "plugins",
+          "type": "DuiPluginConfig | DuiPluginConfig[]",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "hideExpression",
+          "type": "DuiExpression",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "disableExpression",
+          "type": "DuiExpression",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "expressionProperties",
+          "type": "DuiExpressionProperties",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "handler",
+          "type": "Function",
+          "description": null,
+          "descriptionZh": null
+        },
+        {
+          "name": "render",
+          "type": "boolean",
+          "description": "已渲染的组件实例标志：容器 add 时直接使用，不再创建",
+          "descriptionZh": null
+        },
+        {
+          "name": "isField",
+          "type": "boolean",
+          "description": "表单字段标志",
+          "descriptionZh": null
+        },
+        {
+          "name": "value",
+          "type": "unknown",
+          "description": null,
+          "descriptionZh": null
+        }
+      ]
+    },
+    {
+      "name": "DuiExpression",
+      "kind": "type",
+      "summary": "表达式：布尔常量、运行期编译的字符串表达式，或函数",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiExpressionProperties",
+      "kind": "interface",
+      "summary": "`expressionProperties` 配置：属性路径 → 表达式（初始化后被编译成 DuiCompiledExpression）",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiListener",
+      "kind": "type",
+      "summary": "事件监听项：函数，或 `{ fn, scope }`",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiListeners",
+      "kind": "interface",
+      "summary": "`listeners` 配置：事件名 → 监听项",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiPluginConfig",
+      "kind": "type",
+      "summary": "插件配置：插件类型名，或带 `ptype` 的配置对象，或已实例化的插件",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "DuiStyle",
+      "kind": "interface",
+      "summary": "内联样式：CSS 属性名 → 值（与 `[ngStyle]` 的入参一致）",
+      "summaryZh": null,
+      "sourceFile": "src/base/dui-config.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
       "properties": []
     },
     {
@@ -1012,6 +1376,30 @@
       "properties": []
     },
     {
+      "name": "guardPhoneBack",
+      "kind": "function",
+      "summary": "Pushes a same-URL history entry so the system back key closes an overlay instead of leaving the page.",
+      "summaryZh": "压入一条同地址历史，让系统返回键关闭最上面的弹层而不是离开页面；桌面不调用。",
+      "sourceFile": "src/base/phone.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "guardPhoneBack",
+          "params": [
+            {
+              "name": "close",
+              "type": "() => void"
+            }
+          ],
+          "returnType": "PhoneBackGuard",
+          "description": "Pushes a same-URL history entry so the system back key closes an overlay instead of leaving the page.",
+          "descriptionZh": "压入一条同地址历史，让系统返回键关闭最上面的弹层而不是离开页面；桌面不调用。"
+        }
+      ],
+      "properties": []
+    },
+    {
       "name": "isBlankString",
       "kind": "function",
       "summary": "空串算 true;<b>纯空白不算</b>(旧实现不 trim)。",
@@ -1079,6 +1467,25 @@
           "returnType": "boolean",
           "description": "是不是\"普通对象\"。\n\n<p><b>数组与 `Date` 都算 false。</b>旧实现用的是\n`Object.prototype.toString.call(v) === '[object Object]'`,\n于是 `[]` / `new Date()` 都不算。调用方(`extend` 的深合并、\n`mergeDeep` 之类)正是靠这条把数组和日期当叶子节点处理 ——\n改成 `typeof v === 'object'` 会让日期被逐字段拆开合并。",
           "descriptionZh": "是不是\"普通对象\"。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "isPhoneTerminal",
+      "kind": "function",
+      "summary": "Whether the current terminal is a phone (root element has the `is-phone` class).",
+      "summaryZh": "当前终端是否手机（根元素带 `is-phone` 类）。服务端渲染或无 document 时为 false。",
+      "sourceFile": "src/base/phone.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "isPhoneTerminal",
+          "params": [],
+          "returnType": "boolean",
+          "description": "Whether the current terminal is a phone (root element has the `is-phone` class).",
+          "descriptionZh": "当前终端是否手机（根元素带 `is-phone` 类）。服务端渲染或无 document 时为 false。"
         }
       ],
       "properties": []
@@ -1162,8 +1569,8 @@
     {
       "name": "ObjectUtils",
       "kind": "class",
-      "summary": "Class `ObjectUtils` encapsulating object utils data structures and logic in `src/base`.",
-      "summaryZh": "类 `ObjectUtils`，封装 `src/base` 中的对象工具集数据结构与处理逻辑。",
+      "summary": null,
+      "summaryZh": null,
       "sourceFile": "src/base/object-utils.ts",
       "inputs": [],
       "outputs": [],
@@ -1172,15 +1579,15 @@
           "name": "getValue",
           "params": [
             {
-              "name": "target",
-              "type": "any"
+              "name": "source",
+              "type": "unknown"
             },
             {
               "name": "key",
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "unknown",
           "description": "Executes `getValue` to handle get value.",
           "descriptionZh": "执行 `getValue`，用于获取值。"
         },
@@ -1189,10 +1596,10 @@
           "params": [
             {
               "name": "objects",
-              "type": "any"
+              "type": "unknown[]"
             }
           ],
-          "returnType": "any",
+          "returnType": "Dict",
           "description": "Executes `merge` to handle merge.",
           "descriptionZh": "执行 `merge`，用于合并。"
         },
@@ -1208,7 +1615,7 @@
               "type": "string"
             }
           ],
-          "returnType": "any",
+          "returnType": "unknown",
           "description": "Executes `resolve` to handle resolve.",
           "descriptionZh": "执行 `resolve`，用于解析。"
         },
@@ -1217,10 +1624,10 @@
           "params": [
             {
               "name": "item",
-              "type": "object"
+              "type": "unknown"
             }
           ],
-          "returnType": "any",
+          "returnType": "item is object",
           "description": "Executes `isObject` to handle is object.",
           "descriptionZh": "执行 `isObject`，用于是否为对象。"
         },
@@ -1240,7 +1647,7 @@
               "type": "any"
             }
           ],
-          "returnType": "any",
+          "returnType": "Dict",
           "description": "Executes `mergeDeep` to handle merge deep.",
           "descriptionZh": "执行 `mergeDeep`，用于合并Deep。"
         },
@@ -1249,10 +1656,10 @@
           "params": [
             {
               "name": "obj",
-              "type": "object"
+              "type": "unknown"
             }
           ],
-          "returnType": "any",
+          "returnType": "unknown",
           "description": "Executes `removeUndefined` to handle remove undefined.",
           "descriptionZh": "执行 `removeUndefined`，用于移除未定义。"
         },
@@ -1261,10 +1668,10 @@
           "params": [
             {
               "name": "src",
-              "type": "any"
+              "type": "T"
             }
           ],
-          "returnType": "any",
+          "returnType": "T",
           "description": "Executes `copyDeep` to handle copy deep.",
           "descriptionZh": "执行 `copyDeep`，用于复制Deep。"
         },
@@ -1273,10 +1680,10 @@
           "params": [
             {
               "name": "obj",
-              "type": "object"
+              "type": "unknown"
             }
           ],
-          "returnType": "any",
+          "returnType": "unknown",
           "description": "Executes `removeNull` to handle remove null.",
           "descriptionZh": "执行 `removeNull`，用于移除空值。"
         },
@@ -1284,12 +1691,12 @@
           "name": "naturalCompare",
           "params": [
             {
-              "name": "a",
-              "type": "any"
+              "name": "left",
+              "type": "unknown"
             },
             {
-              "name": "b",
-              "type": "any"
+              "name": "right",
+              "type": "unknown"
             },
             {
               "name": "direction",
@@ -1300,7 +1707,7 @@
               "type": "any"
             }
           ],
-          "returnType": "any",
+          "returnType": "number",
           "description": "Executes `naturalCompare` to handle natural compare.",
           "descriptionZh": "执行 `naturalCompare`，用于natural比较。"
         },
@@ -1474,6 +1881,64 @@
           "returnType": "SVGElement | null",
           "description": "把 SVG 文本解析成净化过的 <svg> 元素(已导入当前 document,可直接插入)。\n先按 image/svg+xml 严格解析;不是良构 XML,或根元素不在 SVG 命名空间\n(缺 xmlns 的片段)时,退回到 text/html 解析 —— 原来的 innerHTML 写法对这两种\n都宽容,图标库里有这样的文件。两种解析都在惰性文档里进行。",
           "descriptionZh": "把 SVG 文本解析成净化过的 <svg> 元素(已导入当前 document,可直接插入)。"
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "PHONE_DESKTOP_ONLY_OPTION_VALUES",
+      "kind": "constant",
+      "summary": "服务端随远程下拉选项一起下发的「新建并编辑」「更多」（值是 WidgetInput / WidgetLinkInput / WidgetList，见 bap CascadeSelect、BoxSelect）：\n选中后要弹桌面的新建窗口 / 列表窗口，手机没有这两个页面（施工图 M2-15：做成全屏页之前不显示）。\n不过滤时，手机上一点就把字段清空，非必填字段保存写空（2026-11-05 终审必修 3）。",
+      "summaryZh": "手机不显示的下拉哨兵选项值。桌面不调用。",
+      "sourceFile": "src/base/phone.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [],
+      "properties": []
+    },
+    {
+      "name": "PhoneBackGuard",
+      "kind": "interface",
+      "summary": "手机下弹层打开期间，系统返回键关弹层而不是退页面：压入一条同地址历史，popstate 时关，主动关时退回这一条。",
+      "summaryZh": null,
+      "sourceFile": "src/base/phone.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "release",
+          "params": [],
+          "returnType": "void",
+          "description": "弹层已被别的途径关掉时调用：把压入的历史退掉",
+          "descriptionZh": null
+        }
+      ],
+      "properties": []
+    },
+    {
+      "name": "phoneSelectableOptions",
+      "kind": "function",
+      "summary": "On a phone, drops the server's \"new and edit\" / \"more\" sentinel options; desktop returns the list unchanged (same reference).",
+      "summaryZh": "手机类下去掉「新建并编辑」「更多」哨兵选项；桌面原样返回同一数组。",
+      "sourceFile": "src/base/phone.ts",
+      "inputs": [],
+      "outputs": [],
+      "methods": [
+        {
+          "name": "phoneSelectableOptions",
+          "params": [
+            {
+              "name": "list",
+              "type": "T[] | null | undefined"
+            },
+            {
+              "name": "valueOf",
+              "type": "(o: T) => unknown"
+            }
+          ],
+          "returnType": "T[] | null | undefined",
+          "description": "On a phone, drops the server's \"new and edit\" / \"more\" sentinel options; desktop returns the list unchanged (same reference).",
+          "descriptionZh": "手机类下去掉「新建并编辑」「更多」哨兵选项；桌面原样返回同一数组。"
         }
       ],
       "properties": []
@@ -1670,7 +2135,7 @@
       "name": "throwError",
       "kind": "function",
       "summary": "Executes `throwError` to handle throw error.",
-      "summaryZh": "执行 `throwError`，用于throw错误。",
+      "summaryZh": "执行 `throwError`，用于抛出错误。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
       "outputs": [],
@@ -1685,11 +2150,11 @@
           ],
           "returnType": "never",
           "description": "Executes `throwError` to handle throw error.",
-          "descriptionZh": "执行 `throwError`，用于throw错误。"
+          "descriptionZh": "执行 `throwError`，用于抛出错误。"
         }
       ],
       "properties": []
     }
   ],
-  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos/dui/base';"
+  "suggestedUsageSnippet": "import { /* ... */ } from '@dotos1/dui/base';"
 }

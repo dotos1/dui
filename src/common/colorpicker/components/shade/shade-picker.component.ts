@@ -6,7 +6,7 @@
 
 import {  ChangeDetectionStrategy,  Component,  Input,  OnChanges,
 } from '@angular/core';
-import { ColorWrap, toState } from '@dotos/dui/common/colorpicker/common';
+import { ColorWrap, toState } from '@dotos1/dui/common/colorpicker/common';
 
 /**
  * Angular component `ShadeSliderComponent` (selector: 'color-shade-picker') providing shade slider component presentation and interaction in `src/common/colorpicker/components/shade`.

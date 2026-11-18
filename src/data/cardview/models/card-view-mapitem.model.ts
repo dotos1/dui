@@ -5,7 +5,7 @@
 
 
 
-import { DynamicComponentModel } from '@dotos/dui/core/services';
+import { DynamicComponentModel } from '@dotos1/dui/core/services';
 import { CardViewBaseItemModel } from './card-view-baseitem.model';
 import { CardViewItem } from '../interfaces';
 
@@ -23,7 +23,7 @@ export class CardViewMapItemModel extends CardViewBaseItemModel implements CardV
    * Property `value` (`Map<string, string>`) storing value.
    * @zh 属性 `value`（类型：`Map<string, string>`），用于存储或配置值。
    */
-  override value: Map<string, string>;
+  declare value: Map<string, string>;
 
   /**
    * Gets the current display value (`displayValue: any`).
