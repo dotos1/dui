@@ -434,7 +434,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/core/dynamic` (internal alias: `@dotos1/dui/core/dynamic`)
 - **NgModules**: `DynamicModule`
-- **Component** `DynamicComponent` (`dui-dynamic`) — [tmpl]: string, [data]: any
+- **Component** `DynamicComponent` (`dui-dynamic`) — [tmpl]: string, [data]: any, [extraImports]: readonly Type<unknown>[]
 - **Pipes**: `SafeurlPipe`
 
 ### `@dotos/dui/core/form` (internal alias: `@dotos1/dui/core/form`)
