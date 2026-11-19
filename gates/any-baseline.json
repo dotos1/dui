@@ -1,9 +1,9 @@
 {
   "version": 2,
   "metric": "checker：写出的 any 类型节点 + 隐式 any 声明 + 推断 any 返回值；空对象 = 推断为 {} 的声明；绕过断言 = as unknown as / as any as / as never",
-  "any": 3898,
+  "any": 3734,
   "emptyObj": 0,
-  "cast": 46,
+  "cast": 42,
   "files": {
     "src/base/base.ts": {
       "any": 0,
@@ -771,7 +771,7 @@
       "cast": 0
     },
     "src/core/angular2parse/parse.ts": {
-      "any": 6,
+      "any": 5,
       "emptyObj": 0,
       "cast": 0
     },
@@ -791,7 +791,7 @@
       "cast": 0
     },
     "src/core/angular2parse/visitors/parse-visitor-resolver.ts": {
-      "any": 54,
+      "any": 44,
       "emptyObj": 0,
       "cast": 0
     },
@@ -981,7 +981,7 @@
       "cast": 0
     },
     "src/core/dynamic/dynamic.component.ts": {
-      "any": 2,
+      "any": 1,
       "emptyObj": 0,
       "cast": 0
     },
@@ -1129,11 +1129,6 @@
       "any": 1,
       "emptyObj": 0,
       "cast": 0
-    },
-    "src/core/reflect/Reflect.ts": {
-      "any": 152,
-      "emptyObj": 0,
-      "cast": 4
     },
     "src/core/services/dynamic-component-mapper.service.ts": {
       "any": 2,

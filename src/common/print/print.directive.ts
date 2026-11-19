@@ -90,7 +90,24 @@ export class PrintDirective {
   @Input()
   set styleSheetFile(cssList: string) {
     let linkTagFn = function (cssFileName) {
-      return `<link rel="stylesheet" type="text/css" href="${cssFileName}">`;
+      const trimmed = String(cssFileName ?? '').trim();
+      // eslint-disable-next-line no-control-regex
+      const normalized = trimmed.replace(/[\u0000-\u0020\u007f-\u00a0]/g, '').toLowerCase();
+      if (
+        !trimmed ||
+        normalized.startsWith('javascript:') ||
+        normalized.startsWith('vbscript:') ||
+        normalized.startsWith('data:text/html')
+      ) {
+        return '';
+      }
+      const safeHref = trimmed
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+      return `<link rel="stylesheet" type="text/css" href="${safeHref}">`;
     }
     if (cssList.indexOf(',') !== -1) {
       const valueArr = cssList.split(',');
@@ -171,7 +188,7 @@ export class PrintDirective {
     if (!popupWin) {
       return;
     }
-    const escapedTitle = (this.printTitle ? this.printTitle : "")
+    const escapedTitle = String(this.printTitle ?? '')
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;')

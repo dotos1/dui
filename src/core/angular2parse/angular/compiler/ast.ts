@@ -1118,7 +1118,7 @@ export class AstTransformer implements AstVisitor {
      * @returns Result of type `AST` / 类型为 `AST` 的返回值
      */
     visitFunctionCall(ast: FunctionCall, context): AST {
-        return new FunctionCall(ast.span, ast.target.visit(this), this.visitAll(ast.args));
+        return Reflect.construct(FunctionCall, [ast.span, ast.target.visit(this), this.visitAll(ast.args)]) as FunctionCall;
     }
 
     /**

@@ -5,6 +5,27 @@
 
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer, SafeHtml, SafeResourceUrl, SafeScript, SafeStyle, SafeUrl } from '@angular/platform-browser';
+// eslint-disable-next-line no-control-regex
+const DANGEROUS_URL_CHARS = /[\u0000-\u0020\u007f-\u00a0\u1680\u180e\u2000-\u200f\u2028\u2029\u205f\u3000\ufeff]/g;
+
+/**
+ * Checks whether a candidate URL string uses an executable or HTML-bearing scheme (`javascript:`, `vbscript:`, `data:text/html`).
+ * @zh 检查候选 URL 是否包含可执行脚本或 HTML 载荷协议（`javascript:`、`vbscript:`、`data:text/html`）。
+ * @param rawValue - rawValue parameter (`unknown`) / 待检查的原始值（`unknown`）
+ * @returns Result of type `boolean` / 类型为 `boolean` 的返回值
+ */
+function isDangerousUrlValue(rawValue: unknown): boolean {
+  if (rawValue === null || rawValue === undefined) {
+    return false;
+  }
+  const normalized = String(rawValue).replace(DANGEROUS_URL_CHARS, '').toLowerCase();
+  return (
+    normalized.startsWith('javascript:') ||
+    normalized.startsWith('vbscript:') ||
+    normalized.startsWith('data:text/html')
+  );
+}
+
 /**
  * Angular pipe `SafeurlPipe` (name: 'safeurl') transforming values for safeurl pipe display in templates.
  * @zh Angular 管道 `SafeurlPipe`（name: 'safeurl'），在模板中转换数据以用于Safeurl管道展示。
@@ -29,12 +50,18 @@ export class SafeurlPipe implements PipeTransform {
    */
   public transform(value, type: string): SafeHtml | SafeStyle | SafeScript | SafeUrl | SafeResourceUrl {
     switch (type) {
-      case 'html': return this.sanitizer.bypassSecurityTrustHtml(value);
-      case 'style': return this.sanitizer.bypassSecurityTrustStyle(value);
-      case 'script': return this.sanitizer.bypassSecurityTrustScript(value);
-      case 'url': return this.sanitizer.bypassSecurityTrustUrl(value);
-      case 'resourceUrl': return this.sanitizer.bypassSecurityTrustResourceUrl(value);
-      default: throw new Error(`Invalid safe type specified: ${type}`);
+      case 'html':
+        return this.sanitizer.bypassSecurityTrustHtml(value);
+      case 'style':
+        return this.sanitizer.bypassSecurityTrustStyle(value);
+      case 'script':
+        throw new Error('Unsafe type "script" is forbidden in SafeurlPipe');
+      case 'url':
+        return this.sanitizer.bypassSecurityTrustUrl(isDangerousUrlValue(value) ? '' : String(value ?? ''));
+      case 'resourceUrl':
+        return this.sanitizer.bypassSecurityTrustResourceUrl(isDangerousUrlValue(value) ? '' : String(value ?? ''));
+      default:
+        throw new Error(`Invalid safe type specified: ${type}`);
     }
   }
 }

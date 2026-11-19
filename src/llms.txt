@@ -14,9 +14,18 @@ npm install @dotos/dui
 # Optional peers: @angular/material-moment-adapter@^22.0.0, highlight.js@^11.11.1 (for @dotos/dui/ux/highlight)
 ```
 
-Add platform theming in global `styles.scss`:
+Add platform theming in global `styles.scss` (SCSS entry — NOT a TypeScript import):
 ```scss
 @use '@dotos/dui/theming/platform';
+```
+
+Mount built-in 12-locale i18n JSON bundles (`i18n/dui/*.json`: `zh_CN`, `zh_TW`, `en_US`, `ja_JP`, `ko_KR`, `de_DE`, `fr_FR`, `es_419`, `pt_BR`, `ru_RU`, `ar_SA`, `id_ID`) as static assets in `angular.json` (static asset folder — NOT a TypeScript import):
+```json
+{
+  "glob": "**/*",
+  "input": "node_modules/@dotos/dui/i18n",
+  "output": "/assets/i18n"
+}
 ```
 
 ## 2. Canonical Code Templates (Zero-Hallucination)
@@ -42,7 +51,13 @@ export class ThemeSwitcherComponent {
 
   setThemeMode(type: 'light' | 'dark' | 'darkblue'): void {
     this.dotosConfig.config = {
-      theme: { type, primary: 'blue-500', accent: 'orange-500', warn: 'red-500' },
+      theme: {
+        type,
+        primary: 'blue-500',
+        accent: 'orange-500',
+        warn: 'red-500',
+        formType: 'outline',
+      },
     };
   }
 }
@@ -115,7 +130,7 @@ export class WorkbenchDataComponent {
 }
 ```
 
-## 3. All Secondary Entry Points (95 TypeScript Sub-Packages + 2 Asset Sub-Paths)
+## 3. All Secondary Entry Points (95 TypeScript Sub-Packages)
 
 ## Category: `base`
 
@@ -126,7 +141,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/common/animations` (internal alias: `@dotos1/dui/common/animations`)
 - **NgModules**: `AnimationsModule`
-- **Directive** `ToggleDirective` (`[duiToggle]`) — [duration]: number, [state]: boolean
+- **Directive** `ToggleDirective` (`[duiToggle]`) — [duration]: number, [duiToggle]: boolean
 
 ### `@dotos/dui/common/backdrop` (internal alias: `@dotos1/dui/common/backdrop`)
 - **NgModules**: `BackdropModule`
@@ -150,7 +165,7 @@ export class WorkbenchDataComponent {
 - **NgModules**: `ClipboardModule`
 - **Component** `ClipboardComponent` (`dui-copy-content-tooltip`)
 - **Component** `CopyButtonComponent` (`copy-button`) — [copyText]: string, [disabled]: any, [icon]: string, [tooltipText]: string, [tooltipPosition]: TooltipPosition, [style]: {[key: string]: unknown}, [color]: ThemePalette, [miniButton]: any; (successCopied): any
-- **Directive** `ClipboardDirective` (`[dui-clipboard]`) — [placeholder]: string, [target]: HTMLInputElement | HTMLTextAreaElement, [message]: string
+- **Directive** `ClipboardDirective` (`[dui-clipboard]`) — [dui-clipboard]: string, [target]: HTMLInputElement | HTMLTextAreaElement, [clipboard-notification]: string
 - **Services**: `ClipboardService`
 
 ### `@dotos/dui/common/collapsible` (internal alias: `@dotos1/dui/common/collapsible`)
@@ -163,7 +178,7 @@ export class WorkbenchDataComponent {
 - **Component** `AlphaComponent` (`color-alpha`) — [hsl]: HSLA, [rgb]: RGBA, [pointer]: { [key: string]: string }, [shadow]: string, [radius]: string|number, [direction]: 'horizontal' | 'vertical'; (onChange): any
 - **Component** `CheckboardComponent` (`color-checkboard`) — [white]: any, [size]: any, [grey]: any, [boxShadow]: string, [borderRadius]: string
 - **Component** `ColorWrap` (`color-wrap`) — [className]: string, [color]: HSLA | HSVA | RGBA | string; (onChange): any, (onChangeComplete): any, (onSwatchHover): any
-- **Component** `EditableInputComponent` (`color-editable-input`) — [style]: { wrap?: { [key: string]: string }; input: { [ke, [label]: string, [value]: string | number, [arrowOffset]: number, [dragLabel]: boolean, [dragMax]: number, [placeholder]: any; (onChange): any
+- **Component** `EditableInputComponent` (`color-editable-input`) — [style]: { wrap?: { [key: string]: string }; input: { [key: string]: string }; label: { [key: string]: string } }, [label]: string, [value]: string | number, [arrowOffset]: number, [dragLabel]: boolean, [dragMax]: number, [placeholder]: any; (onChange): any
 - **Component** `HueComponent` (`color-hue`) — [hsl]: HSLA, [pointer]: { [key: string]: string }, [radius]: number, [shadow]: string, [hidePointer]: any, [direction]: 'horizontal' | 'vertical'; (onChange): any
 - **Component** `RaisedComponent` (`color-raised`) — [zDepth]: zDepth, [radius]: any, [background]: any
 - **Component** `SaturationComponent` (`color-saturation`) — [hsl]: HSLA, [hsv]: HSVA, [radius]: number, [pointer]: { [key: string]: string }, [circle]: { [key: string]: string }; (onChange): any
@@ -182,7 +197,7 @@ export class WorkbenchDataComponent {
 - **Component** `CompactColorComponent` (`color-compact-color`) — [color]: string, [active]: boolean; (onClick): any, (onSwatchHover): any
 - **Component** `CompactComponent` (`color-compact`) — [colors]: any, [zDepth]: zDepth, [radius]: any, [background]: any
 - **Component** `CompactFieldsComponent` (`color-compact-fields`) — [hex]: string, [rgb]: RGBA; (onChange): any
-- **Component** `GithubComponent` (`color-github`) — [width]: string | number, [colors]: any, [triangle]: 'hide' | 'top-left' | 'top-right' | 'bottom-righ
+- **Component** `GithubComponent` (`color-github`) — [width]: string | number, [colors]: any, [triangle]: 'hide' | 'top-left' | 'top-right' | 'bottom-right'
 - **Component** `GithubSwatchComponent` (`color-github-swatch`) — [color]: string; (onClick): any, (onSwatchHover): any
 - **Component** `GoogColorComponent` (`goog-color`) — [color]: string, [active]: boolean; (onClick): any, (onSwatchHover): any
 - **Component** `GoogColorPickerComponent` (`goog-color-picker`) — [colors]: any, [zDepth]: zDepth, [radius]: any, [background]: any
@@ -270,7 +285,7 @@ export class WorkbenchDataComponent {
 ### `@dotos/dui/common/loading` (internal alias: `@dotos1/dui/common/loading`)
 - **NgModules**: `LoadingModule`
 - **Component** `LoadingComponent` (`dui-loading`)
-- **Directive** `LoadingDirective` (`[duiLoading]`) — [name]: string, [until]: any, [type]: LoadingType, [mode]: LoadingMode, [strategy]: LoadingStrategy.Overlay | LoadingStrategy.Replac, [color]: 'primary' | 'accent' | 'warn'
+- **Directive** `LoadingDirective` (`[duiLoading]`) — [duiLoading]: string, [duiLoadingUntil]: any, [duiLoadingType]: LoadingType, [duiLoadingMode]: LoadingMode, [duiLoadingStrategy]: LoadingStrategy.Overlay | LoadingStrategy.Replace, [duiLoadingColor]: 'primary' | 'accent' | 'warn'
 - **Services**: `LoadingFactory`, `LoadingService`
 
 ### `@dotos/dui/common/matcolorpicker` (internal alias: `@dotos1/dui/common/matcolorpicker`)
@@ -279,7 +294,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/common/media` (internal alias: `@dotos1/dui/common/media`)
 - **NgModules**: `MediaModule`
-- **Directive** `MediaToggleDirective` (`[extMediaToggle]`) — [query]: string, [attributes]: any, [classes]: string[], [styles]: any
+- **Directive** `MediaToggleDirective` (`[extMediaToggle]`) — [extMediaToggle]: string, [mediaAttributes]: any, [mediaClasses]: string[], [mediaStyles]: any
 - **Services**: `MediaService`
 
 ### `@dotos/dui/common/message` (internal alias: `@dotos1/dui/common/message`)
@@ -299,13 +314,13 @@ export class WorkbenchDataComponent {
 - **NgModules**: `PerfectScrollbarModule`
 - **Component** `PerfectScrollbarComponent` (`perfect-scrollbar`) — [disabled]: boolean, [usePSClass]: boolean, [autoPropagation]: boolean, [scrollIndicators]: boolean, [config]: PerfectScrollbarConfigInterface; (psScrollY): any, (psScrollX): any, (psScrollUp): any, (psScrollDown): any, (psScrollLeft): any, (psScrollRight): any
 - **Directive** `ForceNativeScrollDirective` (`[forceNativeScrolling]`)
-- **Directive** `PerfectScrollbarDirective` (`[perfectScrollbar]`) — [disabled]: boolean, [config]: PerfectScrollbarConfigInterface; (psScrollY): any, (psScrollX): any, (psScrollUp): any, (psScrollDown): any
+- **Directive** `PerfectScrollbarDirective` (`[perfectScrollbar]`) — [disabled]: boolean, [perfectScrollbar]: PerfectScrollbarConfigInterface; (psScrollY): any, (psScrollX): any, (psScrollUp): any, (psScrollDown): any
 
 ### `@dotos/dui/common/popover` (internal alias: `@dotos1/dui/common/popover`)
 - **NgModules**: `PopoverModule`
-- **Component** `Popover` (`popover`) — [positionX]: any, [positionY]: any, [triggerEvent]: PopoverTriggerEvent, [scrollStrategy]: PopoverScrollStrategy, [enterDelay]: number, [leaveDelay]: number, [overlapTrigger]: boolean, [targetOffsetX]: number; (close): any
+- **Component** `Popover` (`popover`) — [popoverPositionX]: any, [popoverPositionY]: any, [popoverTriggerOn]: PopoverTriggerEvent, [popoverScrollStrategy]: PopoverScrollStrategy, [popoverEnterDelay]: number, [popoverLeaveDelay]: number, [popoverOverlapTrigger]: boolean, [popoverOffsetX]: number; (close): any
 - **Directive** `PopoverTarget` (`popover-target, [popoverTarget]`)
-- **Directive** `PopoverTrigger` (`[popoverTriggerFor]`) — [name]: string, [popover]: PopoverPanel, [targetElement]: PopoverTargetInterface, [positionX]: PopoverPositionX, [positionY]: PopoverPositionY, [triggerEvent]: PopoverTriggerEvent; (opened): any, (closed): any
+- **Directive** `PopoverTrigger` (`[popoverTriggerFor]`) — [name]: string, [popoverTriggerFor]: PopoverPanel, [popoverTargetAt]: PopoverTargetInterface, [popoverPositionX]: PopoverPositionX, [popoverPositionY]: PopoverPositionY, [popoverTriggerOn]: PopoverTriggerEvent; (opened): any, (closed): any
 
 ### `@dotos/dui/common/print` (internal alias: `@dotos1/dui/common/print`)
 - **NgModules**: `PrintModule`
@@ -330,7 +345,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/common/search-box` (internal alias: `@dotos1/dui/common/search-box`)
 - **NgModules**: `SearchBoxModule`
-- **Component** `SearchBoxComponent` (`search-box`) — [config]: DuiConfig, [backIcon]: any, [searchIcon]: any, [clearIcon]: any, [showUnderline]: any, [debounce]: any, [alwaysVisible]: any, [placeholder]: any; (searchDebounce): string, (onSearch): string, (onClear): void, (blurSearch): void, (onUserDefined): string, (onSearching): boolean
+- **Component** `SearchBoxComponent` (`search-box`) — [config]: DuiConfig, [backIcon]: any, [searchIcon]: any, [clearIcon]: any, [showUnderline]: any, [debounce]: any, [alwaysVisible]: any, [placeholder]: any; (searchDebounce): string, (onSearch): string, (onClear): void, (blurSearch): void, (userDefined): string, (onSearching): boolean
 - **Component** `SearchInputComponent` (`search-input`) — [appearance]: MatFormFieldAppearance, [showUnderline]: any, [debounce]: any, [placeholder]: any, [clearIcon]: any, [value]: unknown; (searchDebounce): string, (onSearch): string, (onClear): void, (blurSearch): void
 
 ### `@dotos/dui/common/stop-propagation` (internal alias: `@dotos1/dui/common/stop-propagation`)
@@ -352,7 +367,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/container/dock-layout` (internal alias: `@dotos1/dui/container/dock-layout`)
 - **NgModules**: `DockLayoutModule`
-- **Component** `DockLayoutHostComponent` — (layoutChanged): any, (activeStackChanged): any
+- **Component** `DockLayoutHostComponent` (`dock-layout-host`) — (layoutChanged): any, (activeStackChanged): any
 - **Services**: `DockLayoutComponentService`, `DockLayoutManagerService`
 
 ### `@dotos/dui/container` (internal alias: `@dotos1/dui/container`)
@@ -373,7 +388,7 @@ export class WorkbenchDataComponent {
 - **Component** `TabPanel` (`tabpanel`) — [config]: DuiConfig
 - **Directive** `AbstractPanel` — [config]: DuiConfig, [overflowX]: string, [overflowY]: string, [opened]: boolean, [gutterSize]: number, [disabled]: boolean
 - **Directive** `DuiLayoutCloseDirective` (`[duiLayoutClose]`) — [duiLayoutClose]: boolean
-- **Directive** `DuiLayoutOpenDirective` (`[duiLayoutOpen]`) — [duiLayoutClose]: boolean
+- **Directive** `DuiLayoutOpenDirective` (`[duiLayoutOpen]`) — [duiLayoutOpen]: boolean
 - **Directive** `DuiLayoutToggleDirective` (`[duiLayoutToggle]`) — [duiLayoutToggle]: boolean
 - **Directive** `ExpansionPanelActionRow` (`dui-action-row`)
 - **Directive** `ExpansionPanelDescription` (`panel-description`)
@@ -525,7 +540,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/data/paging` (internal alias: `@dotos1/dui/data/paging`)
 - **NgModules**: `DuiPagingModule`
-- **Component** `DuiPagingBarComponent` (`dui-paging-bar`) — [firstLast]: boolean, [initialPage]: number, [pageLinkCount]: number, [pageSize]: number, [total]: number; (onChange): IPageChangeEvent
+- **Component** `DuiPagingBarComponent` (`dui-paging-bar`) — [firstLast]: boolean, [initialPage]: number, [pageLinkCount]: number, [pageSize]: number, [total]: number; (change): IPageChangeEvent
 
 ## Category: `form`
 
@@ -535,7 +550,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/form/date` (internal alias: `@dotos1/dui/form/date`)
 - **NgModules**: `DateFieldModule`
-- **Component** `DateFieldComponent` (`date-field`) — [matDatepickerFilter]: (date: D | null, type: MatDatetimepickerFilterTy, [min]: D | null, [max]: D | null, [disabled]: boolean; (dateChange): any, (dateInput): any
+- **Component** `DateFieldComponent` (`date-field`) — [matDatepickerFilter]: (date: D | null, type: MatDatetimepickerFilterType) => boolean, [min]: D | null, [max]: D | null, [disabled]: boolean; (dateChange): any, (dateInput): any
 
 ### `@dotos/dui/form/date/adapter` (internal alias: `@dotos1/dui/form/date/adapter`)
 - **NgModules**: `MatNativeDatetimeModule`, `NativeDatetimeModule`
@@ -547,16 +562,16 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/form/date/picker` (internal alias: `@dotos1/dui/form/date/picker`)
 - **NgModules**: `MatDatetimepickerModule`
-- **Component** `MatDatetimepicker` (`mat-datetimepicker`) — [multiYearSelector]: boolean, [twelvehour]: boolean, [startView]: MatCalendarView, [mode]: MatDatetimepickerMode, [timeInterval]: number, [ariaNextMonthLabel]: any, [ariaPrevMonthLabel]: any, [ariaNextYearLabel]: any; (selectedChanged): any, (openedStream): void, (closedStream): void, (viewChanged): MatCalendarView
-- **Component** `MatDatetimepickerCalendar` (`mat-datetimepicker-calendar`) — [multiYearSelector]: boolean, [startView]: MatCalendarView, [twelvehour]: boolean, [timeInterval]: number, [dateFilter]: (date: D, type: MatDatetimepickerFilterType) => , [ariaLabel]: any, [ariaNextMonthLabel]: any, [ariaPrevMonthLabel]: any; (selectedChange): D, (viewChanged): MatCalendarView
+- **Component** `MatDatetimepicker` (`mat-datetimepicker`) — [multiYearSelector]: boolean, [twelvehour]: boolean, [startView]: MatCalendarView, [mode]: MatDatetimepickerMode, [timeInterval]: number, [ariaNextMonthLabel]: any, [ariaPrevMonthLabel]: any, [ariaNextYearLabel]: any; (selectedChanged): any, (opened): void, (closed): void, (viewChanged): MatCalendarView
+- **Component** `MatDatetimepickerCalendar` (`mat-datetimepicker-calendar`) — [multiYearSelector]: boolean, [startView]: MatCalendarView, [twelvehour]: boolean, [timeInterval]: number, [dateFilter]: (date: D, type: MatDatetimepickerFilterType) => boolean, [ariaLabel]: any, [ariaNextMonthLabel]: any, [ariaPrevMonthLabel]: any; (selectedChange): D, (viewChanged): MatCalendarView
 - **Component** `MatDatetimepickerCalendarBody` (`[mat-datetimepicker-calendar-body]`) — [label]: string, [rows]: MatDatetimepickerCalendarCell[][], [todayValue]: number, [selectedValue]: number, [labelMinRequiredCells]: number, [numCols]: any, [allowDisabledSelection]: any, [activeCell]: any; (selectedValueChange): any
-- **Component** `MatDatetimepickerClock` (`mat-datetimepicker-clock`) — [dateFilter]: (date: D, type: MatDatetimepickerFilterType) => , [interval]: number, [twelvehour]: boolean, [activeDate]: D, [selected]: D | null, [minDate]: D | null, [maxDate]: D | null, [startView]: MatClockView; (selectedChange): any, (activeDateChange): any
+- **Component** `MatDatetimepickerClock` (`mat-datetimepicker-clock`) — [dateFilter]: (date: D, type: MatDatetimepickerFilterType) => boolean, [interval]: number, [twelvehour]: boolean, [activeDate]: D, [selected]: D | null, [minDate]: D | null, [maxDate]: D | null, [startView]: MatClockView; (selectedChange): any, (activeDateChange): any
 - **Component** `MatDatetimepickerContent` (`mat-datetimepicker-content`)
 - **Component** `MatDatetimepickerMonthView` (`mat-datetimepicker-month-view`) — [type]: MatDatetimepickerType, [dateFilter]: (date: D) => boolean, [activeDate]: D, [selected]: D; (selectedChange): any
 - **Component** `MatDatetimepickerMultiYearView` (`mat-datetimepicker-multi-year-view`) — [type]: MatDatetimepickerType, [dateFilter]: (date: D) => boolean, [activeDate]: D, [selected]: D, [minDate]: D | null, [maxDate]: D | null; (selectedChange): any
-- **Component** `MatDatetimepickerToggle` (`mat-datetimepicker-toggle`) — [datetimepicker]: MatDatetimepicker<D>, [disabled]: boolean
+- **Component** `MatDatetimepickerToggle` (`mat-datetimepicker-toggle`) — [for]: MatDatetimepicker<D>, [disabled]: boolean
 - **Component** `MatDatetimepickerYearView` (`mat-datetimepicker-year-view`) — [type]: MatDatetimepickerType, [dateFilter]: (date: D) => boolean, [activeDate]: D, [selected]: D; (selectedChange): any
-- **Directive** `MatDatetimepickerInput` (`input[matDatetimepicker]`) — [matDatetimepicker]: MatDatetimepicker<D>, [matDatepickerFilter]: (date: D | null, type: MatDatetimepickerFilterTy, [value]: D | null, [min]: D | null, [max]: D | null, [disabled]: any; (dateChange): any, (dateInput): any
+- **Directive** `MatDatetimepickerInput` (`input[matDatetimepicker]`) — [matDatetimepicker]: MatDatetimepicker<D>, [matDatepickerFilter]: (date: D | null, type: MatDatetimepickerFilterType) => boolean, [value]: D | null, [min]: D | null, [max]: D | null, [disabled]: any; (dateChange): any, (dateInput): any
 
 ### `@dotos/dui/form` (internal alias: `@dotos1/dui/form`)
 - **NgModules**: `ArrayInputModule`, `CheckBoxFieldModule`, `CheckboxGroupModule`, `ColorFieldModule`, `CommonFieldModule`, `DuiFormDirectiveModule`, `FormModule`, `FormWrapperModule`, `LabelFieldModule`, `RadioGroupModule`, `RangeSliderModule`, `SelectFieldModule`, `SelectPipeModule`, `SliderFieldModule`, `SliderToggleFieldModule`, `TriggerModule`
@@ -589,7 +604,7 @@ export class WorkbenchDataComponent {
 - **Component** `WrapperEditorField` (`editor-field-wrapper`)
 - **Component** `WrapperFormField` (`mat-form-field-wrapper`)
 - **Directive** `AutoTrimDirective` (`[duiAutoTrim]`)
-- **Directive** `FormAttributes` (`[formAttributes]`) — [field]: FieldConfig, [id]: string
+- **Directive** `FormAttributes` (`[formAttributes]`) — [formAttributes]: FieldConfig, [id]: string
 - **Directive** `MatCheckGroup` (`mat-check-group`) — [name]: string, [align]: 'start' | 'end', [labelPosition]: any, [value]: Array<string>, [disabled]: boolean, [required]: boolean; (change): MatCheckChange
 - **Directive** `MatField`
 - **Pipes**: `SelectOptionsPipe`
@@ -607,11 +622,6 @@ export class WorkbenchDataComponent {
 - **Component** `ToggleSelectComponent` (`toggle-select`) — [disabled]: boolean, [selectMediaBreakpoint]: string, [appearance]: ToggleHeaderAppearance, [disablePagination]: any, [fillHeight]: any, [extraPadding]: any, [primaryBackground]: any
 - **Directive** `ToggleOption` (`toggle-option`) — [value]: any
 
-## Category: `i18n`
-
-### `@dotos/dui/i18n` (internal alias: `@dotos1/dui/i18n`)
-- **Exports**: `DUI_LOCALE_BUNDLES`
-
 ## Category: `net`
 
 ### `@dotos/dui/net` (internal alias: `@dotos1/dui/net`)
@@ -625,11 +635,6 @@ export class WorkbenchDataComponent {
 ### `@dotos/dui/theme` (internal alias: `@dotos1/dui/theme`)
 - **NgModules**: `DotosConfigModule`
 - **Services**: `DotosConfigService`, `ThemeService`
-
-## Category: `theming`
-
-### `@dotos/dui/theming` (internal alias: `@dotos1/dui/theming`)
-- **Exports**: `dui-platform-theme`
 
 ## Category: `translator`
 
@@ -654,9 +659,9 @@ export class WorkbenchDataComponent {
 - **Component** `TreeNodeExpanderComponent` (`tree-node-expander`) — [node]: any
 - **Component** `TreeNodeWrapperComponent` (`tree-node-wrapper`) — [node]: any, [index]: number, [templates]: any
 - **Component** `TreeViewportComponent` (`tree-viewport`)
-- **Directive** `TreeAnimateOpenDirective` (`[treeAnimateOpen]`) — [animateSpeed]: number, [animateAcceleration]: number, [isEnabled]: boolean, [isOpen]: boolean
-- **Directive** `TreeDragDirective` (`[treeDrag]`) — [draggedElement]: any, [treeDragEnabled]: any
-- **Directive** `TreeDropDirective` (`[treeDrop]`) — [allowDragoverStyling]: any, [treeAllowDrop]: any; (onDropCallback): any, (onDragOverCallback): any, (onDragLeaveCallback): any, (onDragEnterCallback): any
+- **Directive** `TreeAnimateOpenDirective` (`[treeAnimateOpen]`) — [treeAnimateOpenSpeed]: number, [treeAnimateOpenAcceleration]: number, [treeAnimateOpenEnabled]: boolean, [treeAnimateOpen]: boolean
+- **Directive** `TreeDragDirective` (`[treeDrag]`) — [treeDrag]: any, [treeDragEnabled]: any
+- **Directive** `TreeDropDirective` (`[treeDrop]`) — [allowDragoverStyling]: any, [treeAllowDrop]: any; (treeDrop): any, (treeDropDragOver): any, (treeDropDragLeave): any, (treeDropDragEnter): any
 - **Directive** `TreeMobxAutorunDirective` (`[treeMobxAutorun]`) — [treeMobxAutorun]: any
 - **Services**: `TreeDraggedElement`, `TreeModel`, `TreeVirtualScroll`
 
@@ -745,8 +750,9 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/ux` (internal alias: `@dotos1/dui/ux`)
 - **NgModules**: `CodeEditorModule`, `ExtUxModule`, `IconPickerModule`
-- **Component** `ExtCodeEditorComponent` (`td-code-editor`) — [value]: string, [language]: string, [editorStyle]: string, [theme]: string, [automaticLayout]: boolean | string, [editorOptions]: any; (onEditorInitialized): void, (onEditorConfigurationChanged): void, (onEditorLanguageChanged): void, (onEditorValueChange): void, (onChange): void
+- **Component** `ExtCodeEditorComponent` (`td-code-editor`) — [value]: string, [language]: string, [editorStyle]: string, [theme]: string, [automaticLayout]: boolean | string, [editorOptions]: any; (editorInitialized): void, (editorConfigurationChanged): void, (editorLanguageChanged): void, (editorValueChange): void, (change): void
 - **Component** `IconPickerField` (`icon-picker-field`)
+- **Note**: `ExtCodeEditorComponent` (`td-code-editor`) does not bundle `monaco-editor`; it dynamically attaches to global `window.monaco` if loaded by the host app, while the full standalone `MonacoEditorModule` lives in `@dotos/duix/ux/monaco-editor`.
 
 ### `@dotos/dui/ux/line-style` (internal alias: `@dotos1/dui/ux/line-style`)
 - **NgModules**: `LineStyleModule`
@@ -784,8 +790,8 @@ export class WorkbenchDataComponent {
 - **Component** `TitleBarControlsComponent` (`dui-title-bar-controls`)
 - **Component** `TitleBarIconComponent` (`dui-title-bar-icon`) — [iconType]: any, [icon]: any, [iconClass]: any
 - **Component** `WindowComponent` (`dui-window`) — [isActive]: boolean, [scrollViewStyle]: object, [scrollViewStyleClass]: string | string[] | object
-- **Directive** `AppendToBodyDirective` (`[osAppendToBody]`) — [parameters]: AppendToBodyConfig | undefined | ''
-- **Directive** `DraggableDirective` (`[osDraggable]`) — [parameters]: DraggerConfig | undefined | ''; (osDraggableElementInit): HTMLElement, (osMovableElementInit): HTMLElement, (osDragStart): DragInfo, (osDragging): DragInfo
-- **Directive** `FixedToParentDirective` (`[osFixedToParent]`) — [parameters]: FixedToParentConfig | undefined | ''
-- **Directive** `ResizableDirective` (`[osResizable]`) — [parameters]: ResizerConfig | undefined | ''; (osResizableElementInit): HTMLElement, (osResizersWrapperElementInit): HTMLElement, (osResizeStart): ResizeInfo, (osResizing): ResizeInfo
+- **Directive** `AppendToBodyDirective` (`[osAppendToBody]`) — [osAppendToBody]: AppendToBodyConfig | undefined | ''
+- **Directive** `DraggableDirective` (`[osDraggable]`) — [osDraggable]: DraggerConfig | undefined | ''; (osDraggableElementInit): HTMLElement, (osMovableElementInit): HTMLElement, (osDragStart): DragInfo, (osDragging): DragInfo
+- **Directive** `FixedToParentDirective` (`[osFixedToParent]`) — [osFixedToParent]: FixedToParentConfig | undefined | ''
+- **Directive** `ResizableDirective` (`[osResizable]`) — [osResizable]: ResizerConfig | undefined | ''; (osResizableElementInit): HTMLElement, (osResizersWrapperElementInit): HTMLElement, (osResizeStart): ResizeInfo, (osResizing): ResizeInfo
 - **Services**: `DynamicWindowService`, `DynamicWindowSharedConfigService`

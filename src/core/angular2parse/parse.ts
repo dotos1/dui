@@ -5,7 +5,7 @@
 
 import { Inject, Injectable, InjectionToken, Optional } from '@angular/core';
 import { Parser, Lexer, ASTWithSource } from './angular';
-import { ParseVisitorResolver, ParseVisitorCompiler } from './visitors';
+import { ParseVisitorResolver } from './visitors';
 
 /**
  * Angular dependency-injection token `PIPES_CONFIG` for providing pipes config.
@@ -82,7 +82,7 @@ export class Parse {
       return this._evalCache.get(expression);
     }
 
-    const visitor = new ParseVisitorCompiler();
+    const visitor = new ParseVisitorResolver(this._pipesCache);
 
     let ast: ASTWithSource = this._parser.parseInterpolation(expression, 'Parse');
 
@@ -90,12 +90,8 @@ export class Parse {
       ast = this._parser.parseBinding(expression, 'Parse');
     }
 
-    const fnBody = ast.visit(visitor);
-    const pipesCache = this._pipesCache;
-    const getFn = new Function('context', 'pipesCache', `return ${fnBody};`);
-
     const evalParse = function evalParse(context) {
-      return getFn(context, pipesCache);
+      return ast.visit(visitor, context);
     };
 
     this._evalCache.set(expression, evalParse);

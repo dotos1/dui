@@ -71,8 +71,26 @@ export class MatCarouselSlideComponent
    * @zh Angular 生命周期钩子：在组件或指令的输入属性初始化完成后调用一次。
    */
   public ngOnInit(): void {
-    if (this.image) {
-      this.image = this.sanitizer.bypassSecurityTrustStyle(`url("${this.image}")`);
+    if (this.image && typeof this.image === 'string') {
+      const raw = this.image.trim();
+      // eslint-disable-next-line no-control-regex
+      const normalized = raw.replace(/[\u0000-\u0020\u007f-\u00a0]/g, '').toLowerCase();
+      if (
+        normalized.startsWith('javascript:') ||
+        normalized.startsWith('vbscript:') ||
+        normalized.startsWith('data:text/html')
+      ) {
+        this.image = this.sanitizer.bypassSecurityTrustStyle('none');
+        return;
+      }
+      const escaped = raw
+        .replace(/\\/g, '\\\\')
+        .replace(/"/g, '\\"')
+        .replace(/'/g, "\\'")
+        .replace(/\(/g, '\\(')
+        .replace(/\)/g, '\\)')
+        .replace(/[\r\n\f]/g, '');
+      this.image = this.sanitizer.bypassSecurityTrustStyle(`url("${escaped}")`);
     }
   }
 }

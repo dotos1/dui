@@ -26,6 +26,16 @@ import { tmpdir } from 'node:os';
 const 门目录 = resolve(fileURLToPath(new URL('.', import.meta.url)));
 const DUI = resolve(门目录, '../..');
 
+// golden.json 探针在 Asia/Shanghai (UTC+8，如 15:59:59Z / 16:00:00Z 跨日边界) 下录制；
+// V8 ICU 在进程启动时锁定时区，若宿主 TZ 不是 Asia/Shanghai 则以固定时区重入子进程以保证全球 CI 一致。
+if (process.env.TZ !== 'Asia/Shanghai') {
+  execFileSync(process.execPath, [fileURLToPath(import.meta.url), ...process.argv.slice(2)], {
+    env: { ...process.env, TZ: 'Asia/Shanghai' },
+    stdio: 'inherit',
+  });
+  process.exit(0);
+}
+
 const golden = JSON.parse(readFileSync(join(门目录, 'golden.json'), 'utf8'));
 
 /*

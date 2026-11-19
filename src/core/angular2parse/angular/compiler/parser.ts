@@ -813,7 +813,7 @@ export class _ParseAST {
                 const args = this.parseCallArguments();
                 this.rparensExpected--;
                 this.expectCharacter(chars.$RPAREN);
-                result = new FunctionCall(this.span(result.span.start), result, args);
+                result = Reflect.construct(FunctionCall, [this.span(result.span.start), result, args]) as FunctionCall;
 
             } else {
                 return result;

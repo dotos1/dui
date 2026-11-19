@@ -85,6 +85,9 @@ jobs:
       - name: Angular Material 22 样式引用门（style-ref-gate）
         run: npm run gate:style-ref
 
+      - name: AI 契约文档门（G-LLMS，llms.txt 入口点、选择器与公开绑定一致性）
+        run: npm run gate:llms
+
       - name: Build Package
         run: |
           if [ -n "${VERSION}" ]; then

@@ -6,6 +6,7 @@
 import { reflectComponentType, Type } from '@angular/core';
 import { clone, each, isArray, isFunction, isNull, isObjectLike, isUndefined } from 'lodash-es';
 import { isBlankString, isNullOrUndefined } from '../base';
+import { compileSafeExpression, compileSafeFunctionBody, compileSafeValueSetter } from './safe-expr';
 
 /**
  * Interface `DuiComponentDescriptor` defining metadata for a registered DUI dynamic component.
@@ -327,7 +328,7 @@ export class DuiBase {
    */
   public static evalFunctionExpression(expression: string, argNames: string[]): Function | undefined {
     try {
-      return Function(...argNames, `${expression}`);
+      return compileSafeFunctionBody(expression, argNames);
     } catch (error) {
       console.error(error);
       return undefined;
@@ -341,9 +342,8 @@ export class DuiBase {
    * @param argNames - arg names parameter (`string[]`) / 参数名称列表参数（`string[]`）
    */
   public static evalStringExpression(expression: string, argNames: string[]): Function | undefined {
-
     try {
-      return Function(...argNames, `return ${expression};`);
+      return compileSafeExpression(expression, argNames);
     } catch (error) {
       console.error(error);
       return undefined;
@@ -357,15 +357,7 @@ export class DuiBase {
    * @param argNames - arg names parameter (`string[]`) / 参数名称列表参数（`string[]`）
    */
   public static evalExpressionValueSetter(expression: string, argNames: string[]): (...args: unknown[]) => void {
-    if (/(?:^|\.|\[['"`]?)(?:__proto__|constructor|prototype)\b/.test(expression)) {
-      return () => {};
-    }
-    try {
-      return Function(...argNames, `${expression} = expressionValue;`) as (...args: unknown[]) => void;
-    } catch (error) {
-      console.error(error);
-      return ()=>{};
-    }
+    return compileSafeValueSetter(expression, argNames);
   }
   /**
    * Executes `evalExpression` to handle eval expression.

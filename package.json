@@ -1,6 +1,6 @@
 {
   "name": "dui",
-  "version": "8.0.0-next.2",
+  "version": "8.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
@@ -25,6 +25,7 @@
     "gate:ng22-compat": "node tools/ng-upgrade/ng22-compat-gate.mjs",
     "gate:style-ref": "node tools/ng-upgrade/style-ref-gate.mjs",
     "gate:pkg-deps": "node gates/pkg-deps-gate.mjs --selftest && node gates/pkg-deps-gate.mjs",
+    "gate:llms": "node gates/llms-txt-check.mjs",
     "prebuild": "npm --no-git-tag-version version patch && cd src  && npm --no-git-tag-version version patch",
     "npm_pack": "cd dist/dui && npm pack",
     "package": "npm run prebuild && npm run build-dui && npm run npm_pack",

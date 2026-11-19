@@ -3,19 +3,16 @@
  * @zh 模块文件 `src/core/form/extensions/field-expression/utils.ts`，提供工具集相关的定义与实现。
  */
 
+import { DuiBase } from '@dotos1/dui/base';
+
 /**
  * Executes `evalStringExpression` to handle eval string expression.
  * @zh 执行 `evalStringExpression`，用于求值字符串表达式。
  * @param expression - expression parameter (`string`) / 表达式参数（`string`）
  * @param argNames - arg names parameter (`string[]`) / 参数名称列表参数（`string[]`）
  */
-export function evalStringExpression(expression: string, argNames: string[]) {
-  try {
-    return Function(...argNames, `return ${expression};`) as unknown;
-  } catch (error) {
-    console.error(error);
-    return undefined;
-  }
+export function evalStringExpression(expression: string, argNames: string[]): Function | undefined {
+  return DuiBase.evalStringExpression(expression, argNames);
 }
 
 /**

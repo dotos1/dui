@@ -81,8 +81,8 @@ function main() {
   fs.rmSync(pubDistDir, { recursive: true, force: true });
   fs.cpSync(srcDistDir, pubDistDir, { recursive: true });
 
-  // 确保根目录的 LICENSE / README.md / THIRD-PARTY-NOTICES.md 与 src/llms.txt 最新同步到公网包根目录
-  for (const docName of ['LICENSE', 'README.md', 'THIRD-PARTY-NOTICES.md']) {
+  // 确保根目录的 LICENSE / README.md / README.en.md / THIRD-PARTY-NOTICES.md 与 src/llms.txt 最新同步到公网包根目录
+  for (const docName of ['LICENSE', 'README.md', 'README.en.md', 'THIRD-PARTY-NOTICES.md']) {
     const rootDoc = path.join(REPO_ROOT, docName);
     if (fs.existsSync(rootDoc)) {
       fs.copyFileSync(rootDoc, path.join(pubDistDir, docName));
@@ -111,7 +111,8 @@ function main() {
         .replace(/ \(Internal registry alias: `@dotos1\/dui`\)/g, '')
         .replace(/ \(internal scope alias: `@dotos1\/dui`\)/g, '')
         .replace(/（内部作用域别名：`@dotos1\/dui`）/g, '')
-        .replace(/ \(internal alias: `@dotos1\/dui[^`]*`\)/g, '');
+        .replace(/ \(internal alias: `@dotos1\/dui[^`]*`\)/g, '')
+        .replace(/\(\.\/src\/llms\.txt\)/g, '(./llms.txt)');
     }
 
     next = next.replace(/@dotos1\/dui/g, '@dotos/dui');
