@@ -4,8 +4,8 @@
  */
 
 
-import { Injectable } from '@angular/core';
-import { ConfigLoader } from './config.loader';
+import { Injectable, Optional } from '@angular/core';
+import { ConfigLoader, ConfigStaticLoader } from './config.loader';
 import { Observable, Subject } from 'rxjs';
 import { map, distinctUntilChanged } from 'rxjs/operators';
 import { DuiBase } from '@dotos1/dui/base';
@@ -142,11 +142,14 @@ export class ConfigService {
    * Creates an instance of `ConfigService` and initializes its dependencies and internal state.
    * @zh 创建 `ConfigService` 实例，并初始化其依赖项与内部状态。
    * @param localStore - Injected or initial local store (`LocalStorageService`) / 注入或传入的本地状态仓库（`LocalStorageService`）
-   * @param loader - Injected or initial loader (`ConfigLoader`) / 注入或传入的加载器（`ConfigLoader`）
+   * @param loader - Injected or initial loader (`ConfigLoader`); optional, falls back to an empty `ConfigStaticLoader` when `ConfigModule.forRoot()` is not imported / 注入或传入的加载器（`ConfigLoader`）；可选，宿主没有引 `ConfigModule.forRoot()` 时退回空的 `ConfigStaticLoader`
    */
   constructor(
     protected localStore: LocalStorageService,
-    public loader: ConfigLoader) {
+    @Optional() public loader: ConfigLoader) {
+    // ConfigLoader 是抽象类，只由 ConfigModule.forRoot() 提供。没引 forRoot 的宿主（独立组件应用、只用 cardview / clipboard 的页面）
+    // 原来在这里注入失败，Angular 报成 NG0200「ClipboardService -> LogService -> ConfigService 循环依赖」，根因完全看不出来。
+    this.loader = loader ?? new ConfigStaticLoader({});
     this.onLoadSubject = new Subject<DuiSettings>();
     this.onLoad = this.onLoadSubject.asObservable();
     this.onErrorSubject = new Subject<{ status?: number; [key: string]: unknown }>();
