@@ -58,6 +58,15 @@ export class RangeSliderFieldComponent extends MatField {
   override ngOnInit() {
     super.ngOnInit();
 
+    // 初始值也要落到两个滑块上：原来只在 valueChanges 里同步，表单默认值（defaultValue / model）在订阅前就已写入，
+    // 两个滑块停在构造时的 20 / 80，再被 min/max 夹到一端，看起来像只有一个滑块且值不对
+    const initial: unknown = this.formControl.value;
+    if (Array.isArray(initial) && initial.length === 2) {
+      const [begin, end]: number[] = initial.map(Number);
+      this.startCtrl.setValue(begin, { emitEvent: false });
+      this.endCtrl.setValue(end, { emitEvent: false });
+    }
+
     this.formControl.valueChanges
       .pipe(takeUntil(this.destroy$))
       .subscribe(val => {
