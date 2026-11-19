@@ -51,8 +51,22 @@ export class TogglePasswordComponent implements AfterViewInit {
    */
   togglePassword($event: Event) {
     $event.stopPropagation();
+    this.input ??= this.findInput();
+    if (!this.input) {
+      return;
+    }
     this.showPassword = !this.showPassword;
     this.input.type = this.showPassword ? 'text' : 'password';
+  }
+
+  /**
+   * Finds the password input in the surrounding `mat-form-field`; null when not (yet) inside one.
+   * @zh 在外层 `mat-form-field` 里找密码输入框；还没挂进（或不在）mat-form-field 时返回 null。
+   * @returns Password input element or null / 密码输入框，找不到为 null
+   */
+  private findInput(): HTMLInputElement | null {
+    const host = this.hostElement.nativeElement as HTMLElement;
+    return host.closest('mat-form-field')?.querySelector('input[type="password"]') ?? null;
   }
 
   /**
@@ -60,7 +74,12 @@ export class TogglePasswordComponent implements AfterViewInit {
    * @zh Angular 生命周期钩子：在组件视图及其子视图初始化完成后调用一次。
    */
   ngAfterViewInit() {
-    this.input = this.hostElement.nativeElement.closest('mat-form-field').querySelector('input[type="password"]');
+    // 作为表单字段后缀渲染时，首次 AfterViewInit 可能早于挂进 mat-form-field：原来直接 closest(...).querySelector 抛 TypeError。
+    // 现在找不到先不隐藏，点击时再找；确实不在 mat-form-field 里才隐藏
+    this.input = this.findInput();
+    if (this.input === null && !(this.hostElement.nativeElement as HTMLElement).isConnected) {
+      return;
+    }
     if (this.input === null) {
       this.hideToggle = true;
     }

@@ -317,6 +317,11 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
     { provide: _ExpansionPanelMixinBase, useExisting: forwardRef(() => ExpansionPanel) },
     { provide: DUI_EXPANSION_PANEL, useExisting: forwardRef(() => ExpansionPanel) }
   ],
+  // 面板自带的表头在面板自己的视图里，用 @Host() 注入 DUI_EXPANSION_PANEL；
+  // @Host() 在组件自身视图里只认宿主的 viewProviders，只放 providers 会 NG0201，整个手风琴渲染不出来
+  viewProviders: [
+    { provide: DUI_EXPANSION_PANEL, useExisting: forwardRef(() => ExpansionPanel) }
+  ],
   animations: [
     trigger('bodyExpansion', [
       state('collapsed', style({ height: '0px', visibility: 'hidden' })),
@@ -328,6 +333,13 @@ export type ExpansionPanelState = 'expanded' | 'collapsed';
 })
 export class ExpansionPanel extends _ExpansionPanelMixinBase
   implements ICanDisable, OnChanges, OnDestroy {
+
+  /**
+   * Container for configured child items: the template's `#content` slot (the base class queries `#panel`, which this template does not have). Static so `init()` can add items before the first change detection.
+   * @zh 配置子项的容器：模板里的 `#content`（基类查的是 `#panel`，本模板没有）。静态查询，`init()` 在首次变更检测前就能插子项。
+   */
+  @ViewChild('content', { read: ViewContainerRef, static: true }) public override viewContainer: ViewContainerRef;
+
 
   /**
    * Whether the toggle indicator should be hidden.

@@ -249,6 +249,10 @@ export class FieldComponent implements OnInit, OnChanges,  AfterContentInit, Aft
     this.componentRefs.push(ref);
     field._componentRefs.push(ref);
     Object.assign(ref.instance, { field });
+    // xtype 指到一个不是字段类型的组件（例如独立控件 toggle-select）时说清楚，不再报 `ref.instance.init is not a function`
+    if (typeof ref.instance.init !== 'function') {
+      throw new Error(`[dui-form] xtype "${field.xtype}" is not a form field type (no init). For a segmented toggle use "toggle-select-field".`);
+    }
     ref.instance.init(field);
     this.componentRefs.push(ref);
   }

@@ -23,6 +23,7 @@ import { HiddenFieldComponent } from './hiddenfield.component';
 import { NumberFieldComponent } from './numberfield.component';
 import { TextAreaComponent } from './textarea.component';
 import { OptionsService } from './options.service';
+import { TogglePasswordModule } from '@dotos1/dui/common/password';
 
 
 
@@ -48,6 +49,7 @@ import { OptionsService } from './options.service';
     MatSelectModule,
     TranslateModule,
     MatChipsModule,
+    TogglePasswordModule,
     FormModule.forChild()
   ],
   exports: [

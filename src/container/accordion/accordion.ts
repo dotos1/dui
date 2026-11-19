@@ -107,7 +107,7 @@ export class Accordion extends AbstractPanel implements OnChanges{
  * @zh 模板/内容视图查询引用 `viewContainer`（`@ViewChild`），指向视图容器。
  */
 //@ts-ignore
-  @ViewChild('expansiongroup', { read: ViewContainerRef }) public override viewContainer: ViewContainerRef;
+  @ViewChild('expansiongroup', { read: ViewContainerRef, static: true }) public override viewContainer: ViewContainerRef;
 
   /**
    * Property `_fxLayout` (`"row" | "column"`) storing fx layout (default: `'column'`).
