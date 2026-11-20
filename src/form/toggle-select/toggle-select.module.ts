@@ -15,6 +15,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { ToggleHeaderComponent, ToggleOption } from './toggle-header.component';
 import { ToggleSelectComponent } from './toggle-select.component';
+import { ToggleSelectFieldComponent } from './toggle-select.field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
@@ -43,12 +44,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
   declarations: [
     ToggleHeaderComponent,
     ToggleOption,
-    ToggleSelectComponent
+    ToggleSelectComponent,
+    ToggleSelectFieldComponent
   ],
   exports: [
     ToggleHeaderComponent,
     ToggleOption,
-    ToggleSelectComponent
+    ToggleSelectComponent,
+    ToggleSelectFieldComponent
   ]
 })
 
@@ -57,10 +60,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 export class ToggleSelectModule {
   /**
-   * Property `entryComponents` (`(typeof ToggleSelectComponent)[]`) storing entry components (default: `[ToggleSelectComponent]`).
-   * @zh 属性 `entryComponents`（类型：`(typeof ToggleSelectComponent)[]`），用于存储或配置条目组件列表（默认值：`[ToggleSelectComponent]`）。
+   * Property `entryComponents` storing entry components registered as xtypes (default: `[ToggleSelectComponent, ToggleSelectFieldComponent]`).
+   * @zh 属性 `entryComponents`，按 xtype 登记的组件（默认值：`[ToggleSelectComponent, ToggleSelectFieldComponent]`）；dui-form 里用 `toggle-select-field`。
    */
-  entryComponents = [ToggleSelectComponent];
+  entryComponents = [ToggleSelectComponent, ToggleSelectFieldComponent];
   /**
    * Creates an instance of `ToggleSelectModule` and initializes its dependencies and internal state.
    * @zh 创建 `ToggleSelectModule` 实例，并初始化其依赖项与内部状态。
