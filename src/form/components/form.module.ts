@@ -59,7 +59,9 @@ export function defaultFormConfig(formConfig: FormConfig): ConfigOption {
   ],
   providers: [
     TranslateStore,
-    TranslationService,
+    // 不在这里再提供 TranslationService：它是 providedIn: 'root' 的单例。在模块里重复提供，
+    // 每个引入 FormModule 的独立组件 / 懒加载注入器都会新建一份，构造函数按浏览器语言调 translate.use()，
+    // 把整个应用的语言切走（门户 G24：中文页里甘特表头变英文）。
     Load,
     Submit
   ],
