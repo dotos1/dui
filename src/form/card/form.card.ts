@@ -30,6 +30,13 @@ import { TranslateService } from '@dotos1/dui/translator';
 export class FormCard extends DuiCardComponent implements OnInit,OnChanges {
 
   /**
+   * Own xtype so the card base does not also add `config.items` as loose children (they belong to the inner dui-form). With xtype `card` every field rendered twice, the stray copies without a FormControl (`Cannot find control with unspecified name attribute`).
+   * @zh 用自己的 xtype：卡片基类在 xtype 为 `card` 时会把 `config.items` 当子项再加一遍，字段渲染两份，多出的那份没有 FormControl（`Cannot find control with unspecified name attribute`）。
+   */
+  public override xtype: string = 'form-card';
+
+
+  /**
    * Input property `config` (`DuiConfig`) configuring config (default: `{}`).
    * @zh 输入属性 `config`（类型：`DuiConfig`），用于配置配置（默认值：`{}`）。
    */

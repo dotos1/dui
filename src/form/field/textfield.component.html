@@ -19,3 +19,8 @@
       matTooltip={{toolTip|translate}} [value]="field.inputValue ?? ''"  matTooltipPosition='below' autocomplete="off"  />
   </ng-container>
 </ng-template>
+
+<!-- type: 'password' 时在输入框后缀放显隐按钮（form-field 包装器把 #matSuffix 放进 mat-form-field 的后缀位） -->
+<ng-template #matSuffix>
+  <toggle-password *ngIf="field.type === 'password'"></toggle-password>
+</ng-template>
