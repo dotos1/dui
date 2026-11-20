@@ -37,7 +37,9 @@ import { MatInputModule } from '@angular/material/input';
     PortalModule,
     MatInputModule,
     MatAutocompleteModule,
-    TranslateModule.forChild(),
+    // 不用 forChild()：它会在引入方的注入器里另建一份 TranslateService（currentLang 为空或 en），
+    // 同一注入器下其它组件的 translate 管道拿到这份，收不到根上的词条更新，界面停在词条键上
+    TranslateModule,
     ColorCompactModule,
     MatMenuModule,
     ColorCircleModule,

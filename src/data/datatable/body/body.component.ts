@@ -344,7 +344,8 @@ export class DataTableBodyComponent implements OnInit, OnDestroy {
    * @zh 获取当前滚动高度（`scrollHeight: number | undefined`）。
    */
   get scrollHeight(): number | undefined {
-    if (this.scrollbarV && this.virtualization && this.rowCount) {
+    // 行高缓存要等 refreshRowHeightCache 跑过（且 rows 非空）才有内容；rowCount / rows 先到、缓存还是空的时候不能查
+    if (this.scrollbarV && this.virtualization && this.rowCount && this.rowHeightsCache.initialized) {
       return this.rowHeightsCache.query(this.rowCount - 1);
     }
     // avoid TS7030: Not all code paths return a value.
