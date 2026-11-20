@@ -13,6 +13,7 @@ import { ConfigOption, CoreExtension, FORM_CONFIG, FieldExpressionExtension, Fie
 import { TranslateModule, TranslateStore, TranslationService } from '@dotos1/dui/translator';
 import { simpleInterceptorProviders } from '@dotos1/dui/net';
 import { Load } from '../action/load.service';
+import { LoadingModule } from '@dotos1/dui/common/loading';
 import { Submit } from '../action/submit.service';
 import { FieldComponent } from './field.component';
 import { FormAttributes } from './form.attributes';
@@ -49,7 +50,10 @@ export function defaultFormConfig(formConfig: FormConfig): ConfigOption {
   imports: [
     CommonModule,
     TranslateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    // 表单动作 Load 要 LoadingService，而它只由 LoadingModule 提供；只引字段模块（如 CheckboxGroupModule）的
+    // 独立组件会报 No provider for LoadingService（门户 G35）
+    LoadingModule,
   ],
   declarations: [
     FormAttributes,
