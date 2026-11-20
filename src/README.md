@@ -315,7 +315,7 @@ export class AssetWorkbenchComponent {
 
 | Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
 | :--- | :--- | :--- |
-| `@dotos/dui/i18n` | `DUI_LOCALE_BUNDLES` | - |
+| `@dotos/dui/i18n` | (assets only: JSON locale bundles, no TypeScript exports) | - |
 
 ### `net` — HTTP Client Interceptors & Upload/Download / 网络请求封装与传输辅助 (1)
 
@@ -333,7 +333,7 @@ export class AssetWorkbenchComponent {
 
 | Secondary Entry Point / 二级子入口 | Primary Exports / 核心导出 | Selectors / 选择器 |
 | :--- | :--- | :--- |
-| `@dotos/dui/theming` | `dui-platform-theme` | - |
+| `@dotos/dui/theming` | (Sass only: `@use '@dotos/dui/theming/platform'`, no TypeScript exports) | - |
 
 ### `translator` — Runtime Internationalization Service & Pipe / 运行时多语言国际化服务与管道 (1)
 

@@ -1,7 +1,7 @@
 # @dotos/dui — Enterprise Angular 22 UI & Dynamic Theming Library (LLM Reference)
 
 > Package Name (Public npm): `@dotos/dui` (Internal registry alias: `@dotos1/dui`)
-> Version: 8.0.0 | License: MIT | Repository: https://github.com/dotos1/dui
+> Version: 8.0.x | License: MIT | Repository: https://github.com/dotos1/dui
 > Angular Compatibility: ^22.0.0 (`standalone: false` NgModule exports — importable in both Standalone Components `imports: [...]` and classic `@NgModule`)
 > Entry-Point Rule: Root `@dotos/dui` intentionally exports `{}` for zero barrel bloat. ALWAYS import from a secondary entry point (`@dotos/dui/<subpath>`).
 > Slim Footprint: Zero heavy editors (Monaco, ProseMirror, xterm, Showdown are separated into the enterprise extension suite).
@@ -49,24 +49,127 @@ export class ThemeSwitcherComponent {
 ```
 
 ### 2.2 Dynamic Schema Form (`@dotos/dui/form`)
+
+#### 2.2.1 Quick start (host requirements + minimal working form)
+`<dui-form>` renders fields from a config object. A field's `xtype` is only usable if the NgModule that registers it is imported by the host (the module constructor registers the component); a wrapper such as `form-field` only exists if `FormWrapperModule` is imported. The host must provide:
+- `FormModule.forRoot()` once (default form extensions: validation, expressions; also provides `HttpClient`),
+- `FormWrapperModule` (wrappers `form-field`, `label-field`, `editor-field`, `fieldset`, `field-wrapper`),
+- the field module of every `xtype` you use (table in 2.2.2),
+- `LoadingModule` from `@dotos/dui/common/loading`. Without it `<dui-form>` throws `NG0201: No provider for LoadingService`. From `@dotos/dui` 8.0.2 `FormModule` imports `LoadingModule` itself; on 8.0.0 / 8.0.1, or when you import only a field module, add it explicitly (adding it on 8.0.2 is harmless).
+
 ```typescript
 import { Component } from '@angular/core';
-import { FormModule } from '@dotos/dui/form';
+import { MatButtonModule } from '@angular/material/button';
+import { LoadingModule } from '@dotos/dui/common/loading';
+import { CommonFieldModule, FormComponent, FormModule, FormWrapperModule, SelectFieldModule } from '@dotos/dui/form';
 
 @Component({
-  selector: 'app-schema-form',
-  imports: [FormModule],
-  template: `<dui-form [config]="formConfig"></dui-form>`,
+  selector: 'app-project-form',
+  imports: [FormModule.forRoot(), FormWrapperModule, CommonFieldModule, SelectFieldModule, LoadingModule, MatButtonModule],
+  template: `
+    <dui-form #f [config]="formConfig" style="display:block; max-width:480px"></dui-form>
+    <button mat-flat-button color="primary" [disabled]="!f.valid || saving" (click)="save(f)">Save</button>
+  `,
 })
-export class SchemaFormComponent {
+export class ProjectFormComponent {
+  saving = false;
   formConfig = {
     items: [
-      { xtype: 'text-field', name: 'projectName', label: 'Project Name', required: true, wrappers: ['form-field'] },
-      { xtype: 'select-field', name: 'env', label: 'Environment', wrappers: ['form-field'], options: [{ label: 'Production', value: 'prod' }, { label: 'Staging', value: 'stage' }] },
+      { xtype: 'text-field', name: 'projectName', label: 'Project Name', required: true, minLength: 3, wrappers: ['form-field'] },
+      { xtype: 'number-field', name: 'budget', label: 'Budget', min: 0, max: 1000, wrappers: ['form-field'] },
+      { xtype: 'select-field', name: 'env', label: 'Environment', wrappers: ['form-field'],
+        options: [{ label: 'Production', value: 'prod' }, { label: 'Staging', value: 'stage' }] },
     ],
   };
+
+  save(f: FormComponent): void {
+    if (!f.valid) { f.form.markAllAsTouched(); return; }
+    this.saving = true;
+    console.log(f.value);               // { projectName: '...', budget: 1, env: 'prod' }
+    this.saving = false;
+  }
 }
 ```
+`FormComponent` members you will use: `valid` (getter, `form.valid`; `false` until the form is built), `form` (the Angular `FormGroup`: `dirty`, `pristine`, `touched`, `pending`, `markAllAsTouched()`), `value` (the model object), `reset()`, `setValues(obj)`, `getValues()` (`HttpParams` / `FormData`), `submit({ url })`, `load({ url })`. Inputs: `[config]` (`{ items }`), `[items]`, `[model]`, `[form]`, `[options]`. Outputs: `(modelChange)`, `(formInit)`.
+
+#### 2.2.2 Field types (`xtype`) and the module that registers each
+| `xtype` | Module (all from `@dotos/dui/form` unless noted) | Notes |
+| --- | --- | --- |
+| `text-field` | `CommonFieldModule` | `minLength`, `maxLength`, `pattern`, `options` (autocomplete) |
+| `number-field` | `CommonFieldModule` | `min`, `max`, `step`, `unit` |
+| `textarea-field` | `CommonFieldModule` | `rows`, `cols` |
+| `display-field` | `CommonFieldModule` | read-only text |
+| `hidden-field` | `CommonFieldModule` | not rendered |
+| `select-field` | `SelectFieldModule` | `options: [{ label, value, disabled? }]` or groups `{ label, group: [...] }`; `multiple`, `hasSearch`, `hasBlankOption`, `selectAllOption`, remote: `remote: true` + `dataSource: { url, method }` + `params` |
+| `checkbox-field` | `CheckBoxFieldModule` | boolean |
+| `checkbox-group` | `CheckboxGroupModule` | `options`; required message via `blankText` |
+| `radio-group` | `RadioGroupModule` | `options`; required message via `blankText` |
+| `slide-toggle` | `SliderToggleFieldModule` | boolean |
+| `slider-field` | `SliderFieldModule` | `min`, `max`, `step`, `thumbLabel`, `color` |
+| `range-slider-field` | `RangeSliderModule` | |
+| `color-picker-field` | `ColorFieldModule` | `colorType` |
+| `trigger-field` | `TriggerModule` | |
+| `array-input-field` | `ArrayInputModule` | |
+| `label-field` | `LabelFieldModule` | |
+| `date-field` | `DateFieldModule` from `@dotos/dui/form/date` | `min`, `max`, `minText`, `maxText`, `parseText` |
+| `date-range-field`, `number-range-field` | `RangeFieldModule` from `@dotos/dui/form/range` | |
+| `toggle-select-field` | `ToggleSelectModule` from `@dotos/dui/form/toggle-select` | |
+| `form-group` | (built in; use `fieldGroup: [...]` instead of `xtype`) | groups fields, `fieldGroupClassName` |
+| `form-section`, `dui-fieldset`, `repeat-section`, `row-editor` | `FormWrapperModule` | layout / repeating sections |
+
+Common field properties (type `FieldConfig`): `name` (model key, dotted path allowed), `label`, `placeholder`, `description`, `defaultValue`, `required`, `disabled`, `readonly`, `hide`, `hideExpression`, `expressionProperties`, `wrappers`, `flex` (row width in percent, default 100), `className`, `tabindex`, `validation`, `validators`, `asyncValidators`, `attributes`, `fieldGroup`, `hooks`, `modelOptions` (`{ updateOn: 'change' | 'blur' | 'submit', debounce: { default: ms } }`). Wrappers: `form-field` (Material form field with label and error text; use this one by default), `label-field`, `editor-field`, `fieldset`, `field-wrapper`.
+
+#### 2.2.3 Form validation and button linkage
+**Validation properties** (set on a field; checked by Angular validators):
+| Property | Applies to | Angular error key |
+| --- | --- | --- |
+| `required: true` | all fields | `required` |
+| `min` / `max` | `number-field` | `min` / `max` |
+| `minLength` / `maxLength` | `text-field`, `textarea-field` | `minlength` / `maxlength` (all lowercase) |
+| `pattern` (string or RegExp) | `text-field` | `pattern` |
+| `min` / `max` (date) | `date-field` | `matDatepickerMin` / `matDatepickerMax` (+ `matDatepickerParse` for unparsable input) |
+| `validators: { name: { expression: (control, field) => boolean, message } }` | any | `name` (your key) |
+| `asyncValidators` | any | same shape, `expression` returns a Promise / Observable |
+
+**Messages.** The built-in messages are set by the field itself from these properties (values are plain text or i18n keys; `{0}` is replaced by the limit):
+| Error | Property that sets the text | Default |
+| --- | --- | --- |
+| `required` | `blankText` | "This field cannot be empty!" (i18n `FORM.BLANKTEXT`) |
+| `minlength` / `maxlength` | `minLengthText` / `maxLengthText` | i18n `FORM.MINLENGTHTEXT` / `FORM.MAXLENGTHTEXT` |
+| `pattern` | `regexText` | i18n `FORM.REGEXTEXT` |
+| `min` / `max` | `minText` / `maxText` | i18n `FORM.MINTEXT` / `FORM.MAXTEXT` (date: `FORM.MINDATETEXT` / `FORM.MAXDATETEXT`) |
+| `matDatepickerParse` | `parseText` | i18n `FORM.PARSEDATETEXT` |
+
+`validation.messages` is the map `{ [errorKey]: string | ((error, field) => string) }` used by the error display; use it for your own validator keys. For the built-in keys above, the field writes its own text at init, so put your wording in the `*Text` property instead of `validation.messages.required` and the like. A custom validator can carry its own text: `message` inside the validator object. `validation.show: true` forces the error text to show even before the field is touched. By default errors show once the field is touched (or the form was submitted); application-wide messages can be registered with `FormModule.forChild({ validationMessages: [{ name, message }] })`.
+```typescript
+{ xtype: 'text-field', name: 'code', label: 'Code', wrappers: ['form-field'],
+  required: true, blankText: 'Code is required',
+  minLength: 3, minLengthText: 'At least {0} characters',
+  pattern: '^[A-Z0-9]+$', regexText: 'Upper-case letters and digits only',
+  validators: { notReserved: { expression: (c) => c.value !== 'ADMIN', message: 'Reserved code' } } }
+```
+
+**Conditional fields** (field level): `hide: true`, `hideExpression` (boolean, function `(model, formState, field) => boolean`, or a string such as `'!model.env'`), `expressionProperties: { disabled: '!model.projectName' }` (string or function over `(model, formState, field)`). There is no `disableExpression` on a form field; use `expressionProperties.disabled`.
+
+**Buttons that follow the form state.** `<dui-form>` has no built-in submit button and nothing is auto-disabled: disabling / hiding the button on invalid, dirty or pending state is something you wire, with either of these two (both are real, pick one):
+1. Host template (simplest): bind to the form component through a template reference. `[disabled]="!f.valid"` (invalid), `[disabled]="f.form.pristine"` (nothing changed), `[disabled]="f.form.pending"` (async validators running), `[disabled]="saving"` (your own "submitting" flag), `*ngIf` / `@if (...)` to hide. This is the form in 2.2.1.
+2. Configuration (`dui-button` from `@dotos/dui/ui/button`, the way the dotos platform builds its toolbars): the button config accepts `disableExpression` and `hideExpression` (boolean, string, or function `(comp, owner)`). `owner` is whatever you pass to `[ownerCt]`; the expressions are re-evaluated on every change detection pass.
+```typescript
+import { ButtonModule, type DuiButtonConfig } from '@dotos/dui/ui/button';
+// add ButtonModule to the component imports
+
+saveButton: DuiButtonConfig = {
+  text: 'Save', type: 'mat-raised-button', color: 'primary',
+  disableExpression: (comp, owner) => !owner.valid || owner.form.pending || this.saving,
+  hideExpression: () => this.readonly,                 // or a string: 'owner.form.pristine'
+  handler: () => this.save(this.f),                    // @ViewChild(FormComponent) f
+};
+// template:
+// <dui-form #f [config]="formConfig"></dui-form>
+// <dui-button [config]="saveButton" [ownerCt]="f"></dui-button>
+```
+Inside `<form-card>` (`FormCardModule` from `@dotos/dui/form/card`) the same button configs go in the card config `buttons: [{ xtype: 'dui-button', text, handler, disableExpression }]`; there `owner` is the card and `owner.getForm()` returns the `FormComponent` (`'!owner.getForm().valid'`).
+`submit()`: `await f.submit({ url: '/api/projects' })` POSTs the field values (urlencoded, or multipart when `fileUpload`) and resolves when the server answers JSON with `success: true`, otherwise it rejects. It does not check validity itself, so guard it with `if (!f.valid) return;`. To send JSON yourself use `f.value` with `HttpClient`.
 
 ### 2.3 Dialogs: Alert & Confirm (`@dotos/dui/common/dialogs`)
 ```typescript
@@ -126,7 +229,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/common/animations` (internal alias: `@dotos1/dui/common/animations`)
 - **NgModules**: `AnimationsModule`
-- **Directive** `ToggleDirective` (`[duiToggle]`) — [duration]: number, [state]: boolean
+- **Directive** `ToggleDirective` (`[duiToggle]`) — [duration]: number, [duiToggle]: boolean
 
 ### `@dotos/dui/common/backdrop` (internal alias: `@dotos1/dui/common/backdrop`)
 - **NgModules**: `BackdropModule`
@@ -150,7 +253,7 @@ export class WorkbenchDataComponent {
 - **NgModules**: `ClipboardModule`
 - **Component** `ClipboardComponent` (`dui-copy-content-tooltip`)
 - **Component** `CopyButtonComponent` (`copy-button`) — [copyText]: string, [disabled]: any, [icon]: string, [tooltipText]: string, [tooltipPosition]: TooltipPosition, [style]: {[key: string]: unknown}, [color]: ThemePalette, [miniButton]: any; (successCopied): any
-- **Directive** `ClipboardDirective` (`[dui-clipboard]`) — [placeholder]: string, [target]: HTMLInputElement | HTMLTextAreaElement, [message]: string
+- **Directive** `ClipboardDirective` (`[dui-clipboard]`) — [dui-clipboard]: string, [target]: HTMLInputElement | HTMLTextAreaElement, [clipboard-notification]: string
 - **Services**: `ClipboardService`
 
 ### `@dotos/dui/common/collapsible` (internal alias: `@dotos1/dui/common/collapsible`)
@@ -270,7 +373,7 @@ export class WorkbenchDataComponent {
 ### `@dotos/dui/common/loading` (internal alias: `@dotos1/dui/common/loading`)
 - **NgModules**: `LoadingModule`
 - **Component** `LoadingComponent` (`dui-loading`)
-- **Directive** `LoadingDirective` (`[duiLoading]`) — [name]: string, [until]: any, [type]: LoadingType, [mode]: LoadingMode, [strategy]: LoadingStrategy.Overlay | LoadingStrategy.Replac, [color]: 'primary' | 'accent' | 'warn'
+- **Directive** `LoadingDirective` (`[duiLoading]`) — [duiLoading]: string, [duiLoadingUntil]: any, [duiLoadingType]: LoadingType, [duiLoadingMode]: LoadingMode, [duiLoadingStrategy]: LoadingStrategy.Overlay | LoadingStrategy.Replac, [duiLoadingColor]: 'primary' | 'accent' | 'warn'
 - **Services**: `LoadingFactory`, `LoadingService`
 
 ### `@dotos/dui/common/matcolorpicker` (internal alias: `@dotos1/dui/common/matcolorpicker`)
@@ -279,7 +382,7 @@ export class WorkbenchDataComponent {
 
 ### `@dotos/dui/common/media` (internal alias: `@dotos1/dui/common/media`)
 - **NgModules**: `MediaModule`
-- **Directive** `MediaToggleDirective` (`[extMediaToggle]`) — [query]: string, [attributes]: any, [classes]: string[], [styles]: any
+- **Directive** `MediaToggleDirective` (`[extMediaToggle]`) — [extMediaToggle]: string, [mediaAttributes]: any, [mediaClasses]: string[], [mediaStyles]: any
 - **Services**: `MediaService`
 
 ### `@dotos/dui/common/message` (internal alias: `@dotos1/dui/common/message`)
@@ -299,13 +402,13 @@ export class WorkbenchDataComponent {
 - **NgModules**: `PerfectScrollbarModule`
 - **Component** `PerfectScrollbarComponent` (`perfect-scrollbar`) — [disabled]: boolean, [usePSClass]: boolean, [autoPropagation]: boolean, [scrollIndicators]: boolean, [config]: PerfectScrollbarConfigInterface; (psScrollY): any, (psScrollX): any, (psScrollUp): any, (psScrollDown): any, (psScrollLeft): any, (psScrollRight): any
 - **Directive** `ForceNativeScrollDirective` (`[forceNativeScrolling]`)
-- **Directive** `PerfectScrollbarDirective` (`[perfectScrollbar]`) — [disabled]: boolean, [config]: PerfectScrollbarConfigInterface; (psScrollY): any, (psScrollX): any, (psScrollUp): any, (psScrollDown): any
+- **Directive** `PerfectScrollbarDirective` (`[perfectScrollbar]`) — [disabled]: boolean, [perfectScrollbar]: PerfectScrollbarConfigInterface; (psScrollY): any, (psScrollX): any, (psScrollUp): any, (psScrollDown): any
 
 ### `@dotos/dui/common/popover` (internal alias: `@dotos1/dui/common/popover`)
 - **NgModules**: `PopoverModule`
-- **Component** `Popover` (`popover`) — [positionX]: any, [positionY]: any, [triggerEvent]: PopoverTriggerEvent, [scrollStrategy]: PopoverScrollStrategy, [enterDelay]: number, [leaveDelay]: number, [overlapTrigger]: boolean, [targetOffsetX]: number; (close): any
+- **Component** `Popover` (`popover`) — [popoverPositionX]: any, [popoverPositionY]: any, [popoverTriggerOn]: PopoverTriggerEvent, [popoverScrollStrategy]: PopoverScrollStrategy, [popoverEnterDelay]: number, [popoverLeaveDelay]: number, [popoverOverlapTrigger]: boolean, [popoverOffsetX]: number; (close): any
 - **Directive** `PopoverTarget` (`popover-target, [popoverTarget]`)
-- **Directive** `PopoverTrigger` (`[popoverTriggerFor]`) — [name]: string, [popover]: PopoverPanel, [targetElement]: PopoverTargetInterface, [positionX]: PopoverPositionX, [positionY]: PopoverPositionY, [triggerEvent]: PopoverTriggerEvent; (opened): any, (closed): any
+- **Directive** `PopoverTrigger` (`[popoverTriggerFor]`) — [name]: string, [popoverTriggerFor]: PopoverPanel, [popoverTargetAt]: PopoverTargetInterface, [popoverPositionX]: PopoverPositionX, [popoverPositionY]: PopoverPositionY, [popoverTriggerOn]: PopoverTriggerEvent; (opened): any, (closed): any
 
 ### `@dotos/dui/common/print` (internal alias: `@dotos1/dui/common/print`)
 - **NgModules**: `PrintModule`
@@ -373,7 +476,7 @@ export class WorkbenchDataComponent {
 - **Component** `TabPanel` (`tabpanel`) — [config]: DuiConfig
 - **Directive** `AbstractPanel` — [config]: DuiConfig, [overflowX]: string, [overflowY]: string, [opened]: boolean, [gutterSize]: number, [disabled]: boolean
 - **Directive** `DuiLayoutCloseDirective` (`[duiLayoutClose]`) — [duiLayoutClose]: boolean
-- **Directive** `DuiLayoutOpenDirective` (`[duiLayoutOpen]`) — [duiLayoutClose]: boolean
+- **Directive** `DuiLayoutOpenDirective` (`[duiLayoutOpen]`) — [duiLayoutOpen]: boolean
 - **Directive** `DuiLayoutToggleDirective` (`[duiLayoutToggle]`) — [duiLayoutToggle]: boolean
 - **Directive** `ExpansionPanelActionRow` (`dui-action-row`)
 - **Directive** `ExpansionPanelDescription` (`panel-description`)
@@ -554,7 +657,7 @@ export class WorkbenchDataComponent {
 - **Component** `MatDatetimepickerContent` (`mat-datetimepicker-content`)
 - **Component** `MatDatetimepickerMonthView` (`mat-datetimepicker-month-view`) — [type]: MatDatetimepickerType, [dateFilter]: (date: D) => boolean, [activeDate]: D, [selected]: D; (selectedChange): any
 - **Component** `MatDatetimepickerMultiYearView` (`mat-datetimepicker-multi-year-view`) — [type]: MatDatetimepickerType, [dateFilter]: (date: D) => boolean, [activeDate]: D, [selected]: D, [minDate]: D | null, [maxDate]: D | null; (selectedChange): any
-- **Component** `MatDatetimepickerToggle` (`mat-datetimepicker-toggle`) — [datetimepicker]: MatDatetimepicker<D>, [disabled]: boolean
+- **Component** `MatDatetimepickerToggle` (`mat-datetimepicker-toggle`) — [for]: MatDatetimepicker<D>, [disabled]: boolean
 - **Component** `MatDatetimepickerYearView` (`mat-datetimepicker-year-view`) — [type]: MatDatetimepickerType, [dateFilter]: (date: D) => boolean, [activeDate]: D, [selected]: D; (selectedChange): any
 - **Directive** `MatDatetimepickerInput` (`input[matDatetimepicker]`) — [matDatetimepicker]: MatDatetimepicker<D>, [matDatepickerFilter]: (date: D | null, type: MatDatetimepickerFilterTy, [value]: D | null, [min]: D | null, [max]: D | null, [disabled]: any; (dateChange): any, (dateInput): any
 
@@ -589,7 +692,7 @@ export class WorkbenchDataComponent {
 - **Component** `WrapperEditorField` (`editor-field-wrapper`)
 - **Component** `WrapperFormField` (`mat-form-field-wrapper`)
 - **Directive** `AutoTrimDirective` (`[duiAutoTrim]`)
-- **Directive** `FormAttributes` (`[formAttributes]`) — [field]: FieldConfig, [id]: string
+- **Directive** `FormAttributes` (`[formAttributes]`) — [formAttributes]: FieldConfig, [id]: string
 - **Directive** `MatCheckGroup` (`mat-check-group`) — [name]: string, [align]: 'start' | 'end', [labelPosition]: any, [value]: Array<string>, [disabled]: boolean, [required]: boolean; (change): MatCheckChange
 - **Directive** `MatField`
 - **Pipes**: `SelectOptionsPipe`
@@ -610,7 +713,7 @@ export class WorkbenchDataComponent {
 ## Category: `i18n`
 
 ### `@dotos/dui/i18n` (internal alias: `@dotos1/dui/i18n`)
-- **Exports**: `DUI_LOCALE_BUNDLES`
+- **Assets only**: JSON locale bundles under `i18n/dui/<locale>.json` (no TypeScript exports; map the folder into the app assets)
 
 ## Category: `net`
 
@@ -629,7 +732,7 @@ export class WorkbenchDataComponent {
 ## Category: `theming`
 
 ### `@dotos/dui/theming` (internal alias: `@dotos1/dui/theming`)
-- **Exports**: `dui-platform-theme`
+- **Sass only** (no TypeScript exports): `@use '@dotos/dui/theming/platform';` plus `theming/all-theme`, `theming/theming`, `theming/styles/elevation`
 
 ## Category: `translator`
 
@@ -654,8 +757,8 @@ export class WorkbenchDataComponent {
 - **Component** `TreeNodeExpanderComponent` (`tree-node-expander`) — [node]: any
 - **Component** `TreeNodeWrapperComponent` (`tree-node-wrapper`) — [node]: any, [index]: number, [templates]: any
 - **Component** `TreeViewportComponent` (`tree-viewport`)
-- **Directive** `TreeAnimateOpenDirective` (`[treeAnimateOpen]`) — [animateSpeed]: number, [animateAcceleration]: number, [isEnabled]: boolean, [isOpen]: boolean
-- **Directive** `TreeDragDirective` (`[treeDrag]`) — [draggedElement]: any, [treeDragEnabled]: any
+- **Directive** `TreeAnimateOpenDirective` (`[treeAnimateOpen]`) — [treeAnimateOpenSpeed]: number, [treeAnimateOpenAcceleration]: number, [treeAnimateOpenEnabled]: boolean, [treeAnimateOpen]: boolean
+- **Directive** `TreeDragDirective` (`[treeDrag]`) — [treeDrag]: any, [treeDragEnabled]: any
 - **Directive** `TreeDropDirective` (`[treeDrop]`) — [allowDragoverStyling]: any, [treeAllowDrop]: any; (onDropCallback): any, (onDragOverCallback): any, (onDragLeaveCallback): any, (onDragEnterCallback): any
 - **Directive** `TreeMobxAutorunDirective` (`[treeMobxAutorun]`) — [treeMobxAutorun]: any
 - **Services**: `TreeDraggedElement`, `TreeModel`, `TreeVirtualScroll`
@@ -784,8 +887,8 @@ export class WorkbenchDataComponent {
 - **Component** `TitleBarControlsComponent` (`dui-title-bar-controls`)
 - **Component** `TitleBarIconComponent` (`dui-title-bar-icon`) — [iconType]: any, [icon]: any, [iconClass]: any
 - **Component** `WindowComponent` (`dui-window`) — [isActive]: boolean, [scrollViewStyle]: object, [scrollViewStyleClass]: string | string[] | object
-- **Directive** `AppendToBodyDirective` (`[osAppendToBody]`) — [parameters]: AppendToBodyConfig | undefined | ''
-- **Directive** `DraggableDirective` (`[osDraggable]`) — [parameters]: DraggerConfig | undefined | ''; (osDraggableElementInit): HTMLElement, (osMovableElementInit): HTMLElement, (osDragStart): DragInfo, (osDragging): DragInfo
-- **Directive** `FixedToParentDirective` (`[osFixedToParent]`) — [parameters]: FixedToParentConfig | undefined | ''
-- **Directive** `ResizableDirective` (`[osResizable]`) — [parameters]: ResizerConfig | undefined | ''; (osResizableElementInit): HTMLElement, (osResizersWrapperElementInit): HTMLElement, (osResizeStart): ResizeInfo, (osResizing): ResizeInfo
+- **Directive** `AppendToBodyDirective` (`[osAppendToBody]`) — [osAppendToBody]: AppendToBodyConfig | undefined | ''
+- **Directive** `DraggableDirective` (`[osDraggable]`) — [osDraggable]: DraggerConfig | undefined | ''; (osDraggableElementInit): HTMLElement, (osMovableElementInit): HTMLElement, (osDragStart): DragInfo, (osDragging): DragInfo
+- **Directive** `FixedToParentDirective` (`[osFixedToParent]`) — [osFixedToParent]: FixedToParentConfig | undefined | ''
+- **Directive** `ResizableDirective` (`[osResizable]`) — [osResizable]: ResizerConfig | undefined | ''; (osResizableElementInit): HTMLElement, (osResizersWrapperElementInit): HTMLElement, (osResizeStart): ResizeInfo, (osResizing): ResizeInfo
 - **Services**: `DynamicWindowService`, `DynamicWindowSharedConfigService`
