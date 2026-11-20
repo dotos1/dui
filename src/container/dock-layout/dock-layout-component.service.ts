@@ -54,10 +54,17 @@ export class DockLayoutComponentService {
           providers: [provider],
           parent: this._envInjector,
         });
-        return createComponent(component, {
+        const ref = createComponent(component, {
           environmentInjector: this._envInjector,
           elementInjector: injector,
         });
+        // 与 Dui.create 一致：按 xtype 建的组件用其配置调一次 init。面板的 componentState 也一并传入（state 字段），
+        // 这样面板组件不必依赖注入令牌就能拿到自己的内容
+        const instance = ref.instance as { init?: (cfg: unknown) => void };
+        if (typeof instance?.init === 'function') {
+          instance.init({ ...config, state: container.initialState });
+        }
+        return ref;
       }
     }
   }

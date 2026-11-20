@@ -6,3 +6,4 @@
 export { ExtCodeEditorComponent } from './code-editor.component';
 export { CodeEditorModule } from './code-editor.module';
 
+export { DEFAULT_MONACO_VS_PATH, MONACO_AMD_LOADER_KEY, ensureMonacoAmdLoader, type MonacoAmdRequire } from './monaco-amd-loader';

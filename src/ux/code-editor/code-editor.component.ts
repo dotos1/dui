@@ -6,6 +6,7 @@
 import { Component, Input, Output, EventEmitter, OnInit, AfterViewInit, OnDestroy, ViewChild, ElementRef, forwardRef, NgZone, ChangeDetectionStrategy } from '@angular/core';
 import { NG_VALUE_ACCESSOR, ControlValueAccessor } from '@angular/forms';
 import { Observable, Subject } from 'rxjs';
+import { DEFAULT_MONACO_VS_PATH, ensureMonacoAmdLoader } from './monaco-amd-loader';
 
 /**
  * Constant/variable `noop` defining noop in `src/ux/code-editor`.
@@ -191,6 +192,12 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
 
    * @zh 输入属性 `value` 的设置器，用于更新值。
    */
+  /**
+   * Input property `vsPath` (`string`) configuring the Monaco `vs` directory (default: `'assets/monaco/min/vs'`).
+   * @zh 输入属性 `vsPath`（类型：`string`），Monaco 资源 `vs` 目录的地址（默认值：`'assets/monaco/min/vs'`，与 duix 一致；原来写死 `assets/monaco/vs`）。
+   */
+  @Input() vsPath: string = DEFAULT_MONACO_VS_PATH;
+
   @Input('value')
   set value(value: string) {
     this._value = value;
@@ -514,29 +521,13 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
                 resolve();
                 return;
             }
-            let onGotAmdLoader = (ownLoader: boolean) => {
-                // Load monaco
-                // 只有自己加载的 AMD 加载器才配路径：页面上已有别的加载器（例如 duix 的 Monaco 组件正在用
-                // assets/monaco/min/vs 加载）时，再改 vs 路径会把正在进行的加载指到不存在的目录
-                if (ownLoader) {
-                    (<{ require? }><unknown>window).require.config({ paths: { 'vs': 'assets/monaco/vs' } });
-                }
-                (<{ require? }><unknown>window).require(['vs/editor/editor.main'], () => {
+            // 与 duix 的 Monaco 组件共用一个加载器（见 monaco-amd-loader.ts）：不重复注入 loader.js，也不改别人已配好的路径
+            ensureMonacoAmdLoader(this.vsPath).then((req) => {
+                req(['vs/editor/editor.main'], () => {
                     this.initMonaco();
                     resolve();
                 });
-            };
-
-            // Load AMD loader if necessary
-            if (!(<{ require? }><unknown>window).require) {
-                let loaderScript: HTMLScriptElement = document.createElement('script');
-                loaderScript.type = 'text/javascript';
-                loaderScript.src = 'assets/monaco/vs/loader.js';
-                loaderScript.addEventListener('load', () => onGotAmdLoader(true));
-                document.body.appendChild(loaderScript);
-            } else {
-                onGotAmdLoader(false);
-            }
+            }, (e: unknown) => console.error(e));
         });
     }
   }

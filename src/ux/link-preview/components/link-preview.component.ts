@@ -3,7 +3,7 @@
  * @zh 模块文件 `src/ux/link-preview/components/link-preview.component.ts`，提供链接预览组件相关的定义与实现。
  */
 
-import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnDestroy, Output, ChangeDetectionStrategy, ChangeDetectorRef } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { Observable, Subscription } from 'rxjs';
 import { finalize, map } from 'rxjs/operators';
@@ -192,8 +192,9 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
    * @zh 创建 `LinkPreviewComponent` 实例，并初始化其依赖项与内部状态。
    * @param sanitizer - Injected or initial sanitizer (`DomSanitizer`) / 注入或传入的安全清理器（`DomSanitizer`）
    * @param cacheSvc - Injected or initial cache svc (`LinkPreviewCacheService`) / 注入或传入的缓存Svc（`LinkPreviewCacheService`）
+   * @param cdr - Injected change detector (`ChangeDetectorRef`) / 注入的变更检测器（`ChangeDetectorRef`）
    */
-  constructor(private sanitizer: DomSanitizer, private cacheSvc: LinkPreviewCacheService) {
+  constructor(private sanitizer: DomSanitizer, private cacheSvc: LinkPreviewCacheService, private cdr: ChangeDetectorRef) {
     this.subscribeLoadingMgrHasJobs();
    this. loadingSpinner = this.sanitizer.bypassSecurityTrustHtml(LinkPreviewLoadingSpinner)
   }
@@ -223,6 +224,8 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
     this.subscriptions.push(
       this.loadingMgr.hasPendingJobs$.subscribe(hasJobs => {
         this.showLoadingSpinner = hasJobs;
+        // 取数是异步的：宿主是 OnPush 时不标记就不会刷新，会一直转圈
+        this.cdr.markForCheck();
       })
     );
   }
@@ -309,6 +312,7 @@ export class LinkPreviewComponent implements OnChanges, OnDestroy {
         .subscribe((resp: OpenGraphMetaData) => {
           this.cacheSvc.updateCacheItem(encodedLink, resp);
           this.previews.push(resp);
+          this.cdr.markForCheck();
         });
       this.requestSubscriptions.push(sub);
     }
