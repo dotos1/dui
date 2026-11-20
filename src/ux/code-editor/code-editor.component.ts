@@ -514,9 +514,13 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
                 resolve();
                 return;
             }
-            let onGotAmdLoader = () => {
+            let onGotAmdLoader = (ownLoader: boolean) => {
                 // Load monaco
-                (<{ require? }><unknown>window).require.config({ paths: { 'vs': 'assets/monaco/vs' } });
+                // 只有自己加载的 AMD 加载器才配路径：页面上已有别的加载器（例如 duix 的 Monaco 组件正在用
+                // assets/monaco/min/vs 加载）时，再改 vs 路径会把正在进行的加载指到不存在的目录
+                if (ownLoader) {
+                    (<{ require? }><unknown>window).require.config({ paths: { 'vs': 'assets/monaco/vs' } });
+                }
                 (<{ require? }><unknown>window).require(['vs/editor/editor.main'], () => {
                     this.initMonaco();
                     resolve();
@@ -528,10 +532,10 @@ export class ExtCodeEditorComponent implements OnInit, AfterViewInit, OnDestroy,
                 let loaderScript: HTMLScriptElement = document.createElement('script');
                 loaderScript.type = 'text/javascript';
                 loaderScript.src = 'assets/monaco/vs/loader.js';
-                loaderScript.addEventListener('load', onGotAmdLoader);
+                loaderScript.addEventListener('load', () => onGotAmdLoader(true));
                 document.body.appendChild(loaderScript);
             } else {
-                onGotAmdLoader();
+                onGotAmdLoader(false);
             }
         });
     }

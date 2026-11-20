@@ -17,6 +17,14 @@ export class RowHeightCache {
   private treeArray: number[] = [];
 
   /**
+   * Whether the cache has been initialized with at least one row.
+   * @zh 缓存是否已按行初始化（`initCache` 之后、且有行）。
+   */
+  get initialized(): boolean {
+    return this.treeArray.length > 0;
+  }
+
+  /**
    * Clear the Tree array.
 
    * @zh 执行 `clearCache`，用于清空缓存。
@@ -118,8 +126,10 @@ export class RowHeightCache {
    * @zh 执行 `query`，用于查询。
    */
   query(atIndex: number): number {
+    // 还没初始化（rows / rowCount 先到、refreshRowHeightCache 还没跑）时视为高度 0，
+    // 与 calcRowIndex 对空缓存返回 0 的处理一致；原先在这里抛错，变更检测里会刷控制台报错
     if (!this.treeArray.length) {
-      throw new Error(`query at index ${atIndex} failed: Fenwick tree array not initialized.`);
+      return 0;
     }
 
     let sum = 0;
