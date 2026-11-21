@@ -25,16 +25,23 @@ describe('normalizeUnit', () => {
   });
 });
 
+interface FakeField {
+  unit: unknown;
+  inputValue?: unknown;
+  formControl: { value: unknown; patchValue: (v: unknown) => void };
+}
+type Testable = Omit<NumberFieldComponent, 'field'> & { field: FakeField };
+
 describe('NumberFieldComponent unit', () => {
-  function make(unit: unknown, value: number | null) {
-    const self: any = Object.create(NumberFieldComponent.prototype);
+  function make(unit: unknown, value: number | null): Testable {
+    const self = Object.create(NumberFieldComponent.prototype) as Testable;
     self.units = [];
     self.defaultUnit = '';
     self.currentUnit = '';
     self.field = { unit, formControl: { value, patchValue: (v: unknown) => (self.field.formControl.value = v) } };
     const cfg = normalizeUnit(unit);
     if (cfg) { self.unitCfg = cfg; self.defaultUnit = cfg.nativeUnit; self.currentUnit = cfg.nativeUnit; self.units = cfg.units; }
-    return self as NumberFieldComponent & { field: any };
+    return self;
   }
   it("unit: 'm' 输入不报错", () => {
     const c = make('m', 5);
