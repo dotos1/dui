@@ -10,9 +10,13 @@
     "dotos",
     "material",
     "theming",
-    "ui-components"
+    "ui-components",
+    "angular-material",
+    "config-driven",
+    "low-code",
+    "dark-mode"
   ],
-  "homepage": "https://www.dotos.com",
+  "homepage": "https://dui.dotos.com/products/dui",
   "repository": {
     "type": "git",
     "url": "https://github.com/dotos1/dui"
