@@ -4,6 +4,20 @@
 [![Angular](https://img.shields.io/badge/Angular-%5E22.0.0-dd0031.svg)](https://angular.dev)
 [![Secondary Entry Points](https://img.shields.io/badge/Entry%20Points-95%20Modular-success.svg)](#secondary-entry-points-reference--%E5%85%A8%E9%83%A8%E4%BA%8C%E7%BA%A7%E5%AD%90%E5%85%A5%E5%8F%A3%E9%80%9F%E6%9F%A5%E8%A1%A8)
 
+<p align="center">
+  <a href="https://dui.dotos.com"><b>🌐 Website / 官网</b></a> ·
+  <a href="https://dui.dotos.com/demo"><b>▶ Live demo / 在线体验</b></a> ·
+  <a href="https://dui.dotos.com/products/dui"><b>📘 Docs / 文档</b></a> ·
+  <a href="https://dui.dotos.com/contact"><b>✉ Contact / 联系我们</b></a>
+</p>
+
+<p align="center">
+  <a href="https://dui.dotos.com"><img src="https://raw.githubusercontent.com/dotos1/dui/master/docs/images/dui-dotos-com.png" alt="DotOS UI — https://dui.dotos.com" width="860"></a>
+</p>
+
+> 168 live, config-only component examples (no HTML / SCSS) run in your browser at **[dui.dotos.com/demo](https://dui.dotos.com/demo)**.
+> 在 **[dui.dotos.com/demo](https://dui.dotos.com/demo)** 可以在线试用 168 个组件示例，全部只写配置、不写 HTML/SCSS。
+
 **DotOS UI (`@dotos/dui`)** is an enterprise-grade **Angular 22** native component library and millisecond-level dynamic **Light / Dark / Industrial DarkBlue** theming foundation, open-sourced under the **MIT License**.
 
 **DotOS UI（`@dotos/dui`）** 是面向复杂数据工作台与企业级 Web 应用的 **Angular 22 原生组件库**与**毫秒级亮色 / 暗色 / 工业深蓝（Light / Dark / DarkBlue）动态主题底座**，基于 **MIT 协议**开源发布。

@@ -1,8 +1,8 @@
 # 类型检查压制「只减不增」门（2026-11-14 平台负责人定：@ts-ignore 必须清除，先加门禁）。
-# 规则与脚本在 dotos-ops 维护一份（ts/gates/ts-suppress-gate.mjs），本仓库只放按文件登记的基线 .ts-suppress-baseline.json。
+# 门程序随仓库保存在 gates/ts-suppress-gate.mjs，按文件登记的基线在 .ts-suppress-baseline.json。
 # 任一文件 @ts-ignore / @ts-nocheck / @ts-expect-error / as any / as unknown as / <any> / eslint-disable 超过基线即红；
-# 清理后执行 node <dotos-ops>/ts/gates/ts-suppress-gate.mjs --root . --update 调低基线并一起提交（不调低也红）。
-# runner：自托管 dotos-apps；只读文件，不装依赖、不执行本仓库代码。
+# 清理后执行 node gates/ts-suppress-gate.mjs --root . --update 调低基线并一起提交（不调低也红）。
+# 只读文件，不装依赖。
 name: ts-suppress-gate
 
 on:
@@ -21,11 +21,24 @@ concurrency:
 jobs:
   gate:
     name: 类型检查压制只减不增
-    runs-on: [self-hosted, Linux, X64, dotos-apps]
+    # 私有时用自托管 dotos-apps（托管分钟额度为 0）；仓库公开后自动改用 GitHub 托管 ubuntu-latest（公开仓库免费），
+    # 避免外部 fork 的 PR 在自托管机器上执行代码。
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted","Linux","X64","dotos-apps"]') || 'ubuntu-latest' }}
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
         with:
           clean: true
           persist-credentials: false
-      - uses: dotos1/dotos-ops/.github/actions/ts-suppress-gate@master
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: 压制门自测（区分力：新增必红、调低必绿）
+        run: node gates/ts-suppress-gate.mjs --selftest
+      - name: 压制门（本仓库）
+        run: |
+          set +e -uo pipefail   # 先写摘要再按门程序的退出码退出
+          node gates/ts-suppress-gate.mjs --root . 2>&1 | tee "$RUNNER_TEMP/ts-suppress.out"
+          rc=${PIPESTATUS[0]}
+          { echo '### 类型检查压制门（只减不增，目标 0）'; echo '```'; cat "$RUNNER_TEMP/ts-suppress.out"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit "$rc"
