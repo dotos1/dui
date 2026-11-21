@@ -96,7 +96,7 @@ export class ProjectFormComponent {
 | `xtype` | Module (all from `@dotos/dui/form` unless noted) | Notes |
 | --- | --- | --- |
 | `text-field` | `CommonFieldModule` | `minLength`, `maxLength`, `pattern`, `options` (autocomplete) |
-| `number-field` | `CommonFieldModule` | `min`, `max`, `step`, `unit` |
+| `number-field` | `CommonFieldModule` | `min`, `max`, `step`, `unit` (see 2.2.2a) |
 | `textarea-field` | `CommonFieldModule` | `rows`, `cols` |
 | `display-field` | `CommonFieldModule` | read-only text |
 | `hidden-field` | `CommonFieldModule` | not rendered |
@@ -118,6 +118,12 @@ export class ProjectFormComponent {
 | `form-section`, `dui-fieldset`, `repeat-section`, `row-editor` | `FormWrapperModule` | layout / repeating sections |
 
 Common field properties (type `FieldConfig`): `name` (model key, dotted path allowed), `label`, `placeholder`, `description`, `defaultValue`, `required`, `disabled`, `readonly`, `hide`, `hideExpression`, `expressionProperties`, `wrappers`, `flex` (row width in percent, default 100), `className`, `tabindex`, `validation`, `validators`, `asyncValidators`, `attributes`, `fieldGroup`, `hooks`, `modelOptions` (`{ updateOn: 'change' | 'blur' | 'submit', debounce: { default: ms } }`). Wrappers: `form-field` (Material form field with label and error text; use this one by default), `label-field`, `editor-field`, `fieldset`, `field-wrapper`.
+
+##### 2.2.2a `number-field` `unit`
+`unit` shows a unit suffix and optionally a unit-conversion dropdown. Accepted forms:
+- Simple string: `{ xtype: 'number-field', name: 'depth', unit: 'm' }` (shows `m`, no conversion). A string array `['m', 'km']` also works (first item is native, factor 1, no conversion).
+- Full form (conversion): `unit: { nativeUnit: 'C', units: [{ id: 'C', name: 'Celsius', factor: 1, offset: 0 }, { id: 'F', name: 'Fahrenheit', factor: 1.8, offset: 32 }] }`. The form model always stores the value in `nativeUnit`; shown = stored * factor + offset. `name` is translated.
+- Common mistakes: putting `unit` as a string on older versions (threw `Cannot read properties of undefined (reading 'filter')`; now tolerated); full form with `units` missing or `nativeUnit` not listed in `units` (now auto-completed); using `units` / `unitName` on the field itself (not supported, use `unit`).
 
 #### 2.2.3 Form validation and button linkage
 **Validation properties** (set on a field; checked by Angular validators):
