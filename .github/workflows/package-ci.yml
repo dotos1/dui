@@ -25,7 +25,9 @@ permissions:
 
 jobs:
   build-and-publish:
-    runs-on: [self-hosted, Linux, X64, dotos-apps]
+    # 私有时用自托管 dotos-apps（托管分钟额度为 0）；仓库公开后自动改用 GitHub 托管 ubuntu-latest（公开仓库免费），
+    # 避免外部 fork 的 PR 在自托管机器上执行代码。
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted","Linux","X64","dotos-apps"]') || 'ubuntu-latest' }}
     steps:
       - name: Checkout Code
         uses: actions/checkout@v7
@@ -50,10 +52,6 @@ jobs:
             echo "//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}"
             echo "always-auth=true"
           } > "$RUNNER_TEMP/.npmrc"
-          if [ -n "${{ secrets.DOTOS_REGISTRY_TOKEN }}" ]; then
-            echo "@dotos:registry=${{ secrets.DOTOS_REGISTRY_URL || 'http://192.168.1.123:4873' }}" >> "$RUNNER_TEMP/.npmrc"
-            echo "${{ secrets.DOTOS_REGISTRY_URL || '//192.168.1.123:4873' }}/:_authToken=${{ secrets.DOTOS_REGISTRY_TOKEN }}" >> "$RUNNER_TEMP/.npmrc"
-          fi
           echo "NPM_CONFIG_USERCONFIG=$RUNNER_TEMP/.npmrc" >> "$GITHUB_ENV"  # 令牌只写进 job 临时目录，不写 runner 的 ~/.npmrc
         env:
           NODE_AUTH_TOKEN: ${{ secrets.DOTOS_PKG_TOKEN || secrets.GITHUB_TOKEN }}  # 组织级读包令牌：GITHUB_TOKEN 读不了别的仓库发布的 @dotos1/* 包（401）
