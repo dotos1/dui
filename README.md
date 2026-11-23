@@ -1,5 +1,16 @@
 # @dotos/dui
 
+<p align="center">
+  <a href="https://dui.dotos.com"><b>🌐 Website / 官网</b></a> ·
+  <a href="https://dui.dotos.com/demo"><b>▶ Live demo / 在线体验</b></a> ·
+  <a href="https://dui.dotos.com/products/dui"><b>📘 Docs / 文档</b></a> ·
+  <a href="https://dui.dotos.com/contact"><b>✉ Contact / 联系我们</b></a>
+</p>
+
+<p align="center">
+  <a href="https://dui.dotos.com"><img src="https://raw.githubusercontent.com/dotos1/dui/master/docs/images/dui-dotos-com.png" alt="DotOS UI — https://dui.dotos.com" width="860"></a>
+</p>
+
 **为 Angular 22 打造、在生产系统里长出来的企业级 UI 基础库。**
 95 个按需引入的入口、220 个组件、运行时三态换肤、12 种语言 —— 开箱即可搭建高密度的企业后台。
 

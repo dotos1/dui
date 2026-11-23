@@ -1,5 +1,16 @@
 # @dotos/dui
 
+<p align="center">
+  <a href="https://dui.dotos.com"><b>🌐 Website / 官网</b></a> ·
+  <a href="https://dui.dotos.com/demo"><b>▶ Live demo / 在线体验</b></a> ·
+  <a href="https://dui.dotos.com/products/dui"><b>📘 Docs / 文档</b></a> ·
+  <a href="https://dui.dotos.com/contact"><b>✉ Contact / 联系我们</b></a>
+</p>
+
+<p align="center">
+  <a href="https://dui.dotos.com"><img src="https://raw.githubusercontent.com/dotos1/dui/master/docs/images/dui-dotos-com.png" alt="DotOS UI — https://dui.dotos.com" width="860"></a>
+</p>
+
 **Enterprise-grade Angular 22 UI library, built in production.**
 With 95 modular entry points, 220+ components, runtime 3-state theming, and 12-language support — built for high-density enterprise dashboards.
 
