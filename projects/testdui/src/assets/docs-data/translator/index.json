@@ -4,7 +4,7 @@
     {
       "name": "DateFormatOptions",
       "kind": "interface",
-      "summary": "国际化格式化 —— 原生 `Intl` 版。\n\n<p>自研,替代 LEGACY 衍生的 intl 半边(`base.ts` / `intl-base.ts` /\n`date-formatter.ts` / `date-parser.ts` / `number-formatter.ts` /\n`number-parser.ts` / `parser-base.ts` / `internationalization.ts` /\n`l10n.ts`,共 2,942 行)。见 duix 的 `lib/PEEL-CLEANUP-PLAN.md` §P5。\n\n<p><b>为什么能只写这么点。</b>旧实现带着一整套 CLDR 装载机制,而\n`cldrData` 在本仓库里<u>始终是空对象</u> —— 没有一处调过 `loadCldr`。\n也就是说那 2,942 行一直跑在 en-US 的内置兜底路径上,等价于原生\n`Intl` 的 `'en-US'`。真正需要自己实现的只有一件事:\n<b>把 LEGACY 的格式串方言翻成 `Intl` 的选项</b>。\n\n<p><b>方言范围是枚举出来的,不是猜的</b>(`tools/intl/matrix.mjs` 记着出处):\n\n<ul>\n  <li>后端下发六种日期串:`yyyy/MM/dd`、`yyyy/MM/dd HH:mm:ss`、\n      `yyyy/MM/dd HH:mm`、`yyyy/MM`、`yyyy`、`yMd`;</li>\n  <li>应用里写死的:`y/M/d`、`y/M/d H:m:s`、`MMM dd, y`、`mediumDate`;</li>\n  <li>数值:`C2` 一种,外加透视表传的 `{ minimumFractionDigits }` 对象形态。</li>\n</ul>\n\n<p>门在 `tools/intl/gate.mjs`:期望值由**旧实现**算出(158 条),不是我写的。",
+      "summary": "国际化格式化 —— 原生 `Intl` 版。\n\n<p>自研实现,基于原生 `Intl`。\n\n<p><b>为什么能只写这么点。</b>旧实现带着一整套 CLDR 装载机制,而\n`cldrData` 在本仓库里<u>始终是空对象</u> —— 没有一处调过 `loadCldr`。\n也就是说那 2,942 行一直跑在 en-US 的内置兜底路径上,等价于原生\n`Intl` 的 `'en-US'`。真正需要自己实现的只有一件事:\n<b>把旧格式串方言翻成 `Intl` 的选项</b>。\n\n<p><b>方言范围是枚举出来的,不是猜的</b>(`tools/intl/matrix.mjs` 记着出处):\n\n<ul>\n  <li>后端下发六种日期串:`yyyy/MM/dd`、`yyyy/MM/dd HH:mm:ss`、\n      `yyyy/MM/dd HH:mm`、`yyyy/MM`、`yyyy`、`yMd`;</li>\n  <li>应用里写死的:`y/M/d`、`y/M/d H:m:s`、`MMM dd, y`、`mediumDate`;</li>\n  <li>数值:`C2` 一种,外加透视表传的 `{ minimumFractionDigits }` 对象形态。</li>\n</ul>\n\n<p>门在 `tools/intl/gate.mjs`:期望值由**旧实现**算出(158 条),不是我写的。",
       "summaryZh": "国际化格式化 —— 原生 `Intl` 版。",
       "sourceFile": "src/translator/intl.ts",
       "inputs": [],
@@ -397,8 +397,8 @@
         {
           "name": "format",
           "type": "string",
-          "description": "Property `format` (`string`) storing format.\nEJ2 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……",
-          "descriptionZh": "LEGACY 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……"
+          "description": "Property `format` (`string`) storing format.\n格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……",
+          "descriptionZh": "格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……"
         },
         {
           "name": "minimumFractionDigits",

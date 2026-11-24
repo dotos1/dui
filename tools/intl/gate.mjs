@@ -3,7 +3,7 @@
  * <b>格式化对照门</b>。
  *
  * <p>新实现(`src/translator/intl.ts`,原生 `Intl`)与旧实现
- * (LEGACY 衍生的 intl 半边)逐值比对。
+ * (旧 intl 实现)逐值比对。
  *
  * <p><b>期望值不是我写的,是旧实现算出来的。</b>与
  * `duix/grid/tools/legacy-util/gate.mjs` 同一条路子 —— 自己写期望的话,
