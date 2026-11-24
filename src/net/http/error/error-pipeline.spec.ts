@@ -1,5 +1,6 @@
 import { HttpClient, HttpContext, provideHttpClient, withInterceptorsFromDi, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
+import { Subject } from 'rxjs';
 import { Injector } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
 import { MatDialog } from '@angular/material/dialog';
@@ -16,9 +17,15 @@ function fakeToastr() {
   const calls: string[] = [];
   return { calls, error: (m: string) => { calls.push(m); } };
 }
+type DialogCfg = { data: { errors: () => { requestId?: string; message: string }[]; onReport?: unknown } };
 function fakeDialog() {
-  const calls: { data: { error: { requestId?: string }; onReport?: unknown } }[] = [];
-  return { calls, open: (_c: unknown, cfg: { data: { error: { requestId?: string }; onReport?: unknown } }) => { calls.push(cfg); } };
+  const calls: DialogCfg[] = [];
+  const closed = new Subject<unknown>();
+  return {
+    calls,
+    close: () => closed.next(undefined),
+    open: (_c: unknown, cfg: DialogCfg) => { calls.push(cfg); return { afterClosed: () => closed.asObservable() }; },
+  };
 }
 
 function setup(options?: object) {
@@ -51,7 +58,7 @@ describe('ErrorInterceptor + ErrorNotifyService', () => {
     http.post('/api/a', {}).subscribe({ error: e => (caught = e) });
     ctl.expectOne('/api/a').flush({ success: false, code: 'SYS.INTERNAL', message: '系统内部错误，请将请求号 R5 提供给管理员', request_id: 'R5' }, { status: 500, statusText: 'x' });
     expect(dialog.calls.length).toBe(1);
-    expect(dialog.calls[0].data.error.requestId).toBe('R5');
+    expect(dialog.calls[0].data.errors()[0].requestId).toBe('R5');
     expect(toastr.calls.length).toBe(0);
     expect((caught as { status: number }).status).toBe(500);
   });
@@ -151,6 +158,7 @@ describe('ErrorInterceptor + ErrorNotifyService', () => {
     notify.show({ kind: 'server', status: 500, message: 'm', requestId: 'R', critical: true });
     expect(dialog.calls[0].data.onReport).toBeUndefined();
     notify.dedupeMs = 0;
+    dialog.close();
     notify.reportHandler = hook;
     notify.show({ kind: 'server', status: 500, message: 'm', requestId: 'R', critical: true });
     expect(dialog.calls[1].data.onReport).toBe(hook);

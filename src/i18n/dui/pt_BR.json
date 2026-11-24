@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "Copiar número da solicitação",
     "COPIED": "Copiado",
     "REPORT": "Relatar problema",
-    "CLOSE": "Fechar"
+    "CLOSE": "Fechar",
+    "COPY": "Copiar",
+    "NEXT_STEP": "Próximo passo",
+    "SOLUTION_STEPS": "Passos para resolver",
+    "FIELD_ISSUES": "Problemas nos campos",
+    "FIELD": "Campo",
+    "EXPECTED": "Esperado",
+    "ACTUAL": "Real",
+    "HOW_TO_FIX": "Como corrigir",
+    "HELP_DOC": "Documentação de ajuda",
+    "OPENS_NEW_TAB": "(abre em uma nova guia)",
+    "MULTI_TITLE": "Ocorreram {{count}} problemas",
+    "GENERIC_STEP_1": "Tente novamente mais tarde.",
+    "GENERIC_STEP_2": "Se continuar falhando, informe ao administrador o ID da solicitação abaixo.",
+    "GENERIC_STEP_3": "O administrador pode consultar os detalhes pelo ID da solicitação na Central de Erros."
   }
 }

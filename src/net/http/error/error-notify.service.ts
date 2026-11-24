@@ -3,12 +3,12 @@
  * @zh 错误提示统一出口。
  */
 
-import { Injectable, Injector, NgZone } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Injectable, Injector, NgZone, signal } from '@angular/core';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { ToastrService } from '@dotos1/dui/common/toastr';
 import { TranslationService } from '@dotos1/dui/translator';
 import { ErrorDialogComponent } from './error-dialog.component';
-import { ErrorTranslate, errorText, parseHttpError } from './parse-http-error';
+import { ErrorTranslate, errorText, parseHttpError, renderPlatformError } from './parse-http-error';
 import { PlatformError } from './platform-error';
 
 /** 报告问题钩子（S5 接上报接口时由宿主设置） */
@@ -17,7 +17,10 @@ export type ErrorReportHandler = (error: PlatformError) => void;
 /**
  * 错误提示统一出口。拦截器、ErrorHandler、页面都应通过它弹错误，不要直接 `toastr.error(error.message)`。
  *
- * - 5xx（`critical`）用对话框，显示请求号 + 「复制请求号」+（设置了钩子时）「报告问题」；其余用 toast。
+ * - 对话框：5xx，以及带整改指南（`solution`）或字段明细（`details`）的错误（所有 4xx 定制错误）。
+ *   依次显示 标题 → 下一步 → 解决步骤 → 字段问题 → 帮助文档 → 请求号（可复制）→「报告问题」（设置了钩子时）。
+ *   对话框打开期间又来的错误合并进同一个对话框分条显示，不叠多个对话框。
+ * - toast：只留给没有任何指南的轻量提示。
  * - 3 秒内相同指纹（kind + status + code + 文案）只弹一次。
  * @zh 错误提示统一出口。
  */
@@ -29,6 +32,9 @@ export class ErrorNotifyService {
   reportHandler?: ErrorReportHandler;
 
   private readonly recent = new Map<string, number>();
+  /** 当前对话框里显示的错误（对话框打开期间追加） */
+  private readonly dialogErrors = signal<PlatformError[]>([]);
+  private dialogRef?: MatDialogRef<ErrorDialogComponent>;
 
   constructor(private readonly injector: Injector, private readonly zone: NgZone) {}
 
@@ -54,7 +60,7 @@ export class ErrorNotifyService {
     if (!this.accept(error)) {
       return false;
     }
-    this.zone.run(() => (this.useDialog(error) ? this.openDialog(error) : this.openToast(error)));
+    this.zone.run(() => (this.useDialog(error) ? this.showInDialog(error) : this.openToast(error)));
     return true;
   }
 
@@ -69,9 +75,9 @@ export class ErrorNotifyService {
     });
   }
 
-  /** 哪些错误用对话框；子类可覆盖 */
+  /** 哪些错误用对话框：5xx，或带整改指南 / 字段明细；子类可覆盖 */
   protected useDialog(error: PlatformError): boolean {
-    return error.critical;
+    return error.critical || !!error.solution?.length || !!error.solutionKey || !!error.details?.length;
   }
 
   private accept(error: PlatformError): boolean {
@@ -91,27 +97,35 @@ export class ErrorNotifyService {
 
   private openToast(error: PlatformError): void {
     const toastr = this.injector.get(ToastrService);
-    const text = error.hint && !error.message.includes(error.hint) ? `${error.message} ${error.hint}` : error.message;
+    const r = renderPlatformError(error, this.translate);
+    const text = r.hint && !r.message.includes(r.hint) ? `${r.message} ${r.hint}` : r.message;
     toastr.error(text);
   }
 
-  private openDialog(error: PlatformError): void {
-    const tr = this.translate;
-    const t = (k: string) => errorText(k, undefined, tr);
-    this.injector.get(MatDialog).open(ErrorDialogComponent, {
-      data: {
-        error,
-        texts: {
-          title: t('ERROR.TITLE'),
-          requestId: t('ERROR.REQUEST_ID'),
-          copy: t('ERROR.COPY_REQUEST_ID'),
-          copied: t('ERROR.COPIED'),
-          report: t('ERROR.REPORT'),
-          close: t('ERROR.CLOSE'),
-        },
-        onReport: this.reportHandler,
-      },
+  private showInDialog(error: PlatformError): void {
+    if (this.dialogRef) {
+      // 对话框已开：合并进去，不再叠一个
+      this.dialogErrors.update(list => [...list, error]);
+      return;
+    }
+    this.dialogErrors.set([error]);
+    const ref = this.injector.get(MatDialog).open(ErrorDialogComponent, {
+      role: 'alertdialog',
+      autoFocus: 'dialog',
+      restoreFocus: true,
+      maxWidth: '95vw',
+      data: { errors: this.dialogErrors.asReadonly(), onReport: this.reportHandler },
     });
+    this.dialogRef = ref;
+    ref?.afterClosed?.().subscribe(() => {
+      if (this.dialogRef === ref) {
+        this.dialogRef = undefined;
+        this.dialogErrors.set([]);
+      }
+    });
+    if (!ref?.afterClosed) {
+      this.dialogRef = undefined;
+    }
   }
 }
 
