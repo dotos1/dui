@@ -1,16 +1,13 @@
 /**
  * 国际化格式化 —— 原生 `Intl` 版。
  *
- * <p>自研,替代 EJ2 衍生的 intl 半边(`base.ts` / `intl-base.ts` /
- * `date-formatter.ts` / `date-parser.ts` / `number-formatter.ts` /
- * `number-parser.ts` / `parser-base.ts` / `internationalization.ts` /
- * `l10n.ts`,共 2,942 行)。见 duix 的 `lib/PEEL-CLEANUP-PLAN.md` §P5。
+ * <p>自研实现,基于原生 `Intl`。
  *
  * <p><b>为什么能只写这么点。</b>旧实现带着一整套 CLDR 装载机制,而
  * `cldrData` 在本仓库里<u>始终是空对象</u> —— 没有一处调过 `loadCldr`。
  * 也就是说那 2,942 行一直跑在 en-US 的内置兜底路径上,等价于原生
  * `Intl` 的 `'en-US'`。真正需要自己实现的只有一件事:
- * <b>把 EJ2 的格式串方言翻成 `Intl` 的选项</b>。
+ * <b>把旧格式串方言翻成 `Intl` 的选项</b>。
  *
  * <p><b>方言范围是枚举出来的,不是猜的</b>(`tools/intl/matrix.mjs` 记着出处):
  *
@@ -61,8 +58,8 @@ export interface DateFormatOptions {
 export interface NumberFormatOptions {
   /**
    * Property `format` (`string`) storing format.
-   * EJ2 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……
-   * @zh EJ2 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……
+   * 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……
+   * @zh 格式串:`'C2'` / `'N'` / `'P2'` / `'#,##0.00'` ……
    */
   format?: string;
   /**
@@ -254,7 +251,7 @@ function 按模式(d: Date, pattern: string): string {
 
 /**
  * Executes `数值选项` to handle 数值选项.
- * EJ2 数值格式串 → `Intl.NumberFormatOptions`。
+ * 数值格式串 → `Intl.NumberFormatOptions`。
  *
  * <p>两类:
  * <ol>
@@ -266,7 +263,7 @@ function 按模式(d: Date, pattern: string): string {
  *       旧实现支持更多(前后缀、分段、科学计数),但本仓库一处都没用过。</li>
  * </ol>
 
- * @zh EJ2 数值格式串 → `Intl.NumberFormatOptions`。
+ * @zh 数值格式串 → `Intl.NumberFormatOptions`。
  */
 function 数值选项(fmt: string, currency?: string): Intl.NumberFormatOptions {
   const 标准 = /^([CNPcnp])([0-9]*)$/.exec(fmt.trim());
