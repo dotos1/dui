@@ -38,6 +38,20 @@ export const ERROR_FALLBACK_TEXT: Record<string, string> = {
   'ERROR.COPIED': '已复制',
   'ERROR.REPORT': '报告问题',
   'ERROR.CLOSE': '关闭',
+  'ERROR.COPY': '复制',
+  'ERROR.NEXT_STEP': '下一步',
+  'ERROR.SOLUTION_STEPS': '解决步骤',
+  'ERROR.FIELD_ISSUES': '字段问题',
+  'ERROR.FIELD': '字段',
+  'ERROR.EXPECTED': '期望',
+  'ERROR.ACTUAL': '实际',
+  'ERROR.HOW_TO_FIX': '怎么改',
+  'ERROR.HELP_DOC': '帮助文档',
+  'ERROR.OPENS_NEW_TAB': '（在新标签页打开）',
+  'ERROR.MULTI_TITLE': '出现 {{count}} 个问题',
+  'ERROR.GENERIC_STEP_1': '稍后重试一次。',
+  'ERROR.GENERIC_STEP_2': '如仍失败，请把下面的请求号发给管理员。',
+  'ERROR.GENERIC_STEP_3': '管理员可在「错误中心」按请求号查看详情。',
 };
 
 /**
@@ -70,6 +84,86 @@ function fillPositional(text: string, args: unknown[]): string {
     const i = Number(a ?? b);
     return i < args.length ? String(args[i]) : m;
   });
+}
+
+
+/** 用 key + 位置参数翻译；译不出来返回 undefined */
+function translateKey(key: string | undefined, args: unknown[] | undefined, translate?: ErrorTranslate): string | undefined {
+  if (!key || !translate) {
+    return undefined;
+  }
+  const params: Record<string, unknown> = {};
+  (args ?? []).forEach((a, i) => (params[String(i)] = a));
+  let text = '';
+  try {
+    text = translate(key, params);
+  } catch {
+    text = '';
+  }
+  if (!text || text === key) {
+    return undefined;
+  }
+  return fillPositional(fill(text, params), args ?? []);
+}
+
+/** 序号前缀：「1. 」「2、」「3) 」「（4）」，由有序列表自行编号，渲染时去掉 */
+const STEP_NUMBER_PREFIX = /^\s*[(（]?\d+[.、)）]\s*/;
+
+/**
+ * 把 `solution` 的两种形状（数组 `["1. …"]` 或换行字符串）归一为步骤数组：去空行、去序号前缀。
+ * @zh 归一 solution 步骤。
+ */
+export function normalizeSolution(raw: unknown): string[] | undefined {
+  let items: unknown[] = [];
+  if (Array.isArray(raw)) {
+    items = raw;
+  } else if (typeof raw === 'string') {
+    items = raw.split(/\r?\n/);
+  }
+  const steps = items
+    .filter((x): x is string => typeof x === 'string')
+    .map(x => x.replace(STEP_NUMBER_PREFIX, '').trim())
+    .filter(x => !!x);
+  return steps.length ? steps : undefined;
+}
+
+/** 帮助链接只允许 http(s) 与站内相对路径（拒绝 javascript: / data: / 协议相对） */
+function safeHelpUrl(v: unknown): string | undefined {
+  const u = str(v);
+  if (!u) {
+    return undefined;
+  }
+  if (/^https?:\/\//i.test(u) || (u.startsWith('/') && !u.startsWith('//'))) {
+    return u;
+  }
+  return undefined;
+}
+
+/** 按当前界面语言渲染后的错误文案（对话框 / toast 展示用） */
+export interface RenderedPlatformError {
+  message: string;
+  hint?: string;
+  solution?: string[];
+  details: (PlatformErrorDetail & { label: string })[];
+}
+
+/**
+ * 按当前界面语言渲染错误：有对应翻译键（message_key / hint_key / solution_key / field_key，带 args）时用译文，
+ * 否则用后端已渲染的文本。界面语言切换后再调一次即可，不必重发请求。
+ * `solution_key` 的译文可以是多行字符串（每行一步）。
+ * @zh 按当前界面语言渲染错误。
+ */
+export function renderPlatformError(error: PlatformError, translate?: ErrorTranslate): RenderedPlatformError {
+  const args = error.messageArgs;
+  const message = translateKey(error.messageKey, args, translate) ?? error.serverMessage ?? error.message;
+  const hint = translateKey(error.hintKey, args, translate) ?? error.hint;
+  const keyed = translateKey(error.solutionKey, args, translate);
+  const solution = (keyed ? normalizeSolution(keyed) : undefined) ?? error.solution;
+  const details = (error.details ?? []).map(d => {
+    const label = translateKey(d.fieldKey, undefined, translate) ?? d.field ?? '';
+    return { ...d, label, hint: translateKey(d.hintKey, args, translate) ?? d.hint };
+  });
+  return { message, hint, solution, details };
 }
 
 const ANGULAR_HTTP_FAILURE = /^Http failure/i;
@@ -231,6 +325,26 @@ function fromStatus(status: number, t: (k: string, p?: Record<string, unknown>) 
   return base(kind, status, message, requestId);
 }
 
+function scalar(v: unknown): string | undefined {
+  if (typeof v === 'number' || typeof v === 'boolean') {
+    return String(v);
+  }
+  return typeof v === 'string' ? v : undefined;
+}
+
+function parseDetail(d: Record<string, unknown>): PlatformErrorDetail {
+  return {
+    field: str(d['field']),
+    fieldKey: str(d['field_key']),
+    code: str(d['code']),
+    message: str(d['message']),
+    expected: scalar(d['expected']),
+    actual: scalar(d['actual']),
+    hint: str(d['hint']),
+    hintKey: str(d['hint_key']),
+  };
+}
+
 function str(v: unknown): string | undefined {
   return typeof v === 'string' && v.trim() ? v.trim() : undefined;
 }
@@ -283,7 +397,7 @@ function fromBody(
 
   const rawDetails = body['details'];
   const details: PlatformErrorDetail[] | undefined = Array.isArray(rawDetails)
-    ? rawDetails.filter((d: unknown) => !!d && typeof d === 'object').map((d: unknown) => d as PlatformErrorDetail)
+    ? rawDetails.filter((d: unknown) => !!d && typeof d === 'object').map((d: unknown) => parseDetail(d as Record<string, unknown>))
     : undefined;
 
   const kind = status ? kindOfStatus(status) : 'business';
@@ -297,7 +411,11 @@ function fromBody(
     messageKey,
     messageArgs,
     details: details && details.length ? details : undefined,
-    hint: str(body['hint']) ?? str(body['solution']),
+    hint: str(body['hint']),
+    hintKey: str(body['hint_key']),
+    solution: normalizeSolution(body['solution']),
+    solutionKey: str(body['solution_key']),
+    helpUrl: safeHelpUrl(body['help_url'] ?? body['helpUrl']),
     requestId,
     critical: kind === 'server',
   };

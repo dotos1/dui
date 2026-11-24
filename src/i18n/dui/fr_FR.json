@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "Copier le numéro de requête",
     "COPIED": "Copié",
     "REPORT": "Signaler un problème",
-    "CLOSE": "Fermer"
+    "CLOSE": "Fermer",
+    "COPY": "Copier",
+    "NEXT_STEP": "Étape suivante",
+    "SOLUTION_STEPS": "Étapes de résolution",
+    "FIELD_ISSUES": "Problèmes de champs",
+    "FIELD": "Champ",
+    "EXPECTED": "Attendu",
+    "ACTUAL": "Réel",
+    "HOW_TO_FIX": "Comment corriger",
+    "HELP_DOC": "Documentation d'aide",
+    "OPENS_NEW_TAB": "(s'ouvre dans un nouvel onglet)",
+    "MULTI_TITLE": "{{count}} problèmes sont survenus",
+    "GENERIC_STEP_1": "Réessayez plus tard.",
+    "GENERIC_STEP_2": "Si l'échec persiste, transmettez l'identifiant de requête ci-dessous à l'administrateur.",
+    "GENERIC_STEP_3": "L'administrateur peut consulter les détails par identifiant de requête dans le Centre d'erreurs."
   }
 }
