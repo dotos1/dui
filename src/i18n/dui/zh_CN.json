@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "复制请求号",
     "COPIED": "已复制",
     "REPORT": "报告问题",
-    "CLOSE": "关闭"
+    "CLOSE": "关闭",
+    "COPY": "复制",
+    "NEXT_STEP": "下一步",
+    "SOLUTION_STEPS": "解决步骤",
+    "FIELD_ISSUES": "字段问题",
+    "FIELD": "字段",
+    "EXPECTED": "期望",
+    "ACTUAL": "实际",
+    "HOW_TO_FIX": "怎么改",
+    "HELP_DOC": "帮助文档",
+    "OPENS_NEW_TAB": "（在新标签页打开）",
+    "MULTI_TITLE": "出现 {{count}} 个问题",
+    "GENERIC_STEP_1": "稍后重试一次。",
+    "GENERIC_STEP_2": "如仍失败，请把下面的请求号发给管理员。",
+    "GENERIC_STEP_3": "管理员可在「错误中心」按请求号查看详情。"
   }
 }

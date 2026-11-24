@@ -12,6 +12,14 @@
 - `sanitizeUrl`：去掉查询串中 token / ticket / captcha / code / password / secret 的值。
 - i18n：新增 `ERROR.*` 20 个键（12 个语种）。
 
+### 新增：错误对话框、整改指南与多语言（错误处理整改 S3 第二轮，dui 部分；未发包、未改版本号）
+
+- `PlatformError` 扩展：`hint` / `hintKey`、`solution`（数组 `["1. …"]` 与换行字符串两种形状都归一为去序号的步骤数组）/ `solutionKey`、`helpUrl`（只保留 http(s) 与站内路径）、`details[]`（`field`、`fieldKey`、`code`、`message`、`expected`、`actual`、`hint`、`hintKey`）。`parseHttpError` 容错解析，字段缺失不报错。注意：旧版把 `solution` 字符串当 `hint` 用，现在 `hint` 只取 `hint`，`solution` 单独成字段。
+- 新增 `renderPlatformError(error, translate)`：有翻译键（`message_key` / `hint_key` / `solution_key` / `field_key`，带 `message_args`）时按当前界面语言渲染，否则用后端已渲染文本；另导出 `normalizeSolution`。
+- 提示形态：带 `solution` / `details` 的错误（所有 4xx 定制错误）与所有 5xx 一律弹 `ErrorDialogComponent`：标题 → 下一步 → 编号解决步骤（`<ol>`）→ 字段问题清单（字段、期望、实际、怎么改）→ 帮助文档（新标签打开）→ 请求号（可复制）→「报告问题」。5xx 缺 `solution` 时显示通用三步。toast 只留给没有任何指南的轻量提示。对话框打开期间到来的其它错误合并进同一个对话框分条显示，不叠多个；3 秒内同指纹不重复弹。`ErrorDialogData` 改为 `{ errors: Signal<PlatformError[]>, onReport? }`（上一轮未发包，无外部使用）。可键盘关闭（Esc）、`role="alertdialog"`、焦点进入对话框并在关闭后还原；暗色取自 `ThemeService.getTheme().type`；样式只用逻辑属性（ar_SA RTL）。
+- `ErrorInterceptor` 给相对地址与同源请求加请求头 `X-Dotos-Lang: <当前界面语言，如 zh_CN>`（`LANG_HEADER`），后端据此渲染错误文案；跨域第三方地址不带。
+- i18n：`ERROR.*` 新增 14 个键（复制、下一步、解决步骤、字段问题、字段、期望、实际、怎么改、帮助文档、新标签提示、多错误标题、通用三步），12 个语种均为真实翻译；界面语言切换时已打开的对话框文案随之切换。
+
 ### 修复
 
 - 去掉硬编码英文兜底：`AuthService` 的 `'Server error'`（两处）改走 i18n；表单选项服务（select / field）的 `'Error'` 改走 i18n。`AuthService` 登录失败兜底不再显示 Angular 的 `err.message`。

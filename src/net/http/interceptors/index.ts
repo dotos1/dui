@@ -18,7 +18,7 @@ export { NotifyInterceptor } from './notify.interptor';
 export { HttpsInterceptor } from './https.interceptor';
 export { ProfilerInterceptor } from './profiler.interceptor';
 export { CacheInterceptor } from './cache.interceptor';
-export { ErrorInterceptor, ERROR_INTERCEPTOR_OPTIONS } from './error.interceptor';
+export { ErrorInterceptor, ERROR_INTERCEPTOR_OPTIONS, LANG_HEADER } from './error.interceptor';
 export type { ErrorInterceptorOptions } from './error.interceptor';
 export { HeaderInterceptor } from './header.interceptor';
 

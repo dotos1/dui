@@ -16,11 +16,20 @@ export type PlatformErrorKind = 'business' | 'auth' | 'forbidden' | 'network' | 
  * @zh 参数类错误的字段明细。
  */
 export interface PlatformErrorDetail {
+  /** 字段名（后端已渲染的显示名或原始字段名） */
   field?: string;
+  /** 字段名翻译键（如 `field.wellId`），前端有对应译文时优先用 */
+  fieldKey?: string;
   code?: string;
   message?: string;
+  /** 期望值 / 格式（已脱敏截断） */
   expected?: string;
+  /** 实际值（已脱敏截断） */
   actual?: string;
+  /** 怎么改 */
+  hint?: string;
+  /** 怎么改的翻译键 */
+  hintKey?: string;
 }
 
 /**
@@ -42,8 +51,14 @@ export interface PlatformError {
   messageKey?: string;
   messageArgs?: unknown[];
   details?: PlatformErrorDetail[];
-  /** 下一步建议 */
+  /** 一句话下一步建议 */
   hint?: string;
+  hintKey?: string;
+  /** 整改指南：有序步骤（已去掉「1.」之类的序号前缀，由有序列表自行编号）。数组与换行字符串两种来源都归一为数组 */
+  solution?: string[];
+  solutionKey?: string;
+  /** 帮助文档链接（只保留 http(s) 与站内相对路径） */
+  helpUrl?: string;
   /** 请求号（body.request_id 或响应头 X-Request-ID） */
   requestId?: string;
   /** 是否需要对话框级别展示（5xx） */

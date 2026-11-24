@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "요청 번호 복사",
     "COPIED": "복사됨",
     "REPORT": "문제 신고",
-    "CLOSE": "닫기"
+    "CLOSE": "닫기",
+    "COPY": "복사",
+    "NEXT_STEP": "다음 단계",
+    "SOLUTION_STEPS": "해결 단계",
+    "FIELD_ISSUES": "필드 문제",
+    "FIELD": "필드",
+    "EXPECTED": "기대값",
+    "ACTUAL": "실제 값",
+    "HOW_TO_FIX": "수정 방법",
+    "HELP_DOC": "도움말 문서",
+    "OPENS_NEW_TAB": "(새 탭에서 열림)",
+    "MULTI_TITLE": "문제 {{count}}건이 발생했습니다",
+    "GENERIC_STEP_1": "잠시 후 다시 시도하세요.",
+    "GENERIC_STEP_2": "계속 실패하면 아래 요청 ID를 관리자에게 전달하세요.",
+    "GENERIC_STEP_3": "관리자는 '오류 센터'에서 요청 ID로 상세 내용을 확인할 수 있습니다."
   }
 }

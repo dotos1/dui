@@ -1,5 +1,5 @@
 import { HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-import { errorText, parseHttpError, parseSuccessFalse } from './parse-http-error';
+import { errorText, parseHttpError, parseSuccessFalse, renderPlatformError } from './parse-http-error';
 
 const http = (status: number, body: unknown, headers?: Record<string, string>) =>
   new HttpErrorResponse({
@@ -119,5 +119,79 @@ describe('parseHttpError', () => {
     expect(parseSuccessFalse({ code: 200, message: 'ok', data: 1 })).toBeNull();
     expect(parseSuccessFalse([1, 2])).toBeNull();
     expect(parseSuccessFalse(null)).toBeNull();
+  });
+});
+
+describe('parseHttpError：整改指南与多语言字段', () => {
+  const body = {
+    success: false, code: 'DATA.NOT_FOUND', status: 404, message: '找不到编号为 W-102 的井',
+    message_key: 'error.data.notFound', message_args: ['W-102'],
+    hint: '请在『数据管理』确认', hint_key: 'error.data.notFound.hint',
+    solution_key: 'error.data.notFound.solution',
+    help_url: '/docs/user-guide/data-wells.html#not-found', request_id: 'R9',
+  };
+
+  it('solution 数组形状：去掉序号前缀', () => {
+    const pe = parseHttpError(http(404, { ...body, solution: ['1. 打开数据管理', '2、若已删除可恢复', '（3）改用正确编号'] }));
+    expect(pe.solution).toEqual(['打开数据管理', '若已删除可恢复', '改用正确编号']);
+    expect(pe.helpUrl).toBe('/docs/user-guide/data-wells.html#not-found');
+    expect(pe.hintKey).toBe('error.data.notFound.hint');
+    expect(pe.solutionKey).toBe('error.data.notFound.solution');
+  });
+
+  it('solution 换行字符串形状：按行拆分、去空行与序号', () => {
+    const pe = parseHttpError(http(400, { ...body, solution: '1. 第一步\n\n2. 第二步\r\n3) 第三步' }));
+    expect(pe.solution).toEqual(['第一步', '第二步', '第三步']);
+  });
+
+  it('details：field / field_key / code / message / expected / actual / hint 全解析，缺字段不报错', () => {
+    const pe = parseHttpError(http(400, {
+      ...body,
+      details: [
+        { field: 'date', field_key: 'field.date', code: 'FORMAT', message: '格式不对', expected: 'yyyy-MM-dd', actual: '2026/11/23', hint: '改成横线分隔', hint_key: 'k.h' },
+        { field: 'wellId' },
+        'bad',
+        { expected: 5, actual: false },
+      ],
+    }));
+    expect(pe.details?.length).toBe(3);
+    expect(pe.details?.[0]).toEqual({ field: 'date', fieldKey: 'field.date', code: 'FORMAT', message: '格式不对', expected: 'yyyy-MM-dd', actual: '2026/11/23', hint: '改成横线分隔', hintKey: 'k.h' });
+    expect(pe.details?.[1].expected).toBeUndefined();
+    expect(pe.details?.[2].expected).toBe('5');
+    expect(pe.details?.[2].actual).toBe('false');
+  });
+
+  it('help_url 只留 http(s) 与站内路径，javascript: / 协议相对被丢弃', () => {
+    expect(parseHttpError(http(400, { ...body, help_url: 'https://dui.dotos.com/x' })).helpUrl).toBe('https://dui.dotos.com/x');
+    expect(parseHttpError(http(400, { ...body, help_url: 'javascript:alert(1)' })).helpUrl).toBeUndefined();
+    expect(parseHttpError(http(400, { ...body, help_url: '//evil.com/x' })).helpUrl).toBeUndefined();
+  });
+
+  it('字段全缺：不报错，guide 字段为空', () => {
+    const pe = parseHttpError(http(400, { success: false, message: 'x' }));
+    expect(pe.solution).toBeUndefined();
+    expect(pe.details).toBeUndefined();
+    expect(pe.helpUrl).toBeUndefined();
+  });
+
+  it('renderPlatformError：有翻译键按当前语言渲染（键 + args），否则用后端文本', () => {
+    const dict: Record<string, string> = {
+      'error.data.notFound': 'Well {0} not found',
+      'error.data.notFound.hint': 'Check Data Management',
+      'error.data.notFound.solution': '1. Open Data Management\n2. Search for {0}',
+      'field.date': 'Date',
+    };
+    const tr = (k: string, p?: Record<string, unknown>) => (dict[k] ?? k).replace(/\{(\d)\}/g, (_m, i: string) => String(p?.[i] ?? ''));
+    const pe = parseHttpError(http(404, { ...body, solution: ['1. 后端步骤'], details: [{ field: '日期', field_key: 'field.date' }, { field: '井号', field_key: 'field.nope' }] }));
+    const r = renderPlatformError(pe, tr);
+    expect(r.message).toBe('Well W-102 not found');
+    expect(r.hint).toBe('Check Data Management');
+    expect(r.solution).toEqual(['Open Data Management', 'Search for W-102']);
+    expect(r.details.map(d => d.label)).toEqual(['Date', '井号']);
+    // 没有翻译函数：回到后端渲染文本
+    const raw = renderPlatformError(pe);
+    expect(raw.message).toBe('找不到编号为 W-102 的井');
+    expect(raw.hint).toBe('请在『数据管理』确认');
+    expect(raw.solution).toEqual(['后端步骤']);
   });
 });

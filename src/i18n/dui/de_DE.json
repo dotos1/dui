@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "Anfragenummer kopieren",
     "COPIED": "Kopiert",
     "REPORT": "Problem melden",
-    "CLOSE": "Schließen"
+    "CLOSE": "Schließen",
+    "COPY": "Kopieren",
+    "NEXT_STEP": "Nächster Schritt",
+    "SOLUTION_STEPS": "Lösungsschritte",
+    "FIELD_ISSUES": "Feldprobleme",
+    "FIELD": "Feld",
+    "EXPECTED": "Erwartet",
+    "ACTUAL": "Tatsächlich",
+    "HOW_TO_FIX": "So beheben Sie es",
+    "HELP_DOC": "Hilfedokumentation",
+    "OPENS_NEW_TAB": "(wird in neuem Tab geöffnet)",
+    "MULTI_TITLE": "{{count}} Probleme aufgetreten",
+    "GENERIC_STEP_1": "Versuchen Sie es später erneut.",
+    "GENERIC_STEP_2": "Besteht der Fehler weiter, geben Sie die untenstehende Anfragekennung an den Administrator weiter.",
+    "GENERIC_STEP_3": "Der Administrator kann die Details im Fehlerzentrum anhand der Anfragekennung abrufen."
   }
 }

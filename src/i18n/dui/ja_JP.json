@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "リクエスト番号をコピー",
     "COPIED": "コピーしました",
     "REPORT": "問題を報告",
-    "CLOSE": "閉じる"
+    "CLOSE": "閉じる",
+    "COPY": "コピー",
+    "NEXT_STEP": "次のステップ",
+    "SOLUTION_STEPS": "解決手順",
+    "FIELD_ISSUES": "項目の問題",
+    "FIELD": "項目",
+    "EXPECTED": "期待値",
+    "ACTUAL": "実際の値",
+    "HOW_TO_FIX": "修正方法",
+    "HELP_DOC": "ヘルプドキュメント",
+    "OPENS_NEW_TAB": "（新しいタブで開きます）",
+    "MULTI_TITLE": "{{count}} 件の問題が発生しました",
+    "GENERIC_STEP_1": "しばらくしてからもう一度お試しください。",
+    "GENERIC_STEP_2": "それでも失敗する場合は、下記のリクエスト ID を管理者に伝えてください。",
+    "GENERIC_STEP_3": "管理者は「エラーセンター」でリクエスト ID から詳細を確認できます。"
   }
 }
