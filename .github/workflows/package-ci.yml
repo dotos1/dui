@@ -1,3 +1,8 @@
+# 先轻后重（2026-11-24，用户反映 CI 总是卡死）：secret-scan / ts-suppress-gate / no-legacy-vendor-gate 原是独立工作流，
+# 同时涌进 dotos-apps 池排队；现在并进本工作流作为前置作业，全过之后 build-and-publish（装依赖、构建、发布）才开始。
+# 作业名（scan-secrets（发现即红）、类型检查压制只减不增、build-and-publish）一个没改：分支保护按名字匹配。
+# 发布路径（打 v* 标签 / workflow_dispatch publish=true）依赖链：前置作业 -> build-and-publish（其内「Publish」步骤）。
+# 同一 PR 再推送取消上一轮；master 推送、标签、手动发布不被取消。
 name: Package CI/CD
 
 on:
@@ -23,8 +28,70 @@ permissions:
   contents: read
   packages: write
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 jobs:
+  secret-scan:
+    name: scan-secrets（发现即红）
+    # 私有时用自托管 dotos-apps（托管分钟额度为 0）；仓库公开后自动改用 GitHub 托管 ubuntu-latest（公开仓库免费），
+    # 避免外部 fork 的 PR 在自托管机器上执行代码。
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted","Linux","X64","dotos-apps"]') || 'ubuntu-latest' }}
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          clean: true                 # 自托管工作区跨 job 复用：先清掉上次的未跟踪文件
+          persist-credentials: false  # 不把令牌留在 runner 上的 .git/config
+      - name: scan-secrets 自检（埋点必须判红）
+        run: bash gates/scan-secrets-selftest.sh
+      - name: scan-secrets
+        run: bash gates/scan-secrets.sh --no-gitleaks .
+
+  ts-suppress-gate:
+    name: 类型检查压制只减不增
+    # 私有时用自托管 dotos-apps（托管分钟额度为 0）；仓库公开后自动改用 GitHub 托管 ubuntu-latest（公开仓库免费），
+    # 避免外部 fork 的 PR 在自托管机器上执行代码。
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted","Linux","X64","dotos-apps"]') || 'ubuntu-latest' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          clean: true
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: 压制门自测（区分力：新增必红、调低必绿）
+        run: node gates/ts-suppress-gate.mjs --selftest
+      - name: 压制门（本仓库）
+        run: |
+          set +e -uo pipefail   # 先写摘要再按门程序的退出码退出
+          node gates/ts-suppress-gate.mjs --root . 2>&1 | tee "$RUNNER_TEMP/ts-suppress.out"
+          rc=${PIPESTATUS[0]}
+          { echo '### 类型检查压制门（只减不增，目标 0）'; echo '```'; cat "$RUNNER_TEMP/ts-suppress.out"; echo '```'; } >> "$GITHUB_STEP_SUMMARY"
+          exit "$rc"
+
+  no-legacy-vendor-gate:
+    name: 旧组件库痕迹零容忍
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted","Linux","X64","dotos-apps"]') || 'ubuntu-latest' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          clean: true
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: 门自测（区分力：命中样例必红、干净样例必绿）
+        run: node tools/gates/no-legacy-vendor-gate.mjs --selftest
+      - name: 门（本仓库）
+        run: node tools/gates/no-legacy-vendor-gate.mjs --root .
+
   build-and-publish:
+    needs: [secret-scan, ts-suppress-gate, no-legacy-vendor-gate]
     # 私有时用自托管 dotos-apps（托管分钟额度为 0）；仓库公开后自动改用 GitHub 托管 ubuntu-latest（公开仓库免费），
     # 避免外部 fork 的 PR 在自托管机器上执行代码。
     runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted","Linux","X64","dotos-apps"]') || 'ubuntu-latest' }}
