@@ -13,6 +13,7 @@ import {
 } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { tap, finalize } from "rxjs/operators";
+import { sanitizeUrl } from "../error/platform-error";
 
 /**
  * Injectable Angular service `ProfilerInterceptor` managing profiler interceptor state and operations in `src/net/http/interceptors`.
@@ -51,7 +52,7 @@ export class ProfilerInterceptor implements HttpInterceptor {
       ),
       finalize(() => {
         const elapsed = Date.now() - started;
-        const msg = `${req.method} "${req.urlWithParams}"  ${ok} in ${elapsed} ms.`;
+        const msg = `${req.method} "${sanitizeUrl(req.urlWithParams)}"  ${ok} in ${elapsed} ms.`;
         console.log(msg);
       })
     );

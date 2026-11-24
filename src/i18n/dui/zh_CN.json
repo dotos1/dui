@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "必须选择一个项",
     "RANGEFROM": "起始",
     "RANGETO": "终止"
+  },
+  "ERROR": {
+    "TITLE": "出错了",
+    "UNKNOWN": "操作失败，请稍后重试",
+    "NETWORK_OFFLINE": "网络已断开，请检查网络连接后重试",
+    "UNREACHABLE": "无法连接到服务器，请检查网络；如持续出现请联系管理员",
+    "TIMEOUT": "请求超时，请稍后重试",
+    "BAD_REQUEST": "请求参数有误，请检查后重试",
+    "CLIENT": "请求未能完成，请检查后重试",
+    "SESSION_EXPIRED": "登录已过期，请重新登录",
+    "FORBIDDEN": "无权访问",
+    "NOT_FOUND": "请求的内容不存在",
+    "CONFLICT": "数据已被修改或存在冲突，请刷新后重试",
+    "TOO_MANY": "操作过于频繁，请稍后重试",
+    "SERVER": "系统内部错误，请稍后重试；如持续出现请联系管理员",
+    "SERVER_WITH_ID": "系统内部错误，请将请求号 {{requestId}} 提供给管理员",
+    "CHUNK": "页面资源加载失败，请刷新页面后重试",
+    "REQUEST_ID": "请求号",
+    "COPY_REQUEST_ID": "复制请求号",
+    "COPIED": "已复制",
+    "REPORT": "报告问题",
+    "CLOSE": "关闭"
   }
 }

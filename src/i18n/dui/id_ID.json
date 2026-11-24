@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "Anda harus memilih minimal satu item dalam grup ini",
     "RANGEFROM": "Dari",
     "RANGETO": "Hentikan"
+  },
+  "ERROR": {
+    "TITLE": "Terjadi kesalahan",
+    "UNKNOWN": "Operasi gagal. Silakan coba lagi nanti.",
+    "NETWORK_OFFLINE": "Anda sedang offline. Periksa koneksi jaringan lalu coba lagi.",
+    "UNREACHABLE": "Tidak dapat terhubung ke server. Periksa jaringan; hubungi administrator jika berlanjut.",
+    "TIMEOUT": "Permintaan melebihi batas waktu. Silakan coba lagi nanti.",
+    "BAD_REQUEST": "Parameter permintaan tidak valid. Periksa lalu coba lagi.",
+    "CLIENT": "Permintaan tidak dapat diselesaikan. Periksa lalu coba lagi.",
+    "SESSION_EXPIRED": "Sesi Anda telah berakhir. Silakan masuk kembali.",
+    "FORBIDDEN": "Akses ditolak",
+    "NOT_FOUND": "Konten yang diminta tidak ada.",
+    "CONFLICT": "Data telah berubah atau terjadi konflik. Muat ulang lalu coba lagi.",
+    "TOO_MANY": "Terlalu banyak permintaan. Silakan coba lagi nanti.",
+    "SERVER": "Kesalahan internal sistem. Coba lagi nanti; hubungi administrator jika berlanjut.",
+    "SERVER_WITH_ID": "Kesalahan internal sistem. Berikan nomor permintaan {{requestId}} kepada administrator.",
+    "CHUNK": "Gagal memuat sumber daya halaman. Muat ulang halaman lalu coba lagi.",
+    "REQUEST_ID": "Nomor permintaan",
+    "COPY_REQUEST_ID": "Salin nomor permintaan",
+    "COPIED": "Tersalin",
+    "REPORT": "Laporkan masalah",
+    "CLOSE": "Tutup"
   }
 }

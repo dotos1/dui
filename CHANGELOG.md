@@ -1,5 +1,21 @@
 # 更新记录
 
+## 未发布
+
+### 新增：平台统一错误处理（错误处理整改 S3，dui 部分；未发包、未改版本号）
+
+- `parseHttpError(err): PlatformError`（`@dotos1/dui/net`）：兼容统一错误体（`code` / `message_key` / `message_args` / `details` / `hint` / `request_id`）、兼容期 aios 数字 `code` + `error_code`、老式 `{success:false,message}`、aios Result、2xx + `success:false`（`parseSuccessFalse`）、断网 / 跨域不可达（status 0）、超时、普通 Error。文案优先 `message_key` 翻译，其次 `message`，最后按状态码取 i18n；绝不显示 `HttpErrorResponse.message`（Angular 拼的英文 + URL）。请求号取 body 或响应头 `X-Request-ID`。
+- `ErrorInterceptor` 重写：用 `parseHttpError` + `ErrorNotifyService` 统一提示；403 统一「无权访问」；识别 2xx + `success:false`；请求上下文 `SKIP_GLOBAL_ERROR` 由页面自理。401 默认不弹（可能正在刷新令牌），宿主在刷新失败后调 `ErrorNotifyService.sessionExpired()`，或用 `ERROR_INTERCEPTOR_OPTIONS` 设 `notifyOn401: true`。构造函数参数由 `ToastrService` 改为 `Injector`。
+- `ErrorNotifyService`：统一出口；5xx 用对话框（`ErrorDialogComponent`，显示请求号、「复制请求号」，设置 `reportHandler` 后出现「报告问题」），其余 toast；3 秒内相同指纹去重。
+- `RequestRingBuffer` + `RequestRingBufferInterceptor`：保留最近 20 条请求（方法、脱敏 URL、状态、耗时、request_id，不存请求体）；`snapshot()` 读取。已加入 `httpInterceptorProviders` / `simpleInterceptorProviders` 最外层。`ProfilerInterceptor` 保留（仍只打控制台），但 URL 改用 `sanitizeUrl` 脱敏。
+- `PlatformErrorHandler`（Angular `ErrorHandler` 基类）：走 `ErrorNotifyService`；可覆盖 `report(payload)`（payload 含脱敏 `router.url`、最近请求）供后续上报。
+- `sanitizeUrl`：去掉查询串中 token / ticket / captcha / code / password / secret 的值。
+- i18n：新增 `ERROR.*` 20 个键（12 个语种）。
+
+### 修复
+
+- 去掉硬编码英文兜底：`AuthService` 的 `'Server error'`（两处）改走 i18n；表单选项服务（select / field）的 `'Error'` 改走 i18n。`AuthService` 登录失败兜底不再显示 Angular 的 `err.message`。
+
 ## 8.0.2
 
 ### 修复（dui#34，8.0.1 之后合入、此前未发版）
