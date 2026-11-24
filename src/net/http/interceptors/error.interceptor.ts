@@ -14,6 +14,7 @@ import {
 } from "@angular/common/http";
 import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
+import { TranslationService } from "@dotos1/dui/translator";
 import { ErrorNotifyService } from "../error/error-notify.service";
 import { parseHttpError, parseSuccessFalse } from "../error/parse-http-error";
 import { SKIP_GLOBAL_ERROR } from "../error/platform-error";
@@ -41,6 +42,21 @@ export interface ErrorInterceptorOptions {
  * @zh ErrorInterceptor 配置令牌。
  */
 export const ERROR_INTERCEPTOR_OPTIONS = new InjectionToken<ErrorInterceptorOptions>('ERROR_INTERCEPTOR_OPTIONS');
+
+/** 界面语言请求头 */
+export const LANG_HEADER = 'X-Dotos-Lang';
+
+/** 相对地址或同源才带语言头（跨域请求带自定义头会触发预检，且不该把界面语言发给第三方） */
+function isSameOriginUrl(url: string): boolean {
+  if (!/^(https?:)?\/\//i.test(url)) {
+    return true;
+  }
+  try {
+    return typeof location !== 'undefined' && new URL(url, location.href).origin === location.origin;
+  } catch {
+    return false;
+  }
+}
 
 /** 已提示过的错误对象（同一个错误经多层拦截器 / 重试只提示一次） */
 const handled = new WeakSet<object>();
@@ -78,6 +94,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     req: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
+    req = this.withLangHeader(req);
     // 历史约定：URL 含 timeout 的请求（轮询类）不重试也不提示
     if (req.url.indexOf('timeout') !== -1) {
       return next.handle(req);
@@ -117,6 +134,25 @@ export class ErrorInterceptor implements HttpInterceptor {
         return throwError(() => error);
       })
     );
+  }
+
+  /** 给发往后端（相对地址或同源）的请求加 `X-Dotos-Lang: <当前界面语言>`，后端据此渲染错误文案 */
+  private withLangHeader(req: HttpRequest<unknown>): HttpRequest<unknown> {
+    if (req.headers.has(LANG_HEADER) || !isSameOriginUrl(req.url)) {
+      return req;
+    }
+    const lang = this.currentLang();
+    return lang ? req.clone({ setHeaders: { [LANG_HEADER]: lang } }) : req;
+  }
+
+  private currentLang(): string | undefined {
+    try {
+      const ts = this.injector.get(TranslationService, null);
+      return ts?.translate?.currentLang || ts?.userLang || undefined;
+    } catch {
+      // 宿主没配翻译：不带该头，由后端按 Accept-Language / 默认语言
+      return undefined;
+    }
   }
 
   private get notify(): ErrorNotifyService {

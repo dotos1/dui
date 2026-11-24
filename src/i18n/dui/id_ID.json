@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "Salin nomor permintaan",
     "COPIED": "Tersalin",
     "REPORT": "Laporkan masalah",
-    "CLOSE": "Tutup"
+    "CLOSE": "Tutup",
+    "COPY": "Salin",
+    "NEXT_STEP": "Langkah berikutnya",
+    "SOLUTION_STEPS": "Langkah penyelesaian",
+    "FIELD_ISSUES": "Masalah pada kolom",
+    "FIELD": "Kolom",
+    "EXPECTED": "Diharapkan",
+    "ACTUAL": "Aktual",
+    "HOW_TO_FIX": "Cara memperbaiki",
+    "HELP_DOC": "Dokumentasi bantuan",
+    "OPENS_NEW_TAB": "(dibuka di tab baru)",
+    "MULTI_TITLE": "Terjadi {{count}} masalah",
+    "GENERIC_STEP_1": "Coba lagi nanti.",
+    "GENERIC_STEP_2": "Jika masih gagal, berikan ID permintaan di bawah ini kepada administrator.",
+    "GENERIC_STEP_3": "Administrator dapat melihat detailnya berdasarkan ID permintaan di Pusat Kesalahan."
   }
 }

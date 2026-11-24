@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "Copy request ID",
     "COPIED": "Copied",
     "REPORT": "Report problem",
-    "CLOSE": "Close"
+    "CLOSE": "Close",
+    "COPY": "Copy",
+    "NEXT_STEP": "Next step",
+    "SOLUTION_STEPS": "Steps to resolve",
+    "FIELD_ISSUES": "Field issues",
+    "FIELD": "Field",
+    "EXPECTED": "Expected",
+    "ACTUAL": "Actual",
+    "HOW_TO_FIX": "How to fix",
+    "HELP_DOC": "Help documentation",
+    "OPENS_NEW_TAB": "(opens in a new tab)",
+    "MULTI_TITLE": "{{count}} problems occurred",
+    "GENERIC_STEP_1": "Try again later.",
+    "GENERIC_STEP_2": "If it still fails, give the request ID below to the administrator.",
+    "GENERIC_STEP_3": "The administrator can look it up by request ID in the Error Center."
   }
 }

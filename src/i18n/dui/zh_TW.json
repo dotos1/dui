@@ -1082,6 +1082,20 @@
     "COPY_REQUEST_ID": "複製請求號",
     "COPIED": "已複製",
     "REPORT": "回報問題",
-    "CLOSE": "關閉"
+    "CLOSE": "關閉",
+    "COPY": "複製",
+    "NEXT_STEP": "下一步",
+    "SOLUTION_STEPS": "解決步驟",
+    "FIELD_ISSUES": "欄位問題",
+    "FIELD": "欄位",
+    "EXPECTED": "預期",
+    "ACTUAL": "實際",
+    "HOW_TO_FIX": "如何修正",
+    "HELP_DOC": "說明文件",
+    "OPENS_NEW_TAB": "（在新分頁開啟）",
+    "MULTI_TITLE": "出現 {{count}} 個問題",
+    "GENERIC_STEP_1": "請稍後再試一次。",
+    "GENERIC_STEP_2": "若仍然失敗，請將下方的請求編號提供給管理員。",
+    "GENERIC_STEP_3": "管理員可在「錯誤中心」依請求編號查看詳情。"
   }
 }
