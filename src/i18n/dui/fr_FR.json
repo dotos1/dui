@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "Vous devez sélectionner au moins un élément dans ce groupe",
     "RANGEFROM": "De",
     "RANGETO": "Terminer"
+  },
+  "ERROR": {
+    "TITLE": "Une erreur s'est produite",
+    "UNKNOWN": "L'opération a échoué. Veuillez réessayer plus tard.",
+    "NETWORK_OFFLINE": "Vous êtes hors ligne. Vérifiez votre connexion réseau et réessayez.",
+    "UNREACHABLE": "Impossible de joindre le serveur. Vérifiez le réseau ; contactez l'administrateur si le problème persiste.",
+    "TIMEOUT": "La requête a expiré. Veuillez réessayer plus tard.",
+    "BAD_REQUEST": "Les paramètres de la requête sont invalides. Vérifiez et réessayez.",
+    "CLIENT": "La requête n'a pas pu aboutir. Vérifiez et réessayez.",
+    "SESSION_EXPIRED": "Votre session a expiré. Veuillez vous reconnecter.",
+    "FORBIDDEN": "Accès refusé",
+    "NOT_FOUND": "Le contenu demandé n'existe pas.",
+    "CONFLICT": "Les données ont été modifiées ou sont en conflit. Actualisez et réessayez.",
+    "TOO_MANY": "Trop de requêtes. Veuillez réessayer plus tard.",
+    "SERVER": "Erreur interne du système. Réessayez plus tard ; contactez l'administrateur si le problème persiste.",
+    "SERVER_WITH_ID": "Erreur interne du système. Communiquez le numéro de requête {{requestId}} à l'administrateur.",
+    "CHUNK": "Échec du chargement des ressources de la page. Actualisez la page et réessayez.",
+    "REQUEST_ID": "Numéro de requête",
+    "COPY_REQUEST_ID": "Copier le numéro de requête",
+    "COPIED": "Copié",
+    "REPORT": "Signaler un problème",
+    "CLOSE": "Fermer"
   }
 }

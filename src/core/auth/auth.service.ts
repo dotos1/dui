@@ -4,7 +4,8 @@
  */
 
 import { LogoutResult } from './logout-result';
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
+import { TranslationService } from '@dotos1/dui/translator';
 import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable, ReplaySubject, Subject, throwError } from 'rxjs';
 import { ConfigService } from '@dotos1/dui/core/config';
@@ -265,7 +266,7 @@ export class AuthService {
           },
           error: (err: { error?; message? }) => {
             this.logout();
-            const msg = err?.error?.message || err?.message || 'Server error';
+            const msg = err?.error?.message || this.fallbackErrorText();
             this.onLogin.next({
               success: false,
               type: 'unauthorized',
@@ -543,6 +544,18 @@ export class AuthService {
     this.redirectUrl = url;
   }
 
+  private readonly translation = inject(TranslationService, { optional: true });
+
+  /**
+   * 兜底错误文案：走 i18n（ERROR.SERVER），翻译服务不可用或键缺失时用中文兜底；不再硬编码英文 'Server error'。
+   * 不引用 `@dotos1/dui/net`（net 依赖 core/auth，会形成入口点循环）。
+   * @zh 兜底错误文案（i18n）。
+   */
+  private fallbackErrorText(): string {
+    const text: string | undefined = this.translation?.instant('ERROR.SERVER');
+    return text && text !== 'ERROR.SERVER' ? text : '系统内部错误，请稍后重试；如持续出现请联系管理员';
+  }
+
   /**
    * Executes `handleError` to handle handle error.
    * @zh 执行 `handleError`，用于连接手柄错误。
@@ -551,7 +564,7 @@ export class AuthService {
    */
   handleError(error) {
     this.logService.error('Error when logging in', error);
-    return throwError(error || 'Server error');
+    return throwError((): unknown => error || this.fallbackErrorText());
   }
 
   /**
