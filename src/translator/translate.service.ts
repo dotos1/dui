@@ -741,9 +741,9 @@ export class TranslateService {
   }
 
   /*
-   * 下面这一组格式化/解析方法原先直接调 LEGACY 衍生的 `DateFormat` / `NumberFormat` /
+   * 下面这一组格式化/解析方法原先直接调旧版的 `DateFormat` / `NumberFormat` /
    * `DateParser` / `NumberParser`,并且把 `this.translations[currentLang]`
-   * 当 CLDR 数据传进去。那批文件已随 LEGACY 清场删除
+   * 当 CLDR 数据传进去。那批文件已随旧组件库清场删除
    * (见 duix 的 `lib/PEEL-CLEANUP-PLAN.md` §P5)。
    *
    * <p><b>传进去的"CLDR"其实一直不是 CLDR。</b>`translations[lang]` 是本项目的

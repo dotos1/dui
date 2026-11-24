@@ -121,8 +121,8 @@ export class TranslationService {
     this.translate.getTranslation(lang).subscribe(
       () => {
         /*
-         * 原来这里是 `L10n.load(res)` —— 把词典塞进 LEGACY 的静态本地化注册表,
-         * 供 LEGACY 组件读自己的内置文案。那批组件已随 LEGACY 清场删除,
+         * 原来这里是 `L10n.load(res)` —— 把词典塞进旧组件库的静态本地化注册表,
+         * 供旧组件读自己的内置文案。那批组件已随清场删除,
          * 注册表没有了读者(`L10n` 全库零外部引用),连同 `l10n.ts` 一起删。
          *
          * 订阅本身留着:它的另一个作用是**触发词典加载**,失败时走下面的

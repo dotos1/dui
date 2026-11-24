@@ -1,8 +1,7 @@
 /**
  * DOM 工具。
  *
- * <p>自研,替代 LEGACY 衍生的那份(264 行)。见 duix 的
- * `lib/PEEL-CLEANUP-PLAN.md` §P6。
+ * <p>自研实现。
  *
  * <p>只保留全仓库真正被 import 的七个:`createElement` / `addClass` /
  * `removeClass` / `closest` / `attributes` / `classList` / `setStyleAttribute`。

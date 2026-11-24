@@ -1,16 +1,15 @@
 /**
  * 组件基类。
  *
- * <p>自研,替代 LEGACY 衍生的 `Base`(254 行)。见 duix 的
- * `lib/PEEL-CLEANUP-PLAN.md` §P6。
+ * <p>自研实现。
  *
- * <p><b>剩下的只有事件总线。</b>旧 `Base` 有两套东西:
+ * <p><b>剩下的只有事件总线。</b>旧版 `Base` 有两套东西:
  *
  * <ul>
  *   <li><b>属性系统</b> —— `properties` / `changedProperties` / `oldProperties` /
  *       `bulkChanges` / `isProtectedOnChange` / `dataBind()` / `serverDataBind()` /
- *       `clearChanges()`,配合 `@Property` / `@NotifyChanges` 使用。
- *       <u>dui 的组件一个都没用过这套</u>(LEGACY 归零门扫过:`@Property` 在
+ *       `clearChanges()`,配合属性装饰器使用。
+ *       <u>dui 的组件一个都没用过这套</u>(`@Property` 在
  *       dui 里零命中),它一直是空转的。整块删除。</li>
  *   <li><b>事件总线</b> —— `on` / `off` / `trigger` / `addEventListener` /
  *       `removeEventListener`。这个是活的:`ComponentBase` 全靠它,
@@ -18,9 +17,9 @@
  * </ul>
  *
  * <p>还删掉了 `addInstance()` —— 它往宿主元素上刷 `e-lib` 与
- * `e-<模块名小写>` 两个类名(LEGACY 的 CSS 命名空间),并把实例挂到
- * `element.dui_instances` 上。两者全库零读取者(逐个 grep 过),
- * 随之 `getModuleName()` 也不再是抽象成员 —— 子类自己留着无妨。
+ * `e-<模块名小写>` 两个类名,并把实例挂到宿主元素的
+ * 一个实例字段上。两者全库零读取者(逐个 grep 过),
+ * 随之模块名方法也不再是抽象成员。
  *
  * <p><b>`trigger()` 永远返回 `undefined`</b>,见 `Observer.notify` 的说明。
  */
@@ -180,7 +179,7 @@ export class Base<ElementType extends HTMLElement> {
    *   if (isColEName.test(eventName)) { …调同名成员… }
    * </pre>
    *
-   * <p>那个正则是给 `columns[0].field` 这类<b>属性路径</b>准备的(LEGACY 的属性系统
+   * <p>那个正则是给 `columns[0].field` 这类<b>属性路径</b>准备的(旧属性系统
    * 遗留),而事件名里不可能出现 `]` —— 所以这个分支对任何一个真实事件名都是
    * <b>死代码</b>。自研版把守卫丢了、把死代码"恢复"成了活代码,后果是:
    *
