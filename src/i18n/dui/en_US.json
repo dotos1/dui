@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "You must select at least one item in this group",
     "RANGEFROM": "From",
     "RANGETO": "Terminate"
+  },
+  "ERROR": {
+    "TITLE": "Something went wrong",
+    "UNKNOWN": "The operation failed. Please try again later.",
+    "NETWORK_OFFLINE": "You are offline. Check your network connection and try again.",
+    "UNREACHABLE": "Cannot reach the server. Check your network; contact the administrator if this persists.",
+    "TIMEOUT": "The request timed out. Please try again later.",
+    "BAD_REQUEST": "The request parameters are invalid. Please check and try again.",
+    "CLIENT": "The request could not be completed. Please check and try again.",
+    "SESSION_EXPIRED": "Your session has expired. Please sign in again.",
+    "FORBIDDEN": "Access denied",
+    "NOT_FOUND": "The requested item does not exist.",
+    "CONFLICT": "The data was changed or conflicts with another change. Refresh and try again.",
+    "TOO_MANY": "Too many requests. Please try again later.",
+    "SERVER": "Internal system error. Please try again later; contact the administrator if this persists.",
+    "SERVER_WITH_ID": "Internal system error. Please give request ID {{requestId}} to the administrator.",
+    "CHUNK": "Failed to load page resources. Please refresh the page and try again.",
+    "REQUEST_ID": "Request ID",
+    "COPY_REQUEST_ID": "Copy request ID",
+    "COPIED": "Copied",
+    "REPORT": "Report problem",
+    "CLOSE": "Close"
   }
 }

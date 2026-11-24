@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "必須選擇一個項",
     "RANGEFROM": "起始",
     "RANGETO": "終止"
+  },
+  "ERROR": {
+    "TITLE": "發生錯誤",
+    "UNKNOWN": "操作失敗，請稍後重試",
+    "NETWORK_OFFLINE": "網路已中斷，請檢查網路連線後重試",
+    "UNREACHABLE": "無法連線到伺服器，請檢查網路；若持續發生請聯絡管理員",
+    "TIMEOUT": "請求逾時，請稍後重試",
+    "BAD_REQUEST": "請求參數有誤，請檢查後重試",
+    "CLIENT": "請求未能完成，請檢查後重試",
+    "SESSION_EXPIRED": "登入已過期，請重新登入",
+    "FORBIDDEN": "無權存取",
+    "NOT_FOUND": "請求的內容不存在",
+    "CONFLICT": "資料已被修改或存在衝突，請重新整理後重試",
+    "TOO_MANY": "操作過於頻繁，請稍後重試",
+    "SERVER": "系統內部錯誤，請稍後重試；若持續發生請聯絡管理員",
+    "SERVER_WITH_ID": "系統內部錯誤，請將請求號 {{requestId}} 提供給管理員",
+    "CHUNK": "頁面資源載入失敗，請重新整理頁面後重試",
+    "REQUEST_ID": "請求號",
+    "COPY_REQUEST_ID": "複製請求號",
+    "COPIED": "已複製",
+    "REPORT": "回報問題",
+    "CLOSE": "關閉"
   }
 }

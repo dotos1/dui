@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "Debe seleccionar al menos un elemento de este grupo",
     "RANGEFROM": "Desde",
     "RANGETO": "Terminar"
+  },
+  "ERROR": {
+    "TITLE": "Se produjo un error",
+    "UNKNOWN": "La operación falló. Inténtalo de nuevo más tarde.",
+    "NETWORK_OFFLINE": "Estás sin conexión. Revisa tu conexión de red e inténtalo de nuevo.",
+    "UNREACHABLE": "No se puede conectar con el servidor. Revisa la red; si persiste, contacta al administrador.",
+    "TIMEOUT": "La solicitud agotó el tiempo de espera. Inténtalo de nuevo más tarde.",
+    "BAD_REQUEST": "Los parámetros de la solicitud no son válidos. Revísalos e inténtalo de nuevo.",
+    "CLIENT": "No se pudo completar la solicitud. Revisa e inténtalo de nuevo.",
+    "SESSION_EXPIRED": "Tu sesión expiró. Inicia sesión de nuevo.",
+    "FORBIDDEN": "Acceso denegado",
+    "NOT_FOUND": "El contenido solicitado no existe.",
+    "CONFLICT": "Los datos cambiaron o hay un conflicto. Actualiza e inténtalo de nuevo.",
+    "TOO_MANY": "Demasiadas solicitudes. Inténtalo de nuevo más tarde.",
+    "SERVER": "Error interno del sistema. Inténtalo más tarde; si persiste, contacta al administrador.",
+    "SERVER_WITH_ID": "Error interno del sistema. Proporciona al administrador el número de solicitud {{requestId}}.",
+    "CHUNK": "No se pudieron cargar los recursos de la página. Actualiza la página e inténtalo de nuevo.",
+    "REQUEST_ID": "Número de solicitud",
+    "COPY_REQUEST_ID": "Copiar número de solicitud",
+    "COPIED": "Copiado",
+    "REPORT": "Informar un problema",
+    "CLOSE": "Cerrar"
   }
 }
