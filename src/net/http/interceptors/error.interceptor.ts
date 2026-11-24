@@ -29,8 +29,11 @@ export interface ErrorInterceptorOptions {
    * `ErrorNotifyService.sessionExpired()` 即可。若宿主没有刷新逻辑，设为 true。
    */
   notifyOn401?: boolean;
-  /** 2xx + success:false 是否全局提示，默认 true；页面自理的请求用 SKIP_GLOBAL_ERROR 豁免 */
-  notifySuccessFalse?: boolean;
+  /**
+   * 2xx + success:false 是否全局提示，默认 false（与改前行为一致：不弹）。
+   * 迁移顺序：宿主页面先加 SKIP_GLOBAL_ERROR 或清理自弹，再打开此开关，否则会双弹。
+   */
+  notifyOnSuccessFalse?: boolean;
 }
 
 /**
@@ -84,7 +87,7 @@ export class ErrorInterceptor implements HttpInterceptor {
     let retried = false;
     return next.handle(req).pipe(
       tap(event => {
-        if (!skip && event instanceof HttpResponse && this.options?.notifySuccessFalse !== false) {
+        if (!skip && event instanceof HttpResponse && this.options?.notifyOnSuccessFalse === true) {
           try {
             const failure = parseSuccessFalse(event.body, event.status, event.headers, { translate: this.notify.translate });
             if (failure) {
