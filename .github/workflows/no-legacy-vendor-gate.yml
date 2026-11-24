@@ -1,0 +1,34 @@
+# 旧商业组件库痕迹零容忍门：扫描所有被跟踪的文本文件，命中旧库指纹即红，没有基线、没有豁免。
+# 门程序随仓库保存在 tools/gates/no-legacy-vendor-gate.mjs；只读文件，不装依赖。
+name: no-legacy-vendor-gate
+
+on:
+  pull_request:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: no-legacy-vendor-gate-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  gate:
+    name: 旧组件库痕迹零容忍
+    runs-on: ${{ github.event.repository.private && fromJSON('["self-hosted","Linux","X64","dotos-apps"]') || 'ubuntu-latest' }}
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          clean: true
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+      - name: 门自测（区分力：命中样例必红、干净样例必绿）
+        run: node tools/gates/no-legacy-vendor-gate.mjs --selftest
+      - name: 门（本仓库）
+        run: node tools/gates/no-legacy-vendor-gate.mjs --root .

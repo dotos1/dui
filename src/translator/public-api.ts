@@ -6,10 +6,10 @@
 
 
 /*
- * 这个入口原先还导出一整套 EJ2 衍生的 intl 实现(`date-formatter` /
+ * 这个入口原先还导出一整套旧 intl 实现(`date-formatter` /
  * `date-parser` / `number-formatter` / `number-parser` / `parser-base` /
  * `intl-base` / `base` / `internationalization` / `l10n`,共 2,942 行)。
- * 全部随 EJ2 清场删除,换成 `./intl` 里约 250 行的原生 `Intl` 实现 ——
+ * 全部随旧组件库清场删除,换成 `./intl` 里约 250 行的原生 `Intl` 实现 ——
  * 见 duix 的 `lib/PEEL-CLEANUP-PLAN.md` §P5,对照门在 `tools/intl/gate.mjs`
  * (157 条逐字一致,1 条已知差异)。
  *

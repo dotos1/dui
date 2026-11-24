@@ -3,7 +3,7 @@
  *
  * <p>与 `tools/intl/probe.ts` 同一条路子:期望值由旧实现算出,不是我写的。
  * 重写的是 `util.ts` / `dom.ts` / `observer.ts` / `event-handler.ts` / `base.ts`
- * 这五个 EJ2 衍生文件,所以矩阵只覆盖它们的对外行为。
+ * 这五个旧文件,所以矩阵只覆盖它们的对外行为。
  * `object-utils.ts` 与 `duibase.ts` 是自研的,不动,也就不比。
  */
 import { getValue, setValue, extend, isNullOrUndefined, isUndefined, isObject, isBlankString, queryParams } from '../../src/base/util';
