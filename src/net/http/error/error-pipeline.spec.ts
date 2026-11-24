@@ -72,8 +72,15 @@ describe('ErrorInterceptor + ErrorNotifyService', () => {
     expect(toastr.calls[0]).not.toMatch(/Http failure|\/api\/a|zzz/);
   });
 
-  it('2xx + success:false：toast 一次，调用方仍收到成功响应', () => {
+  it('2xx + success:false：默认不弹（与改前一致）', () => {
     const { http, ctl, toastr } = setup();
+    http.post('/api/a', {}).subscribe();
+    ctl.expectOne('/api/a').flush({ success: false, message: '井号重复' });
+    expect(toastr.calls.length).toBe(0);
+  });
+
+  it('2xx + success:false：notifyOnSuccessFalse 开启后只弹一次，调用方仍收到响应', () => {
+    const { http, ctl, toastr } = setup({ notifyOnSuccessFalse: true });
     let got: unknown;
     http.post('/api/a', {}).subscribe(v => (got = v));
     ctl.expectOne('/api/a').flush({ success: false, message: '井号重复' });
@@ -96,8 +103,10 @@ describe('ErrorInterceptor + ErrorNotifyService', () => {
   });
 
   it('SKIP_GLOBAL_ERROR：页面自理，全局不弹（错误与 2xx+success:false 都豁免）', () => {
-    const { http, ctl, toastr, dialog } = setup();
+    let { http, ctl, toastr, dialog } = setup();
     const context = new HttpContext().set(SKIP_GLOBAL_ERROR, true);
+    TestBed.resetTestingModule();
+    ({ http, ctl, toastr, dialog } = setup({ notifyOnSuccessFalse: true }));
     http.post('/api/a', {}, { context }).subscribe({ error: () => undefined });
     ctl.expectOne('/api/a').flush(null, { status: 500, statusText: 'x' });
     http.post('/api/b', {}, { context }).subscribe();
