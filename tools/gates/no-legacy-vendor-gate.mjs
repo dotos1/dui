@@ -30,6 +30,7 @@ const PATTERNS = [
   j('Child', 'Property'),
   j('Notify', 'Property', 'Changes'),
   B + j('e-', 'de-'),
+  '\\b' + j('document', 'Helper') + '\\b', // 旧编辑器对象模型特征词
 ];
 const RE = new RegExp(PATTERNS.join('|'), 'i');
 
@@ -70,11 +71,14 @@ function selftest() {
   if (r.env || r.hits.length) { console.error('自测失败：干净样例不应命中'); return 3; }
   write('bad.ts', `// 旧实现来自 ${j('Sync', 'fusion')}\n`);
   write('bad2.ts', `const x = '${j('e', 'j', '2')}-grid';\n`);
+  write('bad3.ts', `x.${j('sf', 'dt')} = 1;\n`);
+  write('bad4.ts', `fetch('/api/${j('document', 'editor')}/open');\n`);
+  write('bad5.ts', `// 原实现遍历 ${j('document', 'Helper')}.bookmarks\n`);
   git('add', '.');
   r = scan(dir);
   fs.rmSync(dir, { recursive: true, force: true });
-  if (r.env || r.hits.length !== 2) { console.error('自测失败：命中样例应恰好命中 2 处'); return 3; }
-  console.log('自测通过：干净样例 0 命中，构造样例 2 命中');
+  if (r.env || r.hits.length !== 5) { console.error('自测失败：命中样例应恰好命中 5 处'); return 3; }
+  console.log('自测通过：干净样例 0 命中，构造样例 5 命中');
   return 0;
 }
 
