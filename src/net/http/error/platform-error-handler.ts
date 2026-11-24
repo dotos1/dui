@@ -44,7 +44,6 @@ export class PlatformErrorHandler implements ErrorHandler {
 
   handleError(error: unknown): void {
     const raw = unwrap(error);
-    // eslint-disable-next-line no-console
     console.error(raw);
     try {
       if (!(raw instanceof HttpErrorResponse)) {
@@ -54,7 +53,6 @@ export class PlatformErrorHandler implements ErrorHandler {
       this.report(this.buildPayload(raw));
     } catch (e) {
       // 错误处理自身出错时不能再抛，否则会递归
-      // eslint-disable-next-line no-console
       console.error('[PlatformErrorHandler] failed', e);
     }
   }
