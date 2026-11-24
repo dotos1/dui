@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "Sie müssen mindestens ein Element in dieser Gruppe auswählen",
     "RANGEFROM": "Von",
     "RANGETO": "Beenden"
+  },
+  "ERROR": {
+    "TITLE": "Es ist ein Fehler aufgetreten",
+    "UNKNOWN": "Der Vorgang ist fehlgeschlagen. Bitte versuchen Sie es später erneut.",
+    "NETWORK_OFFLINE": "Sie sind offline. Prüfen Sie die Netzwerkverbindung und versuchen Sie es erneut.",
+    "UNREACHABLE": "Der Server ist nicht erreichbar. Prüfen Sie das Netzwerk; wenden Sie sich bei anhaltendem Problem an den Administrator.",
+    "TIMEOUT": "Zeitüberschreitung bei der Anfrage. Bitte versuchen Sie es später erneut.",
+    "BAD_REQUEST": "Die Anfrageparameter sind ungültig. Bitte prüfen und erneut versuchen.",
+    "CLIENT": "Die Anfrage konnte nicht abgeschlossen werden. Bitte prüfen und erneut versuchen.",
+    "SESSION_EXPIRED": "Ihre Sitzung ist abgelaufen. Bitte melden Sie sich erneut an.",
+    "FORBIDDEN": "Zugriff verweigert",
+    "NOT_FOUND": "Der angeforderte Inhalt existiert nicht.",
+    "CONFLICT": "Die Daten wurden geändert oder stehen im Konflikt. Bitte aktualisieren und erneut versuchen.",
+    "TOO_MANY": "Zu viele Anfragen. Bitte versuchen Sie es später erneut.",
+    "SERVER": "Interner Systemfehler. Bitte später erneut versuchen; wenden Sie sich bei anhaltendem Problem an den Administrator.",
+    "SERVER_WITH_ID": "Interner Systemfehler. Bitte nennen Sie dem Administrator die Anfragenummer {{requestId}}.",
+    "CHUNK": "Seitenressourcen konnten nicht geladen werden. Bitte Seite aktualisieren und erneut versuchen.",
+    "REQUEST_ID": "Anfragenummer",
+    "COPY_REQUEST_ID": "Anfragenummer kopieren",
+    "COPIED": "Kopiert",
+    "REPORT": "Problem melden",
+    "CLOSE": "Schließen"
   }
 }

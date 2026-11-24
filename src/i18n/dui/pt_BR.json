@@ -1061,5 +1061,27 @@
     "LEASTSELECT": "Você deve selecionar pelo menos um item neste grupo",
     "RANGEFROM": "De",
     "RANGETO": "Encerrar"
+  },
+  "ERROR": {
+    "TITLE": "Ocorreu um erro",
+    "UNKNOWN": "A operação falhou. Tente novamente mais tarde.",
+    "NETWORK_OFFLINE": "Você está offline. Verifique a conexão de rede e tente novamente.",
+    "UNREACHABLE": "Não foi possível conectar ao servidor. Verifique a rede; se persistir, contate o administrador.",
+    "TIMEOUT": "A solicitação expirou. Tente novamente mais tarde.",
+    "BAD_REQUEST": "Os parâmetros da solicitação são inválidos. Verifique e tente novamente.",
+    "CLIENT": "Não foi possível concluir a solicitação. Verifique e tente novamente.",
+    "SESSION_EXPIRED": "Sua sessão expirou. Faça login novamente.",
+    "FORBIDDEN": "Acesso negado",
+    "NOT_FOUND": "O conteúdo solicitado não existe.",
+    "CONFLICT": "Os dados foram alterados ou há um conflito. Atualize e tente novamente.",
+    "TOO_MANY": "Muitas solicitações. Tente novamente mais tarde.",
+    "SERVER": "Erro interno do sistema. Tente novamente mais tarde; se persistir, contate o administrador.",
+    "SERVER_WITH_ID": "Erro interno do sistema. Informe ao administrador o número da solicitação {{requestId}}.",
+    "CHUNK": "Falha ao carregar os recursos da página. Atualize a página e tente novamente.",
+    "REQUEST_ID": "Número da solicitação",
+    "COPY_REQUEST_ID": "Copiar número da solicitação",
+    "COPIED": "Copiado",
+    "REPORT": "Relatar problema",
+    "CLOSE": "Fechar"
   }
 }

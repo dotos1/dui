@@ -6,6 +6,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from "rxjs";
+import { errorText } from '@dotos1/dui/net';
 import { Observable } from 'rxjs';
 
 /**
@@ -72,7 +73,7 @@ export class OptionsService {
             ops=val.result;
             this.optionsSubject.next({options: ops, params: params, error: null });
           }else{
-            this.optionsSubject.next({options: [], params: params, error: val ? val.message : 'Error'});
+            this.optionsSubject.next({options: [], params: params, error: (val && val.message) || errorText('ERROR.UNKNOWN')});
           }
         },
         error =>{
@@ -88,7 +89,7 @@ export class OptionsService {
              ops=val.result;
              this.optionsSubject.next({options: ops, params: params, error: null });
         }else{
-             this.optionsSubject.next({options: [], params: params, error: val ? val.message : 'Error'});
+             this.optionsSubject.next({options: [], params: params, error: (val && val.message) || errorText('ERROR.UNKNOWN')});
         };
       },
       error => {
