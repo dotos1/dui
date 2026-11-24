@@ -4,7 +4,7 @@
  */
 
 import { LogoutResult } from './logout-result';
-import { Injectable, inject } from '@angular/core';
+import { Injectable, Injector, inject } from '@angular/core';
 import { TranslationService } from '@dotos1/dui/translator';
 import { HttpClient,  HttpParams } from '@angular/common/http';
 import { Observable, ReplaySubject, Subject, throwError } from 'rxjs';
@@ -544,7 +544,12 @@ export class AuthService {
     this.redirectUrl = url;
   }
 
-  private readonly translation = inject(TranslationService, { optional: true });
+  /**
+   * 只在构造时取 `Injector`，翻译服务用到时再取：`TranslationService` 加载语言包走 `HttpClient`，
+   * 宿主的 HTTP 拦截器（如 NoAuthInterceptor）又直接注入 `AuthService`——构造时 inject 会形成
+   * `AuthService → TranslationService → HttpClient → 拦截器 → AuthService` 循环（NG0200，整页白屏，dui 8.0.4）。
+   */
+  private readonly injector = inject(Injector);
 
   /**
    * 兜底错误文案：走 i18n（ERROR.SERVER），翻译服务不可用或键缺失时用中文兜底；不再硬编码英文 'Server error'。
@@ -552,7 +557,12 @@ export class AuthService {
    * @zh 兜底错误文案（i18n）。
    */
   private fallbackErrorText(): string {
-    const text: string | undefined = this.translation?.instant('ERROR.SERVER');
+    let text: string | undefined;
+    try {
+      text = this.injector.get(TranslationService, null)?.instant('ERROR.SERVER');
+    } catch {
+      text = undefined; // 翻译服务不可用（未提供 / 构造失败）时用下面的中文兜底
+    }
     return text && text !== 'ERROR.SERVER' ? text : '系统内部错误，请稍后重试；如持续出现请联系管理员';
   }
 
