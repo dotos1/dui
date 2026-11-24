@@ -566,14 +566,11 @@ export class ComponentBase extends Base<HTMLElement> implements OnInit,DoCheck, 
   }
 
   /*
-   * 这里原来有 `getModuleName()` 与 `onPropertyChanged()` 两个方法。
-   * 它们是 LEGACY `Base` 的抽象成员,必须实现才能编译 —— 而<b>没有任何调用方</b>
+   * 这里原来有「取模块名」与 `onPropertyChanged()` 两个方法。
+   * 它们是旧版 `Base` 的抽象成员,必须实现才能编译 —— 而<b>没有任何调用方</b>
    * (逐个 grep 过:命中的全是各处的实现体,没有一处调用)。
    * `Base` 换成自研版后不再声明这两个抽象成员,实现体也就没有存在理由,
-   * 一并删除。见 duix 的 `lib/PEEL-CLEANUP-PLAN.md` §P6。
-   *
-   * 下游(idos、file-manager 等)还留着几个同名实现体 —— 它们现在是普通的
-   * 未调用方法,不影响编译,清理时机随各自仓库。
+   * 一并删除。
    */
   // private
   /**

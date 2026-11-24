@@ -189,7 +189,7 @@
             }
           ],
           "returnType": "void | object",
-          "description": "发事件。**只走总线**。\n\n<p><b>这里曾经还会调「同名的实例成员」</b> —— `trigger('change', e)` 时若\n`this.change` 是个函数就一并调用,注释写的理由是\"这条是旧行为,配置式组件\n靠它支持 `{ change: fn }` 这种写法\"。<u>那条注释是错的,旧实现从来没执行过\n这段。</u>旧代码是:\n\n<pre>\n  const isColEName = new RegExp(']');      // ← 注意匹配的是右方括号\n  …\n  if (isColEName.test(eventName)) { …调同名成员… }\n</pre>\n\n<p>那个正则是给 `columns[0].field` 这类<b>属性路径</b>准备的(LEGACY 的属性系统\n遗留),而事件名里不可能出现 `]` —— 所以这个分支对任何一个真实事件名都是\n<b>死代码</b>。自研版把守卫丢了、把死代码\"恢复\"成了活代码,后果是:\n\n<ol>\n  <li><b>无限递归。</b>下游把事件转发方法<u>按事件名命名</u>是常规写法,\n      比如 duix 的树表卡片有 50 个\n      `headerCellInfo(e) { this.trigger(\"headerCellInfo\", e); }` ——\n      `trigger` 调同名成员、同名成员再 `trigger`,一进去就\n      `Maximum call stack size exceeded`,整页白屏。实测能力页 card 一载入就炸。</li>\n  <li><b>回调跑两遍。</b>调用方自己也会派发同名成员(duix 平表卡片的\n      `fire()` 就是),于是 config 里写的 `actionBegin` 之类被调两次。\n      字典管理那份配置在 `actionBegin` 里 `this.max_index_id++`,跑两遍就跳号。</li>\n  <li><b>`ComponentBase` 自己也中招。</b>`ngOnDestroy()` 先\n      `trigger('onDestroy', this)` 再 `this.onDestroy()` —— 同名成员那条路\n      让 `onDestroy()` 执行了两次。</li>\n</ol>\n\n<p>所以整段删掉,回到旧实现的<u>实际</u>行为:只通知总线。`successHandler`\n不受影响 —— `Observer.notify()` 本来就负责调它(两条分支都调),\n旧实现在这里的那次调用属于\"名字里带 `]` 时多调一次\",不是常规路径。\n\n<p>需要\"配置里写个同名函数就当回调\"这种形状的,由调用方自己派发\n(duix 的 `fire()` 已经这么做了),不要放回总线里 —— 放回来就分不清\n\"转发方法\"和\"回调\",递归会再来一次。",
+          "description": "发事件。**只走总线**。\n\n<p><b>这里曾经还会调「同名的实例成员」</b> —— `trigger('change', e)` 时若\n`this.change` 是个函数就一并调用,注释写的理由是\"这条是旧行为,配置式组件\n靠它支持 `{ change: fn }` 这种写法\"。<u>那条注释是错的,旧实现从来没执行过\n这段。</u>旧代码是:\n\n<pre>\n  const isColEName = new RegExp(']');      // ← 注意匹配的是右方括号\n  …\n  if (isColEName.test(eventName)) { …调同名成员… }\n</pre>\n\n<p>那个正则是给 `columns[0].field` 这类<b>属性路径</b>准备的(旧属性系统\n遗留),而事件名里不可能出现 `]` —— 所以这个分支对任何一个真实事件名都是\n<b>死代码</b>。自研版把守卫丢了、把死代码\"恢复\"成了活代码,后果是:\n\n<ol>\n  <li><b>无限递归。</b>下游把事件转发方法<u>按事件名命名</u>是常规写法,\n      比如 duix 的树表卡片有 50 个\n      `headerCellInfo(e) { this.trigger(\"headerCellInfo\", e); }` ——\n      `trigger` 调同名成员、同名成员再 `trigger`,一进去就\n      `Maximum call stack size exceeded`,整页白屏。实测能力页 card 一载入就炸。</li>\n  <li><b>回调跑两遍。</b>调用方自己也会派发同名成员(duix 平表卡片的\n      `fire()` 就是),于是 config 里写的 `actionBegin` 之类被调两次。\n      字典管理那份配置在 `actionBegin` 里 `this.max_index_id++`,跑两遍就跳号。</li>\n  <li><b>`ComponentBase` 自己也中招。</b>`ngOnDestroy()` 先\n      `trigger('onDestroy', this)` 再 `this.onDestroy()` —— 同名成员那条路\n      让 `onDestroy()` 执行了两次。</li>\n</ol>\n\n<p>所以整段删掉,回到旧实现的<u>实际</u>行为:只通知总线。`successHandler`\n不受影响 —— `Observer.notify()` 本来就负责调它(两条分支都调),\n旧实现在这里的那次调用属于\"名字里带 `]` 时多调一次\",不是常规路径。\n\n<p>需要\"配置里写个同名函数就当回调\"这种形状的,由调用方自己派发\n(duix 的 `fire()` 已经这么做了),不要放回总线里 —— 放回来就分不清\n\"转发方法\"和\"回调\",递归会再来一次。",
           "descriptionZh": "发事件。**只走总线**。"
         },
         {
@@ -237,7 +237,7 @@
     {
       "name": "BoundOptions",
       "kind": "interface",
-      "summary": "极小事件总线。\n\n<p>自研,替代 LEGACY 衍生的那份(121 行)。见 duix 的\n`lib/PEEL-CLEANUP-PLAN.md` §P6。\n\n<p>三处按旧行为对齐、看着都像\"应该修一下\"但不能改的地方:\n\n<ol>\n  <li><b>同一个函数重复 `on` 只登记一次。</b>去重键是函数引用本身。</li>\n  <li><b>`notify` 一个没人登记的事件返回 `undefined`</b>,不抛也不返回空数组。</li>\n  <li><b>`destroy()` 之后再 `notify` 会抛。</b>旧实现把内部表置成\n      `undefined`,下一次 `notify` 在 `.slice()` 上炸。这不是好设计,\n      但改成静默忽略会把\"组件销毁后还有人发事件\"这个真实缺陷藏起来 ——\n      它现在是会响的。</li>\n</ol>\n\n<p>与旧实现<b>有意不同</b>的一处:`destroy()` 之后的 `on` / `off` 静默返回\n(b8c5e5c 复核)。旧实现在这里同样在 `hasOwnProperty` 上炸,但这两个调用\n多半来自拆卸顺序 —— 父组件先 destroy,子组件随后在自己的 ngOnDestroy 里\n`off` —— 炸出来的 TypeError 会打断后面的清理,而它并不指向真实缺陷。\n销毁后 `notify` 仍然会抛,见上面第 3 条。",
+      "summary": "极小事件总线。\n\n<p>自研实现。\n\n<p>三处按旧行为对齐、看着都像\"应该修一下\"但不能改的地方:\n\n<ol>\n  <li><b>同一个函数重复 `on` 只登记一次。</b>去重键是函数引用本身。</li>\n  <li><b>`notify` 一个没人登记的事件返回 `undefined`</b>,不抛也不返回空数组。</li>\n  <li><b>`destroy()` 之后再 `notify` 会抛。</b>旧实现把内部表置成\n      `undefined`,下一次 `notify` 在 `.slice()` 上炸。这不是好设计,\n      但改成静默忽略会把\"组件销毁后还有人发事件\"这个真实缺陷藏起来 ——\n      它现在是会响的。</li>\n</ol>\n\n<p>与旧实现<b>有意不同</b>的一处:`destroy()` 之后的 `on` / `off` 静默返回\n(b8c5e5c 复核)。旧实现在这里同样在 `hasOwnProperty` 上炸,但这两个调用\n多半来自拆卸顺序 —— 父组件先 destroy,子组件随后在自己的 ngOnDestroy 里\n`off` —— 炸出来的 TypeError 会打断后面的清理,而它并不指向真实缺陷。\n销毁后 `notify` 仍然会抛,见上面第 3 条。",
       "summaryZh": "极小事件总线。",
       "sourceFile": "src/base/observer.ts",
       "inputs": [],
@@ -1426,7 +1426,7 @@
     {
       "name": "isNullOrUndefined",
       "kind": "function",
-      "summary": "基础工具。\n\n<p>自研,替代 LEGACY 衍生的那份(409 行)。见 duix 的\n`lib/PEEL-CLEANUP-PLAN.md` §P6。\n\n<p><b>行为按旧实现的实测输出对齐,不按\"应该怎样\"写。</b>\n几个反直觉但必须保留的点都在各自函数的注释里,门在 `tools/base/gate.mjs`。",
+      "summary": "基础工具。\n\n<p>自研实现。\n\n<p><b>行为按旧实现的实测输出对齐,不按\"应该怎样\"写。</b>\n几个反直觉但必须保留的点都在各自函数的注释里,门在 `tools/base/gate.mjs`。",
       "summaryZh": "基础工具。",
       "sourceFile": "src/base/util.ts",
       "inputs": [],
@@ -1441,7 +1441,7 @@
             }
           ],
           "returnType": "boolean",
-          "description": "基础工具。\n\n<p>自研,替代 LEGACY 衍生的那份(409 行)。见 duix 的\n`lib/PEEL-CLEANUP-PLAN.md` §P6。\n\n<p><b>行为按旧实现的实测输出对齐,不按\"应该怎样\"写。</b>\n几个反直觉但必须保留的点都在各自函数的注释里,门在 `tools/base/gate.mjs`。",
+          "description": "基础工具。\n\n<p>自研实现。\n\n<p><b>行为按旧实现的实测输出对齐,不按\"应该怎样\"写。</b>\n几个反直觉但必须保留的点都在各自函数的注释里,门在 `tools/base/gate.mjs`。",
           "descriptionZh": "基础工具。"
         }
       ],
